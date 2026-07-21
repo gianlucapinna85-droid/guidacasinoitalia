@@ -88,13 +88,10 @@ export function Footer() {
           </p>
         </div>
 
+        <ComplianceBadges />
+
         <div className="mt-8 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
           <p>© {new Date().getFullYear()} GuidaCasinò.IT — Contenuto informativo. Solo per +18.</p>
-          <div className="flex items-center gap-3">
-            <span className="rounded border border-border px-2 py-1 font-mono text-[10px]">+18</span>
-            <span className="rounded border border-gold/40 bg-gold/10 px-2 py-1 font-mono text-[10px] text-gold">ADM</span>
-            <span className="rounded border border-border px-2 py-1 font-mono text-[10px]">RUA</span>
-          </div>
         </div>
       </div>
     </footer>
