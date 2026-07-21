@@ -79,8 +79,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "GuidaCasinò IT — Comparatore informativo casinò ADM" },
-      { name: "description", content: "Guida informativa e comparativa ai casinò online con concessione ADM in Italia. Solo per maggiorenni. Il gioco può causare dipendenza patologica." },
+      { title: "GuidaCasinò.IT — Comparatore informativo casinò ADM" },
+      { name: "description", content: "Guida imparziale ai casinò online con concessione ADM. Informazioni su RTP, metodi di pagamento e strumenti di gioco responsabile. Solo per +18." },
       { name: "author", content: "GuidaCasinò IT" },
       { name: "keywords", content: "casinò ADM, concessione ADM, gioco responsabile, comparatore casinò, RUA, autoesclusione, +18" },
       { name: "rating", content: "adult" },
@@ -90,6 +90,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "robots", content: "index, follow, max-image-preview:large" },
+      { property: "og:title", content: "GuidaCasinò.IT — Comparatore informativo casinò ADM" },
+      { name: "twitter:title", content: "GuidaCasinò.IT — Comparatore informativo casinò ADM" },
+      { property: "og:description", content: "Guida imparziale ai casinò online con concessione ADM. Informazioni su RTP, metodi di pagamento e strumenti di gioco responsabile. Solo per +18." },
+      { name: "twitter:description", content: "Guida imparziale ai casinò online con concessione ADM. Informazioni su RTP, metodi di pagamento e strumenti di gioco responsabile. Solo per +18." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/cf8e0514-8e16-4a73-b5c2-c762d8a04391" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/cf8e0514-8e16-4a73-b5c2-c762d8a04391" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

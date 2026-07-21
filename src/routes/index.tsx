@@ -29,11 +29,11 @@ export const Route = createFileRoute("/")({
       { title: "GuidaCasinò.IT — Comparatore informativo casinò ADM" },
       { name: "description", content: "Guida imparziale ai casinò online con concessione ADM. Informazioni su RTP, metodi di pagamento e strumenti di gioco responsabile. Solo per +18." },
       { property: "og:title", content: "GuidaCasinò.IT — Comparatore informativo casinò ADM" },
-      { property: "og:description", content: "Confronto informativo di operatori italiani autorizzati. Nessuna promozione: solo dati verificabili." },
+      { property: "og:description", content: "Guida imparziale ai casinò online con concessione ADM. Informazioni su RTP, metodi di pagamento e strumenti di gioco responsabile. Solo per +18." },
       { property: "og:url", content: "/" },
       { property: "og:type", content: "website" },
       { name: "twitter:title", content: "GuidaCasinò.IT — Comparatore informativo casinò ADM" },
-      { name: "twitter:description", content: "Confronto informativo di operatori italiani autorizzati." },
+      { name: "twitter:description", content: "Guida imparziale ai casinò online con concessione ADM. Informazioni su RTP, metodi di pagamento e strumenti di gioco responsabile. Solo per +18." },
     ],
     links: [{ rel: "canonical", href: "/" }],
     scripts: [
