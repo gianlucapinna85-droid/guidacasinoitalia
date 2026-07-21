@@ -58,6 +58,15 @@ export function Footer() {
               <li><Link to="/note-legali" className="hover:text-foreground">Note legali</Link></li>
               <li><Link to="/gioco-responsabile" className="hover:text-foreground">Gioco responsabile</Link></li>
               <li><Link to="/privacy" className="hover:text-foreground">Privacy & Cookie</Link></li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => window.dispatchEvent(new Event("gc:open-cookie-preferences"))}
+                  className="text-left hover:text-foreground"
+                >
+                  Gestisci cookie
+                </button>
+              </li>
             </ul>
           </div>
           <div>
