@@ -90,6 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "ga-site-verification", content: "W5juT-4MDC0f4vbw5hNDDIXY" },
       { property: "og:title", content: "GuidaCasinò.IT — Comparatore informativo casinò ADM" },
       { name: "twitter:title", content: "GuidaCasinò.IT — Comparatore informativo casinò ADM" },
       { property: "og:description", content: "Guida imparziale ai casinò online con concessione ADM. Informazioni su RTP, metodi di pagamento e strumenti di gioco responsabile. Solo per +18." },
