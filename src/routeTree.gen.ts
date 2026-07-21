@@ -9,8 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as NoteLegaliRouteImport } from './routes/note-legali'
+import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabile'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NoteLegaliRoute = NoteLegaliRouteImport.update({
+  id: '/note-legali',
+  path: '/note-legali',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GiocoResponsabileRoute = GiocoResponsabileRouteImport.update({
+  id: '/gioco-responsabile',
+  path: '/gioco-responsabile',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +43,83 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/gioco-responsabile': typeof GiocoResponsabileRoute
+  '/note-legali': typeof NoteLegaliRoute
+  '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/gioco-responsabile': typeof GiocoResponsabileRoute
+  '/note-legali': typeof NoteLegaliRoute
+  '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/gioco-responsabile': typeof GiocoResponsabileRoute
+  '/note-legali': typeof NoteLegaliRoute
+  '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/gioco-responsabile'
+    | '/note-legali'
+    | '/privacy'
+    | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/gioco-responsabile' | '/note-legali' | '/privacy' | '/sitemap.xml'
+  id:
+    | '__root__'
+    | '/'
+    | '/gioco-responsabile'
+    | '/note-legali'
+    | '/privacy'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GiocoResponsabileRoute: typeof GiocoResponsabileRoute
+  NoteLegaliRoute: typeof NoteLegaliRoute
+  PrivacyRoute: typeof PrivacyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/note-legali': {
+      id: '/note-legali'
+      path: '/note-legali'
+      fullPath: '/note-legali'
+      preLoaderRoute: typeof NoteLegaliRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gioco-responsabile': {
+      id: '/gioco-responsabile'
+      path: '/gioco-responsabile'
+      fullPath: '/gioco-responsabile'
+      preLoaderRoute: typeof GiocoResponsabileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,7 +132,21 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GiocoResponsabileRoute: GiocoResponsabileRoute,
+  NoteLegaliRoute: NoteLegaliRoute,
+  PrivacyRoute: PrivacyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
