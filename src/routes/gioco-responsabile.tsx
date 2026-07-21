@@ -10,8 +10,35 @@ export const Route = createFileRoute("/gioco-responsabile")({
       { property: "og:title", content: "Gioco responsabile — GuidaCasinò.IT" },
       { property: "og:description", content: "Numeri di aiuto, autoesclusione e strumenti di autolimitazione." },
       { property: "og:url", content: "/gioco-responsabile" },
+      { property: "og:type", content: "article" },
+      { name: "twitter:title", content: "Gioco responsabile — GuidaCasinò.IT" },
+      { name: "twitter:description", content: "Numeri di aiuto, autoesclusione RUA e strumenti di autolimitazione." },
     ],
     links: [{ rel: "canonical", href: "/gioco-responsabile" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+            { "@type": "ListItem", position: 2, name: "Gioco responsabile", item: "/gioco-responsabile" },
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "Gioco responsabile e risorse di supporto",
+          inLanguage: "it-IT",
+          about: "Disturbo da Gioco d'Azzardo (DGA)",
+          keywords: "gioco responsabile, DGA, RUA, autoesclusione, 800558822",
+        }),
+      },
+    ],
   }),
   component: Page,
 });

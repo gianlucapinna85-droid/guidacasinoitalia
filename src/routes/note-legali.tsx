@@ -9,8 +9,22 @@ export const Route = createFileRoute("/note-legali")({
       { property: "og:title", content: "Note legali — GuidaCasinò.IT" },
       { property: "og:description", content: "Disclaimer editoriale e riferimenti normativi." },
       { property: "og:url", content: "/note-legali" },
+      { name: "robots", content: "index, follow" },
     ],
     links: [{ rel: "canonical", href: "/note-legali" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+            { "@type": "ListItem", position: 2, name: "Note legali", item: "/note-legali" },
+          ],
+        }),
+      },
+    ],
   }),
   component: Page,
 });

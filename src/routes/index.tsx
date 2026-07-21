@@ -4,6 +4,25 @@ import heroBg from "@/assets/hero-bg.jpg";
 import { PageShell } from "@/components/site-layout";
 import { operators } from "@/lib/operators";
 
+const FAQS = [
+  {
+    q: "Cosa significa concessione ADM?",
+    a: "È l'autorizzazione rilasciata dall'Agenzia delle Dogane e dei Monopoli che consente a un operatore di offrire legalmente giochi con vincite in denaro in Italia. Solo gli operatori concessionari sono soggetti ai controlli tecnici e fiscali dello Stato italiano.",
+  },
+  {
+    q: "Questo sito offre servizi di gioco?",
+    a: "No. GuidaCasinò.IT è un portale esclusivamente informativo. Non gestisce piattaforme di gioco, non accetta scommesse e non promuove bonus o iniziative commerciali dei concessionari.",
+  },
+  {
+    q: "Perché non trovo codici promozionali o bonus?",
+    a: "Il D.L. 87/2018 (art. 9), noto come Decreto Dignità, vieta qualsiasi forma di pubblicità di giochi con vincite in denaro in Italia. Ci limitiamo pertanto a informazioni oggettive e verificabili.",
+  },
+  {
+    q: "Come posso autoescludermi dal gioco?",
+    a: "Tramite il Registro Unico degli Autoesclusi (RUA) gestito da ADM. La procedura è gratuita, immediata su tutti i concessionari e può essere temporanea o a tempo indeterminato.",
+  },
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -12,8 +31,40 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "GuidaCasinò.IT — Comparatore informativo casinò ADM" },
       { property: "og:description", content: "Confronto informativo di operatori italiani autorizzati. Nessuna promozione: solo dati verificabili." },
       { property: "og:url", content: "/" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:title", content: "GuidaCasinò.IT — Comparatore informativo casinò ADM" },
+      { name: "twitter:description", content: "Confronto informativo di operatori italiani autorizzati." },
     ],
     links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: FAQS.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Operatori con concessione ADM",
+          itemListOrder: "https://schema.org/ItemListOrderAscending",
+          numberOfItems: operators.length,
+          itemListElement: operators.map((op, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: op.name,
+          })),
+        }),
+      },
+    ],
   }),
   component: HomePage,
 });
@@ -289,30 +340,12 @@ function ResourceLink({ title, desc, href }: { title: string; desc: string; href
 }
 
 function FAQSection() {
-  const faqs = [
-    {
-      q: "Cosa significa concessione ADM?",
-      a: "È l'autorizzazione rilasciata dall'Agenzia delle Dogane e dei Monopoli che consente a un operatore di offrire legalmente giochi con vincite in denaro in Italia. Solo gli operatori concessionari sono soggetti ai controlli tecnici e fiscali dello Stato italiano.",
-    },
-    {
-      q: "Questo sito offre servizi di gioco?",
-      a: "No. GuidaCasinò.IT è un portale esclusivamente informativo. Non gestisce piattaforme di gioco, non accetta scommesse e non promuove bonus o iniziative commerciali dei concessionari.",
-    },
-    {
-      q: "Perché non trovo codici promozionali o bonus?",
-      a: "Il D.L. 87/2018 (art. 9), noto come Decreto Dignità, vieta qualsiasi forma di pubblicità di giochi con vincite in denaro in Italia. Ci limitiamo pertanto a informazioni oggettive e verificabili.",
-    },
-    {
-      q: "Come posso autoescludermi dal gioco?",
-      a: "Tramite il Registro Unico degli Autoesclusi (RUA) gestito da ADM. La procedura è gratuita, immediata su tutti i concessionari e può essere temporanea o a tempo indeterminato.",
-    },
-  ];
   return (
     <section id="faq" className="mx-auto max-w-3xl px-4 pb-24">
       <p className="text-xs uppercase tracking-widest text-gold">Domande frequenti</p>
       <h2 className="mt-2 font-serif text-3xl md:text-4xl">Chiarimenti</h2>
       <div className="mt-8 divide-y divide-border rounded-xl border border-border bg-card">
-        {faqs.map((f) => (
+        {FAQS.map((f) => (
           <details key={f.q} className="group p-6 [&_summary::-webkit-details-marker]:hidden">
             <summary className="flex cursor-pointer items-center justify-between gap-4 text-base font-medium">
               {f.q}
