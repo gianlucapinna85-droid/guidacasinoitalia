@@ -1,6 +1,95 @@
 import { Link } from "@tanstack/react-router";
 import { type ReactNode } from "react";
-import { ShieldCheck, AlertTriangle } from "lucide-react";
+import { ShieldCheck, AlertTriangle, Ban, LifeBuoy, Landmark } from "lucide-react";
+
+export function ComplianceBadges() {
+  const badges = [
+    {
+      icon: Landmark,
+      label: "ADM",
+      sub: "Agenzia Dogane e Monopoli",
+      note: "Concessionari verificati",
+      accent: "gold" as const,
+      href: "https://www.adm.gov.it",
+    },
+    {
+      icon: Ban,
+      label: "+18",
+      sub: "Vietato ai minori",
+      note: "Documento richiesto",
+      accent: "destructive" as const,
+    },
+    {
+      icon: ShieldCheck,
+      label: "RUA",
+      sub: "Registro Unico Autoesclusi",
+      note: "Autoesclusione gratuita",
+      accent: "gold" as const,
+      href: "https://www.adm.gov.it",
+    },
+    {
+      icon: LifeBuoy,
+      label: "800 558822",
+      sub: "Telefono Verde ISS",
+      note: "Anonimo e gratuito",
+      accent: "muted" as const,
+      href: "tel:800558822",
+    },
+  ];
+
+  return (
+    <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {badges.map((b) => {
+        const styles =
+          b.accent === "gold"
+            ? "border-gold/50 bg-gold/10"
+            : b.accent === "destructive"
+              ? "border-destructive/50 bg-destructive/10"
+              : "border-border bg-background";
+        const iconStyles =
+          b.accent === "gold"
+            ? "bg-gold/20 text-gold ring-gold/40"
+            : b.accent === "destructive"
+              ? "bg-destructive/20 text-destructive ring-destructive/40"
+              : "bg-muted text-foreground ring-border";
+        const labelStyles =
+          b.accent === "gold"
+            ? "text-gold"
+            : b.accent === "destructive"
+              ? "text-destructive"
+              : "text-foreground";
+        const Wrapper = b.href ? "a" : "div";
+        const wrapperProps = b.href
+          ? {
+              href: b.href,
+              target: b.href.startsWith("http") ? "_blank" : undefined,
+              rel: b.href.startsWith("http") ? "noopener noreferrer nofollow" : undefined,
+            }
+          : {};
+        return (
+          <Wrapper
+            key={b.label}
+            {...wrapperProps}
+            className={`flex items-center gap-4 rounded-xl border-2 p-4 transition-colors ${styles} ${b.href ? "hover:brightness-110" : ""}`}
+          >
+            <div className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-lg ring-2 ${iconStyles}`}>
+              <b.icon className="h-8 w-8" strokeWidth={2.2} />
+            </div>
+            <div className="min-w-0">
+              <p className={`font-serif text-2xl font-bold leading-none tracking-tight ${labelStyles}`}>
+                {b.label}
+              </p>
+              <p className="mt-1 text-[11px] font-semibold uppercase tracking-widest text-foreground/90">
+                {b.sub}
+              </p>
+              <p className="mt-0.5 text-xs text-muted-foreground">{b.note}</p>
+            </div>
+          </Wrapper>
+        );
+      })}
+    </div>
+  );
+}
 
 export function AgeBanner() {
   return (
