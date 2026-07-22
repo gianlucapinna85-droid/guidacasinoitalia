@@ -224,19 +224,29 @@ function OperatorsSection() {
             key={op.slug}
             className="grid gap-6 rounded-xl border border-border bg-card p-6 md:grid-cols-[auto_1fr_auto] md:items-center"
           >
-            <div className="flex items-center gap-4 md:w-56">
-              <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-lg border border-gold/30 bg-gold/10">
-                {op.logo ? (
+            <div className="flex items-center gap-4 md:w-64">
+              {op.logo ? (
+                <div className="flex h-20 w-36 items-center justify-center overflow-hidden rounded-lg border border-gold/30 bg-white p-2">
                   <img
                     src={op.logo}
                     alt={`Logo ${op.name}`}
-                    className="h-full w-full object-contain p-1"
+                    className="h-full w-full object-contain"
                     loading="lazy"
+                    decoding="async"
                   />
-                ) : (
+                </div>
+              ) : (
+                <div className="flex h-14 w-14 items-center justify-center rounded-lg border border-gold/30 bg-gold/10">
                   <span className="font-serif text-xl text-gold">{idx + 1}</span>
-                )}
+                </div>
+              )}
+              <div className="min-w-0">
+                <h3 className="font-serif text-lg">{op.name}</h3>
+                <p className="text-[11px] uppercase tracking-wider text-muted-foreground">
+                  {op.concessionN}
+                </p>
               </div>
+            </div>
               <div>
                 <h3 className="font-serif text-lg">{op.name}</h3>
                 <p className="text-[11px] uppercase tracking-wider text-muted-foreground">
