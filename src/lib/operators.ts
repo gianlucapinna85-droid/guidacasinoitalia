@@ -63,7 +63,13 @@ export const operators: Operator[] = [
       "Assistenza clienti in italiano 7/7",
     ],
     officialUrl: "https://www.gambling-affiliation.com/cpc/v=TsWva1YIp3UhwL9jgBymG724pB-oBUfAgKbFokBRsA8_GA7331V2&aff_var_1=",
+    noDepositBonus: {
+      amount: "€ 10",
+      description:
+        "Credito di gioco accreditato al completamento della registrazione e della verifica documentale, senza obbligo di deposito. Utilizzabile secondo i termini pubblicati dal concessionario.",
+    },
   },
+
   {
     slug: "operatore-beta",
     name: "Operatore Beta",
