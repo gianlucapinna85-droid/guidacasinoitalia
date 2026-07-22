@@ -16,6 +16,8 @@ export const operators: Operator[] = [
   {
     slug: "leovegas",
     name: "LeoVegas",
+        logo: "https://images.ctfassets.net/wz48df3r5109/67n04lO93q02y36S4s8QWq/791cd76d05f32b85e13d9646f9011de3/leovegas-logo.png",
+    
     concessionN: "ADM n. 15216",
     founded: 2012,
     rtpAverage: "96,3%",
