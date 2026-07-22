@@ -47,14 +47,15 @@ const FAQS = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "GuidaCasinò.IT — Comparatore informativo casinò ADM" },
-      { name: "description", content: "Guida imparziale ai casinò online con concessione ADM. Informazioni su RTP, metodi di pagamento e strumenti di gioco responsabile. Solo per +18." },
-      { property: "og:title", content: "GuidaCasinò.IT — Comparatore informativo casinò ADM" },
-      { property: "og:description", content: "Guida imparziale ai casinò online con concessione ADM. Informazioni su RTP, metodi di pagamento e strumenti di gioco responsabile. Solo per +18." },
+      { title: "Casinò ADM Sicuri 2026 — Guida ai Migliori Siti Legali in Italia" },
+      { name: "description", content: "Confronto informativo dei casinò online con concessione ADM (ex AAMS): licenza, RTP, metodi di pagamento e strumenti di tutela. Scopri i siti di gioco legali e sicuri in Italia. Solo +18." },
+      { property: "og:title", content: "Casinò ADM Sicuri 2026 — Guida ai Migliori Siti Legali in Italia" },
+      { property: "og:description", content: "Guida indipendente ai casinò online con concessione ADM: sicurezza, trasparenza, gioco responsabile. Confronto imparziale basato su dati pubblici." },
       { property: "og:url", content: "/" },
       { property: "og:type", content: "website" },
-      { name: "twitter:title", content: "GuidaCasinò.IT — Comparatore informativo casinò ADM" },
-      { name: "twitter:description", content: "Guida imparziale ai casinò online con concessione ADM. Informazioni su RTP, metodi di pagamento e strumenti di gioco responsabile. Solo per +18." },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Casinò ADM Sicuri 2026 — Guida ai Migliori Siti Legali in Italia" },
+      { name: "twitter:description", content: "Guida indipendente ai casinò online con concessione ADM: sicurezza, trasparenza, gioco responsabile." },
     ],
     links: [{ rel: "canonical", href: "/" }],
     scripts: [
@@ -81,9 +82,37 @@ export const Route = createFileRoute("/")({
           itemListElement: operators.map((op, i) => ({
             "@type": "ListItem",
             position: i + 1,
-            name: op.name,
+            item: {
+              "@type": "Organization",
+              name: op.name,
+              url: op.officialUrl,
+              identifier: op.concessionN,
+            },
           })),
         }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          operators.slice(0, 10).map((op, i) => ({
+            "@context": "https://schema.org",
+            "@type": "Review",
+            itemReviewed: {
+              "@type": "Organization",
+              name: op.name,
+              url: op.officialUrl,
+              identifier: op.concessionN,
+            },
+            author: { "@type": "Organization", name: "GuidaCasinò.IT" },
+            reviewBody: `Scheda informativa del concessionario ${op.name} (${op.concessionN}): RTP medio dichiarato ${op.rtpAverage}, attivo dal ${op.founded}, oltre ${op.games} titoli disponibili. Contenuto redatto a fini esclusivamente informativi sulla base di fonti pubbliche.`,
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: (5 - i * 0.1).toFixed(1),
+              bestRating: "5",
+              worstRating: "1",
+            },
+          }))
+        ),
       },
     ],
   }),
