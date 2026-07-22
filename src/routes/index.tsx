@@ -223,8 +223,13 @@ function OperatorsSection() {
         {operators.map((op, idx) => (
           <article
             key={op.slug}
-            className="grid gap-6 rounded-xl border border-border bg-card p-6 md:grid-cols-[auto_1fr_auto] md:items-center"
+            className="relative grid gap-6 rounded-xl border border-border bg-card p-6 md:grid-cols-[auto_1fr_auto] md:items-center"
           >
+            {idx < 3 && (
+              <span className="absolute -top-3 right-4 inline-flex items-center rounded-full bg-gold px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-lg shadow-gold/30 md:right-6">
+                Top
+              </span>
+            )}
             <div className="flex flex-col items-start gap-3 md:w-80 md:flex-row md:items-center">
               <OperatorLogo logo={op.logo} name={op.name} index={idx} officialUrl={op.officialUrl} />
               <div className="min-w-0">
@@ -251,12 +256,12 @@ function OperatorsSection() {
               </div>
             </div>
 
-            <div className="flex flex-col items-stretch gap-2 md:w-44">
+            <div className="flex flex-col items-stretch gap-3 md:w-52">
               <a
                 href={op.officialUrl}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="inline-flex items-center justify-center gap-1 rounded-md border border-gold/50 bg-gold/15 px-4 py-2 text-xs font-medium text-gold transition-colors hover:bg-gold/25"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-gold/30 transition-all hover:brightness-110 hover:shadow-xl hover:shadow-gold/40 active:scale-[0.98]"
               >
                 Visita il sito ufficiale
               </a>
