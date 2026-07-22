@@ -226,7 +226,7 @@ function OperatorsSection() {
             className="grid gap-6 rounded-xl border border-border bg-card p-6 md:grid-cols-[auto_1fr_auto] md:items-center"
           >
             <div className="flex flex-col items-start gap-3 md:w-80 md:flex-row md:items-center">
-              <OperatorLogo logo={op.logo} name={op.name} index={idx} />
+              <OperatorLogo logo={op.logo} name={op.name} index={idx} officialUrl={op.officialUrl} />
               <div className="min-w-0">
                 <h3 className="font-serif text-lg">{op.name}</h3>
                 <p className="text-[11px] uppercase tracking-wider text-muted-foreground">
@@ -292,7 +292,17 @@ function Stat({ label, value }: { label: string; value: string }) {
   );
 }
 
-function OperatorLogo({ logo, name, index }: { logo?: string; name: string; index: number }) {
+function OperatorLogo({
+  logo,
+  name,
+  index,
+  officialUrl,
+}: {
+  logo?: string;
+  name: string;
+  index: number;
+  officialUrl: string;
+}) {
   const [error, setError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -303,14 +313,15 @@ function OperatorLogo({ logo, name, index }: { logo?: string; name: string; inde
     }
   }, []);
 
-  if (!logo || error) {
-    return (
-      <div className="flex h-20 w-44 items-center justify-center rounded-xl border-2 border-gold/40 bg-gold/10 shadow-sm">
-        <span className="font-serif text-2xl text-gold">{index + 1}</span>
-      </div>
-    );
-  }
-  return (
+  const fallback = (
+    <div className="flex h-20 w-44 items-center justify-center rounded-xl border-2 border-gold/40 bg-gold/10 shadow-sm">
+      <span className="font-serif text-2xl text-gold">{index + 1}</span>
+    </div>
+  );
+
+  const logoBox = (!logo || error) ? (
+    fallback
+  ) : (
     <div className="flex h-20 w-44 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/40 bg-white p-3 shadow-sm md:h-24 md:w-56">
       <img
         ref={imgRef}
@@ -322,6 +333,18 @@ function OperatorLogo({ logo, name, index }: { logo?: string; name: string; inde
         onError={() => setError(true)}
       />
     </div>
+  );
+
+  return (
+    <a
+      href={officialUrl}
+      target="_blank"
+      rel="noopener noreferrer nofollow sponsored"
+      aria-label={`Visita il sito ufficiale di ${name}`}
+      className="inline-block transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:ring-offset-2 focus:ring-offset-background rounded-xl"
+    >
+      {logoBox}
+    </a>
   );
 }
 
