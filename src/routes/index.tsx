@@ -95,6 +95,7 @@ function HomePage() {
       <Hero />
       <TrustStrip />
       <OperatorsSection />
+      <EvaluationGuideSection />
       <CriteriaSection />
       <ResponsibleSection />
       <FAQSection />
