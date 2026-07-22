@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, ScrollText, Scale, Users, ArrowRight, CheckCircle2 } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
-import { PageShell } from "@/components/site-layout";
+import { PageShell, ComplianceBadges, OfficialLogosBanner } from "@/components/site-layout";
 import { operators } from "@/lib/operators";
 
 const FAQS = [
@@ -94,12 +94,39 @@ function HomePage() {
     <PageShell>
       <Hero />
       <TrustStrip />
+      <ComplianceBlock placement="top" />
       <OperatorsSection />
       <EvaluationGuideSection />
       <CriteriaSection />
       <ResponsibleSection />
       <FAQSection />
+      <ComplianceBlock placement="bottom" />
     </PageShell>
+  );
+}
+
+function ComplianceBlock({ placement }: { placement: "top" | "bottom" }) {
+  return (
+    <section className="border-y border-border bg-card/40">
+      <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
+        <p className="text-xs uppercase tracking-widest text-gold">
+          {placement === "top" ? "Conformità e tutela" : "Trasparenza editoriale"}
+        </p>
+        <h2 className="mt-2 max-w-2xl font-serif text-2xl md:text-3xl">
+          {placement === "top"
+            ? "Gioco legale, responsabile e vietato ai minori"
+            : "Nota di trasparenza editoriale"}
+        </h2>
+        <p className="mt-3 max-w-3xl text-sm text-muted-foreground">
+          {placement === "top"
+            ? "GuidaCasinò.IT elenca esclusivamente concessionari ADM (ex AAMS) e riporta i riferimenti ufficiali per la tutela del giocatore. L'accesso ai giochi con vincite in denaro è riservato ai maggiorenni."
+            : "Portale informativo indipendente. Non gestiamo piattaforme di gioco, non raccogliamo scommesse e non pubblichiamo bonus o incentivi commerciali ai sensi dell'art. 9 del D.L. 87/2018 (Decreto Dignità). I contenuti hanno finalità esclusivamente informative e sono redatti sulla base di fonti pubbliche verificabili (elenco ADM, siti ufficiali dei concessionari, normativa vigente). Non riceviamo compensi condizionati al comportamento di gioco degli utenti."}
+        </p>
+
+        <ComplianceBadges />
+        <OfficialLogosBanner />
+      </div>
+    </section>
   );
 }
 
