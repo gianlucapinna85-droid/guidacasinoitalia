@@ -1,10 +1,11 @@
 // Dati puramente illustrativi. Le concessioni ADM sono verificabili su adm.gov.it.
 // Sostituisci con dati verificati e link ai T&C ufficiali prima della pubblicazione.
+import leovegasLogo from "@/assets/logos/leovegas.png";
+
 export type Operator = {
   slug: string;
   name: string;
-    logo?: string;
-  
+  logo?: string;
   concessionN: string;
   founded: number;
   rtpAverage: string;
@@ -18,7 +19,8 @@ export const operators: Operator[] = [
   {
     slug: "leovegas",
     name: "LeoVegas",
-        logo: "https://images.ctfassets.net/wz48df3r5109/67n04lO93q02y36S4s8QWq/791cd76d05f32b85e13d9646f9011de3/leovegas-logo.png",
+    logo: leovegasLogo,
+
     
     concessionN: "ADM n. 15216",
     founded: 2012,
