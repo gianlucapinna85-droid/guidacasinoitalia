@@ -3,6 +3,11 @@
 import leovegasLogo from "@/assets/logos/leovegas.png";
 import netbetLogo from "@/assets/logos/netbet.png";
 
+export type NoDepositBonus = {
+  amount: string;
+  description: string;
+};
+
 export type Operator = {
   slug: string;
   name: string;
@@ -14,7 +19,9 @@ export type Operator = {
   games: number;
   highlights: string[];
   officialUrl: string;
+  noDepositBonus?: NoDepositBonus;
 };
+
 
 export const operators: Operator[] = [
   {
