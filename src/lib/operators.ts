@@ -27,7 +27,6 @@ export const operators: Operator[] = [
       "Assistenza clienti in lingua italiana",
     ],
     officialUrl: "https://www.gambling-affiliation.com/cpc/v=QptH-A-Hwrgg7IxQRUHjDMEsUhWBNBY9a9pszbS0XIA_GA7331V2",
-    ,
   },
   {
     slug: "operatore-alfa",
