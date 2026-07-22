@@ -292,7 +292,17 @@ function Stat({ label, value }: { label: string; value: string }) {
   );
 }
 
-function OperatorLogo({ logo, name, index }: { logo?: string; name: string; index: number }) {
+function OperatorLogo({
+  logo,
+  name,
+  index,
+  officialUrl,
+}: {
+  logo?: string;
+  name: string;
+  index: number;
+  officialUrl: string;
+}) {
   const [error, setError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -303,14 +313,15 @@ function OperatorLogo({ logo, name, index }: { logo?: string; name: string; inde
     }
   }, []);
 
-  if (!logo || error) {
-    return (
-      <div className="flex h-20 w-44 items-center justify-center rounded-xl border-2 border-gold/40 bg-gold/10 shadow-sm">
-        <span className="font-serif text-2xl text-gold">{index + 1}</span>
-      </div>
-    );
-  }
-  return (
+  const fallback = (
+    <div className="flex h-20 w-44 items-center justify-center rounded-xl border-2 border-gold/40 bg-gold/10 shadow-sm">
+      <span className="font-serif text-2xl text-gold">{index + 1}</span>
+    </div>
+  );
+
+  const logoBox = (!logo || error) ? (
+    fallback
+  ) : (
     <div className="flex h-20 w-44 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/40 bg-white p-3 shadow-sm md:h-24 md:w-56">
       <img
         ref={imgRef}
@@ -322,6 +333,18 @@ function OperatorLogo({ logo, name, index }: { logo?: string; name: string; inde
         onError={() => setError(true)}
       />
     </div>
+  );
+
+  return (
+    <a
+      href={officialUrl}
+      target="_blank"
+      rel="noopener noreferrer nofollow sponsored"
+      aria-label={`Visita il sito ufficiale di ${name}`}
+      className="inline-block transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:ring-offset-2 focus:ring-offset-background rounded-xl"
+    >
+      {logoBox}
+    </a>
   );
 }
 
