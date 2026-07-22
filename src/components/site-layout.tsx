@@ -3,6 +3,7 @@ import { type ReactNode } from "react";
 import { ShieldCheck, Ban, LifeBuoy, Landmark } from "lucide-react";
 import aamsLogo from "@/assets/aams-gioco-sicuro.jpg.asset.json";
 import vietato18 from "@/assets/vietato-18.png.asset.json";
+import admLogo from "@/assets/adm-logo.png.asset.json";
 
 export function OfficialLogosBanner() {
   return (
@@ -214,6 +215,29 @@ export function Footer() {
         <ComplianceBadges />
 
         <OfficialLogosBanner />
+
+        <div className="mt-8 flex flex-col items-center justify-center gap-3 rounded-xl border-2 border-gold/40 bg-white p-6 shadow-sm">
+          <p className="text-center text-[11px] font-semibold uppercase tracking-widest text-neutral-600">
+            Logo ufficiale — Agenzia delle Dogane e dei Monopoli
+          </p>
+          <a
+            href="https://www.adm.gov.it"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            aria-label="Sito ufficiale ADM — Agenzia delle Dogane e dei Monopoli"
+          >
+            <img
+              src={admLogo.url}
+              alt="Logo ufficiale ADM — Agenzia delle Dogane e dei Monopoli"
+              width={480}
+              height={157}
+              className="h-auto w-full max-w-md"
+              loading="lazy"
+            />
+          </a>
+        </div>
+
+
 
 
         <div className="mt-8 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
