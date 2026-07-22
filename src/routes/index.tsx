@@ -294,6 +294,15 @@ function Stat({ label, value }: { label: string; value: string }) {
 
 function OperatorLogo({ logo, name, index }: { logo?: string; name: string; index: number }) {
   const [error, setError] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const img = imgRef.current;
+    if (img && img.complete && img.naturalWidth === 0) {
+      setError(true);
+    }
+  }, []);
+
   if (!logo || error) {
     return (
       <div className="flex h-14 w-14 items-center justify-center rounded-lg border border-gold/30 bg-gold/10">
@@ -304,6 +313,7 @@ function OperatorLogo({ logo, name, index }: { logo?: string; name: string; inde
   return (
     <div className="flex h-20 w-36 items-center justify-center overflow-hidden rounded-lg border border-gold/30 bg-white p-2">
       <img
+        ref={imgRef}
         src={logo}
         alt={`Logo ${name}`}
         className="h-full w-full object-contain"
