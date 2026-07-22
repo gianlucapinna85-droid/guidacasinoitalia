@@ -247,13 +247,6 @@ function OperatorsSection() {
                 </p>
               </div>
             </div>
-              <div>
-                <h3 className="font-serif text-lg">{op.name}</h3>
-                <p className="text-[11px] uppercase tracking-wider text-muted-foreground">
-                  {op.concessionN}
-                </p>
-              </div>
-            </div>
 
             <div className="grid gap-4 md:grid-cols-3">
               <Stat label="Attivo dal" value={op.founded.toString()} />
