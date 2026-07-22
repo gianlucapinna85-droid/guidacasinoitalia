@@ -204,14 +204,21 @@ function OperatorsSection() {
               </div>
             </div>
 
-            <div className="flex flex-col items-stretch gap-2 md:w-40">
+            <div className="flex flex-col items-stretch gap-2 md:w-44">
+              <Link
+                to="/operatori/$slug"
+                params={{ slug: op.slug }}
+                className="inline-flex items-center justify-center gap-1 rounded-md border border-gold/50 bg-gold/15 px-4 py-2 text-xs font-medium text-gold transition-colors hover:bg-gold/25"
+              >
+                Leggi la scheda
+              </Link>
               <a
                 href={op.officialUrl}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="inline-flex items-center justify-center gap-1 rounded-md border border-gold/40 bg-gold/10 px-4 py-2 text-xs font-medium text-gold transition-colors hover:bg-gold/20"
+                className="inline-flex items-center justify-center gap-1 rounded-md border border-border px-4 py-2 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
-                Verifica concessione
+                Verifica ADM
               </a>
               <p className="text-center text-[10px] uppercase tracking-wider text-muted-foreground">
                 Solo +18 — Gioca responsabile
