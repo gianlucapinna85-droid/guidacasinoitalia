@@ -230,7 +230,7 @@ function OperatorsSection() {
                 params={{ slug: op.slug }}
                 className="inline-flex items-center justify-center gap-1 rounded-md border border-gold/50 bg-gold/15 px-4 py-2 text-xs font-medium text-gold transition-colors hover:bg-gold/25"
               >
-                Leggi la scheda
+                Leggi l'analisi completa
               </Link>
               <a
                 href={op.officialUrl}
@@ -238,7 +238,7 @@ function OperatorsSection() {
                 rel="noopener noreferrer nofollow"
                 className="inline-flex items-center justify-center gap-1 rounded-md border border-border px-4 py-2 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
-                Verifica ADM
+                Verifica i termini
               </a>
               <p className="text-center text-[10px] uppercase tracking-wider text-muted-foreground">
                 Solo +18 — Gioca responsabile
