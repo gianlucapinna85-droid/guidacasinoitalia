@@ -3,7 +3,8 @@
 export type Operator = {
   slug: string;
   name: string;
-  logo?: string;
+    logo?: string;
+  
   concessionN: string;
   founded: number;
   rtpAverage: string;
