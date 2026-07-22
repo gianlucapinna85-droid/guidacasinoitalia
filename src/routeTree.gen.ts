@@ -14,6 +14,7 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as NoteLegaliRouteImport } from './routes/note-legali'
 import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabile'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -40,6 +41,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OperatoriSlugRoute = OperatoriSlugRouteImport.update({
+  id: '/operatori/$slug',
+  path: '/operatori/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/operatori/$slug': typeof OperatoriSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/operatori/$slug': typeof OperatoriSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,6 +70,7 @@ export interface FileRoutesById {
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/operatori/$slug': typeof OperatoriSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -71,8 +80,15 @@ export interface FileRouteTypes {
     | '/note-legali'
     | '/privacy'
     | '/sitemap.xml'
+    | '/operatori/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/gioco-responsabile' | '/note-legali' | '/privacy' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/gioco-responsabile'
+    | '/note-legali'
+    | '/privacy'
+    | '/sitemap.xml'
+    | '/operatori/$slug'
   id:
     | '__root__'
     | '/'
@@ -80,6 +96,7 @@ export interface FileRouteTypes {
     | '/note-legali'
     | '/privacy'
     | '/sitemap.xml'
+    | '/operatori/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -88,6 +105,7 @@ export interface RootRouteChildren {
   NoteLegaliRoute: typeof NoteLegaliRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  OperatoriSlugRoute: typeof OperatoriSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -127,6 +145,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/operatori/$slug': {
+      id: '/operatori/$slug'
+      path: '/operatori/$slug'
+      fullPath: '/operatori/$slug'
+      preLoaderRoute: typeof OperatoriSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -136,6 +161,7 @@ const rootRouteChildren: RootRouteChildren = {
   NoteLegaliRoute: NoteLegaliRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  OperatoriSlugRoute: OperatoriSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

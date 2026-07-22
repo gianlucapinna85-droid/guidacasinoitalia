@@ -4,12 +4,14 @@ import { PageShell } from "@/components/site-layout";
 import { operators } from "@/lib/operators";
 import { buildReview } from "@/lib/operator-review";
 
+function loadOperator(slug: string) {
+  const op = operators.find((o) => o.slug === slug);
+  if (!op) throw notFound();
+  return { operator: op, review: buildReview(op) };
+}
+
 export const Route = createFileRoute("/operatori/$slug")({
-  loader: ({ params }) => {
-    const op = operators.find((o) => o.slug === params.slug);
-    if (!op) throw notFound();
-    return { operator: op, review: buildReview(op) };
-  },
+  loader: ({ params }) => loadOperator(params.slug),
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
@@ -61,7 +63,8 @@ function OperatorNotFound() {
 }
 
 function OperatorPage() {
-  const { operator: op, review } = Route.useLoaderData();
+  const data = Route.useLoaderData() as ReturnType<typeof loadOperator>;
+  const { operator: op, review } = data;
 
   return (
     <PageShell>
