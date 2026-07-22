@@ -14,6 +14,21 @@ export type Operator = {
 
 export const operators: Operator[] = [
   {
+    slug: "leovegas",
+    name: "LeoVegas",
+    concessionN: "ADM n. 15216",
+    founded: 2012,
+    rtpAverage: "96,3%",
+    paymentMethods: ["Carte", "PayPal", "Postepay", "Skrill", "Bonifico"],
+    games: 2000,
+    highlights: [
+      "Concessione ADM n. 15216 in corso di validità",
+      "Strumenti di autolimitazione e adesione al RUA",
+      "Assistenza clienti in lingua italiana",
+    ],
+    officialUrl: "https://www.leovegas.it",
+  },
+  {
     slug: "operatore-alfa",
     name: "Operatore Alfa",
     concessionN: "ADM n. 15XXX",
