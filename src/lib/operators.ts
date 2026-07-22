@@ -49,7 +49,8 @@ export const operators: Operator[] = [
       "Strumenti di autolimitazione integrati",
       "Assistenza clienti in italiano 7/7",
     ],
-    officialUrl: "https://www.netbet.it",
+    officialUrl: "https://www.gambling-affiliation.com/cpc/v=TsWva1YIp3UhwL9jgBymG724pB-oBUfAgKbFokBRsA8_GA7331V2...",
+    
   },
   {
     slug: "operatore-beta",
