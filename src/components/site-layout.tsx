@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { type ReactNode } from "react";
-import { ShieldCheck, AlertTriangle, Ban, LifeBuoy, Landmark } from "lucide-react";
+import { ShieldCheck, Ban, LifeBuoy, Landmark } from "lucide-react";
 import aamsLogo from "@/assets/aams-gioco-sicuro.jpg.asset.json";
+import vietato18 from "@/assets/vietato-18.png.asset.json";
 
 export function OfficialLogosBanner() {
   return (
@@ -9,12 +10,22 @@ export function OfficialLogosBanner() {
       <p className="mb-4 text-center text-[11px] font-semibold uppercase tracking-widest text-neutral-600">
         Loghi ufficiali — Amministrazione Autonoma dei Monopoli di Stato
       </p>
-      <img
-        src={aamsLogo.url}
-        alt="Loghi ufficiali AAMS — Amministrazione Autonoma dei Monopoli di Stato, gioco legale e responsabile, vietato ai minori di 18 anni"
-        className="mx-auto h-auto w-full max-w-2xl"
-        loading="lazy"
-      />
+      <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
+        <img
+          src={aamsLogo.url}
+          alt="Loghi ufficiali AAMS — Amministrazione Autonoma dei Monopoli di Stato, gioco legale e responsabile, vietato ai minori di 18 anni"
+          className="h-auto w-full max-w-md"
+          loading="lazy"
+        />
+        <img
+          src={vietato18.url}
+          alt="Vietato ai minori di 18 anni — simbolo di divieto rosso"
+          width={160}
+          height={160}
+          className="h-40 w-40 shrink-0"
+          loading="lazy"
+        />
+      </div>
     </div>
   );
 }
@@ -111,8 +122,14 @@ export function ComplianceBadges() {
 export function AgeBanner() {
   return (
     <div className="w-full border-b border-border bg-destructive/10 text-destructive-foreground">
-      <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-4 py-2 text-xs">
-        <AlertTriangle className="h-3.5 w-3.5 text-destructive" />
+      <div className="mx-auto flex max-w-6xl items-center justify-center gap-3 px-4 py-2 text-xs">
+        <img
+          src={vietato18.url}
+          alt="Vietato ai minori di 18 anni"
+          width={28}
+          height={28}
+          className="h-7 w-7 shrink-0"
+        />
         <span className="text-foreground/90">
           <strong className="font-semibold text-destructive">Vietato ai minori di 18 anni.</strong>{" "}
           Il gioco può causare dipendenza patologica. Probabilità di vincita consultabili su{" "}
