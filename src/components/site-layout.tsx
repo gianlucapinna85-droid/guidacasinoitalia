@@ -1,6 +1,23 @@
 import { Link } from "@tanstack/react-router";
 import { type ReactNode } from "react";
 import { ShieldCheck, AlertTriangle, Ban, LifeBuoy, Landmark } from "lucide-react";
+import aamsLogo from "@/assets/aams-gioco-sicuro.jpg.asset.json";
+
+export function OfficialLogosBanner() {
+  return (
+    <div className="mt-10 rounded-xl border-2 border-gold/40 bg-white p-6 shadow-sm">
+      <p className="mb-4 text-center text-[11px] font-semibold uppercase tracking-widest text-neutral-600">
+        Loghi ufficiali — Amministrazione Autonoma dei Monopoli di Stato
+      </p>
+      <img
+        src={aamsLogo.url}
+        alt="Loghi ufficiali AAMS — Amministrazione Autonoma dei Monopoli di Stato, gioco legale e responsabile, vietato ai minori di 18 anni"
+        className="mx-auto h-auto w-full max-w-2xl"
+        loading="lazy"
+      />
+    </div>
+  );
+}
 
 export function ComplianceBadges() {
   const badges = [
