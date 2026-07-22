@@ -160,7 +160,7 @@ function OperatorPage() {
             rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-2 rounded-md border border-gold/40 bg-gold/10 px-5 py-3 text-sm font-medium text-gold hover:bg-gold/20"
           >
-            Verifica concessione su ADM <ArrowRight className="h-4 w-4" />
+            Visita il sito ufficiale <ArrowRight className="h-4 w-4" />
           </a>
           <Link
             to="/gioco-responsabile"

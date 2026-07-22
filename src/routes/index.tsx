@@ -21,6 +21,26 @@ const FAQS = [
     q: "Come posso autoescludermi dal gioco?",
     a: "Tramite il Registro Unico degli Autoesclusi (RUA) gestito da ADM. La procedura è gratuita, immediata su tutti i concessionari e può essere temporanea o a tempo indeterminato.",
   },
+  {
+    q: "Quali sono i metodi di pagamento accettati dai concessionari ADM?",
+    a: "I concessionari ADM accettano tipicamente carte di credito e debito (Visa, Mastercard), bonifico bancario, PayPal, Postepay, Skrill, Neteller e Paysafecard. Ogni operatore pubblica l'elenco completo dei metodi supportati nella sezione informativa del proprio sito. I tempi di accredito e prelievo variano in base allo strumento scelto e sono soggetti alle verifiche antifrode e antiriciclaggio previste dalla normativa italiana.",
+  },
+  {
+    q: "Come funzionano i requisiti di puntata (wagering)?",
+    a: "I requisiti di puntata indicano quante volte un importo deve essere giocato prima di poter essere prelevato. Trattandosi di condizioni contrattuali legate a iniziative commerciali, in Italia non ne pubblichiamo i dettagli: la loro comunicazione al pubblico rientra tra le forme vietate dal Decreto Dignità. Le condizioni complete sono consultabili esclusivamente nella sezione termini e condizioni del concessionario, riservata agli utenti registrati.",
+  },
+  {
+    q: "I siti di comparazione informativa sono sicuri?",
+    a: "Un portale informativo è sicuro quando non raccoglie dati sensibili, non gestisce transazioni e si limita a riportare informazioni verificabili da fonti pubbliche (elenco ADM, siti ufficiali dei concessionari, normativa vigente). GuidaCasinò.IT non richiede registrazione, non tratta dati di gioco e utilizza cookie solo previo consenso esplicito ai sensi del GDPR.",
+  },
+  {
+    q: "Come verifico che un operatore abbia una concessione ADM valida?",
+    a: "L'Agenzia delle Dogane e dei Monopoli pubblica sul proprio sito (adm.gov.it) l'elenco ufficiale e aggiornato dei concessionari autorizzati, con il numero di concessione. È sempre consigliabile confrontare il numero indicato in fondo al sito dell'operatore con quello riportato nell'elenco pubblico ADM prima di qualsiasi interazione.",
+  },
+  {
+    q: "Cosa indica l'RTP (Return to Player)?",
+    a: "L'RTP è la percentuale teorica di reintegro al giocatore calcolata su un numero molto elevato di giocate. Un RTP del 96% significa che, statisticamente e nel lungo periodo, il gioco restituisce 96€ ogni 100€ puntati. Non è una garanzia di vincita sulla singola sessione: il risultato di ogni giocata è determinato da generatori di numeri casuali certificati.",
+  },
 ];
 
 export const Route = createFileRoute("/")({
@@ -75,6 +95,7 @@ function HomePage() {
       <Hero />
       <TrustStrip />
       <OperatorsSection />
+      <EvaluationGuideSection />
       <CriteriaSection />
       <ResponsibleSection />
       <FAQSection />
@@ -115,7 +136,7 @@ function Hero() {
               hash="operatori"
               className="inline-flex items-center gap-2 rounded-md border border-gold/40 bg-gold/10 px-5 py-3 text-sm font-medium text-gold transition-colors hover:bg-gold/20"
             >
-              Consulta il confronto <ArrowRight className="h-4 w-4" />
+              Esamina il confronto <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/gioco-responsabile"
@@ -210,7 +231,7 @@ function OperatorsSection() {
                 params={{ slug: op.slug }}
                 className="inline-flex items-center justify-center gap-1 rounded-md border border-gold/50 bg-gold/15 px-4 py-2 text-xs font-medium text-gold transition-colors hover:bg-gold/25"
               >
-                Leggi la scheda
+                Leggi l'analisi completa
               </Link>
               <a
                 href={op.officialUrl}
@@ -218,7 +239,7 @@ function OperatorsSection() {
                 rel="noopener noreferrer nofollow"
                 className="inline-flex items-center justify-center gap-1 rounded-md border border-border px-4 py-2 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
-                Verifica ADM
+                Verifica i termini
               </a>
               <p className="text-center text-[10px] uppercase tracking-wider text-muted-foreground">
                 Solo +18 — Gioca responsabile
@@ -284,6 +305,70 @@ function CriteriaSection() {
             </div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function EvaluationGuideSection() {
+  const criteria = [
+    {
+      title: "Concessione ADM verificabile",
+      body: "Il primo criterio oggettivo per valutare un operatore di gioco online in Italia è la presenza di una concessione dell'Agenzia delle Dogane e dei Monopoli in corso di validità. Il numero di concessione deve essere pubblicato in ogni pagina del sito e coincidere con quello riportato nell'elenco pubblico su adm.gov.it. Un operatore privo di concessione ADM non può operare legalmente sul territorio italiano, indipendentemente dalle licenze estere eventualmente possedute.",
+    },
+    {
+      title: "Velocità e trasparenza dei pagamenti",
+      body: "I concessionari ADM sono tenuti a pubblicare i tempi medi di elaborazione dei prelievi e i metodi di pagamento supportati. Un indicatore oggettivo di affidabilità operativa è la coerenza tra i tempi dichiarati e quelli effettivi, unita alla chiarezza sulle verifiche antiriciclaggio (KYC) richieste dalla normativa. La presenza di più strumenti — carte, bonifico, wallet elettronici — riduce il rischio di frizioni nelle operazioni di deposito e prelievo.",
+    },
+    {
+      title: "Qualità del supporto clienti in italiano",
+      body: "Un servizio clienti in lingua italiana, raggiungibile tramite più canali (email, telefono, chat) e con orari estesi, è un requisito minimo di trasparenza. La normativa italiana impone che tutte le comunicazioni contrattuali siano fornite in italiano; la reale disponibilità di operatori formati sulla normativa nazionale rappresenta un elemento discriminante rispetto a piattaforme che si limitano a traduzioni automatiche.",
+    },
+    {
+      title: "RTP dichiarato e certificazioni tecniche",
+      body: "L'RTP (Return to Player) medio dichiarato, unito alle certificazioni degli enti indipendenti sui generatori di numeri casuali, permette di valutare l'equità tecnica dei giochi offerti. I concessionari ADM sono soggetti a controlli periodici del sistema di gioco (SOGEI) e devono rendere disponibili le informazioni sulle probabilità di vincita nelle sezioni informative dei singoli titoli.",
+    },
+    {
+      title: "Strumenti di tutela del giocatore",
+      body: "La presenza attiva e ben segnalata di limiti di deposito auto-impostabili, timeout, autoesclusione temporanea e integrazione con il Registro Unico degli Autoesclusi (RUA) è un requisito di legge, ma la sua reale accessibilità dall'area utente è un criterio qualitativo. Un operatore serio rende questi strumenti visibili e configurabili in pochi passaggi, senza barriere operative.",
+    },
+    {
+      title: "Chiarezza dei termini contrattuali",
+      body: "I termini e condizioni devono essere consultabili integralmente, aggiornati con data di ultima revisione e redatti in linguaggio comprensibile. Clausole ambigue su chiusura account, verifica identità o gestione dei saldi rappresentano indicatori di attenzione. La normativa italiana tutela il consumatore imponendo trasparenza informativa su ogni aspetto del rapporto contrattuale.",
+    },
+  ];
+  return (
+    <section className="border-y border-border bg-background">
+      <div className="mx-auto max-w-4xl px-4 py-16 md:py-24">
+        <p className="text-xs uppercase tracking-widest text-gold">Guida alla valutazione</p>
+        <h2 className="mt-2 font-serif text-3xl md:text-4xl">
+          Come valutare oggettivamente un operatore di gioco online in Italia
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+          Scegliere un concessionario di gioco a distanza in Italia non è una questione di gusto
+          personale ma di verifica di requisiti oggettivi imposti dalla normativa e dai controlli
+          dell'Agenzia delle Dogane e dei Monopoli. Di seguito i sei criteri principali che un
+          utente maggiorenne dovrebbe considerare per un confronto informato tra i vari operatori
+          concessionari, prima di qualsiasi valutazione di natura personale o economica.
+        </p>
+
+        <div className="mt-10 space-y-8">
+          {criteria.map((c) => (
+            <div key={c.title}>
+              <h3 className="font-serif text-xl text-foreground">{c.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-10 text-sm leading-relaxed text-muted-foreground">
+          Nessuno di questi criteri, preso singolarmente, è sufficiente a stabilire una
+          preferenza: è la loro valutazione congiunta — insieme al rispetto delle norme sul
+          gioco responsabile e alla trasparenza delle informazioni pubblicate — che consente di
+          costruire un quadro informativo completo. GuidaCasinò.IT non esprime raccomandazioni
+          commerciali e invita ogni utente a consultare direttamente le fonti ufficiali ADM e i
+          siti dei concessionari prima di formare qualsiasi opinione personale.
+        </p>
       </div>
     </section>
   );
