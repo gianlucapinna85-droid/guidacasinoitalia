@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, ScrollText, Scale, Users, ArrowRight, CheckCircle2 } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
-import { PageShell } from "@/components/site-layout";
+import { PageShell, ComplianceBadges, OfficialLogosBanner } from "@/components/site-layout";
 import { operators } from "@/lib/operators";
 
 const FAQS = [
