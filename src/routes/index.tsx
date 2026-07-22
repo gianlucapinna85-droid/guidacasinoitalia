@@ -130,17 +130,12 @@ function HomePage() {
       <CriteriaSection />
       <ResponsibleSection />
       <FAQSection />
-      <ComplianceBlock placement="bottom" />
-    </PageShell>
-  );
-}
-
-      <FAQSection />
       <SeoGuideSection />
       <ComplianceBlock placement="bottom" />
     </PageShell>
   );
 }
+
 
 function SeoGuideSection() {
   return (
