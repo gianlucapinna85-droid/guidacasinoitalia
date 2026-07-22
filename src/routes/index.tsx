@@ -219,7 +219,9 @@ const SEO_GUIDE: { h3: string; body: string[] }[] = [
   },
 ];
 
+function ComplianceBlock({ placement }: { placement: "top" | "bottom" }) {
   return (
+
     <section className="border-y border-border bg-card/40">
       <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
         <p className="text-xs uppercase tracking-widest text-gold">
