@@ -1,6 +1,7 @@
 // Dati puramente illustrativi. Le concessioni ADM sono verificabili su adm.gov.it.
 // Sostituisci con dati verificati e link ai T&C ufficiali prima della pubblicazione.
 import leovegasLogo from "@/assets/logos/leovegas.png";
+import netbetLogo from "@/assets/logos/netbet.png";
 
 export type Operator = {
   slug: string;
@@ -35,19 +36,20 @@ export const operators: Operator[] = [
     officialUrl: "https://www.gambling-affiliation.com/cpc/v=QptH-A-Hwrgg7IxQRUHjDMEsUhWBNBY9a9pszbS0XIA_GA7331V2",
   },
   {
-    slug: "operatore-alfa",
-    name: "Operatore Alfa",
-    concessionN: "ADM n. 15XXX",
-    founded: 2011,
+    slug: "netbet",
+    name: "NetBet",
+    logo: netbetLogo,
+    concessionN: "ADM n. 15254",
+    founded: 2001,
     rtpAverage: "96,2%",
-    paymentMethods: ["Bonifico", "Carte", "PostePay", "PayPal"],
+    paymentMethods: ["Bonifico", "Carte", "PostePay", "PayPal", "Skrill"],
     games: 1800,
     highlights: [
-      "Concessione ADM in corso di validità",
+      "Concessione ADM n. 15254 in corso di validità",
       "Strumenti di autolimitazione integrati",
       "Assistenza clienti in italiano 7/7",
     ],
-    officialUrl: "https://www.adm.gov.it",
+    officialUrl: "https://www.netbet.it",
   },
   {
     slug: "operatore-beta",
