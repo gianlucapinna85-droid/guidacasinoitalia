@@ -245,6 +245,24 @@ function ComplianceBlock({ placement }: { placement: "top" | "bottom" }) {
   );
 }
 
+function CurrentMonthBadge() {
+  const date = new Date();
+  const monthYear = date.toLocaleDateString("it-IT", { month: "long", year: "numeric" });
+  const label = monthYear.charAt(0).toUpperCase() + monthYear.slice(1);
+
+  return (
+    <div className="mt-4 inline-flex flex-wrap items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-medium text-gold">
+      <Calendar className="h-3.5 w-3.5" />
+      <span>Lista verificata a {label}</span>
+      <span className="mx-1 hidden h-3 w-px bg-gold/30 sm:inline-block" />
+      <span className="hidden items-center gap-1 text-gold/80 sm:inline-flex">
+        <RefreshCw className="h-3 w-3" />
+        Offerte controllate ogni mese
+      </span>
+    </div>
+  );
+}
+
 function Hero() {
   return (
     <section
@@ -265,6 +283,7 @@ function Hero() {
             Informazione trasparente sui{" "}
             <span className="text-gold">casinò con concessione ADM</span>
           </h1>
+          <CurrentMonthBadge />
           <p className="mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
             GuidaCasinò.IT è un portale informativo che raccoglie e confronta dati sugli operatori
             titolari di concessione dell'Agenzia delle Dogane e dei Monopoli. Non offriamo servizi
