@@ -41,6 +41,12 @@ export const operators: Operator[] = [
       "Assistenza clienti in lingua italiana",
     ],
     officialUrl: "https://www.gambling-affiliation.com/cpc/v=QptH-A-Hwrgg7IxQRUHjDMEsUhWBNBY9a9pszbS0XIA_GA7331V2",
+    noDepositBonus: {
+      amount: "€ 25",
+      description:
+        "Importo di gioco riconosciuto dopo la verifica dell'identità, senza necessità di effettuare alcun deposito. Soggetto ai requisiti di puntata e alle condizioni pubblicate dal concessionario.",
+    },
+
   },
   {
     slug: "netbet",
