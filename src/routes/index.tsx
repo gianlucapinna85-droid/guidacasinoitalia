@@ -225,8 +225,17 @@ function OperatorsSection() {
             className="grid gap-6 rounded-xl border border-border bg-card p-6 md:grid-cols-[auto_1fr_auto] md:items-center"
           >
             <div className="flex items-center gap-4 md:w-56">
-              <div className="flex h-14 w-14 items-center justify-center rounded-lg border border-gold/30 bg-gold/10 font-serif text-xl text-gold">
-                {idx + 1}
+              <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-lg border border-gold/30 bg-gold/10">
+                {op.logo ? (
+                  <img
+                    src={op.logo}
+                    alt={`Logo ${op.name}`}
+                    className="h-full w-full object-contain p-1"
+                    loading="lazy"
+                  />
+                ) : (
+                  <span className="font-serif text-xl text-gold">{idx + 1}</span>
+                )}
               </div>
               <div>
                 <h3 className="font-serif text-lg">{op.name}</h3>
