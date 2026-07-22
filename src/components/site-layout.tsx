@@ -10,12 +10,22 @@ export function OfficialLogosBanner() {
       <p className="mb-4 text-center text-[11px] font-semibold uppercase tracking-widest text-neutral-600">
         Loghi ufficiali — Amministrazione Autonoma dei Monopoli di Stato
       </p>
-      <img
-        src={aamsLogo.url}
-        alt="Loghi ufficiali AAMS — Amministrazione Autonoma dei Monopoli di Stato, gioco legale e responsabile, vietato ai minori di 18 anni"
-        className="mx-auto h-auto w-full max-w-2xl"
-        loading="lazy"
-      />
+      <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
+        <img
+          src={aamsLogo.url}
+          alt="Loghi ufficiali AAMS — Amministrazione Autonoma dei Monopoli di Stato, gioco legale e responsabile, vietato ai minori di 18 anni"
+          className="h-auto w-full max-w-md"
+          loading="lazy"
+        />
+        <img
+          src={vietato18.url}
+          alt="Vietato ai minori di 18 anni — simbolo di divieto rosso"
+          width={160}
+          height={160}
+          className="h-40 w-40 shrink-0"
+          loading="lazy"
+        />
+      </div>
     </div>
   );
 }
