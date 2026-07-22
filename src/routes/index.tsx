@@ -291,6 +291,29 @@ function Stat({ label, value }: { label: string; value: string }) {
   );
 }
 
+function OperatorLogo({ logo, name, index }: { logo?: string; name: string; index: number }) {
+  const [error, setError] = useState(false);
+  if (!logo || error) {
+    return (
+      <div className="flex h-14 w-14 items-center justify-center rounded-lg border border-gold/30 bg-gold/10">
+        <span className="font-serif text-xl text-gold">{index + 1}</span>
+      </div>
+    );
+  }
+  return (
+    <div className="flex h-20 w-36 items-center justify-center overflow-hidden rounded-lg border border-gold/30 bg-white p-2">
+      <img
+        src={logo}
+        alt={`Logo ${name}`}
+        className="h-full w-full object-contain"
+        loading="lazy"
+        decoding="async"
+        onError={() => setError(true)}
+      />
+    </div>
+  );
+}
+
 function CriteriaSection() {
   const criteria = [
     {
