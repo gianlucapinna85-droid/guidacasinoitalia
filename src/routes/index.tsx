@@ -226,7 +226,7 @@ function OperatorsSection() {
             className="grid gap-6 rounded-xl border border-border bg-card p-6 md:grid-cols-[auto_1fr_auto] md:items-center"
           >
             <div className="flex flex-col items-start gap-3 md:w-80 md:flex-row md:items-center">
-              <OperatorLogo logo={op.logo} name={op.name} index={idx} />
+              <OperatorLogo logo={op.logo} name={op.name} index={idx} officialUrl={op.officialUrl} />
               <div className="min-w-0">
                 <h3 className="font-serif text-lg">{op.name}</h3>
                 <p className="text-[11px] uppercase tracking-wider text-muted-foreground">
