@@ -26,7 +26,8 @@ export const operators: Operator[] = [
       "Strumenti di autolimitazione e adesione al RUA",
       "Assistenza clienti in lingua italiana",
     ],
-    officialUrl: "https://www.leovegas.it",
+    officialUrl: "https://www.gambling-affiliation.com/cpc/v+QptH-AHwrrg7lxQRUHJMEsUhWBNBY9a9pszs0XlA_GA7",
+    ,
   },
   {
     slug: "operatore-alfa",
