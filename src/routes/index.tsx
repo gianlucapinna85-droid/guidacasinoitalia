@@ -225,7 +225,7 @@ function OperatorsSection() {
             key={op.slug}
             className="grid gap-6 rounded-xl border border-border bg-card p-6 md:grid-cols-[auto_1fr_auto] md:items-center"
           >
-            <div className="flex items-center gap-4 md:w-64">
+            <div className="flex flex-col items-start gap-3 md:w-80 md:flex-row md:items-center">
               <OperatorLogo logo={op.logo} name={op.name} index={idx} />
               <div className="min-w-0">
                 <h3 className="font-serif text-lg">{op.name}</h3>
@@ -305,13 +305,13 @@ function OperatorLogo({ logo, name, index }: { logo?: string; name: string; inde
 
   if (!logo || error) {
     return (
-      <div className="flex h-14 w-14 items-center justify-center rounded-lg border border-gold/30 bg-gold/10">
-        <span className="font-serif text-xl text-gold">{index + 1}</span>
+      <div className="flex h-20 w-44 items-center justify-center rounded-xl border-2 border-gold/40 bg-gold/10 shadow-sm">
+        <span className="font-serif text-2xl text-gold">{index + 1}</span>
       </div>
     );
   }
   return (
-    <div className="flex h-20 w-36 items-center justify-center overflow-hidden rounded-lg border border-gold/30 bg-white p-2">
+    <div className="flex h-20 w-44 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/40 bg-white p-3 shadow-sm md:h-24 md:w-56">
       <img
         ref={imgRef}
         src={logo}
