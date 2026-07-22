@@ -310,6 +310,70 @@ function CriteriaSection() {
   );
 }
 
+function EvaluationGuideSection() {
+  const criteria = [
+    {
+      title: "Concessione ADM verificabile",
+      body: "Il primo criterio oggettivo per valutare un operatore di gioco online in Italia è la presenza di una concessione dell'Agenzia delle Dogane e dei Monopoli in corso di validità. Il numero di concessione deve essere pubblicato in ogni pagina del sito e coincidere con quello riportato nell'elenco pubblico su adm.gov.it. Un operatore privo di concessione ADM non può operare legalmente sul territorio italiano, indipendentemente dalle licenze estere eventualmente possedute.",
+    },
+    {
+      title: "Velocità e trasparenza dei pagamenti",
+      body: "I concessionari ADM sono tenuti a pubblicare i tempi medi di elaborazione dei prelievi e i metodi di pagamento supportati. Un indicatore oggettivo di affidabilità operativa è la coerenza tra i tempi dichiarati e quelli effettivi, unita alla chiarezza sulle verifiche antiriciclaggio (KYC) richieste dalla normativa. La presenza di più strumenti — carte, bonifico, wallet elettronici — riduce il rischio di frizioni nelle operazioni di deposito e prelievo.",
+    },
+    {
+      title: "Qualità del supporto clienti in italiano",
+      body: "Un servizio clienti in lingua italiana, raggiungibile tramite più canali (email, telefono, chat) e con orari estesi, è un requisito minimo di trasparenza. La normativa italiana impone che tutte le comunicazioni contrattuali siano fornite in italiano; la reale disponibilità di operatori formati sulla normativa nazionale rappresenta un elemento discriminante rispetto a piattaforme che si limitano a traduzioni automatiche.",
+    },
+    {
+      title: "RTP dichiarato e certificazioni tecniche",
+      body: "L'RTP (Return to Player) medio dichiarato, unito alle certificazioni degli enti indipendenti sui generatori di numeri casuali, permette di valutare l'equità tecnica dei giochi offerti. I concessionari ADM sono soggetti a controlli periodici del sistema di gioco (SOGEI) e devono rendere disponibili le informazioni sulle probabilità di vincita nelle sezioni informative dei singoli titoli.",
+    },
+    {
+      title: "Strumenti di tutela del giocatore",
+      body: "La presenza attiva e ben segnalata di limiti di deposito auto-impostabili, timeout, autoesclusione temporanea e integrazione con il Registro Unico degli Autoesclusi (RUA) è un requisito di legge, ma la sua reale accessibilità dall'area utente è un criterio qualitativo. Un operatore serio rende questi strumenti visibili e configurabili in pochi passaggi, senza barriere operative.",
+    },
+    {
+      title: "Chiarezza dei termini contrattuali",
+      body: "I termini e condizioni devono essere consultabili integralmente, aggiornati con data di ultima revisione e redatti in linguaggio comprensibile. Clausole ambigue su chiusura account, verifica identità o gestione dei saldi rappresentano indicatori di attenzione. La normativa italiana tutela il consumatore imponendo trasparenza informativa su ogni aspetto del rapporto contrattuale.",
+    },
+  ];
+  return (
+    <section className="border-y border-border bg-background">
+      <div className="mx-auto max-w-4xl px-4 py-16 md:py-24">
+        <p className="text-xs uppercase tracking-widest text-gold">Guida alla valutazione</p>
+        <h2 className="mt-2 font-serif text-3xl md:text-4xl">
+          Come valutare oggettivamente un operatore di gioco online in Italia
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+          Scegliere un concessionario di gioco a distanza in Italia non è una questione di gusto
+          personale ma di verifica di requisiti oggettivi imposti dalla normativa e dai controlli
+          dell'Agenzia delle Dogane e dei Monopoli. Di seguito i sei criteri principali che un
+          utente maggiorenne dovrebbe considerare per un confronto informato tra i vari operatori
+          concessionari, prima di qualsiasi valutazione di natura personale o economica.
+        </p>
+
+        <div className="mt-10 space-y-8">
+          {criteria.map((c) => (
+            <div key={c.title}>
+              <h3 className="font-serif text-xl text-foreground">{c.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-10 text-sm leading-relaxed text-muted-foreground">
+          Nessuno di questi criteri, preso singolarmente, è sufficiente a stabilire una
+          preferenza: è la loro valutazione congiunta — insieme al rispetto delle norme sul
+          gioco responsabile e alla trasparenza delle informazioni pubblicate — che consente di
+          costruire un quadro informativo completo. GuidaCasinò.IT non esprime raccomandazioni
+          commerciali e invita ogni utente a consultare direttamente le fonti ufficiali ADM e i
+          siti dei concessionari prima di formare qualsiasi opinione personale.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function ResponsibleSection() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 md:py-24">
