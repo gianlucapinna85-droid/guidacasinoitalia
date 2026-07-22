@@ -245,6 +245,27 @@ function OperatorsSection() {
               <Stat label="RTP medio dichiarato" value={op.rtpAverage} />
               <Stat label="Titoli disponibili" value={`${op.games}+`} />
               <div className="md:col-span-3">
+                {op.noDepositBonus ? (
+                  <div className="mb-3 rounded-lg border border-gold/40 bg-gold/10 p-4">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
+                        Senza deposito
+                      </span>
+                      <span className="font-serif text-xl text-gold">
+                        {op.noDepositBonus.amount}
+                      </span>
+                    </div>
+                    <p className="mt-2 text-xs leading-relaxed text-foreground/85">
+                      <strong className="text-foreground">Cos'è:</strong> importo di gioco
+                      riconosciuto dall'operatore senza richiedere alcun versamento iniziale.{" "}
+                      <strong className="text-foreground">Come funziona:</strong>{" "}
+                      {op.noDepositBonus.description}
+                    </p>
+                    <p className="mt-2 text-[10px] uppercase tracking-wider text-muted-foreground">
+                      Condizioni complete su sito ufficiale — Solo +18
+                    </p>
+                  </div>
+                ) : null}
                 <ul className="mt-1 space-y-1.5">
                   {op.highlights.map((h) => (
                     <li key={h} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -254,6 +275,7 @@ function OperatorsSection() {
                   ))}
                 </ul>
               </div>
+
             </div>
 
             <div className="flex flex-col items-stretch gap-3 md:w-52">
