@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { type ReactNode } from "react";
 import { ShieldCheck, AlertTriangle, Ban, LifeBuoy, Landmark } from "lucide-react";
 import aamsLogo from "@/assets/aams-gioco-sicuro.jpg.asset.json";
+import vietato18 from "@/assets/vietato-18.png.asset.json";
 
 export function OfficialLogosBanner() {
   return (
