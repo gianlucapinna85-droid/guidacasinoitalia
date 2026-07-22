@@ -196,6 +196,9 @@ export function Footer() {
 
         <ComplianceBadges />
 
+        <OfficialLogosBanner />
+
+
         <div className="mt-8 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
           <p>© {new Date().getFullYear()} GuidaCasinò.IT — Contenuto informativo. Solo per +18.</p>
         </div>
