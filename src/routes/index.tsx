@@ -135,7 +135,95 @@ function HomePage() {
   );
 }
 
-function ComplianceBlock({ placement }: { placement: "top" | "bottom" }) {
+      <FAQSection />
+      <SeoGuideSection />
+      <ComplianceBlock placement="bottom" />
+    </PageShell>
+  );
+}
+
+function SeoGuideSection() {
+  return (
+    <section className="border-t border-border bg-card/30">
+      <div className="mx-auto max-w-4xl px-4 py-16 md:py-20">
+        <p className="text-xs uppercase tracking-widest text-gold">Approfondimento</p>
+        <h2 className="mt-2 font-serif text-3xl md:text-4xl">
+          Guida completa ai portali di gioco legali in Italia: sicurezza, pagamenti e normativa
+        </h2>
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+          Un quadro dettagliato su come funzionano i casinò online autorizzati dall'Agenzia delle
+          Dogane e dei Monopoli, con approfondimenti tecnici, giuridici e operativi. Espandi le
+          sezioni per consultare i singoli capitoli.
+        </p>
+
+        <div className="mt-8 divide-y divide-border rounded-xl border border-border bg-background">
+          {SEO_GUIDE.map((item) => (
+            <details key={item.h3} className="group p-6 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between gap-4 text-base font-medium text-foreground">
+                <h3 className="font-serif text-lg">{item.h3}</h3>
+                <span className="text-gold transition-transform group-open:rotate-45">+</span>
+              </summary>
+              <div className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
+                {item.body.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </details>
+          ))}
+        </div>
+
+        <p className="mt-8 text-xs text-muted-foreground">
+          Contenuto informativo redatto sulla base di fonti pubbliche (adm.gov.it, normativa
+          vigente, siti ufficiali dei concessionari). Nessuna finalità promozionale ai sensi
+          dell'art. 9 D.L. 87/2018.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+const SEO_GUIDE: { h3: string; body: string[] }[] = [
+  {
+    h3: "Come funzionano i portali di gioco legali con concessione ADM",
+    body: [
+      "In Italia il gioco a distanza con vincite in denaro è disciplinato dal D.Lgs. 88/2011 e dai successivi decreti attuativi. Un portale di gioco può operare legalmente solo se titolare di una concessione rilasciata dall'Agenzia delle Dogane e dei Monopoli (ADM, ex AAMS), a seguito di una gara pubblica e del versamento di una fideiussione a garanzia degli obblighi verso lo Stato e i giocatori.",
+      "Ogni concessionario è collegato in tempo reale al sistema di controllo centrale SOGEI, che registra ogni singola giocata, ne verifica l'integrità e assicura la corretta liquidazione dei tributi (PREU per le slot, imposta unica per gli altri giochi). Questo meccanismo tecnico è il principale elemento che distingue un sito legale da uno privo di autorizzazione: nel primo caso ogni operazione è tracciata e sottoposta a controllo pubblico, nel secondo non esistono garanzie sull'equità del gioco né sulla tutela del saldo del giocatore.",
+      "Il numero di concessione ADM deve essere pubblicato in modo visibile su ogni pagina del sito del concessionario ed è verificabile confrontandolo con l'elenco pubblico disponibile su adm.gov.it. In caso di discrepanza è consigliabile astenersi da qualsiasi interazione.",
+    ],
+  },
+  {
+    h3: "Criteri di sicurezza tecnica e certificazioni obbligatorie",
+    body: [
+      "Un portale di gioco legale deve rispettare standard di sicurezza tecnica definiti dal Testo Unico della sicurezza informatica ADM. In particolare: cifratura TLS per tutte le comunicazioni, segregazione dei fondi dei giocatori rispetto al patrimonio dell'operatore, generatori di numeri casuali (RNG) certificati da laboratori indipendenti riconosciuti, e conservazione dei log di gioco per un periodo minimo definito dalla normativa.",
+      "I concessionari sono inoltre sottoposti alla normativa antiriciclaggio (D.Lgs. 231/2007 e successive modifiche), che impone procedure di adeguata verifica della clientela (KYC): identificazione tramite documento in corso di validità, verifica dell'indirizzo, controllo sui movimenti sospetti. Queste verifiche possono comportare tempi di attesa nella prima operazione di prelievo, ma rappresentano una garanzia di legalità e tutela contro l'uso improprio della piattaforma.",
+      "Sul piano della protezione dei dati personali, i concessionari operano in qualità di titolari del trattamento ai sensi del Regolamento UE 2016/679 (GDPR) e sono tenuti a fornire un'informativa completa, nonché a garantire i diritti di accesso, rettifica e cancellazione previsti dalla normativa europea.",
+    ],
+  },
+  {
+    h3: "Metodi di deposito e prelievo nei casinò ADM",
+    body: [
+      "I metodi di pagamento accettati dai concessionari ADM includono tipicamente carte di credito e debito dei circuiti Visa e Mastercard, bonifico bancario SEPA, wallet elettronici come PayPal, Skrill e Neteller, strumenti prepagati come Postepay e Paysafecard. La scelta dello strumento incide sui tempi di accredito: le carte e i wallet elettronici garantiscono normalmente tempi di deposito istantanei, mentre il bonifico bancario può richiedere da uno a tre giorni lavorativi.",
+      "Per i prelievi, i tempi effettivi dipendono da due fattori: la verifica dell'identità (obbligatoria alla prima richiesta di prelievo) e il metodo prescelto. I wallet elettronici sono di norma i più rapidi (24-48 ore), seguiti da carte e bonifici. La normativa italiana vieta il prelievo verso strumenti diversi da quelli utilizzati per il deposito, come misura antiriciclaggio.",
+      "È importante ricordare che i concessionari non applicano commissioni sulle vincite: eventuali oneri riguardano esclusivamente lo strumento di pagamento utilizzato e sono comunicati in modo trasparente nella sezione informativa del sito.",
+    ],
+  },
+  {
+    h3: "Tutela del giocatore e strumenti di autolimitazione",
+    body: [
+      "Ogni concessionario ADM è obbligato a mettere a disposizione, in modo visibile e facilmente accessibile dall'area riservata, strumenti di autolimitazione: limiti di deposito settimanali o mensili, limiti di sessione, timeout temporanei e autoesclusione. Questi strumenti sono configurabili dall'utente senza necessità di intervento del supporto e devono essere applicati entro tempi definiti dalla normativa.",
+      "L'autoesclusione dal singolo operatore può essere estesa a tutti i concessionari italiani tramite l'iscrizione al Registro Unico degli Autoesclusi (RUA), gestito direttamente da ADM. L'iscrizione al RUA impedisce l'accesso a qualsiasi piattaforma legale in Italia per il periodo prescelto (temporaneo o a tempo indeterminato) ed è gratuita.",
+      "Il Servizio Sanitario Nazionale riconosce il Disturbo da Gioco d'Azzardo (DGA) come patologia e mette a disposizione servizi gratuiti di ascolto e presa in carico. Il Telefono Verde nazionale dell'Istituto Superiore di Sanità (800 55 88 22) offre un primo orientamento anonimo e gratuito.",
+    ],
+  },
+  {
+    h3: "Riferimenti normativi essenziali",
+    body: [
+      "D.Lgs. 88/2011 — disciplina del gioco pubblico a distanza. D.L. 87/2018 (Decreto Dignità), art. 9 — divieto di qualsiasi forma di pubblicità dei giochi con vincite in denaro. D.Lgs. 231/2007 — obblighi antiriciclaggio applicabili anche ai concessionari di gioco. Regolamento UE 2016/679 (GDPR) — protezione dei dati personali.",
+      "Provvedimenti direttoriali ADM sui requisiti tecnici delle piattaforme, sulle modalità di connessione al sistema centrale e sui protocolli di sicurezza informatica. Delibere AGCOM in materia di pubblicità del gioco. Linee guida dell'Istituto Superiore di Sanità (ISS) sul Disturbo da Gioco d'Azzardo.",
+    ],
+  },
+];
+
   return (
     <section className="border-y border-border bg-card/40">
       <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
