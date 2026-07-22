@@ -64,7 +64,9 @@ export const operators: Operator[] = [
       "Limiti di deposito personalizzabili",
       "Adesione al RUA",
     ],
-    officialUrl: "https://www.adm.gov.it",
+      officialUrl: "https://www.gambling-affiliation.com/cpc/v/TsWva1YIp3UhwL9jgBymG724pB-oBUfAgKbFokBRsA8_GA7331V2&aff_var_1=",
+    
+    ,
   },
   {
     slug: "operatore-gamma",
