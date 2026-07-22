@@ -91,6 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "robots", content: "index, follow, max-image-preview:large" },
       { name: "ga-site-verification", content: "W5juT-4MDC0f4vbw5hNDDIXY" },
+      { name: "google-site-verification", content: "HhcCYnFE0-bjVDSP36wy43sJXySOc1G7bRlVhupj7Po" },
       { property: "og:title", content: "Casinò ADM Sicuri 2026 — Guida ai Migliori Siti Legali in Italia" },
       { name: "twitter:title", content: "Casinò ADM Sicuri 2026 — Guida ai Migliori Siti Legali in Italia" },
       { property: "og:description", content: "Confronto informativo dei casinò online con concessione ADM (ex AAMS): licenza, RTP, metodi di pagamento e strumenti di tutela. Scopri i siti di gioco legali e sicuri in Italia. Solo +18." },
