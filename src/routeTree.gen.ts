@@ -13,6 +13,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as NoteLegaliRouteImport } from './routes/note-legali'
 import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabile'
+import { Route as BonusSenzaDepositoRouteImport } from './routes/bonus-senza-deposito'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 
@@ -36,6 +37,11 @@ const GiocoResponsabileRoute = GiocoResponsabileRouteImport.update({
   path: '/gioco-responsabile',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BonusSenzaDepositoRoute = BonusSenzaDepositoRouteImport.update({
+  id: '/bonus-senza-deposito',
+  path: '/bonus-senza-deposito',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -49,6 +55,7 @@ const OperatoriSlugRoute = OperatoriSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
@@ -76,6 +85,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/bonus-senza-deposito'
     | '/gioco-responsabile'
     | '/note-legali'
     | '/privacy'
@@ -84,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/bonus-senza-deposito'
     | '/gioco-responsabile'
     | '/note-legali'
     | '/privacy'
@@ -92,6 +103,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/bonus-senza-deposito'
     | '/gioco-responsabile'
     | '/note-legali'
     | '/privacy'
@@ -101,6 +113,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BonusSenzaDepositoRoute: typeof BonusSenzaDepositoRoute
   GiocoResponsabileRoute: typeof GiocoResponsabileRoute
   NoteLegaliRoute: typeof NoteLegaliRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -138,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GiocoResponsabileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bonus-senza-deposito': {
+      id: '/bonus-senza-deposito'
+      path: '/bonus-senza-deposito'
+      fullPath: '/bonus-senza-deposito'
+      preLoaderRoute: typeof BonusSenzaDepositoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -157,6 +177,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BonusSenzaDepositoRoute: BonusSenzaDepositoRoute,
   GiocoResponsabileRoute: GiocoResponsabileRoute,
   NoteLegaliRoute: NoteLegaliRoute,
   PrivacyRoute: PrivacyRoute,
@@ -166,13 +187,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
