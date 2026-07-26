@@ -104,7 +104,7 @@ export const operators: Operator[] = [
       amount: "€ 1.000",
       description: "Bonus senza deposito accreditato alla registrazione con verifica dei documenti, utilizzabile secondo i termini e le condizioni pubblicate dal concessionario.",
     },
-    officialUrl: "https://www.gambling-affiliation.com/cpc/v=czbkTrTha5NkIDGy3O9i.yfHqtS5S3i52Bjh.ziiop8_GA7331V2",
+    officialUrl: "https://www.gambling-affiliation.com/cpc/v=czbkTrTha5NkIDGy3O9i.yfHqtS5S3i52BJh.ziioP8_GA7331V2l",
   },
   {
     slug: "operatore-delta",
