@@ -2,6 +2,7 @@
 // Sostituisci con dati verificati e link ai T&C ufficiali prima della pubblicazione.
 import leovegasLogo from "@/assets/logos/leovegas.png";
 import netbetLogo from "@/assets/logos/netbet.png";
+import betflagLogo from "@/assets/logos/betflag.png";
 
 export type NoDepositBonus = {
   amount: string;
