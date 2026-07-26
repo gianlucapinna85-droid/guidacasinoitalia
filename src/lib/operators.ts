@@ -70,21 +70,7 @@ export const operators: Operator[] = [
     },
   },
 
-  {
-    slug: "operatore-beta",
-    name: "Operatore Beta",
-    concessionN: "ADM n. 15XXX",
-    founded: 2015,
-    rtpAverage: "96,5%",
-    paymentMethods: ["Carte", "PayPal", "Skrill"],
-    games: 2400,
-    highlights: [
-      "Verifica SPID/CIE dell'identità",
-      "Limiti di deposito personalizzabili",
-      "Adesione al RUA",
-    ],
-    officialUrl: "https://www.gambling-affiliation.com/cpc/v/TsWva1YIp3UhwL9jgBymG724pB-oBUfAgKbFokBRsA8_GA7331V2&aff_var_1=",
-  },
+ 
   {
     slug: "operatore-gamma",
     name: "Operatore Gamma",
@@ -99,7 +85,26 @@ export const operators: Operator[] = [
       "Test di autovalutazione disponibile",
     ],
     officialUrl: "https://www.adm.gov.it",
+  },  {
+    slug: "betflag",
+    name: "Betflag",
+    concessionN: "ADM n. 15XXX",
+    founded: 2015,
+    rtpAverage: "96,5%",
+    paymentMethods: ["Carte", "PayPal", "Skrill"],
+    games: 2400,
+    highlights: [
+      "Verifica SPID/CIE dell'identità",
+      "Limiti di deposito personalizzabili",
+      "Adesione al RUA",
+    ],
+    noDepositBonus: {
+      amount: "€ 1.000",
+      description: "Bonus senza deposito accreditato alla registrazione con verifica dei documenti, utilizzabile secondo i termini e le condizioni pubblicate dal concessionario.",
+    },
+    officialUrl: "https://www.gambling-affiliation.com/cpc/v=czbkTrTha5NkIDGy3O9i.yfHqtS5S3i52Bjh.ziiop8_GA7331V2",
   },
+p
   {
     slug: "operatore-delta",
     name: "Operatore Delta",
