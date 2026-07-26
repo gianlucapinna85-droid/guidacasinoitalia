@@ -156,6 +156,7 @@ export function Header() {
         </Link>
         <nav className="hidden gap-8 text-sm md:flex">
           <Link to="/" hash="operatori" className="text-muted-foreground transition-colors hover:text-foreground">Operatori ADM</Link>
+          <Link to="/bonus-senza-deposito" className="text-muted-foreground transition-colors hover:text-foreground">Bonus senza deposito</Link>
           <Link to="/gioco-responsabile" className="text-muted-foreground transition-colors hover:text-foreground">Gioco responsabile</Link>
           <Link to="/note-legali" className="text-muted-foreground transition-colors hover:text-foreground">Note legali</Link>
         </nav>
