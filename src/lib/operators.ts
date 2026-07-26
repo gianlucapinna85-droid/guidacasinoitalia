@@ -86,10 +86,10 @@ export const operators: Operator[] = [
       "Test di autovalutazione disponibile",
     ],
     officialUrl: "https://www.adm.gov.it",
-  },  {
+  },    {
     slug: "betflag",
     name: "Betflag",
-    logo: betflagLogo,
+    logo: "betflagLogo",
     concessionN: "ADM n. 15XXX",
     founded: 2015,
     rtpAverage: "96,5%",
@@ -104,6 +104,9 @@ export const operators: Operator[] = [
       amount: "€ 1.000",
       description: "Bonus senza deposito accreditato alla registrazione con verifica dei documenti, utilizzabile secondo i termini e le condizioni pubblicate dal concessionario.",
     },
+    officialUrl: "https://www.gambling-affiliation.com/cpc/v=czbkTrTha5NkIDGy3O9i.yfHqtS5S3i52BJh.ziioP8_GA7331V2&aff_var_1=",
+  },
+  ,
     officialUrl: "https://www.gambling-affiliation.com/cpc/v=czbkTrTha5NkIDGy3O9i.yfHqtS5S3i52BJh.ziioP8_GA7331V2l",
   },
   {
