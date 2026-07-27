@@ -106,9 +106,6 @@ export const operators: Operator[] = [
     },
     officialUrl: "https://www.gambling-affiliation.com/cpc/v=czbkTrTha5NkIDGy3O9i.yfHqtS5S3i52BJh.ziioP8_GA7331V2&aff_var_1=",
   },
-  ,
-    officialUrl: "https://www.gambling-affiliation.com/cpc/v=czbkTrTha5NkIDGy3O9i.yfHqtS5S3i52BJh.ziioP8_GA7331V2l",
-  },
   {
     slug: "operatore-delta",
     name: "Operatore Delta",
