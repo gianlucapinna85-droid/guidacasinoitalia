@@ -101,7 +101,7 @@ export const operators: Operator[] = [
       "Adesione al RUA",
     ],
     noDepositBonus: {
-      amount: "€ 1.000",
+      amount: "€ 5.000",
       description: "Bonus senza deposito accreditato alla registrazione con verifica dei documenti, utilizzabile secondo i termini e le condizioni pubblicate dal concessionario.",
     },
     officialUrl: "https://www.gambling-affiliation.com/cpc/v=czbkTrTha5NkIDGy3O9i.yfHqtS5S3i52BJh.ziioP8_GA7331V2&aff_var_1=",
