@@ -89,7 +89,7 @@ export const operators: Operator[] = [
   },    {
     slug: "betflag",
     name: "Betflag",
-    logo: "betflagLogo",
+    logo: betflagLogo,
     concessionN: "ADM n. 15XXX",
     founded: 2015,
     rtpAverage: "96,5%",
