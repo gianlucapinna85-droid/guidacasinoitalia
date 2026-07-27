@@ -24,6 +24,13 @@ export type Operator = {
 };
 
 
+function parseNoDepositAmount(amount?: string): number {
+  if (!amount) return 0;
+  const cleaned = amount.replace(/[€\s]/g, "").replace(/\./g, "").replace(",", ".");
+  const value = parseFloat(cleaned);
+  return Number.isNaN(value) ? 0 : value;
+}
+
 export const operators: Operator[] = [
   {
     slug: "leovegas",
@@ -287,3 +294,9 @@ export const operators: Operator[] = [
     officialUrl: "https://www.adm.gov.it",
   },
 ];
+
+export const sortedOperators = [...operators].sort((a, b) => {
+  const aVal = parseNoDepositAmount(a.noDepositBonus?.amount);
+  const bVal = parseNoDepositAmount(b.noDepositBonus?.amount);
+  return bVal - aVal;
+});

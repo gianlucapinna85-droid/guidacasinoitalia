@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, ScrollText, Scale, Users, ArrowRight, CheckCircle2, Calendar, RefreshCw } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { PageShell, ComplianceBadges, OfficialLogosBanner } from "@/components/site-layout";
-import { operators } from "@/lib/operators";
+import { operators, sortedOperators } from "@/lib/operators";
 
 const FAQS = [
   {
@@ -78,8 +78,8 @@ export const Route = createFileRoute("/")({
           "@type": "ItemList",
           name: "Operatori con concessione ADM",
           itemListOrder: "https://schema.org/ItemListOrderAscending",
-          numberOfItems: operators.length,
-          itemListElement: operators.map((op, i) => ({
+          numberOfItems: sortedOperators.length,
+          itemListElement: sortedOperators.map((op, i) => ({
             "@type": "ListItem",
             position: i + 1,
             item: {
@@ -94,7 +94,7 @@ export const Route = createFileRoute("/")({
       {
         type: "application/ld+json",
         children: JSON.stringify(
-          operators.slice(0, 10).map((op, i) => ({
+          sortedOperators.slice(0, 10).map((op, i) => ({
             "@context": "https://schema.org",
             "@type": "Review",
             itemReviewed: {
@@ -359,7 +359,7 @@ function OperatorsSection() {
       </div>
 
       <div className="grid gap-4">
-        {operators.map((op, idx) => (
+        {sortedOperators.map((op, idx) => (
           <article
             key={op.slug}
             className="relative grid gap-6 rounded-xl border border-border bg-card p-6 md:grid-cols-[auto_1fr_auto] md:items-center"
