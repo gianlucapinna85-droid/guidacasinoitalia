@@ -99,7 +99,7 @@ export const operators: Operator[] = [
     },
     officialUrl: "https://www.gambling-affiliation.com/cpc/v=xBkL0SQeG1L69qeCbRpuVzHccnxw8FpRkjHVhT-tYbA_GA7331V2&aff_var_1=",
   },  
-    slug: "betflag",
+  {slug: "betflag",
     name: "Betflag",
     logo: betflagLogo,
     concessionN: "ADM n. 15XXX",
