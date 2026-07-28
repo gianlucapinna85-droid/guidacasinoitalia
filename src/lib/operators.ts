@@ -121,7 +121,7 @@ export const operators: Operator[] = [
     {
     slug: "sunbet",
     name: "Sunbet",
-    logo: sunbetLogo,
+    logo: "sunbetLogo",
     concessionN: "ADM n. 16039",
     founded: 2020,
     rtpAverage: "96,0%",
@@ -139,8 +139,6 @@ export const operators: Operator[] = [
     },
 },
   {
-    
-  
     slug: "operatore-epsilon",
     name: "Operatore Epsilon",
     concessionN: "ADM n. 15XXX",
