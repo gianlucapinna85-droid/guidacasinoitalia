@@ -122,7 +122,7 @@ export const operators: Operator[] = [
     slug: "sunbet",
     name: "Sunbet",
     logo: sunbetLogo,
-    concessionN: "ADM n. 15XXX",
+    concessionN: "ADM n. 16039",
     founded: 2020,
     rtpAverage: "96,0%",
     paymentMethods: ["Carte", "PayPal", "Skrill"],
@@ -135,8 +135,7 @@ export const operators: Operator[] = [
     noDepositBonus: {
       amount: "€ 10",
       description: "Bonus senza deposito accreditato alla convalida del documento (5€ Sport + 5€ Casinò)."
-    },
-    officialUrl: "https://www.gambling-affiliation.com/cpc/v=r-pjVdIlD.awE540kQttwJhlChLVX9pg98I6gO07Ikk_GA7331V2",
+  officialUrl: "https://www.gambling-affiliation.com/cpc/v=r-pjVdIlD.awE540kQttwJhlChLVX9pg98I6gO07Ikk_GA7331V2",
   },
   
   {
