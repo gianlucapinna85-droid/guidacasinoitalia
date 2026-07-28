@@ -118,21 +118,27 @@ export const operators: Operator[] = [
     },
     officialUrl: "https://www.gambling-affiliation.com/cpc/v=czbkTrTha5NkIDGy3O9i.yfHqtS5S3i52BJh.ziioP8_GA7331V2&aff_var_1=",
   },
-  {
-    slug: "operatore-delta",
-    name: "Operatore Delta",
+    {
+    slug: "sunbet",
+    name: "Sunbet",
+    logo: sunbetLogo,
     concessionN: "ADM n. 15XXX",
-    founded: 2013,
-    rtpAverage: "96,1%",
-    paymentMethods: ["Carte", "PayPal", "Neteller", "Bonifico"],
-    games: 2100,
+    founded: 2020,
+    rtpAverage: "96,0%",
+    paymentMethods: ["Carte", "PayPal", "Skrill"],
+    games: 2000,
     highlights: [
-      "App mobile certificata per mercato italiano",
-      "Sessioni di gioco con limiti di tempo",
-      "Rapporto annuale sulla trasparenza",
+      "Ampia gamma di slot e giochi",
+      "Strumenti di gioco responsabile",
+      "Partnership ADM"
     ],
-    officialUrl: "https://www.adm.gov.it",
+    noDepositBonus: {
+      amount: "€ 10",
+      description: "Bonus senza deposito accreditato alla convalida del documento (5€ Sport + 5€ Casinò)."
+    },
+    officialUrl: "https://www.gambling-affiliation.com/cpc/v=r-pjVdIlD.awE540kQttwJhlChLVX9pg98I6gO07Ikk_GA7331V2",
   },
+  
   {
     slug: "operatore-epsilon",
     name: "Operatore Epsilon",
@@ -146,7 +152,7 @@ export const operators: Operator[] = [
       "Promemoria di spesa settimanale",
       "Collaborazione con centri di cura per il DGA",
     ],
-    officialUrl: "https://www.adm.gov.it",
+    officialUrl: "https://www.adm.gov.it,
   },
   {
     slug: "operatore-zeta",
