@@ -80,19 +80,26 @@ export const operators: Operator[] = [
 
  
   {
-    slug: "operatore-gamma",
-    name: "Operatore Gamma",
-    concessionN: "ADM n. 15XXX",
-    founded: 2009,
-    rtpAverage: "95,9%",
-    paymentMethods: ["Bonifico", "Carte", "PostePay"],
-    games: 1200,
+    slug: "888",
+    name: "888",
+    logo: "888Logo",
+    concessionN: "ADM n. 15014",
+    founded: 1997,
+    rtpAverage: "96,6%",
+    paymentMethods: ["Carte", "PayPal", "Skrill", "Neteller", "Bonifico"],
+    games: 1500,
     highlights: [
-      "Storico operatore concessionario",
-      "Sezione dedicata al gioco responsabile",
-      "Test di autovalutazione disponibile",
+      "Piattaforma di gioco proprietaria",
+      "Strumenti di autolimitazione e gioco responsabile",
+      "Assistenza clienti dedicata",
     ],
-    officialUrl: "https://www.adm.gov.it",
+    noDepositBonus: {
+      amount: "€ 50",
+      description: "Bonus senza deposito accreditato alla registrazione con SPID, utilizzabile secondo i termini e le condizioni pubblicate dal concessionario.",
+    },
+    officialUrl: "https://www.gambling-affiliation.com/cpc/v=xBkL0SQeG1L69qeCbRpuVzHccnxw8FpRkjHVhT-tYbA_GA7331V2&aff_var_1=",
+  },
+  ,
   },    {
     slug: "betflag",
     name: "Betflag",
