@@ -149,7 +149,7 @@ export const operators: Operator[] = [
       "Promemoria di spesa settimanale",
       "Collaborazione con centri di cura per il DGA",
     ],
-    officialUrl: "https://www.adm.gov.it,
+    officialUrl: "https://www.adm.gov.it",
   },
   {
     slug: "operatore-zeta",
