@@ -138,7 +138,6 @@ export const operators: Operator[] = [
     },
   officialUrl: "https://www.gambling-affiliation.com/cpc/v=r-pjVdIlD.awE540kQttwJhlChLVX9pg98I6gO07Ikk_GA7331V2",
     },
-},
   {
     slug: "operatore-epsilon",
     name: "Operatore Epsilon",
