@@ -283,21 +283,7 @@ export const operators: Operator[] = [
     ],
     officialUrl: "https://www.adm.gov.it",
   },
-  {
-    slug: "operatore-omicron",
-    name: "Operatore Omicron",
-    concessionN: "ADM n. 15XXX",
-    founded: 2021,
-    rtpAverage: "96,4%",
-    paymentMethods: ["Carte", "PayPal"],
-    games: 800,
-    highlights: [
-      "Piattaforma leggera e accessibile",
-      "Materiali informativi sul DGA",
-      "Verifica identità tramite SPID",
-    ],
-    officialUrl: "https://www.adm.gov.it",
-  },
+  
 ];
 
 export const sortedOperators = [...operators].sort((a, b) => {
