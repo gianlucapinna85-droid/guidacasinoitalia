@@ -134,7 +134,7 @@ export const operators: Operator[] = [
     ],
     noDepositBonus: {
       amount: "€ 10",
-      description: "Bonus senza deposito accreditato alla convalida del documento (5€ Sport + 5€ Casinò)."
+      description: "Bonus senza deposito accreditato alla convalida del documento (5€ Sport + 5€ Casinò).",
   officialUrl: "https://www.gambling-affiliation.com/cpc/v=r-pjVdIlD.awE540kQttwJhlChLVX9pg98I6gO07Ikk_GA7331V2",
   },
   
