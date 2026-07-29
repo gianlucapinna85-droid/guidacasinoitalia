@@ -1,36 +1,42 @@
 import { Link } from "@tanstack/react-router";
 import { type ReactNode } from "react";
-import { ShieldCheck, Ban, LifeBuoy, Landmark } from "lucide-react";
+import { ShieldCheck, Ban, LifeBuoy, Landmark, BadgeCheck } from "lucide-react";
 import vietato18 from "@/assets/vietato-18.png.asset.json";
 import admLogo from "@/assets/adm-logo.png.asset.json";
 
 export function OfficialLogosBanner() {
   return (
-    <div className="mt-6 flex flex-wrap items-center justify-center gap-4 rounded-lg border border-gold/40 bg-white px-4 py-3 shadow-sm">
+    <div className="mt-4 grid grid-cols-2 gap-2">
       <a
         href="https://www.adm.gov.it"
         target="_blank"
         rel="noopener noreferrer nofollow"
         aria-label="Sito ufficiale ADM — Agenzia delle Dogane e dei Monopoli"
-        className="shrink-0"
+        className="flex items-center gap-2 rounded-lg border border-gold/50 bg-white px-3 py-2 transition-colors hover:brightness-105"
       >
         <img
           src={admLogo.url}
           alt="Logo ufficiale ADM — Agenzia delle Dogane e dei Monopoli"
-          className="h-10 w-auto"
+          className="h-7 w-auto shrink-0"
           loading="lazy"
         />
+        <span className="min-w-0">
+          <span className="block text-[11px] font-bold leading-tight text-neutral-800">Concessione ADM</span>
+          <span className="block truncate text-[9px] uppercase tracking-wide text-neutral-500">Operatori legali in Italia</span>
+        </span>
       </a>
-      <span className="hidden h-8 w-px bg-neutral-200 sm:block" />
-      <img
-        src={vietato18.url}
-        alt="Vietato ai minori di 18 anni"
-        className="h-10 w-10 shrink-0"
-        loading="lazy"
-      />
-      <p className="text-[10px] font-semibold uppercase tracking-widest text-neutral-600">
-        Gioco legale e responsabile — vietato ai minori di 18 anni
-      </p>
+      <div className="flex items-center gap-2 rounded-lg border border-destructive/50 bg-white px-3 py-2">
+        <img
+          src={vietato18.url}
+          alt="Vietato ai minori di 18 anni"
+          className="h-7 w-7 shrink-0"
+          loading="lazy"
+        />
+        <span className="min-w-0">
+          <span className="block text-[11px] font-bold leading-tight text-neutral-800">Vietato ai minori</span>
+          <span className="block truncate text-[9px] uppercase tracking-wide text-neutral-500">Gioco responsabile +18</span>
+        </span>
+      </div>
     </div>
   );
 }
@@ -155,12 +161,41 @@ export function Header() {
             <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Comparatore informativo</div>
           </div>
         </Link>
+
+        <div className="flex items-center gap-1.5">
+          <a
+            href="https://www.adm.gov.it"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            aria-label="Concessione ADM — Agenzia delle Dogane e dei Monopoli"
+            title="Operatori con concessione ADM"
+            className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-gold/60 bg-white shadow-sm"
+          >
+            <img src={admLogo.url} alt="Logo ufficiale ADM" className="h-6 w-6 object-contain" />
+          </a>
+          <span
+            aria-label="Vietato ai minori di 18 anni"
+            title="Vietato ai minori di 18 anni"
+            className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-destructive/60 bg-white shadow-sm"
+          >
+            <img src={vietato18.url} alt="Vietato ai minori di 18 anni" className="h-6 w-6 object-contain" />
+          </span>
+          <span
+            title="Operatori verificati sull'elenco pubblico ADM"
+            className="hidden items-center gap-1 rounded-full border border-gold/50 bg-gold/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-gold sm:inline-flex"
+          >
+            <BadgeCheck className="h-3.5 w-3.5" strokeWidth={2.4} />
+            Verificato
+          </span>
+        </div>
+
         <nav className="hidden gap-8 text-sm md:flex">
           <Link to="/" hash="operatori" className="text-muted-foreground transition-colors hover:text-foreground">Operatori ADM</Link>
           <Link to="/bonus-senza-deposito" className="text-muted-foreground transition-colors hover:text-foreground">Bonus senza deposito</Link>
           <Link to="/gioco-responsabile" className="text-muted-foreground transition-colors hover:text-foreground">Gioco responsabile</Link>
           <Link to="/note-legali" className="text-muted-foreground transition-colors hover:text-foreground">Note legali</Link>
         </nav>
+
       </div>
     </header>
   );
