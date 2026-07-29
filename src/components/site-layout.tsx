@@ -73,7 +73,7 @@ export function ComplianceBadges() {
   ];
 
   return (
-    <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="mt-6 grid grid-cols-2 gap-2 lg:grid-cols-4">
       {badges.map((b) => {
         const styles =
           b.accent === "gold"
@@ -83,10 +83,10 @@ export function ComplianceBadges() {
               : "border-border bg-background";
         const iconStyles =
           b.accent === "gold"
-            ? "bg-gold/20 text-gold ring-gold/40"
+            ? "text-gold"
             : b.accent === "destructive"
-              ? "bg-destructive/20 text-destructive ring-destructive/40"
-              : "bg-muted text-foreground ring-border";
+              ? "text-destructive"
+              : "text-foreground";
         const labelStyles =
           b.accent === "gold"
             ? "text-gold"
@@ -105,19 +105,14 @@ export function ComplianceBadges() {
           <Wrapper
             key={b.label}
             {...wrapperProps}
-            className={`flex items-center gap-4 rounded-xl border-2 p-4 transition-colors ${styles} ${b.href ? "hover:brightness-110" : ""}`}
+            className={`flex items-center gap-2 rounded-lg border px-3 py-2 transition-colors ${styles} ${b.href ? "hover:brightness-110" : ""}`}
           >
-            <div className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-lg ring-2 ${iconStyles}`}>
-              <b.icon className="h-8 w-8" strokeWidth={2.2} />
-            </div>
+            <b.icon className={`h-4 w-4 shrink-0 ${iconStyles}`} strokeWidth={2.2} />
             <div className="min-w-0">
-              <p className={`font-serif text-2xl font-bold leading-none tracking-tight ${labelStyles}`}>
-                {b.label}
-              </p>
-              <p className="mt-1 text-[11px] font-semibold uppercase tracking-widest text-foreground/90">
+              <p className={`text-sm font-bold leading-tight ${labelStyles}`}>{b.label}</p>
+              <p className="truncate text-[10px] uppercase tracking-wide text-muted-foreground">
                 {b.sub}
               </p>
-              <p className="mt-0.5 text-xs text-muted-foreground">{b.note}</p>
             </div>
           </Wrapper>
         );
@@ -125,6 +120,7 @@ export function ComplianceBadges() {
     </div>
   );
 }
+
 
 export function AgeBanner() {
   return (
