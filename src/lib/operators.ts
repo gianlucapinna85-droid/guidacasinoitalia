@@ -3,6 +3,8 @@
 import leovegasLogo from "@/assets/logos/leovegas.png";
 import netbetLogo from "@/assets/logos/netbet.png";
 import betflagLogo from "@/assets/logos/betflag.png";
+import logo888 from "@/assets/logos/888.png";
+import sunbetLogo from "@/assets/logos/sunbet.png";
 
 export type NoDepositBonus = {
   amount: string;
@@ -82,7 +84,7 @@ export const operators: Operator[] = [
   {
     slug: "888",
     name: "888",
-    logo: "888Logo",
+    logo: logo888,
     concessionN: "ADM n. 15014",
     founded: 1997,
     rtpAverage: "96,6%",
@@ -121,7 +123,7 @@ export const operators: Operator[] = [
     {
     slug: "sunbet",
     name: "Sunbet",
-    logo: "sunbetLogo",
+    logo: sunbetLogo,
     concessionN: "ADM n. 16039",
     founded: 2020,
     rtpAverage: "96,0%",

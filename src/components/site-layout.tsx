@@ -1,35 +1,40 @@
 import { Link } from "@tanstack/react-router";
 import { type ReactNode } from "react";
 import { ShieldCheck, Ban, LifeBuoy, Landmark } from "lucide-react";
-import aamsLogo from "@/assets/aams-gioco-sicuro.jpg.asset.json";
 import vietato18 from "@/assets/vietato-18.png.asset.json";
 import admLogo from "@/assets/adm-logo.png.asset.json";
 
 export function OfficialLogosBanner() {
   return (
-    <div className="mt-10 rounded-xl border-2 border-gold/40 bg-white p-6 shadow-sm">
-      <p className="mb-4 text-center text-[11px] font-semibold uppercase tracking-widest text-neutral-600">
-        Loghi ufficiali — Amministrazione Autonoma dei Monopoli di Stato
+    <div className="mt-6 flex flex-wrap items-center justify-center gap-4 rounded-lg border border-gold/40 bg-white px-4 py-3 shadow-sm">
+      <a
+        href="https://www.adm.gov.it"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        aria-label="Sito ufficiale ADM — Agenzia delle Dogane e dei Monopoli"
+        className="shrink-0"
+      >
+        <img
+          src={admLogo.url}
+          alt="Logo ufficiale ADM — Agenzia delle Dogane e dei Monopoli"
+          className="h-10 w-auto"
+          loading="lazy"
+        />
+      </a>
+      <span className="hidden h-8 w-px bg-neutral-200 sm:block" />
+      <img
+        src={vietato18.url}
+        alt="Vietato ai minori di 18 anni"
+        className="h-10 w-10 shrink-0"
+        loading="lazy"
+      />
+      <p className="text-[10px] font-semibold uppercase tracking-widest text-neutral-600">
+        Gioco legale e responsabile — vietato ai minori di 18 anni
       </p>
-      <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
-        <img
-          src={aamsLogo.url}
-          alt="Loghi ufficiali AAMS — Amministrazione Autonoma dei Monopoli di Stato, gioco legale e responsabile, vietato ai minori di 18 anni"
-          className="h-auto w-full max-w-md"
-          loading="lazy"
-        />
-        <img
-          src={vietato18.url}
-          alt="Vietato ai minori di 18 anni — simbolo di divieto rosso"
-          width={160}
-          height={160}
-          className="h-40 w-40 shrink-0"
-          loading="lazy"
-        />
-      </div>
     </div>
   );
 }
+
 
 export function ComplianceBadges() {
   const badges = [
@@ -67,7 +72,7 @@ export function ComplianceBadges() {
   ];
 
   return (
-    <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="mt-6 grid grid-cols-2 gap-2 lg:grid-cols-4">
       {badges.map((b) => {
         const styles =
           b.accent === "gold"
@@ -77,10 +82,10 @@ export function ComplianceBadges() {
               : "border-border bg-background";
         const iconStyles =
           b.accent === "gold"
-            ? "bg-gold/20 text-gold ring-gold/40"
+            ? "text-gold"
             : b.accent === "destructive"
-              ? "bg-destructive/20 text-destructive ring-destructive/40"
-              : "bg-muted text-foreground ring-border";
+              ? "text-destructive"
+              : "text-foreground";
         const labelStyles =
           b.accent === "gold"
             ? "text-gold"
@@ -99,19 +104,14 @@ export function ComplianceBadges() {
           <Wrapper
             key={b.label}
             {...wrapperProps}
-            className={`flex items-center gap-4 rounded-xl border-2 p-4 transition-colors ${styles} ${b.href ? "hover:brightness-110" : ""}`}
+            className={`flex items-center gap-2 rounded-lg border px-3 py-2 transition-colors ${styles} ${b.href ? "hover:brightness-110" : ""}`}
           >
-            <div className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-lg ring-2 ${iconStyles}`}>
-              <b.icon className="h-8 w-8" strokeWidth={2.2} />
-            </div>
+            <b.icon className={`h-4 w-4 shrink-0 ${iconStyles}`} strokeWidth={2.2} />
             <div className="min-w-0">
-              <p className={`font-serif text-2xl font-bold leading-none tracking-tight ${labelStyles}`}>
-                {b.label}
-              </p>
-              <p className="mt-1 text-[11px] font-semibold uppercase tracking-widest text-foreground/90">
+              <p className={`text-sm font-bold leading-tight ${labelStyles}`}>{b.label}</p>
+              <p className="truncate text-[10px] uppercase tracking-wide text-muted-foreground">
                 {b.sub}
               </p>
-              <p className="mt-0.5 text-xs text-muted-foreground">{b.note}</p>
             </div>
           </Wrapper>
         );
@@ -119,6 +119,7 @@ export function ComplianceBadges() {
     </div>
   );
 }
+
 
 export function AgeBanner() {
   return (
@@ -217,26 +218,8 @@ export function Footer() {
 
         <OfficialLogosBanner />
 
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 rounded-xl border-2 border-gold/40 bg-white p-6 shadow-sm">
-          <p className="text-center text-[11px] font-semibold uppercase tracking-widest text-neutral-600">
-            Logo ufficiale — Agenzia delle Dogane e dei Monopoli
-          </p>
-          <a
-            href="https://www.adm.gov.it"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            aria-label="Sito ufficiale ADM — Agenzia delle Dogane e dei Monopoli"
-          >
-            <img
-              src={admLogo.url}
-              alt="Logo ufficiale ADM — Agenzia delle Dogane e dei Monopoli"
-              width={480}
-              height={157}
-              className="h-auto w-full max-w-md"
-              loading="lazy"
-            />
-          </a>
-        </div>
+
+
 
 
 
