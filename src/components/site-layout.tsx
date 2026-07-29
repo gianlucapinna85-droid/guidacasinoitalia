@@ -6,31 +6,37 @@ import admLogo from "@/assets/adm-logo.png.asset.json";
 
 export function OfficialLogosBanner() {
   return (
-    <div className="mt-6 flex flex-wrap items-center justify-center gap-4 rounded-lg border border-gold/40 bg-white px-4 py-3 shadow-sm">
+    <div className="mt-4 grid grid-cols-2 gap-2">
       <a
         href="https://www.adm.gov.it"
         target="_blank"
         rel="noopener noreferrer nofollow"
         aria-label="Sito ufficiale ADM — Agenzia delle Dogane e dei Monopoli"
-        className="shrink-0"
+        className="flex items-center gap-2 rounded-lg border border-gold/50 bg-white px-3 py-2 transition-colors hover:brightness-105"
       >
         <img
           src={admLogo.url}
           alt="Logo ufficiale ADM — Agenzia delle Dogane e dei Monopoli"
-          className="h-10 w-auto"
+          className="h-7 w-auto shrink-0"
           loading="lazy"
         />
+        <span className="min-w-0">
+          <span className="block text-[11px] font-bold leading-tight text-neutral-800">Concessione ADM</span>
+          <span className="block truncate text-[9px] uppercase tracking-wide text-neutral-500">Operatori legali in Italia</span>
+        </span>
       </a>
-      <span className="hidden h-8 w-px bg-neutral-200 sm:block" />
-      <img
-        src={vietato18.url}
-        alt="Vietato ai minori di 18 anni"
-        className="h-10 w-10 shrink-0"
-        loading="lazy"
-      />
-      <p className="text-[10px] font-semibold uppercase tracking-widest text-neutral-600">
-        Gioco legale e responsabile — vietato ai minori di 18 anni
-      </p>
+      <div className="flex items-center gap-2 rounded-lg border border-destructive/50 bg-white px-3 py-2">
+        <img
+          src={vietato18.url}
+          alt="Vietato ai minori di 18 anni"
+          className="h-7 w-7 shrink-0"
+          loading="lazy"
+        />
+        <span className="min-w-0">
+          <span className="block text-[11px] font-bold leading-tight text-neutral-800">Vietato ai minori</span>
+          <span className="block truncate text-[9px] uppercase tracking-wide text-neutral-500">Gioco responsabile +18</span>
+        </span>
+      </div>
     </div>
   );
 }
