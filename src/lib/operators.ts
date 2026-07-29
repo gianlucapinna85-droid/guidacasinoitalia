@@ -84,7 +84,7 @@ export const operators: Operator[] = [
   {
     slug: "888",
     name: "888",
-    logo: "888Logo",
+    logo: logo888,
     concessionN: "ADM n. 15014",
     founded: 1997,
     rtpAverage: "96,6%",
