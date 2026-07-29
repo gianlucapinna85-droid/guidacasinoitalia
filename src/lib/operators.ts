@@ -3,6 +3,8 @@
 import leovegasLogo from "@/assets/logos/leovegas.png";
 import netbetLogo from "@/assets/logos/netbet.png";
 import betflagLogo from "@/assets/logos/betflag.png";
+import logo888 from "@/assets/logos/888.png";
+import sunbetLogo from "@/assets/logos/sunbet.png";
 
 export type NoDepositBonus = {
   amount: string;
