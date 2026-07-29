@@ -123,7 +123,7 @@ export const operators: Operator[] = [
     {
     slug: "sunbet",
     name: "Sunbet",
-    logo: "sunbetLogo",
+    logo: sunbetLogo,
     concessionN: "ADM n. 16039",
     founded: 2020,
     rtpAverage: "96,0%",
