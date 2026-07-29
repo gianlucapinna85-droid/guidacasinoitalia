@@ -161,12 +161,41 @@ export function Header() {
             <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Comparatore informativo</div>
           </div>
         </Link>
+
+        <div className="flex items-center gap-1.5">
+          <a
+            href="https://www.adm.gov.it"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            aria-label="Concessione ADM — Agenzia delle Dogane e dei Monopoli"
+            title="Operatori con concessione ADM"
+            className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-gold/60 bg-white shadow-sm"
+          >
+            <img src={admLogo.url} alt="Logo ufficiale ADM" className="h-6 w-6 object-contain" />
+          </a>
+          <span
+            aria-label="Vietato ai minori di 18 anni"
+            title="Vietato ai minori di 18 anni"
+            className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-destructive/60 bg-white shadow-sm"
+          >
+            <img src={vietato18.url} alt="Vietato ai minori di 18 anni" className="h-6 w-6 object-contain" />
+          </span>
+          <span
+            title="Operatori verificati sull'elenco pubblico ADM"
+            className="hidden items-center gap-1 rounded-full border border-gold/50 bg-gold/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-gold sm:inline-flex"
+          >
+            <BadgeCheck className="h-3.5 w-3.5" strokeWidth={2.4} />
+            Verificato
+          </span>
+        </div>
+
         <nav className="hidden gap-8 text-sm md:flex">
           <Link to="/" hash="operatori" className="text-muted-foreground transition-colors hover:text-foreground">Operatori ADM</Link>
           <Link to="/bonus-senza-deposito" className="text-muted-foreground transition-colors hover:text-foreground">Bonus senza deposito</Link>
           <Link to="/gioco-responsabile" className="text-muted-foreground transition-colors hover:text-foreground">Gioco responsabile</Link>
           <Link to="/note-legali" className="text-muted-foreground transition-colors hover:text-foreground">Note legali</Link>
         </nav>
+
       </div>
     </header>
   );
