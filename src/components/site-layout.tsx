@@ -7,29 +7,35 @@ import admLogo from "@/assets/adm-logo.png.asset.json";
 
 export function OfficialLogosBanner() {
   return (
-    <div className="mt-10 rounded-xl border-2 border-gold/40 bg-white p-6 shadow-sm">
-      <p className="mb-4 text-center text-[11px] font-semibold uppercase tracking-widest text-neutral-600">
-        Loghi ufficiali — Amministrazione Autonoma dei Monopoli di Stato
+    <div className="mt-6 flex flex-wrap items-center justify-center gap-4 rounded-lg border border-gold/40 bg-white px-4 py-3 shadow-sm">
+      <a
+        href="https://www.adm.gov.it"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        aria-label="Sito ufficiale ADM — Agenzia delle Dogane e dei Monopoli"
+        className="shrink-0"
+      >
+        <img
+          src={admLogo.url}
+          alt="Logo ufficiale ADM — Agenzia delle Dogane e dei Monopoli"
+          className="h-10 w-auto"
+          loading="lazy"
+        />
+      </a>
+      <span className="hidden h-8 w-px bg-neutral-200 sm:block" />
+      <img
+        src={vietato18.url}
+        alt="Vietato ai minori di 18 anni"
+        className="h-10 w-10 shrink-0"
+        loading="lazy"
+      />
+      <p className="text-[10px] font-semibold uppercase tracking-widest text-neutral-600">
+        Gioco legale e responsabile — vietato ai minori di 18 anni
       </p>
-      <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
-        <img
-          src={aamsLogo.url}
-          alt="Loghi ufficiali AAMS — Amministrazione Autonoma dei Monopoli di Stato, gioco legale e responsabile, vietato ai minori di 18 anni"
-          className="h-auto w-full max-w-md"
-          loading="lazy"
-        />
-        <img
-          src={vietato18.url}
-          alt="Vietato ai minori di 18 anni — simbolo di divieto rosso"
-          width={160}
-          height={160}
-          className="h-40 w-40 shrink-0"
-          loading="lazy"
-        />
-      </div>
     </div>
   );
 }
+
 
 export function ComplianceBadges() {
   const badges = [
