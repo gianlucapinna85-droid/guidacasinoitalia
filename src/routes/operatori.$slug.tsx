@@ -22,22 +22,87 @@ export const Route = createFileRoute("/operatori/$slug")({
       };
     }
     const { operator } = loaderData;
-    const title = `${operator.name} — Scheda informativa concessionario ADM | GuidaCasinò.IT`;
-    const description = `Scheda informativa neutrale su ${operator.name}: concessione ADM ${operator.concessionN}, RTP medio ${operator.rtpAverage}, ${operator.games}+ titoli, ${operator.paymentMethods.length} metodi di pagamento. Solo per +18.`;
+    const canonical = `https://guidacasinoitalia.lovable.app/operatori/${operator.slug}`;
+    const nd = operator.noDepositBonus?.amount;
+    const title = `${operator.name} Casinò ADM 2026 — Recensione, Bonus Senza Deposito e Concessione`;
+    const description = `${operator.name} è un casinò online con concessione ADM ${operator.concessionN}. Recensione informativa: ${nd ? `bonus senza deposito ${nd}, ` : ""}RTP medio ${operator.rtpAverage}, ${operator.games}+ giochi, ${operator.paymentMethods.length} metodi di pagamento e strumenti di gioco responsabile. Solo +18.`;
     return {
       meta: [
         { title },
         { name: "description", content: description },
+        {
+          name: "keywords",
+          content: `${operator.name}, ${operator.name} casinò ADM, ${operator.name} bonus senza deposito, recensione ${operator.name}, casino ADM sicuri, casino AAMS, concessione ADM`,
+        },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
+        { property: "og:url", content: canonical },
         { property: "og:type", content: "article" },
         { name: "twitter:card", content: "summary" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
       ],
-      links: [{ rel: "canonical", href: `/operatori/${operator.slug}` }],
+      links: [{ rel: "canonical", href: canonical }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: title,
+            description,
+            inLanguage: "it-IT",
+            author: { "@type": "Organization", name: "GuidaCasinò.IT" },
+            publisher: { "@type": "Organization", name: "GuidaCasinò.IT" },
+            dateModified: new Date().toISOString().slice(0, 10),
+            mainEntityOfPage: canonical,
+            about: {
+              "@type": "Organization",
+              name: operator.name,
+              identifier: operator.concessionN,
+            },
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://guidacasinoitalia.lovable.app/" },
+              { "@type": "ListItem", position: 2, name: "Operatori ADM", item: "https://guidacasinoitalia.lovable.app/#operatori" },
+              { "@type": "ListItem", position: 3, name: operator.name, item: canonical },
+            ],
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: `${operator.name} ha la concessione ADM?`,
+                acceptedAnswer: { "@type": "Answer", text: `${operator.name} risulta titolare della concessione ${operator.concessionN}, verificabile sull'elenco pubblico dei concessionari pubblicato su adm.gov.it.` },
+              },
+              {
+                "@type": "Question",
+                name: `${operator.name} offre un bonus senza deposito?`,
+                acceptedAnswer: { "@type": "Answer", text: nd ? `Secondo le condizioni pubblicate dal concessionario, ${operator.name} prevede un bonus senza deposito di ${nd}, accreditato dopo la verifica dei documenti e soggetto a requisiti di puntata.` : `Al momento non risultano bonus senza deposito pubblicati da ${operator.name}. Consulta i Termini e Condizioni ufficiali per gli aggiornamenti.` },
+              },
+              {
+                "@type": "Question",
+                name: `Quali metodi di pagamento accetta ${operator.name}?`,
+                acceptedAnswer: { "@type": "Answer", text: `${operator.name} dichiara i seguenti metodi: ${operator.paymentMethods.join(", ")}.` },
+              },
+            ],
+          }),
+        },
+      ],
     };
   },
+
   notFoundComponent: OperatorNotFound,
   component: OperatorPage,
 });
@@ -78,11 +143,13 @@ function OperatorPage() {
         </Link>
 
         <header className="mt-6 border-b border-border pb-8">
-          <p className="text-xs uppercase tracking-widest text-gold">Scheda informativa</p>
-          <h1 className="mt-2 font-serif text-4xl md:text-5xl">{op.name}</h1>
+          <p className="text-xs uppercase tracking-widest text-gold">Recensione informativa 2026</p>
+          <h1 className="mt-2 font-serif text-4xl md:text-5xl">
+            {op.name}: recensione casinò ADM e bonus senza deposito
+          </h1>
           <p className="mt-3 text-sm text-muted-foreground">
             Concessione <strong className="text-foreground">{op.concessionN}</strong> — dati riferiti
-            all'elenco pubblico dei concessionari ADM.
+            all'elenco pubblico dei concessionari ADM (ex AAMS).
           </p>
         </header>
 
@@ -98,9 +165,57 @@ function OperatorPage() {
         </div>
 
         <section className="mt-12">
-          <h2 className="font-serif text-2xl">Analisi informativa</h2>
+          <h2 className="font-serif text-2xl">
+            {op.name} è un casinò ADM sicuro? Analisi della concessione
+          </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">{review.summary}</p>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            {op.name} opera in Italia con <strong>concessione ADM {op.concessionN}</strong>: significa che il
+            catalogo giochi, i generatori di numeri casuali e i flussi di gioco sono collegati al totalizzatore
+            nazionale e sottoposti al controllo dell'Agenzia delle Dogane e dei Monopoli. La verifica
+            dell'identità è obbligatoria e il conto di gioco resta limitato fino alla convalida dei documenti.
+            Puoi controllare in autonomia la validità della concessione sull'elenco pubblico di adm.gov.it.
+          </p>
         </section>
+
+        <section className="mt-10 rounded-xl border border-gold/30 bg-gold/5 p-6">
+          <h2 className="font-serif text-2xl">Bonus senza deposito {op.name}</h2>
+          {op.noDepositBonus ? (
+            <>
+              <p className="mt-3 text-lg font-semibold text-gold">{op.noDepositBonus.amount}</p>
+              <p className="mt-2 text-sm text-foreground/90">{op.noDepositBonus.description}</p>
+            </>
+          ) : (
+            <p className="mt-3 text-sm text-foreground/90">
+              Al momento non risultano <strong>bonus senza deposito</strong> pubblicati da {op.name}. Consulta
+              i Termini e Condizioni ufficiali del concessionario per eventuali aggiornamenti.
+            </p>
+          )}
+          <p className="mt-3 text-sm text-muted-foreground">
+            Ogni bonus senza deposito è soggetto a <strong>requisiti di puntata (wagering)</strong>, scadenza,
+            giochi ammessi e limite di vincita prelevabile.{" "}
+            <Link to="/bonus-senza-deposito" className="underline hover:text-gold">
+              Leggi come funzionano i bonus senza deposito
+            </Link>{" "}
+            oppure scopri{" "}
+            <Link to="/come-registrarsi" className="underline hover:text-gold">
+              come registrarsi su un casinò ADM
+            </Link>
+            .
+          </p>
+        </section>
+
+        <section className="mt-10">
+          <h2 className="font-serif text-2xl">Come registrarsi e verificare il conto su {op.name}</h2>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+            La registrazione su {op.name} richiede la maggiore età, un documento d'identità valido e il codice
+            fiscale; in alternativa è spesso disponibile l'accesso con SPID o CIE, che rende la verifica
+            immediata. Solo al termine della verifica il conto di gioco diventa pienamente operativo e viene
+            accreditato l'eventuale bonus senza deposito. Prima della prima giocata è consigliabile impostare i
+            limiti di deposito previsti dalla normativa italiana.
+          </p>
+        </section>
+
 
         <section className="mt-10 grid gap-6 md:grid-cols-2">
           <div className="rounded-xl border border-gold/30 bg-gold/5 p-6">

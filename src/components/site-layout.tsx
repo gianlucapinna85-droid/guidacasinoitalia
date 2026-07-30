@@ -1,8 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { type ReactNode } from "react";
-import { ShieldCheck, Ban, LifeBuoy, Landmark, BadgeCheck } from "lucide-react";
+import { ShieldCheck, Ban, LifeBuoy, Landmark, BadgeCheck, Youtube, Instagram, Music2, Send } from "lucide-react";
 import vietato18 from "@/assets/vietato-18.png.asset.json";
 import admLogo from "@/assets/adm-logo.png.asset.json";
+
+export const YOUTUBE_URL = "https://youtube.com/@guidacasinoitalia?si=t6PGoRaPJ6Pyiyc4";
+
 
 export function OfficialLogosBanner() {
   return (
@@ -217,12 +220,22 @@ export function Header() {
           </span>
         </div>
 
-        <nav className="hidden gap-8 text-sm md:flex">
+        <nav className="hidden gap-6 text-sm md:flex">
           <Link to="/" hash="operatori" className="text-muted-foreground transition-colors hover:text-foreground">Operatori ADM</Link>
-          <Link to="/bonus-senza-deposito" className="text-muted-foreground transition-colors hover:text-foreground">Bonus senza deposito</Link>
+          <Link to="/bonus-senza-deposito" className="text-muted-foreground transition-colors hover:text-foreground">Info sui bonus senza deposito</Link>
+          <Link to="/come-registrarsi" className="text-muted-foreground transition-colors hover:text-foreground">Come registrarsi</Link>
           <Link to="/gioco-responsabile" className="text-muted-foreground transition-colors hover:text-foreground">Gioco responsabile</Link>
-          <Link to="/note-legali" className="text-muted-foreground transition-colors hover:text-foreground">Note legali</Link>
+          <a
+            href={YOUTUBE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Canale YouTube di GuidaCasinò.IT"
+            className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <Youtube className="h-4 w-4" /> YouTube
+          </a>
         </nav>
+
 
       </div>
     </header>
@@ -259,14 +272,37 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground">Risorse ufficiali</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground">Guide</h4>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+              <li><Link to="/bonus-senza-deposito" className="hover:text-foreground">Info sui bonus senza deposito</Link></li>
+              <li><Link to="/come-registrarsi" className="hover:text-foreground">Come registrarsi</Link></li>
               <li><a href="https://www.adm.gov.it" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-foreground">ADM</a></li>
               <li><a href="https://www.giocaresponsabile.it" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-foreground">Gioca Responsabile</a></li>
-              <li><a href="https://www.iss.it/telefono-verde-per-le-dipendenze" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-foreground">TVNGA 800 558822</a></li>
             </ul>
+            <h4 className="mt-5 text-xs font-semibold uppercase tracking-widest text-foreground">Seguici</h4>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <a
+                href={YOUTUBE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Canale YouTube di GuidaCasinò.IT"
+                className="inline-flex items-center gap-1.5 rounded-full border border-gold/50 bg-gold/10 px-3 py-1.5 text-xs font-semibold text-gold hover:bg-gold/20"
+              >
+                <Youtube className="h-4 w-4" /> YouTube
+              </a>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground" title="In arrivo">
+                <Instagram className="h-4 w-4" /> Instagram
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground" title="In arrivo">
+                <Music2 className="h-4 w-4" /> TikTok
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground" title="In arrivo">
+                <Send className="h-4 w-4" /> Telegram
+              </span>
+            </div>
           </div>
         </div>
+
 
         <div className="mt-10 rounded-lg border border-warning/30 bg-warning/10 p-4 text-xs text-foreground/80">
           <p className="font-semibold text-warning">Avvertenza obbligatoria</p>
