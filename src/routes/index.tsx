@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, ScrollText, Scale, Users, ArrowRight, CheckCircle2, Calendar, RefreshCw } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
-import { PageShell, ComplianceBadges, OfficialLogosBanner } from "@/components/site-layout";
+import { PageShell, ComplianceBadges, OfficialLogosBanner, OperatorTrustDots } from "@/components/site-layout";
 import { operators, sortedOperators } from "@/lib/operators";
 
 const FAQS = [
