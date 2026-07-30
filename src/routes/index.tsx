@@ -376,8 +376,12 @@ function OperatorsSection() {
                 <p className="text-[11px] uppercase tracking-wider text-muted-foreground">
                   {op.concessionN}
                 </p>
+                <div className="mt-2">
+                  <OperatorTrustDots name={op.name} />
+                </div>
               </div>
             </div>
+
 
             <div className="grid gap-4 md:grid-cols-3">
               <Stat label="Attivo dal" value={op.founded.toString()} />
