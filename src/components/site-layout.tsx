@@ -41,6 +41,34 @@ export function OfficialLogosBanner() {
   );
 }
 
+export function OperatorTrustDots({ name }: { name?: string }) {
+  const dot =
+    "flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full border bg-white shadow-sm";
+  return (
+    <div
+      className="flex items-center gap-1.5"
+      aria-label={`Garanzie di ${name ?? "operatore"}: concessione ADM, vietato ai minori di 18 anni, operatore legale in Italia, dati verificati`}
+    >
+      <span className={`${dot} border-gold/60`} title="Concessione ADM">
+        <img src={admLogo.url} alt="Concessione ADM" className="h-5 w-5 object-contain" loading="lazy" />
+      </span>
+      <span className={`${dot} border-destructive/60`} title="Vietato ai minori di 18 anni">
+        <img src={vietato18.url} alt="Vietato ai minori di 18 anni" className="h-5 w-5 object-contain" loading="lazy" />
+      </span>
+      <span className={`${dot} border-border`} title="Operatore legale in Italia" role="img" aria-label="Bandiera italiana">
+        <span className="flex h-5 w-5 overflow-hidden rounded-full">
+          <span className="h-full w-1/3 bg-[#008C45]" />
+          <span className="h-full w-1/3 bg-white" />
+          <span className="h-full w-1/3 bg-[#CD212A]" />
+        </span>
+      </span>
+      <span className={`${dot} border-gold/60 bg-gold/10`} title="Verificato sull'elenco pubblico ADM">
+        <BadgeCheck className="h-5 w-5 text-gold" strokeWidth={2.4} />
+      </span>
+    </div>
+  );
+}
+
 
 export function ComplianceBadges() {
   const badges = [
