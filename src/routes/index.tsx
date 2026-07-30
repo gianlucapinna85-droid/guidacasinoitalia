@@ -60,7 +60,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:description", content: "Confronto informativo dei casinò online con concessione ADM (ex AAMS): bonus senza deposito, RTP, pagamenti e tutela del giocatore. Solo +18." },
 
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://guidacasinoitalia.lovable.app/" }],
     scripts: [
       {
         type: "application/ld+json",
