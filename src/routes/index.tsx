@@ -47,15 +47,18 @@ const FAQS = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Casinò ADM Sicuri 2026 — Guida ai Migliori Siti Legali in Italia" },
-      { name: "description", content: "Confronto informativo dei casinò online con concessione ADM (ex AAMS): licenza, RTP, metodi di pagamento e strumenti di tutela. Scopri i siti di gioco legali e sicuri in Italia. Solo +18." },
-      { property: "og:title", content: "Casinò ADM Sicuri 2026 — Guida ai Migliori Siti Legali in Italia" },
-      { property: "og:description", content: "Confronto informativo dei casinò online con concessione ADM (ex AAMS): licenza, RTP, metodi di pagamento e strumenti di tutela. Scopri i siti di gioco legali e sicuri in Italia. Solo +18." },
-      { property: "og:url", content: "/" },
+      { title: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS" },
+      { name: "description", content: "Casinò online sicuri con concessione ADM (ex AAMS): confronto di bonus senza deposito immediato, RTP, metodi di pagamento e tutela del giocatore. Guida informativa aggiornata 2026. Solo +18." },
+      { name: "keywords", content: "casino adm, casino aams, bonus senza deposito, bonus senza deposito immediato, casino online sicuri, casino online italiani, concessione adm, gioco legale italia" },
+      { property: "og:title", content: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS" },
+      { property: "og:description", content: "Confronto informativo dei casinò online con concessione ADM (ex AAMS): bonus senza deposito, RTP, pagamenti e strumenti di tutela. Solo +18." },
+      { property: "og:url", content: "https://guidacasinoitalia.lovable.app/" },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "it_IT" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Casinò ADM Sicuri 2026 — Guida ai Migliori Siti Legali in Italia" },
-      { name: "twitter:description", content: "Confronto informativo dei casinò online con concessione ADM (ex AAMS): licenza, RTP, metodi di pagamento e strumenti di tutela. Scopri i siti di gioco legali e sicuri in Italia. Solo +18." },
+      { name: "twitter:title", content: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS" },
+      { name: "twitter:description", content: "Confronto informativo dei casinò online con concessione ADM (ex AAMS): bonus senza deposito, RTP, pagamenti e tutela del giocatore. Solo +18." },
+
     ],
     links: [{ rel: "canonical", href: "/" }],
     scripts: [
