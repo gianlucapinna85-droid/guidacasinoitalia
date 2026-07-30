@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
 // TODO: replace with your project URL once a project name or custom domain is set.
-const BASE_URL = "";
+const BASE_URL = "https://guidacasinoitalia.lovable.app";
 
 interface SitemapEntry {
   path: string;
@@ -20,6 +20,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/", lastmod: today, changefreq: "weekly", priority: "1.0" },
           { path: "/gioco-responsabile", lastmod: today, changefreq: "monthly", priority: "0.9" },
           { path: "/bonus-senza-deposito", lastmod: today, changefreq: "monthly", priority: "0.8" },
+          { path: "/come-registrarsi", lastmod: today, changefreq: "monthly", priority: "0.8" },
           { path: "/note-legali", lastmod: today, changefreq: "yearly", priority: "0.4" },
           { path: "/privacy", lastmod: today, changefreq: "yearly", priority: "0.4" },
         ];

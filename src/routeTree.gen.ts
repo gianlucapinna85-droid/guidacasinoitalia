@@ -13,6 +13,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as NoteLegaliRouteImport } from './routes/note-legali'
 import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabile'
+import { Route as ComeRegistrarsiRouteImport } from './routes/come-registrarsi'
 import { Route as BonusSenzaDepositoRouteImport } from './routes/bonus-senza-deposito'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
@@ -37,6 +38,11 @@ const GiocoResponsabileRoute = GiocoResponsabileRouteImport.update({
   path: '/gioco-responsabile',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ComeRegistrarsiRoute = ComeRegistrarsiRouteImport.update({
+  id: '/come-registrarsi',
+  path: '/come-registrarsi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BonusSenzaDepositoRoute = BonusSenzaDepositoRouteImport.update({
   id: '/bonus-senza-deposito',
   path: '/bonus-senza-deposito',
@@ -56,6 +62,7 @@ const OperatoriSlugRoute = OperatoriSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
+  '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
+  '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
@@ -75,6 +83,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
+  '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
@@ -86,6 +95,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/bonus-senza-deposito'
+    | '/come-registrarsi'
     | '/gioco-responsabile'
     | '/note-legali'
     | '/privacy'
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/bonus-senza-deposito'
+    | '/come-registrarsi'
     | '/gioco-responsabile'
     | '/note-legali'
     | '/privacy'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/bonus-senza-deposito'
+    | '/come-registrarsi'
     | '/gioco-responsabile'
     | '/note-legali'
     | '/privacy'
@@ -114,6 +126,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BonusSenzaDepositoRoute: typeof BonusSenzaDepositoRoute
+  ComeRegistrarsiRoute: typeof ComeRegistrarsiRoute
   GiocoResponsabileRoute: typeof GiocoResponsabileRoute
   NoteLegaliRoute: typeof NoteLegaliRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -151,6 +164,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GiocoResponsabileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/come-registrarsi': {
+      id: '/come-registrarsi'
+      path: '/come-registrarsi'
+      fullPath: '/come-registrarsi'
+      preLoaderRoute: typeof ComeRegistrarsiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/bonus-senza-deposito': {
       id: '/bonus-senza-deposito'
       path: '/bonus-senza-deposito'
@@ -178,6 +198,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BonusSenzaDepositoRoute: BonusSenzaDepositoRoute,
+  ComeRegistrarsiRoute: ComeRegistrarsiRoute,
   GiocoResponsabileRoute: GiocoResponsabileRoute,
   NoteLegaliRoute: NoteLegaliRoute,
   PrivacyRoute: PrivacyRoute,
