@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-layout";
 import { UserPlus, ShieldCheck, AlertTriangle, CheckCircle2, IdCard } from "lucide-react";
-import regVideoUrl from "@/../public/video/come-registrarsi.mp4.asset.json?url";
+import regVideoUrl from "@/assets/video/come-registrarsi.mp4.asset.json";
 
 const CANON = "https://guidacasinoitalia.lovable.app/come-registrarsi";
 
@@ -157,7 +157,7 @@ function Page() {
               playsInline
               poster="/video/registrazione-poster.jpg"
             >
-              <source src="/video/come-registrarsi.mp4" type="video/mp4" />
+              <source src={regVideoUrl} type="video/mp4" />
               Il tuo browser non supporta la riproduzione video.
             </video>
           </div>
