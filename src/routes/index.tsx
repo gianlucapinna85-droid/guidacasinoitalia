@@ -306,7 +306,7 @@ function Hero() {
               to="/bonus-senza-deposito"
               className="inline-flex items-center gap-2 rounded-md border border-gold/40 bg-gold px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-gold/90"
             >
-              Bonus senza deposito <ArrowRight className="h-4 w-4" />
+              Info bonus <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/gioco-responsabile"
