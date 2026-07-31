@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-layout";
 import { UserPlus, ShieldCheck, AlertTriangle, CheckCircle2, IdCard } from "lucide-react";
+import regVideoUrl from "@/../public/video/come-registrarsi.mp4.asset.json?url";
 
 const CANON = "https://guidacasinoitalia.lovable.app/come-registrarsi";
 
