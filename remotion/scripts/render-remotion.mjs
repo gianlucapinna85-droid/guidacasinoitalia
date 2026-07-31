@@ -24,8 +24,9 @@ await renderMedia({
   codec: "h264",
   outputLocation: process.env.OUT ?? "/mnt/documents/bonus-senza-deposito.mp4",
   puppeteerInstance: browser,
-  muted: true,
-  concurrency: 1,
+  muted: process.env.MUTED === "1",
+  concurrency: Number(process.env.CONC ?? 4),
+  audioCodec: "aac",
 });
 
 await browser.close({ silent: false });
