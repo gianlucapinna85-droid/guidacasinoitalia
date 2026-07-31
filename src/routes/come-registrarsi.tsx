@@ -149,7 +149,13 @@ function Page() {
             richiesta dai concessionari ADM.
           </p>
           <div className="mt-4 overflow-hidden rounded-xl border border-border bg-neutral-900 shadow-sm">
-            <video className="aspect-video w-full" controls preload="metadata" playsInline>
+            <video
+              className="aspect-video w-full"
+              controls
+              preload="metadata"
+              playsInline
+              poster="/video/registrazione-poster.jpg"
+            >
               <source src="/video/come-registrarsi.mp4" type="video/mp4" />
               Il tuo browser non supporta la riproduzione video.
             </video>
