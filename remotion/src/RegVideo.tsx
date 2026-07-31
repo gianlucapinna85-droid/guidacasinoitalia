@@ -1,9 +1,15 @@
-import { AbsoluteFill, useCurrentFrame, interpolate } from "remotion";
+import { AbsoluteFill, useCurrentFrame, interpolate, Audio, Sequence, staticFile } from "remotion";
 import { TransitionSeries, springTiming } from "@remotion/transitions";
 import { wipe } from "@remotion/transitions/wipe";
 import { fade } from "@remotion/transitions/fade";
 import { Backdrop, Reveal, Eyebrow } from "./components";
 import { C, display, body } from "./theme";
+
+const Vo: React.FC<{ n: number; volume?: number }> = ({ n, volume = 1 }) => (
+  <Sequence from={20}>
+    <Audio src={staticFile(`audio/vo-${n}.mp3`)} volume={volume} />
+  </Sequence>
+);
 
 const timing = springTiming({ config: { damping: 200 }, durationInFrames: 22 });
 
@@ -13,6 +19,7 @@ const Intro: React.FC = () => {
   return (
     <AbsoluteFill style={{ fontFamily: body }}>
       <Backdrop />
+      <Vo n={1} />
       <AbsoluteFill style={{ transform: `scale(${scale})`, padding: "0 140px", justifyContent: "center" }}>
         <Reveal delay={0}>
           <Eyebrow>Guida informativa · Casinò ADM</Eyebrow>
@@ -64,6 +71,7 @@ const Requisiti: React.FC = () => {
   return (
     <AbsoluteFill style={{ fontFamily: body }}>
       <Backdrop />
+      <Vo n={2} />
       <AbsoluteFill style={{ padding: "0 140px", justifyContent: "center" }}>
         <div style={{ display: "flex", gap: 90, alignItems: "center" }}>
           <div style={{ width: 620 }}>
@@ -119,6 +127,7 @@ const Passi: React.FC = () => {
   return (
     <AbsoluteFill style={{ fontFamily: body }}>
       <Backdrop />
+      <Vo n={3} />
       <AbsoluteFill style={{ padding: "0 140px", justifyContent: "center" }}>
         <Reveal>
           <Eyebrow>02 · La procedura</Eyebrow>
@@ -154,6 +163,7 @@ const Passi: React.FC = () => {
 const Verifica: React.FC = () => (
   <AbsoluteFill style={{ fontFamily: body }}>
     <Backdrop />
+      <Vo n={4} />
     <AbsoluteFill style={{ padding: "0 140px", justifyContent: "center" }}>
       <Reveal>
         <Eyebrow>03 · Verifica e conto gioco</Eyebrow>
@@ -211,6 +221,7 @@ const Chiusura: React.FC = () => {
   return (
     <AbsoluteFill style={{ fontFamily: body }}>
       <Backdrop />
+      <Vo n={5} />
       <AbsoluteFill style={{ padding: "0 140px", justifyContent: "center" }}>
         <Reveal>
           <Eyebrow>04 · Da ricordare</Eyebrow>
@@ -297,24 +308,25 @@ const Chiusura: React.FC = () => {
 
 export const RegVideo: React.FC = () => (
   <AbsoluteFill style={{ backgroundColor: C.ink }}>
+    <Audio src={staticFile("audio/music.mp3")} volume={0.16} loop />
     <TransitionSeries>
-      <TransitionSeries.Sequence durationInFrames={135}>
+      <TransitionSeries.Sequence durationInFrames={732}>
         <Intro />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition presentation={wipe({ direction: "from-right" })} timing={timing} />
-      <TransitionSeries.Sequence durationInFrames={155}>
+      <TransitionSeries.Sequence durationInFrames={1085}>
         <Requisiti />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition presentation={wipe({ direction: "from-right" })} timing={timing} />
-      <TransitionSeries.Sequence durationInFrames={165}>
+      <TransitionSeries.Sequence durationInFrames={1087}>
         <Passi />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition presentation={fade()} timing={timing} />
-      <TransitionSeries.Sequence durationInFrames={170}>
+      <TransitionSeries.Sequence durationInFrames={1095}>
         <Verifica />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition presentation={wipe({ direction: "from-right" })} timing={timing} />
-      <TransitionSeries.Sequence durationInFrames={200}>
+      <TransitionSeries.Sequence durationInFrames={1221}>
         <Chiusura />
       </TransitionSeries.Sequence>
     </TransitionSeries>
