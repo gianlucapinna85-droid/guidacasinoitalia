@@ -160,7 +160,7 @@ export const operators: Operator[] = [
       description:
         "Credito di gioco riconosciuto ai nuovi utenti che completano la registrazione con SPID e la verifica dell'identità, senza obbligo di deposito. Soggetto ai requisiti di puntata e alle condizioni pubblicate dal concessionario.",
     },
-    officialUrl: "https://casino.williamhill.it/",
+    officialUrl: <a target="_blank" rel="sponsored noreferrer noopener" href="https://www.gambling-affiliation.com/cpc/v=gqQBo.2b6e.KfTQV7nTXKskb73-G6EmaG7DESllWKnI_GA7331V2&aff_var_1=" >Il tuo testo qui</a>,
   },
 ];
 
