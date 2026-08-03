@@ -146,7 +146,7 @@ export const operators: Operator[] = [
     name: "William Hill",
     logo: williamhillLogo,
     concessionN: "ADM n. 16044",
-    founded: 1934,
+    founded: 1999,
     rtpAverage: "96,4%",
     paymentMethods: ["Carte", "PayPal", "Postepay", "Skrill", "Bonifico"],
     games: 1200,
