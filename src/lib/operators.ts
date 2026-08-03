@@ -151,7 +151,7 @@ export const operators: Operator[] = [
     paymentMethods: ["Carte", "PayPal", "Postepay", "Skrill", "Bonifico"],
     games: 1200,
     highlights: [
-      "Operatore storico attivo dal 1934, in Italia con concessione ADM",
+      "Operatore storico attivo dal 2018, in Italia con concessione ADM",
       "Registrazione e verifica immediata dell'identità con SPID",
       "Strumenti di autolimitazione e adesione al RUA",
     ],
@@ -160,7 +160,7 @@ export const operators: Operator[] = [
       description:
         "Credito di gioco riconosciuto ai nuovi utenti che completano la registrazione con SPID e la verifica dell'identità, senza obbligo di deposito. Soggetto ai requisiti di puntata e alle condizioni pubblicate dal concessionario.",
     },
-    officialUrl: <a target="_blank" rel="sponsored noreferrer noopener" href="https://www.gambling-affiliation.com/cpc/v=gqQBo.2b6e.KfTQV7nTXKskb73-G6EmaG7DESllWKnI_GA7331V2&aff_var_1=" >Il tuo testo qui</a>,
+    officialUrl: ""<a target="_blank" rel="sponsored noreferrer noopener" href="https://www.gambling-affiliation.com/cpc/v=gqQBo.2b6e.KfTQV7nTXKskb73-G6EmaG7DESllWKnI_GA7331V2&aff_var_1=" >Il tuo testo qui</a>,""
   },
 ];
 
