@@ -126,7 +126,10 @@ function Page() {
             <video
               className="aspect-video w-full"
               controls
-              preload="metadata"
+              autoPlay
+              muted
+              loop
+              preload="auto"
               playsInline
               poster="/video/bonus-poster.jpg"
             >
