@@ -153,11 +153,14 @@ function Page() {
             <video
               className="aspect-video w-full"
               controls
-              preload="metadata"
+              autoPlay
+              muted
+              loop
+              preload="auto"
               playsInline
               poster="/video/registrazione-poster.jpg"
             >
-              <source src={regVideoUrl} type="video/mp4" />
+              <source src={regVideoUrl.url} type="video/mp4" />
               Il tuo browser non supporta la riproduzione video.
             </video>
           </div>
