@@ -181,6 +181,7 @@ function HomePage() {
     <PageShell>
       <Hero />
       <TrustStrip />
+      <QuickAnswersSection />
       <ComplianceBlock placement="top" />
       <OperatorsSection />
       <EvaluationGuideSection />
@@ -192,6 +193,63 @@ function HomePage() {
     </PageShell>
   );
 }
+
+const QUICK_ANSWERS: { q: string; a: string }[] = [
+  {
+    q: "Quali casinò online sono legali in Italia nel 2026?",
+    a: "Sono legali esclusivamente gli operatori titolari di concessione ADM (Agenzia delle Dogane e dei Monopoli, ex AAMS). Il numero di concessione è pubblicato in fondo al sito dell'operatore e verificabile nell'elenco ufficiale su adm.gov.it.",
+  },
+  {
+    q: "Cos'è un bonus senza deposito e come si ottiene?",
+    a: "È un credito di gioco o un pacchetto di free spin riconosciuto dal concessionario al completamento della registrazione e della verifica dell'identità, senza obbligo di versare denaro. È sempre soggetto ai requisiti di puntata pubblicati dall'operatore.",
+  },
+  {
+    q: "Come si verifica che un sito abbia una concessione ADM valida?",
+    a: "Si confronta il numero di concessione indicato nel footer del sito dell'operatore con l'elenco pubblico dei concessionari pubblicato dall'Agenzia delle Dogane e dei Monopoli su adm.gov.it.",
+  },
+  {
+    q: "Serve lo SPID per registrarsi a un casinò ADM?",
+    a: "Non è obbligatorio, ma è l'alternativa più rapida: con SPID o CIE l'identità viene verificata immediatamente, mentre con il documento tradizionale la convalida richiede in genere da poche ore a due giorni lavorativi.",
+  },
+  {
+    q: "Cosa significa RTP e come si legge?",
+    a: "RTP (Return To Player) è la percentuale teorica di reintegro al giocatore calcolata su un numero molto elevato di giocate. Un RTP del 96% indica che, statisticamente e nel lungo periodo, il gioco restituisce 96€ ogni 100€ puntati: non è una garanzia di vincita sulla singola sessione.",
+  },
+  {
+    q: "Come ci si autoesclude dal gioco in Italia?",
+    a: "Tramite il Registro Unico degli Autoesclusi (RUA) gestito da ADM: la procedura è gratuita, immediata e valida su tutti i concessionari italiani. È disponibile anche il numero verde 800 558822.",
+  },
+];
+
+function QuickAnswersSection() {
+  return (
+    <section id="risposte-rapide" className="border-t border-border bg-card/30">
+      <div className="mx-auto max-w-4xl px-4 py-14 md:py-16">
+        <h2 className="font-serif text-2xl font-semibold md:text-3xl">
+          Risposte rapide sui casinò ADM in Italia
+        </h2>
+        <p className="mt-3 text-sm text-muted-foreground">
+          Sintesi verificabile delle domande più frequenti su gioco legale, concessioni e bonus senza
+          deposito, redatta per essere consultata rapidamente da lettori, motori di ricerca e assistenti
+          basati su intelligenza artificiale.
+        </p>
+        <dl className="mt-8 grid gap-4 md:grid-cols-2">
+          {QUICK_ANSWERS.map((item) => (
+            <div key={item.q} className="rounded-xl border border-border bg-background/60 p-5">
+              <dt className="font-semibold text-foreground">{item.q}</dt>
+              <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.a}</dd>
+            </div>
+          ))}
+        </dl>
+        <p className="mt-6 text-xs text-muted-foreground">
+          Fonti: Agenzia delle Dogane e dei Monopoli (adm.gov.it), siti ufficiali dei concessionari,
+          D.L. 87/2018. Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 
 
 function SeoGuideSection() {
