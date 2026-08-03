@@ -125,6 +125,52 @@ export const Route = createFileRoute("/")({
           }))
         ),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": "https://guidacasinoitalia.lovable.app/#webpage",
+          url: "https://guidacasinoitalia.lovable.app/",
+          name: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS",
+          inLanguage: "it-IT",
+          isFamilyFriendly: false,
+          dateModified: new Date().toISOString().slice(0, 10),
+          about: [
+            { "@type": "Thing", name: "Casinò online con concessione ADM" },
+            { "@type": "Thing", name: "Bonus senza deposito" },
+            { "@type": "Thing", name: "Gioco legale in Italia" },
+            { "@type": "Thing", name: "Gioco responsabile" },
+          ],
+          mentions: sortedOperators.map((op) => ({
+            "@type": "Organization",
+            name: op.name,
+            identifier: op.concessionN,
+            url: op.officialUrl,
+          })),
+          speakable: {
+            "@type": "SpeakableSpecification",
+            cssSelector: ["h1", "#risposte-rapide"],
+          },
+          publisher: { "@type": "Organization", name: "GuidaCasinò.IT", url: "https://guidacasinoitalia.lovable.app/" },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "DefinedTermSet",
+          name: "Glossario del gioco online legale in Italia",
+          inLanguage: "it-IT",
+          hasDefinedTerm: [
+            { "@type": "DefinedTerm", name: "Concessione ADM", description: "Autorizzazione rilasciata dall'Agenzia delle Dogane e dei Monopoli che consente a un operatore di offrire legalmente giochi con vincite in denaro in Italia." },
+            { "@type": "DefinedTerm", name: "Bonus senza deposito", description: "Credito di gioco o pacchetto di free spin riconosciuto al completamento della registrazione e della verifica documentale, senza obbligo di versare denaro." },
+            { "@type": "DefinedTerm", name: "Requisiti di puntata (wagering)", description: "Numero di volte in cui l'importo del bonus deve essere giocato prima di poter richiedere un prelievo delle vincite generate dal bonus." },
+            { "@type": "DefinedTerm", name: "RTP", description: "Return To Player: percentuale teorica di reintegro al giocatore calcolata su un numero molto elevato di giocate." },
+            { "@type": "DefinedTerm", name: "RUA", description: "Registro Unico degli Autoesclusi gestito da ADM, che consente l'autoesclusione gratuita da tutti i concessionari italiani." },
+          ],
+        }),
+      },
     ],
   }),
   component: HomePage,
