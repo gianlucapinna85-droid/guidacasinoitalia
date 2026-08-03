@@ -49,7 +49,15 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS" },
       { name: "description", content: "Casinò online sicuri con concessione ADM (ex AAMS): confronto di bonus senza deposito immediato, RTP, metodi di pagamento e tutela del giocatore. Guida informativa aggiornata 2026. Solo +18." },
-      { name: "keywords", content: "casino adm, casino aams, bonus senza deposito, bonus senza deposito immediato, casino online sicuri, casino online italiani, concessione adm, gioco legale italia" },
+      { name: "keywords", content: "casino adm, casino aams, bonus senza deposito, bonus senza deposito immediato, casino online sicuri, casino online italiani, migliori casino online 2026, concessione adm, gioco legale italia, casino con spid, come verificare licenza adm, casino legali italia elenco, quali sono i casino con concessione adm" },
+      { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
+      { name: "googlebot", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
+      { name: "ai-content-declaration", content: "informational, editorial, non-promotional" },
+      { name: "audience", content: "adults 18+" },
+      { name: "rating", content: "adult" },
+      { name: "geo.region", content: "IT" },
+      { name: "language", content: "it-IT" },
+      { name: "author", content: "GuidaCasinò.IT" },
       { property: "og:title", content: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS" },
       { property: "og:description", content: "Casinò online sicuri con concessione ADM (ex AAMS): confronto di bonus senza deposito immediato, RTP, metodi di pagamento e tutela del giocatore. Guida informativa aggiornata 2026. Solo +18." },
       { property: "og:url", content: "https://guidacasinoitalia.lovable.app/" },
@@ -67,7 +75,8 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          mainEntity: FAQS.map((f) => ({
+          inLanguage: "it-IT",
+          mainEntity: [...QUICK_ANSWERS, ...FAQS].map((f) => ({
             "@type": "Question",
             name: f.q,
             acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -117,6 +126,52 @@ export const Route = createFileRoute("/")({
           }))
         ),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": "https://guidacasinoitalia.lovable.app/#webpage",
+          url: "https://guidacasinoitalia.lovable.app/",
+          name: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS",
+          inLanguage: "it-IT",
+          isFamilyFriendly: false,
+          dateModified: new Date().toISOString().slice(0, 10),
+          about: [
+            { "@type": "Thing", name: "Casinò online con concessione ADM" },
+            { "@type": "Thing", name: "Bonus senza deposito" },
+            { "@type": "Thing", name: "Gioco legale in Italia" },
+            { "@type": "Thing", name: "Gioco responsabile" },
+          ],
+          mentions: sortedOperators.map((op) => ({
+            "@type": "Organization",
+            name: op.name,
+            identifier: op.concessionN,
+            url: op.officialUrl,
+          })),
+          speakable: {
+            "@type": "SpeakableSpecification",
+            cssSelector: ["h1", "#risposte-rapide"],
+          },
+          publisher: { "@type": "Organization", name: "GuidaCasinò.IT", url: "https://guidacasinoitalia.lovable.app/" },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "DefinedTermSet",
+          name: "Glossario del gioco online legale in Italia",
+          inLanguage: "it-IT",
+          hasDefinedTerm: [
+            { "@type": "DefinedTerm", name: "Concessione ADM", description: "Autorizzazione rilasciata dall'Agenzia delle Dogane e dei Monopoli che consente a un operatore di offrire legalmente giochi con vincite in denaro in Italia." },
+            { "@type": "DefinedTerm", name: "Bonus senza deposito", description: "Credito di gioco o pacchetto di free spin riconosciuto al completamento della registrazione e della verifica documentale, senza obbligo di versare denaro." },
+            { "@type": "DefinedTerm", name: "Requisiti di puntata (wagering)", description: "Numero di volte in cui l'importo del bonus deve essere giocato prima di poter richiedere un prelievo delle vincite generate dal bonus." },
+            { "@type": "DefinedTerm", name: "RTP", description: "Return To Player: percentuale teorica di reintegro al giocatore calcolata su un numero molto elevato di giocate." },
+            { "@type": "DefinedTerm", name: "RUA", description: "Registro Unico degli Autoesclusi gestito da ADM, che consente l'autoesclusione gratuita da tutti i concessionari italiani." },
+          ],
+        }),
+      },
     ],
   }),
   component: HomePage,
@@ -127,6 +182,7 @@ function HomePage() {
     <PageShell>
       <Hero />
       <TrustStrip />
+      <QuickAnswersSection />
       <ComplianceBlock placement="top" />
       <OperatorsSection />
       <EvaluationGuideSection />
@@ -138,6 +194,63 @@ function HomePage() {
     </PageShell>
   );
 }
+
+const QUICK_ANSWERS: { q: string; a: string }[] = [
+  {
+    q: "Quali casinò online sono legali in Italia nel 2026?",
+    a: "Sono legali esclusivamente gli operatori titolari di concessione ADM (Agenzia delle Dogane e dei Monopoli, ex AAMS). Il numero di concessione è pubblicato in fondo al sito dell'operatore e verificabile nell'elenco ufficiale su adm.gov.it.",
+  },
+  {
+    q: "Cos'è un bonus senza deposito e come si ottiene?",
+    a: "È un credito di gioco o un pacchetto di free spin riconosciuto dal concessionario al completamento della registrazione e della verifica dell'identità, senza obbligo di versare denaro. È sempre soggetto ai requisiti di puntata pubblicati dall'operatore.",
+  },
+  {
+    q: "Come si verifica che un sito abbia una concessione ADM valida?",
+    a: "Si confronta il numero di concessione indicato nel footer del sito dell'operatore con l'elenco pubblico dei concessionari pubblicato dall'Agenzia delle Dogane e dei Monopoli su adm.gov.it.",
+  },
+  {
+    q: "Serve lo SPID per registrarsi a un casinò ADM?",
+    a: "Non è obbligatorio, ma è l'alternativa più rapida: con SPID o CIE l'identità viene verificata immediatamente, mentre con il documento tradizionale la convalida richiede in genere da poche ore a due giorni lavorativi.",
+  },
+  {
+    q: "Cosa significa RTP e come si legge?",
+    a: "RTP (Return To Player) è la percentuale teorica di reintegro al giocatore calcolata su un numero molto elevato di giocate. Un RTP del 96% indica che, statisticamente e nel lungo periodo, il gioco restituisce 96€ ogni 100€ puntati: non è una garanzia di vincita sulla singola sessione.",
+  },
+  {
+    q: "Come ci si autoesclude dal gioco in Italia?",
+    a: "Tramite il Registro Unico degli Autoesclusi (RUA) gestito da ADM: la procedura è gratuita, immediata e valida su tutti i concessionari italiani. È disponibile anche il numero verde 800 558822.",
+  },
+];
+
+function QuickAnswersSection() {
+  return (
+    <section id="risposte-rapide" className="border-t border-border bg-card/30">
+      <div className="mx-auto max-w-4xl px-4 py-14 md:py-16">
+        <h2 className="font-serif text-2xl font-semibold md:text-3xl">
+          Risposte rapide sui casinò ADM in Italia
+        </h2>
+        <p className="mt-3 text-sm text-muted-foreground">
+          Sintesi verificabile delle domande più frequenti su gioco legale, concessioni e bonus senza
+          deposito, redatta per essere consultata rapidamente da lettori, motori di ricerca e assistenti
+          basati su intelligenza artificiale.
+        </p>
+        <dl className="mt-8 grid gap-4 md:grid-cols-2">
+          {QUICK_ANSWERS.map((item) => (
+            <div key={item.q} className="rounded-xl border border-border bg-background/60 p-5">
+              <dt className="font-semibold text-foreground">{item.q}</dt>
+              <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.a}</dd>
+            </div>
+          ))}
+        </dl>
+        <p className="mt-6 text-xs text-muted-foreground">
+          Fonti: Agenzia delle Dogane e dei Monopoli (adm.gov.it), siti ufficiali dei concessionari,
+          D.L. 87/2018. Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 
 
 function SeoGuideSection() {

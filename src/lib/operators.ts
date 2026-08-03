@@ -5,6 +5,7 @@ import netbetLogo from "@/assets/logos/netbet.png";
 import betflagLogo from "@/assets/logos/betflag.png";
 import logo888 from "@/assets/logos/888.png";
 import sunbetLogo from "@/assets/logos/sunbet.png";
+import williamhillLogo from "@/assets/logos/williamhill.png";
 
 export type NoDepositBonus = {
   amount: string;
@@ -140,6 +141,27 @@ export const operators: Operator[] = [
     },
   officialUrl: "https://www.gambling-affiliation.com/cpc/v=r-pjVdIlD.awE540kQttwJhlChLVX9pg98I6gO07Ikk_GA7331V2",
     },
+  {
+    slug: "william-hill",
+    name: "William Hill",
+    logo: williamhillLogo,
+    concessionN: "ADM n. 16044",
+    founded: 1934,
+    rtpAverage: "96,4%",
+    paymentMethods: ["Carte", "PayPal", "Postepay", "Skrill", "Bonifico"],
+    games: 1200,
+    highlights: [
+      "Operatore storico attivo dal 1934, in Italia con concessione ADM",
+      "Registrazione e verifica immediata dell'identità con SPID",
+      "Strumenti di autolimitazione e adesione al RUA",
+    ],
+    noDepositBonus: {
+      amount: "€ 50",
+      description:
+        "Credito di gioco riconosciuto ai nuovi utenti che completano la registrazione con SPID e la verifica dell'identità, senza obbligo di deposito. Soggetto ai requisiti di puntata e alle condizioni pubblicate dal concessionario.",
+    },
+    officialUrl: "https://casino.williamhill.it/",
+  },
 ];
 
 export const sortedOperators = [...operators].sort((a, b) => {

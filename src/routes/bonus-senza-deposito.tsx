@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-layout";
 import { Gift, ShieldCheck, AlertTriangle, CheckCircle2, HelpCircle } from "lucide-react";
+import bonusVideoUrl from "@/assets/video/bonus-senza-deposito.mp4.asset.json";
 
 export const Route = createFileRoute("/bonus-senza-deposito")({
   head: () => ({
@@ -117,24 +118,29 @@ function Page() {
         </div>
 
         <section className="mt-10">
-          <h2 className="text-2xl font-semibold text-foreground">Video: il bonus senza deposito spiegato in un minuto</h2>
+          <h2 className="text-2xl font-semibold text-foreground">Video: il bonus senza deposito spiegato con voce narrante</h2>
           <p className="mt-2 text-sm text-neutral-600">
             Un riepilogo visivo e informativo su cosa sono i bonus senza deposito, perché i concessionari ADM li
-            offrono e come funzionano i requisiti di puntata.
+            offrono e come funzionano i requisiti di puntata. Il video parte automaticamente senza audio: tocca
+            l'icona dell'altoparlante per attivare la voce narrante e la musica.
           </p>
           <div className="mt-4 overflow-hidden rounded-xl border border-neutral-200 bg-neutral-900 shadow-sm">
             <video
               className="aspect-video w-full"
               controls
-              preload="metadata"
+              autoPlay
+              muted
+              loop
+              preload="auto"
               playsInline
               poster="/video/bonus-poster.jpg"
             >
-              <source src="/video/bonus-senza-deposito.mp4" type="video/mp4" />
+              <source src={bonusVideoUrl.url} type="video/mp4" />
               Il tuo browser non supporta la riproduzione video.
             </video>
           </div>
         </section>
+
 
         <h2 className="mt-10 text-2xl font-semibold text-foreground">Cos'è un bonus senza deposito</h2>
         <p className="mt-3 text-neutral-700">
