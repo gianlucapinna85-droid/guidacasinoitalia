@@ -5,6 +5,7 @@ import netbetLogo from "@/assets/logos/netbet.png";
 import betflagLogo from "@/assets/logos/betflag.png";
 import logo888 from "@/assets/logos/888.png";
 import sunbetLogo from "@/assets/logos/sunbet.png";
+import williamhillLogo from "@/assets/logos/williamhill.png";
 
 export type NoDepositBonus = {
   amount: string;
