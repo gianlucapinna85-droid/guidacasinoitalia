@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-layout";
 import { Gift, ShieldCheck, AlertTriangle, CheckCircle2, HelpCircle } from "lucide-react";
+import bonusVideoUrl from "@/assets/video/bonus-senza-deposito.mp4.asset.json";
 
 export const Route = createFileRoute("/bonus-senza-deposito")({
   head: () => ({
