@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { type ReactNode } from "react";
+import siteLogo from "@/assets/site-logo.png";
 import { ShieldCheck, Ban, LifeBuoy, Landmark, BadgeCheck, Youtube, Instagram, Music2, Send } from "lucide-react";
 import vietato18 from "@/assets/vietato-18.png.asset.json";
 import admLogo from "@/assets/adm-logo.png.asset.json";
@@ -183,15 +184,18 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded bg-gold text-primary-foreground">
-            <ShieldCheck className="h-4 w-4" />
-          </div>
+        <Link to="/" className="flex items-center gap-2.5">
+          <img
+            src={siteLogo}
+            alt="Logo GuidaCasinò.IT"
+            className="h-11 w-11 shrink-0 rounded-full object-contain"
+          />
           <div className="leading-tight">
             <div className="font-serif text-lg font-semibold">GuidaCasinò<span className="text-gold">.IT</span></div>
             <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Comparatore informativo</div>
           </div>
         </Link>
+
 
         <div className="flex items-center gap-1.5">
           <a

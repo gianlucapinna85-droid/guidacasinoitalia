@@ -6,6 +6,12 @@ import betflagLogo from "@/assets/logos/betflag.png";
 import logo888 from "@/assets/logos/888.png";
 import sunbetLogo from "@/assets/logos/sunbet.png";
 import williamhillLogo from "@/assets/logos/williamhill.png";
+import lottomaticaLogo from "@/assets/logos/lottomatica.png";
+import goldbetLogo from "@/assets/logos/goldbet.png";
+import snaiLogo from "@/assets/logos/snai.png";
+import sisalLogo from "@/assets/logos/sisal.png";
+import eplay24Logo from "@/assets/logos/eplay24.png";
+
 
 export type NoDepositBonus = {
   amount: string;
@@ -162,6 +168,132 @@ export const operators: Operator[] = [
     },
   officialUrl:"https://www.gambling-affiliation.com/cpc/v=gqQBo.2b6e.KfTQV7nTXKskb73-G6EmaG7DESllWKnI_GA7331V2&aff_var_1=",
   },
+  {
+
+    slug: "lottomatica",
+    name: "Lottomatica",
+    logo: lottomaticaLogo,
+    concessionN: "ADM n. 15215",
+    founded: 1990,
+    rtpAverage: "96,2%",
+    paymentMethods: ["Carte", "PayPal", "Postepay", "Bonifico", "Punti vendita"],
+    games: 2500,
+    highlights: [
+      "Operatore storico del mercato italiano regolamentato",
+      "Registrazione con SPID/CIE e verifica immediata",
+      "Strumenti di autolimitazione e adesione al RUA",
+    ],
+    noDepositBonus: {
+      amount: "€ 10",
+      description:
+        "Credito di gioco indicato dal concessionario per i nuovi conti verificati, senza obbligo di deposito. Importo e condizioni possono variare: verifica i Termini e Condizioni ufficiali.",
+    },
+    officialUrl: "https://www.lottomatica.it",
+  },
+  {
+    slug: "goldbet",
+    name: "Goldbet",
+    logo: goldbetLogo,
+    concessionN: "ADM n. 15226",
+    founded: 2011,
+    rtpAverage: "96,1%",
+    paymentMethods: ["Carte", "PayPal", "Postepay", "Bonifico", "Punti vendita"],
+    games: 2300,
+    highlights: [
+      "Rete di punti vendita fisici in tutta Italia",
+      "Verifica dell'identità con SPID o documento",
+      "Limiti di deposito personalizzabili",
+    ],
+    noDepositBonus: {
+      amount: "€ 10",
+      description:
+        "Importo di gioco indicato dal concessionario alla convalida del documento, senza deposito. Soggetto a requisiti di puntata e alle condizioni ufficiali pubblicate.",
+    },
+    officialUrl: "https://www.goldbet.it",
+  },
+  {
+    slug: "snai",
+    name: "Snai",
+    logo: snaiLogo,
+    concessionN: "ADM n. 15219",
+    founded: 1990,
+    rtpAverage: "96,0%",
+    paymentMethods: ["Carte", "PayPal", "Postepay", "Bonifico", "Punti vendita"],
+    games: 2600,
+    highlights: [
+      "Operatore storico con rete di agenzie sul territorio",
+      "Assistenza clienti in lingua italiana",
+      "Strumenti di gioco responsabile e adesione al RUA",
+    ],
+    noDepositBonus: {
+      amount: "€ 10",
+      description:
+        "Credito di gioco riconosciuto ai nuovi utenti dopo la verifica dei documenti, senza necessità di deposito. Condizioni complete sul sito ufficiale del concessionario.",
+    },
+    officialUrl: "https://www.snai.it",
+  },
+  {
+    slug: "sisal",
+    name: "Sisal",
+    logo: sisalLogo,
+    concessionN: "ADM n. 15220",
+    founded: 1946,
+    rtpAverage: "96,1%",
+    paymentMethods: ["Carte", "PayPal", "Postepay", "Bonifico", "Punti vendita"],
+    games: 2200,
+    highlights: [
+      "Concessionario storico dei giochi pubblici in Italia",
+      "Registrazione con SPID e verifica immediata",
+      "Limiti di deposito e autoesclusione disponibili",
+    ],
+    noDepositBonus: {
+      amount: "€ 10",
+      description:
+        "Importo di gioco indicato dal concessionario per i nuovi conti verificati, senza deposito iniziale. Verifica requisiti di puntata e scadenze nei Termini ufficiali.",
+    },
+    officialUrl: "https://www.sisal.it",
+  },
+  {
+    slug: "planetwin365",
+    name: "Planetwin365",
+    concessionN: "ADM n. 15207",
+    founded: 2010,
+    rtpAverage: "96,0%",
+    paymentMethods: ["Carte", "PayPal", "Postepay", "Bonifico", "Punti vendita"],
+    games: 2100,
+    highlights: [
+      "Ampio catalogo di slot certificate ADM",
+      "Verifica dell'identità obbligatoria prima dei prelievi",
+      "Strumenti di autolimitazione integrati",
+    ],
+    noDepositBonus: {
+      amount: "€ 10",
+      description:
+        "Credito di gioco indicato dal concessionario alla verifica del conto, senza obbligo di deposito. Soggetto alle condizioni ufficiali pubblicate.",
+    },
+    officialUrl: "https://www.planetwin365.it",
+  },
+  {
+    slug: "eplay24",
+    name: "Eplay24",
+    logo: eplay24Logo,
+    concessionN: "ADM n. 15229",
+    founded: 2014,
+    rtpAverage: "96,0%",
+    paymentMethods: ["Carte", "Postepay", "Bonifico", "Punti vendita"],
+    games: 1600,
+    highlights: [
+      "Concessione ADM in corso di validità",
+      "Catalogo slot con provider internazionali",
+      "Adesione al Registro Unico degli Autoesclusi",
+    ],
+    noDepositBonus: {
+      amount: "€ 10",
+      description:
+        "Importo di gioco indicato dal concessionario ai nuovi utenti verificati, senza deposito. Consulta i Termini e Condizioni ufficiali per requisiti e scadenze.",
+    },
+    officialUrl: "https://eplay24.it",
+  },
 ];
 
 export const sortedOperators = [...operators].sort((a, b) => {
@@ -169,3 +301,4 @@ export const sortedOperators = [...operators].sort((a, b) => {
   const bVal = parseNoDepositAmount(b.noDepositBonus?.amount);
   return bVal - aVal;
 });
+
