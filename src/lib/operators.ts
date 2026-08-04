@@ -205,7 +205,7 @@ export const operators: Operator[] = [
       "Limiti di deposito personalizzabili",
     ],
     noDepositBonus: {
-      amount: "real bonus 30€ dopo il primo deposito",
+      amount: "real bonus 30€",
       description:
         "Importo di gioco indicato dal concessionario alla convalida del documento, senza deposito. Soggetto a requisiti di puntata e alle condizioni ufficiali pubblicate.",
     },
@@ -267,7 +267,7 @@ export const operators: Operator[] = [
       "Strumenti di autolimitazione integrati",
     ],
     noDepositBonus: {
-      amount: "€ bonus senza deposito non disponibile 5050€ con deposito",
+      amount: "real bonus 50€",
       description:
         "Credito di gioco indicato dal concessionario alla verifica del conto, senza obbligo di deposito. Soggetto alle condizioni ufficiali pubblicate.",
     },
