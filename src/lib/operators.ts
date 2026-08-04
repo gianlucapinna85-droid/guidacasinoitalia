@@ -205,11 +205,11 @@ export const operators: Operator[] = [
       "Limiti di deposito personalizzabili",
     ],
     noDepositBonus: {
-      amount: "€ 10",
+      amount: "real bonus 30€ dopo il primo deposito",
       description:
         "Importo di gioco indicato dal concessionario alla convalida del documento, senza deposito. Soggetto a requisiti di puntata e alle condizioni ufficiali pubblicate.",
     },
-    officialUrl: "https://www.goldbet.it",
+    officialUrl: "https://bonus.affilroi.com/Guidacasino/goldbetBONUS/c",
   },
   {
     slug: "snai",
