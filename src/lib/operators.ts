@@ -6,6 +6,12 @@ import betflagLogo from "@/assets/logos/betflag.png";
 import logo888 from "@/assets/logos/888.png";
 import sunbetLogo from "@/assets/logos/sunbet.png";
 import williamhillLogo from "@/assets/logos/williamhill.png";
+import lottomaticaLogo from "@/assets/logos/lottomatica.png";
+import goldbetLogo from "@/assets/logos/goldbet.png";
+import snaiLogo from "@/assets/logos/snai.png";
+import sisalLogo from "@/assets/logos/sisal.png";
+import eplay24Logo from "@/assets/logos/eplay24.png";
+
 
 export type NoDepositBonus = {
   amount: string;
