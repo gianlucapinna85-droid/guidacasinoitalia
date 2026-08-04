@@ -502,7 +502,17 @@ function OperatorsSection() {
             <div className="grid gap-4 md:grid-cols-3">
               <Stat label="Attivo dal" value={op.founded.toString()} />
               <Stat label="RTP medio dichiarato" value={op.rtpAverage} />
-              <Stat label="Titoli disponibili" value={`${op.games}+`} />
+              <div>
+                <Stat label="Titoli disponibili" value={`${op.games}+`} />
+                <Link
+                  to="/provider/$slug"
+                  params={{ slug: op.slug }}
+                  className="mt-2 inline-flex items-center justify-center rounded-md border border-gold/50 bg-gold/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-gold transition-colors hover:bg-gold/20"
+                >
+                  Provider disponibili
+                </Link>
+              </div>
+
               <div className="md:col-span-3">
                 {op.noDepositBonus ? (
                   <div className="mb-3 rounded-lg border border-gold/40 bg-gold/10 p-4">

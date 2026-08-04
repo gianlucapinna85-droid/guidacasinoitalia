@@ -16,6 +16,7 @@ import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabi
 import { Route as ComeRegistrarsiRouteImport } from './routes/come-registrarsi'
 import { Route as BonusSenzaDepositoRouteImport } from './routes/bonus-senza-deposito'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
 import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -53,6 +54,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProviderSlugRoute = ProviderSlugRouteImport.update({
+  id: '/provider/$slug',
+  path: '/provider/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OperatoriSlugRoute = OperatoriSlugRouteImport.update({
   id: '/operatori/$slug',
   path: '/operatori/$slug',
@@ -68,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
+  '/provider/$slug': typeof ProviderSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -78,6 +85,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
+  '/provider/$slug': typeof ProviderSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -89,6 +97,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
+  '/provider/$slug': typeof ProviderSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,6 +110,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/sitemap.xml'
     | '/operatori/$slug'
+    | '/provider/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/sitemap.xml'
     | '/operatori/$slug'
+    | '/provider/$slug'
   id:
     | '__root__'
     | '/'
@@ -121,6 +132,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/sitemap.xml'
     | '/operatori/$slug'
+    | '/provider/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -132,6 +144,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   OperatoriSlugRoute: typeof OperatoriSlugRoute
+  ProviderSlugRoute: typeof ProviderSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -185,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/provider/$slug': {
+      id: '/provider/$slug'
+      path: '/provider/$slug'
+      fullPath: '/provider/$slug'
+      preLoaderRoute: typeof ProviderSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/operatori/$slug': {
       id: '/operatori/$slug'
       path: '/operatori/$slug'
@@ -204,6 +224,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   OperatoriSlugRoute: OperatoriSlugRoute,
+  ProviderSlugRoute: ProviderSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
