@@ -168,9 +168,8 @@ export const operators: Operator[] = [
     },
   officialUrl:"https://www.gambling-affiliation.com/cpc/v=gqQBo.2b6e.KfTQV7nTXKskb73-G6EmaG7DESllWKnI_GA7331V2&aff_var_1=",
   },
-];
-
   {
+
     slug: "lottomatica",
     name: "Lottomatica",
     logo: lottomaticaLogo,
