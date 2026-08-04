@@ -184,11 +184,11 @@ export const operators: Operator[] = [
       "Strumenti di autolimitazione e adesione al RUA",
     ],
     noDepositBonus: {
-      amount: "€ 10",
+      amount: "€ 250",
       description:
         "Credito di gioco indicato dal concessionario per i nuovi conti verificati, senza obbligo di deposito. Importo e condizioni possono variare: verifica i Termini e Condizioni ufficiali.",
     },
-    officialUrl: "https://www.lottomatica.it",
+    officialUrl: "https://bonus.affilroi.com/Guidacasino/lottomaticaBonus/c",
   },
   {
     slug: "goldbet",
@@ -226,11 +226,11 @@ export const operators: Operator[] = [
       "Strumenti di gioco responsabile e adesione al RUA",
     ],
     noDepositBonus: {
-      amount: "€ 10",
+      amount: "€ 500",
       description:
         "Credito di gioco riconosciuto ai nuovi utenti dopo la verifica dei documenti, senza necessità di deposito. Condizioni complete sul sito ufficiale del concessionario.",
     },
-    officialUrl: "https://www.snai.it",
+    officialUrl: "https://bonus.affilroi.com/Guidacasino/snaiBONUS/c",
   },
   {
     slug: "sisal",
@@ -247,11 +247,11 @@ export const operators: Operator[] = [
       "Limiti di deposito e autoesclusione disponibili",
     ],
     noDepositBonus: {
-      amount: "€ 10",
+      amount: "€ 5000",
       description:
         "Importo di gioco indicato dal concessionario per i nuovi conti verificati, senza deposito iniziale. Verifica requisiti di puntata e scadenze nei Termini ufficiali.",
     },
-    officialUrl: "https://www.sisal.it",
+    officialUrl: "https://bonus.affilroi.com/Guidacasino/sisalBONUS/c",
   },
   {
     slug: "planetwin365",
@@ -267,11 +267,11 @@ export const operators: Operator[] = [
       "Strumenti di autolimitazione integrati",
     ],
     noDepositBonus: {
-      amount: "€ 10",
+      amount: "€ bonus senza deposito non disponibile 5050€ con deposito",
       description:
         "Credito di gioco indicato dal concessionario alla verifica del conto, senza obbligo di deposito. Soggetto alle condizioni ufficiali pubblicate.",
     },
-    officialUrl: "https://www.planetwin365.it",
+    officialUrl: "https://bonus.affilroi.com/Guidacasino/planetBONUS/c",
   },
   {
     slug: "eplay24",
@@ -288,11 +288,11 @@ export const operators: Operator[] = [
       "Adesione al Registro Unico degli Autoesclusi",
     ],
     noDepositBonus: {
-      amount: "€ 10",
+      amount: "€ 50",
       description:
         "Importo di gioco indicato dal concessionario ai nuovi utenti verificati, senza deposito. Consulta i Termini e Condizioni ufficiali per requisiti e scadenze.",
     },
-    officialUrl: "https://eplay24.it",
+    officialUrl: "https://bonus.affilroi.com/Guidacasino/eplay24BONUS/c",
   },
 ];
 
