@@ -254,26 +254,6 @@ export const operators: Operator[] = [
     officialUrl: "https://bonus.affilroi.com/Guidacasino/sisalBONUS/c",
   },
   {
-    slug: "planetwin365",
-    name: "Planetwin365",
-    concessionN: "ADM n. 15207",
-    founded: 2010,
-    rtpAverage: "96,0%",
-    paymentMethods: ["Carte", "PayPal", "Postepay", "Bonifico", "Punti vendita"],
-    games: 2100,
-    highlights: [
-      "Ampio catalogo di slot certificate ADM",
-      "Verifica dell'identità obbligatoria prima dei prelievi",
-      "Strumenti di autolimitazione integrati",
-    ],
-    noDepositBonus: {
-      amount: "real bonus 50€",
-      description:
-        "Credito di gioco indicato dal concessionario alla verifica del conto, senza obbligo di deposito. Soggetto alle condizioni ufficiali pubblicate.",
-    },
-    officialUrl: "https://bonus.affilroi.com/Guidacasino/planetBONUS/c",
-  },
-  {
     slug: "eplay24",
     name: "Eplay24",
     logo: eplay24Logo,

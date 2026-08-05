@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { operators } from "@/lib/operators";
 
-// TODO: replace with your project URL once a project name or custom domain is set.
 const BASE_URL = "https://guidacasinoitalia.lovable.app";
 
 interface SitemapEntry {
@@ -15,14 +15,23 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const today = new Date().toISOString().slice(0, 10);
         const entries: SitemapEntry[] = [
-          { path: "/", lastmod: today, changefreq: "weekly", priority: "1.0" },
-          { path: "/gioco-responsabile", lastmod: today, changefreq: "monthly", priority: "0.9" },
-          { path: "/bonus-senza-deposito", lastmod: today, changefreq: "monthly", priority: "0.8" },
-          { path: "/come-registrarsi", lastmod: today, changefreq: "monthly", priority: "0.8" },
-          { path: "/note-legali", lastmod: today, changefreq: "yearly", priority: "0.4" },
-          { path: "/privacy", lastmod: today, changefreq: "yearly", priority: "0.4" },
+          { path: "/", changefreq: "daily", priority: "1.0" },
+          { path: "/bonus-senza-deposito", changefreq: "weekly", priority: "0.9" },
+          { path: "/come-registrarsi", changefreq: "weekly", priority: "0.8" },
+          { path: "/gioco-responsabile", changefreq: "monthly", priority: "0.8" },
+          { path: "/note-legali", changefreq: "yearly", priority: "0.4" },
+          { path: "/privacy", changefreq: "yearly", priority: "0.4" },
+          ...operators.map((op) => ({
+            path: `/operatori/${op.slug}`,
+            changefreq: "weekly" as const,
+            priority: "0.8",
+          })),
+          ...operators.map((op) => ({
+            path: `/provider/${op.slug}`,
+            changefreq: "weekly" as const,
+            priority: "0.6",
+          })),
         ];
 
         const urls = entries.map((e) =>
