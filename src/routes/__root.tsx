@@ -10,6 +10,8 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import interFontUrl from "@/fonts/inter.woff2?url";
+import playfairFontUrl from "@/fonts/playfair.woff2?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { CookieBanner } from "../components/cookie-banner";
 import { AnalyticsLoader } from "../components/analytics-loader";
@@ -103,8 +105,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
       // Font self-hosted: nessuna richiesta a fonts.googleapis.com / fonts.gstatic.com
-      { rel: "preload", as: "font", type: "font/woff2", href: "/fonts/inter.woff2", crossOrigin: "anonymous" },
-      { rel: "preload", as: "font", type: "font/woff2", href: "/fonts/playfair.woff2", crossOrigin: "anonymous" },
+      { rel: "preload", as: "font", type: "font/woff2", href: interFontUrl, crossOrigin: "anonymous" },
+      { rel: "preload", as: "font", type: "font/woff2", href: playfairFontUrl, crossOrigin: "anonymous" },
     ],
     scripts: [
       {
