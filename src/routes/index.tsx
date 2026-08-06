@@ -485,10 +485,10 @@ function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/"
-              hash="operatori"
+              hash="comparatore"
               className="inline-flex items-center gap-2 rounded-md border border-gold/40 bg-gold/10 px-5 py-3 text-sm font-medium text-gold transition-colors hover:bg-gold/20"
             >
-              Esamina il confronto <ArrowRight className="h-4 w-4" />
+              Top casinò consigliati <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/bonus-senza-deposito"
