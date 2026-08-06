@@ -59,10 +59,10 @@ export function OperatorTrustDots({ name }: { name?: string }) {
       aria-label={`Garanzie di ${name ?? "operatore"}: concessione ADM, vietato ai minori di 18 anni, operatore legale in Italia, dati verificati`}
     >
       <span className={`${dot} border-gold/60`} title="Concessione ADM">
-        <img src={admLogo.url} alt="Concessione ADM" className="h-5 w-5 object-contain" loading="lazy" decoding="async" />
+        <img src={admLogo.url} alt="Concessione ADM" width={20} height={20} className="h-5 w-5 object-contain" loading="lazy" decoding="async" />
       </span>
       <span className={`${dot} border-destructive/60`} title="Vietato ai minori di 18 anni">
-        <img src={vietato18.url} alt="Vietato ai minori di 18 anni" className="h-5 w-5 object-contain" loading="lazy" decoding="async" />
+        <img src={vietato18.url} alt="Vietato ai minori di 18 anni" width={20} height={20} className="h-5 w-5 object-contain" loading="lazy" decoding="async" />
       </span>
       <span className={`${dot} border-border`} title="Operatore legale in Italia" role="img" aria-label="Bandiera italiana">
         <span className="flex h-5 w-5 overflow-hidden rounded-full">
@@ -213,14 +213,14 @@ export function Header() {
             title="Operatori con concessione ADM"
             className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-gold/60 bg-white shadow-sm"
           >
-            <img src={admLogo.url} alt="Logo ufficiale ADM" className="h-6 w-6 object-contain" loading="lazy" decoding="async" />
+            <img src={admLogo.url} alt="Logo ufficiale ADM" width={24} height={24} className="h-6 w-6 object-contain" loading="lazy" decoding="async" />
           </a>
           <span
             aria-label="Vietato ai minori di 18 anni"
             title="Vietato ai minori di 18 anni"
             className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-destructive/60 bg-white shadow-sm"
           >
-            <img src={vietato18.url} alt="Vietato ai minori di 18 anni" className="h-6 w-6 object-contain" loading="lazy" decoding="async" />
+            <img src={vietato18.url} alt="Vietato ai minori di 18 anni" width={24} height={24} className="h-6 w-6 object-contain" loading="lazy" decoding="async" />
           </span>
           <span
             title="Operatori verificati sull'elenco pubblico ADM"
