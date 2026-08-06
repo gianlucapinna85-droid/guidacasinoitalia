@@ -108,6 +108,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     scripts: [
       {
+        // Google Consent Mode v2 — stato di default "denied" impostato prima
+        // di qualsiasi tag, come richiesto in UE. Aggiornato dal banner cookie.
+        children:
+          "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}" +
+          "gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'," +
+          "analytics_storage:'denied',functionality_storage:'denied',personalization_storage:'denied'," +
+          "security_storage:'granted',wait_for_update:500});gtag('set','ads_data_redaction',true);" +
+          "gtag('set','url_passthrough',true);",
+      },
+      {
+
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
