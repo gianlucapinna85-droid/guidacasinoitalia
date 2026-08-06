@@ -161,6 +161,8 @@ function OperatorNotFound() {
 function OperatorPage() {
   const data = Route.useLoaderData() as ReturnType<typeof loadOperator>;
   const { operator: op, review } = data;
+  const meta = getCasinoMeta(op.slug);
+
 
   return (
     <PageShell>
