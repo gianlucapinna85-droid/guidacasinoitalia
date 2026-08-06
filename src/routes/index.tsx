@@ -72,17 +72,17 @@ export const Route = createFileRoute("/")({
       { name: "author", content: "GuidaCasinò.IT" },
       { property: "og:title", content: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS" },
       { property: "og:description", content: "Casinò online sicuri con concessione ADM (ex AAMS): confronto di bonus senza deposito immediato, RTP, metodi di pagamento e tutela del giocatore. Guida informativa aggiornata 2026. Solo +18." },
-      { property: "og:url", content: "https://guidacasino-italia.it/" },
+      { property: "og:url", content: "https://www.guidacasino-italia.it/" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "it_IT" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:url", content: "https://guidacasino-italia.it/" },
+      { name: "twitter:url", content: "https://www.guidacasino-italia.it/" },
       { name: "twitter:title", content: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS" },
       { name: "twitter:description", content: "Casinò online sicuri con concessione ADM (ex AAMS): confronto di bonus senza deposito immediato, RTP, metodi di pagamento e tutela del giocatore. Guida informativa aggiornata 2026. Solo +18." },
 
     ],
     links: [
-      { rel: "canonical", href: "https://guidacasino-italia.it/" },
+      { rel: "canonical", href: "https://www.guidacasino-italia.it/" },
       { rel: "preload", as: "image", href: heroBgAvif, type: "image/avif", fetchPriority: "high" },
     ],
     scripts: [
@@ -147,8 +147,8 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "@id": "https://guidacasino-italia.it/#webpage",
-          url: "https://guidacasino-italia.it/",
+          "@id": "https://www.guidacasino-italia.it/#webpage",
+          url: "https://www.guidacasino-italia.it/",
           name: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS",
           inLanguage: "it-IT",
           isFamilyFriendly: false,
@@ -169,7 +169,7 @@ export const Route = createFileRoute("/")({
             "@type": "SpeakableSpecification",
             cssSelector: ["h1", "#risposte-rapide"],
           },
-          publisher: { "@type": "Organization", name: "GuidaCasinò.IT", url: "https://guidacasino-italia.it/" },
+          publisher: { "@type": "Organization", name: "GuidaCasinò.IT", url: "https://www.guidacasino-italia.it/" },
         }),
       },
       {
