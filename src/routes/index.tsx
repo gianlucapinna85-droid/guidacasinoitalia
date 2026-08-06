@@ -6,6 +6,7 @@ import { PageShell, ComplianceBadges, OfficialLogosBanner, OperatorTrustDots } f
 import { operators, sortedOperators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
 import { RatingBadge, CasinoBadges, StickyCompareCTA } from "@/components/casino-ui";
+import { ComparisonTable } from "@/components/comparison-table";
 
 
 const FAQS = [
