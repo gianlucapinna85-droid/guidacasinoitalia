@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { type ReactNode } from "react";
-import siteLogo from "@/assets/site-logo.png";
+import siteLogo from "@/assets/site-logo.webp";
 import { ShieldCheck, Ban, LifeBuoy, Landmark, BadgeCheck, Youtube, Instagram, Music2, Send } from "lucide-react";
 import vietato18 from "@/assets/vietato-18.png.asset.json";
 import admLogo from "@/assets/adm-logo.png.asset.json";
@@ -188,6 +188,10 @@ export function Header() {
           <img
             src={siteLogo}
             alt="Logo GuidaCasinò.IT"
+            width={44}
+            height={44}
+            fetchPriority="high"
+            decoding="async"
             className="h-11 w-11 shrink-0 rounded-full object-contain"
           />
           <div className="leading-tight">
