@@ -100,10 +100,10 @@ export function StickyCompareCTA() {
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 backdrop-blur md:hidden">
       <Link
         to="/"
-        hash="comparatore"
+        hash="operatori"
         className="flex w-full items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-gold/30"
       >
-        Confronta ora <ArrowRight className="h-4 w-4" />
+        Lista completa casinò ADM <ArrowRight className="h-4 w-4" />
       </Link>
     </div>
   );
