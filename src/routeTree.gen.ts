@@ -12,8 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as NoteLegaliRouteImport } from './routes/note-legali'
+import { Route as GuidaRtpRouteImport } from './routes/guida-rtp'
 import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabile'
 import { Route as ComeRegistrarsiRouteImport } from './routes/come-registrarsi'
+import { Route as CasinoPaypalRouteImport } from './routes/casino-paypal'
 import { Route as BonusSenzaDepositoRouteImport } from './routes/bonus-senza-deposito'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
@@ -34,6 +36,11 @@ const NoteLegaliRoute = NoteLegaliRouteImport.update({
   path: '/note-legali',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuidaRtpRoute = GuidaRtpRouteImport.update({
+  id: '/guida-rtp',
+  path: '/guida-rtp',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GiocoResponsabileRoute = GiocoResponsabileRouteImport.update({
   id: '/gioco-responsabile',
   path: '/gioco-responsabile',
@@ -42,6 +49,11 @@ const GiocoResponsabileRoute = GiocoResponsabileRouteImport.update({
 const ComeRegistrarsiRoute = ComeRegistrarsiRouteImport.update({
   id: '/come-registrarsi',
   path: '/come-registrarsi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CasinoPaypalRoute = CasinoPaypalRouteImport.update({
+  id: '/casino-paypal',
+  path: '/casino-paypal',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BonusSenzaDepositoRoute = BonusSenzaDepositoRouteImport.update({
@@ -68,8 +80,10 @@ const OperatoriSlugRoute = OperatoriSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
+  '/casino-paypal': typeof CasinoPaypalRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
+  '/guida-rtp': typeof GuidaRtpRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -79,8 +93,10 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
+  '/casino-paypal': typeof CasinoPaypalRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
+  '/guida-rtp': typeof GuidaRtpRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -91,8 +107,10 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
+  '/casino-paypal': typeof CasinoPaypalRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
+  '/guida-rtp': typeof GuidaRtpRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -104,8 +122,10 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/bonus-senza-deposito'
+    | '/casino-paypal'
     | '/come-registrarsi'
     | '/gioco-responsabile'
+    | '/guida-rtp'
     | '/note-legali'
     | '/privacy'
     | '/sitemap.xml'
@@ -115,8 +135,10 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/bonus-senza-deposito'
+    | '/casino-paypal'
     | '/come-registrarsi'
     | '/gioco-responsabile'
+    | '/guida-rtp'
     | '/note-legali'
     | '/privacy'
     | '/sitemap.xml'
@@ -126,8 +148,10 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/bonus-senza-deposito'
+    | '/casino-paypal'
     | '/come-registrarsi'
     | '/gioco-responsabile'
+    | '/guida-rtp'
     | '/note-legali'
     | '/privacy'
     | '/sitemap.xml'
@@ -138,8 +162,10 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BonusSenzaDepositoRoute: typeof BonusSenzaDepositoRoute
+  CasinoPaypalRoute: typeof CasinoPaypalRoute
   ComeRegistrarsiRoute: typeof ComeRegistrarsiRoute
   GiocoResponsabileRoute: typeof GiocoResponsabileRoute
+  GuidaRtpRoute: typeof GuidaRtpRoute
   NoteLegaliRoute: typeof NoteLegaliRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -170,6 +196,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NoteLegaliRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guida-rtp': {
+      id: '/guida-rtp'
+      path: '/guida-rtp'
+      fullPath: '/guida-rtp'
+      preLoaderRoute: typeof GuidaRtpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gioco-responsabile': {
       id: '/gioco-responsabile'
       path: '/gioco-responsabile'
@@ -182,6 +215,13 @@ declare module '@tanstack/react-router' {
       path: '/come-registrarsi'
       fullPath: '/come-registrarsi'
       preLoaderRoute: typeof ComeRegistrarsiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/casino-paypal': {
+      id: '/casino-paypal'
+      path: '/casino-paypal'
+      fullPath: '/casino-paypal'
+      preLoaderRoute: typeof CasinoPaypalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/bonus-senza-deposito': {
@@ -218,8 +258,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BonusSenzaDepositoRoute: BonusSenzaDepositoRoute,
+  CasinoPaypalRoute: CasinoPaypalRoute,
   ComeRegistrarsiRoute: ComeRegistrarsiRoute,
   GiocoResponsabileRoute: GiocoResponsabileRoute,
+  GuidaRtpRoute: GuidaRtpRoute,
   NoteLegaliRoute: NoteLegaliRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
@@ -229,13 +271,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

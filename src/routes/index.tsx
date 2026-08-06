@@ -4,6 +4,9 @@ import { ShieldCheck, ScrollText, Scale, Users, ArrowRight, CheckCircle2, Calend
 import heroBg from "@/assets/hero-bg.jpg";
 import { PageShell, ComplianceBadges, OfficialLogosBanner, OperatorTrustDots } from "@/components/site-layout";
 import { operators, sortedOperators } from "@/lib/operators";
+import { getCasinoMeta } from "@/data/casinos";
+import { RatingBadge, CasinoBadges, StickyCompareCTA } from "@/components/casino-ui";
+
 
 const FAQS = [
   {
@@ -177,7 +180,57 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
+const GUIDES = [
+  {
+    to: "/bonus-senza-deposito" as const,
+    title: "Bonus senza deposito ADM",
+    text: "Cosa sono, perché vengono offerti dai concessionari e come si leggono i requisiti di puntata.",
+  },
+  {
+    to: "/casino-paypal" as const,
+    title: "Casinò PayPal ADM",
+    text: "Quali concessionari dichiarano PayPal, depositi minimi, prelievi e tempi di accredito.",
+  },
+  {
+    to: "/guida-rtp" as const,
+    title: "Guida all'RTP",
+    text: "Cos'è il Return to Player, differenza con la volatilità e RTP medio per provider.",
+  },
+  {
+    to: "/come-registrarsi" as const,
+    title: "Registrazione con SPID",
+    text: "Documenti richiesti, verifica dell'identità e limiti di deposito prima della prima giocata.",
+  },
+];
+
+function GuidesSection() {
+  return (
+    <section className="border-t border-border bg-card/30">
+      <div className="mx-auto max-w-6xl px-4 py-16">
+        <p className="text-xs uppercase tracking-widest text-gold">Approfondimenti</p>
+        <h2 className="mt-2 font-serif text-3xl md:text-4xl">Ultime guide</h2>
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {GUIDES.map((g) => (
+            <Link
+              key={g.to}
+              to={g.to}
+              className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-gold/50"
+            >
+              <h3 className="font-serif text-lg">{g.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{g.text}</p>
+              <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-gold">
+                Leggi la guida <ArrowRight className="h-3 w-3" />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function HomePage() {
+
   return (
     <PageShell>
       <Hero />
@@ -190,8 +243,12 @@ function HomePage() {
       <ResponsibleSection />
       <FAQSection />
       <SeoGuideSection />
+      <GuidesSection />
       <ComplianceBlock placement="bottom" />
+      <div className="h-16 md:hidden" />
+      <StickyCompareCTA />
     </PageShell>
+
   );
 }
 
@@ -488,15 +545,27 @@ function OperatorsSection() {
             <div className="flex flex-col items-start gap-3 md:w-80 md:flex-row md:items-center">
               <OperatorLogo logo={op.logo} name={op.name} index={idx} officialUrl={op.officialUrl} />
               <div className="min-w-0">
-                <h3 className="font-serif text-lg">{op.name}</h3>
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="font-serif text-lg">{op.name}</h3>
+                  {getCasinoMeta(op.slug) ? (
+                    <RatingBadge rating={getCasinoMeta(op.slug)!.rating} size="sm" />
+                  ) : null}
+                </div>
                 <p className="text-[11px] uppercase tracking-wider text-muted-foreground">
                   {op.concessionN}
+                </p>
+                <div className="mt-2">
+                  <CasinoBadges slug={op.slug} />
+                </div>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  {getCasinoMeta(op.slug)?.short}
                 </p>
                 <div className="mt-2">
                   <OperatorTrustDots name={op.name} />
                 </div>
               </div>
             </div>
+
 
 
             <div className="grid gap-4 md:grid-cols-3">
