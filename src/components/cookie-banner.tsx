@@ -2,13 +2,21 @@ import { useEffect, useState } from "react";
 import { Cookie, Settings2, X } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useConsent } from "@/hooks/use-consent";
+import { consentExpiryDate } from "@/lib/cookie-consent";
 
 type PrefState = { preferences: boolean; analytics: boolean; marketing: boolean };
+
+const dateFmt = new Intl.DateTimeFormat("it-IT", { day: "2-digit", month: "2-digit", year: "numeric" });
+function formatDate(ts: number) {
+  return dateFmt.format(new Date(ts));
+}
 
 export function CookieBanner() {
   const { hydrated, hasDecision, consent, acceptAll, rejectAll, save } = useConsent();
   const [showPrefs, setShowPrefs] = useState(false);
   const [prefs, setPrefs] = useState<PrefState>({ preferences: false, analytics: false, marketing: false });
+  const expiry = consentExpiryDate(consent);
+
 
   useEffect(() => {
     if (consent) {
@@ -46,14 +54,17 @@ export function CookieBanner() {
               <div className="text-sm text-muted-foreground">
                 <p className="font-semibold text-foreground">Rispettiamo la tua privacy</p>
                 <p className="mt-1 leading-relaxed">
-                  Usiamo cookie tecnici necessari al funzionamento del sito. Con il tuo consenso utilizziamo anche
-                  cookie di analisi statistica per migliorare l'esperienza. Nessun cookie profilante viene installato
-                  senza consenso. Consulta la{" "}
+                  Usiamo cookie tecnici, necessari al funzionamento del sito e installati senza consenso. Previo tuo
+                  consenso usiamo anche cookie di preferenza e di misurazione statistica con IP anonimizzato. Non
+                  installiamo cookie di profilazione pubblicitaria. Puoi accettare, rifiutare o scegliere categoria per
+                  categoria: rifiutare non limita la navigazione. Il consenso dura 6 mesi ed è revocabile in ogni
+                  momento dal link «Preferenze cookie» nel piè di pagina. Dettagli nella{" "}
                   <Link to="/privacy" className="underline underline-offset-2 hover:text-foreground">
                     Privacy &amp; Cookie Policy
                   </Link>.
                 </p>
               </div>
+
             </div>
             <div className="flex flex-wrap gap-2 md:shrink-0">
               <button
@@ -96,39 +107,46 @@ export function CookieBanner() {
             </button>
             <h2 className="font-serif text-xl font-semibold text-foreground">Preferenze cookie</h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              Scegli quali categorie di cookie autorizzare. Puoi modificare la scelta in qualsiasi momento dal
-              piè di pagina.
+              Scegli quali categorie autorizzare. La scelta viene conservata per 6 mesi, dopodiché ti verrà richiesta
+              di nuovo. Puoi modificarla in qualsiasi momento dal piè di pagina.
             </p>
 
             <div className="mt-5 space-y-3">
               <CategoryRow
                 title="Strettamente necessari"
-                description="Indispensabili per il funzionamento del sito (sessione, sicurezza, memorizzazione del consenso). Non richiedono consenso."
+                description="Indispensabili per il funzionamento del sito: sicurezza, bilanciamento del carico e memorizzazione della tua scelta sui cookie (gc_consent_v2, 6 mesi). Non richiedono consenso ai sensi dell'art. 122 del Codice Privacy."
                 checked
                 disabled
                 onChange={() => {}}
               />
               <CategoryRow
                 title="Preferenze"
-                description="Memorizzano le tue scelte (es. tema, lingua) per personalizzare l'esperienza."
+                description="Memorizzano impostazioni non essenziali come tema e opzioni di visualizzazione, per non doverle reimpostare a ogni visita. Durata massima 6 mesi."
                 checked={prefs.preferences}
                 onChange={(v) => setPrefs((p) => ({ ...p, preferences: v }))}
               />
               <CategoryRow
-                title="Statistica / Analytics"
-                description="Ci aiutano a capire come viene utilizzato il sito in forma aggregata e anonimizzata."
+                title="Statistica / Misurazione"
+                description="Cookie di terza parte (Google Analytics 4) con IP anonimizzato, usati in forma aggregata per capire quali pagine sono più consultate. Durata fino a 14 mesi (_ga, _ga_*). Attivati solo con il tuo consenso."
                 checked={prefs.analytics}
                 onChange={(v) => setPrefs((p) => ({ ...p, analytics: v }))}
               />
               <CategoryRow
-                title="Marketing"
-                description="Cookie di profilazione a fini pubblicitari. Su questo sito non sono installati, la categoria è disponibile a fini di trasparenza."
+                title="Marketing / Profilazione"
+                description="Nessun cookie di questo tipo è attualmente installato sul sito. La categoria resta visibile per trasparenza e per il Consent Mode di Google; lasciandola attiva autorizzi in anticipo eventuali misurazioni pubblicitarie future."
                 checked={prefs.marketing}
                 onChange={(v) => setPrefs((p) => ({ ...p, marketing: v }))}
               />
             </div>
 
+            {expiry && (
+              <p className="mt-4 text-xs text-muted-foreground">
+                Scelta attuale registrata il {formatDate(consent!.timestamp)} — valida fino al {formatDate(expiry.getTime())}.
+              </p>
+            )}
+
             <div className="mt-6 flex flex-wrap justify-end gap-2">
+
               <button
                 onClick={() => {
                   rejectAll();
