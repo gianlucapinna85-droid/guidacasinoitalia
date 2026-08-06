@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as NoteLegaliRouteImport } from './routes/note-legali'
+import { Route as GuidaRtpRouteImport } from './routes/guida-rtp'
 import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabile'
 import { Route as ComeRegistrarsiRouteImport } from './routes/come-registrarsi'
 import { Route as CasinoPaypalRouteImport } from './routes/casino-paypal'
@@ -33,6 +34,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const NoteLegaliRoute = NoteLegaliRouteImport.update({
   id: '/note-legali',
   path: '/note-legali',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidaRtpRoute = GuidaRtpRouteImport.update({
+  id: '/guida-rtp',
+  path: '/guida-rtp',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GiocoResponsabileRoute = GiocoResponsabileRouteImport.update({
@@ -77,6 +83,7 @@ export interface FileRoutesByFullPath {
   '/casino-paypal': typeof CasinoPaypalRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
+  '/guida-rtp': typeof GuidaRtpRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -89,6 +96,7 @@ export interface FileRoutesByTo {
   '/casino-paypal': typeof CasinoPaypalRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
+  '/guida-rtp': typeof GuidaRtpRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -102,6 +110,7 @@ export interface FileRoutesById {
   '/casino-paypal': typeof CasinoPaypalRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
+  '/guida-rtp': typeof GuidaRtpRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -116,6 +125,7 @@ export interface FileRouteTypes {
     | '/casino-paypal'
     | '/come-registrarsi'
     | '/gioco-responsabile'
+    | '/guida-rtp'
     | '/note-legali'
     | '/privacy'
     | '/sitemap.xml'
@@ -128,6 +138,7 @@ export interface FileRouteTypes {
     | '/casino-paypal'
     | '/come-registrarsi'
     | '/gioco-responsabile'
+    | '/guida-rtp'
     | '/note-legali'
     | '/privacy'
     | '/sitemap.xml'
@@ -140,6 +151,7 @@ export interface FileRouteTypes {
     | '/casino-paypal'
     | '/come-registrarsi'
     | '/gioco-responsabile'
+    | '/guida-rtp'
     | '/note-legali'
     | '/privacy'
     | '/sitemap.xml'
@@ -153,6 +165,7 @@ export interface RootRouteChildren {
   CasinoPaypalRoute: typeof CasinoPaypalRoute
   ComeRegistrarsiRoute: typeof ComeRegistrarsiRoute
   GiocoResponsabileRoute: typeof GiocoResponsabileRoute
+  GuidaRtpRoute: typeof GuidaRtpRoute
   NoteLegaliRoute: typeof NoteLegaliRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -181,6 +194,13 @@ declare module '@tanstack/react-router' {
       path: '/note-legali'
       fullPath: '/note-legali'
       preLoaderRoute: typeof NoteLegaliRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guida-rtp': {
+      id: '/guida-rtp'
+      path: '/guida-rtp'
+      fullPath: '/guida-rtp'
+      preLoaderRoute: typeof GuidaRtpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gioco-responsabile': {
@@ -241,6 +261,7 @@ const rootRouteChildren: RootRouteChildren = {
   CasinoPaypalRoute: CasinoPaypalRoute,
   ComeRegistrarsiRoute: ComeRegistrarsiRoute,
   GiocoResponsabileRoute: GiocoResponsabileRoute,
+  GuidaRtpRoute: GuidaRtpRoute,
   NoteLegaliRoute: NoteLegaliRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
