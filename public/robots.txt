@@ -62,7 +62,7 @@ Allow: /
 User-agent: MistralAI-User
 Allow: /
 
-Sitemap: https://guidacasinoitalia.lovable.app/sitemap.xml
+Sitemap: https://guidacasino-italia.it/sitemap.xml
 
-Sitemap: https://guidacasinoitalia.lovable.app/sitemap-guides.xml
-Sitemap: https://guidacasinoitalia.lovable.app/sitemap-reviews.xml
+Sitemap: https://guidacasino-italia.it/sitemap-guides.xml
+Sitemap: https://guidacasino-italia.it/sitemap-reviews.xml

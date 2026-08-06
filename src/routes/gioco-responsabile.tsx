@@ -9,12 +9,12 @@ export const Route = createFileRoute("/gioco-responsabile")({
       { name: "description", content: "Informazioni sul Disturbo da Gioco d'Azzardo (DGA), autoesclusione RUA, numero verde 800 558822 e strumenti di tutela per i giocatori." },
       { property: "og:title", content: "Gioco responsabile — GuidaCasinò.IT" },
       { property: "og:description", content: "Numeri di aiuto, autoesclusione e strumenti di autolimitazione." },
-      { property: "og:url", content: "https://guidacasinoitalia.lovable.app/gioco-responsabile" },
+      { property: "og:url", content: "https://guidacasino-italia.it/gioco-responsabile" },
       { property: "og:type", content: "article" },
       { name: "twitter:title", content: "Gioco responsabile — GuidaCasinò.IT" },
       { name: "twitter:description", content: "Numeri di aiuto, autoesclusione RUA e strumenti di autolimitazione." },
     ],
-    links: [{ rel: "canonical", href: "https://guidacasinoitalia.lovable.app/gioco-responsabile" }],
+    links: [{ rel: "canonical", href: "https://guidacasino-italia.it/gioco-responsabile" }],
     scripts: [
       {
         type: "application/ld+json",

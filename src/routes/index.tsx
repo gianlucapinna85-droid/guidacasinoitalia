@@ -64,7 +64,7 @@ export const Route = createFileRoute("/")({
       { name: "author", content: "GuidaCasinò.IT" },
       { property: "og:title", content: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS" },
       { property: "og:description", content: "Casinò online sicuri con concessione ADM (ex AAMS): confronto di bonus senza deposito immediato, RTP, metodi di pagamento e tutela del giocatore. Guida informativa aggiornata 2026. Solo +18." },
-      { property: "og:url", content: "https://guidacasinoitalia.lovable.app/" },
+      { property: "og:url", content: "https://guidacasino-italia.it/" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "it_IT" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -72,7 +72,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:description", content: "Casinò online sicuri con concessione ADM (ex AAMS): confronto di bonus senza deposito immediato, RTP, metodi di pagamento e tutela del giocatore. Guida informativa aggiornata 2026. Solo +18." },
 
     ],
-    links: [{ rel: "canonical", href: "https://guidacasinoitalia.lovable.app/" }],
+    links: [{ rel: "canonical", href: "https://guidacasino-italia.it/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -135,8 +135,8 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "@id": "https://guidacasinoitalia.lovable.app/#webpage",
-          url: "https://guidacasinoitalia.lovable.app/",
+          "@id": "https://guidacasino-italia.it/#webpage",
+          url: "https://guidacasino-italia.it/",
           name: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS",
           inLanguage: "it-IT",
           isFamilyFriendly: false,
@@ -157,7 +157,7 @@ export const Route = createFileRoute("/")({
             "@type": "SpeakableSpecification",
             cssSelector: ["h1", "#risposte-rapide"],
           },
-          publisher: { "@type": "Organization", name: "GuidaCasinò.IT", url: "https://guidacasinoitalia.lovable.app/" },
+          publisher: { "@type": "Organization", name: "GuidaCasinò.IT", url: "https://guidacasino-italia.it/" },
         }),
       },
       {

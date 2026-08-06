@@ -4,7 +4,7 @@ import { RelatedLinks } from "@/components/casino-ui";
 import { UserPlus, ShieldCheck, AlertTriangle, CheckCircle2, IdCard } from "lucide-react";
 import regVideoUrl from "@/assets/video/come-registrarsi.mp4.asset.json";
 
-const CANON = "https://guidacasinoitalia.lovable.app/come-registrarsi";
+const CANON = "https://guidacasino-italia.it/come-registrarsi";
 
 export const Route = createFileRoute("/come-registrarsi")({
   head: () => ({
@@ -95,7 +95,7 @@ export const Route = createFileRoute("/come-registrarsi")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://guidacasinoitalia.lovable.app/" },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://guidacasino-italia.it/" },
             { "@type": "ListItem", position: 2, name: "Come registrarsi", item: CANON },
           ],
         }),

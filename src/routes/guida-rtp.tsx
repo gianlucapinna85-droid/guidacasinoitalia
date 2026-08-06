@@ -5,7 +5,7 @@ import { RelatedLinks } from "@/components/casino-ui";
 import { providers } from "@/lib/providers";
 import { sortedOperators } from "@/lib/operators";
 
-const CANONICAL = "https://guidacasinoitalia.lovable.app/guida-rtp";
+const CANONICAL = "https://guidacasino-italia.it/guida-rtp";
 const TITLE = "Guida RTP 2026: cos'è il Return to Player e come si legge";
 const DESCRIPTION =
   "Cos'è l'RTP (Return to Player), come si calcola, differenza con la volatilità e RTP medio dichiarato da provider e casinò con concessione ADM. Guida informativa. Solo +18.";
@@ -87,7 +87,7 @@ export const Route = createFileRoute("/guida-rtp")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://guidacasinoitalia.lovable.app/" },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://guidacasino-italia.it/" },
             { "@type": "ListItem", position: 2, name: "Guida RTP", item: CANONICAL },
           ],
         }),

@@ -4,7 +4,7 @@ import { ShieldCheck } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
 import { RelatedLinks } from "@/components/casino-ui";
 
-export const SITE_URL = "https://guidacasinoitalia.lovable.app";
+export const SITE_URL = "https://guidacasino-italia.it";
 
 export type GuideSection = {
   id: string;
