@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ShieldCheck, Wallet, Zap, Star, ArrowRight } from "lucide-react";
 import { getCasinoMeta } from "@/data/casinos";
 import { operators } from "@/lib/operators";
+import { guides } from "@/data/guides";
 
 export function RatingBadge({ rating, size = "md" }: { rating: number; size?: "sm" | "md" }) {
   const big = size === "md";
@@ -41,9 +42,14 @@ function Badge({ icon: Icon, label }: { icon: typeof ShieldCheck; label: string 
   );
 }
 
-/** Link interni generati automaticamente per guide e recensioni. */
-export function RelatedLinks({ currentSlug }: { currentSlug?: string }) {
+/**
+ * Link interni generati automaticamente per ogni guida e recensione.
+ * Le guide arrivano dal registro src/data/guides.ts, le recensioni da operators.
+ * Non serve aggiungere link a mano: basta registrare la nuova guida/operatore.
+ */
+export function RelatedLinks({ currentSlug, currentPath }: { currentSlug?: string; currentPath?: string }) {
   const related = operators.filter((o) => o.slug !== currentSlug).slice(0, 4);
+  const guideLinks = guides.filter((g) => g.path !== currentPath).slice(0, 5);
   return (
     <section className="mt-12 rounded-xl border border-border bg-card p-6">
       <h2 className="font-serif text-xl">Contenuti correlati</h2>
@@ -52,30 +58,17 @@ export function RelatedLinks({ currentSlug }: { currentSlug?: string }) {
           <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Guide</p>
           <ul className="mt-2 space-y-2 text-sm">
             <li>
-              <Link to="/" hash="operatori" className="hover:text-gold">
-                Migliori casinò ADM 2026
+              <Link to="/" hash="comparatore" className="hover:text-gold">
+                Comparatore casinò ADM 2026
               </Link>
             </li>
-            <li>
-              <Link to="/casino-paypal" className="hover:text-gold">
-                Casinò PayPal ADM
-              </Link>
-            </li>
-            <li>
-              <Link to="/bonus-senza-deposito" className="hover:text-gold">
-                Bonus senza deposito ADM
-              </Link>
-            </li>
-            <li>
-              <Link to="/guida-rtp" className="hover:text-gold">
-                Guida all'RTP
-              </Link>
-            </li>
-            <li>
-              <Link to="/come-registrarsi" className="hover:text-gold">
-                Registrazione con SPID
-              </Link>
-            </li>
+            {guideLinks.map((g) => (
+              <li key={g.path}>
+                <Link to={g.path} className="hover:text-gold">
+                  {g.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div>
@@ -107,7 +100,7 @@ export function StickyCompareCTA() {
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 backdrop-blur md:hidden">
       <Link
         to="/"
-        hash="operatori"
+        hash="comparatore"
         className="flex w-full items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-gold/30"
       >
         Confronta ora <ArrowRight className="h-4 w-4" />

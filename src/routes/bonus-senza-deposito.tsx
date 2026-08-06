@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-layout";
+import { RelatedLinks } from "@/components/casino-ui";
 import { Gift, ShieldCheck, AlertTriangle, CheckCircle2, HelpCircle } from "lucide-react";
 import bonusVideoUrl from "@/assets/video/bonus-senza-deposito.mp4.asset.json";
 
@@ -270,6 +271,7 @@ function Page() {
             Gioco responsabile
           </Link>
         </div>
+        <RelatedLinks currentPath="/bonus-senza-deposito" />
       </article>
     </PageShell>
   );

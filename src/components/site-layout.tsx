@@ -337,7 +337,7 @@ export function Footer() {
 
 export function PageShell({ children }: { children: ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col pb-20 md:pb-0">
       <AgeBanner />
       <Header />
       <main className="flex-1">{children}</main>

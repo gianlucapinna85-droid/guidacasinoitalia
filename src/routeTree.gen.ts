@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SitemapReviewsDotxmlRouteImport } from './routes/sitemap-reviews[.]xml'
+import { Route as SitemapGuidesDotxmlRouteImport } from './routes/sitemap-guides[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as NoteLegaliRouteImport } from './routes/note-legali'
 import { Route as GuidaRtpRouteImport } from './routes/guida-rtp'
@@ -24,6 +26,16 @@ import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapReviewsDotxmlRoute = SitemapReviewsDotxmlRouteImport.update({
+  id: '/sitemap-reviews.xml',
+  path: '/sitemap-reviews.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapGuidesDotxmlRoute = SitemapGuidesDotxmlRouteImport.update({
+  id: '/sitemap-guides.xml',
+  path: '/sitemap-guides.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -86,6 +98,8 @@ export interface FileRoutesByFullPath {
   '/guida-rtp': typeof GuidaRtpRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
+  '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
@@ -99,6 +113,8 @@ export interface FileRoutesByTo {
   '/guida-rtp': typeof GuidaRtpRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
+  '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
@@ -113,6 +129,8 @@ export interface FileRoutesById {
   '/guida-rtp': typeof GuidaRtpRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
+  '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
@@ -128,6 +146,8 @@ export interface FileRouteTypes {
     | '/guida-rtp'
     | '/note-legali'
     | '/privacy'
+    | '/sitemap-guides.xml'
+    | '/sitemap-reviews.xml'
     | '/sitemap.xml'
     | '/operatori/$slug'
     | '/provider/$slug'
@@ -141,6 +161,8 @@ export interface FileRouteTypes {
     | '/guida-rtp'
     | '/note-legali'
     | '/privacy'
+    | '/sitemap-guides.xml'
+    | '/sitemap-reviews.xml'
     | '/sitemap.xml'
     | '/operatori/$slug'
     | '/provider/$slug'
@@ -154,6 +176,8 @@ export interface FileRouteTypes {
     | '/guida-rtp'
     | '/note-legali'
     | '/privacy'
+    | '/sitemap-guides.xml'
+    | '/sitemap-reviews.xml'
     | '/sitemap.xml'
     | '/operatori/$slug'
     | '/provider/$slug'
@@ -168,6 +192,8 @@ export interface RootRouteChildren {
   GuidaRtpRoute: typeof GuidaRtpRoute
   NoteLegaliRoute: typeof NoteLegaliRoute
   PrivacyRoute: typeof PrivacyRoute
+  SitemapGuidesDotxmlRoute: typeof SitemapGuidesDotxmlRoute
+  SitemapReviewsDotxmlRoute: typeof SitemapReviewsDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   OperatoriSlugRoute: typeof OperatoriSlugRoute
   ProviderSlugRoute: typeof ProviderSlugRoute
@@ -180,6 +206,20 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap-reviews.xml': {
+      id: '/sitemap-reviews.xml'
+      path: '/sitemap-reviews.xml'
+      fullPath: '/sitemap-reviews.xml'
+      preLoaderRoute: typeof SitemapReviewsDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap-guides.xml': {
+      id: '/sitemap-guides.xml'
+      path: '/sitemap-guides.xml'
+      fullPath: '/sitemap-guides.xml'
+      preLoaderRoute: typeof SitemapGuidesDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -264,6 +304,8 @@ const rootRouteChildren: RootRouteChildren = {
   GuidaRtpRoute: GuidaRtpRoute,
   NoteLegaliRoute: NoteLegaliRoute,
   PrivacyRoute: PrivacyRoute,
+  SitemapGuidesDotxmlRoute: SitemapGuidesDotxmlRoute,
+  SitemapReviewsDotxmlRoute: SitemapReviewsDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   OperatoriSlugRoute: OperatoriSlugRoute,
   ProviderSlugRoute: ProviderSlugRoute,

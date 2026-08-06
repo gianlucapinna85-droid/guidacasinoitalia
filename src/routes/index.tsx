@@ -6,6 +6,7 @@ import { PageShell, ComplianceBadges, OfficialLogosBanner, OperatorTrustDots } f
 import { operators, sortedOperators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
 import { RatingBadge, CasinoBadges, StickyCompareCTA } from "@/components/casino-ui";
+import { ComparisonTable } from "@/components/comparison-table";
 
 
 const FAQS = [
@@ -238,6 +239,7 @@ function HomePage() {
       <QuickAnswersSection />
       <ComplianceBlock placement="top" />
       <OperatorsSection />
+      <ComparisonTable />
       <EvaluationGuideSection />
       <CriteriaSection />
       <ResponsibleSection />
@@ -245,7 +247,7 @@ function HomePage() {
       <SeoGuideSection />
       <GuidesSection />
       <ComplianceBlock placement="bottom" />
-      <div className="h-16 md:hidden" />
+      <div className="h-24 md:hidden" aria-hidden />
       <StickyCompareCTA />
     </PageShell>
 

@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-layout";
+import { RelatedLinks } from "@/components/casino-ui";
 import { UserPlus, ShieldCheck, AlertTriangle, CheckCircle2, IdCard } from "lucide-react";
 import regVideoUrl from "@/assets/video/come-registrarsi.mp4.asset.json";
 
@@ -273,6 +274,7 @@ function Page() {
           Contenuto informativo ai sensi dell'art. 9 D.L. 87/2018. Non costituisce comunicazione commerciale
           né incentivo al gioco. Vietato ai minori di 18 anni.
         </p>
+        <RelatedLinks currentPath="/come-registrarsi" />
       </article>
     </PageShell>
   );
