@@ -238,6 +238,7 @@ function HomePage() {
       <QuickAnswersSection />
       <ComplianceBlock placement="top" />
       <OperatorsSection />
+      <ComparisonTable />
       <EvaluationGuideSection />
       <CriteriaSection />
       <ResponsibleSection />
@@ -245,7 +246,7 @@ function HomePage() {
       <SeoGuideSection />
       <GuidesSection />
       <ComplianceBlock placement="bottom" />
-      <div className="h-16 md:hidden" />
+      <div className="h-24 md:hidden" aria-hidden />
       <StickyCompareCTA />
     </PageShell>
 
