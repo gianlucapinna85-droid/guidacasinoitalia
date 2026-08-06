@@ -193,8 +193,12 @@ function HomePage() {
       <ResponsibleSection />
       <FAQSection />
       <SeoGuideSection />
+      <GuidesSection />
       <ComplianceBlock placement="bottom" />
+      <div className="h-16 md:hidden" />
+      <StickyCompareCTA />
     </PageShell>
+
   );
 }
 
