@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SitemapGuidesDotxmlRouteImport } from './routes/sitemap-guides[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as NoteLegaliRouteImport } from './routes/note-legali'
 import { Route as GuidaRtpRouteImport } from './routes/guida-rtp'
@@ -24,6 +25,11 @@ import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapGuidesDotxmlRoute = SitemapGuidesDotxmlRouteImport.update({
+  id: '/sitemap-guides.xml',
+  path: '/sitemap-guides.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -86,6 +92,7 @@ export interface FileRoutesByFullPath {
   '/guida-rtp': typeof GuidaRtpRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
@@ -99,6 +106,7 @@ export interface FileRoutesByTo {
   '/guida-rtp': typeof GuidaRtpRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
@@ -113,6 +121,7 @@ export interface FileRoutesById {
   '/guida-rtp': typeof GuidaRtpRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
@@ -128,6 +137,7 @@ export interface FileRouteTypes {
     | '/guida-rtp'
     | '/note-legali'
     | '/privacy'
+    | '/sitemap-guides.xml'
     | '/sitemap.xml'
     | '/operatori/$slug'
     | '/provider/$slug'
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
     | '/guida-rtp'
     | '/note-legali'
     | '/privacy'
+    | '/sitemap-guides.xml'
     | '/sitemap.xml'
     | '/operatori/$slug'
     | '/provider/$slug'
@@ -154,6 +165,7 @@ export interface FileRouteTypes {
     | '/guida-rtp'
     | '/note-legali'
     | '/privacy'
+    | '/sitemap-guides.xml'
     | '/sitemap.xml'
     | '/operatori/$slug'
     | '/provider/$slug'
@@ -168,6 +180,7 @@ export interface RootRouteChildren {
   GuidaRtpRoute: typeof GuidaRtpRoute
   NoteLegaliRoute: typeof NoteLegaliRoute
   PrivacyRoute: typeof PrivacyRoute
+  SitemapGuidesDotxmlRoute: typeof SitemapGuidesDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   OperatoriSlugRoute: typeof OperatoriSlugRoute
   ProviderSlugRoute: typeof ProviderSlugRoute
@@ -180,6 +193,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap-guides.xml': {
+      id: '/sitemap-guides.xml'
+      path: '/sitemap-guides.xml'
+      fullPath: '/sitemap-guides.xml'
+      preLoaderRoute: typeof SitemapGuidesDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -264,6 +284,7 @@ const rootRouteChildren: RootRouteChildren = {
   GuidaRtpRoute: GuidaRtpRoute,
   NoteLegaliRoute: NoteLegaliRoute,
   PrivacyRoute: PrivacyRoute,
+  SitemapGuidesDotxmlRoute: SitemapGuidesDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   OperatoriSlugRoute: OperatoriSlugRoute,
   ProviderSlugRoute: ProviderSlugRoute,
@@ -271,13 +292,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
