@@ -46,14 +46,17 @@ export function CookieBanner() {
               <div className="text-sm text-muted-foreground">
                 <p className="font-semibold text-foreground">Rispettiamo la tua privacy</p>
                 <p className="mt-1 leading-relaxed">
-                  Usiamo cookie tecnici necessari al funzionamento del sito. Con il tuo consenso utilizziamo anche
-                  cookie di analisi statistica per migliorare l'esperienza. Nessun cookie profilante viene installato
-                  senza consenso. Consulta la{" "}
+                  Usiamo cookie tecnici, necessari al funzionamento del sito e installati senza consenso. Previo tuo
+                  consenso usiamo anche cookie di preferenza e di misurazione statistica con IP anonimizzato. Non
+                  installiamo cookie di profilazione pubblicitaria. Puoi accettare, rifiutare o scegliere categoria per
+                  categoria: rifiutare non limita la navigazione. Il consenso dura 6 mesi ed è revocabile in ogni
+                  momento dal link «Preferenze cookie» nel piè di pagina. Dettagli nella{" "}
                   <Link to="/privacy" className="underline underline-offset-2 hover:text-foreground">
                     Privacy &amp; Cookie Policy
                   </Link>.
                 </p>
               </div>
+
             </div>
             <div className="flex flex-wrap gap-2 md:shrink-0">
               <button
