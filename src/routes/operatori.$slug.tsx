@@ -67,6 +67,32 @@ export const Route = createFileRoute("/operatori/$slug")({
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "Review",
+            inLanguage: "it-IT",
+            name: title,
+            url: canonical,
+            itemReviewed: {
+              "@type": "Organization",
+              name: operator.name,
+              identifier: operator.concessionN,
+              url: canonical,
+            },
+            author: { "@type": "Organization", name: "GuidaCasinò.IT" },
+            publisher: { "@type": "Organization", name: "GuidaCasinò.IT" },
+            datePublished: new Date().toISOString().slice(0, 10),
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: getCasinoMeta(operator.slug)?.rating ?? 8.5,
+              bestRating: 10,
+              worstRating: 1,
+            },
+            reviewBody: description,
+          }),
+
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://guidacasinoitalia.lovable.app/" },
