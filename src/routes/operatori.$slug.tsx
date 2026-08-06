@@ -88,6 +88,8 @@ export const Route = createFileRoute("/operatori/$slug")({
             },
             reviewBody: description,
           }),
+        },
+
 
         {
           type: "application/ld+json",
