@@ -83,7 +83,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: "https://guidacasino-italia.it/" },
-      { rel: "preload", as: "image", href: heroBgAvif, type: "image/avif", fetchpriority: "high" },
+      { rel: "preload", as: "image", href: heroBgAvif, type: "image/avif", fetchPriority: "high" },
     ],
     scripts: [
       {
