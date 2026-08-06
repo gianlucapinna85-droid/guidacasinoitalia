@@ -182,6 +182,10 @@ function OperatorPage() {
             Concessione <strong className="text-foreground">{op.concessionN}</strong> — dati riferiti
             all'elenco pubblico dei concessionari ADM (ex AAMS).
           </p>
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+            {meta ? <RatingBadge rating={meta.rating} /> : null}
+            <CasinoBadges slug={op.slug} />
+          </div>
         </header>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -194,6 +198,58 @@ function OperatorPage() {
             value={`${op.paymentMethods.length}`}
           />
         </div>
+
+        <section className="mt-10 overflow-x-auto rounded-xl border border-border">
+          <table className="w-full text-sm">
+            <caption className="sr-only">Dati sintetici di {op.name}</caption>
+            <tbody>
+              {[
+                ["Voto redazionale", meta ? `${meta.rating.toFixed(1)}/10` : "n.d."],
+                ["Bonus senza deposito", op.noDepositBonus?.amount ?? "Non dichiarato"],
+                ["Deposito minimo", meta?.minDeposit ?? "n.d."],
+                ["Prelievo minimo", meta?.minWithdrawal ?? "n.d."],
+                ["PayPal", meta?.paypal ? "Dichiarato" : "Non dichiarato"],
+                ["Prelievo rapido", meta?.fastWithdrawal ? "Dichiarato" : "Non dichiarato"],
+                ["RTP medio dichiarato", op.rtpAverage],
+              ].map(([k, v]) => (
+                <tr key={k} className="border-b border-border last:border-0">
+                  <th scope="row" className="w-1/2 p-3 text-left font-normal text-muted-foreground">
+                    {k}
+                  </th>
+                  <td className="p-3 font-medium text-foreground">{v}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+
+        {meta ? (
+          <section className="mt-10 grid gap-6 md:grid-cols-2">
+            <div className="rounded-xl border border-gold/30 bg-gold/5 p-6">
+              <h2 className="font-serif text-xl">Pro</h2>
+              <ul className="mt-4 space-y-2.5">
+                {meta.pros.map((p) => (
+                  <li key={p} className="flex items-start gap-2 text-sm text-foreground/90">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-xl border border-border bg-card p-6">
+              <h2 className="font-serif text-xl">Contro</h2>
+              <ul className="mt-4 space-y-2.5">
+                {meta.cons.map((c) => (
+                  <li key={c} className="flex items-start gap-2 text-sm text-foreground/90">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground" />
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        ) : null}
+
 
         <section className="mt-12">
           <h2 className="font-serif text-2xl">
