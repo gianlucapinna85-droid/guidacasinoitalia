@@ -180,7 +180,57 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
+const GUIDES = [
+  {
+    to: "/bonus-senza-deposito" as const,
+    title: "Bonus senza deposito ADM",
+    text: "Cosa sono, perché vengono offerti dai concessionari e come si leggono i requisiti di puntata.",
+  },
+  {
+    to: "/casino-paypal" as const,
+    title: "Casinò PayPal ADM",
+    text: "Quali concessionari dichiarano PayPal, depositi minimi, prelievi e tempi di accredito.",
+  },
+  {
+    to: "/guida-rtp" as const,
+    title: "Guida all'RTP",
+    text: "Cos'è il Return to Player, differenza con la volatilità e RTP medio per provider.",
+  },
+  {
+    to: "/come-registrarsi" as const,
+    title: "Registrazione con SPID",
+    text: "Documenti richiesti, verifica dell'identità e limiti di deposito prima della prima giocata.",
+  },
+];
+
+function GuidesSection() {
+  return (
+    <section className="border-t border-border bg-card/30">
+      <div className="mx-auto max-w-6xl px-4 py-16">
+        <p className="text-xs uppercase tracking-widest text-gold">Approfondimenti</p>
+        <h2 className="mt-2 font-serif text-3xl md:text-4xl">Ultime guide</h2>
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {GUIDES.map((g) => (
+            <Link
+              key={g.to}
+              to={g.to}
+              className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-gold/50"
+            >
+              <h3 className="font-serif text-lg">{g.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{g.text}</p>
+              <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-gold">
+                Leggi la guida <ArrowRight className="h-3 w-3" />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function HomePage() {
+
   return (
     <PageShell>
       <Hero />
