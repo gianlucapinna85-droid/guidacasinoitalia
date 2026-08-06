@@ -4,6 +4,9 @@ import { ShieldCheck, ScrollText, Scale, Users, ArrowRight, CheckCircle2, Calend
 import heroBg from "@/assets/hero-bg.jpg";
 import { PageShell, ComplianceBadges, OfficialLogosBanner, OperatorTrustDots } from "@/components/site-layout";
 import { operators, sortedOperators } from "@/lib/operators";
+import { getCasinoMeta } from "@/data/casinos";
+import { RatingBadge, CasinoBadges, StickyCompareCTA } from "@/components/casino-ui";
+
 
 const FAQS = [
   {
