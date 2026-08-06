@@ -166,7 +166,7 @@ export function AgeBanner() {
           alt="Vietato ai minori di 18 anni"
           width={28}
           height={28}
-          className="h-7 w-7 shrink-0" loading="lazy" decoding="async" />
+          className="h-7 w-7 shrink-0" loading="eager" decoding="async" />
         <span className="text-foreground/90">
           <strong className="font-semibold text-destructive">Vietato ai minori di 18 anni.</strong>{" "}
           Il gioco può causare dipendenza patologica. Probabilità di vincita consultabili su{" "}
