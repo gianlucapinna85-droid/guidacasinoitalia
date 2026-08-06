@@ -4,6 +4,7 @@ import {
   DEFAULT_DENIED,
   readConsent,
   writeConsent,
+  pushConsentMode,
   acceptAll as acceptAllFn,
   rejectAll as rejectAllFn,
   type ConsentCategory,
@@ -15,8 +16,12 @@ export function useConsent() {
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    setConsent(readConsent());
+    const initial = readConsent();
+    setConsent(initial);
     setHydrated(true);
+    // Riallinea Google Consent Mode allo stato salvato a ogni caricamento.
+    pushConsentMode(initial);
+
     const handler = (e: Event) => {
       const detail = (e as CustomEvent<ConsentState | null>).detail;
       setConsent(detail ?? readConsent());
