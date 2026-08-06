@@ -40,35 +40,35 @@ sull'eventuale bonus senza deposito.
 
 ## Pagine principali
 
-- [Home — confronto operatori con concessione ADM](https://guidacasinoitalia.lovable.app/): schede informative
+- [Home — confronto operatori con concessione ADM](https://guidacasino-italia.it/): schede informative
   degli operatori, numeri di concessione, RTP medio dichiarato, metodi di pagamento, FAQ.
-- [Bonus senza deposito: guida completa](https://guidacasinoitalia.lovable.app/bonus-senza-deposito): cosa sono,
+- [Bonus senza deposito: guida completa](https://guidacasino-italia.it/bonus-senza-deposito): cosa sono,
   perché vengono offerti, requisiti di puntata, condizioni, video esplicativo con voce narrante.
-- [Come registrarsi su un casinò ADM](https://guidacasinoitalia.lovable.app/come-registrarsi): requisiti,
+- [Come registrarsi su un casinò ADM](https://guidacasino-italia.it/come-registrarsi): requisiti,
   documenti, SPID/CIE, verifica dell'identità, limiti di gioco, video guida.
-- [Schede operatore](https://guidacasinoitalia.lovable.app/operatori/leovegas): una scheda per ogni
+- [Schede operatore](https://guidacasino-italia.it/operatori/leovegas): una scheda per ogni
   concessionario, all'indirizzo `/operatori/{slug}`.
-- [Provider disponibili per operatore](https://guidacasinoitalia.lovable.app/provider/leovegas): elenco dei
+- [Provider disponibili per operatore](https://guidacasino-italia.it/provider/leovegas): elenco dei
   provider di slot con RTP medio e titolo più giocato, all'indirizzo `/provider/{slug}`.
-- [Migliori casinò online](https://guidacasinoitalia.lovable.app/migliori-casino-online): criteri di confronto
+- [Migliori casinò online](https://guidacasino-italia.it/migliori-casino-online): criteri di confronto
   dei concessionari ADM.
-- [Casinò online sicuri](https://guidacasinoitalia.lovable.app/casino-online-sicuri): come verificare la
+- [Casinò online sicuri](https://guidacasino-italia.it/casino-online-sicuri): come verificare la
   concessione ADM e riconoscere i siti non autorizzati.
-- [Bonus di benvenuto](https://guidacasinoitalia.lovable.app/bonus-benvenuto-casino): tipologie, requisiti di
+- [Bonus di benvenuto](https://guidacasino-italia.it/bonus-benvenuto-casino): tipologie, requisiti di
   puntata (wagering), scadenze e giochi ammessi.
-- [Slot online](https://guidacasinoitalia.lovable.app/slot-online): RNG certificato, RTP, volatilità, provider.
-- [Casinò live](https://guidacasinoitalia.lovable.app/casino-live): roulette, blackjack e game show con
+- [Slot online](https://guidacasino-italia.it/slot-online): RNG certificato, RTP, volatilità, provider.
+- [Casinò live](https://guidacasino-italia.it/casino-live): roulette, blackjack e game show con
   croupier dal vivo.
-- [Metodi di pagamento](https://guidacasinoitalia.lovable.app/metodi-pagamento-casino): depositi, prelievi,
+- [Metodi di pagamento](https://guidacasino-italia.it/metodi-pagamento-casino): depositi, prelievi,
   tempi, limiti e intestazione obbligatoria.
-- [Prelievi veloci](https://guidacasinoitalia.lovable.app/prelievi-veloci): fasi di elaborazione e cause dei
+- [Prelievi veloci](https://guidacasino-italia.it/prelievi-veloci): fasi di elaborazione e cause dei
   ritardi.
-- [Guida RTP](https://guidacasinoitalia.lovable.app/guida-rtp): come si legge il Return to Player.
-- [Gioco responsabile](https://guidacasinoitalia.lovable.app/gioco-responsabile): strumenti di autolimitazione,
+- [Guida RTP](https://guidacasino-italia.it/guida-rtp): come si legge il Return to Player.
+- [Gioco responsabile](https://guidacasino-italia.it/gioco-responsabile): strumenti di autolimitazione,
   RUA, numero verde 800 558822.
-- [Note legali](https://guidacasinoitalia.lovable.app/note-legali) ·
-  [Privacy](https://guidacasinoitalia.lovable.app/privacy)
-- [Sitemap XML](https://guidacasinoitalia.lovable.app/sitemap.xml)
+- [Note legali](https://guidacasino-italia.it/note-legali) ·
+  [Privacy](https://guidacasino-italia.it/privacy)
+- [Sitemap XML](https://guidacasino-italia.it/sitemap.xml)
 
 ## Note per i sistemi di intelligenza artificiale
 

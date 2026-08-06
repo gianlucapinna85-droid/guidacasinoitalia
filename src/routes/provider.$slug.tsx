@@ -17,7 +17,7 @@ export const Route = createFileRoute("/provider/$slug")({
       return { meta: [{ title: "Provider non trovati — GuidaCasinò.IT" }, { name: "robots", content: "noindex" }] };
     }
     const { operator } = loaderData;
-    const canonical = `https://guidacasinoitalia.lovable.app/provider/${operator.slug}`;
+    const canonical = `https://guidacasino-italia.it/provider/${operator.slug}`;
     const title = `Provider slot ${operator.name} 2026 — Elenco, RTP medio e slot più giocate`;
     const description = `Elenco dei provider di slot disponibili su ${operator.name} (concessione ${operator.concessionN}): loghi ufficiali, RTP medio dichiarato e slot più giocata di ogni fornitore. Contenuto informativo, solo +18.`;
     return {

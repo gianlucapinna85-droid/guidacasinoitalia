@@ -102,9 +102,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" },
+      // Font self-hosted: nessuna richiesta a fonts.googleapis.com / fonts.gstatic.com
+      { rel: "preload", as: "font", type: "font/woff2", href: "/fonts/inter.woff2", crossOrigin: "anonymous" },
+      { rel: "preload", as: "font", type: "font/woff2", href: "/fonts/playfair.woff2", crossOrigin: "anonymous" },
     ],
     scripts: [
       {

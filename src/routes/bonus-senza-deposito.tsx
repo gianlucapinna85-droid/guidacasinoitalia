@@ -12,13 +12,13 @@ export const Route = createFileRoute("/bonus-senza-deposito")({
       { name: "keywords", content: "bonus senza deposito, casinò ADM, no deposit bonus, bonus benvenuto, requisiti di puntata, wagering, free spin senza deposito, bonus casinò 2026, concessione ADM" },
       { property: "og:title", content: "Bonus Senza Deposito Casinò ADM — Guida Completa 2026" },
       { property: "og:description", content: "Come funzionano i bonus senza deposito nei casinò ADM: wagering, condizioni, verifica identità e trasparenza. Guida informativa." },
-      { property: "og:url", content: "https://guidacasinoitalia.lovable.app/bonus-senza-deposito" },
+      { property: "og:url", content: "https://guidacasino-italia.it/bonus-senza-deposito" },
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Bonus Senza Deposito Casinò ADM — Guida 2026" },
       { name: "twitter:description", content: "Guida informativa: cosa sono i bonus senza deposito, perché vengono offerti e come funzionano nei casinò con concessione ADM." },
     ],
-    links: [{ rel: "canonical", href: "https://guidacasinoitalia.lovable.app/bonus-senza-deposito" }],
+    links: [{ rel: "canonical", href: "https://guidacasino-italia.it/bonus-senza-deposito" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/bonus-senza-deposito")({
           datePublished: "2026-07-01",
           dateModified: new Date().toISOString().slice(0, 10),
           keywords: "bonus senza deposito, casinò ADM, wagering, requisiti di puntata, no deposit bonus",
-          mainEntityOfPage: "https://guidacasinoitalia.lovable.app/bonus-senza-deposito",
+          mainEntityOfPage: "https://guidacasino-italia.it/bonus-senza-deposito",
         }),
       },
       {
@@ -71,8 +71,8 @@ export const Route = createFileRoute("/bonus-senza-deposito")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://guidacasinoitalia.lovable.app/" },
-            { "@type": "ListItem", position: 2, name: "Bonus senza deposito", item: "https://guidacasinoitalia.lovable.app/bonus-senza-deposito" },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://guidacasino-italia.it/" },
+            { "@type": "ListItem", position: 2, name: "Bonus senza deposito", item: "https://guidacasino-italia.it/bonus-senza-deposito" },
           ],
         }),
       },

@@ -44,8 +44,36 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
+const CANONICAL_HOST = "guidacasino-italia.it";
+
+// 301 permanente dai vecchi domini *.lovable.app (e da www) al dominio canonico .it
+function canonicalHostRedirect(request: Request): Response | undefined {
+  let url: URL;
+  try {
+    url = new URL(request.url);
+  } catch {
+    return undefined;
+  }
+  const host = url.hostname.toLowerCase();
+  const isLegacy = host.endsWith(".lovable.app");
+  const isWww = host === `www.${CANONICAL_HOST}`;
+  if (!isLegacy && !isWww) return undefined;
+  // I preview di Lovable devono restare navigabili
+  if (host.includes("-preview--") || host.includes("localhost")) return undefined;
+
+  url.protocol = "https:";
+  url.hostname = CANONICAL_HOST;
+  url.port = "";
+  return new Response(null, {
+    status: 301,
+    headers: { location: url.toString(), "cache-control": "public, max-age=3600" },
+  });
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
+    const redirect = canonicalHostRedirect(request);
+    if (redirect) return redirect;
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);

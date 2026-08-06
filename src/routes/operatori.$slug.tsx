@@ -25,7 +25,7 @@ export const Route = createFileRoute("/operatori/$slug")({
       };
     }
     const { operator } = loaderData;
-    const canonical = `https://guidacasinoitalia.lovable.app/operatori/${operator.slug}`;
+    const canonical = `https://guidacasino-italia.it/operatori/${operator.slug}`;
     const nd = operator.noDepositBonus?.amount;
     const title = `${operator.name} Recensione 2026: opinioni, bonus senza deposito e concessione ADM`;
     const description = `${operator.name} è un casinò online sicuro con concessione ADM ${operator.concessionN}. Recensione e opinioni: ${nd ? `bonus senza deposito ${nd}, ` : ""}RTP medio ${operator.rtpAverage}, ${operator.games}+ giochi, ${operator.paymentMethods.length} metodi di pagamento, tempi di prelievo e gioco responsabile. Solo +18.`;
@@ -100,8 +100,8 @@ export const Route = createFileRoute("/operatori/$slug")({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://guidacasinoitalia.lovable.app/" },
-              { "@type": "ListItem", position: 2, name: "Operatori ADM", item: "https://guidacasinoitalia.lovable.app/#operatori" },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://guidacasino-italia.it/" },
+              { "@type": "ListItem", position: 2, name: "Operatori ADM", item: "https://guidacasino-italia.it/#operatori" },
               { "@type": "ListItem", position: 3, name: operator.name, item: canonical },
             ],
           }),

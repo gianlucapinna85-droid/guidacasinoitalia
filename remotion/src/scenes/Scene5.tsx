@@ -92,7 +92,7 @@ export const Scene5: React.FC = () => {
 
         <Reveal delay={90}>
           <div style={{ color: C.gold, fontFamily: display, fontSize: 44, marginTop: 44, letterSpacing: 1 }}>
-            guidacasinoitalia.lovable.app
+            guidacasino-italia.it
           </div>
         </Reveal>
       </AbsoluteFill>

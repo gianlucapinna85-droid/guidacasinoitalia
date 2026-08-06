@@ -1,12 +1,20 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, lazy, Suspense } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, ScrollText, Scale, Users, ArrowRight, CheckCircle2, Calendar, RefreshCw } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBgAvif from "@/assets/hero-bg.avif";
+import heroBgWebp from "@/assets/hero-bg.webp";
 import { PageShell, ComplianceBadges, OfficialLogosBanner, OperatorTrustDots } from "@/components/site-layout";
 import { operators, sortedOperators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
-import { RatingBadge, CasinoBadges, StickyCompareCTA } from "@/components/casino-ui";
-import { ComparisonTable } from "@/components/comparison-table";
+import { RatingBadge, CasinoBadges } from "@/components/casino-ui";
+
+// Caricati in differita: sotto la prima schermata, non servono al primo render (LCP/FCP)
+const ComparisonTable = lazy(() =>
+  import("@/components/comparison-table").then((m) => ({ default: m.ComparisonTable })),
+);
+const StickyCompareCTA = lazy(() =>
+  import("@/components/casino-ui").then((m) => ({ default: m.StickyCompareCTA })),
+);
 
 
 const FAQS = [
@@ -64,15 +72,19 @@ export const Route = createFileRoute("/")({
       { name: "author", content: "GuidaCasinò.IT" },
       { property: "og:title", content: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS" },
       { property: "og:description", content: "Casinò online sicuri con concessione ADM (ex AAMS): confronto di bonus senza deposito immediato, RTP, metodi di pagamento e tutela del giocatore. Guida informativa aggiornata 2026. Solo +18." },
-      { property: "og:url", content: "https://guidacasinoitalia.lovable.app/" },
+      { property: "og:url", content: "https://guidacasino-italia.it/" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "it_IT" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:url", content: "https://guidacasino-italia.it/" },
       { name: "twitter:title", content: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS" },
       { name: "twitter:description", content: "Casinò online sicuri con concessione ADM (ex AAMS): confronto di bonus senza deposito immediato, RTP, metodi di pagamento e tutela del giocatore. Guida informativa aggiornata 2026. Solo +18." },
 
     ],
-    links: [{ rel: "canonical", href: "https://guidacasinoitalia.lovable.app/" }],
+    links: [
+      { rel: "canonical", href: "https://guidacasino-italia.it/" },
+      { rel: "preload", as: "image", href: heroBgAvif, type: "image/avif", fetchPriority: "high" },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -135,8 +147,8 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "@id": "https://guidacasinoitalia.lovable.app/#webpage",
-          url: "https://guidacasinoitalia.lovable.app/",
+          "@id": "https://guidacasino-italia.it/#webpage",
+          url: "https://guidacasino-italia.it/",
           name: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS",
           inLanguage: "it-IT",
           isFamilyFriendly: false,
@@ -157,7 +169,7 @@ export const Route = createFileRoute("/")({
             "@type": "SpeakableSpecification",
             cssSelector: ["h1", "#risposte-rapide"],
           },
-          publisher: { "@type": "Organization", name: "GuidaCasinò.IT", url: "https://guidacasinoitalia.lovable.app/" },
+          publisher: { "@type": "Organization", name: "GuidaCasinò.IT", url: "https://guidacasino-italia.it/" },
         }),
       },
       {
@@ -239,7 +251,9 @@ function HomePage() {
       <QuickAnswersSection />
       <ComplianceBlock placement="top" />
       <OperatorsSection />
-      <ComparisonTable />
+      <Suspense fallback={<div className="mx-auto h-64 max-w-6xl px-4" aria-hidden />}>
+        <ComparisonTable />
+      </Suspense>
       <EvaluationGuideSection />
       <CriteriaSection />
       <ResponsibleSection />
@@ -248,7 +262,9 @@ function HomePage() {
       <GuidesSection />
       <ComplianceBlock placement="bottom" />
       <div className="h-24 md:hidden" aria-hidden />
-      <StickyCompareCTA />
+      <Suspense fallback={null}>
+        <StickyCompareCTA />
+      </Suspense>
     </PageShell>
 
   );
@@ -443,7 +459,7 @@ function Hero() {
     <section
       className="relative overflow-hidden border-b border-border"
       style={{
-        backgroundImage: `linear-gradient(180deg, oklch(0.14 0.02 260 / 0.85), oklch(0.14 0.02 260 / 0.95)), url(${heroBg})`,
+        backgroundImage: `linear-gradient(180deg, oklch(0.14 0.02 260 / 0.85), oklch(0.14 0.02 260 / 0.95)), image-set(url(${heroBgAvif}) type("image/avif"), url(${heroBgWebp}) type("image/webp"))`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

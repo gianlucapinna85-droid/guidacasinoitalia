@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { type ReactNode } from "react";
-import siteLogo from "@/assets/site-logo.png";
+import siteLogo from "@/assets/site-logo.webp";
 import { ShieldCheck, Ban, LifeBuoy, Landmark, BadgeCheck, Youtube, Instagram, Music2, Send } from "lucide-react";
 import vietato18 from "@/assets/vietato-18.png.asset.json";
 import admLogo from "@/assets/adm-logo.png.asset.json";
@@ -22,8 +22,7 @@ export function OfficialLogosBanner() {
           src={admLogo.url}
           alt="Logo ufficiale ADM — Agenzia delle Dogane e dei Monopoli"
           className="h-7 w-auto shrink-0"
-          loading="lazy"
-        />
+          loading="lazy" decoding="async" />
         <span className="min-w-0">
           <span className="block text-[11px] font-bold leading-tight text-neutral-800">Concessione ADM</span>
           <span className="block truncate text-[9px] uppercase tracking-wide text-neutral-500">Operatori legali in Italia</span>
@@ -34,8 +33,7 @@ export function OfficialLogosBanner() {
           src={vietato18.url}
           alt="Vietato ai minori di 18 anni"
           className="h-7 w-7 shrink-0"
-          loading="lazy"
-        />
+          loading="lazy" decoding="async" />
         <span className="min-w-0">
           <span className="block text-[11px] font-bold leading-tight text-neutral-800">Vietato ai minori</span>
           <span className="block truncate text-[9px] uppercase tracking-wide text-neutral-500">Gioco responsabile +18</span>
@@ -54,10 +52,10 @@ export function OperatorTrustDots({ name }: { name?: string }) {
       aria-label={`Garanzie di ${name ?? "operatore"}: concessione ADM, vietato ai minori di 18 anni, operatore legale in Italia, dati verificati`}
     >
       <span className={`${dot} border-gold/60`} title="Concessione ADM">
-        <img src={admLogo.url} alt="Concessione ADM" className="h-5 w-5 object-contain" loading="lazy" />
+        <img src={admLogo.url} alt="Concessione ADM" className="h-5 w-5 object-contain" loading="lazy" decoding="async" />
       </span>
       <span className={`${dot} border-destructive/60`} title="Vietato ai minori di 18 anni">
-        <img src={vietato18.url} alt="Vietato ai minori di 18 anni" className="h-5 w-5 object-contain" loading="lazy" />
+        <img src={vietato18.url} alt="Vietato ai minori di 18 anni" className="h-5 w-5 object-contain" loading="lazy" decoding="async" />
       </span>
       <span className={`${dot} border-border`} title="Operatore legale in Italia" role="img" aria-label="Bandiera italiana">
         <span className="flex h-5 w-5 overflow-hidden rounded-full">
@@ -168,8 +166,7 @@ export function AgeBanner() {
           alt="Vietato ai minori di 18 anni"
           width={28}
           height={28}
-          className="h-7 w-7 shrink-0"
-        />
+          className="h-7 w-7 shrink-0" loading="eager" decoding="async" />
         <span className="text-foreground/90">
           <strong className="font-semibold text-destructive">Vietato ai minori di 18 anni.</strong>{" "}
           Il gioco può causare dipendenza patologica. Probabilità di vincita consultabili su{" "}
@@ -188,6 +185,9 @@ export function Header() {
           <img
             src={siteLogo}
             alt="Logo GuidaCasinò.IT"
+            width={44}
+            height={44}
+            decoding="async"
             className="h-11 w-11 shrink-0 rounded-full object-contain"
           />
           <div className="leading-tight">
@@ -206,14 +206,14 @@ export function Header() {
             title="Operatori con concessione ADM"
             className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-gold/60 bg-white shadow-sm"
           >
-            <img src={admLogo.url} alt="Logo ufficiale ADM" className="h-6 w-6 object-contain" />
+            <img src={admLogo.url} alt="Logo ufficiale ADM" className="h-6 w-6 object-contain" loading="lazy" decoding="async" />
           </a>
           <span
             aria-label="Vietato ai minori di 18 anni"
             title="Vietato ai minori di 18 anni"
             className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-destructive/60 bg-white shadow-sm"
           >
-            <img src={vietato18.url} alt="Vietato ai minori di 18 anni" className="h-6 w-6 object-contain" />
+            <img src={vietato18.url} alt="Vietato ai minori di 18 anni" className="h-6 w-6 object-contain" loading="lazy" decoding="async" />
           </span>
           <span
             title="Operatori verificati sull'elenco pubblico ADM"
