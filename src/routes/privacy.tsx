@@ -51,22 +51,41 @@ function Page() {
           sicurezza e statistica aggregata, e cookie tecnici necessari al funzionamento.
         </Block>
 
-        <Block title="Cookie">
-          Il sito utilizza esclusivamente cookie tecnici necessari, che non richiedono consenso
-          preventivo. Eventuali cookie di misurazione anonimi vengono attivati solo dopo consenso
-          esplicito tramite il banner dedicato.
+        <Block title="Cookie e strumenti di tracciamento">
+          Ai sensi dell'art. 122 del D.Lgs. 196/2003 e delle Linee guida cookie del Garante Privacy del
+          10 giugno 2021, i cookie tecnici sono installati senza consenso; tutti gli altri solo dopo una
+          tua azione positiva. Il rifiuto non limita in alcun modo la navigazione. La tua scelta viene
+          conservata per 6 mesi, al termine dei quali il banner ti verrà riproposto; puoi revocarla o
+          modificarla in qualsiasi momento dal link «Preferenze cookie» nel piè di pagina.
+        </Block>
+
+        <CookieTable />
+
+        <Block title="Google Consent Mode v2">
+          Gli strumenti di misurazione di Google sono configurati con Consent Mode v2 in stato di default
+          «denied»: fino al tuo consenso non vengono impostati cookie di misurazione né trasmessi
+          identificatori pubblicitari. In assenza di consenso Google può ricevere unicamente segnali
+          aggregati e senza cookie (ping privi di identificatori).
         </Block>
 
         <Block title="Trasferimenti extra-UE">
-          Non trasferiamo dati personali al di fuori dello Spazio Economico Europeo. Eventuali
-          fornitori tecnici sono selezionati tra soggetti che garantiscono adeguate misure di
-          sicurezza.
+          Il sito non trasferisce autonomamente dati fuori dallo Spazio Economico Europeo. Se presti il
+          consenso alla categoria statistica, i dati di misurazione sono trattati da Google Ireland Ltd.
+          e possono essere trasferiti negli Stati Uniti sulla base del Data Privacy Framework UE-USA e
+          delle Clausole Contrattuali Standard.
+        </Block>
+
+        <Block title="Conservazione">
+          I log tecnici sono conservati per un periodo massimo di 12 mesi. I dati statistici
+          anonimizzati sono conservati in forma aggregata per un massimo di 14 mesi. Il record del
+          consenso ai cookie è conservato per 6 mesi.
         </Block>
 
         <Block title="Diritti dell'interessato">
           Hai il diritto di proporre reclamo al Garante per la Protezione dei Dati Personali
           (www.garanteprivacy.it) qualora ritieni che il trattamento violi il GDPR.
         </Block>
+
 
         <div className="mt-12">
           <Link to="/" className="text-sm text-gold hover:underline">← Torna alla home</Link>
