@@ -35,7 +35,7 @@ export const Route = createFileRoute("/operatori/$slug")({
         { name: "description", content: description },
         {
           name: "keywords",
-          content: `${operator.name}, ${operator.name} casinò ADM, ${operator.name} bonus senza deposito, recensione ${operator.name}, casino ADM sicuri, casino AAMS, concessione ADM`,
+          content: `${operator.name}, ${operator.name} recensione, ${operator.name} opinioni, ${operator.name} casinò ADM, ${operator.name} bonus senza deposito, ${operator.name} prelievo, casino online sicuri, casino AAMS 2026, concessione ADM`,
         },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
