@@ -24,10 +24,10 @@ export function buildReview(op: Operator): OperatorReview {
 
   const ageNote =
     age >= 12
-      ? `Operatore con presenza consolidata sul mercato italiano regolamentato (oltre ${age} anni di concessione).`
+      ? `Operatore con presenza consolidata sul mercato italiano regolamentato (marchio attivo da oltre ${age} anni).`
       : age >= 5
-        ? `Operatore con esperienza pluriennale sul mercato italiano regolamentato (${age} anni di concessione).`
-        : `Operatore relativamente recente sul mercato italiano regolamentato (${age} anni di concessione).`;
+        ? `Operatore con esperienza pluriennale sul mercato italiano regolamentato (marchio attivo da ${age} anni).`
+        : `Operatore relativamente recente sul mercato italiano regolamentato (marchio attivo da ${age} anni).`;
 
   const summary = `${op.name} figura nell'elenco pubblico dei concessionari dell'Agenzia delle Dogane e dei Monopoli (${op.concessionN}). ${ageNote} Il catalogo comprende oltre ${op.games} titoli certificati. ${rtpNote}`;
 

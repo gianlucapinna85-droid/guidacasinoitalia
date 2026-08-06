@@ -75,7 +75,7 @@ export const operators: Operator[] = [
     paymentMethods: ["Bonifico", "Carte", "PostePay", "PayPal", "Skrill"],
     games: 1800,
     highlights: [
-      "Concessione ADM n. 15254 in corso di validità",
+      "Concessione ADM n. 15218 in corso di validità",
       "Strumenti di autolimitazione integrati",
       "Assistenza clienti in italiano 7/7",
     ],
@@ -157,7 +157,7 @@ export const operators: Operator[] = [
     paymentMethods: ["Carte", "PayPal", "Postepay", "Skrill", "Bonifico"],
     games: 1200,
     highlights: [
-      "Operatore storico attivo dal 2018, in Italia con concessione ADM",
+      "Marchio storico fondato nel 1934, in Italia con concessione ADM",
       "Registrazione e verifica immediata dell'identità con SPID",
       "Strumenti di autolimitazione e adesione al RUA",
     ],
