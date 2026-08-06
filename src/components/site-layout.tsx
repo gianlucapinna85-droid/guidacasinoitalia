@@ -2,8 +2,11 @@ import { Link } from "@tanstack/react-router";
 import { type ReactNode } from "react";
 import siteLogo from "@/assets/site-logo.webp";
 import { ShieldCheck, Ban, LifeBuoy, Landmark, BadgeCheck, Youtube, Instagram, Music2, Send } from "lucide-react";
-import vietato18 from "@/assets/vietato-18.png.asset.json";
-import admLogo from "@/assets/adm-logo.png.asset.json";
+import vietato18Url from "@/assets/logos/v18.webp";
+import admLogoUrl from "@/assets/logos/adm.webp";
+
+const vietato18 = { url: vietato18Url };
+const admLogo = { url: admLogoUrl };
 
 export const YOUTUBE_URL = "https://youtube.com/@guidacasinoitalia?si=t6PGoRaPJ6Pyiyc4";
 
