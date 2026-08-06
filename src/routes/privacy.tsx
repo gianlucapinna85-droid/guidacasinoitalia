@@ -103,3 +103,46 @@ function Block({ title, children }: { title: string; children: React.ReactNode }
     </section>
   );
 }
+
+const COOKIES = [
+  { name: "gc_consent_v2", type: "Tecnico (localStorage)", owner: "GuidaCasinò.IT", purpose: "Memorizza le categorie di cookie autorizzate.", life: "6 mesi" },
+  { name: "_ga", type: "Statistico", owner: "Google Ireland Ltd.", purpose: "Distingue gli utenti in forma pseudonima con IP anonimizzato.", life: "13 mesi" },
+  { name: "_ga_<container>", type: "Statistico", owner: "Google Ireland Ltd.", purpose: "Mantiene lo stato della sessione di misurazione GA4.", life: "13 mesi" },
+  { name: "_gid", type: "Statistico", owner: "Google Ireland Ltd.", purpose: "Distingue gli utenti nelle statistiche giornaliere.", life: "24 ore" },
+];
+
+function CookieTable() {
+  return (
+    <section className="mt-8">
+      <h2 className="font-serif text-xl">Elenco dei cookie utilizzati</h2>
+      <div className="mt-3 overflow-x-auto rounded-lg border border-border">
+        <table className="w-full min-w-[36rem] text-left text-xs">
+          <thead className="bg-card/60 text-muted-foreground">
+            <tr>
+              <th scope="col" className="px-3 py-2 font-semibold">Nome</th>
+              <th scope="col" className="px-3 py-2 font-semibold">Categoria</th>
+              <th scope="col" className="px-3 py-2 font-semibold">Titolare</th>
+              <th scope="col" className="px-3 py-2 font-semibold">Finalità</th>
+              <th scope="col" className="px-3 py-2 font-semibold">Durata</th>
+            </tr>
+          </thead>
+          <tbody className="text-muted-foreground">
+            {COOKIES.map((c) => (
+              <tr key={c.name} className="border-t border-border align-top">
+                <td className="px-3 py-2 font-mono text-[11px] text-foreground">{c.name}</td>
+                <td className="px-3 py-2">{c.type}</td>
+                <td className="px-3 py-2">{c.owner}</td>
+                <td className="px-3 py-2">{c.purpose}</td>
+                <td className="px-3 py-2">{c.life}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p className="mt-2 text-xs text-muted-foreground">
+        I cookie statistici vengono installati solo dopo il consenso e rimossi in caso di revoca.
+        Sul sito non sono presenti cookie di profilazione pubblicitaria.
+      </p>
+    </section>
+  );
+}
