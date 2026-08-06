@@ -48,8 +48,21 @@ export function ComparisonTable() {
               {rows.map(({ op, meta }) => (
                 <tr key={op.slug} className="border-t border-border align-middle">
                   <th scope="row" className="p-3 text-left font-medium text-foreground">
-                    <Link to="/operatori/$slug" params={{ slug: op.slug }} className="hover:text-gold">
-                      {op.name}
+                    <Link
+                      to="/operatori/$slug"
+                      params={{ slug: op.slug }}
+                      className="inline-flex items-center gap-2 hover:opacity-80"
+                    >
+                      {op.logo ? (
+                        <img
+                          src={op.logo}
+                          alt={`Logo ${op.name}`}
+                          loading="lazy"
+                          className="h-8 w-24 rounded-md border border-border bg-white/95 object-contain p-1"
+                        />
+                      ) : (
+                        <span className="hover:text-gold">{op.name}</span>
+                      )}
                     </Link>
                     <span className="block text-[10px] font-normal text-muted-foreground">
                       {op.concessionN}
@@ -105,9 +118,18 @@ export function ComparisonTable() {
                   <Link
                     to="/operatori/$slug"
                     params={{ slug: op.slug }}
-                    className="font-serif text-lg hover:text-gold"
+                    className="inline-flex items-center font-serif text-lg hover:text-gold"
                   >
-                    {op.name}
+                    {op.logo ? (
+                      <img
+                        src={op.logo}
+                        alt={`Logo ${op.name}`}
+                        loading="lazy"
+                        className="h-9 w-28 rounded-md border border-border bg-white/95 object-contain p-1"
+                      />
+                    ) : (
+                      op.name
+                    )}
                   </Link>
                   <p className="text-[10px] text-muted-foreground">{op.concessionN}</p>
                 </div>
