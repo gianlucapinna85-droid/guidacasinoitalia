@@ -44,9 +44,11 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
-const CANONICAL_HOST = "guidacasino-italia.it";
+const CANONICAL_HOST = "www.guidacasino-italia.it";
 
-// 301 permanente dai vecchi domini *.lovable.app (e da www) al dominio canonico .it
+// 301 permanente dai vecchi domini *.lovable.app al dominio canonico.
+// NB: il redirect apex -> www e' gestito dall'hosting: non duplicarlo qui,
+// altrimenti si crea un loop di redirect infinito.
 function canonicalHostRedirect(request: Request): Response | undefined {
   let url: URL;
   try {
@@ -55,11 +57,9 @@ function canonicalHostRedirect(request: Request): Response | undefined {
     return undefined;
   }
   const host = url.hostname.toLowerCase();
-  const isLegacy = host.endsWith(".lovable.app");
-  const isWww = host === `www.${CANONICAL_HOST}`;
-  if (!isLegacy && !isWww) return undefined;
-  // I preview di Lovable devono restare navigabili
-  if (host.includes("-preview--") || host.includes("localhost")) return undefined;
+  if (!host.endsWith(".lovable.app")) return undefined;
+  // Preview e ambienti di sviluppo Lovable devono restare navigabili
+  if (host.includes("-preview--") || host.endsWith("-dev.lovable.app")) return undefined;
 
   url.protocol = "https:";
   url.hostname = CANONICAL_HOST;
