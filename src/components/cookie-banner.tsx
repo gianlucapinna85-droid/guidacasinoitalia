@@ -2,13 +2,21 @@ import { useEffect, useState } from "react";
 import { Cookie, Settings2, X } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useConsent } from "@/hooks/use-consent";
+import { consentExpiryDate } from "@/lib/cookie-consent";
 
 type PrefState = { preferences: boolean; analytics: boolean; marketing: boolean };
+
+const dateFmt = new Intl.DateTimeFormat("it-IT", { day: "2-digit", month: "2-digit", year: "numeric" });
+function formatDate(ts: number) {
+  return dateFmt.format(new Date(ts));
+}
 
 export function CookieBanner() {
   const { hydrated, hasDecision, consent, acceptAll, rejectAll, save } = useConsent();
   const [showPrefs, setShowPrefs] = useState(false);
   const [prefs, setPrefs] = useState<PrefState>({ preferences: false, analytics: false, marketing: false });
+  const expiry = consentExpiryDate(consent);
+
 
   useEffect(() => {
     if (consent) {
