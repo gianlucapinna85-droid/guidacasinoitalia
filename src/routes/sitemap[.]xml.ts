@@ -18,12 +18,12 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "daily", priority: "1.0" },
-          { path: "/bonus-senza-deposito", changefreq: "weekly", priority: "0.9" },
-          { path: "/come-registrarsi", changefreq: "weekly", priority: "0.8" },
-          { path: "/casino-paypal", changefreq: "weekly", priority: "0.9" },
-          { path: "/guida-rtp", changefreq: "weekly", priority: "0.8" },
-          { path: "/gioco-responsabile", changefreq: "monthly", priority: "0.8" },
-
+          // Guide: generate automaticamente dal registro src/data/guides.ts
+          ...guides.map((g) => ({
+            path: g.path,
+            changefreq: g.changefreq,
+            priority: g.priority,
+          })),
           { path: "/note-legali", changefreq: "yearly", priority: "0.4" },
           { path: "/privacy", changefreq: "yearly", priority: "0.4" },
           ...operators.map((op) => ({
