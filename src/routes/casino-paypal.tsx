@@ -5,7 +5,7 @@ import { RelatedLinks, CasinoBadges, RatingBadge } from "@/components/casino-ui"
 import { sortedOperators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
 
-const CANONICAL = "https://guidacasino-italia.it/casino-paypal";
+const CANONICAL = "https://www.guidacasino-italia.it/casino-paypal";
 const TITLE = "Casinò PayPal ADM 2026: siti legali che accettano PayPal";
 const DESCRIPTION =
   "Elenco informativo dei casinò online con concessione ADM che dichiarano PayPal tra i metodi di pagamento: depositi, prelievi, tempi e verifiche. Solo +18.";
@@ -70,7 +70,7 @@ export const Route = createFileRoute("/casino-paypal")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://guidacasino-italia.it/" },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.guidacasino-italia.it/" },
             { "@type": "ListItem", position: 2, name: "Casinò PayPal ADM", item: CANONICAL },
           ],
         }),

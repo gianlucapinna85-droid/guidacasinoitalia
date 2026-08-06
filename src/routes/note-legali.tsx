@@ -8,10 +8,10 @@ export const Route = createFileRoute("/note-legali")({
       { name: "description", content: "Disclaimer, natura informativa del portale, riferimenti al D.L. 87/2018 e responsabilità editoriale di GuidaCasinò.IT." },
       { property: "og:title", content: "Note legali — GuidaCasinò.IT" },
       { property: "og:description", content: "Disclaimer editoriale e riferimenti normativi." },
-      { property: "og:url", content: "https://guidacasino-italia.it/note-legali" },
+      { property: "og:url", content: "https://www.guidacasino-italia.it/note-legali" },
       { name: "robots", content: "index, follow" },
     ],
-    links: [{ rel: "canonical", href: "https://guidacasino-italia.it/note-legali" }],
+    links: [{ rel: "canonical", href: "https://www.guidacasino-italia.it/note-legali" }],
     scripts: [
       {
         type: "application/ld+json",

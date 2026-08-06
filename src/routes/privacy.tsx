@@ -8,9 +8,9 @@ export const Route = createFileRoute("/privacy")({
       { name: "description", content: "Informativa privacy ai sensi del GDPR (Reg. UE 2016/679) e cookie policy di GuidaCasinò.IT." },
       { property: "og:title", content: "Privacy & Cookie — GuidaCasinò.IT" },
       { property: "og:description", content: "Trattamento dei dati personali e utilizzo dei cookie." },
-      { property: "og:url", content: "https://guidacasino-italia.it/privacy" },
+      { property: "og:url", content: "https://www.guidacasino-italia.it/privacy" },
     ],
-    links: [{ rel: "canonical", href: "https://guidacasino-italia.it/privacy" }],
+    links: [{ rel: "canonical", href: "https://www.guidacasino-italia.it/privacy" }],
     scripts: [
       {
         type: "application/ld+json",

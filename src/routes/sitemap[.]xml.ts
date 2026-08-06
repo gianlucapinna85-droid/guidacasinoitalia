@@ -3,7 +3,7 @@ import type {} from "@tanstack/react-start";
 import { operators } from "@/lib/operators";
 import { guides } from "@/data/guides";
 
-const BASE_URL = "https://guidacasino-italia.it";
+const BASE_URL = "https://www.guidacasino-italia.it";
 
 interface SitemapEntry {
   path: string;

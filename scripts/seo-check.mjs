@@ -19,7 +19,7 @@ import { readdirSync, readFileSync, statSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
 
 const ROOT = process.cwd();
-const CANONICAL_ORIGIN = "https://guidacasino-italia.it";
+const CANONICAL_ORIGIN = "https://www.guidacasino-italia.it";
 const WARN_ONLY = process.argv.includes("--warn");
 
 const errors = [];
