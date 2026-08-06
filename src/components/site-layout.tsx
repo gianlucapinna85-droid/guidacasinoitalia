@@ -187,7 +187,6 @@ export function Header() {
             alt="Logo GuidaCasinò.IT"
             width={44}
             height={44}
-            fetchPriority="high"
             decoding="async"
             className="h-11 w-11 shrink-0 rounded-full object-contain"
           />
