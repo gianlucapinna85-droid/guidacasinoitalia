@@ -488,15 +488,27 @@ function OperatorsSection() {
             <div className="flex flex-col items-start gap-3 md:w-80 md:flex-row md:items-center">
               <OperatorLogo logo={op.logo} name={op.name} index={idx} officialUrl={op.officialUrl} />
               <div className="min-w-0">
-                <h3 className="font-serif text-lg">{op.name}</h3>
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="font-serif text-lg">{op.name}</h3>
+                  {getCasinoMeta(op.slug) ? (
+                    <RatingBadge rating={getCasinoMeta(op.slug)!.rating} size="sm" />
+                  ) : null}
+                </div>
                 <p className="text-[11px] uppercase tracking-wider text-muted-foreground">
                   {op.concessionN}
+                </p>
+                <div className="mt-2">
+                  <CasinoBadges slug={op.slug} />
+                </div>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  {getCasinoMeta(op.slug)?.short}
                 </p>
                 <div className="mt-2">
                   <OperatorTrustDots name={op.name} />
                 </div>
               </div>
             </div>
+
 
 
             <div className="grid gap-4 md:grid-cols-3">
