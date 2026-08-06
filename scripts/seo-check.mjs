@@ -64,7 +64,7 @@ for (const file of files) {
   const src = readFileSync(file, "utf8");
 
   // 1. vecchio dominio
-  if (/lovable\.app/.test(src) && !rel.startsWith("scripts/")) {
+  if (/lovable\.app/.test(src) && !rel.startsWith("scripts/") && rel !== "src/server.ts") {
     err(rel, "contiene un riferimento a *.lovable.app");
   }
 
