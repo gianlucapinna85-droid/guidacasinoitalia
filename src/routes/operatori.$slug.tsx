@@ -3,6 +3,9 @@ import { ArrowLeft, ArrowRight, CheckCircle2, AlertTriangle, ShieldCheck, Credit
 import { PageShell } from "@/components/site-layout";
 import { operators } from "@/lib/operators";
 import { buildReview } from "@/lib/operator-review";
+import { getCasinoMeta } from "@/data/casinos";
+import { RatingBadge, CasinoBadges, RelatedLinks } from "@/components/casino-ui";
+
 
 function loadOperator(slug: string) {
   const op = operators.find((o) => o.slug === slug);
