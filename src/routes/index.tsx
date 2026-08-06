@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, lazy, Suspense } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, ScrollText, Scale, Users, ArrowRight, CheckCircle2, Calendar, RefreshCw } from "lucide-react";
 import heroBgAvif from "@/assets/hero-bg.avif";
@@ -6,8 +6,15 @@ import heroBgWebp from "@/assets/hero-bg.webp";
 import { PageShell, ComplianceBadges, OfficialLogosBanner, OperatorTrustDots } from "@/components/site-layout";
 import { operators, sortedOperators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
-import { RatingBadge, CasinoBadges, StickyCompareCTA } from "@/components/casino-ui";
-import { ComparisonTable } from "@/components/comparison-table";
+import { RatingBadge, CasinoBadges } from "@/components/casino-ui";
+
+// Caricati in differita: sotto la prima schermata, non servono al primo render (LCP/FCP)
+const ComparisonTable = lazy(() =>
+  import("@/components/comparison-table").then((m) => ({ default: m.ComparisonTable })),
+);
+const StickyCompareCTA = lazy(() =>
+  import("@/components/casino-ui").then((m) => ({ default: m.StickyCompareCTA })),
+);
 
 
 const FAQS = [
@@ -244,7 +251,9 @@ function HomePage() {
       <QuickAnswersSection />
       <ComplianceBlock placement="top" />
       <OperatorsSection />
-      <ComparisonTable />
+      <Suspense fallback={<div className="mx-auto h-64 max-w-6xl px-4" aria-hidden />}>
+        <ComparisonTable />
+      </Suspense>
       <EvaluationGuideSection />
       <CriteriaSection />
       <ResponsibleSection />
@@ -253,7 +262,9 @@ function HomePage() {
       <GuidesSection />
       <ComplianceBlock placement="bottom" />
       <div className="h-24 md:hidden" aria-hidden />
-      <StickyCompareCTA />
+      <Suspense fallback={null}>
+        <StickyCompareCTA />
+      </Suspense>
     </PageShell>
 
   );
