@@ -50,6 +50,20 @@ sull'eventuale bonus senza deposito.
   concessionario, all'indirizzo `/operatori/{slug}`.
 - [Provider disponibili per operatore](https://guidacasinoitalia.lovable.app/provider/leovegas): elenco dei
   provider di slot con RTP medio e titolo più giocato, all'indirizzo `/provider/{slug}`.
+- [Migliori casinò online](https://guidacasinoitalia.lovable.app/migliori-casino-online): criteri di confronto
+  dei concessionari ADM.
+- [Casinò online sicuri](https://guidacasinoitalia.lovable.app/casino-online-sicuri): come verificare la
+  concessione ADM e riconoscere i siti non autorizzati.
+- [Bonus di benvenuto](https://guidacasinoitalia.lovable.app/bonus-benvenuto-casino): tipologie, requisiti di
+  puntata (wagering), scadenze e giochi ammessi.
+- [Slot online](https://guidacasinoitalia.lovable.app/slot-online): RNG certificato, RTP, volatilità, provider.
+- [Casinò live](https://guidacasinoitalia.lovable.app/casino-live): roulette, blackjack e game show con
+  croupier dal vivo.
+- [Metodi di pagamento](https://guidacasinoitalia.lovable.app/metodi-pagamento-casino): depositi, prelievi,
+  tempi, limiti e intestazione obbligatoria.
+- [Prelievi veloci](https://guidacasinoitalia.lovable.app/prelievi-veloci): fasi di elaborazione e cause dei
+  ritardi.
+- [Guida RTP](https://guidacasinoitalia.lovable.app/guida-rtp): come si legge il Return to Player.
 - [Gioco responsabile](https://guidacasinoitalia.lovable.app/gioco-responsabile): strumenti di autolimitazione,
   RUA, numero verde 800 558822.
 - [Note legali](https://guidacasinoitalia.lovable.app/note-legali) ·
