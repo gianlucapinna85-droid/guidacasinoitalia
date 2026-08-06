@@ -710,6 +710,8 @@ function OperatorLogo({
         ref={imgRef}
         src={logo}
         alt={`Logo ${name}`}
+        width={224}
+        height={96}
         className="h-full w-full object-contain"
         loading="lazy"
         decoding="async"
