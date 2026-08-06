@@ -157,7 +157,7 @@ function Page() {
               autoPlay
               muted
               loop
-              preload="auto"
+              preload="metadata"
               playsInline
               poster="/video/registrazione-poster.jpg"
             >

@@ -61,6 +61,9 @@ export function ComparisonTable() {
                           src={op.logo}
                           alt={`Logo ${op.name}`}
                           loading="lazy"
+                          width={112}
+                          height={36}
+                          decoding="async"
                           className="h-8 w-24 rounded-md border border-border bg-white/95 object-contain p-1"
                         />
                       ) : (
@@ -128,6 +131,9 @@ export function ComparisonTable() {
                         src={op.logo}
                         alt={`Logo ${op.name}`}
                         loading="lazy"
+                          width={112}
+                          height={36}
+                          decoding="async"
                         className="h-9 w-28 rounded-md border border-border bg-white/95 object-contain p-1"
                       />
                     ) : (
