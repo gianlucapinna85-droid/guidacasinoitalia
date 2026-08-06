@@ -70,6 +70,36 @@ function canonicalHostRedirect(request: Request): Response | undefined {
   });
 }
 
+// Cache lunga (1 anno, immutable) per gli asset statici versionati dal build,
+// cache media per i file statici serviti da /public (font, immagini, video).
+const IMMUTABLE_PATH = /^\/(_build|assets|__l5e)\//;
+const STATIC_EXT = /\.(avif|webp|png|jpe?g|gif|svg|ico|woff2?|ttf|otf|css|js|mjs|mp4|webm)$/i;
+
+function withCacheHeaders(request: Request, response: Response): Response {
+  if (request.method !== "GET" || response.status !== 200) return response;
+  if (response.headers.has("cache-control")) return response;
+
+  let pathname: string;
+  try {
+    pathname = new URL(request.url).pathname;
+  } catch {
+    return response;
+  }
+  if (!STATIC_EXT.test(pathname)) return response;
+
+  const value = IMMUTABLE_PATH.test(pathname)
+    ? "public, max-age=31536000, immutable"
+    : "public, max-age=31536000, stale-while-revalidate=86400";
+
+  const headers = new Headers(response.headers);
+  headers.set("cache-control", value);
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     const redirect = canonicalHostRedirect(request);
@@ -77,7 +107,7 @@ export default {
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      return withCacheHeaders(request, await normalizeCatastrophicSsrResponse(response));
     } catch (error) {
       console.error(error);
       return new Response(renderErrorPage(), {
@@ -87,3 +117,4 @@ export default {
     }
   },
 };
+
