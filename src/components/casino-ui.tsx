@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ShieldCheck, Wallet, Zap, Star, ArrowRight } from "lucide-react";
 import { getCasinoMeta } from "@/data/casinos";
 import { operators } from "@/lib/operators";
+import { guides } from "@/data/guides";
 
 export function RatingBadge({ rating, size = "md" }: { rating: number; size?: "sm" | "md" }) {
   const big = size === "md";
