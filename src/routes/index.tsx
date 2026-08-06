@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, ScrollText, Scale, Users, ArrowRight, CheckCircle2, Calendar, RefreshCw } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBgAvif from "@/assets/hero-bg.avif";
+import heroBgWebp from "@/assets/hero-bg.webp";
 import { PageShell, ComplianceBadges, OfficialLogosBanner, OperatorTrustDots } from "@/components/site-layout";
 import { operators, sortedOperators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
@@ -68,11 +69,15 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "it_IT" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:url", content: "https://guidacasino-italia.it/" },
       { name: "twitter:title", content: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS" },
       { name: "twitter:description", content: "Casinò online sicuri con concessione ADM (ex AAMS): confronto di bonus senza deposito immediato, RTP, metodi di pagamento e tutela del giocatore. Guida informativa aggiornata 2026. Solo +18." },
 
     ],
-    links: [{ rel: "canonical", href: "https://guidacasino-italia.it/" }],
+    links: [
+      { rel: "canonical", href: "https://guidacasino-italia.it/" },
+      { rel: "preload", as: "image", href: heroBgAvif, type: "image/avif", fetchpriority: "high" },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -443,7 +448,7 @@ function Hero() {
     <section
       className="relative overflow-hidden border-b border-border"
       style={{
-        backgroundImage: `linear-gradient(180deg, oklch(0.14 0.02 260 / 0.85), oklch(0.14 0.02 260 / 0.95)), url(${heroBg})`,
+        backgroundImage: `linear-gradient(180deg, oklch(0.14 0.02 260 / 0.85), oklch(0.14 0.02 260 / 0.95)), image-set(url(${heroBgAvif}) type("image/avif"), url(${heroBgWebp}) type("image/webp"))`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
