@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { operators } from "@/lib/operators";
+import { guides } from "@/data/guides";
 
 const BASE_URL = "https://guidacasinoitalia.lovable.app";
 

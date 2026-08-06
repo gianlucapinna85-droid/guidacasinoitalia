@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SitemapReviewsDotxmlRouteImport } from './routes/sitemap-reviews[.]xml'
 import { Route as SitemapGuidesDotxmlRouteImport } from './routes/sitemap-guides[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as NoteLegaliRouteImport } from './routes/note-legali'
@@ -25,6 +26,11 @@ import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapReviewsDotxmlRoute = SitemapReviewsDotxmlRouteImport.update({
+  id: '/sitemap-reviews.xml',
+  path: '/sitemap-reviews.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapGuidesDotxmlRoute = SitemapGuidesDotxmlRouteImport.update({
@@ -93,6 +99,7 @@ export interface FileRoutesByFullPath {
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
+  '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
@@ -107,6 +114,7 @@ export interface FileRoutesByTo {
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
+  '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
@@ -122,6 +130,7 @@ export interface FileRoutesById {
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
+  '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
@@ -138,6 +147,7 @@ export interface FileRouteTypes {
     | '/note-legali'
     | '/privacy'
     | '/sitemap-guides.xml'
+    | '/sitemap-reviews.xml'
     | '/sitemap.xml'
     | '/operatori/$slug'
     | '/provider/$slug'
@@ -152,6 +162,7 @@ export interface FileRouteTypes {
     | '/note-legali'
     | '/privacy'
     | '/sitemap-guides.xml'
+    | '/sitemap-reviews.xml'
     | '/sitemap.xml'
     | '/operatori/$slug'
     | '/provider/$slug'
@@ -166,6 +177,7 @@ export interface FileRouteTypes {
     | '/note-legali'
     | '/privacy'
     | '/sitemap-guides.xml'
+    | '/sitemap-reviews.xml'
     | '/sitemap.xml'
     | '/operatori/$slug'
     | '/provider/$slug'
@@ -181,6 +193,7 @@ export interface RootRouteChildren {
   NoteLegaliRoute: typeof NoteLegaliRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapGuidesDotxmlRoute: typeof SitemapGuidesDotxmlRoute
+  SitemapReviewsDotxmlRoute: typeof SitemapReviewsDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   OperatoriSlugRoute: typeof OperatoriSlugRoute
   ProviderSlugRoute: typeof ProviderSlugRoute
@@ -193,6 +206,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap-reviews.xml': {
+      id: '/sitemap-reviews.xml'
+      path: '/sitemap-reviews.xml'
+      fullPath: '/sitemap-reviews.xml'
+      preLoaderRoute: typeof SitemapReviewsDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap-guides.xml': {
@@ -285,6 +305,7 @@ const rootRouteChildren: RootRouteChildren = {
   NoteLegaliRoute: NoteLegaliRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapGuidesDotxmlRoute: SitemapGuidesDotxmlRoute,
+  SitemapReviewsDotxmlRoute: SitemapReviewsDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   OperatoriSlugRoute: OperatoriSlugRoute,
   ProviderSlugRoute: ProviderSlugRoute,
