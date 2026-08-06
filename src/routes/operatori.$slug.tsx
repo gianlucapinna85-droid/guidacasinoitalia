@@ -27,15 +27,15 @@ export const Route = createFileRoute("/operatori/$slug")({
     const { operator } = loaderData;
     const canonical = `https://guidacasinoitalia.lovable.app/operatori/${operator.slug}`;
     const nd = operator.noDepositBonus?.amount;
-    const title = `${operator.name} Casinò ADM 2026 — Recensione, Bonus Senza Deposito e Concessione`;
-    const description = `${operator.name} è un casinò online con concessione ADM ${operator.concessionN}. Recensione informativa: ${nd ? `bonus senza deposito ${nd}, ` : ""}RTP medio ${operator.rtpAverage}, ${operator.games}+ giochi, ${operator.paymentMethods.length} metodi di pagamento e strumenti di gioco responsabile. Solo +18.`;
+    const title = `${operator.name} Recensione 2026: opinioni, bonus senza deposito e concessione ADM`;
+    const description = `${operator.name} è un casinò online sicuro con concessione ADM ${operator.concessionN}. Recensione e opinioni: ${nd ? `bonus senza deposito ${nd}, ` : ""}RTP medio ${operator.rtpAverage}, ${operator.games}+ giochi, ${operator.paymentMethods.length} metodi di pagamento, tempi di prelievo e gioco responsabile. Solo +18.`;
     return {
       meta: [
         { title },
         { name: "description", content: description },
         {
           name: "keywords",
-          content: `${operator.name}, ${operator.name} casinò ADM, ${operator.name} bonus senza deposito, recensione ${operator.name}, casino ADM sicuri, casino AAMS, concessione ADM`,
+          content: `${operator.name}, ${operator.name} recensione, ${operator.name} opinioni, ${operator.name} casinò ADM, ${operator.name} bonus senza deposito, ${operator.name} prelievo, casino online sicuri, casino AAMS 2026, concessione ADM`,
         },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
@@ -351,6 +351,76 @@ function OperatorPage() {
             ))}
           </div>
         </section>
+
+        <section className="mt-10">
+          <h2 className="font-serif text-2xl">
+            Opinioni e valutazione redazionale su {op.name}
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            Le opinioni raccolte sui <strong>casinò online ADM</strong> come {op.name} si concentrano
+            quasi sempre su tre aspetti: la rapidità della verifica dei documenti, i tempi effettivi di
+            prelievo e l'ampiezza del catalogo di slot e tavoli live. Su questi parametri {op.name}
+            dichiara {meta?.fastWithdrawal ? "tempi di prelievo rapidi" : "tempi di prelievo in linea con la media di categoria"} e{" "}
+            {meta?.paypal ? "l'accettazione di PayPal tra i metodi tracciabili" : "un insieme di metodi di pagamento tracciabili senza PayPal"}.
+            Il voto redazionale {meta ? `di ${meta.rating.toFixed(1)}/10 ` : ""}sintetizza dati pubblici e
+            verificabili, non accordi commerciali.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            Per un confronto diretto con gli altri concessionari puoi consultare la{" "}
+            <Link to="/migliori-casino-online" className="underline hover:text-gold">
+              guida ai migliori casinò online
+            </Link>
+            , approfondire{" "}
+            <Link to="/casino-online-sicuri" className="underline hover:text-gold">
+              come riconoscere un casinò online sicuro
+            </Link>{" "}
+            oppure verificare i{" "}
+            <Link to="/prelievi-veloci" className="underline hover:text-gold">
+              tempi reali di prelievo
+            </Link>
+            .
+          </p>
+        </section>
+
+        <section className="mt-10">
+          <h2 className="font-serif text-2xl">Domande frequenti su {op.name}</h2>
+          <div className="mt-6 space-y-4">
+            {[
+              {
+                q: `${op.name} è un casinò sicuro e legale in Italia?`,
+                a: `${op.name} risulta titolare della concessione ${op.concessionN}, verificabile nell'elenco pubblico dei concessionari su adm.gov.it. I giochi sono collegati al totalizzatore nazionale e sottoposti al controllo dell'Agenzia delle Dogane e dei Monopoli.`,
+              },
+              {
+                q: `${op.name} offre un bonus senza deposito?`,
+                a: op.noDepositBonus
+                  ? `Secondo le condizioni pubblicate dal concessionario è previsto un bonus senza deposito di ${op.noDepositBonus.amount}, accreditato dopo la verifica dei documenti e soggetto a requisiti di puntata, scadenza e giochi ammessi.`
+                  : `Al momento non risultano bonus senza deposito pubblicati da ${op.name}. Verifica sempre i Termini e Condizioni ufficiali per eventuali aggiornamenti.`,
+              },
+              {
+                q: `Quali metodi di pagamento accetta ${op.name}?`,
+                a: `${op.name} dichiara i seguenti metodi tracciabili: ${op.paymentMethods.join(", ")}. Deposito minimo ${meta?.minDeposit ?? "n.d."}, prelievo minimo ${meta?.minWithdrawal ?? "n.d."}. Il metodo deve essere intestato al titolare del conto di gioco.`,
+              },
+              {
+                q: `Quanto tempo richiede un prelievo su ${op.name}?`,
+                a: `I tempi dipendono dal metodo scelto e dallo stato della verifica documentale: senza documenti convalidati nessun concessionario ADM può liquidare un prelievo. ${meta?.fastWithdrawal ? "L'operatore dichiara tempi di elaborazione rapidi." : "I tempi dichiarati sono in linea con la media di categoria."}`,
+              },
+              {
+                q: `Qual è l'RTP medio dichiarato da ${op.name}?`,
+                a: `L'RTP medio dichiarato è ${op.rtpAverage}. È un valore statistico teorico calcolato su un numero molto elevato di giocate: il dato attendibile per il singolo gioco è quello riportato nella sua scheda informativa.`,
+              },
+              {
+                q: `Come ci si registra su ${op.name}?`,
+                a: `Servono maggiore età, codice fiscale e un documento d'identità valido; in alternativa è spesso disponibile l'accesso con SPID o CIE, che rende la verifica immediata. Prima della prima giocata è consigliabile impostare i limiti di deposito.`,
+              },
+            ].map((f) => (
+              <details key={f.q} className="rounded-xl border border-border bg-card p-5">
+                <summary className="cursor-pointer font-medium">{f.q}</summary>
+                <p className="mt-3 text-sm text-muted-foreground">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
 
         <section className="mt-10 rounded-xl border border-destructive/30 bg-destructive/5 p-6">
           <h2 className="font-serif text-xl text-destructive">Avvertenza</h2>
