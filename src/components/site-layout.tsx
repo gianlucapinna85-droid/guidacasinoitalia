@@ -24,6 +24,8 @@ export function OfficialLogosBanner() {
         <img
           src={admLogo.url}
           alt="Logo ufficiale ADM — Agenzia delle Dogane e dei Monopoli"
+          width={224}
+          height={73}
           className="h-7 w-auto shrink-0"
           loading="lazy" decoding="async" />
         <span className="min-w-0">
@@ -35,6 +37,8 @@ export function OfficialLogosBanner() {
         <img
           src={vietato18.url}
           alt="Vietato ai minori di 18 anni"
+          width={28}
+          height={28}
           className="h-7 w-7 shrink-0"
           loading="lazy" decoding="async" />
         <span className="min-w-0">
