@@ -27,8 +27,8 @@ export const Route = createFileRoute("/operatori/$slug")({
     const { operator } = loaderData;
     const canonical = `https://guidacasinoitalia.lovable.app/operatori/${operator.slug}`;
     const nd = operator.noDepositBonus?.amount;
-    const title = `${operator.name} Casinò ADM 2026 — Recensione, Bonus Senza Deposito e Concessione`;
-    const description = `${operator.name} è un casinò online con concessione ADM ${operator.concessionN}. Recensione informativa: ${nd ? `bonus senza deposito ${nd}, ` : ""}RTP medio ${operator.rtpAverage}, ${operator.games}+ giochi, ${operator.paymentMethods.length} metodi di pagamento e strumenti di gioco responsabile. Solo +18.`;
+    const title = `${operator.name} Recensione 2026: opinioni, bonus senza deposito e concessione ADM`;
+    const description = `${operator.name} è un casinò online sicuro con concessione ADM ${operator.concessionN}. Recensione e opinioni: ${nd ? `bonus senza deposito ${nd}, ` : ""}RTP medio ${operator.rtpAverage}, ${operator.games}+ giochi, ${operator.paymentMethods.length} metodi di pagamento, tempi di prelievo e gioco responsabile. Solo +18.`;
     return {
       meta: [
         { title },
