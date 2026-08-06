@@ -1,16 +1,16 @@
 // Dati puramente illustrativi. Le concessioni ADM sono verificabili su adm.gov.it.
 // Sostituisci con dati verificati e link ai T&C ufficiali prima della pubblicazione.
-import leovegasLogo from "@/assets/logos/leovegas.png";
-import netbetLogo from "@/assets/logos/netbet.png";
-import betflagLogo from "@/assets/logos/betflag.png";
-import logo888 from "@/assets/logos/888.png";
-import sunbetLogo from "@/assets/logos/sunbet.png";
-import williamhillLogo from "@/assets/logos/williamhill.png";
-import lottomaticaLogo from "@/assets/logos/lottomatica.png";
-import goldbetLogo from "@/assets/logos/goldbet.png";
-import snaiLogo from "@/assets/logos/snai.png";
-import sisalLogo from "@/assets/logos/sisal.png";
-import eplay24Logo from "@/assets/logos/eplay24.png";
+import leovegasLogo from "@/assets/logos/leovegas.webp";
+import netbetLogo from "@/assets/logos/netbet.webp";
+import betflagLogo from "@/assets/logos/betflag.webp";
+import logo888 from "@/assets/logos/888.webp";
+import sunbetLogo from "@/assets/logos/sunbet.webp";
+import williamhillLogo from "@/assets/logos/williamhill.webp";
+import lottomaticaLogo from "@/assets/logos/lottomatica.webp";
+import goldbetLogo from "@/assets/logos/goldbet.webp";
+import snaiLogo from "@/assets/logos/snai.webp";
+import sisalLogo from "@/assets/logos/sisal.webp";
+import eplay24Logo from "@/assets/logos/eplay24.webp";
 
 
 export type NoDepositBonus = {

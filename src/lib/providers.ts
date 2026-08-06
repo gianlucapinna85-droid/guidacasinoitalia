@@ -1,13 +1,13 @@
 // Dati provider a scopo informativo. RTP medi indicativi dichiarati dai produttori:
 // verifica sempre il valore RTP pubblicato nella scheda di ogni singolo gioco.
-import pragmaticLogo from "@/assets/providers/pragmatic.png";
-import evolutionLogo from "@/assets/providers/evolution.png";
-import netentLogo from "@/assets/providers/netent.png";
-import redTigerLogo from "@/assets/providers/red_tiger.png";
-import nolimitLogo from "@/assets/providers/nolimit.png";
-import btgLogo from "@/assets/providers/btg.png";
-import yggdrasilLogo from "@/assets/providers/yggdrasil.png";
-import novomaticLogo from "@/assets/providers/novomatic.png";
+import pragmaticLogo from "@/assets/providers/pragmatic.webp";
+import evolutionLogo from "@/assets/providers/evolution.webp";
+import netentLogo from "@/assets/providers/netent.webp";
+import redTigerLogo from "@/assets/providers/red_tiger.webp";
+import nolimitLogo from "@/assets/providers/nolimit.webp";
+import btgLogo from "@/assets/providers/btg.webp";
+import yggdrasilLogo from "@/assets/providers/yggdrasil.webp";
+import novomaticLogo from "@/assets/providers/novomatic.webp";
 
 export type Provider = {
   slug: string;
