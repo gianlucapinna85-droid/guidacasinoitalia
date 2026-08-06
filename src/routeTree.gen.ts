@@ -14,6 +14,7 @@ import { Route as SitemapReviewsDotxmlRouteImport } from './routes/sitemap-revie
 import { Route as SitemapGuidesDotxmlRouteImport } from './routes/sitemap-guides[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as NoteLegaliRouteImport } from './routes/note-legali'
+import { Route as MiglioriCasinoOnlineRouteImport } from './routes/migliori-casino-online'
 import { Route as GuidaRtpRouteImport } from './routes/guida-rtp'
 import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabile'
 import { Route as ComeRegistrarsiRouteImport } from './routes/come-registrarsi'
@@ -46,6 +47,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const NoteLegaliRoute = NoteLegaliRouteImport.update({
   id: '/note-legali',
   path: '/note-legali',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MiglioriCasinoOnlineRoute = MiglioriCasinoOnlineRouteImport.update({
+  id: '/migliori-casino-online',
+  path: '/migliori-casino-online',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GuidaRtpRoute = GuidaRtpRouteImport.update({
@@ -96,6 +102,7 @@ export interface FileRoutesByFullPath {
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-rtp': typeof GuidaRtpRoute
+  '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
@@ -111,6 +118,7 @@ export interface FileRoutesByTo {
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-rtp': typeof GuidaRtpRoute
+  '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
@@ -127,6 +135,7 @@ export interface FileRoutesById {
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-rtp': typeof GuidaRtpRoute
+  '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
   '/note-legali': typeof NoteLegaliRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
@@ -144,6 +153,7 @@ export interface FileRouteTypes {
     | '/come-registrarsi'
     | '/gioco-responsabile'
     | '/guida-rtp'
+    | '/migliori-casino-online'
     | '/note-legali'
     | '/privacy'
     | '/sitemap-guides.xml'
@@ -159,6 +169,7 @@ export interface FileRouteTypes {
     | '/come-registrarsi'
     | '/gioco-responsabile'
     | '/guida-rtp'
+    | '/migliori-casino-online'
     | '/note-legali'
     | '/privacy'
     | '/sitemap-guides.xml'
@@ -174,6 +185,7 @@ export interface FileRouteTypes {
     | '/come-registrarsi'
     | '/gioco-responsabile'
     | '/guida-rtp'
+    | '/migliori-casino-online'
     | '/note-legali'
     | '/privacy'
     | '/sitemap-guides.xml'
@@ -190,6 +202,7 @@ export interface RootRouteChildren {
   ComeRegistrarsiRoute: typeof ComeRegistrarsiRoute
   GiocoResponsabileRoute: typeof GiocoResponsabileRoute
   GuidaRtpRoute: typeof GuidaRtpRoute
+  MiglioriCasinoOnlineRoute: typeof MiglioriCasinoOnlineRoute
   NoteLegaliRoute: typeof NoteLegaliRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapGuidesDotxmlRoute: typeof SitemapGuidesDotxmlRoute
@@ -234,6 +247,13 @@ declare module '@tanstack/react-router' {
       path: '/note-legali'
       fullPath: '/note-legali'
       preLoaderRoute: typeof NoteLegaliRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/migliori-casino-online': {
+      id: '/migliori-casino-online'
+      path: '/migliori-casino-online'
+      fullPath: '/migliori-casino-online'
+      preLoaderRoute: typeof MiglioriCasinoOnlineRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/guida-rtp': {
@@ -302,6 +322,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComeRegistrarsiRoute: ComeRegistrarsiRoute,
   GiocoResponsabileRoute: GiocoResponsabileRoute,
   GuidaRtpRoute: GuidaRtpRoute,
+  MiglioriCasinoOnlineRoute: MiglioriCasinoOnlineRoute,
   NoteLegaliRoute: NoteLegaliRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapGuidesDotxmlRoute: SitemapGuidesDotxmlRoute,
@@ -313,13 +334,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
