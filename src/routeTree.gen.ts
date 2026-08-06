@@ -14,6 +14,7 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as NoteLegaliRouteImport } from './routes/note-legali'
 import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabile'
 import { Route as ComeRegistrarsiRouteImport } from './routes/come-registrarsi'
+import { Route as CasinoPaypalRouteImport } from './routes/casino-paypal'
 import { Route as BonusSenzaDepositoRouteImport } from './routes/bonus-senza-deposito'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
@@ -44,6 +45,11 @@ const ComeRegistrarsiRoute = ComeRegistrarsiRouteImport.update({
   path: '/come-registrarsi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CasinoPaypalRoute = CasinoPaypalRouteImport.update({
+  id: '/casino-paypal',
+  path: '/casino-paypal',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BonusSenzaDepositoRoute = BonusSenzaDepositoRouteImport.update({
   id: '/bonus-senza-deposito',
   path: '/bonus-senza-deposito',
@@ -68,6 +74,7 @@ const OperatoriSlugRoute = OperatoriSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
+  '/casino-paypal': typeof CasinoPaypalRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/note-legali': typeof NoteLegaliRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
+  '/casino-paypal': typeof CasinoPaypalRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/note-legali': typeof NoteLegaliRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
+  '/casino-paypal': typeof CasinoPaypalRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/note-legali': typeof NoteLegaliRoute
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/bonus-senza-deposito'
+    | '/casino-paypal'
     | '/come-registrarsi'
     | '/gioco-responsabile'
     | '/note-legali'
@@ -115,6 +125,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/bonus-senza-deposito'
+    | '/casino-paypal'
     | '/come-registrarsi'
     | '/gioco-responsabile'
     | '/note-legali'
@@ -126,6 +137,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/bonus-senza-deposito'
+    | '/casino-paypal'
     | '/come-registrarsi'
     | '/gioco-responsabile'
     | '/note-legali'
@@ -138,6 +150,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BonusSenzaDepositoRoute: typeof BonusSenzaDepositoRoute
+  CasinoPaypalRoute: typeof CasinoPaypalRoute
   ComeRegistrarsiRoute: typeof ComeRegistrarsiRoute
   GiocoResponsabileRoute: typeof GiocoResponsabileRoute
   NoteLegaliRoute: typeof NoteLegaliRoute
@@ -184,6 +197,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComeRegistrarsiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/casino-paypal': {
+      id: '/casino-paypal'
+      path: '/casino-paypal'
+      fullPath: '/casino-paypal'
+      preLoaderRoute: typeof CasinoPaypalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/bonus-senza-deposito': {
       id: '/bonus-senza-deposito'
       path: '/bonus-senza-deposito'
@@ -218,6 +238,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BonusSenzaDepositoRoute: BonusSenzaDepositoRoute,
+  CasinoPaypalRoute: CasinoPaypalRoute,
   ComeRegistrarsiRoute: ComeRegistrarsiRoute,
   GiocoResponsabileRoute: GiocoResponsabileRoute,
   NoteLegaliRoute: NoteLegaliRoute,
@@ -229,13 +250,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
