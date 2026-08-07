@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SlotOnlineRouteImport } from './routes/slot-online'
+import { Route as SlotGratisDemoRouteImport } from './routes/slot-gratis-demo'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapReviewsDotxmlRouteImport } from './routes/sitemap-reviews[.]xml'
 import { Route as SitemapGuidesDotxmlRouteImport } from './routes/sitemap-guides[.]xml'
@@ -20,9 +21,11 @@ import { Route as MiglioriCasinoOnlineRouteImport } from './routes/migliori-casi
 import { Route as MetodiPagamentoCasinoRouteImport } from './routes/metodi-pagamento-casino'
 import { Route as GuidaRtpRouteImport } from './routes/guida-rtp'
 import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabile'
+import { Route as ComeValutiamoICasinoRouteImport } from './routes/come-valutiamo-i-casino'
 import { Route as ComeRegistrarsiRouteImport } from './routes/come-registrarsi'
 import { Route as CasinoPaypalRouteImport } from './routes/casino-paypal'
 import { Route as CasinoOnlineSicuriRouteImport } from './routes/casino-online-sicuri'
+import { Route as CasinoOnlineItaliaRouteImport } from './routes/casino-online-italia'
 import { Route as CasinoLiveRouteImport } from './routes/casino-live'
 import { Route as BonusSenzaDepositoRouteImport } from './routes/bonus-senza-deposito'
 import { Route as BonusBenvenutoCasinoRouteImport } from './routes/bonus-benvenuto-casino'
@@ -33,6 +36,11 @@ import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 const SlotOnlineRoute = SlotOnlineRouteImport.update({
   id: '/slot-online',
   path: '/slot-online',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SlotGratisDemoRoute = SlotGratisDemoRouteImport.update({
+  id: '/slot-gratis-demo',
+  path: '/slot-gratis-demo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -85,6 +93,11 @@ const GiocoResponsabileRoute = GiocoResponsabileRouteImport.update({
   path: '/gioco-responsabile',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ComeValutiamoICasinoRoute = ComeValutiamoICasinoRouteImport.update({
+  id: '/come-valutiamo-i-casino',
+  path: '/come-valutiamo-i-casino',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ComeRegistrarsiRoute = ComeRegistrarsiRouteImport.update({
   id: '/come-registrarsi',
   path: '/come-registrarsi',
@@ -98,6 +111,11 @@ const CasinoPaypalRoute = CasinoPaypalRouteImport.update({
 const CasinoOnlineSicuriRoute = CasinoOnlineSicuriRouteImport.update({
   id: '/casino-online-sicuri',
   path: '/casino-online-sicuri',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CasinoOnlineItaliaRoute = CasinoOnlineItaliaRouteImport.update({
+  id: '/casino-online-italia',
+  path: '/casino-online-italia',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CasinoLiveRoute = CasinoLiveRouteImport.update({
@@ -136,9 +154,11 @@ export interface FileRoutesByFullPath {
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/casino-live': typeof CasinoLiveRoute
+  '/casino-online-italia': typeof CasinoOnlineItaliaRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
+  '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-rtp': typeof GuidaRtpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
@@ -149,6 +169,7 @@ export interface FileRoutesByFullPath {
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
@@ -158,9 +179,11 @@ export interface FileRoutesByTo {
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/casino-live': typeof CasinoLiveRoute
+  '/casino-online-italia': typeof CasinoOnlineItaliaRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
+  '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-rtp': typeof GuidaRtpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
@@ -171,6 +194,7 @@ export interface FileRoutesByTo {
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
@@ -181,9 +205,11 @@ export interface FileRoutesById {
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/casino-live': typeof CasinoLiveRoute
+  '/casino-online-italia': typeof CasinoOnlineItaliaRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
+  '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-rtp': typeof GuidaRtpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
@@ -194,6 +220,7 @@ export interface FileRoutesById {
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
@@ -205,9 +232,11 @@ export interface FileRouteTypes {
     | '/bonus-benvenuto-casino'
     | '/bonus-senza-deposito'
     | '/casino-live'
+    | '/casino-online-italia'
     | '/casino-online-sicuri'
     | '/casino-paypal'
     | '/come-registrarsi'
+    | '/come-valutiamo-i-casino'
     | '/gioco-responsabile'
     | '/guida-rtp'
     | '/metodi-pagamento-casino'
@@ -218,6 +247,7 @@ export interface FileRouteTypes {
     | '/sitemap-guides.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
+    | '/slot-gratis-demo'
     | '/slot-online'
     | '/operatori/$slug'
     | '/provider/$slug'
@@ -227,9 +257,11 @@ export interface FileRouteTypes {
     | '/bonus-benvenuto-casino'
     | '/bonus-senza-deposito'
     | '/casino-live'
+    | '/casino-online-italia'
     | '/casino-online-sicuri'
     | '/casino-paypal'
     | '/come-registrarsi'
+    | '/come-valutiamo-i-casino'
     | '/gioco-responsabile'
     | '/guida-rtp'
     | '/metodi-pagamento-casino'
@@ -240,6 +272,7 @@ export interface FileRouteTypes {
     | '/sitemap-guides.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
+    | '/slot-gratis-demo'
     | '/slot-online'
     | '/operatori/$slug'
     | '/provider/$slug'
@@ -249,9 +282,11 @@ export interface FileRouteTypes {
     | '/bonus-benvenuto-casino'
     | '/bonus-senza-deposito'
     | '/casino-live'
+    | '/casino-online-italia'
     | '/casino-online-sicuri'
     | '/casino-paypal'
     | '/come-registrarsi'
+    | '/come-valutiamo-i-casino'
     | '/gioco-responsabile'
     | '/guida-rtp'
     | '/metodi-pagamento-casino'
@@ -262,6 +297,7 @@ export interface FileRouteTypes {
     | '/sitemap-guides.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
+    | '/slot-gratis-demo'
     | '/slot-online'
     | '/operatori/$slug'
     | '/provider/$slug'
@@ -272,9 +308,11 @@ export interface RootRouteChildren {
   BonusBenvenutoCasinoRoute: typeof BonusBenvenutoCasinoRoute
   BonusSenzaDepositoRoute: typeof BonusSenzaDepositoRoute
   CasinoLiveRoute: typeof CasinoLiveRoute
+  CasinoOnlineItaliaRoute: typeof CasinoOnlineItaliaRoute
   CasinoOnlineSicuriRoute: typeof CasinoOnlineSicuriRoute
   CasinoPaypalRoute: typeof CasinoPaypalRoute
   ComeRegistrarsiRoute: typeof ComeRegistrarsiRoute
+  ComeValutiamoICasinoRoute: typeof ComeValutiamoICasinoRoute
   GiocoResponsabileRoute: typeof GiocoResponsabileRoute
   GuidaRtpRoute: typeof GuidaRtpRoute
   MetodiPagamentoCasinoRoute: typeof MetodiPagamentoCasinoRoute
@@ -285,6 +323,7 @@ export interface RootRouteChildren {
   SitemapGuidesDotxmlRoute: typeof SitemapGuidesDotxmlRoute
   SitemapReviewsDotxmlRoute: typeof SitemapReviewsDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SlotGratisDemoRoute: typeof SlotGratisDemoRoute
   SlotOnlineRoute: typeof SlotOnlineRoute
   OperatoriSlugRoute: typeof OperatoriSlugRoute
   ProviderSlugRoute: typeof ProviderSlugRoute
@@ -297,6 +336,13 @@ declare module '@tanstack/react-router' {
       path: '/slot-online'
       fullPath: '/slot-online'
       preLoaderRoute: typeof SlotOnlineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/slot-gratis-demo': {
+      id: '/slot-gratis-demo'
+      path: '/slot-gratis-demo'
+      fullPath: '/slot-gratis-demo'
+      preLoaderRoute: typeof SlotGratisDemoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -369,6 +415,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GiocoResponsabileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/come-valutiamo-i-casino': {
+      id: '/come-valutiamo-i-casino'
+      path: '/come-valutiamo-i-casino'
+      fullPath: '/come-valutiamo-i-casino'
+      preLoaderRoute: typeof ComeValutiamoICasinoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/come-registrarsi': {
       id: '/come-registrarsi'
       path: '/come-registrarsi'
@@ -388,6 +441,13 @@ declare module '@tanstack/react-router' {
       path: '/casino-online-sicuri'
       fullPath: '/casino-online-sicuri'
       preLoaderRoute: typeof CasinoOnlineSicuriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/casino-online-italia': {
+      id: '/casino-online-italia'
+      path: '/casino-online-italia'
+      fullPath: '/casino-online-italia'
+      preLoaderRoute: typeof CasinoOnlineItaliaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/casino-live': {
@@ -440,9 +500,11 @@ const rootRouteChildren: RootRouteChildren = {
   BonusBenvenutoCasinoRoute: BonusBenvenutoCasinoRoute,
   BonusSenzaDepositoRoute: BonusSenzaDepositoRoute,
   CasinoLiveRoute: CasinoLiveRoute,
+  CasinoOnlineItaliaRoute: CasinoOnlineItaliaRoute,
   CasinoOnlineSicuriRoute: CasinoOnlineSicuriRoute,
   CasinoPaypalRoute: CasinoPaypalRoute,
   ComeRegistrarsiRoute: ComeRegistrarsiRoute,
+  ComeValutiamoICasinoRoute: ComeValutiamoICasinoRoute,
   GiocoResponsabileRoute: GiocoResponsabileRoute,
   GuidaRtpRoute: GuidaRtpRoute,
   MetodiPagamentoCasinoRoute: MetodiPagamentoCasinoRoute,
@@ -453,6 +515,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapGuidesDotxmlRoute: SitemapGuidesDotxmlRoute,
   SitemapReviewsDotxmlRoute: SitemapReviewsDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SlotGratisDemoRoute: SlotGratisDemoRoute,
   SlotOnlineRoute: SlotOnlineRoute,
   OperatoriSlugRoute: OperatoriSlugRoute,
   ProviderSlugRoute: ProviderSlugRoute,
