@@ -92,7 +92,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "robots", content: "index, follow, max-image-preview:large" },
-      { name: "ga-site-verification", content: "W5juT-4MDC0f4vbw5hNDDIXY" },
+      { name: "ga-site-verification", content: "RwL30R0PEfu27ruq0gqBSzrB" },
       { name: "google-site-verification", content: "HhcCYnFE0-bjVDSP36wy43sJXySOc1G7bRlVhupj7Po" },
       { property: "og:title", content: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS" },
       { name: "twitter:title", content: "Casinò ADM 2026: bonus senza deposito e siti legali AAMS" },
