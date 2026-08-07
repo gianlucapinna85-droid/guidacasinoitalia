@@ -31,11 +31,8 @@ export const Route = createFileRoute("/sitemap.xml")({
             changefreq: "weekly" as const,
             priority: "0.8",
           })),
-          ...operators.map((op) => ({
-            path: `/provider/${op.slug}`,
-            changefreq: "weekly" as const,
-            priority: "0.6",
-          })),
+          // Le pagine /provider/* sono escluse dalla sitemap: contenuto quasi
+          // duplicato tra operatori, marcate noindex,follow nella rotta.
         ];
 
         const urls = entries.map((e) =>
