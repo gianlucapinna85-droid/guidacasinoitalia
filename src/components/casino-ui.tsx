@@ -48,7 +48,10 @@ function Badge({ icon: Icon, label }: { icon: typeof ShieldCheck; label: string 
  * Non serve aggiungere link a mano: basta registrare la nuova guida/operatore.
  */
 export function RelatedLinks({ currentSlug, currentPath }: { currentSlug?: string; currentPath?: string }) {
-  const related = operators.filter((o) => o.slug !== currentSlug).slice(0, 4);
+  const related = operators
+    .filter((o) => o.slug !== currentSlug)
+    .sort((a, b) => (getCasinoMeta(b.slug)?.rating ?? 0) - (getCasinoMeta(a.slug)?.rating ?? 0))
+    .slice(0, 6);
   const guideLinks = guides.filter((g) => g.path !== currentPath).slice(0, 5);
   return (
     <section className="mt-12 rounded-xl border border-border bg-card p-6">
