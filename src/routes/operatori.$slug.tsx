@@ -4,6 +4,7 @@ import { PageShell } from "@/components/site-layout";
 import { operators } from "@/lib/operators";
 import { buildReview } from "@/lib/operator-review";
 import { getCasinoMeta } from "@/data/casinos";
+import { getDeepDive } from "@/data/casino-deepdive";
 import { RatingBadge, CasinoBadges, RelatedLinks } from "@/components/casino-ui";
 
 
