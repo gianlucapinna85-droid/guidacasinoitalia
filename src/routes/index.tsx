@@ -131,7 +131,7 @@ export const Route = createFileRoute("/")({
               url: op.officialUrl,
               identifier: op.concessionN,
             },
-            author: { "@type": "Organization", name: "GuidaCasinò.IT" },
+            author: { "@type": "Organization", name: "Guida Casino Italia" },
             reviewBody: `Scheda informativa del concessionario ${op.name} (${op.concessionN}): RTP medio dichiarato ${op.rtpAverage}, attivo dal ${op.founded}, oltre ${op.games} titoli disponibili. Contenuto redatto a fini esclusivamente informativi sulla base di fonti pubbliche.`,
             reviewRating: {
               "@type": "Rating",
@@ -169,7 +169,7 @@ export const Route = createFileRoute("/")({
             "@type": "SpeakableSpecification",
             cssSelector: ["h1", "#risposte-rapide"],
           },
-          publisher: { "@type": "Organization", name: "GuidaCasinò.IT", url: "https://www.guidacasino-italia.it/" },
+          publisher: { "@type": "Organization", name: "Guida Casino Italia", alternateName: "GuidaCasinò.IT", url: "https://www.guidacasino-italia.it/" },
         }),
       },
       {
