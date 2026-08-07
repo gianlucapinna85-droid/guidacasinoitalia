@@ -59,7 +59,7 @@ const FAQS = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Guida Casino Italia 2026 | Casinò ADM e Bonus Senza Deposito" },
+      { title: "Guida Casino Italia 2026 | Migliori Casinò ADM e Bonus Senza Deposito" },
       { name: "description", content: "Guida Casino Italia: confronto indipendente dei casinò online con concessione ADM, bonus senza deposito, RTP e pagamenti sicuri. Aggiornato 2026. Solo +18." },
       { name: "keywords", content: "casino adm, casino aams, bonus senza deposito, bonus senza deposito immediato, casino online sicuri, casino online italiani, migliori casino online 2026, concessione adm, gioco legale italia, casino con spid, come verificare licenza adm, casino legali italia elenco, quali sono i casino con concessione adm" },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
@@ -70,14 +70,14 @@ export const Route = createFileRoute("/")({
       { name: "geo.region", content: "IT" },
       { name: "language", content: "it-IT" },
       { name: "author", content: "GuidaCasinò.IT" },
-      { property: "og:title", content: "Guida Casino Italia 2026 | Casinò ADM e Bonus Senza Deposito" },
+      { property: "og:title", content: "Guida Casino Italia 2026 | Migliori Casinò ADM e Bonus Senza Deposito" },
       { property: "og:description", content: "Guida Casino Italia: confronto indipendente dei casinò online con concessione ADM, bonus senza deposito, RTP e pagamenti sicuri. Aggiornato 2026. Solo +18." },
       { property: "og:url", content: "https://www.guidacasino-italia.it/" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "it_IT" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:url", content: "https://www.guidacasino-italia.it/" },
-      { name: "twitter:title", content: "Guida Casino Italia 2026 | Casinò ADM e Bonus Senza Deposito" },
+      { name: "twitter:title", content: "Guida Casino Italia 2026 | Migliori Casinò ADM e Bonus Senza Deposito" },
       { name: "twitter:description", content: "Guida Casino Italia: confronto indipendente dei casinò online con concessione ADM, bonus senza deposito, RTP e pagamenti sicuri. Aggiornato 2026. Solo +18." },
 
     ],
@@ -131,7 +131,7 @@ export const Route = createFileRoute("/")({
               url: op.officialUrl,
               identifier: op.concessionN,
             },
-            author: { "@type": "Organization", name: "GuidaCasinò.IT" },
+            author: { "@type": "Organization", name: "Guida Casino Italia" },
             reviewBody: `Scheda informativa del concessionario ${op.name} (${op.concessionN}): RTP medio dichiarato ${op.rtpAverage}, attivo dal ${op.founded}, oltre ${op.games} titoli disponibili. Contenuto redatto a fini esclusivamente informativi sulla base di fonti pubbliche.`,
             reviewRating: {
               "@type": "Rating",
@@ -149,7 +149,7 @@ export const Route = createFileRoute("/")({
           "@type": "WebPage",
           "@id": "https://www.guidacasino-italia.it/#webpage",
           url: "https://www.guidacasino-italia.it/",
-          name: "Guida Casino Italia 2026 | Casinò ADM e Bonus Senza Deposito",
+          name: "Guida Casino Italia 2026 | Migliori Casinò ADM e Bonus Senza Deposito",
           inLanguage: "it-IT",
           isFamilyFriendly: false,
           dateModified: new Date().toISOString().slice(0, 10),
@@ -169,7 +169,7 @@ export const Route = createFileRoute("/")({
             "@type": "SpeakableSpecification",
             cssSelector: ["h1", "#risposte-rapide"],
           },
-          publisher: { "@type": "Organization", name: "GuidaCasinò.IT", url: "https://www.guidacasino-italia.it/" },
+          publisher: { "@type": "Organization", name: "Guida Casino Italia", alternateName: "GuidaCasinò.IT", url: "https://www.guidacasino-italia.it/" },
         }),
       },
       {
@@ -272,13 +272,58 @@ function GuidesSection() {
   );
 }
 
+function BrandIntroSection() {
+  const pages = [
+    { to: "/migliori-casino-online", label: "Migliori casinò ADM" },
+    { to: "/bonus-senza-deposito", label: "Bonus senza deposito" },
+  ] as const;
+  const reviews = [
+    { slug: "leovegas", label: "Recensione LeoVegas" },
+    { slug: "snai", label: "Recensione Snai" },
+    { slug: "sisal", label: "Recensione Sisal" },
+    { slug: "888", label: "Recensione 888" },
+  ] as const;
+  const cls =
+    "rounded-md border border-gold/30 bg-gold/5 px-3 py-2 text-sm text-gold transition-colors hover:bg-gold/15";
+  return (
+    <section className="border-b border-border bg-card/30">
+      <div className="mx-auto max-w-6xl px-4 py-12">
+        <h2 className="font-serif text-2xl text-foreground md:text-3xl">
+          Chi è Guida Casino Italia
+        </h2>
+        <p className="mt-4 max-w-3xl text-sm text-muted-foreground md:text-base">
+          Guida Casino Italia è una guida indipendente ai migliori casinò online ADM/AAMS con
+          bonus senza deposito, recensioni verificate e confronti aggiornati. Ogni scheda riporta
+          numero di concessione ADM, RTP dichiarati, metodi di pagamento e strumenti di tutela del
+          giocatore, senza incentivi al gioco.
+        </p>
+        <nav aria-label="Pagine principali" className="mt-6 flex flex-wrap gap-2">
+          {pages.map((l) => (
+            <Link key={l.to} to={l.to} className={cls}>
+              {l.label}
+            </Link>
+          ))}
+          {reviews.map((r) => (
+            <Link key={r.slug} to="/operatori/$slug" params={{ slug: r.slug }} className={cls}>
+              {r.label}
+            </Link>
+          ))}
+        </nav>
+
+      </div>
+    </section>
+  );
+}
+
 function HomePage() {
 
   return (
     <PageShell>
       <Hero />
+      <BrandIntroSection />
       <TrustStrip />
       <QuickAnswersSection />
+
       <ComplianceBlock placement="top" />
       <OperatorsSection />
       <Suspense fallback={<div className="mx-auto h-64 max-w-6xl px-4" aria-hidden />}>
@@ -502,16 +547,18 @@ function Hero() {
             Portale informativo indipendente
           </div>
           <h1 className="mt-6 font-serif text-4xl leading-[1.05] md:text-6xl">
-            Informazione trasparente sui{" "}
-            <span className="text-gold">casinò con concessione ADM</span>
+            Guida Casino Italia:{" "}
+            <span className="text-gold">casinò online con concessione ADM</span>
           </h1>
           <CurrentMonthBadge />
           <p className="mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
-            GuidaCasinò.IT è un portale informativo che raccoglie e confronta dati sugli operatori
-            titolari di concessione dell'Agenzia delle Dogane e dei Monopoli. Non offriamo servizi
-            di gioco, non promuoviamo bonus e non incoraggiamo la partecipazione a giochi con
-            vincite in denaro.
+            Guida Casino Italia è una guida indipendente ai migliori casinò online ADM/AAMS con
+            bonus senza deposito, recensioni verificate e confronti aggiornati. Raccogliamo e
+            confrontiamo dati sugli operatori titolari di concessione dell'Agenzia delle Dogane e
+            dei Monopoli: non offriamo servizi di gioco, non promuoviamo bonus e non incoraggiamo
+            la partecipazione a giochi con vincite in denaro.
           </p>
+
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
