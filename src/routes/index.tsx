@@ -273,14 +273,18 @@ function GuidesSection() {
 }
 
 function BrandIntroSection() {
-  const links = [
+  const pages = [
     { to: "/migliori-casino-online", label: "Migliori casinò ADM" },
     { to: "/bonus-senza-deposito", label: "Bonus senza deposito" },
-    { to: "/operatori/leovegas", label: "Recensione LeoVegas" },
-    { to: "/operatori/snai", label: "Recensione Snai" },
-    { to: "/operatori/sisal", label: "Recensione Sisal" },
-    { to: "/operatori/888", label: "Recensione 888" },
   ] as const;
+  const reviews = [
+    { slug: "leovegas", label: "Recensione LeoVegas" },
+    { slug: "snai", label: "Recensione Snai" },
+    { slug: "sisal", label: "Recensione Sisal" },
+    { slug: "888", label: "Recensione 888" },
+  ] as const;
+  const cls =
+    "rounded-md border border-gold/30 bg-gold/5 px-3 py-2 text-sm text-gold transition-colors hover:bg-gold/15";
   return (
     <section className="border-b border-border bg-card/30">
       <div className="mx-auto max-w-6xl px-4 py-12">
@@ -294,16 +298,18 @@ function BrandIntroSection() {
           giocatore, senza incentivi al gioco.
         </p>
         <nav aria-label="Pagine principali" className="mt-6 flex flex-wrap gap-2">
-          {links.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              className="rounded-md border border-gold/30 bg-gold/5 px-3 py-2 text-sm text-gold transition-colors hover:bg-gold/15"
-            >
+          {pages.map((l) => (
+            <Link key={l.to} to={l.to} className={cls}>
               {l.label}
             </Link>
           ))}
+          {reviews.map((r) => (
+            <Link key={r.slug} to="/operatori/$slug" params={{ slug: r.slug }} className={cls}>
+              {r.label}
+            </Link>
+          ))}
         </nav>
+
       </div>
     </section>
   );
