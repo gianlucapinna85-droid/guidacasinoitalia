@@ -216,7 +216,6 @@ const GUIDES = [
   },
 ];
 
-function GuidesSection() {
 /** Hub di link interni verso le recensioni complete dei concessionari. */
 function ReviewsHubSection() {
   const sorted = [...operators].sort(
