@@ -47,12 +47,34 @@ export const guides: Guide[] = [
     priority: "0.9",
   },
   {
+    path: "/casino-online-italia",
+    title: "Casinò online in Italia: guida 2026",
+    description: "Come funzionano i casinò online in Italia: concessione ADM, giochi, pagamenti, tassazione e tutele.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
+    path: "/come-valutiamo-i-casino",
+    title: "Come valutiamo i casinò ADM",
+    description: "Metodo editoriale di GuidaCasinò.IT: criteri, fonti verificabili e uso dell'intelligenza artificiale.",
+    changefreq: "monthly",
+    priority: "0.7",
+  },
+  {
     path: "/slot-online",
     title: "Slot online: RTP e volatilità",
     description: "Come funzionano le slot online sui casinò ADM, RNG certificato, RTP, volatilità e provider.",
     changefreq: "weekly",
     priority: "0.8",
   },
+  {
+    path: "/slot-gratis-demo",
+    title: "Slot gratis in versione demo",
+    description: "Slot gratis sui casinò ADM: come funziona la modalità demo, RTP, limiti e ruolo dell'IA.",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
+
   {
     path: "/casino-live",
     title: "Casinò live con croupier dal vivo",
