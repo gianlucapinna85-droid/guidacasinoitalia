@@ -502,16 +502,18 @@ function Hero() {
             Portale informativo indipendente
           </div>
           <h1 className="mt-6 font-serif text-4xl leading-[1.05] md:text-6xl">
-            Informazione trasparente sui{" "}
-            <span className="text-gold">casinò con concessione ADM</span>
+            Guida Casino Italia:{" "}
+            <span className="text-gold">casinò online con concessione ADM</span>
           </h1>
           <CurrentMonthBadge />
           <p className="mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
-            GuidaCasinò.IT è un portale informativo che raccoglie e confronta dati sugli operatori
-            titolari di concessione dell'Agenzia delle Dogane e dei Monopoli. Non offriamo servizi
-            di gioco, non promuoviamo bonus e non incoraggiamo la partecipazione a giochi con
-            vincite in denaro.
+            Guida Casino Italia è una guida indipendente ai migliori casinò online ADM/AAMS con
+            bonus senza deposito, recensioni verificate e confronti aggiornati. Raccogliamo e
+            confrontiamo dati sugli operatori titolari di concessione dell'Agenzia delle Dogane e
+            dei Monopoli: non offriamo servizi di gioco, non promuoviamo bonus e non incoraggiamo
+            la partecipazione a giochi con vincite in denaro.
           </p>
+
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
