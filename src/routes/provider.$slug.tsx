@@ -24,6 +24,9 @@ export const Route = createFileRoute("/provider/$slug")({
       meta: [
         { title },
         { name: "description", content: description },
+        // Contenuto quasi duplicato tra operatori: escluso dall'indice, link seguiti.
+        { name: "robots", content: "noindex, follow" },
+
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:url", content: canonical },

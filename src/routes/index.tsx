@@ -216,6 +216,36 @@ const GUIDES = [
   },
 ];
 
+/** Hub di link interni verso le recensioni complete dei concessionari. */
+function ReviewsHubSection() {
+  const sorted = [...operators].sort(
+    (a, b) => (getCasinoMeta(b.slug)?.rating ?? 0) - (getCasinoMeta(a.slug)?.rating ?? 0),
+  );
+  return (
+    <section id="recensioni" className="mx-auto max-w-6xl px-4 py-12">
+      <h2 className="font-serif text-2xl md:text-3xl">Recensioni complete dei casinò ADM</h2>
+      <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+        Ogni scheda approfondisce concessione, catalogo, metodi di pagamento, tempi di prelievo,
+        bonus dichiarati e strumenti di gioco responsabile del singolo concessionario.
+      </p>
+      <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {sorted.map((op) => (
+          <li key={op.slug}>
+            <Link
+              to="/operatori/$slug"
+              params={{ slug: op.slug }}
+              className="flex items-center justify-between gap-2 rounded-lg border border-border bg-card px-4 py-3 text-sm transition-colors hover:border-gold/50 hover:text-gold"
+            >
+              <span>Recensione {op.name} 2026</span>
+              <ArrowRight className="h-4 w-4 shrink-0" />
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 function GuidesSection() {
   return (
     <section className="border-t border-border bg-card/30">
@@ -254,6 +284,7 @@ function HomePage() {
       <Suspense fallback={<div className="mx-auto h-64 max-w-6xl px-4" aria-hidden />}>
         <ComparisonTable />
       </Suspense>
+      <ReviewsHubSection />
       <EvaluationGuideSection />
       <CriteriaSection />
       <ResponsibleSection />
