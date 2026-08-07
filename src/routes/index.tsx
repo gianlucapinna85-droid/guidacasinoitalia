@@ -272,13 +272,52 @@ function GuidesSection() {
   );
 }
 
+function BrandIntroSection() {
+  const links = [
+    { to: "/migliori-casino-online", label: "Migliori casinò ADM" },
+    { to: "/bonus-senza-deposito", label: "Bonus senza deposito" },
+    { to: "/operatori/leovegas", label: "Recensione LeoVegas" },
+    { to: "/operatori/snai", label: "Recensione Snai" },
+    { to: "/operatori/sisal", label: "Recensione Sisal" },
+    { to: "/operatori/888", label: "Recensione 888" },
+  ] as const;
+  return (
+    <section className="border-b border-border bg-card/30">
+      <div className="mx-auto max-w-6xl px-4 py-12">
+        <h2 className="font-serif text-2xl text-foreground md:text-3xl">
+          Chi è Guida Casino Italia
+        </h2>
+        <p className="mt-4 max-w-3xl text-sm text-muted-foreground md:text-base">
+          Guida Casino Italia è una guida indipendente ai migliori casinò online ADM/AAMS con
+          bonus senza deposito, recensioni verificate e confronti aggiornati. Ogni scheda riporta
+          numero di concessione ADM, RTP dichiarati, metodi di pagamento e strumenti di tutela del
+          giocatore, senza incentivi al gioco.
+        </p>
+        <nav aria-label="Pagine principali" className="mt-6 flex flex-wrap gap-2">
+          {links.map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              className="rounded-md border border-gold/30 bg-gold/5 px-3 py-2 text-sm text-gold transition-colors hover:bg-gold/15"
+            >
+              {l.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </section>
+  );
+}
+
 function HomePage() {
 
   return (
     <PageShell>
       <Hero />
+      <BrandIntroSection />
       <TrustStrip />
       <QuickAnswersSection />
+
       <ComplianceBlock placement="top" />
       <OperatorsSection />
       <Suspense fallback={<div className="mx-auto h-64 max-w-6xl px-4" aria-hidden />}>
