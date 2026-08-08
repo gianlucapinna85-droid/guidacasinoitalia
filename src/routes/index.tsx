@@ -355,18 +355,56 @@ function BrandIntroSection() {
   );
 }
 
+const TOPICS = [
+  { to: "/bonus-benvenuto-casino" as const, label: "Bonus Casinò", text: "Come funzionano bonus di benvenuto e requisiti di puntata." },
+  { to: "/casino-online-sicuri" as const, label: "Casinò ADM", text: "Concessione, tutele e verifica dei siti autorizzati in Italia." },
+  { to: "/slot-online" as const, label: "Slot Online", text: "RNG certificato, RTP, volatilità e provider dei cataloghi ADM." },
+  { to: "/casino-online-principianti" as const, label: "Guide Casinò", text: "Guide complete per iniziare e orientarsi passo per passo." },
+  { to: "/gestione-bankroll" as const, label: "Strategie di Gioco", text: "Budget, unità di puntata e gestione della varianza." },
+  { to: "/news" as const, label: "News Casinò", text: "Aggiornamenti su bonus, slot, pagamenti e normativa." },
+  { to: "/bonus-senza-deposito" as const, label: "Bonus Senza Deposito", text: "Cosa sono davvero e quali condizioni verificare." },
+  { to: "/migliori-casino-online" as const, label: "Recensioni Casinò", text: "Schede operatore con concessione, pagamenti e catalogo." },
+];
+
+function TopicsSection() {
+  return (
+    <section id="sezioni" className="border-t border-border">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-16">
+        <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Esplora il portale</p>
+        <h2 className="mt-1 font-serif text-lg md:text-4xl">Sezioni principali</h2>
+        <div className="mt-3 grid grid-cols-2 gap-2.5 md:mt-8 md:grid-cols-4 md:gap-4">
+          {TOPICS.map((t) => (
+            <Link
+              key={t.to}
+              to={t.to}
+              className="flex flex-col rounded-xl border border-border bg-card p-2.5 transition-colors hover:border-gold/50 md:p-5"
+            >
+              <h3 className="font-serif text-[14px] text-gold md:text-lg">{t.label}</h3>
+              <p className="mt-1 line-clamp-3 text-[12px] leading-snug text-muted-foreground md:text-sm">
+                {t.text}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function HomePage() {
 
   return (
     <PageShell>
       <Hero />
       <ComparisonTable />
+      <TopicsSection />
       <OperatorsSection />
       <BrandIntroSection />
       <ReviewsHubSection />
       <GuidesSection />
       <QuickAnswersSection />
       <FAQSection />
+
       <EvaluationGuideSection />
       <SeoGuideSection />
       <CriteriaSection />
