@@ -353,20 +353,18 @@ function HomePage() {
     <PageShell>
       <Hero />
       <ComparisonTable />
-      <BrandIntroSection />
-      <TrustStrip />
-      <QuickAnswersSection />
-
-      <ComplianceBlock placement="top" />
       <OperatorsSection />
+      <BrandIntroSection />
       <ReviewsHubSection />
-      <EvaluationGuideSection />
-      <CriteriaSection />
-      <ResponsibleSection />
-      <FAQSection />
-      <SeoGuideSection />
       <GuidesSection />
-      <ComplianceBlock placement="bottom" />
+      <QuickAnswersSection />
+      <FAQSection />
+      <EvaluationGuideSection />
+      <SeoGuideSection />
+      <CriteriaSection />
+      <TrustStrip />
+      <ResponsibleSection />
+      <LegalInfoSection />
       <div className="h-24 md:hidden" aria-hidden />
       <Suspense fallback={null}>
         <StickyCompareCTA />
