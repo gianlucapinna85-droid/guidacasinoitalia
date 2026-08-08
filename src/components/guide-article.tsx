@@ -3,6 +3,8 @@ import { Link } from "@tanstack/react-router";
 import { ShieldCheck } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
 import { RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
+import { ReadMore } from "@/components/read-more";
+
 
 export const SITE_URL = "https://www.guidacasino-italia.it";
 
