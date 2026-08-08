@@ -687,11 +687,11 @@ function OperatorsSection() {
         </div>
       </div>
 
-      <div className="grid gap-4">
+      <div className="grid gap-3">
         {sortedOperators.map((op, idx) => (
           <article
             key={op.slug}
-            className="relative grid gap-5 rounded-xl border border-border bg-card p-4 sm:p-6 md:grid-cols-[auto_1fr_auto] md:items-center"
+            className="relative grid gap-4 rounded-xl border border-border bg-card p-4 md:grid-cols-[auto_1fr_auto] md:items-center"
           >
             {idx < 3 && (
               <span className="absolute -top-3 right-4 inline-flex items-center rounded-full bg-gold px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-lg shadow-gold/30 md:right-6">
