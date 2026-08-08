@@ -6,6 +6,8 @@ import { buildReview } from "@/lib/operator-review";
 import { getCasinoMeta } from "@/data/casinos";
 import { getDeepDive } from "@/data/casino-deepdive";
 import { ReadMore } from "@/components/read-more";
+import { FaqSlider } from "@/components/faq-slider";
+
 
 import { RatingBadge, CasinoBadges, RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
 
