@@ -683,7 +683,7 @@ function OperatorsSection() {
         <div className="mt-2 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="font-serif text-2xl md:text-3xl">Lista completa casino ADM</h2>
-            <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
+            <p className="mt-2 hidden max-w-2xl text-sm text-muted-foreground md:block">
               Elenco informativo. I dati riportati sono a titolo illustrativo: verifica sempre
               concessione, condizioni e informativa privacy sul sito ufficiale del concessionario.
             </p>
