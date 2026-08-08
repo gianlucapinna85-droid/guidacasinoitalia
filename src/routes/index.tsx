@@ -555,6 +555,14 @@ function CurrentMonthBadge() {
   );
 }
 
+const scrollToSection = (id: string) => (e: React.MouseEvent) => {
+  const el = typeof document !== "undefined" ? document.getElementById(id) : null;
+  if (!el) return;
+  e.preventDefault();
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+  history.replaceState(null, "", `#${id}`);
+};
+
 function Hero() {
   const [expanded, setExpanded] = useState(false);
   return (
