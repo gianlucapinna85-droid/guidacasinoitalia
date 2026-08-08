@@ -688,11 +688,11 @@ function TrustStrip() {
   ];
   return (
     <section className="border-b border-border bg-card/50">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-8 md:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 py-5 md:grid-cols-4 md:py-8">
         {items.map((it) => (
-          <div key={it.label} className="flex items-start gap-3">
-            <it.icon className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
-            <span className="text-sm text-muted-foreground">{it.label}</span>
+          <div key={it.label} className="flex items-start gap-2 md:gap-3">
+            <it.icon className="mt-0.5 h-4 w-4 shrink-0 text-gold md:h-5 md:w-5" />
+            <span className="text-[12.5px] leading-snug text-muted-foreground md:text-sm">{it.label}</span>
           </div>
         ))}
       </div>
