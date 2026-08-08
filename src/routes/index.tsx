@@ -736,19 +736,19 @@ function OperatorsSection() {
         {sortedOperators.map((op, idx) => (
           <article
             key={op.slug}
-            className="relative grid gap-3 rounded-xl border border-border bg-card p-3 md:gap-4 md:p-4 md:grid-cols-[auto_1fr_auto] md:items-center"
+            className="relative grid gap-2 rounded-xl border border-border bg-card p-2.5 md:gap-4 md:p-4 md:grid-cols-[auto_1fr_auto] md:items-center"
 
           >
             {idx < 3 && (
-              <span className="absolute -top-2.5 right-3 inline-flex items-center rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-lg shadow-gold/30 md:-top-3 md:right-4">
+              <span className="absolute -top-2 right-3 inline-flex items-center rounded-full bg-gold px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-lg shadow-gold/30 md:-top-3 md:right-4">
                 Top
               </span>
             )}
-            <div className="flex flex-col items-start gap-2.5 md:w-80 md:flex-row md:items-center">
+            <div className="flex flex-col items-start gap-2 md:w-80 md:flex-row md:items-center">
               <OperatorLogo logo={op.logo} name={op.name} index={idx} officialUrl={op.officialUrl} />
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="font-serif text-lg md:text-lg">{op.name}</h3>
+                  <h3 className="font-serif text-base md:text-lg">{op.name}</h3>
                   {getCasinoMeta(op.slug) ? (
                     <RatingBadge rating={getCasinoMeta(op.slug)!.rating} size="sm" />
                   ) : null}
@@ -756,13 +756,13 @@ function OperatorsSection() {
                 <p className="text-[10px] uppercase tracking-wider text-muted-foreground">
                   {op.concessionN}
                 </p>
-                <div className="mt-1.5">
+                <div className="mt-1">
                   <CasinoBadges slug={op.slug} />
                 </div>
-                <p className="mt-1.5 text-[13px] leading-snug text-muted-foreground md:text-xs">
+                <p className="mt-1 text-[12px] leading-snug text-muted-foreground md:text-xs">
                   {getCasinoMeta(op.slug)?.short}
                 </p>
-                <div className="mt-1.5">
+                <div className="mt-1">
                   <OperatorTrustDots name={op.name} />
                 </div>
               </div>
@@ -770,46 +770,46 @@ function OperatorsSection() {
 
 
 
-            <div className="grid gap-2.5 md:gap-3 md:grid-cols-3">
+            <div className="grid grid-cols-2 gap-2 md:gap-3 md:grid-cols-3">
               <Stat label="Attivo dal" value={op.founded.toString()} />
-              <Stat label="RTP medio dichiarato" value={op.rtpAverage} />
-              <div>
-                <Stat label="Titoli disponibili" value={`${op.games}+`} />
+              <Stat label="RTP medio" value={op.rtpAverage} />
+              <div className="col-span-2 flex items-center justify-between gap-2 md:col-span-1 md:block">
+                <Stat label="Titoli" value={`${op.games}+`} />
                 <Link
                   to="/provider/$slug"
                   params={{ slug: op.slug }}
-                  className="mt-2 inline-flex items-center justify-center rounded-md border border-gold/50 bg-gold/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-gold transition-colors hover:bg-gold/20"
+                  className="inline-flex shrink-0 items-center justify-center rounded-md border border-gold/50 bg-gold/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-gold transition-colors hover:bg-gold/20 md:mt-2 md:px-3 md:py-1.5 md:text-[11px]"
                 >
-                  Provider disponibili
+                  Provider
                 </Link>
               </div>
 
-              <div className="md:col-span-3">
+              <div className="col-span-2 md:col-span-3">
                 {op.noDepositBonus ? (
-                  <div className="mb-2 rounded-lg border border-gold/40 bg-gold/10 p-2.5 md:p-3">
+                  <div className="mb-1.5 rounded-lg border border-gold/40 bg-gold/10 p-2 md:p-3">
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="rounded-full bg-gold px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
                         Senza deposito
                       </span>
-                      <span className="font-serif text-lg text-gold">
+                      <span className="font-serif text-base text-gold md:text-lg">
                         {op.noDepositBonus.amount}
                       </span>
                     </div>
-                    <p className="mt-1.5 text-xs leading-relaxed text-foreground/85">
+                    <p className="mt-1 text-[11px] leading-relaxed text-foreground/85 md:text-xs">
                       <strong className="text-foreground">Cos'è:</strong> importo di gioco
                       riconosciuto dall'operatore senza richiedere alcun versamento iniziale.{" "}
                       <strong className="text-foreground">Come funziona:</strong>{" "}
                       {op.noDepositBonus.description}
                     </p>
-                    <p className="mt-1.5 text-[10px] uppercase tracking-wider text-muted-foreground">
+                    <p className="mt-1 text-[10px] uppercase tracking-wider text-muted-foreground">
                       Condizioni complete su sito ufficiale — Solo +18
                     </p>
                   </div>
                 ) : null}
-                <ul className="mt-1 space-y-1">
+                <ul className="mt-0.5 space-y-0.5">
                   {op.highlights.map((h) => (
-                    <li key={h} className="flex items-start gap-2 text-[14px] leading-snug text-muted-foreground md:text-sm">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                    <li key={h} className="flex items-start gap-1.5 text-[13px] leading-snug text-muted-foreground md:text-sm">
+                      <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold" />
                       {h}
                     </li>
                   ))}
@@ -818,19 +818,19 @@ function OperatorsSection() {
 
             </div>
 
-            <div className="flex flex-col items-stretch gap-2.5 md:w-52 md:gap-3">
+            <div className="flex flex-col items-stretch gap-2 md:w-52 md:gap-3">
               <a
                 href={op.officialUrl}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-5 py-3 text-sm font-bold md:py-3 md:text-sm text-primary-foreground shadow-lg shadow-gold/30 transition-all hover:brightness-110 hover:shadow-xl hover:shadow-gold/40 active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-4 py-2.5 text-sm font-bold md:py-3 md:text-sm text-primary-foreground shadow-lg shadow-gold/30 transition-all hover:brightness-110 hover:shadow-xl hover:shadow-gold/40 active:scale-[0.98]"
               >
                 Visita il sito ufficiale
               </a>
               <Link
                 to="/operatori/$slug"
                 params={{ slug: op.slug }}
-                className="inline-flex items-center justify-center gap-1 rounded-md border border-border px-3 py-2 text-sm font-medium md:py-2 md:text-xs text-muted-foreground transition-colors hover:text-foreground"
+                className="inline-flex items-center justify-center gap-1 rounded-md border border-border px-3 py-2 text-xs font-medium md:py-2 md:text-xs text-muted-foreground transition-colors hover:text-foreground"
               >
                 Leggi l'analisi completa
               </Link>
@@ -854,7 +854,7 @@ function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div>
       <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{label}</p>
-      <p className="mt-1 font-serif text-lg text-foreground">{value}</p>
+      <p className="mt-0.5 font-serif text-base text-foreground md:text-lg">{value}</p>
     </div>
   );
 }
@@ -881,7 +881,7 @@ function OperatorLogo({
   }, []);
 
   const fallback = (
-    <div className="flex h-16 w-36 items-center justify-center rounded-xl border-2 border-gold/40 bg-gold/10 shadow-sm md:h-20 md:w-44">
+    <div className="flex h-14 w-32 items-center justify-center rounded-xl border-2 border-gold/40 bg-gold/10 shadow-sm md:h-20 md:w-44">
       <span className="font-serif text-xl text-gold md:text-2xl">{index + 1}</span>
     </div>
   );
@@ -889,7 +889,7 @@ function OperatorLogo({
   const logoBox = (!logo || error) ? (
     fallback
   ) : (
-    <div className="flex h-16 w-36 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/40 bg-white p-2 shadow-sm md:h-24 md:w-56">
+    <div className="flex h-14 w-32 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/40 bg-white p-1.5 shadow-sm md:h-24 md:w-56">
       <img
         ref={imgRef}
         src={logo}
