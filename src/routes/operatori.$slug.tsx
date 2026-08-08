@@ -391,6 +391,7 @@ function OperatorPage() {
           <h2 className="font-serif text-2xl">
             Opinioni e valutazione redazionale su {op.name}
           </h2>
+          <ReadMore collapsedHeight="5rem" className="mt-1">
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
             Le opinioni raccolte sui <strong>casinò online ADM</strong> come {op.name} si concentrano
             quasi sempre su tre aspetti: la rapidità della verifica dei documenti, i tempi effettivi di
@@ -415,6 +416,8 @@ function OperatorPage() {
             </Link>
             .
           </p>
+          </ReadMore>
+
         </section>
 
         <FaqSlider
