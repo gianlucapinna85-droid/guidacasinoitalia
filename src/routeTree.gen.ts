@@ -28,6 +28,7 @@ import { Route as CasinoOnlineSicuriRouteImport } from './routes/casino-online-s
 import { Route as CasinoOnlineItaliaRouteImport } from './routes/casino-online-italia'
 import { Route as CasinoLiveRouteImport } from './routes/casino-live'
 import { Route as BonusSenzaDepositoRouteImport } from './routes/bonus-senza-deposito'
+import { Route as BonusScommesseSportiveRouteImport } from './routes/bonus-scommesse-sportive'
 import { Route as BonusBenvenutoCasinoRouteImport } from './routes/bonus-benvenuto-casino'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
@@ -128,6 +129,11 @@ const BonusSenzaDepositoRoute = BonusSenzaDepositoRouteImport.update({
   path: '/bonus-senza-deposito',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BonusScommesseSportiveRoute = BonusScommesseSportiveRouteImport.update({
+  id: '/bonus-scommesse-sportive',
+  path: '/bonus-scommesse-sportive',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BonusBenvenutoCasinoRoute = BonusBenvenutoCasinoRouteImport.update({
   id: '/bonus-benvenuto-casino',
   path: '/bonus-benvenuto-casino',
@@ -152,6 +158,7 @@ const OperatoriSlugRoute = OperatoriSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
+  '/bonus-scommesse-sportive': typeof BonusScommesseSportiveRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/casino-live': typeof CasinoLiveRoute
   '/casino-online-italia': typeof CasinoOnlineItaliaRoute
@@ -177,6 +184,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
+  '/bonus-scommesse-sportive': typeof BonusScommesseSportiveRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/casino-live': typeof CasinoLiveRoute
   '/casino-online-italia': typeof CasinoOnlineItaliaRoute
@@ -203,6 +211,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
+  '/bonus-scommesse-sportive': typeof BonusScommesseSportiveRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/casino-live': typeof CasinoLiveRoute
   '/casino-online-italia': typeof CasinoOnlineItaliaRoute
@@ -230,6 +239,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/bonus-benvenuto-casino'
+    | '/bonus-scommesse-sportive'
     | '/bonus-senza-deposito'
     | '/casino-live'
     | '/casino-online-italia'
@@ -255,6 +265,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/bonus-benvenuto-casino'
+    | '/bonus-scommesse-sportive'
     | '/bonus-senza-deposito'
     | '/casino-live'
     | '/casino-online-italia'
@@ -280,6 +291,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/bonus-benvenuto-casino'
+    | '/bonus-scommesse-sportive'
     | '/bonus-senza-deposito'
     | '/casino-live'
     | '/casino-online-italia'
@@ -306,6 +318,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BonusBenvenutoCasinoRoute: typeof BonusBenvenutoCasinoRoute
+  BonusScommesseSportiveRoute: typeof BonusScommesseSportiveRoute
   BonusSenzaDepositoRoute: typeof BonusSenzaDepositoRoute
   CasinoLiveRoute: typeof CasinoLiveRoute
   CasinoOnlineItaliaRoute: typeof CasinoOnlineItaliaRoute
@@ -464,6 +477,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BonusSenzaDepositoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bonus-scommesse-sportive': {
+      id: '/bonus-scommesse-sportive'
+      path: '/bonus-scommesse-sportive'
+      fullPath: '/bonus-scommesse-sportive'
+      preLoaderRoute: typeof BonusScommesseSportiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/bonus-benvenuto-casino': {
       id: '/bonus-benvenuto-casino'
       path: '/bonus-benvenuto-casino'
@@ -498,6 +518,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BonusBenvenutoCasinoRoute: BonusBenvenutoCasinoRoute,
+  BonusScommesseSportiveRoute: BonusScommesseSportiveRoute,
   BonusSenzaDepositoRoute: BonusSenzaDepositoRoute,
   CasinoLiveRoute: CasinoLiveRoute,
   CasinoOnlineItaliaRoute: CasinoOnlineItaliaRoute,
