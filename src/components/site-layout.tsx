@@ -167,16 +167,16 @@ export function ComplianceBadges() {
 export function AgeBanner() {
   return (
     <div className="w-full border-b border-border bg-destructive/10 text-destructive-foreground">
-      <div className="mx-auto flex max-w-6xl items-center justify-center gap-3 px-4 py-2 text-xs">
+      <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-3 py-1.5 text-[10px] leading-snug md:gap-3 md:px-4 md:py-2 md:text-xs">
         <img
           src={vietato18.url}
           alt="Vietato ai minori di 18 anni"
-          width={28}
-          height={28}
-          className="h-7 w-7 shrink-0" loading="eager" decoding="async" />
+          width={24}
+          height={24}
+          className="h-5 w-5 shrink-0 md:h-7 md:w-7" loading="eager" decoding="async" />
         <span className="text-foreground/90">
           <strong className="font-semibold text-destructive">Vietato ai minori di 18 anni.</strong>{" "}
-          Il gioco può causare dipendenza patologica. Probabilità di vincita consultabili su{" "}
+          Il gioco può causare dipendenza patologica. Probabilità di vincita su{" "}
           <a href="https://www.adm.gov.it" target="_blank" rel="noopener noreferrer nofollow" className="underline">adm.gov.it</a>.
         </span>
       </div>
