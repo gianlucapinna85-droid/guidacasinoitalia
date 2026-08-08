@@ -470,9 +470,9 @@ function SeoGuideSection() {
           sezioni per consultare i singoli capitoli.
         </p>
 
-        <div className="mt-8 divide-y divide-border rounded-xl border border-border bg-background">
+        <div className="mt-6 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:mt-8 md:mx-0 md:block md:divide-y md:divide-border md:overflow-visible md:rounded-xl md:border md:border-border md:bg-background md:px-0 md:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {SEO_GUIDE.map((item) => (
-            <details key={item.h3} className="group p-6 [&_summary::-webkit-details-marker]:hidden">
+            <details key={item.h3} className="group w-[80%] shrink-0 snap-start rounded-xl border border-border bg-background p-5 md:w-auto md:rounded-none md:border-0 md:p-6 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between gap-4 text-base font-medium text-foreground">
                 <h3 className="font-serif text-lg">{item.h3}</h3>
                 <span className="text-gold transition-transform group-open:rotate-45">+</span>
@@ -485,6 +485,7 @@ function SeoGuideSection() {
             </details>
           ))}
         </div>
+
 
         <p className="mt-8 text-xs text-muted-foreground">
           Contenuto informativo redatto sulla base di fonti pubbliche (adm.gov.it, normativa
@@ -731,11 +732,12 @@ function OperatorsSection() {
         </div>
       </div>
 
-      <div className="grid gap-3">
+      <div className="-mx-2.5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-2.5 pb-3 md:mx-0 md:grid md:gap-3 md:overflow-visible md:px-0 md:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {sortedOperators.map((op, idx) => (
           <article
             key={op.slug}
-            className="relative grid gap-4 rounded-xl border border-border bg-card p-4 md:grid-cols-[auto_1fr_auto] md:items-center"
+            className="relative w-[85%] shrink-0 snap-start grid gap-4 rounded-xl border border-border bg-card p-4 md:w-auto md:grid-cols-[auto_1fr_auto] md:items-center"
+
           >
             {idx < 3 && (
               <span className="absolute -top-3 right-4 inline-flex items-center rounded-full bg-gold px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-lg shadow-gold/30 md:right-6">
@@ -945,15 +947,16 @@ function CriteriaSection() {
         <h2 className="mt-2 max-w-2xl font-serif text-3xl md:text-4xl">
           Come selezioniamo le informazioni pubblicate
         </h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <div className="mt-6 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:mt-10 md:mx-0 md:grid md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:grid-cols-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {criteria.map((c) => (
-            <div key={c.n} className="rounded-xl border border-border bg-background p-6">
+            <div key={c.n} className="w-[78%] shrink-0 snap-start rounded-xl border border-border bg-background p-5 md:w-auto md:p-6">
               <div className="font-serif text-2xl text-gold">{c.n}</div>
               <h3 className="mt-2 font-serif text-xl">{c.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{c.body}</p>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
