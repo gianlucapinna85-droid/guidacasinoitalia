@@ -15,13 +15,13 @@ export function ComparisonTable() {
     .slice(0, 4);
 
   return (
-    <section id="comparatore" className="border-t border-border bg-background py-8 md:py-16">
+    <section id="comparatore" className="border-t border-border bg-background py-5 md:py-16">
       <div className="mx-auto max-w-6xl px-2.5 md:px-6">
         <p className="text-xs uppercase tracking-widest text-gold">Selezione redazionale</p>
-        <h2 className="mt-2 font-serif text-2xl md:text-4xl">
+        <h2 className="mt-1.5 font-serif text-xl md:text-4xl">
           I migliori casinò ADM scelti da GuidaCasino.it
         </h2>
-        <p className="mt-2 line-clamp-3 max-w-3xl text-[13px] leading-snug text-muted-foreground md:mt-3 md:line-clamp-none md:text-sm">
+        <p className="mt-1.5 line-clamp-3 max-w-3xl text-[13px] leading-snug text-muted-foreground md:mt-3 md:line-clamp-none md:text-sm">
           Selezione redazionale di GuidaCasino.it: i quattro concessionari ADM con i bonus e le
           condizioni di conto migliori tra quelli analizzati. I valori sono indicativi e dichiarati
           dagli operatori: verifica sempre i Termini e Condizioni ufficiali. Vietato ai minori di 18
@@ -30,7 +30,7 @@ export function ComparisonTable() {
 
 
         {/* Desktop */}
-        <div className="mt-8 hidden overflow-x-auto rounded-xl border border-border md:block">
+        <div className="mt-6 hidden overflow-x-auto rounded-xl border border-border md:block">
           <table className="w-full min-w-[860px] text-sm">
             <caption className="sr-only">
               Confronto tra concessionari ADM: bonus senza deposito, PayPal, prelievo minimo, RTP e
@@ -116,37 +116,37 @@ export function ComparisonTable() {
         </div>
 
         {/* Mobile: solo le 2 schede principali per arrivare subito al contenuto */}
-        <div className="mt-6 grid gap-3.5 md:hidden">
+        <div className="mt-4 grid gap-3 md:hidden">
           {rows.slice(0, 2).map(({ op, meta }) => (
-            <div key={op.slug} className="rounded-xl border border-border bg-card p-4 sm:p-5">
+            <div key={op.slug} className="rounded-xl border border-border bg-card p-3 sm:p-5">
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <Link
                     to="/operatori/$slug"
                     params={{ slug: op.slug }}
-                    className="inline-flex items-center font-serif text-xl hover:text-gold"
+                    className="inline-flex items-center font-serif text-lg hover:text-gold"
                   >
                     {op.logo ? (
                       <img
                         src={op.logo}
                         alt={`Logo ${op.name}`}
                         loading="lazy"
-                          width={144}
-                          height={48}
-                          decoding="async"
-                        className="h-12 w-36 rounded-md border border-border bg-white/95 object-contain p-1.5 md:h-9 md:w-28"
+                        width={144}
+                        height={48}
+                        decoding="async"
+                        className="h-10 w-32 rounded-md border border-border bg-white/95 object-contain p-1 md:h-9 md:w-28"
                       />
                     ) : (
                       op.name
                     )}
                   </Link>
-                  <p className="text-[11px] text-muted-foreground">{op.concessionN}</p>
+                  <p className="text-[10px] text-muted-foreground">{op.concessionN}</p>
                 </div>
                 <span className="shrink-0 rounded-lg border border-gold/50 bg-gold/10 px-2 py-1 font-serif text-sm text-gold">
                   {meta ? meta.rating.toFixed(1) : "n.d."}
                 </span>
               </div>
-              <dl className="mt-3 grid grid-cols-2 gap-2 text-[13px]">
+              <dl className="mt-2 grid grid-cols-2 gap-2 text-[13px]">
                 <Cell label="Bonus" value={op.noDepositBonus?.amount ?? "Non dichiarato"} />
                 <Cell label="PayPal" value={meta?.paypal ? "Sì" : "No"} />
                 <Cell label="Prelievo" value={meta?.minWithdrawal ?? "n.d."} />
@@ -156,7 +156,7 @@ export function ComparisonTable() {
                 href={op.officialUrl}
                 target="_blank"
                 rel="noopener nofollow"
-                className="mt-4 flex w-full items-center justify-center gap-2 rounded-lg bg-gold px-4 py-3.5 text-base font-bold text-primary-foreground shadow-lg shadow-gold/30 active:scale-[0.99]"
+                className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg bg-gold px-4 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-gold/30 active:scale-[0.99]"
               >
                 Visita il sito ufficiale <ArrowRight className="h-4 w-4" />
               </a>
@@ -164,7 +164,7 @@ export function ComparisonTable() {
           ))}
           <a
             href="#operatori"
-            className="flex items-center justify-center gap-1.5 rounded-lg border border-gold/40 bg-gold/10 px-4 py-2.5 text-sm font-bold text-gold"
+            className="flex items-center justify-center gap-1.5 rounded-lg border border-gold/40 bg-gold/10 px-4 py-2 text-sm font-bold text-gold"
           >
             Vedi la lista completa ADM <ArrowRight className="h-4 w-4" />
           </a>
@@ -172,7 +172,7 @@ export function ComparisonTable() {
 
 
 
-        <p className="mt-6 text-xs text-muted-foreground">
+        <p className="mt-4 text-xs text-muted-foreground">
           Contenuto informativo ai sensi dell'art. 9 D.L. 87/2018. Il gioco è vietato ai minori di 18
           anni e può causare dipendenza patologica.
         </p>
