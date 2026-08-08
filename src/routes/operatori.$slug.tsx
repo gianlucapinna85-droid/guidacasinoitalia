@@ -269,25 +269,28 @@ function OperatorPage() {
         </section>
 
         {getDeepDive(op.slug).map((s) => (
-          <section key={s.h2} className="mt-12">
+          <section key={s.h2} className="mt-10">
             <h2 className="font-serif text-2xl">{s.h2}</h2>
-            {s.paragraphs.map((p) => (
-              <p key={p} className="mt-4 text-base leading-relaxed text-muted-foreground">
-                {p}
-              </p>
-            ))}
-            {s.bullets ? (
-              <ul className="mt-4 space-y-2.5">
-                {s.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-2 text-sm text-foreground/90">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-                    {b}
-                  </li>
-                ))}
-              </ul>
-            ) : null}
+            <ReadMore collapsedHeight="8.5rem" className="mt-1">
+              {s.paragraphs.map((p) => (
+                <p key={p} className="mt-4 text-base leading-relaxed text-muted-foreground">
+                  {p}
+                </p>
+              ))}
+              {s.bullets ? (
+                <ul className="mt-4 space-y-2.5">
+                  {s.bullets.map((b) => (
+                    <li key={b} className="flex items-start gap-2 text-sm text-foreground/90">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </ReadMore>
           </section>
         ))}
+
 
         <section className="mt-10 rounded-xl border border-gold/30 bg-gold/5 p-6">
           <h2 className="font-serif text-2xl">Bonus senza deposito {op.name}</h2>
