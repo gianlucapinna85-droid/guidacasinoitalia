@@ -1027,14 +1027,18 @@ function EvaluationGuideSection() {
             concessionari, prima di qualsiasi valutazione di natura personale o economica.
           </p>
 
-          <div className="mt-6 space-y-6">
+          <div className="mt-6 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:mx-0 md:block md:space-y-6 md:overflow-visible md:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {criteria.map((c) => (
-              <div key={c.title}>
+              <div
+                key={c.title}
+                className="w-[85%] shrink-0 snap-start rounded-xl border border-border bg-card/40 p-4 md:w-auto md:rounded-none md:border-0 md:bg-transparent md:p-0"
+              >
                 <h3 className="font-serif text-lg text-foreground md:text-xl">{c.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-5 md:line-clamp-none">{c.body}</p>
               </div>
             ))}
           </div>
+
 
           <p className="mt-8 text-sm leading-relaxed text-muted-foreground">
             Nessuno di questi criteri, preso singolarmente, è sufficiente a stabilire una
