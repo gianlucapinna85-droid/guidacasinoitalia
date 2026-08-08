@@ -250,13 +250,13 @@ function ReviewsHubSection() {
     (a, b) => (getCasinoMeta(b.slug)?.rating ?? 0) - (getCasinoMeta(a.slug)?.rating ?? 0),
   );
   return (
-    <section id="recensioni" className="mx-auto max-w-6xl px-2.5 md:px-6 py-12">
+    <section id="recensioni" className="mx-auto max-w-6xl px-2.5 md:px-6 py-9 md:py-12">
       <h2 className="font-serif text-2xl md:text-3xl">Recensioni complete dei casinò ADM</h2>
-      <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+      <p className="mt-2 line-clamp-3 max-w-3xl text-[13px] leading-snug text-muted-foreground md:line-clamp-none md:text-sm md:leading-relaxed">
         Ogni scheda approfondisce concessione, catalogo, metodi di pagamento, tempi di prelievo,
         bonus dichiarati e strumenti di gioco responsabile del singolo concessionario.
       </p>
-      <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3 md:mt-6 md:gap-3">
         {sorted.map((op) => (
           <li key={op.slug}>
             <Link
