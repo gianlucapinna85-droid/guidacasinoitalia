@@ -942,17 +942,17 @@ function CriteriaSection() {
   ];
   return (
     <section className="border-y border-border bg-card/40">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-8 md:py-24">
         <p className="text-xs uppercase tracking-widest text-gold">Metodologia</p>
-        <h2 className="mt-2 max-w-2xl font-serif text-3xl md:text-4xl">
+        <h2 className="mt-1.5 max-w-2xl font-serif text-2xl md:text-4xl">
           Come selezioniamo le informazioni pubblicate
         </h2>
-        <div className="mt-6 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:mt-10 md:mx-0 md:grid md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:grid-cols-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="mt-4 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:mt-10 md:mx-0 md:grid md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:grid-cols-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {criteria.map((c) => (
-            <div key={c.n} className="w-[78%] shrink-0 snap-start rounded-xl border border-border bg-background p-5 md:w-auto md:p-6">
-              <div className="font-serif text-2xl text-gold">{c.n}</div>
-              <h3 className="mt-2 font-serif text-xl">{c.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{c.body}</p>
+            <div key={c.n} className="w-[78%] shrink-0 snap-start rounded-xl border border-border bg-background p-4 md:w-auto md:p-6">
+              <div className="font-serif text-xl text-gold md:text-2xl">{c.n}</div>
+              <h3 className="mt-1.5 font-serif text-lg md:text-xl">{c.title}</h3>
+              <p className="mt-1.5 text-sm leading-snug text-muted-foreground md:leading-normal">{c.body}</p>
             </div>
           ))}
         </div>
