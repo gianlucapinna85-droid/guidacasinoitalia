@@ -328,13 +328,16 @@ function OperatorPage() {
 
         <section className="mt-10">
           <h2 className="font-serif text-2xl">Come registrarsi e verificare il conto su {op.name}</h2>
-          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-            La registrazione su {op.name} richiede la maggiore età, un documento d'identità valido e il codice
-            fiscale; in alternativa è spesso disponibile l'accesso con SPID o CIE, che rende la verifica
-            immediata. Solo al termine della verifica il conto di gioco diventa pienamente operativo e viene
-            accreditato l'eventuale bonus senza deposito. Prima della prima giocata è consigliabile impostare i
-            limiti di deposito previsti dalla normativa italiana.
-          </p>
+          <ReadMore collapsedHeight="4.5rem" className="mt-1">
+            <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+              La registrazione su {op.name} richiede la maggiore età, un documento d'identità valido e il codice
+              fiscale; in alternativa è spesso disponibile l'accesso con SPID o CIE, che rende la verifica
+              immediata. Solo al termine della verifica il conto di gioco diventa pienamente operativo e viene
+              accreditato l'eventuale bonus senza deposito. Prima della prima giocata è consigliabile impostare i
+              limiti di deposito previsti dalla normativa italiana.
+            </p>
+          </ReadMore>
+
         </section>
 
 
