@@ -142,7 +142,7 @@ export const Route = createFileRoute("/operatori/$slug")({
 function OperatorNotFound() {
   return (
     <PageShell>
-      <section className="mx-auto max-w-3xl px-4 py-24 text-center">
+      <section className="mx-auto max-w-3xl px-3 md:px-6 py-24 text-center">
         <h1 className="font-serif text-3xl">Scheda non trovata</h1>
         <p className="mt-4 text-sm text-muted-foreground">
           L'operatore richiesto non è presente nel nostro elenco informativo.
@@ -167,7 +167,7 @@ function OperatorPage() {
 
   return (
     <PageShell>
-      <article className="mx-auto max-w-4xl px-4 py-12 md:py-16">
+      <article className="mx-auto max-w-4xl px-3 md:px-6 py-12 md:py-16">
         <Link
           to="/"
           hash="operatori"

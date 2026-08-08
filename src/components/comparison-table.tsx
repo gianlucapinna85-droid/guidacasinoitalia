@@ -16,7 +16,7 @@ export function ComparisonTable() {
 
   return (
     <section id="comparatore" className="border-t border-border bg-background py-8 md:py-16">
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-6xl px-3 md:px-6">
         <p className="text-xs uppercase tracking-widest text-gold">Selezione redazionale</p>
         <h2 className="mt-2 font-serif text-2xl md:text-4xl">
           I 4 migliori casinò ADM scelti da GuidaCasino.it

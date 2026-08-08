@@ -248,7 +248,7 @@ function ReviewsHubSection() {
     (a, b) => (getCasinoMeta(b.slug)?.rating ?? 0) - (getCasinoMeta(a.slug)?.rating ?? 0),
   );
   return (
-    <section id="recensioni" className="mx-auto max-w-6xl px-4 py-12">
+    <section id="recensioni" className="mx-auto max-w-6xl px-3 md:px-6 py-12">
       <h2 className="font-serif text-2xl md:text-3xl">Recensioni complete dei casinò ADM</h2>
       <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
         Ogni scheda approfondisce concessione, catalogo, metodi di pagamento, tempi di prelievo,
@@ -275,7 +275,7 @@ function ReviewsHubSection() {
 function GuidesSection() {
   return (
     <section className="border-t border-border bg-card/30">
-      <div className="mx-auto max-w-6xl px-4 py-16">
+      <div className="mx-auto max-w-6xl px-3 md:px-6 py-16">
         <p className="text-xs uppercase tracking-widest text-gold">Approfondimenti</p>
         <h2 className="mt-2 font-serif text-3xl md:text-4xl">Ultime guide</h2>
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -313,7 +313,7 @@ function BrandIntroSection() {
     "shrink-0 snap-start rounded-full border border-gold/30 bg-gold/5 px-3.5 py-2 text-sm text-gold transition-colors hover:bg-gold/15 whitespace-nowrap";
   return (
     <section className="border-b border-border bg-card/30">
-      <div className="mx-auto max-w-6xl px-4 py-6 md:py-10">
+      <div className="mx-auto max-w-6xl px-3 md:px-6 py-6 md:py-10">
         <div className="flex items-center justify-between gap-4">
           <h2 className="font-serif text-lg text-foreground md:text-2xl">
             Guide rapide
@@ -401,7 +401,7 @@ const QUICK_ANSWERS: { q: string; a: string }[] = [
 function QuickAnswersSection() {
   return (
     <section id="risposte-rapide" className="border-t border-border bg-card/30">
-      <div className="mx-auto max-w-4xl px-4 py-14 md:py-16">
+      <div className="mx-auto max-w-4xl px-3 md:px-6 py-14 md:py-16">
         <h2 className="font-serif text-2xl font-semibold md:text-3xl">
           Risposte rapide sui casinò ADM in Italia
         </h2>
@@ -432,7 +432,7 @@ function QuickAnswersSection() {
 function SeoGuideSection() {
   return (
     <section className="border-t border-border bg-card/30">
-      <div className="mx-auto max-w-4xl px-4 py-16 md:py-20">
+      <div className="mx-auto max-w-4xl px-3 md:px-6 py-16 md:py-20">
         <p className="text-xs uppercase tracking-widest text-gold">Approfondimento</p>
         <h2 className="mt-2 font-serif text-3xl md:text-4xl">
           Guida completa ai portali di gioco legali in Italia: sicurezza, pagamenti e normativa
@@ -515,7 +515,7 @@ function ComplianceBlock({ placement }: { placement: "top" | "bottom" }) {
   return (
 
     <section className="border-y border-border bg-card/40">
-      <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
+      <div className="mx-auto max-w-6xl px-3 md:px-6 py-12 md:py-16">
         <p className="text-xs uppercase tracking-widest text-gold">
           {placement === "top" ? "Conformità e tutela" : "Trasparenza editoriale"}
         </p>
@@ -566,7 +566,7 @@ function Hero() {
         backgroundPosition: "center",
       }}
     >
-      <div className="mx-auto max-w-6xl px-4 py-8 md:py-28">
+      <div className="mx-auto max-w-6xl px-3 md:px-6 py-8 md:py-28">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-gold/5 px-2.5 py-1 text-[10px] uppercase tracking-widest text-gold md:gap-2 md:px-3 md:text-xs">
             <ShieldCheck className="h-3 w-3" />
@@ -649,7 +649,7 @@ function TrustStrip() {
 
 function OperatorsSection() {
   return (
-    <section id="operatori" className="mx-auto max-w-6xl px-4 py-16 md:py-24">
+    <section id="operatori" className="mx-auto max-w-6xl px-3 md:px-6 py-16 md:py-24">
       <div className="mb-10 flex items-end justify-between gap-6">
         <div>
           <p className="text-xs uppercase tracking-widest text-gold">Confronto</p>
@@ -871,7 +871,7 @@ function CriteriaSection() {
   ];
   return (
     <section className="border-y border-border bg-card/40">
-      <div className="mx-auto max-w-6xl px-4 py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-3 md:px-6 py-16 md:py-24">
         <p className="text-xs uppercase tracking-widest text-gold">Metodologia</p>
         <h2 className="mt-2 max-w-2xl font-serif text-3xl md:text-4xl">
           Come selezioniamo le informazioni pubblicate
@@ -919,7 +919,7 @@ function EvaluationGuideSection() {
   ];
   return (
     <section className="border-y border-border bg-background">
-      <div className="mx-auto max-w-4xl px-4 py-16 md:py-24">
+      <div className="mx-auto max-w-4xl px-3 md:px-6 py-16 md:py-24">
         <p className="text-xs uppercase tracking-widest text-gold">Guida alla valutazione</p>
         <h2 className="mt-2 font-serif text-3xl md:text-4xl">
           Come valutare oggettivamente un operatore di gioco online in Italia
@@ -956,7 +956,7 @@ function EvaluationGuideSection() {
 
 function ResponsibleSection() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-16 md:py-24">
+    <section className="mx-auto max-w-6xl px-3 md:px-6 py-16 md:py-24">
       <div className="grid gap-10 rounded-2xl border border-warning/30 bg-warning/5 p-8 md:grid-cols-[1.2fr_1fr] md:p-12">
         <div>
           <p className="text-xs uppercase tracking-widest text-warning">Gioco responsabile</p>
@@ -1013,7 +1013,7 @@ function ResourceLink({ title, desc, href }: { title: string; desc: string; href
 
 function FAQSection() {
   return (
-    <section id="faq" className="mx-auto max-w-3xl px-4 pb-24">
+    <section id="faq" className="mx-auto max-w-3xl px-3 md:px-6 pb-24">
       <p className="text-xs uppercase tracking-widest text-gold">Domande frequenti</p>
       <h2 className="mt-2 font-serif text-3xl md:text-4xl">Chiarimenti</h2>
       <div className="mt-8 divide-y divide-border rounded-xl border border-border bg-card">
