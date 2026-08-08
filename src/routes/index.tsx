@@ -550,17 +550,21 @@ function Hero() {
             Portale informativo indipendente
           </div>
           <h1 className="mt-6 font-serif text-4xl leading-[1.05] md:text-6xl">
-            Guida Casino Italia:{" "}
-            <span className="text-gold">casinò online con concessione ADM</span>
+            Guida Casino Italia 2026{" "}
+            <span className="block text-gold md:inline">
+              migliori casinò online con concessione ADM
+            </span>
           </h1>
           <CurrentMonthBadge />
           <p className="mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
-            Guida Casino Italia è una guida indipendente ai migliori casinò online ADM/AAMS con
-            bonus senza deposito, recensioni verificate e confronti aggiornati. Raccogliamo e
-            confrontiamo dati sugli operatori titolari di concessione dell'Agenzia delle Dogane e
-            dei Monopoli: non offriamo servizi di gioco, non promuoviamo bonus e non incoraggiamo
-            la partecipazione a giochi con vincite in denaro.
+            Guida Casino Italia è una guida indipendente ai migliori casinò online ADM disponibili
+            in Italia, con recensioni verificate, bonus aggiornati e confronti tra i principali
+            operatori legali. Raccogliamo dati su casinò ADM, bonus senza deposito e recensioni
+            AAMS degli operatori titolari di concessione dell'Agenzia delle Dogane e dei Monopoli:
+            non offriamo servizi di gioco, non promuoviamo bonus e non incoraggiamo la
+            partecipazione a giochi con vincite in denaro.
           </p>
+
 
 
           <div className="mt-8 flex flex-wrap gap-3">
