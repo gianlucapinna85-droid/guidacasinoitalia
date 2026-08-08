@@ -8,6 +8,8 @@ import { operators, sortedOperators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
 import { RatingBadge, CasinoBadges } from "@/components/casino-ui";
 import { ComparisonTable } from "@/components/comparison-table";
+import { ReadMore } from "@/components/read-more";
+
 
 // Caricato in differita: sticky footer, non serve al primo render
 const StickyCompareCTA = lazy(() =>
@@ -944,40 +946,43 @@ function EvaluationGuideSection() {
   ];
   return (
     <section className="border-y border-border bg-background">
-      <div className="mx-auto max-w-4xl px-3 md:px-6 py-16 md:py-24">
+      <div className="mx-auto max-w-4xl px-3 md:px-6 py-10 md:py-16">
         <p className="text-xs uppercase tracking-widest text-gold">Guida alla valutazione</p>
-        <h2 className="mt-2 font-serif text-3xl md:text-4xl">
+        <h2 className="mt-2 font-serif text-2xl md:text-4xl">
           Come valutare oggettivamente un operatore di gioco online in Italia
         </h2>
-        <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-          Scegliere un concessionario di gioco a distanza in Italia non è una questione di gusto
-          personale ma di verifica di requisiti oggettivi imposti dalla normativa e dai controlli
-          dell'Agenzia delle Dogane e dei Monopoli. Di seguito i sei criteri principali che un
-          utente maggiorenne dovrebbe considerare per un confronto informato tra i vari operatori
-          concessionari, prima di qualsiasi valutazione di natura personale o economica.
-        </p>
+        <ReadMore collapsedHeight="11rem" className="mt-4">
+          <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
+            Scegliere un concessionario di gioco a distanza in Italia non è una questione di gusto
+            personale ma di verifica di requisiti oggettivi imposti dalla normativa e dai controlli
+            dell'Agenzia delle Dogane e dei Monopoli. Di seguito i sei criteri principali che un
+            utente maggiorenne dovrebbe considerare per un confronto informato tra i vari operatori
+            concessionari, prima di qualsiasi valutazione di natura personale o economica.
+          </p>
 
-        <div className="mt-10 space-y-8">
-          {criteria.map((c) => (
-            <div key={c.title}>
-              <h3 className="font-serif text-xl text-foreground">{c.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
-            </div>
-          ))}
-        </div>
+          <div className="mt-6 space-y-6">
+            {criteria.map((c) => (
+              <div key={c.title}>
+                <h3 className="font-serif text-lg text-foreground md:text-xl">{c.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
+              </div>
+            ))}
+          </div>
 
-        <p className="mt-10 text-sm leading-relaxed text-muted-foreground">
-          Nessuno di questi criteri, preso singolarmente, è sufficiente a stabilire una
-          preferenza: è la loro valutazione congiunta — insieme al rispetto delle norme sul
-          gioco responsabile e alla trasparenza delle informazioni pubblicate — che consente di
-          costruire un quadro informativo completo. GuidaCasinò.IT non esprime raccomandazioni
-          commerciali e invita ogni utente a consultare direttamente le fonti ufficiali ADM e i
-          siti dei concessionari prima di formare qualsiasi opinione personale.
-        </p>
+          <p className="mt-8 text-sm leading-relaxed text-muted-foreground">
+            Nessuno di questi criteri, preso singolarmente, è sufficiente a stabilire una
+            preferenza: è la loro valutazione congiunta — insieme al rispetto delle norme sul
+            gioco responsabile e alla trasparenza delle informazioni pubblicate — che consente di
+            costruire un quadro informativo completo. GuidaCasinò.IT non esprime raccomandazioni
+            commerciali e invita ogni utente a consultare direttamente le fonti ufficiali ADM e i
+            siti dei concessionari prima di formare qualsiasi opinione personale.
+          </p>
+        </ReadMore>
       </div>
     </section>
   );
 }
+
 
 function ResponsibleSection() {
   return (
