@@ -250,15 +250,15 @@ function ReviewsHubSection() {
     (a, b) => (getCasinoMeta(b.slug)?.rating ?? 0) - (getCasinoMeta(a.slug)?.rating ?? 0),
   );
   return (
-    <section id="recensioni" className="mx-auto max-w-6xl px-2.5 md:px-6 py-9 md:py-12">
-      <h2 className="font-serif text-2xl md:text-3xl">Recensioni complete dei casinò ADM</h2>
-      <p className="mt-2 line-clamp-3 max-w-3xl text-[13px] leading-snug text-muted-foreground md:line-clamp-none md:text-sm md:leading-relaxed">
+    <section id="recensioni" className="mx-auto max-w-6xl px-2.5 md:px-6 py-6 md:py-12">
+      <h2 className="font-serif text-xl md:text-3xl">Recensioni complete dei casinò ADM</h2>
+      <p className="mt-1.5 line-clamp-3 max-w-3xl text-[13px] leading-snug text-muted-foreground md:line-clamp-none md:text-sm md:leading-relaxed">
         Ogni scheda approfondisce concessione, catalogo, metodi di pagamento, tempi di prelievo,
         bonus dichiarati e strumenti di gioco responsabile del singolo concessionario.
       </p>
       <ReadMore
         collapsedHeight="10.5rem"
-        className="mt-4 md:mt-6"
+        className="mt-3 md:mt-6"
         labelMore="Mostra tutte le recensioni"
         labelLess="Mostra meno"
       >
