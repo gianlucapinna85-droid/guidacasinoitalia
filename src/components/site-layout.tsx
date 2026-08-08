@@ -234,7 +234,10 @@ export function Header() {
 
         <nav className="hidden gap-6 text-sm md:flex">
           <Link to="/" hash="operatori" className="text-muted-foreground transition-colors hover:text-foreground">Operatori ADM</Link>
-          <Link to="/bonus-senza-deposito" className="text-muted-foreground transition-colors hover:text-foreground">Info bonus</Link>
+          <Link to="/bonus-senza-deposito" className="text-muted-foreground transition-colors hover:text-foreground">Bonus casinò</Link>
+          <Link to="/slot-online" className="text-muted-foreground transition-colors hover:text-foreground">Slot online</Link>
+          <Link to="/casino-online-principianti" className="text-muted-foreground transition-colors hover:text-foreground">Guide</Link>
+          <Link to="/news" className="text-muted-foreground transition-colors hover:text-foreground">News</Link>
           <Link to="/come-registrarsi" className="text-muted-foreground transition-colors hover:text-foreground">Come registrarsi</Link>
           <Link to="/gioco-responsabile" className="text-muted-foreground transition-colors hover:text-foreground">Gioco responsabile</Link>
           <a
@@ -286,7 +289,12 @@ export function Footer() {
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground">Guide</h4>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/bonus-senza-deposito" className="hover:text-foreground">Info bonus</Link></li>
+              <li><Link to="/bonus-senza-deposito" className="hover:text-foreground">Bonus senza deposito</Link></li>
+              <li><Link to="/come-scegliere-casino-online-adm" className="hover:text-foreground">Come scegliere un casinò ADM</Link></li>
+              <li><Link to="/verificare-licenza-adm" className="hover:text-foreground">Verificare una licenza ADM</Link></li>
+              <li><Link to="/slot-rtp-alto" className="hover:text-foreground">Slot con RTP alto</Link></li>
+              <li><Link to="/pagamenti-sicuri-casino" className="hover:text-foreground">Pagamenti sicuri</Link></li>
+              <li><Link to="/news" className="hover:text-foreground">News casinò</Link></li>
               <li><Link to="/come-registrarsi" className="hover:text-foreground">Come registrarsi</Link></li>
               <li><a href="https://www.adm.gov.it" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-foreground">ADM</a></li>
               <li><a href="https://www.giocaresponsabile.it" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-foreground">Gioca Responsabile</a></li>
