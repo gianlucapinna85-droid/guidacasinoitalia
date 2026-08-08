@@ -9,12 +9,12 @@ export function RatingBadge({ rating, size = "md" }: { rating: number; size?: "s
   return (
     <div
       className={`inline-flex items-center gap-1.5 rounded-lg border border-gold/50 bg-gold/10 ${
-        big ? "px-3 py-1.5" : "px-2 py-1"
+        big ? "px-3 py-1.5" : "px-1.5 py-0.5 md:px-2 md:py-1"
       }`}
       aria-label={`Voto redazionale ${rating.toFixed(1)} su 10`}
     >
       <Star className={big ? "h-4 w-4 text-gold" : "h-3 w-3 text-gold"} fill="currentColor" />
-      <span className={`font-serif text-gold ${big ? "text-lg" : "text-sm"}`}>
+      <span className={`font-serif text-gold ${big ? "text-lg" : "text-[13px] md:text-sm"}`}>
         {rating.toFixed(1)}
       </span>
       <span className="text-[10px] uppercase tracking-wider text-muted-foreground">/10</span>
@@ -25,7 +25,7 @@ export function RatingBadge({ rating, size = "md" }: { rating: number; size?: "s
 export function CasinoBadges({ slug }: { slug: string }) {
   const meta = getCasinoMeta(slug);
   return (
-    <div className="flex flex-wrap gap-1.5">
+    <div className="flex flex-wrap gap-1 md:gap-1.5">
       <Badge icon={ShieldCheck} label="ADM" />
       {meta?.paypal ? <Badge icon={Wallet} label="PayPal" /> : null}
       {meta?.fastWithdrawal ? <Badge icon={Zap} label="Prelievo rapido" /> : null}
@@ -35,7 +35,7 @@ export function CasinoBadges({ slug }: { slug: string }) {
 
 function Badge({ icon: Icon, label }: { icon: typeof ShieldCheck; label: string }) {
   return (
-    <span className="inline-flex items-center gap-1 rounded-full border border-border bg-background px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-foreground/80">
+    <span className="inline-flex items-center gap-1 rounded-full border border-border bg-background px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-foreground/80 md:px-2.5 md:py-1">
       <Icon className="h-3 w-3 text-gold" />
       {label}
     </span>
@@ -100,19 +100,19 @@ export function RelatedLinks({ currentSlug, currentPath }: { currentSlug?: strin
 /** CTA sticky mobile richiesta dalla specifica. */
 export function StickyCompareCTA() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 px-2 py-1.5 backdrop-blur md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 px-2 py-1 backdrop-blur md:hidden">
       <div className="mx-auto grid max-w-md grid-cols-2 gap-1.5">
         <Link
           to="/"
           hash="operatori"
-          className="flex min-h-9 items-center justify-center gap-1 rounded-md bg-gold px-2 py-1.5 text-center text-[11px] font-bold leading-tight text-primary-foreground shadow-sm"
+          className="flex min-h-8 items-center justify-center gap-1 rounded-md bg-gold px-2 py-1 text-center text-[11px] font-bold leading-tight text-primary-foreground shadow-sm"
         >
           Lista completa ADM <ArrowRight className="h-3.5 w-3.5 shrink-0" />
         </Link>
         <Link
           to="/"
           hash="comparatore"
-          className="flex min-h-9 items-center justify-center gap-1 rounded-md border border-gold/50 bg-card px-2 py-1.5 text-center text-[11px] font-bold leading-tight text-foreground shadow-sm"
+          className="flex min-h-8 items-center justify-center gap-1 rounded-md border border-gold/50 bg-card px-2 py-1 text-center text-[11px] font-bold leading-tight text-foreground shadow-sm"
         >
           Casinò scelti <Star className="h-3.5 w-3.5 shrink-0 text-gold" fill="currentColor" />
         </Link>
