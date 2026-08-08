@@ -66,3 +66,5 @@ Sitemap: https://www.guidacasino-italia.it/sitemap.xml
 
 Sitemap: https://www.guidacasino-italia.it/sitemap-guides.xml
 Sitemap: https://www.guidacasino-italia.it/sitemap-reviews.xml
+Sitemap: https://www.guidacasino-italia.it/sitemap-news.xml
+
