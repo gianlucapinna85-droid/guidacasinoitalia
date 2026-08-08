@@ -4,6 +4,7 @@ import siteLogo from "@/assets/site-logo.webp";
 import { ShieldCheck, Ban, LifeBuoy, Landmark, BadgeCheck, Youtube, Instagram, Music2, Send } from "lucide-react";
 import vietato18Url from "@/assets/logos/v18.webp";
 import admLogoUrl from "@/assets/logos/adm.webp";
+import { RelatedProjectBox } from "@/components/casino-ui";
 
 const vietato18 = { url: vietato18Url };
 const admLogo = { url: admLogoUrl };
@@ -327,6 +328,8 @@ export function Footer() {
         <ComplianceBadges />
 
         <OfficialLogosBanner />
+
+        <RelatedProjectBox className="mt-8" />
 
 
 

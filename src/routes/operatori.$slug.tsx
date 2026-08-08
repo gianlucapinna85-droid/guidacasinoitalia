@@ -5,7 +5,7 @@ import { operators } from "@/lib/operators";
 import { buildReview } from "@/lib/operator-review";
 import { getCasinoMeta } from "@/data/casinos";
 import { getDeepDive } from "@/data/casino-deepdive";
-import { RatingBadge, CasinoBadges, RelatedLinks } from "@/components/casino-ui";
+import { RatingBadge, CasinoBadges, RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
 
 
 function loadOperator(slug: string) {
@@ -470,6 +470,8 @@ function OperatorPage() {
           Contenuto informativo ai sensi dell'art. 9 D.L. 87/2018. Non costituisce comunicazione
           commerciale né incentivo al gioco. Vietato ai minori di 18 anni.
         </p>
+        <RelatedProjectBox className="mt-12" />
+
         <RelatedLinks currentSlug={op.slug} />
       </article>
 
