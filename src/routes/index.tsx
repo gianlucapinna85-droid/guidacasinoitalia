@@ -560,6 +560,7 @@ function CurrentMonthBadge() {
 }
 
 function Hero() {
+  const [expanded, setExpanded] = useState(false);
   return (
     <section
       className="relative overflow-hidden border-b border-border"
@@ -569,53 +570,58 @@ function Hero() {
         backgroundPosition: "center",
       }}
     >
-      <div className="mx-auto max-w-6xl px-4 py-10 md:py-28">
+      <div className="mx-auto max-w-6xl px-4 py-8 md:py-28">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-gold/5 px-2.5 py-1 text-[10px] uppercase tracking-widest text-gold md:gap-2 md:px-3 md:text-xs">
             <ShieldCheck className="h-3 w-3" />
             Portale informativo indipendente
           </div>
-          <h1 className="mt-3 font-serif text-3xl leading-[1.05] md:mt-6 md:text-6xl">
+          <h1 className="mt-2 font-serif text-[1.65rem] leading-[1.1] md:mt-6 md:text-6xl">
             Guida Casino Italia 2026{" "}
             <span className="block text-gold md:inline">
               migliori casinò online con concessione ADM
             </span>
           </h1>
           <CurrentMonthBadge />
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:mt-6 md:text-lg md:leading-normal">
-            Guida Casino Italia è una guida indipendente ai migliori casinò online ADM disponibili
-            in Italia, con recensioni verificate, bonus aggiornati e confronti tra i principali
-            operatori legali. Raccogliamo dati su casinò ADM, bonus senza deposito e recensioni
-            AAMS degli operatori titolari di concessione dell'Agenzia delle Dogane e dei Monopoli:
-            non offriamo servizi di gioco, non promuoviamo bonus e non incoraggiamo la
-            partecipazione a giochi con vincite in denaro.
-          </p>
+          <div className="mt-3 max-w-2xl md:mt-6">
+            <p
+              className={`text-sm leading-relaxed text-muted-foreground md:text-lg md:leading-normal ${expanded ? "" : "line-clamp-3 md:line-clamp-none"}`}
+            >
+              Guida Casino Italia è una guida indipendente ai migliori casinò online ADM disponibili
+              in Italia, con recensioni verificate, bonus aggiornati e confronti tra i principali
+              operatori legali. Raccogliamo dati su casinò ADM, bonus senza deposito e recensioni
+              AAMS degli operatori titolari di concessione dell'Agenzia delle Dogane e dei Monopoli:
+              non offriamo servizi di gioco, non promuoviamo bonus e non incoraggiamo la
+              partecipazione a giochi con vincite in denaro.
+            </p>
+            <button
+              type="button"
+              onClick={() => setExpanded((v) => !v)}
+              className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-gold hover:underline md:hidden"
+              aria-expanded={expanded}
+            >
+              {expanded ? "Riduci" : "Continua a leggere"} <ArrowRight className={`h-3 w-3 transition-transform ${expanded ? "rotate-90" : ""}`} />
+            </button>
+          </div>
 
-
-
-          <div className="mt-5 flex flex-wrap gap-2.5 md:mt-8 md:gap-3">
+          <div className="mt-4 flex flex-wrap gap-2 md:mt-8 md:gap-3">
             <Link
               to="/"
               hash="comparatore"
+              className="inline-flex items-center gap-2 rounded-md border border-gold/40 bg-gold px-4 py-2.5 text-sm font-bold text-primary-foreground shadow-lg shadow-gold/30 transition-all hover:brightness-110 hover:shadow-gold/40 md:px-5 md:py-3"
+            >
+              Esamina il confronto <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              to="/"
+              hash="operatori"
               className="inline-flex items-center gap-2 rounded-md border border-gold/40 bg-gold/10 px-4 py-2.5 text-sm font-medium text-gold transition-colors hover:bg-gold/20 md:px-5 md:py-3"
             >
-              Top casinò consigliati <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              to="/bonus-senza-deposito"
-              className="inline-flex items-center gap-2 rounded-md border border-gold/40 bg-gold px-4 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-gold/90 md:px-5 md:py-3"
-            >
-              Info bonus <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              to="/gioco-responsabile"
-              className="inline-flex items-center gap-2 rounded-md border border-border px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent md:px-5 md:py-3"
-            >
-              Gioco responsabile
+              Lista completa casinò ADM
             </Link>
           </div>
 
-          <p className="mt-5 text-xs text-muted-foreground md:mt-8">
+          <p className="mt-4 text-xs text-muted-foreground md:mt-8">
             Contenuto riservato a maggiorenni. Il gioco può causare dipendenza patologica.
           </p>
         </div>
