@@ -154,17 +154,8 @@ export function GuideArticle({ cfg, children }: { cfg: GuideConfig; children?: R
 
         {children}
 
-        <section id="faq" className="mt-12">
-          <h2 className="font-serif text-2xl">Domande frequenti</h2>
-          <div className="mt-6 space-y-4">
-            {cfg.faqs.map((f) => (
-              <details key={f.q} className="rounded-xl border border-border bg-card p-5">
-                <summary className="cursor-pointer font-medium">{f.q}</summary>
-                <p className="mt-3 text-sm text-muted-foreground">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </section>
+        <FaqSlider items={cfg.faqs} title="Domande frequenti" />
+
 
         <RelatedProjectBox className="mt-12" />
 
