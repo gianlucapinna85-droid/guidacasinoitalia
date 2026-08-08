@@ -617,7 +617,7 @@ function Hero() {
             </Link>
           </div>
 
-          <p className="mt-4 text-xs text-muted-foreground md:mt-8">
+          <p className="mt-2 text-[11px] text-muted-foreground md:mt-6 md:text-xs">
             Contenuto riservato a maggiorenni. Il gioco può causare dipendenza patologica.
           </p>
         </div>
