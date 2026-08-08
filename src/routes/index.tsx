@@ -600,21 +600,21 @@ function Hero() {
             </button>
           </div>
 
-          <div className="mt-4 flex flex-wrap gap-2 md:mt-8 md:gap-3">
-            <Link
-              to="/"
-              hash="comparatore"
-              className="inline-flex items-center gap-2 rounded-md border border-gold/40 bg-gold px-4 py-2.5 text-sm font-bold text-primary-foreground shadow-lg shadow-gold/30 transition-all hover:brightness-110 hover:shadow-gold/40 md:px-5 md:py-3"
+          <div className="mt-4 flex flex-nowrap items-stretch gap-2 md:mt-8 md:gap-3">
+            <a
+              href="#comparatore"
+              onClick={scrollToSection("comparatore")}
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold px-3 py-2 text-[13px] font-bold leading-tight text-primary-foreground shadow-md shadow-gold/25 transition-all hover:brightness-110 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
             >
-              Esamina il confronto <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              to="/"
-              hash="operatori"
-              className="inline-flex items-center gap-2 rounded-md border border-gold/40 bg-gold/10 px-4 py-2.5 text-sm font-medium text-gold transition-colors hover:bg-gold/20 md:px-5 md:py-3"
+              Migliori casinò scelti <ArrowRight className="h-3.5 w-3.5 shrink-0" />
+            </a>
+            <a
+              href="#operatori"
+              onClick={scrollToSection("operatori")}
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-2 text-[13px] font-semibold leading-tight text-gold transition-colors hover:bg-gold/20 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
             >
-              Lista completa casinò ADM
-            </Link>
+              Lista completa ADM <ArrowRight className="h-3.5 w-3.5 shrink-0" />
+            </a>
           </div>
 
           <p className="mt-2 text-[11px] text-muted-foreground md:mt-6 md:text-xs">
