@@ -133,7 +133,7 @@ export function GuideArticle({ cfg, children }: { cfg: GuideConfig; children?: R
         {cfg.sections.map((s) => (
           <section key={s.id} id={s.id} className="mt-10">
             <h2 className="font-serif text-2xl">{s.h2}</h2>
-            <ReadMore collapsedHeight="8.5rem" className="mt-1">
+            <ReadMore collapsedHeight="5.5rem" className="mt-1">
               {s.paragraphs.map((p) => (
                 <p key={p} className="mt-4 leading-relaxed text-muted-foreground">
                   {p}

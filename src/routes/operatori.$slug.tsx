@@ -278,7 +278,7 @@ function OperatorPage() {
         {getDeepDive(op.slug).map((s) => (
           <section key={s.h2} className="mt-10">
             <h2 className="font-serif text-2xl">{s.h2}</h2>
-            <ReadMore collapsedHeight="8.5rem" className="mt-1">
+            <ReadMore collapsedHeight="5.5rem" className="mt-1">
               {s.paragraphs.map((p) => (
                 <p key={p} className="mt-4 text-base leading-relaxed text-muted-foreground">
                   {p}
