@@ -1031,26 +1031,26 @@ function EvaluationGuideSection() {
 
 function ResponsibleSection() {
   return (
-    <section className="mx-auto max-w-6xl px-2.5 md:px-6 py-16 md:py-24">
-      <div className="grid gap-10 rounded-2xl border border-warning/30 bg-warning/5 p-8 md:grid-cols-[1.2fr_1fr] md:p-12">
+    <section className="mx-auto max-w-6xl px-2.5 md:px-6 py-8 md:py-24">
+      <div className="grid gap-6 rounded-2xl border border-warning/30 bg-warning/5 p-5 md:grid-cols-[1.2fr_1fr] md:gap-10 md:p-12">
         <div>
           <p className="text-xs uppercase tracking-widest text-warning">Gioco responsabile</p>
-          <h2 className="mt-2 font-serif text-3xl md:text-4xl">
+          <h2 className="mt-1.5 font-serif text-2xl md:text-4xl">
             Se il gioco smette di essere un divertimento, chiedi aiuto.
           </h2>
-          <p className="mt-4 text-sm text-muted-foreground">
+          <p className="mt-2.5 text-sm leading-snug text-muted-foreground md:mt-4 md:leading-normal">
             Il Disturbo da Gioco d'Azzardo (DGA) è una patologia riconosciuta dal Servizio Sanitario
             Nazionale. Esistono servizi gratuiti e anonimi in tutta Italia.
           </p>
           <Link
             to="/gioco-responsabile"
-            className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-gold hover:underline"
+            className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-gold hover:underline md:mt-6"
           >
             Leggi la guida completa <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
-        <div className="space-y-3 text-sm">
+        <div className="space-y-2.5 text-sm md:space-y-3">
           <ResourceLink
             title="Telefono Verde 800 558822"
             desc="ISS — anonimo e gratuito, attivo lun-ven 10:00-16:00"
