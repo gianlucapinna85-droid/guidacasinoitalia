@@ -46,7 +46,7 @@ const routeFiles = files.filter((f) => f.includes(`${"src"}/routes/`) && /\.tsx$
 const knownRoutes = new Set(["/"]);
 for (const f of routeFiles) {
   const m = readFileSync(f, "utf8").match(/createFileRoute\(\s*["'`]([^"'`]+)["'`]\s*\)/);
-  if (m) knownRoutes.add(m[1]);
+  if (m) knownRoutes.add(m[1].replace(/\/$/, "") || "/");
 }
 const routeMatches = (path) => {
   if (knownRoutes.has(path)) return true;
