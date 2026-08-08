@@ -969,7 +969,7 @@ function EvaluationGuideSection() {
         <h2 className="mt-2 font-serif text-2xl md:text-4xl">
           Come valutare oggettivamente un operatore di gioco online in Italia
         </h2>
-        <ReadMore collapsedHeight="11rem" className="mt-4">
+        <ReadMore collapsedHeight="5.5rem" className="mt-4">
           <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
             Scegliere un concessionario di gioco a distanza in Italia non è una questione di gusto
             personale ma di verifica di requisiti oggettivi imposti dalla normativa e dai controlli
