@@ -459,18 +459,38 @@ function QuickAnswersSection() {
 function SeoGuideSection() {
   return (
     <section className="border-t border-border bg-card/30">
-      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-16 md:py-20">
+      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-8 md:py-20">
         <p className="text-xs uppercase tracking-widest text-gold">Approfondimento</p>
-        <h2 className="mt-2 font-serif text-3xl md:text-4xl">
+        <h2 className="mt-2 font-serif text-2xl md:text-4xl">
           Guida completa ai portali di gioco legali in Italia: sicurezza, pagamenti e normativa
         </h2>
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3 md:line-clamp-none">
           Un quadro dettagliato su come funzionano i casinò online autorizzati dall'Agenzia delle
-          Dogane e dei Monopoli, con approfondimenti tecnici, giuridici e operativi. Espandi le
-          sezioni per consultare i singoli capitoli.
+          Dogane e dei Monopoli, con approfondimenti tecnici, giuridici e operativi. Scorri le
+          schede per consultare i singoli capitoli.
         </p>
 
-        <div className="mt-8 divide-y divide-border rounded-xl border border-border bg-background">
+        {/* Mobile: slider orizzontale */}
+        <div className="mt-5 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {SEO_GUIDE.map((item) => (
+            <article
+              key={item.h3}
+              className="w-[85%] shrink-0 snap-start rounded-xl border border-border bg-background p-4"
+            >
+              <h3 className="font-serif text-base leading-snug">{item.h3}</h3>
+              <ReadMore collapsedHeight="5.5rem" className="mt-2">
+                <div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
+                  {item.body.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+              </ReadMore>
+            </article>
+          ))}
+        </div>
+
+        {/* Desktop: accordion */}
+        <div className="mt-8 hidden divide-y divide-border rounded-xl border border-border bg-background md:block">
           {SEO_GUIDE.map((item) => (
             <details key={item.h3} className="group p-6 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between gap-4 text-base font-medium text-foreground">
@@ -485,6 +505,7 @@ function SeoGuideSection() {
             </details>
           ))}
         </div>
+
 
         <p className="mt-8 text-xs text-muted-foreground">
           Contenuto informativo redatto sulla base di fonti pubbliche (adm.gov.it, normativa
