@@ -588,7 +588,7 @@ function CurrentMonthBadge() {
   const label = monthYear.charAt(0).toUpperCase() + monthYear.slice(1);
 
   return (
-    <div className="mt-2 inline-flex flex-wrap items-center gap-1.5 rounded-full border border-gold/30 bg-gold/10 px-2 py-1 text-[10px] font-medium text-gold md:mt-4 md:gap-2 md:px-3 md:py-1.5 md:text-xs">
+    <div className="mt-1.5 inline-flex flex-wrap items-center gap-1.5 rounded-full border border-gold/30 bg-gold/10 px-2 py-0.5 text-[10px] font-medium text-gold md:mt-4 md:gap-2 md:px-3 md:py-1.5 md:text-xs">
       <Calendar className="h-3 w-3 md:h-3.5 md:w-3.5" />
       <span>Lista verificata a {label}</span>
       <span className="mx-1 hidden h-3 w-px bg-gold/30 sm:inline-block" />
@@ -688,11 +688,11 @@ function TrustStrip() {
   ];
   return (
     <section className="border-b border-border bg-card/50">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 py-5 md:grid-cols-4 md:py-8">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-3 px-3 py-4 md:grid-cols-4 md:gap-4 md:py-8">
         {items.map((it) => (
-          <div key={it.label} className="flex items-start gap-2 md:gap-3">
-            <it.icon className="mt-0.5 h-4 w-4 shrink-0 text-gold md:h-5 md:w-5" />
-            <span className="text-[12.5px] leading-snug text-muted-foreground md:text-sm">{it.label}</span>
+          <div key={it.label} className="flex items-start gap-1.5 md:gap-3">
+            <it.icon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold md:h-5 md:w-5" />
+            <span className="text-[12px] leading-snug text-muted-foreground md:text-sm">{it.label}</span>
           </div>
         ))}
       </div>
