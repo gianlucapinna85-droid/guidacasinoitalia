@@ -162,7 +162,15 @@ export function ComparisonTable() {
               </a>
             </div>
           ))}
+          <a
+            href="#operatori"
+            className="flex items-center justify-center gap-1.5 rounded-lg border border-gold/40 bg-gold/10 px-4 py-2.5 text-sm font-bold text-gold"
+          >
+            Vedi la lista completa ADM <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
+
+
 
         <p className="mt-6 text-xs text-muted-foreground">
           Contenuto informativo ai sensi dell'art. 9 D.L. 87/2018. Il gioco è vietato ai minori di 18
