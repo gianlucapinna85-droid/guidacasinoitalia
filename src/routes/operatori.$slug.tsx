@@ -6,6 +6,8 @@ import { buildReview } from "@/lib/operator-review";
 import { getCasinoMeta } from "@/data/casinos";
 import { getDeepDive } from "@/data/casino-deepdive";
 import { ReadMore } from "@/components/read-more";
+import { FaqSlider } from "@/components/faq-slider";
+
 
 import { RatingBadge, CasinoBadges, RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
 
@@ -260,20 +262,23 @@ function OperatorPage() {
           <h2 className="font-serif text-2xl">
             {op.name} è un casinò ADM sicuro? Analisi della concessione
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">{review.summary}</p>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            {op.name} opera in Italia con <strong>concessione ADM {op.concessionN}</strong>: significa che il
-            catalogo giochi, i generatori di numeri casuali e i flussi di gioco sono collegati al totalizzatore
-            nazionale e sottoposti al controllo dell'Agenzia delle Dogane e dei Monopoli. La verifica
-            dell'identità è obbligatoria e il conto di gioco resta limitato fino alla convalida dei documenti.
-            Puoi controllare in autonomia la validità della concessione sull'elenco pubblico di adm.gov.it.
-          </p>
+          <ReadMore collapsedHeight="5.5rem" className="mt-1">
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">{review.summary}</p>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              {op.name} opera in Italia con <strong>concessione ADM {op.concessionN}</strong>: significa che il
+              catalogo giochi, i generatori di numeri casuali e i flussi di gioco sono collegati al totalizzatore
+              nazionale e sottoposti al controllo dell'Agenzia delle Dogane e dei Monopoli. La verifica
+              dell'identità è obbligatoria e il conto di gioco resta limitato fino alla convalida dei documenti.
+              Puoi controllare in autonomia la validità della concessione sull'elenco pubblico di adm.gov.it.
+            </p>
+          </ReadMore>
+
         </section>
 
         {getDeepDive(op.slug).map((s) => (
           <section key={s.h2} className="mt-10">
             <h2 className="font-serif text-2xl">{s.h2}</h2>
-            <ReadMore collapsedHeight="8.5rem" className="mt-1">
+            <ReadMore collapsedHeight="5.5rem" className="mt-1">
               {s.paragraphs.map((p) => (
                 <p key={p} className="mt-4 text-base leading-relaxed text-muted-foreground">
                   {p}
@@ -323,13 +328,16 @@ function OperatorPage() {
 
         <section className="mt-10">
           <h2 className="font-serif text-2xl">Come registrarsi e verificare il conto su {op.name}</h2>
-          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-            La registrazione su {op.name} richiede la maggiore età, un documento d'identità valido e il codice
-            fiscale; in alternativa è spesso disponibile l'accesso con SPID o CIE, che rende la verifica
-            immediata. Solo al termine della verifica il conto di gioco diventa pienamente operativo e viene
-            accreditato l'eventuale bonus senza deposito. Prima della prima giocata è consigliabile impostare i
-            limiti di deposito previsti dalla normativa italiana.
-          </p>
+          <ReadMore collapsedHeight="4.5rem" className="mt-1">
+            <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+              La registrazione su {op.name} richiede la maggiore età, un documento d'identità valido e il codice
+              fiscale; in alternativa è spesso disponibile l'accesso con SPID o CIE, che rende la verifica
+              immediata. Solo al termine della verifica il conto di gioco diventa pienamente operativo e viene
+              accreditato l'eventuale bonus senza deposito. Prima della prima giocata è consigliabile impostare i
+              limiti di deposito previsti dalla normativa italiana.
+            </p>
+          </ReadMore>
+
         </section>
 
 
@@ -383,6 +391,7 @@ function OperatorPage() {
           <h2 className="font-serif text-2xl">
             Opinioni e valutazione redazionale su {op.name}
           </h2>
+          <ReadMore collapsedHeight="5rem" className="mt-1">
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
             Le opinioni raccolte sui <strong>casinò online ADM</strong> come {op.name} si concentrano
             quasi sempre su tre aspetti: la rapidità della verifica dei documenti, i tempi effettivi di
@@ -407,12 +416,13 @@ function OperatorPage() {
             </Link>
             .
           </p>
+          </ReadMore>
+
         </section>
 
-        <section className="mt-10">
-          <h2 className="font-serif text-2xl">Domande frequenti su {op.name}</h2>
-          <div className="mt-6 space-y-4">
-            {[
+        <FaqSlider
+          title={`Domande frequenti su ${op.name}`}
+          items={[
               {
                 q: `${op.name} è un casinò sicuro e legale in Italia?`,
                 a: `${op.name} risulta titolare della concessione ${op.concessionN}, verificabile nell'elenco pubblico dei concessionari su adm.gov.it. I giochi sono collegati al totalizzatore nazionale e sottoposti al controllo dell'Agenzia delle Dogane e dei Monopoli.`,
@@ -439,14 +449,9 @@ function OperatorPage() {
                 q: `Come ci si registra su ${op.name}?`,
                 a: `Servono maggiore età, codice fiscale e un documento d'identità valido; in alternativa è spesso disponibile l'accesso con SPID o CIE, che rende la verifica immediata. Prima della prima giocata è consigliabile impostare i limiti di deposito.`,
               },
-            ].map((f) => (
-              <details key={f.q} className="rounded-xl border border-border bg-card p-5">
-                <summary className="cursor-pointer font-medium">{f.q}</summary>
-                <p className="mt-3 text-sm text-muted-foreground">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </section>
+          ]}
+        />
+
 
 
         <section className="mt-10 rounded-xl border border-destructive/30 bg-destructive/5 p-6">

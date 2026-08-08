@@ -969,7 +969,7 @@ function EvaluationGuideSection() {
         <h2 className="mt-2 font-serif text-2xl md:text-4xl">
           Come valutare oggettivamente un operatore di gioco online in Italia
         </h2>
-        <ReadMore collapsedHeight="11rem" className="mt-4">
+        <ReadMore collapsedHeight="5.5rem" className="mt-4">
           <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
             Scegliere un concessionario di gioco a distanza in Italia non è una questione di gusto
             personale ma di verifica di requisiti oggettivi imposti dalla normativa e dai controlli
@@ -1063,8 +1063,20 @@ function FAQSection() {
   return (
     <section id="faq" className="mx-auto max-w-3xl px-2.5 md:px-6 pb-24">
       <p className="text-xs uppercase tracking-widest text-gold">Domande frequenti</p>
-      <h2 className="mt-2 font-serif text-3xl md:text-4xl">Chiarimenti</h2>
-      <div className="mt-8 divide-y divide-border rounded-xl border border-border bg-card">
+      <h2 className="mt-2 font-serif text-2xl md:text-4xl">Chiarimenti</h2>
+
+      {/* mobile: slider orizzontale */}
+      <div className="mt-4 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {FAQS.map((f) => (
+          <div key={f.q} className="w-[82%] shrink-0 snap-start rounded-xl border border-border bg-card p-3.5">
+            <h3 className="text-[13px] font-semibold leading-snug">{f.q}</h3>
+            <p className="mt-2 text-[12.5px] leading-relaxed text-muted-foreground">{f.a}</p>
+          </div>
+        ))}
+      </div>
+      <p className="mt-1 text-[11px] text-muted-foreground md:hidden">Scorri per vedere altre risposte →</p>
+
+      <div className="mt-8 hidden divide-y divide-border rounded-xl border border-border bg-card md:block">
         {FAQS.map((f) => (
           <details key={f.q} className="group p-6 [&_summary::-webkit-details-marker]:hidden">
             <summary className="flex cursor-pointer items-center justify-between gap-4 text-base font-medium">
@@ -1076,5 +1088,6 @@ function FAQSection() {
         ))}
       </div>
     </section>
+
   );
 }

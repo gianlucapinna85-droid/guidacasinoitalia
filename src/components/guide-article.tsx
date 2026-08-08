@@ -4,6 +4,8 @@ import { ShieldCheck } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
 import { RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
 import { ReadMore } from "@/components/read-more";
+import { FaqSlider } from "@/components/faq-slider";
+
 
 
 export const SITE_URL = "https://www.guidacasino-italia.it";
@@ -131,7 +133,7 @@ export function GuideArticle({ cfg, children }: { cfg: GuideConfig; children?: R
         {cfg.sections.map((s) => (
           <section key={s.id} id={s.id} className="mt-10">
             <h2 className="font-serif text-2xl">{s.h2}</h2>
-            <ReadMore collapsedHeight="8.5rem" className="mt-1">
+            <ReadMore collapsedHeight="5.5rem" className="mt-1">
               {s.paragraphs.map((p) => (
                 <p key={p} className="mt-4 leading-relaxed text-muted-foreground">
                   {p}
@@ -154,17 +156,8 @@ export function GuideArticle({ cfg, children }: { cfg: GuideConfig; children?: R
 
         {children}
 
-        <section id="faq" className="mt-12">
-          <h2 className="font-serif text-2xl">Domande frequenti</h2>
-          <div className="mt-6 space-y-4">
-            {cfg.faqs.map((f) => (
-              <details key={f.q} className="rounded-xl border border-border bg-card p-5">
-                <summary className="cursor-pointer font-medium">{f.q}</summary>
-                <p className="mt-3 text-sm text-muted-foreground">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </section>
+        <FaqSlider items={cfg.faqs} title="Domande frequenti" />
+
 
         <RelatedProjectBox className="mt-12" />
 
