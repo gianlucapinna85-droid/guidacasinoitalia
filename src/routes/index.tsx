@@ -1018,29 +1018,30 @@ function EvaluationGuideSection() {
         <h2 className="mt-2 font-serif text-2xl md:text-4xl">
           Come valutare oggettivamente un operatore di gioco online in Italia
         </h2>
-        <ReadMore collapsedHeight="5.5rem" className="mt-4">
-          <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
-            Scegliere un concessionario di gioco a distanza in Italia non è una questione di gusto
-            personale ma di verifica di requisiti oggettivi imposti dalla normativa e dai controlli
-            dell'Agenzia delle Dogane e dei Monopoli. Di seguito i sei criteri principali che un
-            utente maggiorenne dovrebbe considerare per un confronto informato tra i vari operatori
-            concessionari, prima di qualsiasi valutazione di natura personale o economica.
-          </p>
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground line-clamp-3 md:line-clamp-none md:text-base">
+          Scegliere un concessionario di gioco a distanza in Italia non è una questione di gusto
+          personale ma di verifica di requisiti oggettivi imposti dalla normativa e dai controlli
+          dell'Agenzia delle Dogane e dei Monopoli. Di seguito i sei criteri principali che un
+          utente maggiorenne dovrebbe considerare per un confronto informato tra i vari operatori
+          concessionari, prima di qualsiasi valutazione di natura personale o economica.
+        </p>
 
-          <div className="mt-6 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:mx-0 md:block md:space-y-6 md:overflow-visible md:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {criteria.map((c) => (
-              <div
-                key={c.title}
-                className="w-[85%] shrink-0 snap-start rounded-xl border border-border bg-card/40 p-4 md:w-auto md:rounded-none md:border-0 md:bg-transparent md:p-0"
-              >
-                <h3 className="font-serif text-lg text-foreground md:text-xl">{c.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-5 md:line-clamp-none">{c.body}</p>
-              </div>
-            ))}
-          </div>
+        <div className="mt-5 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:mt-6 md:mx-0 md:block md:space-y-6 md:overflow-visible md:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {criteria.map((c) => (
+            <div
+              key={c.title}
+              className="w-[85%] shrink-0 snap-start rounded-xl border border-border bg-card/40 p-4 md:w-auto md:rounded-none md:border-0 md:bg-transparent md:p-0"
+            >
+              <h3 className="font-serif text-lg text-foreground md:text-xl">{c.title}</h3>
+              <ReadMore collapsedHeight="5.5rem" className="mt-2">
+                <p className="text-sm leading-relaxed text-muted-foreground">{c.body}</p>
+              </ReadMore>
+            </div>
+          ))}
+        </div>
 
-
-          <p className="mt-8 text-sm leading-relaxed text-muted-foreground">
+        <ReadMore collapsedHeight="5.5rem" className="mt-6">
+          <p className="text-sm leading-relaxed text-muted-foreground">
             Nessuno di questi criteri, preso singolarmente, è sufficiente a stabilire una
             preferenza: è la loro valutazione congiunta — insieme al rispetto delle norme sul
             gioco responsabile e alla trasparenza delle informazioni pubblicate — che consente di
@@ -1049,6 +1050,7 @@ function EvaluationGuideSection() {
             siti dei concessionari prima di formare qualsiasi opinione personale.
           </p>
         </ReadMore>
+
       </div>
     </section>
   );
