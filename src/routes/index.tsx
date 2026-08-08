@@ -59,8 +59,9 @@ const FAQS = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Guida Casino Italia 2026 | Migliori Casinò ADM e Bonus Senza Deposito" },
-      { name: "description", content: "Guida Casino Italia: confronto indipendente dei casinò online con concessione ADM, bonus senza deposito, RTP e pagamenti sicuri. Aggiornato 2026. Solo +18." },
+      { title: "Guida Casino Italia 2026 | Migliori Casinò ADM, Bonus Senza Deposito e Recensioni AAMS" },
+      { name: "description", content: "Confronta i migliori casinò online ADM/AAMS, bonus senza deposito, recensioni verificate e guide complete sui siti legali italiani aggiornati al 2026." },
+
       { name: "keywords", content: "casino adm, casino aams, bonus senza deposito, bonus senza deposito immediato, casino online sicuri, casino online italiani, migliori casino online 2026, concessione adm, gioco legale italia, casino con spid, come verificare licenza adm, casino legali italia elenco, quali sono i casino con concessione adm" },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
