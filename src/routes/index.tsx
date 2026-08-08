@@ -666,7 +666,7 @@ function OperatorsSection() {
         {sortedOperators.map((op, idx) => (
           <article
             key={op.slug}
-            className="relative grid gap-6 rounded-xl border border-border bg-card p-6 md:grid-cols-[auto_1fr_auto] md:items-center"
+            className="relative grid gap-5 rounded-xl border border-border bg-card p-4 sm:p-6 md:grid-cols-[auto_1fr_auto] md:items-center"
           >
             {idx < 3 && (
               <span className="absolute -top-3 right-4 inline-flex items-center rounded-full bg-gold px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-lg shadow-gold/30 md:right-6">
@@ -677,7 +677,7 @@ function OperatorsSection() {
               <OperatorLogo logo={op.logo} name={op.name} index={idx} officialUrl={op.officialUrl} />
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="font-serif text-lg">{op.name}</h3>
+                  <h3 className="font-serif text-xl md:text-lg">{op.name}</h3>
                   {getCasinoMeta(op.slug) ? (
                     <RatingBadge rating={getCasinoMeta(op.slug)!.rating} size="sm" />
                   ) : null}
@@ -688,7 +688,7 @@ function OperatorsSection() {
                 <div className="mt-2">
                   <CasinoBadges slug={op.slug} />
                 </div>
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                <p className="mt-2 text-[13px] leading-relaxed text-muted-foreground md:text-xs">
                   {getCasinoMeta(op.slug)?.short}
                 </p>
                 <div className="mt-2">
@@ -737,7 +737,7 @@ function OperatorsSection() {
                 ) : null}
                 <ul className="mt-1 space-y-1.5">
                   {op.highlights.map((h) => (
-                    <li key={h} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <li key={h} className="flex items-start gap-2 text-[15px] leading-relaxed text-muted-foreground md:text-sm">
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
                       {h}
                     </li>
@@ -752,14 +752,14 @@ function OperatorsSection() {
                 href={op.officialUrl}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-gold/30 transition-all hover:brightness-110 hover:shadow-xl hover:shadow-gold/40 active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3.5 text-base font-bold md:py-3 md:text-sm text-primary-foreground shadow-lg shadow-gold/30 transition-all hover:brightness-110 hover:shadow-xl hover:shadow-gold/40 active:scale-[0.98]"
               >
                 Visita il sito ufficiale
               </a>
               <Link
                 to="/operatori/$slug"
                 params={{ slug: op.slug }}
-                className="inline-flex items-center justify-center gap-1 rounded-md border border-border px-4 py-2 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="inline-flex items-center justify-center gap-1 rounded-md border border-border px-4 py-2.5 text-sm font-medium md:py-2 md:text-xs text-muted-foreground transition-colors hover:text-foreground"
               >
                 Leggi l'analisi completa
               </Link>
