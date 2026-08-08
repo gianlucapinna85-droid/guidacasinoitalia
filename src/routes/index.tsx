@@ -217,6 +217,31 @@ const GUIDES = [
     title: "Registrazione con SPID",
     text: "Documenti richiesti, verifica dell'identità e limiti di deposito prima della prima giocata.",
   },
+  {
+    to: "/bonus-scommesse-sportive" as const,
+    title: "Bonus scommesse sportive ADM 2026",
+    text: "Confronto dei migliori bonus per le scommesse sportive legali in Italia e come sfruttarli in modo responsabile.",
+  },
+  {
+    to: "/come-leggere-quote-calcio" as const,
+    title: "Come leggere le quote calcio",
+    text: "Guida pratica per interpretare le quote, calcolare la probabilità implicita e costruire una schedina vincente.",
+  },
+  {
+    to: "/quote-live-vs-prematch" as const,
+    title: "Quote live vs pre-match",
+    text: "Differenze, vantaggi e strategie per scegliere tra scommesse in tempo reale e quote pre-partita.",
+  },
+  {
+    to: "/gestione-bankroll" as const,
+    title: "Gestione bankroll",
+    text: "Metodi per gestire il capitale di gioco, limitare le perdite e mantenere il controllo nel lungo periodo.",
+  },
+  {
+    to: "/operatori-casino-e-scommesse" as const,
+    title: "Operatori ADM casinò e scommesse",
+    text: "I concessionari che offrono sia casinò online sia scommesse sportive con licenza italiana.",
+  },
 ];
 
 /** Hub di link interni verso le recensioni complete dei concessionari. */
@@ -255,7 +280,7 @@ function GuidesSection() {
       <div className="mx-auto max-w-6xl px-4 py-16">
         <p className="text-xs uppercase tracking-widest text-gold">Approfondimenti</p>
         <h2 className="mt-2 font-serif text-3xl md:text-4xl">Ultime guide</h2>
-        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {GUIDES.map((g) => (
             <Link
               key={g.to}
