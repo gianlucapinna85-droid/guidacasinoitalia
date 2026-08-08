@@ -724,7 +724,7 @@ function OperatorsSection() {
 
 
 
-            <div className="grid gap-4 md:grid-cols-3">
+            <div className="grid gap-3 md:grid-cols-3">
               <Stat label="Attivo dal" value={op.founded.toString()} />
               <Stat label="RTP medio dichiarato" value={op.rtpAverage} />
               <div>
@@ -740,7 +740,7 @@ function OperatorsSection() {
 
               <div className="md:col-span-3">
                 {op.noDepositBonus ? (
-                  <div className="mb-3 rounded-lg border border-gold/40 bg-gold/10 p-4">
+                  <div className="mb-2 rounded-lg border border-gold/40 bg-gold/10 p-3">
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
                         Senza deposito
