@@ -250,15 +250,15 @@ function ReviewsHubSection() {
     (a, b) => (getCasinoMeta(b.slug)?.rating ?? 0) - (getCasinoMeta(a.slug)?.rating ?? 0),
   );
   return (
-    <section id="recensioni" className="mx-auto max-w-6xl px-2.5 md:px-6 py-6 md:py-12">
-      <h2 className="font-serif text-xl md:text-3xl">Recensioni complete dei casinò ADM</h2>
-      <p className="mt-1.5 line-clamp-3 max-w-3xl text-[13px] leading-snug text-muted-foreground md:line-clamp-none md:text-sm md:leading-relaxed">
+    <section id="recensioni" className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-12">
+      <h2 className="font-serif text-lg md:text-3xl">Recensioni complete dei casinò ADM</h2>
+      <p className="mt-1.5 line-clamp-3 max-w-3xl text-[12px] leading-snug text-muted-foreground md:line-clamp-none md:text-sm md:leading-relaxed">
         Ogni scheda approfondisce concessione, catalogo, metodi di pagamento, tempi di prelievo,
         bonus dichiarati e strumenti di gioco responsabile del singolo concessionario.
       </p>
       <ReadMore
         collapsedHeight="10.5rem"
-        className="mt-3 md:mt-6"
+        className="mt-2.5 md:mt-6"
         labelMore="Mostra tutte le recensioni"
         labelLess="Mostra meno"
       >
@@ -268,7 +268,7 @@ function ReviewsHubSection() {
               <Link
                 to="/operatori/$slug"
                 params={{ slug: op.slug }}
-                className="flex items-center justify-between gap-2 rounded-lg border border-border bg-card px-4 py-3 text-sm transition-colors hover:border-gold/50 hover:text-gold"
+                className="flex items-center justify-between gap-2 rounded-lg border border-border bg-card px-3 py-2.5 text-[13px] transition-colors hover:border-gold/50 hover:text-gold md:text-sm"
               >
                 <span>Recensione {op.name} 2026</span>
                 <ArrowRight className="h-4 w-4 shrink-0" />
@@ -285,21 +285,21 @@ function ReviewsHubSection() {
 function GuidesSection() {
   return (
     <section className="border-t border-border bg-card/30">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-6 md:py-16">
-        <p className="text-xs uppercase tracking-widest text-gold">Approfondimenti</p>
-        <h2 className="mt-1 font-serif text-xl md:text-4xl">Ultime guide</h2>
-        <div className="mt-4 flex gap-2.5 overflow-x-auto pb-2 snap-x [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-8 md:grid md:gap-4 md:overflow-visible md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-16">
+        <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Approfondimenti</p>
+        <h2 className="mt-1 font-serif text-lg md:text-4xl">Ultime guide</h2>
+        <div className="mt-3 flex gap-2.5 overflow-x-auto pb-2 snap-x [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-8 md:grid md:gap-4 md:overflow-visible md:grid-cols-2 lg:grid-cols-3">
           {GUIDES.map((g) => (
             <Link
               key={g.to}
               to={g.to}
-              className="flex w-[78%] shrink-0 snap-start flex-col rounded-xl border border-border bg-card p-3 transition-colors hover:border-gold/50 md:w-auto md:shrink md:p-5"
+              className="flex w-[78%] shrink-0 snap-start flex-col rounded-xl border border-border bg-card p-2.5 transition-colors hover:border-gold/50 md:w-auto md:shrink md:p-5"
             >
-              <h3 className="font-serif text-[15px] md:text-lg">{g.title}</h3>
-              <p className="mt-1 line-clamp-2 text-[12.5px] leading-snug text-muted-foreground md:text-sm">
+              <h3 className="font-serif text-[14px] md:text-lg">{g.title}</h3>
+              <p className="mt-1 line-clamp-2 text-[12px] leading-snug text-muted-foreground md:text-sm">
                 {g.text}
               </p>
-              <span className="mt-2 inline-flex w-fit items-center gap-1 rounded-md border border-gold/40 bg-gold/10 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-gold">
+              <span className="mt-2 inline-flex w-fit items-center gap-1 rounded-md border border-gold/40 bg-gold/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold md:py-1">
                 Leggi la guida <ArrowRight className="h-3 w-3" />
               </span>
             </Link>
@@ -323,12 +323,12 @@ function BrandIntroSection() {
     { slug: "888", label: "Recensione 888" },
   ] as const;
   const cls =
-    "shrink-0 snap-start rounded-full border border-gold/30 bg-gold/5 px-3 py-1.5 text-[13px] text-gold transition-colors hover:bg-gold/15 whitespace-nowrap md:px-3.5 md:py-2 md:text-sm";
+    "shrink-0 snap-start rounded-full border border-gold/30 bg-gold/5 px-2.5 py-1 text-[12px] text-gold transition-colors hover:bg-gold/15 whitespace-nowrap md:px-3.5 md:py-2 md:text-sm";
   return (
     <section className="border-b border-border bg-card/30">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-4 md:py-10">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-3 md:py-10">
         <div className="flex items-center justify-between gap-4">
-          <h2 className="font-serif text-base text-foreground md:text-2xl">
+          <h2 className="font-serif text-sm text-foreground md:text-2xl">
             Guide rapide
           </h2>
           <span className="hidden text-xs text-muted-foreground md:inline">
@@ -337,7 +337,7 @@ function BrandIntroSection() {
         </div>
         <nav
           aria-label="Pagine principali"
-          className="mt-2.5 flex gap-2 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x md:mt-4"
+          className="mt-2 flex gap-2 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x md:mt-4"
         >
           {pages.map((l) => (
             <Link key={l.to} to={l.to} className={cls}>
@@ -412,25 +412,25 @@ const QUICK_ANSWERS: { q: string; a: string }[] = [
 function QuickAnswersSection() {
   return (
     <section id="risposte-rapide" className="border-t border-border bg-card/30">
-      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-9 md:py-16">
-        <h2 className="font-serif text-2xl font-semibold md:text-3xl">
+      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-6 md:py-16">
+        <h2 className="font-serif text-lg font-semibold md:text-3xl">
           Risposte rapide sui casinò ADM in Italia
         </h2>
-        <p className="mt-2 line-clamp-3 text-[13px] leading-snug text-muted-foreground md:line-clamp-none md:mt-3 md:text-sm">
+        <p className="mt-1.5 line-clamp-3 text-[12px] leading-snug text-muted-foreground md:line-clamp-none md:mt-3 md:text-sm">
           Sintesi verificabile delle domande più frequenti su gioco legale, concessioni e bonus senza
           deposito, redatta per essere consultata rapidamente da lettori, motori di ricerca e assistenti
           basati su intelligenza artificiale.
         </p>
 
         {/* mobile: slider orizzontale */}
-        <dl className="mt-4 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <dl className="mt-3 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {QUICK_ANSWERS.map((item) => (
             <div
               key={item.q}
-              className="w-[82%] shrink-0 snap-start rounded-xl border border-border bg-background/60 p-3.5"
+              className="w-[82%] shrink-0 snap-start rounded-xl border border-border bg-background/60 p-3"
             >
-              <dt className="text-[13px] font-semibold leading-snug text-foreground">{item.q}</dt>
-              <dd className="mt-2 text-[12.5px] leading-relaxed text-muted-foreground">{item.a}</dd>
+              <dt className="text-[12px] font-semibold leading-snug text-foreground">{item.q}</dt>
+              <dd className="mt-1.5 text-[12px] leading-relaxed text-muted-foreground">{item.a}</dd>
             </div>
           ))}
         </dl>
@@ -444,7 +444,7 @@ function QuickAnswersSection() {
             </div>
           ))}
         </dl>
-        <p className="mt-6 text-xs text-muted-foreground">
+        <p className="mt-4 text-xs text-muted-foreground md:mt-6">
           Fonti: Agenzia delle Dogane e dei Monopoli (adm.gov.it), siti ufficiali dei concessionari,
           D.L. 87/2018. Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica.
         </p>
@@ -459,25 +459,25 @@ function QuickAnswersSection() {
 function SeoGuideSection() {
   return (
     <section className="border-t border-border bg-card/30">
-      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-16 md:py-20">
-        <p className="text-xs uppercase tracking-widest text-gold">Approfondimento</p>
-        <h2 className="mt-2 font-serif text-3xl md:text-4xl">
+      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-8 md:py-20">
+        <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Approfondimento</p>
+        <h2 className="mt-1.5 font-serif text-xl md:text-4xl">
           Guida completa ai portali di gioco legali in Italia: sicurezza, pagamenti e normativa
         </h2>
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+        <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground md:mt-4 md:text-sm">
           Un quadro dettagliato su come funzionano i casinò online autorizzati dall'Agenzia delle
           Dogane e dei Monopoli, con approfondimenti tecnici, giuridici e operativi. Espandi le
           sezioni per consultare i singoli capitoli.
         </p>
 
-        <div className="mt-6 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:mt-8 md:mx-0 md:block md:divide-y md:divide-border md:overflow-visible md:rounded-xl md:border md:border-border md:bg-background md:px-0 md:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="mt-4 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:mt-8 md:mx-0 md:block md:divide-y md:divide-border md:overflow-visible md:rounded-xl md:border md:border-border md:bg-background md:px-0 md:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {SEO_GUIDE.map((item) => (
-            <details key={item.h3} className="group w-[80%] shrink-0 snap-start rounded-xl border border-border bg-background p-5 md:w-auto md:rounded-none md:border-0 md:p-6 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-base font-medium text-foreground">
-                <h3 className="font-serif text-lg">{item.h3}</h3>
+            <details key={item.h3} className="group w-[80%] shrink-0 snap-start rounded-xl border border-border bg-background p-4 md:w-auto md:rounded-none md:border-0 md:p-6 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between gap-4 text-[15px] font-medium text-foreground md:text-base">
+                <h3 className="font-serif text-base md:text-lg">{item.h3}</h3>
                 <span className="text-gold transition-transform group-open:rotate-45">+</span>
               </summary>
-              <div className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
+              <div className="mt-3 space-y-2.5 text-[13px] leading-relaxed text-muted-foreground md:mt-4 md:space-y-3 md:text-sm">
                 {item.body.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
@@ -487,7 +487,7 @@ function SeoGuideSection() {
         </div>
 
 
-        <p className="mt-8 text-xs text-muted-foreground">
+        <p className="mt-5 text-xs text-muted-foreground md:mt-8">
           Contenuto informativo redatto sulla base di fonti pubbliche (adm.gov.it, normativa
           vigente, siti ufficiali dei concessionari). Nessuna finalità promozionale ai sensi
           dell'art. 9 D.L. 87/2018.
@@ -542,19 +542,19 @@ const SEO_GUIDE: { h3: string; body: string[] }[] = [
 function LegalInfoSection() {
   return (
     <section id="informazioni-legali" className="border-y border-border bg-card/40">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-12">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-4 md:py-12">
         <details className="group">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-3">
             <div>
-              <p className="text-xs uppercase tracking-widest text-gold">Conformità e tutela</p>
-              <h2 className="mt-1 font-serif text-lg md:text-2xl">
+              <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Conformità e tutela</p>
+              <h2 className="mt-1 font-serif text-base md:text-2xl">
                 Informazioni legali e gioco responsabile
               </h2>
             </div>
             <ArrowRight className="h-4 w-4 shrink-0 text-gold transition-transform group-open:rotate-90" />
           </summary>
 
-          <div className="mt-3 space-y-2.5 text-sm text-muted-foreground md:mt-4 md:space-y-3">
+          <div className="mt-3 space-y-2 text-[13px] text-muted-foreground md:mt-4 md:space-y-3 md:text-sm">
             <p>
               GuidaCasinò.IT elenca esclusivamente concessionari ADM (ex AAMS) e riporta i
               riferimenti ufficiali per la tutela del giocatore. L'accesso ai giochi con vincite in
@@ -588,7 +588,7 @@ function CurrentMonthBadge() {
   const label = monthYear.charAt(0).toUpperCase() + monthYear.slice(1);
 
   return (
-    <div className="mt-2 inline-flex flex-wrap items-center gap-1.5 rounded-full border border-gold/30 bg-gold/10 px-2 py-1 text-[10px] font-medium text-gold md:mt-4 md:gap-2 md:px-3 md:py-1.5 md:text-xs">
+    <div className="mt-1.5 inline-flex flex-wrap items-center gap-1.5 rounded-full border border-gold/30 bg-gold/10 px-2 py-0.5 text-[10px] font-medium text-gold md:mt-4 md:gap-2 md:px-3 md:py-1.5 md:text-xs">
       <Calendar className="h-3 w-3 md:h-3.5 md:w-3.5" />
       <span>Lista verificata a {label}</span>
       <span className="mx-1 hidden h-3 w-px bg-gold/30 sm:inline-block" />
@@ -619,22 +619,22 @@ function Hero() {
         backgroundPosition: "center",
       }}
     >
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-28">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-3.5 md:py-28">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-gold/5 px-2 py-1 text-[10px] uppercase tracking-widest text-gold md:gap-2 md:px-3 md:text-xs">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-gold/5 px-2 py-0.5 text-[10px] uppercase tracking-widest text-gold md:gap-2 md:px-3 md:py-1 md:text-xs">
             <ShieldCheck className="h-3 w-3" />
             Portale informativo indipendente
           </div>
-          <h1 className="mt-1.5 font-serif text-[1.45rem] leading-[1.1] md:mt-6 md:text-6xl">
+          <h1 className="mt-1.5 font-serif text-[1.25rem] leading-[1.05] md:mt-6 md:text-6xl">
             Guida Casino Italia 2026{" "}
             <span className="block text-gold md:inline">
               migliori casinò online con concessione ADM
             </span>
           </h1>
           <CurrentMonthBadge />
-          <div className="mt-2 max-w-2xl md:mt-6">
+          <div className="mt-1.5 max-w-2xl md:mt-6">
             <p
-              className={`text-sm leading-snug text-muted-foreground md:text-lg md:leading-normal ${expanded ? "" : "line-clamp-2 md:line-clamp-none"}`}
+              className={`text-[13px] leading-[1.35] text-muted-foreground md:text-lg md:leading-normal ${expanded ? "" : "line-clamp-2 md:line-clamp-none"}`}
             >
               Guida Casino Italia è una guida indipendente ai migliori casinò online ADM disponibili
               in Italia, con recensioni verificate, bonus aggiornati e confronti tra i principali
@@ -646,31 +646,31 @@ function Hero() {
             <button
               type="button"
               onClick={() => setExpanded((v) => !v)}
-              className="mt-1.5 inline-flex items-center gap-1 text-xs font-medium text-gold hover:underline md:hidden"
+              className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-gold hover:underline md:hidden"
               aria-expanded={expanded}
             >
               {expanded ? "Riduci" : "Continua a leggere"} <ArrowRight className={`h-3 w-3 transition-transform ${expanded ? "rotate-90" : ""}`} />
             </button>
           </div>
 
-          <div className="mt-3 flex flex-nowrap items-stretch gap-2 md:mt-8 md:gap-3">
+          <div className="mt-2 flex flex-nowrap items-stretch gap-2 md:mt-8 md:gap-3">
             <a
               href="#comparatore"
               onClick={scrollToSection("comparatore")}
-              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold px-3 py-2 text-[12px] font-bold leading-tight text-primary-foreground shadow-md shadow-gold/25 transition-all hover:brightness-110 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold px-3 py-1.5 text-[12px] font-bold leading-tight text-primary-foreground shadow-md shadow-gold/25 transition-all hover:brightness-110 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
             >
               Migliori casinò scelti <ArrowRight className="h-3.5 w-3.5 shrink-0" />
             </a>
             <a
               href="#operatori"
               onClick={scrollToSection("operatori")}
-              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-2 text-[12px] font-semibold leading-tight text-gold transition-colors hover:bg-gold/20 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-1.5 text-[12px] font-semibold leading-tight text-gold transition-colors hover:bg-gold/20 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
             >
               Lista completa ADM <ArrowRight className="h-3.5 w-3.5 shrink-0" />
             </a>
           </div>
 
-          <p className="mt-2 text-[10px] text-muted-foreground md:mt-6 md:text-xs">
+          <p className="mt-1.5 text-[10px] text-muted-foreground md:mt-6 md:text-xs">
             Contenuto riservato a maggiorenni. Il gioco può causare dipendenza patologica.
           </p>
         </div>
@@ -688,11 +688,11 @@ function TrustStrip() {
   ];
   return (
     <section className="border-b border-border bg-card/50">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 py-5 md:grid-cols-4 md:py-8">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-3 px-3 py-4 md:grid-cols-4 md:gap-4 md:py-8">
         {items.map((it) => (
-          <div key={it.label} className="flex items-start gap-2 md:gap-3">
-            <it.icon className="mt-0.5 h-4 w-4 shrink-0 text-gold md:h-5 md:w-5" />
-            <span className="text-[12.5px] leading-snug text-muted-foreground md:text-sm">{it.label}</span>
+          <div key={it.label} className="flex items-start gap-1.5 md:gap-3">
+            <it.icon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold md:h-5 md:w-5" />
+            <span className="text-[12px] leading-snug text-muted-foreground md:text-sm">{it.label}</span>
           </div>
         ))}
       </div>
@@ -702,12 +702,12 @@ function TrustStrip() {
 
 function OperatorsSection() {
   return (
-    <section id="operatori" className="mx-auto max-w-6xl px-2.5 md:px-6 py-6 md:py-14">
-      <div className="mb-4 md:mb-6">
-        <p className="text-xs uppercase tracking-widest text-gold">Confronto</p>
-        <div className="mt-1.5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+    <section id="operatori" className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-14">
+      <div className="mb-3 md:mb-6">
+        <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Confronto</p>
+        <div className="mt-1.5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between md:gap-3">
           <div>
-            <h2 className="font-serif text-xl md:text-3xl">Lista completa casino ADM</h2>
+            <h2 className="font-serif text-lg md:text-3xl">Lista completa casino ADM</h2>
             <p className="mt-1 hidden max-w-2xl text-sm text-muted-foreground md:block">
               Elenco informativo. I dati riportati sono a titolo illustrativo: verifica sempre
               concessione, condizioni e informativa privacy sul sito ufficiale del concessionario.
@@ -717,14 +717,14 @@ function OperatorsSection() {
             <a
               href="#comparatore"
               onClick={scrollToSection("comparatore")}
-              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold px-3 py-2 text-[12px] font-bold leading-tight text-primary-foreground shadow-md shadow-gold/25 transition-all hover:brightness-110 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold px-3 py-1.5 text-[12px] font-bold leading-tight text-primary-foreground shadow-md shadow-gold/25 transition-all hover:brightness-110 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
             >
               Migliori casinò scelti <ArrowRight className="h-3.5 w-3.5 shrink-0" />
             </a>
             <a
               href="#operatori"
               onClick={scrollToSection("operatori")}
-              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-2 text-[12px] font-semibold leading-tight text-gold transition-colors hover:bg-gold/20 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-1.5 text-[12px] font-semibold leading-tight text-gold transition-colors hover:bg-gold/20 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
             >
               Lista completa ADM <ArrowRight className="h-3.5 w-3.5 shrink-0" />
             </a>
@@ -732,11 +732,11 @@ function OperatorsSection() {
         </div>
       </div>
 
-      <div className="grid gap-3">
+      <div className="grid gap-2.5 md:gap-3">
         {sortedOperators.map((op, idx) => (
           <article
             key={op.slug}
-            className="relative grid gap-2 rounded-xl border border-border bg-card p-2.5 md:gap-4 md:p-4 md:grid-cols-[auto_1fr_auto] md:items-center"
+            className="relative grid gap-1.5 rounded-xl border border-border bg-card p-2 md:gap-4 md:p-4 md:grid-cols-[auto_1fr_auto] md:items-center"
 
           >
             {idx < 3 && (
@@ -744,11 +744,11 @@ function OperatorsSection() {
                 Top
               </span>
             )}
-            <div className="flex flex-col items-start gap-2 md:w-80 md:flex-row md:items-center">
+            <div className="flex flex-col items-start gap-1.5 md:w-80 md:flex-row md:items-center md:gap-2">
               <OperatorLogo logo={op.logo} name={op.name} index={idx} officialUrl={op.officialUrl} />
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="font-serif text-base md:text-lg">{op.name}</h3>
+                  <h3 className="font-serif text-[15px] md:text-lg">{op.name}</h3>
                   {getCasinoMeta(op.slug) ? (
                     <RatingBadge rating={getCasinoMeta(op.slug)!.rating} size="sm" />
                   ) : null}
@@ -759,7 +759,7 @@ function OperatorsSection() {
                 <div className="mt-1">
                   <CasinoBadges slug={op.slug} />
                 </div>
-                <p className="mt-1 text-[12px] leading-snug text-muted-foreground md:text-xs">
+                <p className="mt-1 text-[11px] leading-snug text-muted-foreground md:text-xs">
                   {getCasinoMeta(op.slug)?.short}
                 </p>
                 <div className="mt-1">
@@ -778,7 +778,7 @@ function OperatorsSection() {
                 <Link
                   to="/provider/$slug"
                   params={{ slug: op.slug }}
-                  className="inline-flex shrink-0 items-center justify-center rounded-md border border-gold/50 bg-gold/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-gold transition-colors hover:bg-gold/20 md:mt-2 md:px-3 md:py-1.5 md:text-[11px]"
+                  className="inline-flex shrink-0 items-center justify-center rounded-md border border-gold/50 bg-gold/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold transition-colors hover:bg-gold/20 md:mt-2 md:px-3 md:py-1.5 md:text-[11px]"
                 >
                   Provider
                 </Link>
@@ -786,16 +786,16 @@ function OperatorsSection() {
 
               <div className="col-span-2 md:col-span-3">
                 {op.noDepositBonus ? (
-                  <div className="mb-1.5 rounded-lg border border-gold/40 bg-gold/10 p-2 md:p-3">
+                  <div className="mb-1 rounded-lg border border-gold/40 bg-gold/10 p-1.5 md:p-3">
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="rounded-full bg-gold px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
                         Senza deposito
                       </span>
-                      <span className="font-serif text-base text-gold md:text-lg">
+                      <span className="font-serif text-sm text-gold md:text-lg">
                         {op.noDepositBonus.amount}
                       </span>
                     </div>
-                    <p className="mt-1 text-[11px] leading-relaxed text-foreground/85 md:text-xs">
+                    <p className="mt-1 text-[10px] leading-relaxed text-foreground/85 md:text-xs">
                       <strong className="text-foreground">Cos'è:</strong> importo di gioco
                       riconosciuto dall'operatore senza richiedere alcun versamento iniziale.{" "}
                       <strong className="text-foreground">Come funziona:</strong>{" "}
@@ -808,7 +808,7 @@ function OperatorsSection() {
                 ) : null}
                 <ul className="mt-0.5 space-y-0.5">
                   {op.highlights.map((h) => (
-                    <li key={h} className="flex items-start gap-1.5 text-[13px] leading-snug text-muted-foreground md:text-sm">
+                    <li key={h} className="flex items-start gap-1.5 text-[12px] leading-snug text-muted-foreground md:text-sm">
                       <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold" />
                       {h}
                     </li>
@@ -818,19 +818,19 @@ function OperatorsSection() {
 
             </div>
 
-            <div className="flex flex-col items-stretch gap-2 md:w-52 md:gap-3">
+            <div className="flex flex-col items-stretch gap-1.5 md:w-52 md:gap-3">
               <a
                 href={op.officialUrl}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-4 py-2.5 text-sm font-bold md:py-3 md:text-sm text-primary-foreground shadow-lg shadow-gold/30 transition-all hover:brightness-110 hover:shadow-xl hover:shadow-gold/40 active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-4 py-2 text-sm font-bold md:py-3 md:text-sm text-primary-foreground shadow-lg shadow-gold/30 transition-all hover:brightness-110 hover:shadow-xl hover:shadow-gold/40 active:scale-[0.98]"
               >
                 Visita il sito ufficiale
               </a>
               <Link
                 to="/operatori/$slug"
                 params={{ slug: op.slug }}
-                className="inline-flex items-center justify-center gap-1 rounded-md border border-border px-3 py-2 text-xs font-medium md:py-2 md:text-xs text-muted-foreground transition-colors hover:text-foreground"
+                className="inline-flex items-center justify-center gap-1 rounded-md border border-border px-3 py-1.5 text-xs font-medium md:py-2 md:text-xs text-muted-foreground transition-colors hover:text-foreground"
               >
                 Leggi l'analisi completa
               </Link>
@@ -842,7 +842,7 @@ function OperatorsSection() {
         ))}
       </div>
 
-      <p className="mt-4 text-xs text-muted-foreground md:mt-6">
+      <p className="mt-3 text-xs text-muted-foreground md:mt-6">
         Fonte: elenco pubblico dei concessionari sul sito adm.gov.it. Le informazioni sono fornite
         senza finalità promozionali ai sensi dell'art. 9 D.L. 87/2018.
       </p>
@@ -854,7 +854,7 @@ function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div>
       <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{label}</p>
-      <p className="mt-0.5 font-serif text-base text-foreground md:text-lg">{value}</p>
+      <p className="mt-0.5 font-serif text-sm text-foreground md:text-lg">{value}</p>
     </div>
   );
 }
@@ -881,15 +881,15 @@ function OperatorLogo({
   }, []);
 
   const fallback = (
-    <div className="flex h-14 w-32 items-center justify-center rounded-xl border-2 border-gold/40 bg-gold/10 shadow-sm md:h-20 md:w-44">
-      <span className="font-serif text-xl text-gold md:text-2xl">{index + 1}</span>
+    <div className="flex h-12 w-28 items-center justify-center rounded-xl border-2 border-gold/40 bg-gold/10 shadow-sm md:h-20 md:w-44">
+      <span className="font-serif text-lg text-gold md:text-2xl">{index + 1}</span>
     </div>
   );
 
   const logoBox = (!logo || error) ? (
     fallback
   ) : (
-    <div className="flex h-14 w-32 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/40 bg-white p-1.5 shadow-sm md:h-24 md:w-56">
+    <div className="flex h-12 w-28 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/40 bg-white p-1 shadow-sm md:h-24 md:w-56">
       <img
         ref={imgRef}
         src={logo}
@@ -942,17 +942,17 @@ function CriteriaSection() {
   ];
   return (
     <section className="border-y border-border bg-card/40">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-8 md:py-24">
-        <p className="text-xs uppercase tracking-widest text-gold">Metodologia</p>
-        <h2 className="mt-1.5 max-w-2xl font-serif text-2xl md:text-4xl">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-6 md:py-24">
+        <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Metodologia</p>
+        <h2 className="mt-1.5 max-w-2xl font-serif text-lg md:text-4xl">
           Come selezioniamo le informazioni pubblicate
         </h2>
-        <div className="mt-4 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:mt-10 md:mx-0 md:grid md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:grid-cols-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="mt-3 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:mt-10 md:mx-0 md:grid md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:grid-cols-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {criteria.map((c) => (
-            <div key={c.n} className="w-[78%] shrink-0 snap-start rounded-xl border border-border bg-background p-4 md:w-auto md:p-6">
-              <div className="font-serif text-xl text-gold md:text-2xl">{c.n}</div>
-              <h3 className="mt-1.5 font-serif text-lg md:text-xl">{c.title}</h3>
-              <p className="mt-1.5 text-sm leading-snug text-muted-foreground md:leading-normal">{c.body}</p>
+            <div key={c.n} className="w-[78%] shrink-0 snap-start rounded-xl border border-border bg-background p-3 md:w-auto md:p-6">
+              <div className="font-serif text-lg text-gold md:text-2xl">{c.n}</div>
+              <h3 className="mt-1 font-serif text-base md:text-xl">{c.title}</h3>
+              <p className="mt-1.5 text-[13px] leading-snug text-muted-foreground md:text-sm md:leading-normal">{c.body}</p>
             </div>
           ))}
         </div>
@@ -991,13 +991,13 @@ function EvaluationGuideSection() {
   ];
   return (
     <section className="border-y border-border bg-background">
-      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-6 md:py-16">
-        <p className="text-xs uppercase tracking-widest text-gold">Guida alla valutazione</p>
-        <h2 className="mt-1.5 font-serif text-xl md:text-4xl">
+      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-5 md:py-16">
+        <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Guida alla valutazione</p>
+        <h2 className="mt-1.5 font-serif text-lg md:text-4xl">
           Come valutare oggettivamente un operatore di gioco online in Italia
         </h2>
-        <ReadMore collapsedHeight="5.5rem" className="mt-3">
-          <p className="text-sm leading-snug text-muted-foreground md:text-base md:leading-relaxed">
+        <ReadMore collapsedHeight="5.5rem" className="mt-2">
+          <p className="text-[13px] leading-snug text-muted-foreground md:text-base md:leading-relaxed">
             Scegliere un concessionario di gioco a distanza in Italia non è una questione di gusto
             personale ma di verifica di requisiti oggettivi imposti dalla normativa e dai controlli
             dell'Agenzia delle Dogane e dei Monopoli. Di seguito i sei criteri principali che un
@@ -1005,16 +1005,16 @@ function EvaluationGuideSection() {
             concessionari, prima di qualsiasi valutazione di natura personale o economica.
           </p>
 
-          <div className="mt-4 space-y-4 md:mt-6 md:space-y-6">
+          <div className="mt-3 space-y-3 md:mt-6 md:space-y-6">
             {criteria.map((c) => (
               <div key={c.title}>
-                <h3 className="font-serif text-base text-foreground md:text-xl">{c.title}</h3>
-                <p className="mt-1.5 text-sm leading-snug text-muted-foreground md:leading-relaxed">{c.body}</p>
+                <h3 className="font-serif text-[15px] text-foreground md:text-xl">{c.title}</h3>
+                <p className="mt-1 text-[13px] leading-snug text-muted-foreground md:text-sm md:leading-relaxed">{c.body}</p>
               </div>
             ))}
           </div>
 
-          <p className="mt-4 text-sm leading-snug text-muted-foreground md:mt-8 md:leading-relaxed">
+          <p className="mt-3 text-[13px] leading-snug text-muted-foreground md:mt-8 md:text-sm md:leading-relaxed">
             Nessuno di questi criteri, preso singolarmente, è sufficiente a stabilire una
             preferenza: è la loro valutazione congiunta — insieme al rispetto delle norme sul
             gioco responsabile e alla trasparenza delle informazioni pubblicate — che consente di
@@ -1031,26 +1031,26 @@ function EvaluationGuideSection() {
 
 function ResponsibleSection() {
   return (
-    <section className="mx-auto max-w-6xl px-2.5 md:px-6 py-8 md:py-24">
-      <div className="grid gap-6 rounded-2xl border border-warning/30 bg-warning/5 p-5 md:grid-cols-[1.2fr_1fr] md:gap-10 md:p-12">
+    <section className="mx-auto max-w-6xl px-2.5 md:px-6 py-6 md:py-24">
+      <div className="grid gap-4 rounded-2xl border border-warning/30 bg-warning/5 p-4 md:grid-cols-[1.2fr_1fr] md:gap-10 md:p-12">
         <div>
-          <p className="text-xs uppercase tracking-widest text-warning">Gioco responsabile</p>
-          <h2 className="mt-1.5 font-serif text-2xl md:text-4xl">
+          <p className="text-[11px] uppercase tracking-widest text-warning md:text-xs">Gioco responsabile</p>
+          <h2 className="mt-1.5 font-serif text-xl md:text-4xl">
             Se il gioco smette di essere un divertimento, chiedi aiuto.
           </h2>
-          <p className="mt-2.5 text-sm leading-snug text-muted-foreground md:mt-4 md:leading-normal">
+          <p className="mt-2 text-[13px] leading-snug text-muted-foreground md:mt-4 md:text-sm md:leading-normal">
             Il Disturbo da Gioco d'Azzardo (DGA) è una patologia riconosciuta dal Servizio Sanitario
             Nazionale. Esistono servizi gratuiti e anonimi in tutta Italia.
           </p>
           <Link
             to="/gioco-responsabile"
-            className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-gold hover:underline md:mt-6"
+            className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-gold hover:underline md:mt-6"
           >
             Leggi la guida completa <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
-        <div className="space-y-2.5 text-sm md:space-y-3">
+        <div className="space-y-2 text-[13px] md:space-y-3 md:text-sm">
           <ResourceLink
             title="Telefono Verde 800 558822"
             desc="ISS — anonimo e gratuito, attivo lun-ven 10:00-16:00"
@@ -1078,7 +1078,7 @@ function ResourceLink({ title, desc, href }: { title: string; desc: string; href
     <a
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer nofollow" } : {})}
-      className="block rounded-lg border border-border bg-background p-4 transition-colors hover:border-gold/40"
+      className="block rounded-lg border border-border bg-background p-3 transition-colors hover:border-gold/40 md:p-4"
     >
       <p className="font-medium text-foreground">{title}</p>
       <p className="mt-1 text-xs text-muted-foreground">{desc}</p>
@@ -1088,16 +1088,16 @@ function ResourceLink({ title, desc, href }: { title: string; desc: string; href
 
 function FAQSection() {
   return (
-    <section id="faq" className="mx-auto max-w-3xl px-2.5 md:px-6 pb-12 md:pb-24">
-      <p className="text-xs uppercase tracking-widest text-gold">Domande frequenti</p>
-      <h2 className="mt-1.5 font-serif text-xl md:text-4xl">Chiarimenti</h2>
+    <section id="faq" className="mx-auto max-w-3xl px-2.5 md:px-6 pb-10 md:pb-24">
+      <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Domande frequenti</p>
+      <h2 className="mt-1.5 font-serif text-lg md:text-4xl">Chiarimenti</h2>
 
       {/* mobile: slider orizzontale */}
       <div className="mt-3 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {FAQS.map((f) => (
-          <div key={f.q} className="w-[82%] shrink-0 snap-start rounded-xl border border-border bg-card p-3">
-            <h3 className="text-[13px] font-semibold leading-snug">{f.q}</h3>
-            <p className="mt-1.5 text-[12.5px] leading-snug text-muted-foreground">{f.a}</p>
+          <div key={f.q} className="w-[82%] shrink-0 snap-start rounded-xl border border-border bg-card p-2.5">
+            <h3 className="text-[12px] font-semibold leading-snug">{f.q}</h3>
+            <p className="mt-1.5 text-[12px] leading-snug text-muted-foreground">{f.a}</p>
           </div>
         ))}
       </div>
