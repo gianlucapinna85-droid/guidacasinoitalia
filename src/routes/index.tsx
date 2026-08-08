@@ -353,20 +353,18 @@ function HomePage() {
     <PageShell>
       <Hero />
       <ComparisonTable />
-      <BrandIntroSection />
-      <TrustStrip />
-      <QuickAnswersSection />
-
-      <ComplianceBlock placement="top" />
       <OperatorsSection />
+      <BrandIntroSection />
       <ReviewsHubSection />
-      <EvaluationGuideSection />
-      <CriteriaSection />
-      <ResponsibleSection />
-      <FAQSection />
-      <SeoGuideSection />
       <GuidesSection />
-      <ComplianceBlock placement="bottom" />
+      <QuickAnswersSection />
+      <FAQSection />
+      <EvaluationGuideSection />
+      <SeoGuideSection />
+      <CriteriaSection />
+      <TrustStrip />
+      <ResponsibleSection />
+      <LegalInfoSection />
       <div className="h-24 md:hidden" aria-hidden />
       <Suspense fallback={null}>
         <StickyCompareCTA />
@@ -516,27 +514,44 @@ const SEO_GUIDE: { h3: string; body: string[] }[] = [
   },
 ];
 
-function ComplianceBlock({ placement }: { placement: "top" | "bottom" }) {
+function LegalInfoSection() {
   return (
+    <section id="informazioni-legali" className="border-y border-border bg-card/40">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-8 md:py-12">
+        <details className="group">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-3">
+            <div>
+              <p className="text-xs uppercase tracking-widest text-gold">Conformità e tutela</p>
+              <h2 className="mt-1 font-serif text-xl md:text-2xl">
+                Informazioni legali e gioco responsabile
+              </h2>
+            </div>
+            <ArrowRight className="h-4 w-4 shrink-0 text-gold transition-transform group-open:rotate-90" />
+          </summary>
 
-    <section className="border-y border-border bg-card/40">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-12 md:py-16">
-        <p className="text-xs uppercase tracking-widest text-gold">
-          {placement === "top" ? "Conformità e tutela" : "Trasparenza editoriale"}
-        </p>
-        <h2 className="mt-2 max-w-2xl font-serif text-2xl md:text-3xl">
-          {placement === "top"
-            ? "Gioco legale, responsabile e vietato ai minori"
-            : "Nota di trasparenza editoriale"}
-        </h2>
-        <p className="mt-3 max-w-3xl text-sm text-muted-foreground">
-          {placement === "top"
-            ? "GuidaCasinò.IT elenca esclusivamente concessionari ADM (ex AAMS) e riporta i riferimenti ufficiali per la tutela del giocatore. L'accesso ai giochi con vincite in denaro è riservato ai maggiorenni."
-            : "Portale informativo indipendente. Non gestiamo piattaforme di gioco, non raccogliamo scommesse e non pubblichiamo bonus o incentivi commerciali ai sensi dell'art. 9 del D.L. 87/2018 (Decreto Dignità). I contenuti hanno finalità esclusivamente informative e sono redatti sulla base di fonti pubbliche verificabili (elenco ADM, siti ufficiali dei concessionari, normativa vigente). Non riceviamo compensi condizionati al comportamento di gioco degli utenti."}
-        </p>
+          <div className="mt-4 space-y-3 text-sm text-muted-foreground">
+            <p>
+              GuidaCasinò.IT elenca esclusivamente concessionari ADM (ex AAMS) e riporta i
+              riferimenti ufficiali per la tutela del giocatore. L'accesso ai giochi con vincite in
+              denaro è riservato ai maggiorenni.
+            </p>
+            <p>
+              Elenco informativo. I dati riportati sono a titolo illustrativo: verifica sempre
+              concessione, condizioni e informativa privacy sul sito ufficiale del concessionario.
+            </p>
+            <p>
+              Portale informativo indipendente. Non gestiamo piattaforme di gioco, non raccogliamo
+              scommesse e non pubblichiamo bonus o incentivi commerciali ai sensi dell'art. 9 del
+              D.L. 87/2018 (Decreto Dignità). I contenuti hanno finalità esclusivamente informative
+              e sono redatti sulla base di fonti pubbliche verificabili (elenco ADM, siti ufficiali
+              dei concessionari, normativa vigente). Non riceviamo compensi condizionati al
+              comportamento di gioco degli utenti.
+            </p>
+          </div>
 
-        <ComplianceBadges />
-        <OfficialLogosBanner />
+          <ComplianceBadges />
+          <OfficialLogosBanner />
+        </details>
       </div>
     </section>
   );
@@ -594,7 +609,7 @@ function Hero() {
           <CurrentMonthBadge />
           <div className="mt-3 max-w-2xl md:mt-6">
             <p
-              className={`text-sm leading-relaxed text-muted-foreground md:text-lg md:leading-normal ${expanded ? "" : "line-clamp-3 md:line-clamp-none"}`}
+              className={`text-sm leading-relaxed text-muted-foreground md:text-lg md:leading-normal ${expanded ? "" : "line-clamp-2 md:line-clamp-none"}`}
             >
               Guida Casino Italia è una guida indipendente ai migliori casinò online ADM disponibili
               in Italia, con recensioni verificate, bonus aggiornati e confronti tra i principali
@@ -668,7 +683,7 @@ function OperatorsSection() {
         <div className="mt-2 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="font-serif text-2xl md:text-3xl">Lista completa casino ADM</h2>
-            <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
+            <p className="mt-2 hidden max-w-2xl text-sm text-muted-foreground md:block">
               Elenco informativo. I dati riportati sono a titolo illustrativo: verifica sempre
               concessione, condizioni e informativa privacy sul sito ufficiale del concessionario.
             </p>
