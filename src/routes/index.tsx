@@ -323,12 +323,12 @@ function BrandIntroSection() {
     { slug: "888", label: "Recensione 888" },
   ] as const;
   const cls =
-    "shrink-0 snap-start rounded-full border border-gold/30 bg-gold/5 px-3.5 py-2 text-sm text-gold transition-colors hover:bg-gold/15 whitespace-nowrap";
+    "shrink-0 snap-start rounded-full border border-gold/30 bg-gold/5 px-3 py-1.5 text-[13px] text-gold transition-colors hover:bg-gold/15 whitespace-nowrap md:px-3.5 md:py-2 md:text-sm";
   return (
     <section className="border-b border-border bg-card/30">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-6 md:py-10">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-4 md:py-10">
         <div className="flex items-center justify-between gap-4">
-          <h2 className="font-serif text-lg text-foreground md:text-2xl">
+          <h2 className="font-serif text-base text-foreground md:text-2xl">
             Guide rapide
           </h2>
           <span className="hidden text-xs text-muted-foreground md:inline">
@@ -337,7 +337,7 @@ function BrandIntroSection() {
         </div>
         <nav
           aria-label="Pagine principali"
-          className="mt-4 flex gap-2 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x"
+          className="mt-2.5 flex gap-2 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x md:mt-4"
         >
           {pages.map((l) => (
             <Link key={l.to} to={l.to} className={cls}>
