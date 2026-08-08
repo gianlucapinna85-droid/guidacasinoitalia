@@ -854,7 +854,7 @@ function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div>
       <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{label}</p>
-      <p className="mt-1 font-serif text-lg text-foreground">{value}</p>
+      <p className="mt-0.5 font-serif text-base text-foreground md:text-lg">{value}</p>
     </div>
   );
 }
@@ -881,7 +881,7 @@ function OperatorLogo({
   }, []);
 
   const fallback = (
-    <div className="flex h-16 w-36 items-center justify-center rounded-xl border-2 border-gold/40 bg-gold/10 shadow-sm md:h-20 md:w-44">
+    <div className="flex h-14 w-32 items-center justify-center rounded-xl border-2 border-gold/40 bg-gold/10 shadow-sm md:h-20 md:w-44">
       <span className="font-serif text-xl text-gold md:text-2xl">{index + 1}</span>
     </div>
   );
@@ -889,7 +889,7 @@ function OperatorLogo({
   const logoBox = (!logo || error) ? (
     fallback
   ) : (
-    <div className="flex h-16 w-36 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/40 bg-white p-2 shadow-sm md:h-24 md:w-56">
+    <div className="flex h-14 w-32 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/40 bg-white p-1.5 shadow-sm md:h-24 md:w-56">
       <img
         ref={imgRef}
         src={logo}
