@@ -9,7 +9,7 @@ const TITLE = "News Casinò e Bonus 2026 | Aggiornamenti ADM, slot e pagamenti";
 const DESCRIPTION =
   "Aggiornamenti informativi su casinò online ADM: nuove iniziative bonus, slot appena uscite, novità normative, metodi di pagamento e tornei. Solo +18.";
 
-export const Route = createFileRoute("/news")({
+export const Route = createFileRoute("/news/")({
   head: () => ({
     meta: [
       { title: TITLE },

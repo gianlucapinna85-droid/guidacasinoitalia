@@ -72,7 +72,7 @@ export const Route = createFileRoute("/news/$slug")({
 });
 
 function NewsDetail() {
-  const { article } = Route.useLoaderData();
+  const article = Route.useLoaderData().article as NewsArticle;
   const others = sortedNews.filter((n) => n.slug !== article.slug).slice(0, 4);
 
   return (

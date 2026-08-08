@@ -15,6 +15,7 @@ import { Route as SlotOnlineRouteImport } from './routes/slot-online'
 import { Route as SlotGratisDemoRouteImport } from './routes/slot-gratis-demo'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapReviewsDotxmlRouteImport } from './routes/sitemap-reviews[.]xml'
+import { Route as SitemapNewsDotxmlRouteImport } from './routes/sitemap-news[.]xml'
 import { Route as SitemapGuidesDotxmlRouteImport } from './routes/sitemap-guides[.]xml'
 import { Route as RequisitiScommessaBonusRouteImport } from './routes/requisiti-scommessa-bonus'
 import { Route as QuoteLiveVsPrematchRouteImport } from './routes/quote-live-vs-prematch'
@@ -43,8 +44,10 @@ import { Route as BonusSenzaDepositoRouteImport } from './routes/bonus-senza-dep
 import { Route as BonusScommesseSportiveRouteImport } from './routes/bonus-scommesse-sportive'
 import { Route as BonusBenvenutoCasinoRouteImport } from './routes/bonus-benvenuto-casino'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
 import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
+import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 
 const VerificareLicenzaAdmRoute = VerificareLicenzaAdmRouteImport.update({
   id: '/verificare-licenza-adm',
@@ -74,6 +77,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const SitemapReviewsDotxmlRoute = SitemapReviewsDotxmlRouteImport.update({
   id: '/sitemap-reviews.xml',
   path: '/sitemap-reviews.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapNewsDotxmlRoute = SitemapNewsDotxmlRouteImport.update({
+  id: '/sitemap-news.xml',
+  path: '/sitemap-news.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapGuidesDotxmlRoute = SitemapGuidesDotxmlRouteImport.update({
@@ -219,6 +227,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewsIndexRoute = NewsIndexRouteImport.update({
+  id: '/news/',
+  path: '/news/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProviderSlugRoute = ProviderSlugRouteImport.update({
   id: '/provider/$slug',
   path: '/provider/$slug',
@@ -227,6 +240,11 @@ const ProviderSlugRoute = ProviderSlugRouteImport.update({
 const OperatoriSlugRoute = OperatoriSlugRouteImport.update({
   id: '/operatori/$slug',
   path: '/operatori/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsSlugRoute = NewsSlugRouteImport.update({
+  id: '/news/$slug',
+  path: '/news/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -259,14 +277,17 @@ export interface FileRoutesByFullPath {
   '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
   '/requisiti-scommessa-bonus': typeof RequisitiScommessaBonusRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
+  '/sitemap-news.xml': typeof SitemapNewsDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
+  '/news/': typeof NewsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -297,14 +318,17 @@ export interface FileRoutesByTo {
   '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
   '/requisiti-scommessa-bonus': typeof RequisitiScommessaBonusRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
+  '/sitemap-news.xml': typeof SitemapNewsDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
+  '/news': typeof NewsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -336,14 +360,17 @@ export interface FileRoutesById {
   '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
   '/requisiti-scommessa-bonus': typeof RequisitiScommessaBonusRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
+  '/sitemap-news.xml': typeof SitemapNewsDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
+  '/news/': typeof NewsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -376,14 +403,17 @@ export interface FileRouteTypes {
     | '/quote-live-vs-prematch'
     | '/requisiti-scommessa-bonus'
     | '/sitemap-guides.xml'
+    | '/sitemap-news.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
     | '/slot-gratis-demo'
     | '/slot-online'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
+    | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
+    | '/news/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -414,14 +444,17 @@ export interface FileRouteTypes {
     | '/quote-live-vs-prematch'
     | '/requisiti-scommessa-bonus'
     | '/sitemap-guides.xml'
+    | '/sitemap-news.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
     | '/slot-gratis-demo'
     | '/slot-online'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
+    | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
+    | '/news'
   id:
     | '__root__'
     | '/'
@@ -452,14 +485,17 @@ export interface FileRouteTypes {
     | '/quote-live-vs-prematch'
     | '/requisiti-scommessa-bonus'
     | '/sitemap-guides.xml'
+    | '/sitemap-news.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
     | '/slot-gratis-demo'
     | '/slot-online'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
+    | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
+    | '/news/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -491,14 +527,17 @@ export interface RootRouteChildren {
   QuoteLiveVsPrematchRoute: typeof QuoteLiveVsPrematchRoute
   RequisitiScommessaBonusRoute: typeof RequisitiScommessaBonusRoute
   SitemapGuidesDotxmlRoute: typeof SitemapGuidesDotxmlRoute
+  SitemapNewsDotxmlRoute: typeof SitemapNewsDotxmlRoute
   SitemapReviewsDotxmlRoute: typeof SitemapReviewsDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SlotGratisDemoRoute: typeof SlotGratisDemoRoute
   SlotOnlineRoute: typeof SlotOnlineRoute
   SlotRtpAltoRoute: typeof SlotRtpAltoRoute
   VerificareLicenzaAdmRoute: typeof VerificareLicenzaAdmRoute
+  NewsSlugRoute: typeof NewsSlugRoute
   OperatoriSlugRoute: typeof OperatoriSlugRoute
   ProviderSlugRoute: typeof ProviderSlugRoute
+  NewsIndexRoute: typeof NewsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -543,6 +582,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap-reviews.xml'
       fullPath: '/sitemap-reviews.xml'
       preLoaderRoute: typeof SitemapReviewsDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap-news.xml': {
+      id: '/sitemap-news.xml'
+      path: '/sitemap-news.xml'
+      fullPath: '/sitemap-news.xml'
+      preLoaderRoute: typeof SitemapNewsDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap-guides.xml': {
@@ -741,6 +787,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/news/': {
+      id: '/news/'
+      path: '/news'
+      fullPath: '/news/'
+      preLoaderRoute: typeof NewsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/provider/$slug': {
       id: '/provider/$slug'
       path: '/provider/$slug'
@@ -753,6 +806,13 @@ declare module '@tanstack/react-router' {
       path: '/operatori/$slug'
       fullPath: '/operatori/$slug'
       preLoaderRoute: typeof OperatoriSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news/$slug': {
+      id: '/news/$slug'
+      path: '/news/$slug'
+      fullPath: '/news/$slug'
+      preLoaderRoute: typeof NewsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -787,14 +847,17 @@ const rootRouteChildren: RootRouteChildren = {
   QuoteLiveVsPrematchRoute: QuoteLiveVsPrematchRoute,
   RequisitiScommessaBonusRoute: RequisitiScommessaBonusRoute,
   SitemapGuidesDotxmlRoute: SitemapGuidesDotxmlRoute,
+  SitemapNewsDotxmlRoute: SitemapNewsDotxmlRoute,
   SitemapReviewsDotxmlRoute: SitemapReviewsDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SlotGratisDemoRoute: SlotGratisDemoRoute,
   SlotOnlineRoute: SlotOnlineRoute,
   SlotRtpAltoRoute: SlotRtpAltoRoute,
   VerificareLicenzaAdmRoute: VerificareLicenzaAdmRoute,
+  NewsSlugRoute: NewsSlugRoute,
   OperatoriSlugRoute: OperatoriSlugRoute,
   ProviderSlugRoute: ProviderSlugRoute,
+  NewsIndexRoute: NewsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
