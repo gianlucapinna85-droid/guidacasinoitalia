@@ -942,17 +942,17 @@ function CriteriaSection() {
   ];
   return (
     <section className="border-y border-border bg-card/40">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-8 md:py-24">
-        <p className="text-xs uppercase tracking-widest text-gold">Metodologia</p>
-        <h2 className="mt-1.5 max-w-2xl font-serif text-2xl md:text-4xl">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-6 md:py-24">
+        <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Metodologia</p>
+        <h2 className="mt-1.5 max-w-2xl font-serif text-lg md:text-4xl">
           Come selezioniamo le informazioni pubblicate
         </h2>
-        <div className="mt-4 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:mt-10 md:mx-0 md:grid md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:grid-cols-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="mt-3 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:mt-10 md:mx-0 md:grid md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:grid-cols-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {criteria.map((c) => (
-            <div key={c.n} className="w-[78%] shrink-0 snap-start rounded-xl border border-border bg-background p-4 md:w-auto md:p-6">
-              <div className="font-serif text-xl text-gold md:text-2xl">{c.n}</div>
-              <h3 className="mt-1.5 font-serif text-lg md:text-xl">{c.title}</h3>
-              <p className="mt-1.5 text-sm leading-snug text-muted-foreground md:leading-normal">{c.body}</p>
+            <div key={c.n} className="w-[78%] shrink-0 snap-start rounded-xl border border-border bg-background p-3 md:w-auto md:p-6">
+              <div className="font-serif text-lg text-gold md:text-2xl">{c.n}</div>
+              <h3 className="mt-1 font-serif text-base md:text-xl">{c.title}</h3>
+              <p className="mt-1.5 text-[13px] leading-snug text-muted-foreground md:text-sm md:leading-normal">{c.body}</p>
             </div>
           ))}
         </div>
@@ -991,13 +991,13 @@ function EvaluationGuideSection() {
   ];
   return (
     <section className="border-y border-border bg-background">
-      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-6 md:py-16">
-        <p className="text-xs uppercase tracking-widest text-gold">Guida alla valutazione</p>
-        <h2 className="mt-1.5 font-serif text-xl md:text-4xl">
+      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-5 md:py-16">
+        <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Guida alla valutazione</p>
+        <h2 className="mt-1.5 font-serif text-lg md:text-4xl">
           Come valutare oggettivamente un operatore di gioco online in Italia
         </h2>
-        <ReadMore collapsedHeight="5.5rem" className="mt-3">
-          <p className="text-sm leading-snug text-muted-foreground md:text-base md:leading-relaxed">
+        <ReadMore collapsedHeight="5.5rem" className="mt-2">
+          <p className="text-[13px] leading-snug text-muted-foreground md:text-base md:leading-relaxed">
             Scegliere un concessionario di gioco a distanza in Italia non è una questione di gusto
             personale ma di verifica di requisiti oggettivi imposti dalla normativa e dai controlli
             dell'Agenzia delle Dogane e dei Monopoli. Di seguito i sei criteri principali che un
@@ -1005,16 +1005,16 @@ function EvaluationGuideSection() {
             concessionari, prima di qualsiasi valutazione di natura personale o economica.
           </p>
 
-          <div className="mt-4 space-y-4 md:mt-6 md:space-y-6">
+          <div className="mt-3 space-y-3 md:mt-6 md:space-y-6">
             {criteria.map((c) => (
               <div key={c.title}>
-                <h3 className="font-serif text-base text-foreground md:text-xl">{c.title}</h3>
-                <p className="mt-1.5 text-sm leading-snug text-muted-foreground md:leading-relaxed">{c.body}</p>
+                <h3 className="font-serif text-[15px] text-foreground md:text-xl">{c.title}</h3>
+                <p className="mt-1 text-[13px] leading-snug text-muted-foreground md:text-sm md:leading-relaxed">{c.body}</p>
               </div>
             ))}
           </div>
 
-          <p className="mt-4 text-sm leading-snug text-muted-foreground md:mt-8 md:leading-relaxed">
+          <p className="mt-3 text-[13px] leading-snug text-muted-foreground md:mt-8 md:text-sm md:leading-relaxed">
             Nessuno di questi criteri, preso singolarmente, è sufficiente a stabilire una
             preferenza: è la loro valutazione congiunta — insieme al rispetto delle norme sul
             gioco responsabile e alla trasparenza delle informazioni pubblicate — che consente di
@@ -1031,26 +1031,26 @@ function EvaluationGuideSection() {
 
 function ResponsibleSection() {
   return (
-    <section className="mx-auto max-w-6xl px-2.5 md:px-6 py-8 md:py-24">
-      <div className="grid gap-6 rounded-2xl border border-warning/30 bg-warning/5 p-5 md:grid-cols-[1.2fr_1fr] md:gap-10 md:p-12">
+    <section className="mx-auto max-w-6xl px-2.5 md:px-6 py-6 md:py-24">
+      <div className="grid gap-4 rounded-2xl border border-warning/30 bg-warning/5 p-4 md:grid-cols-[1.2fr_1fr] md:gap-10 md:p-12">
         <div>
-          <p className="text-xs uppercase tracking-widest text-warning">Gioco responsabile</p>
-          <h2 className="mt-1.5 font-serif text-2xl md:text-4xl">
+          <p className="text-[11px] uppercase tracking-widest text-warning md:text-xs">Gioco responsabile</p>
+          <h2 className="mt-1.5 font-serif text-xl md:text-4xl">
             Se il gioco smette di essere un divertimento, chiedi aiuto.
           </h2>
-          <p className="mt-2.5 text-sm leading-snug text-muted-foreground md:mt-4 md:leading-normal">
+          <p className="mt-2 text-[13px] leading-snug text-muted-foreground md:mt-4 md:text-sm md:leading-normal">
             Il Disturbo da Gioco d'Azzardo (DGA) è una patologia riconosciuta dal Servizio Sanitario
             Nazionale. Esistono servizi gratuiti e anonimi in tutta Italia.
           </p>
           <Link
             to="/gioco-responsabile"
-            className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-gold hover:underline md:mt-6"
+            className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-gold hover:underline md:mt-6"
           >
             Leggi la guida completa <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
-        <div className="space-y-2.5 text-sm md:space-y-3">
+        <div className="space-y-2 text-[13px] md:space-y-3 md:text-sm">
           <ResourceLink
             title="Telefono Verde 800 558822"
             desc="ISS — anonimo e gratuito, attivo lun-ven 10:00-16:00"
