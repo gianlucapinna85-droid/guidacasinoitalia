@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { operators } from "@/lib/operators";
 import { guides } from "@/data/guides";
+import { news } from "@/data/news";
+
 
 const BASE_URL = "https://www.guidacasino-italia.it";
 
@@ -24,8 +26,16 @@ export const Route = createFileRoute("/sitemap.xml")({
             changefreq: g.changefreq,
             priority: g.priority,
           })),
+          { path: "/news", changefreq: "daily", priority: "0.9" },
+          ...news.map((n) => ({
+            path: `/news/${n.slug}`,
+            lastmod: n.date,
+            changefreq: "weekly" as const,
+            priority: "0.7",
+          })),
           { path: "/note-legali", changefreq: "yearly", priority: "0.4" },
           { path: "/privacy", changefreq: "yearly", priority: "0.4" },
+
           ...operators.map((op) => ({
             path: `/operatori/${op.slug}`,
             changefreq: "weekly" as const,

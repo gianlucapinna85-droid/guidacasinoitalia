@@ -152,7 +152,64 @@ export const guides: Guide[] = [
     changefreq: "weekly",
     priority: "0.8",
   },
+  {
+    path: "/come-scegliere-casino-online-adm",
+    title: "Come scegliere un casinò ADM sicuro",
+    description: "Criteri verificabili per scegliere un casinò online con concessione ADM.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
+    path: "/casino-adm-vs-esteri",
+    title: "Casinò ADM e casinò esteri",
+    description: "Differenze concrete tra concessionari ADM e siti con licenza estera.",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
+  {
+    path: "/verificare-licenza-adm",
+    title: "Come verificare una licenza ADM",
+    description: "Procedura passo per passo per controllare la concessione di un operatore.",
+    changefreq: "monthly",
+    priority: "0.8",
+  },
+  {
+    path: "/requisiti-scommessa-bonus",
+    title: "Requisiti di scommessa dei bonus",
+    description: "Come funziona il wagering: base di calcolo, scadenze e contributo dei giochi.",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
+  {
+    path: "/casino-online-principianti",
+    title: "Casinò online per principianti",
+    description: "Guida completa per chi inizia: conto di gioco, limiti, RTP ed errori da evitare.",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
+  {
+    path: "/casino-mobile-adm",
+    title: "Casinò da mobile: app e sicurezza",
+    description: "App ufficiali e siti responsive dei concessionari ADM: differenze e consigli.",
+    changefreq: "monthly",
+    priority: "0.7",
+  },
+  {
+    path: "/slot-rtp-alto",
+    title: "Slot con RTP alto",
+    description: "Cosa significa RTP alto, dove si legge il valore corretto e come usarlo.",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
+  {
+    path: "/pagamenti-sicuri-casino",
+    title: "Metodi di pagamento più sicuri",
+    description: "Carte, wallet, bonifico e prepagate sui casinò ADM: sicurezza e tempi.",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
 ];
+
 
 
 

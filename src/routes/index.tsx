@@ -59,10 +59,10 @@ const FAQS = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Guida Casino Italia 2026 | Migliori Casinò ADM, Bonus Senza Deposito e Recensioni AAMS" },
-      { name: "description", content: "Confronta i migliori casinò online ADM/AAMS, bonus senza deposito, recensioni verificate e guide complete sui siti legali italiani aggiornati al 2026." },
+      { title: "Guida Casino Italia | Migliori Casinò Online ADM, Bonus e Slot Aggiornate 2026" },
+      { name: "description", content: "Migliori casinò online ADM e casinò online sicuri in Italia: bonus casinò senza deposito, bonus benvenuto casinò 2026, slot online affidabili, recensioni casinò ADM e guide casinò online." },
 
-      { name: "keywords", content: "casino adm, casino aams, bonus senza deposito, bonus senza deposito immediato, casino online sicuri, casino online italiani, migliori casino online 2026, concessione adm, gioco legale italia, casino con spid, come verificare licenza adm, casino legali italia elenco, quali sono i casino con concessione adm" },
+      { name: "keywords", content: "migliori casino online adm, bonus casino senza deposito, casino online sicuri italia, slot online affidabili, guide casino online, recensioni casino adm, bonus benvenuto casino 2026, casino adm, casino aams, bonus senza deposito, bonus senza deposito immediato, casino online sicuri, casino online italiani, migliori casino online 2026, concessione adm, gioco legale italia, casino con spid, come verificare licenza adm, casino legali italia elenco, quali sono i casino con concessione adm" },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
       { name: "ai-content-declaration", content: "informational, editorial, non-promotional" },
@@ -71,16 +71,16 @@ export const Route = createFileRoute("/")({
       { name: "geo.region", content: "IT" },
       { name: "language", content: "it-IT" },
       { name: "author", content: "GuidaCasinò.IT" },
-      { property: "og:title", content: "Guida Casino Italia 2026 | Migliori Casinò ADM, Bonus Senza Deposito e Recensioni AAMS" },
-      { property: "og:description", content: "Confronta i migliori casinò online ADM/AAMS, bonus senza deposito, recensioni verificate e guide complete sui siti legali italiani aggiornati al 2026." },
+      { property: "og:title", content: "Guida Casino Italia | Migliori Casinò Online ADM, Bonus e Slot Aggiornate 2026" },
+      { property: "og:description", content: "Migliori casinò online ADM e casinò online sicuri in Italia: bonus casinò senza deposito, bonus benvenuto casinò 2026, slot online affidabili, recensioni casinò ADM e guide casinò online." },
 
       { property: "og:url", content: "https://www.guidacasino-italia.it/" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "it_IT" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:url", content: "https://www.guidacasino-italia.it/" },
-      { name: "twitter:title", content: "Guida Casino Italia 2026 | Migliori Casinò ADM, Bonus Senza Deposito e Recensioni AAMS" },
-      { name: "twitter:description", content: "Confronta i migliori casinò online ADM/AAMS, bonus senza deposito, recensioni verificate e guide complete sui siti legali italiani aggiornati al 2026." },
+      { name: "twitter:title", content: "Guida Casino Italia | Migliori Casinò Online ADM, Bonus e Slot Aggiornate 2026" },
+      { name: "twitter:description", content: "Migliori casinò online ADM e casinò online sicuri in Italia: bonus casinò senza deposito, bonus benvenuto casinò 2026, slot online affidabili, recensioni casinò ADM e guide casinò online." },
 
 
     ],
@@ -355,18 +355,56 @@ function BrandIntroSection() {
   );
 }
 
+const TOPICS = [
+  { to: "/bonus-benvenuto-casino" as const, label: "Bonus Casinò", text: "Come funzionano bonus di benvenuto e requisiti di puntata." },
+  { to: "/casino-online-sicuri" as const, label: "Casinò ADM", text: "Concessione, tutele e verifica dei siti autorizzati in Italia." },
+  { to: "/slot-online" as const, label: "Slot Online", text: "RNG certificato, RTP, volatilità e provider dei cataloghi ADM." },
+  { to: "/casino-online-principianti" as const, label: "Guide Casinò", text: "Guide complete per iniziare e orientarsi passo per passo." },
+  { to: "/gestione-bankroll" as const, label: "Strategie di Gioco", text: "Budget, unità di puntata e gestione della varianza." },
+  { to: "/news" as const, label: "News Casinò", text: "Aggiornamenti su bonus, slot, pagamenti e normativa." },
+  { to: "/bonus-senza-deposito" as const, label: "Bonus Senza Deposito", text: "Cosa sono davvero e quali condizioni verificare." },
+  { to: "/migliori-casino-online" as const, label: "Recensioni Casinò", text: "Schede operatore con concessione, pagamenti e catalogo." },
+];
+
+function TopicsSection() {
+  return (
+    <section id="sezioni" className="border-t border-border">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-16">
+        <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Esplora il portale</p>
+        <h2 className="mt-1 font-serif text-lg md:text-4xl">Sezioni principali</h2>
+        <div className="mt-3 grid grid-cols-2 gap-2.5 md:mt-8 md:grid-cols-4 md:gap-4">
+          {TOPICS.map((t) => (
+            <Link
+              key={t.to}
+              to={t.to}
+              className="flex flex-col rounded-xl border border-border bg-card p-2.5 transition-colors hover:border-gold/50 md:p-5"
+            >
+              <h3 className="font-serif text-[14px] text-gold md:text-lg">{t.label}</h3>
+              <p className="mt-1 line-clamp-3 text-[12px] leading-snug text-muted-foreground md:text-sm">
+                {t.text}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function HomePage() {
 
   return (
     <PageShell>
       <Hero />
       <ComparisonTable />
+      <TopicsSection />
       <OperatorsSection />
       <BrandIntroSection />
       <ReviewsHubSection />
       <GuidesSection />
       <QuickAnswersSection />
       <FAQSection />
+
       <EvaluationGuideSection />
       <SeoGuideSection />
       <CriteriaSection />
