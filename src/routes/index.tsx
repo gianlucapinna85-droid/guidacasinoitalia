@@ -250,15 +250,15 @@ function ReviewsHubSection() {
     (a, b) => (getCasinoMeta(b.slug)?.rating ?? 0) - (getCasinoMeta(a.slug)?.rating ?? 0),
   );
   return (
-    <section id="recensioni" className="mx-auto max-w-6xl px-2.5 md:px-6 py-6 md:py-12">
-      <h2 className="font-serif text-xl md:text-3xl">Recensioni complete dei casinò ADM</h2>
-      <p className="mt-1.5 line-clamp-3 max-w-3xl text-[13px] leading-snug text-muted-foreground md:line-clamp-none md:text-sm md:leading-relaxed">
+    <section id="recensioni" className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-12">
+      <h2 className="font-serif text-lg md:text-3xl">Recensioni complete dei casinò ADM</h2>
+      <p className="mt-1.5 line-clamp-3 max-w-3xl text-[12px] leading-snug text-muted-foreground md:line-clamp-none md:text-sm md:leading-relaxed">
         Ogni scheda approfondisce concessione, catalogo, metodi di pagamento, tempi di prelievo,
         bonus dichiarati e strumenti di gioco responsabile del singolo concessionario.
       </p>
       <ReadMore
         collapsedHeight="10.5rem"
-        className="mt-3 md:mt-6"
+        className="mt-2.5 md:mt-6"
         labelMore="Mostra tutte le recensioni"
         labelLess="Mostra meno"
       >
@@ -268,7 +268,7 @@ function ReviewsHubSection() {
               <Link
                 to="/operatori/$slug"
                 params={{ slug: op.slug }}
-                className="flex items-center justify-between gap-2 rounded-lg border border-border bg-card px-4 py-3 text-sm transition-colors hover:border-gold/50 hover:text-gold"
+                className="flex items-center justify-between gap-2 rounded-lg border border-border bg-card px-3 py-2.5 text-[13px] transition-colors hover:border-gold/50 hover:text-gold md:text-sm"
               >
                 <span>Recensione {op.name} 2026</span>
                 <ArrowRight className="h-4 w-4 shrink-0" />
@@ -285,21 +285,21 @@ function ReviewsHubSection() {
 function GuidesSection() {
   return (
     <section className="border-t border-border bg-card/30">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-6 md:py-16">
-        <p className="text-xs uppercase tracking-widest text-gold">Approfondimenti</p>
-        <h2 className="mt-1 font-serif text-xl md:text-4xl">Ultime guide</h2>
-        <div className="mt-4 flex gap-2.5 overflow-x-auto pb-2 snap-x [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-8 md:grid md:gap-4 md:overflow-visible md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-16">
+        <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Approfondimenti</p>
+        <h2 className="mt-1 font-serif text-lg md:text-4xl">Ultime guide</h2>
+        <div className="mt-3 flex gap-2.5 overflow-x-auto pb-2 snap-x [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-8 md:grid md:gap-4 md:overflow-visible md:grid-cols-2 lg:grid-cols-3">
           {GUIDES.map((g) => (
             <Link
               key={g.to}
               to={g.to}
-              className="flex w-[78%] shrink-0 snap-start flex-col rounded-xl border border-border bg-card p-3 transition-colors hover:border-gold/50 md:w-auto md:shrink md:p-5"
+              className="flex w-[78%] shrink-0 snap-start flex-col rounded-xl border border-border bg-card p-2.5 transition-colors hover:border-gold/50 md:w-auto md:shrink md:p-5"
             >
-              <h3 className="font-serif text-[15px] md:text-lg">{g.title}</h3>
-              <p className="mt-1 line-clamp-2 text-[12.5px] leading-snug text-muted-foreground md:text-sm">
+              <h3 className="font-serif text-[14px] md:text-lg">{g.title}</h3>
+              <p className="mt-1 line-clamp-2 text-[12px] leading-snug text-muted-foreground md:text-sm">
                 {g.text}
               </p>
-              <span className="mt-2 inline-flex w-fit items-center gap-1 rounded-md border border-gold/40 bg-gold/10 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-gold">
+              <span className="mt-2 inline-flex w-fit items-center gap-1 rounded-md border border-gold/40 bg-gold/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold md:py-1">
                 Leggi la guida <ArrowRight className="h-3 w-3" />
               </span>
             </Link>
@@ -323,12 +323,12 @@ function BrandIntroSection() {
     { slug: "888", label: "Recensione 888" },
   ] as const;
   const cls =
-    "shrink-0 snap-start rounded-full border border-gold/30 bg-gold/5 px-3 py-1.5 text-[13px] text-gold transition-colors hover:bg-gold/15 whitespace-nowrap md:px-3.5 md:py-2 md:text-sm";
+    "shrink-0 snap-start rounded-full border border-gold/30 bg-gold/5 px-2.5 py-1 text-[12px] text-gold transition-colors hover:bg-gold/15 whitespace-nowrap md:px-3.5 md:py-2 md:text-sm";
   return (
     <section className="border-b border-border bg-card/30">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-4 md:py-10">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-3 md:py-10">
         <div className="flex items-center justify-between gap-4">
-          <h2 className="font-serif text-base text-foreground md:text-2xl">
+          <h2 className="font-serif text-sm text-foreground md:text-2xl">
             Guide rapide
           </h2>
           <span className="hidden text-xs text-muted-foreground md:inline">
@@ -337,7 +337,7 @@ function BrandIntroSection() {
         </div>
         <nav
           aria-label="Pagine principali"
-          className="mt-2.5 flex gap-2 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x md:mt-4"
+          className="mt-2 flex gap-2 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x md:mt-4"
         >
           {pages.map((l) => (
             <Link key={l.to} to={l.to} className={cls}>
