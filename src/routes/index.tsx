@@ -732,11 +732,11 @@ function OperatorsSection() {
         </div>
       </div>
 
-      <div className="-mx-2.5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-2.5 pb-3 md:mx-0 md:grid md:gap-3 md:overflow-visible md:px-0 md:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div className="grid gap-3">
         {sortedOperators.map((op, idx) => (
           <article
             key={op.slug}
-            className="relative w-[85%] shrink-0 snap-start grid gap-4 rounded-xl border border-border bg-card p-4 md:w-auto md:grid-cols-[auto_1fr_auto] md:items-center"
+            className="relative grid gap-4 rounded-xl border border-border bg-card p-4 md:grid-cols-[auto_1fr_auto] md:items-center"
 
           >
             {idx < 3 && (
