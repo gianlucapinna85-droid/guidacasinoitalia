@@ -23,6 +23,7 @@ import { Route as GuidaRtpRouteImport } from './routes/guida-rtp'
 import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabile'
 import { Route as ComeValutiamoICasinoRouteImport } from './routes/come-valutiamo-i-casino'
 import { Route as ComeRegistrarsiRouteImport } from './routes/come-registrarsi'
+import { Route as ComeLeggereQuoteCalcioRouteImport } from './routes/come-leggere-quote-calcio'
 import { Route as CasinoPaypalRouteImport } from './routes/casino-paypal'
 import { Route as CasinoOnlineSicuriRouteImport } from './routes/casino-online-sicuri'
 import { Route as CasinoOnlineItaliaRouteImport } from './routes/casino-online-italia'
@@ -104,6 +105,11 @@ const ComeRegistrarsiRoute = ComeRegistrarsiRouteImport.update({
   path: '/come-registrarsi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ComeLeggereQuoteCalcioRoute = ComeLeggereQuoteCalcioRouteImport.update({
+  id: '/come-leggere-quote-calcio',
+  path: '/come-leggere-quote-calcio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CasinoPaypalRoute = CasinoPaypalRouteImport.update({
   id: '/casino-paypal',
   path: '/casino-paypal',
@@ -164,6 +170,7 @@ export interface FileRoutesByFullPath {
   '/casino-online-italia': typeof CasinoOnlineItaliaRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
+  '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
@@ -190,6 +197,7 @@ export interface FileRoutesByTo {
   '/casino-online-italia': typeof CasinoOnlineItaliaRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
+  '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
@@ -217,6 +225,7 @@ export interface FileRoutesById {
   '/casino-online-italia': typeof CasinoOnlineItaliaRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
+  '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
@@ -245,6 +254,7 @@ export interface FileRouteTypes {
     | '/casino-online-italia'
     | '/casino-online-sicuri'
     | '/casino-paypal'
+    | '/come-leggere-quote-calcio'
     | '/come-registrarsi'
     | '/come-valutiamo-i-casino'
     | '/gioco-responsabile'
@@ -271,6 +281,7 @@ export interface FileRouteTypes {
     | '/casino-online-italia'
     | '/casino-online-sicuri'
     | '/casino-paypal'
+    | '/come-leggere-quote-calcio'
     | '/come-registrarsi'
     | '/come-valutiamo-i-casino'
     | '/gioco-responsabile'
@@ -297,6 +308,7 @@ export interface FileRouteTypes {
     | '/casino-online-italia'
     | '/casino-online-sicuri'
     | '/casino-paypal'
+    | '/come-leggere-quote-calcio'
     | '/come-registrarsi'
     | '/come-valutiamo-i-casino'
     | '/gioco-responsabile'
@@ -324,6 +336,7 @@ export interface RootRouteChildren {
   CasinoOnlineItaliaRoute: typeof CasinoOnlineItaliaRoute
   CasinoOnlineSicuriRoute: typeof CasinoOnlineSicuriRoute
   CasinoPaypalRoute: typeof CasinoPaypalRoute
+  ComeLeggereQuoteCalcioRoute: typeof ComeLeggereQuoteCalcioRoute
   ComeRegistrarsiRoute: typeof ComeRegistrarsiRoute
   ComeValutiamoICasinoRoute: typeof ComeValutiamoICasinoRoute
   GiocoResponsabileRoute: typeof GiocoResponsabileRoute
@@ -442,6 +455,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComeRegistrarsiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/come-leggere-quote-calcio': {
+      id: '/come-leggere-quote-calcio'
+      path: '/come-leggere-quote-calcio'
+      fullPath: '/come-leggere-quote-calcio'
+      preLoaderRoute: typeof ComeLeggereQuoteCalcioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/casino-paypal': {
       id: '/casino-paypal'
       path: '/casino-paypal'
@@ -524,6 +544,7 @@ const rootRouteChildren: RootRouteChildren = {
   CasinoOnlineItaliaRoute: CasinoOnlineItaliaRoute,
   CasinoOnlineSicuriRoute: CasinoOnlineSicuriRoute,
   CasinoPaypalRoute: CasinoPaypalRoute,
+  ComeLeggereQuoteCalcioRoute: ComeLeggereQuoteCalcioRoute,
   ComeRegistrarsiRoute: ComeRegistrarsiRoute,
   ComeValutiamoICasinoRoute: ComeValutiamoICasinoRoute,
   GiocoResponsabileRoute: GiocoResponsabileRoute,
@@ -544,13 +565,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
