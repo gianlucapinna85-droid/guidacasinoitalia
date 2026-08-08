@@ -208,6 +208,13 @@ export const guides: Guide[] = [
     changefreq: "weekly",
     priority: "0.8",
   },
+  {
+    path: "/slot-alta-volatilita",
+    title: "Slot ad alta volatilità",
+    description: "Spiegazione semplice della volatilità delle slot: differenza con l'RTP ed effetti sul budget.",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
 ];
 
 
