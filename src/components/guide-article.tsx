@@ -4,6 +4,8 @@ import { ShieldCheck } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
 import { RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
 import { ReadMore } from "@/components/read-more";
+import { FaqSlider } from "@/components/faq-slider";
+
 
 
 export const SITE_URL = "https://www.guidacasino-italia.it";

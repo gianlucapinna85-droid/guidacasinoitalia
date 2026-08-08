@@ -409,10 +409,9 @@ function OperatorPage() {
           </p>
         </section>
 
-        <section className="mt-10">
-          <h2 className="font-serif text-2xl">Domande frequenti su {op.name}</h2>
-          <div className="mt-6 space-y-4">
-            {[
+        <FaqSlider
+          title={`Domande frequenti su ${op.name}`}
+          items={[
               {
                 q: `${op.name} è un casinò sicuro e legale in Italia?`,
                 a: `${op.name} risulta titolare della concessione ${op.concessionN}, verificabile nell'elenco pubblico dei concessionari su adm.gov.it. I giochi sono collegati al totalizzatore nazionale e sottoposti al controllo dell'Agenzia delle Dogane e dei Monopoli.`,
@@ -439,14 +438,9 @@ function OperatorPage() {
                 q: `Come ci si registra su ${op.name}?`,
                 a: `Servono maggiore età, codice fiscale e un documento d'identità valido; in alternativa è spesso disponibile l'accesso con SPID o CIE, che rende la verifica immediata. Prima della prima giocata è consigliabile impostare i limiti di deposito.`,
               },
-            ].map((f) => (
-              <details key={f.q} className="rounded-xl border border-border bg-card p-5">
-                <summary className="cursor-pointer font-medium">{f.q}</summary>
-                <p className="mt-3 text-sm text-muted-foreground">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </section>
+          ]}
+        />
+
 
 
         <section className="mt-10 rounded-xl border border-destructive/30 bg-destructive/5 p-6">
