@@ -115,9 +115,9 @@ export function ComparisonTable() {
           </table>
         </div>
 
-        {/* Mobile */}
+        {/* Mobile: solo le 2 schede principali per arrivare subito al contenuto */}
         <div className="mt-6 grid gap-3.5 md:hidden">
-          {rows.map(({ op, meta }) => (
+          {rows.slice(0, 2).map(({ op, meta }) => (
             <div key={op.slug} className="rounded-xl border border-border bg-card p-4 sm:p-5">
               <div className="flex items-start justify-between gap-3">
                 <div>
