@@ -117,7 +117,43 @@ export const guides: Guide[] = [
     changefreq: "monthly",
     priority: "0.8",
   },
+  {
+    path: "/bonus-scommesse-sportive",
+    title: "Bonus scommesse sportive ADM 2026",
+    description: "Tipologie di bonus bookmaker, requisiti di puntata, quote minime e scadenze da verificare.",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
+  {
+    path: "/come-leggere-quote-calcio",
+    title: "Come leggere le quote calcio",
+    description: "Probabilità implicita, margine del bookmaker, mercati principali e costruzione della schedina.",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
+  {
+    path: "/quote-live-vs-prematch",
+    title: "Quote live vs quote pre-match",
+    description: "Formazione del prezzo live, latenza, sospensioni, cash out e regole operative per il gioco in diretta.",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
+  {
+    path: "/gestione-bankroll",
+    title: "Gestione del bankroll",
+    description: "Budget di gioco, unità di puntata, staking plan, varianza e strumenti di autolimitazione ADM.",
+    changefreq: "monthly",
+    priority: "0.8",
+  },
+  {
+    path: "/operatori-casino-e-scommesse",
+    title: "Operatori ADM: casinò e scommesse",
+    description: "Come valutare i concessionari multi-prodotto: conto unico, palinsesto, pagamenti e tutele.",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
 ];
+
 
 
 export const guideByPath = new Map(guides.map((g) => [g.path, g]));

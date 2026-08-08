@@ -17,6 +17,7 @@ import { Route as SitemapGuidesDotxmlRouteImport } from './routes/sitemap-guides
 import { Route as QuoteLiveVsPrematchRouteImport } from './routes/quote-live-vs-prematch'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PrelieviVelociRouteImport } from './routes/prelievi-veloci'
+import { Route as OperatoriCasinoEScommesseRouteImport } from './routes/operatori-casino-e-scommesse'
 import { Route as NoteLegaliRouteImport } from './routes/note-legali'
 import { Route as MiglioriCasinoOnlineRouteImport } from './routes/migliori-casino-online'
 import { Route as MetodiPagamentoCasinoRouteImport } from './routes/metodi-pagamento-casino'
@@ -77,6 +78,12 @@ const PrelieviVelociRoute = PrelieviVelociRouteImport.update({
   path: '/prelievi-veloci',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OperatoriCasinoEScommesseRoute =
+  OperatoriCasinoEScommesseRouteImport.update({
+    id: '/operatori-casino-e-scommesse',
+    path: '/operatori-casino-e-scommesse',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const NoteLegaliRoute = NoteLegaliRouteImport.update({
   id: '/note-legali',
   path: '/note-legali',
@@ -191,6 +198,7 @@ export interface FileRoutesByFullPath {
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
   '/note-legali': typeof NoteLegaliRoute
+  '/operatori-casino-e-scommesse': typeof OperatoriCasinoEScommesseRoute
   '/prelievi-veloci': typeof PrelieviVelociRoute
   '/privacy': typeof PrivacyRoute
   '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
@@ -220,6 +228,7 @@ export interface FileRoutesByTo {
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
   '/note-legali': typeof NoteLegaliRoute
+  '/operatori-casino-e-scommesse': typeof OperatoriCasinoEScommesseRoute
   '/prelievi-veloci': typeof PrelieviVelociRoute
   '/privacy': typeof PrivacyRoute
   '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
@@ -250,6 +259,7 @@ export interface FileRoutesById {
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
   '/note-legali': typeof NoteLegaliRoute
+  '/operatori-casino-e-scommesse': typeof OperatoriCasinoEScommesseRoute
   '/prelievi-veloci': typeof PrelieviVelociRoute
   '/privacy': typeof PrivacyRoute
   '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
@@ -281,6 +291,7 @@ export interface FileRouteTypes {
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
     | '/note-legali'
+    | '/operatori-casino-e-scommesse'
     | '/prelievi-veloci'
     | '/privacy'
     | '/quote-live-vs-prematch'
@@ -310,6 +321,7 @@ export interface FileRouteTypes {
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
     | '/note-legali'
+    | '/operatori-casino-e-scommesse'
     | '/prelievi-veloci'
     | '/privacy'
     | '/quote-live-vs-prematch'
@@ -339,6 +351,7 @@ export interface FileRouteTypes {
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
     | '/note-legali'
+    | '/operatori-casino-e-scommesse'
     | '/prelievi-veloci'
     | '/privacy'
     | '/quote-live-vs-prematch'
@@ -369,6 +382,7 @@ export interface RootRouteChildren {
   MetodiPagamentoCasinoRoute: typeof MetodiPagamentoCasinoRoute
   MiglioriCasinoOnlineRoute: typeof MiglioriCasinoOnlineRoute
   NoteLegaliRoute: typeof NoteLegaliRoute
+  OperatoriCasinoEScommesseRoute: typeof OperatoriCasinoEScommesseRoute
   PrelieviVelociRoute: typeof PrelieviVelociRoute
   PrivacyRoute: typeof PrivacyRoute
   QuoteLiveVsPrematchRoute: typeof QuoteLiveVsPrematchRoute
@@ -437,6 +451,13 @@ declare module '@tanstack/react-router' {
       path: '/prelievi-veloci'
       fullPath: '/prelievi-veloci'
       preLoaderRoute: typeof PrelieviVelociRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/operatori-casino-e-scommesse': {
+      id: '/operatori-casino-e-scommesse'
+      path: '/operatori-casino-e-scommesse'
+      fullPath: '/operatori-casino-e-scommesse'
+      preLoaderRoute: typeof OperatoriCasinoEScommesseRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/note-legali': {
@@ -593,6 +614,7 @@ const rootRouteChildren: RootRouteChildren = {
   MetodiPagamentoCasinoRoute: MetodiPagamentoCasinoRoute,
   MiglioriCasinoOnlineRoute: MiglioriCasinoOnlineRoute,
   NoteLegaliRoute: NoteLegaliRoute,
+  OperatoriCasinoEScommesseRoute: OperatoriCasinoEScommesseRoute,
   PrelieviVelociRoute: PrelieviVelociRoute,
   PrivacyRoute: PrivacyRoute,
   QuoteLiveVsPrematchRoute: QuoteLiveVsPrematchRoute,
