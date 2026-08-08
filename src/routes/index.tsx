@@ -59,8 +59,9 @@ const FAQS = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Guida Casino Italia 2026 | Migliori Casinò ADM e Bonus Senza Deposito" },
-      { name: "description", content: "Guida Casino Italia: confronto indipendente dei casinò online con concessione ADM, bonus senza deposito, RTP e pagamenti sicuri. Aggiornato 2026. Solo +18." },
+      { title: "Guida Casino Italia 2026 | Migliori Casinò ADM, Bonus Senza Deposito e Recensioni AAMS" },
+      { name: "description", content: "Confronta i migliori casinò online ADM/AAMS, bonus senza deposito, recensioni verificate e guide complete sui siti legali italiani aggiornati al 2026." },
+
       { name: "keywords", content: "casino adm, casino aams, bonus senza deposito, bonus senza deposito immediato, casino online sicuri, casino online italiani, migliori casino online 2026, concessione adm, gioco legale italia, casino con spid, come verificare licenza adm, casino legali italia elenco, quali sono i casino con concessione adm" },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
@@ -70,15 +71,17 @@ export const Route = createFileRoute("/")({
       { name: "geo.region", content: "IT" },
       { name: "language", content: "it-IT" },
       { name: "author", content: "GuidaCasinò.IT" },
-      { property: "og:title", content: "Guida Casino Italia 2026 | Migliori Casinò ADM e Bonus Senza Deposito" },
-      { property: "og:description", content: "Guida Casino Italia: confronto indipendente dei casinò online con concessione ADM, bonus senza deposito, RTP e pagamenti sicuri. Aggiornato 2026. Solo +18." },
+      { property: "og:title", content: "Guida Casino Italia 2026 | Migliori Casinò ADM, Bonus Senza Deposito e Recensioni AAMS" },
+      { property: "og:description", content: "Confronta i migliori casinò online ADM/AAMS, bonus senza deposito, recensioni verificate e guide complete sui siti legali italiani aggiornati al 2026." },
+
       { property: "og:url", content: "https://www.guidacasino-italia.it/" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "it_IT" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:url", content: "https://www.guidacasino-italia.it/" },
-      { name: "twitter:title", content: "Guida Casino Italia 2026 | Migliori Casinò ADM e Bonus Senza Deposito" },
-      { name: "twitter:description", content: "Guida Casino Italia: confronto indipendente dei casinò online con concessione ADM, bonus senza deposito, RTP e pagamenti sicuri. Aggiornato 2026. Solo +18." },
+      { name: "twitter:title", content: "Guida Casino Italia 2026 | Migliori Casinò ADM, Bonus Senza Deposito e Recensioni AAMS" },
+      { name: "twitter:description", content: "Confronta i migliori casinò online ADM/AAMS, bonus senza deposito, recensioni verificate e guide complete sui siti legali italiani aggiornati al 2026." },
+
 
     ],
     links: [
@@ -547,17 +550,21 @@ function Hero() {
             Portale informativo indipendente
           </div>
           <h1 className="mt-6 font-serif text-4xl leading-[1.05] md:text-6xl">
-            Guida Casino Italia:{" "}
-            <span className="text-gold">casinò online con concessione ADM</span>
+            Guida Casino Italia 2026{" "}
+            <span className="block text-gold md:inline">
+              migliori casinò online con concessione ADM
+            </span>
           </h1>
           <CurrentMonthBadge />
           <p className="mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
-            Guida Casino Italia è una guida indipendente ai migliori casinò online ADM/AAMS con
-            bonus senza deposito, recensioni verificate e confronti aggiornati. Raccogliamo e
-            confrontiamo dati sugli operatori titolari di concessione dell'Agenzia delle Dogane e
-            dei Monopoli: non offriamo servizi di gioco, non promuoviamo bonus e non incoraggiamo
-            la partecipazione a giochi con vincite in denaro.
+            Guida Casino Italia è una guida indipendente ai migliori casinò online ADM disponibili
+            in Italia, con recensioni verificate, bonus aggiornati e confronti tra i principali
+            operatori legali. Raccogliamo dati su casinò ADM, bonus senza deposito e recensioni
+            AAMS degli operatori titolari di concessione dell'Agenzia delle Dogane e dei Monopoli:
+            non offriamo servizi di gioco, non promuoviamo bonus e non incoraggiamo la
+            partecipazione a giochi con vincite in denaro.
           </p>
+
 
 
           <div className="mt-8 flex flex-wrap gap-3">
