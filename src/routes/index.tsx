@@ -619,22 +619,22 @@ function Hero() {
         backgroundPosition: "center",
       }}
     >
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-8 md:py-28">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-28">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-gold/5 px-2.5 py-1 text-[10px] uppercase tracking-widest text-gold md:gap-2 md:px-3 md:text-xs">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-gold/5 px-2 py-1 text-[10px] uppercase tracking-widest text-gold md:gap-2 md:px-3 md:text-xs">
             <ShieldCheck className="h-3 w-3" />
             Portale informativo indipendente
           </div>
-          <h1 className="mt-2 font-serif text-[1.65rem] leading-[1.1] md:mt-6 md:text-6xl">
+          <h1 className="mt-1.5 font-serif text-[1.45rem] leading-[1.1] md:mt-6 md:text-6xl">
             Guida Casino Italia 2026{" "}
             <span className="block text-gold md:inline">
               migliori casinò online con concessione ADM
             </span>
           </h1>
           <CurrentMonthBadge />
-          <div className="mt-3 max-w-2xl md:mt-6">
+          <div className="mt-2 max-w-2xl md:mt-6">
             <p
-              className={`text-sm leading-relaxed text-muted-foreground md:text-lg md:leading-normal ${expanded ? "" : "line-clamp-2 md:line-clamp-none"}`}
+              className={`text-sm leading-snug text-muted-foreground md:text-lg md:leading-normal ${expanded ? "" : "line-clamp-2 md:line-clamp-none"}`}
             >
               Guida Casino Italia è una guida indipendente ai migliori casinò online ADM disponibili
               in Italia, con recensioni verificate, bonus aggiornati e confronti tra i principali
@@ -646,31 +646,31 @@ function Hero() {
             <button
               type="button"
               onClick={() => setExpanded((v) => !v)}
-              className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-gold hover:underline md:hidden"
+              className="mt-1.5 inline-flex items-center gap-1 text-xs font-medium text-gold hover:underline md:hidden"
               aria-expanded={expanded}
             >
               {expanded ? "Riduci" : "Continua a leggere"} <ArrowRight className={`h-3 w-3 transition-transform ${expanded ? "rotate-90" : ""}`} />
             </button>
           </div>
 
-          <div className="mt-4 flex flex-nowrap items-stretch gap-2 md:mt-8 md:gap-3">
+          <div className="mt-3 flex flex-nowrap items-stretch gap-2 md:mt-8 md:gap-3">
             <a
               href="#comparatore"
               onClick={scrollToSection("comparatore")}
-              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold px-3 py-2 text-[13px] font-bold leading-tight text-primary-foreground shadow-md shadow-gold/25 transition-all hover:brightness-110 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold px-3 py-2 text-[12px] font-bold leading-tight text-primary-foreground shadow-md shadow-gold/25 transition-all hover:brightness-110 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
             >
               Migliori casinò scelti <ArrowRight className="h-3.5 w-3.5 shrink-0" />
             </a>
             <a
               href="#operatori"
               onClick={scrollToSection("operatori")}
-              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-2 text-[13px] font-semibold leading-tight text-gold transition-colors hover:bg-gold/20 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-2 text-[12px] font-semibold leading-tight text-gold transition-colors hover:bg-gold/20 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
             >
               Lista completa ADM <ArrowRight className="h-3.5 w-3.5 shrink-0" />
             </a>
           </div>
 
-          <p className="mt-2 text-[11px] text-muted-foreground md:mt-6 md:text-xs">
+          <p className="mt-2 text-[10px] text-muted-foreground md:mt-6 md:text-xs">
             Contenuto riservato a maggiorenni. Il gioco può causare dipendenza patologica.
           </p>
         </div>
