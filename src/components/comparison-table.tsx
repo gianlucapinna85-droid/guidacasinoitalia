@@ -15,13 +15,13 @@ export function ComparisonTable() {
     .slice(0, 4);
 
   return (
-    <section id="comparatore" className="border-t border-border bg-background py-16">
+    <section id="comparatore" className="border-t border-border bg-background py-8 md:py-16">
       <div className="mx-auto max-w-6xl px-4">
         <p className="text-xs uppercase tracking-widest text-gold">Selezione redazionale</p>
-        <h2 className="mt-2 font-serif text-3xl md:text-4xl">
+        <h2 className="mt-2 font-serif text-2xl md:text-4xl">
           I 4 migliori casinò ADM scelti da GuidaCasino.it
         </h2>
-        <p className="mt-3 max-w-3xl text-sm text-muted-foreground">
+        <p className="mt-2 max-w-3xl text-sm text-muted-foreground md:mt-3">
           Selezione redazionale di GuidaCasino.it: i quattro concessionari ADM con i bonus e le
           condizioni di conto migliori tra quelli analizzati. I valori sono indicativi e dichiarati
           dagli operatori: verifica sempre i Termini e Condizioni ufficiali. Vietato ai minori di 18
