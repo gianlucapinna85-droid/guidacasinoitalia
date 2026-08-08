@@ -32,7 +32,7 @@ export const Route = createFileRoute("/note-legali")({
 function Page() {
   return (
     <PageShell>
-      <article className="mx-auto max-w-3xl px-4 py-16 prose-invert">
+      <article className="mx-auto max-w-3xl px-3 md:px-6 py-16 prose-invert">
         <p className="text-xs uppercase tracking-widest text-gold">Informazioni legali</p>
         <h1 className="mt-2 font-serif text-4xl md:text-5xl">Note legali</h1>
 

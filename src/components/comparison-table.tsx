@@ -16,7 +16,7 @@ export function ComparisonTable() {
 
   return (
     <section id="comparatore" className="border-t border-border bg-background py-8 md:py-16">
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-6xl px-3 md:px-6">
         <p className="text-xs uppercase tracking-widest text-gold">Selezione redazionale</p>
         <h2 className="mt-2 font-serif text-2xl md:text-4xl">
           I 4 migliori casinò ADM scelti da GuidaCasino.it
@@ -61,8 +61,8 @@ export function ComparisonTable() {
                           src={op.logo}
                           alt={`Logo ${op.name}`}
                           loading="lazy"
-                          width={112}
-                          height={36}
+                          width={144}
+                          height={48}
                           decoding="async"
                           className="h-8 w-24 rounded-md border border-border bg-white/95 object-contain p-1"
                         />
@@ -116,37 +116,37 @@ export function ComparisonTable() {
         </div>
 
         {/* Mobile */}
-        <div className="mt-8 grid gap-3 md:hidden">
+        <div className="mt-6 grid gap-3.5 md:hidden">
           {rows.map(({ op, meta }) => (
-            <div key={op.slug} className="rounded-xl border border-border bg-card p-4">
+            <div key={op.slug} className="rounded-xl border border-border bg-card p-4 sm:p-5">
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <Link
                     to="/operatori/$slug"
                     params={{ slug: op.slug }}
-                    className="inline-flex items-center font-serif text-lg hover:text-gold"
+                    className="inline-flex items-center font-serif text-xl hover:text-gold"
                   >
                     {op.logo ? (
                       <img
                         src={op.logo}
                         alt={`Logo ${op.name}`}
                         loading="lazy"
-                          width={112}
-                          height={36}
+                          width={144}
+                          height={48}
                           decoding="async"
-                        className="h-9 w-28 rounded-md border border-border bg-white/95 object-contain p-1"
+                        className="h-12 w-36 rounded-md border border-border bg-white/95 object-contain p-1.5 md:h-9 md:w-28"
                       />
                     ) : (
                       op.name
                     )}
                   </Link>
-                  <p className="text-[10px] text-muted-foreground">{op.concessionN}</p>
+                  <p className="text-[11px] text-muted-foreground">{op.concessionN}</p>
                 </div>
                 <span className="shrink-0 rounded-lg border border-gold/50 bg-gold/10 px-2 py-1 font-serif text-sm text-gold">
                   {meta ? meta.rating.toFixed(1) : "n.d."}
                 </span>
               </div>
-              <dl className="mt-3 grid grid-cols-2 gap-2 text-xs">
+              <dl className="mt-3 grid grid-cols-2 gap-2 text-[13px]">
                 <Cell label="Bonus" value={op.noDepositBonus?.amount ?? "Non dichiarato"} />
                 <Cell label="PayPal" value={meta?.paypal ? "Sì" : "No"} />
                 <Cell label="Prelievo" value={meta?.minWithdrawal ?? "n.d."} />
@@ -156,7 +156,7 @@ export function ComparisonTable() {
                 href={op.officialUrl}
                 target="_blank"
                 rel="noopener nofollow"
-                className="mt-3 flex items-center justify-center gap-2 rounded-md bg-gold px-4 py-2.5 text-sm font-bold text-primary-foreground"
+                className="mt-4 flex w-full items-center justify-center gap-2 rounded-lg bg-gold px-4 py-3.5 text-base font-bold text-primary-foreground shadow-lg shadow-gold/30 active:scale-[0.99]"
               >
                 Visita il sito ufficiale <ArrowRight className="h-4 w-4" />
               </a>
