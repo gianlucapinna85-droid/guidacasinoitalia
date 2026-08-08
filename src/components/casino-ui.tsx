@@ -100,14 +100,23 @@ export function RelatedLinks({ currentSlug, currentPath }: { currentSlug?: strin
 /** CTA sticky mobile richiesta dalla specifica. */
 export function StickyCompareCTA() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 backdrop-blur md:hidden">
-      <Link
-        to="/"
-        hash="operatori"
-        className="flex w-full items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-gold/30"
-      >
-        Lista completa casinò ADM <ArrowRight className="h-4 w-4" />
-      </Link>
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 px-2 py-1.5 backdrop-blur md:hidden">
+      <div className="mx-auto grid max-w-md grid-cols-2 gap-1.5">
+        <Link
+          to="/"
+          hash="operatori"
+          className="flex min-h-9 items-center justify-center gap-1 rounded-md bg-gold px-2 py-1.5 text-center text-[11px] font-bold leading-tight text-primary-foreground shadow-sm"
+        >
+          Lista completa ADM <ArrowRight className="h-3.5 w-3.5 shrink-0" />
+        </Link>
+        <Link
+          to="/"
+          hash="comparatore"
+          className="flex min-h-9 items-center justify-center gap-1 rounded-md border border-gold/50 bg-card px-2 py-1.5 text-center text-[11px] font-bold leading-tight text-foreground shadow-sm"
+        >
+          Casinò scelti <Star className="h-3.5 w-3.5 shrink-0 text-gold" fill="currentColor" />
+        </Link>
+      </div>
     </div>
   );
 }
