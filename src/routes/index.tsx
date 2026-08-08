@@ -280,7 +280,7 @@ function GuidesSection() {
       <div className="mx-auto max-w-6xl px-4 py-16">
         <p className="text-xs uppercase tracking-widest text-gold">Approfondimenti</p>
         <h2 className="mt-2 font-serif text-3xl md:text-4xl">Ultime guide</h2>
-        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {GUIDES.map((g) => (
             <Link
               key={g.to}
