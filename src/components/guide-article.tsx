@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ShieldCheck } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
-import { RelatedLinks } from "@/components/casino-ui";
+import { RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
 
 export const SITE_URL = "https://www.guidacasino-italia.it";
 
