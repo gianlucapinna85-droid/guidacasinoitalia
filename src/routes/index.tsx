@@ -280,12 +280,12 @@ function GuidesSection() {
       <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-9 md:py-16">
         <p className="text-xs uppercase tracking-widest text-gold">Approfondimenti</p>
         <h2 className="mt-1.5 font-serif text-2xl md:text-4xl">Ultime guide</h2>
-        <div className="mt-5 grid gap-2.5 md:mt-8 md:gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-5 flex gap-2.5 overflow-x-auto pb-2 snap-x [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-8 md:grid md:gap-4 md:overflow-visible md:grid-cols-2 lg:grid-cols-3">
           {GUIDES.map((g) => (
             <Link
               key={g.to}
               to={g.to}
-              className="flex flex-col rounded-xl border border-border bg-card p-3.5 transition-colors hover:border-gold/50 md:p-5"
+              className="flex w-[78%] shrink-0 snap-start flex-col rounded-xl border border-border bg-card p-3.5 transition-colors hover:border-gold/50 md:w-auto md:shrink md:p-5"
             >
               <h3 className="font-serif text-base md:text-lg">{g.title}</h3>
               <p className="mt-1.5 line-clamp-2 text-[13px] leading-snug text-muted-foreground md:text-sm">

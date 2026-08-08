@@ -19,7 +19,7 @@ export function ComparisonTable() {
       <div className="mx-auto max-w-6xl px-2.5 md:px-6">
         <p className="text-xs uppercase tracking-widest text-gold">Selezione redazionale</p>
         <h2 className="mt-2 font-serif text-2xl md:text-4xl">
-          I 4 migliori casinò ADM scelti da GuidaCasino.it
+          I migliori casinò ADM scelti da GuidaCasino.it
         </h2>
         <p className="mt-2 line-clamp-3 max-w-3xl text-[13px] leading-snug text-muted-foreground md:mt-3 md:line-clamp-none md:text-sm">
           Selezione redazionale di GuidaCasino.it: i quattro concessionari ADM con i bonus e le
@@ -115,9 +115,9 @@ export function ComparisonTable() {
           </table>
         </div>
 
-        {/* Mobile */}
+        {/* Mobile: solo le 2 schede principali per arrivare subito al contenuto */}
         <div className="mt-6 grid gap-3.5 md:hidden">
-          {rows.map(({ op, meta }) => (
+          {rows.slice(0, 2).map(({ op, meta }) => (
             <div key={op.slug} className="rounded-xl border border-border bg-card p-4 sm:p-5">
               <div className="flex items-start justify-between gap-3">
                 <div>
@@ -162,7 +162,15 @@ export function ComparisonTable() {
               </a>
             </div>
           ))}
+          <a
+            href="#operatori"
+            className="flex items-center justify-center gap-1.5 rounded-lg border border-gold/40 bg-gold/10 px-4 py-2.5 text-sm font-bold text-gold"
+          >
+            Vedi la lista completa ADM <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
+
+
 
         <p className="mt-6 text-xs text-muted-foreground">
           Contenuto informativo ai sensi dell'art. 9 D.L. 87/2018. Il gioco è vietato ai minori di 18
