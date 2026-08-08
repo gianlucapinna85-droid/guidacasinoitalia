@@ -161,6 +161,8 @@ export function GuideArticle({ cfg, children }: { cfg: GuideConfig; children?: R
           </div>
         </section>
 
+        <RelatedProjectBox className="mt-12" />
+
         <RelatedLinks />
 
         <p className="mt-8 flex items-start gap-2 text-xs text-muted-foreground">
