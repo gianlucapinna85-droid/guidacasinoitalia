@@ -312,20 +312,22 @@ function BrandIntroSection() {
     { slug: "888", label: "Recensione 888" },
   ] as const;
   const cls =
-    "rounded-md border border-gold/30 bg-gold/5 px-3 py-2 text-sm text-gold transition-colors hover:bg-gold/15";
+    "shrink-0 snap-start rounded-full border border-gold/30 bg-gold/5 px-3.5 py-2 text-sm text-gold transition-colors hover:bg-gold/15 whitespace-nowrap";
   return (
     <section className="border-b border-border bg-card/30">
-      <div className="mx-auto max-w-6xl px-4 py-12">
-        <h2 className="font-serif text-2xl text-foreground md:text-3xl">
-          Chi è Guida Casino Italia
-        </h2>
-        <p className="mt-4 max-w-3xl text-sm text-muted-foreground md:text-base">
-          Guida Casino Italia è una guida indipendente ai migliori casinò online ADM/AAMS con
-          bonus senza deposito, recensioni verificate e confronti aggiornati. Ogni scheda riporta
-          numero di concessione ADM, RTP dichiarati, metodi di pagamento e strumenti di tutela del
-          giocatore, senza incentivi al gioco.
-        </p>
-        <nav aria-label="Pagine principali" className="mt-6 flex flex-wrap gap-2">
+      <div className="mx-auto max-w-6xl px-4 py-6 md:py-10">
+        <div className="flex items-center justify-between gap-4">
+          <h2 className="font-serif text-lg text-foreground md:text-2xl">
+            Guide rapide
+          </h2>
+          <span className="hidden text-xs text-muted-foreground md:inline">
+            Scorri per esplorare
+          </span>
+        </div>
+        <nav
+          aria-label="Pagine principali"
+          className="mt-4 flex gap-2 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x"
+        >
           {pages.map((l) => (
             <Link key={l.to} to={l.to} className={cls}>
               {l.label}
@@ -337,7 +339,6 @@ function BrandIntroSection() {
             </Link>
           ))}
         </nav>
-
       </div>
     </section>
   );
