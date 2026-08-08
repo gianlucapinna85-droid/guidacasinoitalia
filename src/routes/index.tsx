@@ -459,38 +459,18 @@ function QuickAnswersSection() {
 function SeoGuideSection() {
   return (
     <section className="border-t border-border bg-card/30">
-      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-8 md:py-20">
+      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-16 md:py-20">
         <p className="text-xs uppercase tracking-widest text-gold">Approfondimento</p>
-        <h2 className="mt-2 font-serif text-2xl md:text-4xl">
+        <h2 className="mt-2 font-serif text-3xl md:text-4xl">
           Guida completa ai portali di gioco legali in Italia: sicurezza, pagamenti e normativa
         </h2>
-        <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3 md:line-clamp-none">
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
           Un quadro dettagliato su come funzionano i casinò online autorizzati dall'Agenzia delle
-          Dogane e dei Monopoli, con approfondimenti tecnici, giuridici e operativi. Scorri le
-          schede per consultare i singoli capitoli.
+          Dogane e dei Monopoli, con approfondimenti tecnici, giuridici e operativi. Espandi le
+          sezioni per consultare i singoli capitoli.
         </p>
 
-        {/* Mobile: slider orizzontale */}
-        <div className="mt-5 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {SEO_GUIDE.map((item) => (
-            <article
-              key={item.h3}
-              className="w-[85%] shrink-0 snap-start rounded-xl border border-border bg-background p-4"
-            >
-              <h3 className="font-serif text-base leading-snug">{item.h3}</h3>
-              <ReadMore collapsedHeight="5.5rem" className="mt-2">
-                <div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
-                  {item.body.map((p, i) => (
-                    <p key={i}>{p}</p>
-                  ))}
-                </div>
-              </ReadMore>
-            </article>
-          ))}
-        </div>
-
-        {/* Desktop: accordion */}
-        <div className="mt-8 hidden divide-y divide-border rounded-xl border border-border bg-background md:block">
+        <div className="mt-8 divide-y divide-border rounded-xl border border-border bg-background">
           {SEO_GUIDE.map((item) => (
             <details key={item.h3} className="group p-6 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between gap-4 text-base font-medium text-foreground">
@@ -505,7 +485,6 @@ function SeoGuideSection() {
             </details>
           ))}
         </div>
-
 
         <p className="mt-8 text-xs text-muted-foreground">
           Contenuto informativo redatto sulla base di fonti pubbliche (adm.gov.it, normativa
@@ -961,24 +940,20 @@ function CriteriaSection() {
   ];
   return (
     <section className="border-y border-border bg-card/40">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-8 md:py-24">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-16 md:py-24">
         <p className="text-xs uppercase tracking-widest text-gold">Metodologia</p>
-        <h2 className="mt-2 max-w-2xl font-serif text-2xl md:text-4xl">
+        <h2 className="mt-2 max-w-2xl font-serif text-3xl md:text-4xl">
           Come selezioniamo le informazioni pubblicate
         </h2>
-        <div className="mt-5 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:mt-10 md:mx-0 md:grid md:gap-6 md:overflow-visible md:px-0 md:grid-cols-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
           {criteria.map((c) => (
-            <div
-              key={c.n}
-              className="w-[85%] shrink-0 snap-start rounded-xl border border-border bg-background p-4 md:w-auto md:p-6"
-            >
+            <div key={c.n} className="rounded-xl border border-border bg-background p-6">
               <div className="font-serif text-2xl text-gold">{c.n}</div>
-              <h3 className="mt-2 font-serif text-lg md:text-xl">{c.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground line-clamp-4 md:line-clamp-none">{c.body}</p>
+              <h3 className="mt-2 font-serif text-xl">{c.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{c.body}</p>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
@@ -1018,30 +993,25 @@ function EvaluationGuideSection() {
         <h2 className="mt-2 font-serif text-2xl md:text-4xl">
           Come valutare oggettivamente un operatore di gioco online in Italia
         </h2>
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground line-clamp-3 md:line-clamp-none md:text-base">
-          Scegliere un concessionario di gioco a distanza in Italia non è una questione di gusto
-          personale ma di verifica di requisiti oggettivi imposti dalla normativa e dai controlli
-          dell'Agenzia delle Dogane e dei Monopoli. Di seguito i sei criteri principali che un
-          utente maggiorenne dovrebbe considerare per un confronto informato tra i vari operatori
-          concessionari, prima di qualsiasi valutazione di natura personale o economica.
-        </p>
+        <ReadMore collapsedHeight="5.5rem" className="mt-4">
+          <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
+            Scegliere un concessionario di gioco a distanza in Italia non è una questione di gusto
+            personale ma di verifica di requisiti oggettivi imposti dalla normativa e dai controlli
+            dell'Agenzia delle Dogane e dei Monopoli. Di seguito i sei criteri principali che un
+            utente maggiorenne dovrebbe considerare per un confronto informato tra i vari operatori
+            concessionari, prima di qualsiasi valutazione di natura personale o economica.
+          </p>
 
-        <div className="mt-5 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:mt-6 md:mx-0 md:block md:space-y-6 md:overflow-visible md:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {criteria.map((c) => (
-            <div
-              key={c.title}
-              className="w-[85%] shrink-0 snap-start rounded-xl border border-border bg-card/40 p-4 md:w-auto md:rounded-none md:border-0 md:bg-transparent md:p-0"
-            >
-              <h3 className="font-serif text-lg text-foreground md:text-xl">{c.title}</h3>
-              <ReadMore collapsedHeight="5.5rem" className="mt-2">
-                <p className="text-sm leading-relaxed text-muted-foreground">{c.body}</p>
-              </ReadMore>
-            </div>
-          ))}
-        </div>
+          <div className="mt-6 space-y-6">
+            {criteria.map((c) => (
+              <div key={c.title}>
+                <h3 className="font-serif text-lg text-foreground md:text-xl">{c.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
+              </div>
+            ))}
+          </div>
 
-        <ReadMore collapsedHeight="5.5rem" className="mt-6">
-          <p className="text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-8 text-sm leading-relaxed text-muted-foreground">
             Nessuno di questi criteri, preso singolarmente, è sufficiente a stabilire una
             preferenza: è la loro valutazione congiunta — insieme al rispetto delle norme sul
             gioco responsabile e alla trasparenza delle informazioni pubblicate — che consente di
@@ -1050,7 +1020,6 @@ function EvaluationGuideSection() {
             siti dei concessionari prima di formare qualsiasi opinione personale.
           </p>
         </ReadMore>
-
       </div>
     </section>
   );
