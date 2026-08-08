@@ -657,24 +657,41 @@ function TrustStrip() {
 
 function OperatorsSection() {
   return (
-    <section id="operatori" className="mx-auto max-w-6xl px-3 md:px-6 py-16 md:py-24">
-      <div className="mb-10 flex items-end justify-between gap-6">
-        <div>
-          <p className="text-xs uppercase tracking-widest text-gold">Confronto</p>
-          <h2 className="mt-2 font-serif text-3xl md:text-4xl">Operatori concessionari ADM</h2>
-          <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-            Elenco informativo. I dati riportati sono a titolo illustrativo: verifica sempre
-            concessione, condizioni e informativa privacy sul sito ufficiale del concessionario e
-            sull'elenco pubblico ADM.
-          </p>
+    <section id="operatori" className="mx-auto max-w-6xl px-3 md:px-6 py-10 md:py-14">
+      <div className="mb-6">
+        <p className="text-xs uppercase tracking-widest text-gold">Confronto</p>
+        <div className="mt-2 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h2 className="font-serif text-2xl md:text-3xl">Lista completa casino ADM</h2>
+            <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
+              Elenco informativo. I dati riportati sono a titolo illustrativo: verifica sempre
+              concessione, condizioni e informativa privacy sul sito ufficiale del concessionario.
+            </p>
+          </div>
+          <div className="flex flex-nowrap items-stretch gap-2 md:justify-end">
+            <a
+              href="#comparatore"
+              onClick={scrollToSection("comparatore")}
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold px-3 py-2 text-[13px] font-bold leading-tight text-primary-foreground shadow-md shadow-gold/25 transition-all hover:brightness-110 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
+            >
+              Migliori casinò scelti <ArrowRight className="h-3.5 w-3.5 shrink-0" />
+            </a>
+            <a
+              href="#operatori"
+              onClick={scrollToSection("operatori")}
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-2 text-[13px] font-semibold leading-tight text-gold transition-colors hover:bg-gold/20 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
+            >
+              Lista completa ADM <ArrowRight className="h-3.5 w-3.5 shrink-0" />
+            </a>
+          </div>
         </div>
       </div>
 
-      <div className="grid gap-4">
+      <div className="grid gap-3">
         {sortedOperators.map((op, idx) => (
           <article
             key={op.slug}
-            className="relative grid gap-5 rounded-xl border border-border bg-card p-4 sm:p-6 md:grid-cols-[auto_1fr_auto] md:items-center"
+            className="relative grid gap-4 rounded-xl border border-border bg-card p-4 md:grid-cols-[auto_1fr_auto] md:items-center"
           >
             {idx < 3 && (
               <span className="absolute -top-3 right-4 inline-flex items-center rounded-full bg-gold px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-lg shadow-gold/30 md:right-6">
@@ -707,7 +724,7 @@ function OperatorsSection() {
 
 
 
-            <div className="grid gap-4 md:grid-cols-3">
+            <div className="grid gap-3 md:grid-cols-3">
               <Stat label="Attivo dal" value={op.founded.toString()} />
               <Stat label="RTP medio dichiarato" value={op.rtpAverage} />
               <div>
@@ -723,7 +740,7 @@ function OperatorsSection() {
 
               <div className="md:col-span-3">
                 {op.noDepositBonus ? (
-                  <div className="mb-3 rounded-lg border border-gold/40 bg-gold/10 p-4">
+                  <div className="mb-2 rounded-lg border border-gold/40 bg-gold/10 p-3">
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
                         Senza deposito
