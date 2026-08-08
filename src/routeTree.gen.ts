@@ -13,6 +13,7 @@ import { Route as VerificareLicenzaAdmRouteImport } from './routes/verificare-li
 import { Route as SlotRtpAltoRouteImport } from './routes/slot-rtp-alto'
 import { Route as SlotOnlineRouteImport } from './routes/slot-online'
 import { Route as SlotGratisDemoRouteImport } from './routes/slot-gratis-demo'
+import { Route as SlotAltaVolatilitaRouteImport } from './routes/slot-alta-volatilita'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapReviewsDotxmlRouteImport } from './routes/sitemap-reviews[.]xml'
 import { Route as SitemapNewsDotxmlRouteImport } from './routes/sitemap-news[.]xml'
@@ -67,6 +68,11 @@ const SlotOnlineRoute = SlotOnlineRouteImport.update({
 const SlotGratisDemoRoute = SlotGratisDemoRouteImport.update({
   id: '/slot-gratis-demo',
   path: '/slot-gratis-demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SlotAltaVolatilitaRoute = SlotAltaVolatilitaRouteImport.update({
+  id: '/slot-alta-volatilita',
+  path: '/slot-alta-volatilita',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -280,6 +286,7 @@ export interface FileRoutesByFullPath {
   '/sitemap-news.xml': typeof SitemapNewsDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/slot-alta-volatilita': typeof SlotAltaVolatilitaRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
@@ -321,6 +328,7 @@ export interface FileRoutesByTo {
   '/sitemap-news.xml': typeof SitemapNewsDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/slot-alta-volatilita': typeof SlotAltaVolatilitaRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
@@ -363,6 +371,7 @@ export interface FileRoutesById {
   '/sitemap-news.xml': typeof SitemapNewsDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/slot-alta-volatilita': typeof SlotAltaVolatilitaRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
@@ -406,6 +415,7 @@ export interface FileRouteTypes {
     | '/sitemap-news.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
+    | '/slot-alta-volatilita'
     | '/slot-gratis-demo'
     | '/slot-online'
     | '/slot-rtp-alto'
@@ -447,6 +457,7 @@ export interface FileRouteTypes {
     | '/sitemap-news.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
+    | '/slot-alta-volatilita'
     | '/slot-gratis-demo'
     | '/slot-online'
     | '/slot-rtp-alto'
@@ -488,6 +499,7 @@ export interface FileRouteTypes {
     | '/sitemap-news.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
+    | '/slot-alta-volatilita'
     | '/slot-gratis-demo'
     | '/slot-online'
     | '/slot-rtp-alto'
@@ -530,6 +542,7 @@ export interface RootRouteChildren {
   SitemapNewsDotxmlRoute: typeof SitemapNewsDotxmlRoute
   SitemapReviewsDotxmlRoute: typeof SitemapReviewsDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SlotAltaVolatilitaRoute: typeof SlotAltaVolatilitaRoute
   SlotGratisDemoRoute: typeof SlotGratisDemoRoute
   SlotOnlineRoute: typeof SlotOnlineRoute
   SlotRtpAltoRoute: typeof SlotRtpAltoRoute
@@ -568,6 +581,13 @@ declare module '@tanstack/react-router' {
       path: '/slot-gratis-demo'
       fullPath: '/slot-gratis-demo'
       preLoaderRoute: typeof SlotGratisDemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/slot-alta-volatilita': {
+      id: '/slot-alta-volatilita'
+      path: '/slot-alta-volatilita'
+      fullPath: '/slot-alta-volatilita'
+      preLoaderRoute: typeof SlotAltaVolatilitaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -850,6 +870,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapNewsDotxmlRoute: SitemapNewsDotxmlRoute,
   SitemapReviewsDotxmlRoute: SitemapReviewsDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SlotAltaVolatilitaRoute: SlotAltaVolatilitaRoute,
   SlotGratisDemoRoute: SlotGratisDemoRoute,
   SlotOnlineRoute: SlotOnlineRoute,
   SlotRtpAltoRoute: SlotRtpAltoRoute,
