@@ -19,7 +19,7 @@ export function ComparisonTable() {
       <div className="mx-auto max-w-6xl px-2.5 md:px-6">
         <p className="text-xs uppercase tracking-widest text-gold">Selezione redazionale</p>
         <h2 className="mt-2 font-serif text-2xl md:text-4xl">
-          I 4 migliori casinò ADM scelti da GuidaCasino.it
+          I migliori casinò ADM scelti da GuidaCasino.it
         </h2>
         <p className="mt-2 line-clamp-3 max-w-3xl text-[13px] leading-snug text-muted-foreground md:mt-3 md:line-clamp-none md:text-sm">
           Selezione redazionale di GuidaCasino.it: i quattro concessionari ADM con i bonus e le
