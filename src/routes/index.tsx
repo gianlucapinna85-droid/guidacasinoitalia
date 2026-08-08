@@ -256,20 +256,28 @@ function ReviewsHubSection() {
         Ogni scheda approfondisce concessione, catalogo, metodi di pagamento, tempi di prelievo,
         bonus dichiarati e strumenti di gioco responsabile del singolo concessionario.
       </p>
-      <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3 md:mt-6 md:gap-3">
-        {sorted.map((op) => (
-          <li key={op.slug}>
-            <Link
-              to="/operatori/$slug"
-              params={{ slug: op.slug }}
-              className="flex items-center justify-between gap-2 rounded-lg border border-border bg-card px-4 py-3 text-sm transition-colors hover:border-gold/50 hover:text-gold"
-            >
-              <span>Recensione {op.name} 2026</span>
-              <ArrowRight className="h-4 w-4 shrink-0" />
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <ReadMore
+        collapsedHeight="10.5rem"
+        className="mt-4 md:mt-6"
+        labelMore="Mostra tutte le recensioni"
+        labelLess="Mostra meno"
+      >
+        <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 md:gap-3">
+          {sorted.map((op) => (
+            <li key={op.slug}>
+              <Link
+                to="/operatori/$slug"
+                params={{ slug: op.slug }}
+                className="flex items-center justify-between gap-2 rounded-lg border border-border bg-card px-4 py-3 text-sm transition-colors hover:border-gold/50 hover:text-gold"
+              >
+                <span>Recensione {op.name} 2026</span>
+                <ArrowRight className="h-4 w-4 shrink-0" />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </ReadMore>
+
     </section>
   );
 }
