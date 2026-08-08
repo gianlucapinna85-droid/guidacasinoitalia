@@ -84,7 +84,7 @@ export const Route = createFileRoute("/bonus-senza-deposito")({
 function Page() {
   return (
     <PageShell>
-      <article className="mx-auto max-w-3xl px-3 md:px-6 py-12 md:py-16">
+      <article className="mx-auto max-w-3xl px-2.5 md:px-6 py-12 md:py-16">
         <nav className="mb-6 text-xs text-neutral-500">
           <Link to="/" className="hover:text-gold">Home</Link>
           <span className="mx-2">/</span>

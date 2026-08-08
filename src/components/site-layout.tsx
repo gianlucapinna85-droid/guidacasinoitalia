@@ -257,7 +257,7 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="border-t border-border bg-card">
-      <div className="mx-auto max-w-6xl px-3 md:px-6 py-12">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-12">
         <div className="grid gap-8 md:grid-cols-4">
           <div className="md:col-span-2">
             <div className="font-serif text-lg font-semibold">GuidaCasinò<span className="text-gold">.IT</span></div>
