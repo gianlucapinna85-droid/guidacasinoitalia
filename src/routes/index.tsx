@@ -7,11 +7,9 @@ import { PageShell, ComplianceBadges, OfficialLogosBanner, OperatorTrustDots } f
 import { operators, sortedOperators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
 import { RatingBadge, CasinoBadges } from "@/components/casino-ui";
+import { ComparisonTable } from "@/components/comparison-table";
 
-// Caricati in differita: sotto la prima schermata, non servono al primo render (LCP/FCP)
-const ComparisonTable = lazy(() =>
-  import("@/components/comparison-table").then((m) => ({ default: m.ComparisonTable })),
-);
+// Caricato in differita: sticky footer, non serve al primo render
 const StickyCompareCTA = lazy(() =>
   import("@/components/casino-ui").then((m) => ({ default: m.StickyCompareCTA })),
 );
