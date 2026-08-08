@@ -262,14 +262,17 @@ function OperatorPage() {
           <h2 className="font-serif text-2xl">
             {op.name} è un casinò ADM sicuro? Analisi della concessione
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">{review.summary}</p>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            {op.name} opera in Italia con <strong>concessione ADM {op.concessionN}</strong>: significa che il
-            catalogo giochi, i generatori di numeri casuali e i flussi di gioco sono collegati al totalizzatore
-            nazionale e sottoposti al controllo dell'Agenzia delle Dogane e dei Monopoli. La verifica
-            dell'identità è obbligatoria e il conto di gioco resta limitato fino alla convalida dei documenti.
-            Puoi controllare in autonomia la validità della concessione sull'elenco pubblico di adm.gov.it.
-          </p>
+          <ReadMore collapsedHeight="5.5rem" className="mt-1">
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">{review.summary}</p>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              {op.name} opera in Italia con <strong>concessione ADM {op.concessionN}</strong>: significa che il
+              catalogo giochi, i generatori di numeri casuali e i flussi di gioco sono collegati al totalizzatore
+              nazionale e sottoposti al controllo dell'Agenzia delle Dogane e dei Monopoli. La verifica
+              dell'identità è obbligatoria e il conto di gioco resta limitato fino alla convalida dei documenti.
+              Puoi controllare in autonomia la validità della concessione sull'elenco pubblico di adm.gov.it.
+            </p>
+          </ReadMore>
+
         </section>
 
         {getDeepDive(op.slug).map((s) => (
