@@ -542,19 +542,19 @@ const SEO_GUIDE: { h3: string; body: string[] }[] = [
 function LegalInfoSection() {
   return (
     <section id="informazioni-legali" className="border-y border-border bg-card/40">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-8 md:py-12">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-12">
         <details className="group">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-3">
             <div>
               <p className="text-xs uppercase tracking-widest text-gold">Conformità e tutela</p>
-              <h2 className="mt-1 font-serif text-xl md:text-2xl">
+              <h2 className="mt-1 font-serif text-lg md:text-2xl">
                 Informazioni legali e gioco responsabile
               </h2>
             </div>
             <ArrowRight className="h-4 w-4 shrink-0 text-gold transition-transform group-open:rotate-90" />
           </summary>
 
-          <div className="mt-4 space-y-3 text-sm text-muted-foreground">
+          <div className="mt-3 space-y-2.5 text-sm text-muted-foreground md:mt-4 md:space-y-3">
             <p>
               GuidaCasinò.IT elenca esclusivamente concessionari ADM (ex AAMS) e riporta i
               riferimenti ufficiali per la tutela del giocatore. L'accesso ai giochi con vincite in
