@@ -347,15 +347,13 @@ function HomePage() {
   return (
     <PageShell>
       <Hero />
+      <ComparisonTable />
       <BrandIntroSection />
       <TrustStrip />
       <QuickAnswersSection />
 
       <ComplianceBlock placement="top" />
       <OperatorsSection />
-      <Suspense fallback={<div className="mx-auto h-64 max-w-6xl px-4" aria-hidden />}>
-        <ComparisonTable />
-      </Suspense>
       <ReviewsHubSection />
       <EvaluationGuideSection />
       <CriteriaSection />
