@@ -8,6 +8,8 @@ import { operators, sortedOperators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
 import { RatingBadge, CasinoBadges } from "@/components/casino-ui";
 import { ComparisonTable } from "@/components/comparison-table";
+import { ReadMore } from "@/components/read-more";
+
 
 // Caricato in differita: sticky footer, non serve al primo render
 const StickyCompareCTA = lazy(() =>
