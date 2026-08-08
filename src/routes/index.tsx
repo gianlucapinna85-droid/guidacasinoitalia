@@ -588,7 +588,7 @@ function CurrentMonthBadge() {
   const label = monthYear.charAt(0).toUpperCase() + monthYear.slice(1);
 
   return (
-    <div className="mt-3 inline-flex flex-wrap items-center gap-1.5 rounded-full border border-gold/30 bg-gold/10 px-2.5 py-1 text-[11px] font-medium text-gold md:mt-4 md:gap-2 md:px-3 md:py-1.5 md:text-xs">
+    <div className="mt-2 inline-flex flex-wrap items-center gap-1.5 rounded-full border border-gold/30 bg-gold/10 px-2 py-1 text-[10px] font-medium text-gold md:mt-4 md:gap-2 md:px-3 md:py-1.5 md:text-xs">
       <Calendar className="h-3 w-3 md:h-3.5 md:w-3.5" />
       <span>Lista verificata a {label}</span>
       <span className="mx-1 hidden h-3 w-px bg-gold/30 sm:inline-block" />
