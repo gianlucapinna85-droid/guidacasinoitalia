@@ -609,7 +609,7 @@ function Hero() {
           <CurrentMonthBadge />
           <div className="mt-3 max-w-2xl md:mt-6">
             <p
-              className={`text-sm leading-relaxed text-muted-foreground md:text-lg md:leading-normal ${expanded ? "" : "line-clamp-3 md:line-clamp-none"}`}
+              className={`text-sm leading-relaxed text-muted-foreground md:text-lg md:leading-normal ${expanded ? "" : "line-clamp-2 md:line-clamp-none"}`}
             >
               Guida Casino Italia è una guida indipendente ai migliori casinò online ADM disponibili
               in Italia, con recensioni verificate, bonus aggiornati e confronti tra i principali
