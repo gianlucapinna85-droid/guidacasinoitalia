@@ -187,19 +187,19 @@ export function AgeBanner() {
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <Link to="/" className="flex items-center gap-2.5">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-3 py-2.5 md:px-4 md:py-4">
+        <Link to="/" className="flex items-center gap-2 md:gap-2.5">
           <img
             src={siteLogo}
             alt="Logo GuidaCasinò.IT"
-            width={44}
-            height={44}
+            width={36}
+            height={36}
             decoding="async"
-            className="h-11 w-11 shrink-0 rounded-full object-contain"
+            className="h-9 w-9 shrink-0 rounded-full object-contain md:h-11 md:w-11"
           />
           <div className="leading-tight">
-            <div className="font-serif text-lg font-semibold">GuidaCasinò<span className="text-gold">.IT</span></div>
-            <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Comparatore informativo</div>
+            <div className="font-serif text-base font-semibold md:text-lg">GuidaCasinò<span className="text-gold">.IT</span></div>
+            <div className="text-[9px] uppercase tracking-widest text-muted-foreground md:text-[10px]">Comparatore informativo</div>
           </div>
         </Link>
 
@@ -211,16 +211,16 @@ export function Header() {
             rel="noopener noreferrer nofollow"
             aria-label="Concessione ADM — Agenzia delle Dogane e dei Monopoli"
             title="Operatori con concessione ADM"
-            className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-gold/60 bg-white shadow-sm"
+            className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full border border-gold/60 bg-white shadow-sm md:h-9 md:w-9"
           >
-            <img src={admLogo.url} alt="Logo ufficiale ADM" width={24} height={24} className="h-6 w-6 object-contain" loading="lazy" decoding="async" />
+            <img src={admLogo.url} alt="Logo ufficiale ADM" width={20} height={20} className="h-5 w-5 object-contain md:h-6 md:w-6" loading="lazy" decoding="async" />
           </a>
           <span
             aria-label="Vietato ai minori di 18 anni"
             title="Vietato ai minori di 18 anni"
-            className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-destructive/60 bg-white shadow-sm"
+            className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full border border-destructive/60 bg-white shadow-sm md:h-9 md:w-9"
           >
-            <img src={vietato18.url} alt="Vietato ai minori di 18 anni" width={24} height={24} className="h-6 w-6 object-contain" loading="lazy" decoding="async" />
+            <img src={vietato18.url} alt="Vietato ai minori di 18 anni" width={20} height={20} className="h-5 w-5 object-contain md:h-6 md:w-6" loading="lazy" decoding="async" />
           </span>
           <span
             title="Operatori verificati sull'elenco pubblico ADM"
