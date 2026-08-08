@@ -881,15 +881,15 @@ function OperatorLogo({
   }, []);
 
   const fallback = (
-    <div className="flex h-20 w-44 items-center justify-center rounded-xl border-2 border-gold/40 bg-gold/10 shadow-sm">
-      <span className="font-serif text-2xl text-gold">{index + 1}</span>
+    <div className="flex h-16 w-36 items-center justify-center rounded-xl border-2 border-gold/40 bg-gold/10 shadow-sm md:h-20 md:w-44">
+      <span className="font-serif text-xl text-gold md:text-2xl">{index + 1}</span>
     </div>
   );
 
   const logoBox = (!logo || error) ? (
     fallback
   ) : (
-    <div className="flex h-20 w-44 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/40 bg-white p-3 shadow-sm md:h-24 md:w-56">
+    <div className="flex h-16 w-36 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/40 bg-white p-2 shadow-sm md:h-24 md:w-56">
       <img
         ref={imgRef}
         src={logo}
