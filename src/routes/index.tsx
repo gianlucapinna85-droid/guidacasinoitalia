@@ -412,16 +412,31 @@ const QUICK_ANSWERS: { q: string; a: string }[] = [
 function QuickAnswersSection() {
   return (
     <section id="risposte-rapide" className="border-t border-border bg-card/30">
-      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-14 md:py-16">
+      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-9 md:py-16">
         <h2 className="font-serif text-2xl font-semibold md:text-3xl">
           Risposte rapide sui casinò ADM in Italia
         </h2>
-        <p className="mt-3 text-sm text-muted-foreground">
+        <p className="mt-2 line-clamp-3 text-[13px] leading-snug text-muted-foreground md:line-clamp-none md:mt-3 md:text-sm">
           Sintesi verificabile delle domande più frequenti su gioco legale, concessioni e bonus senza
           deposito, redatta per essere consultata rapidamente da lettori, motori di ricerca e assistenti
           basati su intelligenza artificiale.
         </p>
-        <dl className="mt-8 grid gap-4 md:grid-cols-2">
+
+        {/* mobile: slider orizzontale */}
+        <dl className="mt-4 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {QUICK_ANSWERS.map((item) => (
+            <div
+              key={item.q}
+              className="w-[82%] shrink-0 snap-start rounded-xl border border-border bg-background/60 p-3.5"
+            >
+              <dt className="text-[13px] font-semibold leading-snug text-foreground">{item.q}</dt>
+              <dd className="mt-2 text-[12.5px] leading-relaxed text-muted-foreground">{item.a}</dd>
+            </div>
+          ))}
+        </dl>
+        <p className="mt-1 text-[11px] text-muted-foreground md:hidden">Scorri per vedere altre risposte →</p>
+
+        <dl className="mt-8 hidden gap-4 md:grid md:grid-cols-2">
           {QUICK_ANSWERS.map((item) => (
             <div key={item.q} className="rounded-xl border border-border bg-background/60 p-5">
               <dt className="font-semibold text-foreground">{item.q}</dt>
@@ -433,6 +448,7 @@ function QuickAnswersSection() {
           Fonti: Agenzia delle Dogane e dei Monopoli (adm.gov.it), siti ufficiali dei concessionari,
           D.L. 87/2018. Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica.
         </p>
+
       </div>
     </section>
   );
