@@ -109,7 +109,7 @@ const SECTIONS = [
 function Page() {
   return (
     <PageShell>
-      <article className="mx-auto max-w-4xl px-3 md:px-6 py-12 md:py-16">
+      <article className="mx-auto max-w-4xl px-2.5 md:px-6 py-12 md:py-16">
         <nav className="text-xs uppercase tracking-widest text-muted-foreground">
           <Link to="/" className="hover:text-gold">
             Home

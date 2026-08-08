@@ -56,7 +56,7 @@ export const Route = createFileRoute("/provider/$slug")({
   },
   notFoundComponent: () => (
     <PageShell>
-      <section className="mx-auto max-w-3xl px-3 md:px-6 py-24 text-center">
+      <section className="mx-auto max-w-3xl px-2.5 md:px-6 py-24 text-center">
         <h1 className="font-serif text-3xl">Pagina non trovata</h1>
         <Link to="/" hash="operatori" className="mt-8 inline-flex items-center gap-2 text-sm text-gold">
           <ArrowLeft className="h-4 w-4" /> Torna all'elenco
@@ -72,7 +72,7 @@ function ProvidersPage() {
 
   return (
     <PageShell>
-      <article className="mx-auto max-w-5xl px-3 md:px-6 py-12 md:py-16">
+      <article className="mx-auto max-w-5xl px-2.5 md:px-6 py-12 md:py-16">
         <Link
           to="/operatori/$slug"
           params={{ slug: op.slug }}
