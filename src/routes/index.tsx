@@ -702,13 +702,13 @@ function TrustStrip() {
 
 function OperatorsSection() {
   return (
-    <section id="operatori" className="mx-auto max-w-6xl px-2.5 md:px-6 py-10 md:py-14">
-      <div className="mb-6">
+    <section id="operatori" className="mx-auto max-w-6xl px-2.5 md:px-6 py-6 md:py-14">
+      <div className="mb-4 md:mb-6">
         <p className="text-xs uppercase tracking-widest text-gold">Confronto</p>
-        <div className="mt-2 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div className="mt-1.5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            <h2 className="font-serif text-2xl md:text-3xl">Lista completa casino ADM</h2>
-            <p className="mt-2 hidden max-w-2xl text-sm text-muted-foreground md:block">
+            <h2 className="font-serif text-xl md:text-3xl">Lista completa casino ADM</h2>
+            <p className="mt-1 hidden max-w-2xl text-sm text-muted-foreground md:block">
               Elenco informativo. I dati riportati sono a titolo illustrativo: verifica sempre
               concessione, condizioni e informativa privacy sul sito ufficiale del concessionario.
             </p>
@@ -717,14 +717,14 @@ function OperatorsSection() {
             <a
               href="#comparatore"
               onClick={scrollToSection("comparatore")}
-              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold px-3 py-2 text-[13px] font-bold leading-tight text-primary-foreground shadow-md shadow-gold/25 transition-all hover:brightness-110 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold px-3 py-2 text-[12px] font-bold leading-tight text-primary-foreground shadow-md shadow-gold/25 transition-all hover:brightness-110 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
             >
               Migliori casinò scelti <ArrowRight className="h-3.5 w-3.5 shrink-0" />
             </a>
             <a
               href="#operatori"
               onClick={scrollToSection("operatori")}
-              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-2 text-[13px] font-semibold leading-tight text-gold transition-colors hover:bg-gold/20 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-2 text-[12px] font-semibold leading-tight text-gold transition-colors hover:bg-gold/20 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
             >
               Lista completa ADM <ArrowRight className="h-3.5 w-3.5 shrink-0" />
             </a>
@@ -736,33 +736,33 @@ function OperatorsSection() {
         {sortedOperators.map((op, idx) => (
           <article
             key={op.slug}
-            className="relative grid gap-4 rounded-xl border border-border bg-card p-4 md:grid-cols-[auto_1fr_auto] md:items-center"
+            className="relative grid gap-3 rounded-xl border border-border bg-card p-3 md:gap-4 md:p-4 md:grid-cols-[auto_1fr_auto] md:items-center"
 
           >
             {idx < 3 && (
-              <span className="absolute -top-3 right-4 inline-flex items-center rounded-full bg-gold px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-lg shadow-gold/30 md:right-6">
+              <span className="absolute -top-2.5 right-3 inline-flex items-center rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-lg shadow-gold/30 md:-top-3 md:right-4">
                 Top
               </span>
             )}
-            <div className="flex flex-col items-start gap-3 md:w-80 md:flex-row md:items-center">
+            <div className="flex flex-col items-start gap-2.5 md:w-80 md:flex-row md:items-center">
               <OperatorLogo logo={op.logo} name={op.name} index={idx} officialUrl={op.officialUrl} />
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="font-serif text-xl md:text-lg">{op.name}</h3>
+                  <h3 className="font-serif text-lg md:text-lg">{op.name}</h3>
                   {getCasinoMeta(op.slug) ? (
                     <RatingBadge rating={getCasinoMeta(op.slug)!.rating} size="sm" />
                   ) : null}
                 </div>
-                <p className="text-[11px] uppercase tracking-wider text-muted-foreground">
+                <p className="text-[10px] uppercase tracking-wider text-muted-foreground">
                   {op.concessionN}
                 </p>
-                <div className="mt-2">
+                <div className="mt-1.5">
                   <CasinoBadges slug={op.slug} />
                 </div>
-                <p className="mt-2 text-[13px] leading-relaxed text-muted-foreground md:text-xs">
+                <p className="mt-1.5 text-[13px] leading-snug text-muted-foreground md:text-xs">
                   {getCasinoMeta(op.slug)?.short}
                 </p>
-                <div className="mt-2">
+                <div className="mt-1.5">
                   <OperatorTrustDots name={op.name} />
                 </div>
               </div>
@@ -770,7 +770,7 @@ function OperatorsSection() {
 
 
 
-            <div className="grid gap-3 md:grid-cols-3">
+            <div className="grid gap-2.5 md:gap-3 md:grid-cols-3">
               <Stat label="Attivo dal" value={op.founded.toString()} />
               <Stat label="RTP medio dichiarato" value={op.rtpAverage} />
               <div>
@@ -786,29 +786,29 @@ function OperatorsSection() {
 
               <div className="md:col-span-3">
                 {op.noDepositBonus ? (
-                  <div className="mb-2 rounded-lg border border-gold/40 bg-gold/10 p-3">
+                  <div className="mb-2 rounded-lg border border-gold/40 bg-gold/10 p-2.5 md:p-3">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
+                      <span className="rounded-full bg-gold px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
                         Senza deposito
                       </span>
-                      <span className="font-serif text-xl text-gold">
+                      <span className="font-serif text-lg text-gold">
                         {op.noDepositBonus.amount}
                       </span>
                     </div>
-                    <p className="mt-2 text-xs leading-relaxed text-foreground/85">
+                    <p className="mt-1.5 text-xs leading-relaxed text-foreground/85">
                       <strong className="text-foreground">Cos'è:</strong> importo di gioco
                       riconosciuto dall'operatore senza richiedere alcun versamento iniziale.{" "}
                       <strong className="text-foreground">Come funziona:</strong>{" "}
                       {op.noDepositBonus.description}
                     </p>
-                    <p className="mt-2 text-[10px] uppercase tracking-wider text-muted-foreground">
+                    <p className="mt-1.5 text-[10px] uppercase tracking-wider text-muted-foreground">
                       Condizioni complete su sito ufficiale — Solo +18
                     </p>
                   </div>
                 ) : null}
-                <ul className="mt-1 space-y-1.5">
+                <ul className="mt-1 space-y-1">
                   {op.highlights.map((h) => (
-                    <li key={h} className="flex items-start gap-2 text-[15px] leading-relaxed text-muted-foreground md:text-sm">
+                    <li key={h} className="flex items-start gap-2 text-[14px] leading-snug text-muted-foreground md:text-sm">
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
                       {h}
                     </li>
@@ -818,19 +818,19 @@ function OperatorsSection() {
 
             </div>
 
-            <div className="flex flex-col items-stretch gap-3 md:w-52">
+            <div className="flex flex-col items-stretch gap-2.5 md:w-52 md:gap-3">
               <a
                 href={op.officialUrl}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3.5 text-base font-bold md:py-3 md:text-sm text-primary-foreground shadow-lg shadow-gold/30 transition-all hover:brightness-110 hover:shadow-xl hover:shadow-gold/40 active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-5 py-3 text-sm font-bold md:py-3 md:text-sm text-primary-foreground shadow-lg shadow-gold/30 transition-all hover:brightness-110 hover:shadow-xl hover:shadow-gold/40 active:scale-[0.98]"
               >
                 Visita il sito ufficiale
               </a>
               <Link
                 to="/operatori/$slug"
                 params={{ slug: op.slug }}
-                className="inline-flex items-center justify-center gap-1 rounded-md border border-border px-4 py-2.5 text-sm font-medium md:py-2 md:text-xs text-muted-foreground transition-colors hover:text-foreground"
+                className="inline-flex items-center justify-center gap-1 rounded-md border border-border px-3 py-2 text-sm font-medium md:py-2 md:text-xs text-muted-foreground transition-colors hover:text-foreground"
               >
                 Leggi l'analisi completa
               </Link>
@@ -842,7 +842,7 @@ function OperatorsSection() {
         ))}
       </div>
 
-      <p className="mt-6 text-xs text-muted-foreground">
+      <p className="mt-4 text-xs text-muted-foreground md:mt-6">
         Fonte: elenco pubblico dei concessionari sul sito adm.gov.it. Le informazioni sono fornite
         senza finalità promozionali ai sensi dell'art. 9 D.L. 87/2018.
       </p>
