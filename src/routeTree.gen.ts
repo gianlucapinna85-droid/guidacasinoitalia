@@ -14,6 +14,7 @@ import { Route as SlotGratisDemoRouteImport } from './routes/slot-gratis-demo'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapReviewsDotxmlRouteImport } from './routes/sitemap-reviews[.]xml'
 import { Route as SitemapGuidesDotxmlRouteImport } from './routes/sitemap-guides[.]xml'
+import { Route as QuoteLiveVsPrematchRouteImport } from './routes/quote-live-vs-prematch'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PrelieviVelociRouteImport } from './routes/prelievi-veloci'
 import { Route as NoteLegaliRouteImport } from './routes/note-legali'
@@ -58,6 +59,11 @@ const SitemapReviewsDotxmlRoute = SitemapReviewsDotxmlRouteImport.update({
 const SitemapGuidesDotxmlRoute = SitemapGuidesDotxmlRouteImport.update({
   id: '/sitemap-guides.xml',
   path: '/sitemap-guides.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuoteLiveVsPrematchRoute = QuoteLiveVsPrematchRouteImport.update({
+  id: '/quote-live-vs-prematch',
+  path: '/quote-live-vs-prematch',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -180,6 +186,7 @@ export interface FileRoutesByFullPath {
   '/note-legali': typeof NoteLegaliRoute
   '/prelievi-veloci': typeof PrelieviVelociRoute
   '/privacy': typeof PrivacyRoute
+  '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -207,6 +214,7 @@ export interface FileRoutesByTo {
   '/note-legali': typeof NoteLegaliRoute
   '/prelievi-veloci': typeof PrelieviVelociRoute
   '/privacy': typeof PrivacyRoute
+  '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -235,6 +243,7 @@ export interface FileRoutesById {
   '/note-legali': typeof NoteLegaliRoute
   '/prelievi-veloci': typeof PrelieviVelociRoute
   '/privacy': typeof PrivacyRoute
+  '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -264,6 +273,7 @@ export interface FileRouteTypes {
     | '/note-legali'
     | '/prelievi-veloci'
     | '/privacy'
+    | '/quote-live-vs-prematch'
     | '/sitemap-guides.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
@@ -291,6 +301,7 @@ export interface FileRouteTypes {
     | '/note-legali'
     | '/prelievi-veloci'
     | '/privacy'
+    | '/quote-live-vs-prematch'
     | '/sitemap-guides.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
@@ -318,6 +329,7 @@ export interface FileRouteTypes {
     | '/note-legali'
     | '/prelievi-veloci'
     | '/privacy'
+    | '/quote-live-vs-prematch'
     | '/sitemap-guides.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
@@ -346,6 +358,7 @@ export interface RootRouteChildren {
   NoteLegaliRoute: typeof NoteLegaliRoute
   PrelieviVelociRoute: typeof PrelieviVelociRoute
   PrivacyRoute: typeof PrivacyRoute
+  QuoteLiveVsPrematchRoute: typeof QuoteLiveVsPrematchRoute
   SitemapGuidesDotxmlRoute: typeof SitemapGuidesDotxmlRoute
   SitemapReviewsDotxmlRoute: typeof SitemapReviewsDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -390,6 +403,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap-guides.xml'
       fullPath: '/sitemap-guides.xml'
       preLoaderRoute: typeof SitemapGuidesDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quote-live-vs-prematch': {
+      id: '/quote-live-vs-prematch'
+      path: '/quote-live-vs-prematch'
+      fullPath: '/quote-live-vs-prematch'
+      preLoaderRoute: typeof QuoteLiveVsPrematchRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -554,6 +574,7 @@ const rootRouteChildren: RootRouteChildren = {
   NoteLegaliRoute: NoteLegaliRoute,
   PrelieviVelociRoute: PrelieviVelociRoute,
   PrivacyRoute: PrivacyRoute,
+  QuoteLiveVsPrematchRoute: QuoteLiveVsPrematchRoute,
   SitemapGuidesDotxmlRoute: SitemapGuidesDotxmlRoute,
   SitemapReviewsDotxmlRoute: SitemapReviewsDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
