@@ -412,25 +412,25 @@ const QUICK_ANSWERS: { q: string; a: string }[] = [
 function QuickAnswersSection() {
   return (
     <section id="risposte-rapide" className="border-t border-border bg-card/30">
-      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-9 md:py-16">
-        <h2 className="font-serif text-2xl font-semibold md:text-3xl">
+      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-6 md:py-16">
+        <h2 className="font-serif text-lg font-semibold md:text-3xl">
           Risposte rapide sui casinò ADM in Italia
         </h2>
-        <p className="mt-2 line-clamp-3 text-[13px] leading-snug text-muted-foreground md:line-clamp-none md:mt-3 md:text-sm">
+        <p className="mt-1.5 line-clamp-3 text-[12px] leading-snug text-muted-foreground md:line-clamp-none md:mt-3 md:text-sm">
           Sintesi verificabile delle domande più frequenti su gioco legale, concessioni e bonus senza
           deposito, redatta per essere consultata rapidamente da lettori, motori di ricerca e assistenti
           basati su intelligenza artificiale.
         </p>
 
         {/* mobile: slider orizzontale */}
-        <dl className="mt-4 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <dl className="mt-3 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {QUICK_ANSWERS.map((item) => (
             <div
               key={item.q}
-              className="w-[82%] shrink-0 snap-start rounded-xl border border-border bg-background/60 p-3.5"
+              className="w-[82%] shrink-0 snap-start rounded-xl border border-border bg-background/60 p-3"
             >
-              <dt className="text-[13px] font-semibold leading-snug text-foreground">{item.q}</dt>
-              <dd className="mt-2 text-[12.5px] leading-relaxed text-muted-foreground">{item.a}</dd>
+              <dt className="text-[12px] font-semibold leading-snug text-foreground">{item.q}</dt>
+              <dd className="mt-1.5 text-[12px] leading-relaxed text-muted-foreground">{item.a}</dd>
             </div>
           ))}
         </dl>
@@ -444,7 +444,7 @@ function QuickAnswersSection() {
             </div>
           ))}
         </dl>
-        <p className="mt-6 text-xs text-muted-foreground">
+        <p className="mt-4 text-xs text-muted-foreground md:mt-6">
           Fonti: Agenzia delle Dogane e dei Monopoli (adm.gov.it), siti ufficiali dei concessionari,
           D.L. 87/2018. Il gioco è vietato ai minori di 18 anni e può causare dipendenza patologica.
         </p>
@@ -459,25 +459,25 @@ function QuickAnswersSection() {
 function SeoGuideSection() {
   return (
     <section className="border-t border-border bg-card/30">
-      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-16 md:py-20">
-        <p className="text-xs uppercase tracking-widest text-gold">Approfondimento</p>
-        <h2 className="mt-2 font-serif text-3xl md:text-4xl">
+      <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-8 md:py-20">
+        <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Approfondimento</p>
+        <h2 className="mt-1.5 font-serif text-xl md:text-4xl">
           Guida completa ai portali di gioco legali in Italia: sicurezza, pagamenti e normativa
         </h2>
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+        <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground md:mt-4 md:text-sm">
           Un quadro dettagliato su come funzionano i casinò online autorizzati dall'Agenzia delle
           Dogane e dei Monopoli, con approfondimenti tecnici, giuridici e operativi. Espandi le
           sezioni per consultare i singoli capitoli.
         </p>
 
-        <div className="mt-6 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:mt-8 md:mx-0 md:block md:divide-y md:divide-border md:overflow-visible md:rounded-xl md:border md:border-border md:bg-background md:px-0 md:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="mt-4 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:mt-8 md:mx-0 md:block md:divide-y md:divide-border md:overflow-visible md:rounded-xl md:border md:border-border md:bg-background md:px-0 md:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {SEO_GUIDE.map((item) => (
-            <details key={item.h3} className="group w-[80%] shrink-0 snap-start rounded-xl border border-border bg-background p-5 md:w-auto md:rounded-none md:border-0 md:p-6 [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-base font-medium text-foreground">
-                <h3 className="font-serif text-lg">{item.h3}</h3>
+            <details key={item.h3} className="group w-[80%] shrink-0 snap-start rounded-xl border border-border bg-background p-4 md:w-auto md:rounded-none md:border-0 md:p-6 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between gap-4 text-[15px] font-medium text-foreground md:text-base">
+                <h3 className="font-serif text-base md:text-lg">{item.h3}</h3>
                 <span className="text-gold transition-transform group-open:rotate-45">+</span>
               </summary>
-              <div className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
+              <div className="mt-3 space-y-2.5 text-[13px] leading-relaxed text-muted-foreground md:mt-4 md:space-y-3 md:text-sm">
                 {item.body.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
@@ -487,7 +487,7 @@ function SeoGuideSection() {
         </div>
 
 
-        <p className="mt-8 text-xs text-muted-foreground">
+        <p className="mt-5 text-xs text-muted-foreground md:mt-8">
           Contenuto informativo redatto sulla base di fonti pubbliche (adm.gov.it, normativa
           vigente, siti ufficiali dei concessionari). Nessuna finalità promozionale ai sensi
           dell'art. 9 D.L. 87/2018.
@@ -542,19 +542,19 @@ const SEO_GUIDE: { h3: string; body: string[] }[] = [
 function LegalInfoSection() {
   return (
     <section id="informazioni-legali" className="border-y border-border bg-card/40">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-12">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-4 md:py-12">
         <details className="group">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-3">
             <div>
-              <p className="text-xs uppercase tracking-widest text-gold">Conformità e tutela</p>
-              <h2 className="mt-1 font-serif text-lg md:text-2xl">
+              <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Conformità e tutela</p>
+              <h2 className="mt-1 font-serif text-base md:text-2xl">
                 Informazioni legali e gioco responsabile
               </h2>
             </div>
             <ArrowRight className="h-4 w-4 shrink-0 text-gold transition-transform group-open:rotate-90" />
           </summary>
 
-          <div className="mt-3 space-y-2.5 text-sm text-muted-foreground md:mt-4 md:space-y-3">
+          <div className="mt-3 space-y-2 text-[13px] text-muted-foreground md:mt-4 md:space-y-3 md:text-sm">
             <p>
               GuidaCasinò.IT elenca esclusivamente concessionari ADM (ex AAMS) e riporta i
               riferimenti ufficiali per la tutela del giocatore. L'accesso ai giochi con vincite in
