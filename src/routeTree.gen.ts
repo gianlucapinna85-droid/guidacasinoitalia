@@ -22,6 +22,7 @@ import { Route as MiglioriCasinoOnlineRouteImport } from './routes/migliori-casi
 import { Route as MetodiPagamentoCasinoRouteImport } from './routes/metodi-pagamento-casino'
 import { Route as GuidaRtpRouteImport } from './routes/guida-rtp'
 import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabile'
+import { Route as GestioneBankrollRouteImport } from './routes/gestione-bankroll'
 import { Route as ComeValutiamoICasinoRouteImport } from './routes/come-valutiamo-i-casino'
 import { Route as ComeRegistrarsiRouteImport } from './routes/come-registrarsi'
 import { Route as ComeLeggereQuoteCalcioRouteImport } from './routes/come-leggere-quote-calcio'
@@ -99,6 +100,11 @@ const GuidaRtpRoute = GuidaRtpRouteImport.update({
 const GiocoResponsabileRoute = GiocoResponsabileRouteImport.update({
   id: '/gioco-responsabile',
   path: '/gioco-responsabile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GestioneBankrollRoute = GestioneBankrollRouteImport.update({
+  id: '/gestione-bankroll',
+  path: '/gestione-bankroll',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComeValutiamoICasinoRoute = ComeValutiamoICasinoRouteImport.update({
@@ -179,6 +185,7 @@ export interface FileRoutesByFullPath {
   '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
+  '/gestione-bankroll': typeof GestioneBankrollRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-rtp': typeof GuidaRtpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
@@ -207,6 +214,7 @@ export interface FileRoutesByTo {
   '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
+  '/gestione-bankroll': typeof GestioneBankrollRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-rtp': typeof GuidaRtpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
@@ -236,6 +244,7 @@ export interface FileRoutesById {
   '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
+  '/gestione-bankroll': typeof GestioneBankrollRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-rtp': typeof GuidaRtpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
@@ -266,6 +275,7 @@ export interface FileRouteTypes {
     | '/come-leggere-quote-calcio'
     | '/come-registrarsi'
     | '/come-valutiamo-i-casino'
+    | '/gestione-bankroll'
     | '/gioco-responsabile'
     | '/guida-rtp'
     | '/metodi-pagamento-casino'
@@ -294,6 +304,7 @@ export interface FileRouteTypes {
     | '/come-leggere-quote-calcio'
     | '/come-registrarsi'
     | '/come-valutiamo-i-casino'
+    | '/gestione-bankroll'
     | '/gioco-responsabile'
     | '/guida-rtp'
     | '/metodi-pagamento-casino'
@@ -322,6 +333,7 @@ export interface FileRouteTypes {
     | '/come-leggere-quote-calcio'
     | '/come-registrarsi'
     | '/come-valutiamo-i-casino'
+    | '/gestione-bankroll'
     | '/gioco-responsabile'
     | '/guida-rtp'
     | '/metodi-pagamento-casino'
@@ -351,6 +363,7 @@ export interface RootRouteChildren {
   ComeLeggereQuoteCalcioRoute: typeof ComeLeggereQuoteCalcioRoute
   ComeRegistrarsiRoute: typeof ComeRegistrarsiRoute
   ComeValutiamoICasinoRoute: typeof ComeValutiamoICasinoRoute
+  GestioneBankrollRoute: typeof GestioneBankrollRoute
   GiocoResponsabileRoute: typeof GiocoResponsabileRoute
   GuidaRtpRoute: typeof GuidaRtpRoute
   MetodiPagamentoCasinoRoute: typeof MetodiPagamentoCasinoRoute
@@ -461,6 +474,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GiocoResponsabileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gestione-bankroll': {
+      id: '/gestione-bankroll'
+      path: '/gestione-bankroll'
+      fullPath: '/gestione-bankroll'
+      preLoaderRoute: typeof GestioneBankrollRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/come-valutiamo-i-casino': {
       id: '/come-valutiamo-i-casino'
       path: '/come-valutiamo-i-casino'
@@ -567,6 +587,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComeLeggereQuoteCalcioRoute: ComeLeggereQuoteCalcioRoute,
   ComeRegistrarsiRoute: ComeRegistrarsiRoute,
   ComeValutiamoICasinoRoute: ComeValutiamoICasinoRoute,
+  GestioneBankrollRoute: GestioneBankrollRoute,
   GiocoResponsabileRoute: GiocoResponsabileRoute,
   GuidaRtpRoute: GuidaRtpRoute,
   MetodiPagamentoCasinoRoute: MetodiPagamentoCasinoRoute,
