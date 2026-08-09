@@ -664,21 +664,21 @@ function Hero() {
             Portale informativo indipendente
           </div>
           <h1 className="mt-1.5 font-serif text-[1.25rem] leading-[1.05] md:mt-6 md:text-6xl">
-            Guida Casino Italia 2026{" "}
+            Migliori Casino Online ADM in Italia{" "}
             <span className="block text-gold md:inline">
-              migliori casinò online con concessione ADM
+              recensioni, bonus e guide di Guida Casinò Italia
             </span>
           </h1>
           <CurrentMonthBadge />
           <div className="mt-1.5 max-w-2xl md:mt-6">
             <p
-              className={`text-[13px] leading-[1.35] text-muted-foreground md:text-lg md:leading-normal ${expanded ? "" : "line-clamp-2 md:line-clamp-none"}`}
+              className={`text-[13px] leading-[1.35] text-muted-foreground md:text-lg md:leading-normal ${expanded ? "" : "line-clamp-3 md:line-clamp-none"}`}
             >
-              Guida Casino Italia è una guida indipendente ai migliori casinò online ADM disponibili
-              in Italia, con recensioni verificate, bonus aggiornati e confronti tra i principali
-              operatori legali. Raccogliamo dati su casinò ADM, bonus senza deposito e recensioni
-              AAMS degli operatori titolari di concessione dell'Agenzia delle Dogane e dei Monopoli:
-              non offriamo servizi di gioco, non promuoviamo bonus e non incoraggiamo la
+              Guida Casinò Italia confronta i casino online ADM più affidabili in Italia: recensioni
+              complete, bonus di benvenuto, slot machine, roulette e blackjack. Le recensioni di
+              Guida Casinò Italia sono aggiornate quotidianamente su dati pubblici e riguardano
+              esclusivamente operatori titolari di concessione dell'Agenzia delle Dogane e dei
+              Monopoli: non offriamo servizi di gioco, non promuoviamo bonus e non incoraggiamo la
               partecipazione a giochi con vincite in denaro.
             </p>
             <button
