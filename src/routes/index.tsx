@@ -410,6 +410,16 @@ function HomeBlocksSection() {
         <h2 className="mt-1 font-serif text-lg md:text-4xl">
           Casino ADM, bonus, slot e tavoli: da dove iniziare
         </h2>
+        <p className="mt-2 text-[12px] text-muted-foreground md:text-sm">
+          Parti dal contenuto pilastro:{" "}
+          <Link
+            to="/guida-casino-online-italia"
+            className="font-semibold text-gold underline underline-offset-4"
+          >
+            Guida Casino Online Italia
+          </Link>
+          .
+        </p>
         <div className="mt-3 grid grid-cols-2 gap-2.5 md:mt-8 md:grid-cols-3 md:gap-4">
           {HOME_BLOCKS.map((b) => (
             <Link

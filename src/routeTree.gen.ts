@@ -31,6 +31,7 @@ import { Route as MiglioriCasinoOnlineAdmRouteImport } from './routes/migliori-c
 import { Route as MiglioriCasinoOnlineRouteImport } from './routes/migliori-casino-online'
 import { Route as MetodiPagamentoCasinoRouteImport } from './routes/metodi-pagamento-casino'
 import { Route as GuidaRtpRouteImport } from './routes/guida-rtp'
+import { Route as GuidaCasinoOnlineItaliaRouteImport } from './routes/guida-casino-online-italia'
 import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabile'
 import { Route as GestioneBankrollRouteImport } from './routes/gestione-bankroll'
 import { Route as ComeValutiamoICasinoRouteImport } from './routes/come-valutiamo-i-casino'
@@ -164,6 +165,11 @@ const MetodiPagamentoCasinoRoute = MetodiPagamentoCasinoRouteImport.update({
 const GuidaRtpRoute = GuidaRtpRouteImport.update({
   id: '/guida-rtp',
   path: '/guida-rtp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidaCasinoOnlineItaliaRoute = GuidaCasinoOnlineItaliaRouteImport.update({
+  id: '/guida-casino-online-italia',
+  path: '/guida-casino-online-italia',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GiocoResponsabileRoute = GiocoResponsabileRouteImport.update({
@@ -305,6 +311,7 @@ export interface FileRoutesByFullPath {
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
   '/gestione-bankroll': typeof GestioneBankrollRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
+  '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
   '/guida-rtp': typeof GuidaRtpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
@@ -352,6 +359,7 @@ export interface FileRoutesByTo {
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
   '/gestione-bankroll': typeof GestioneBankrollRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
+  '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
   '/guida-rtp': typeof GuidaRtpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
@@ -400,6 +408,7 @@ export interface FileRoutesById {
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
   '/gestione-bankroll': typeof GestioneBankrollRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
+  '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
   '/guida-rtp': typeof GuidaRtpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
@@ -449,6 +458,7 @@ export interface FileRouteTypes {
     | '/come-valutiamo-i-casino'
     | '/gestione-bankroll'
     | '/gioco-responsabile'
+    | '/guida-casino-online-italia'
     | '/guida-rtp'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
@@ -496,6 +506,7 @@ export interface FileRouteTypes {
     | '/come-valutiamo-i-casino'
     | '/gestione-bankroll'
     | '/gioco-responsabile'
+    | '/guida-casino-online-italia'
     | '/guida-rtp'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
@@ -543,6 +554,7 @@ export interface FileRouteTypes {
     | '/come-valutiamo-i-casino'
     | '/gestione-bankroll'
     | '/gioco-responsabile'
+    | '/guida-casino-online-italia'
     | '/guida-rtp'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
@@ -591,6 +603,7 @@ export interface RootRouteChildren {
   ComeValutiamoICasinoRoute: typeof ComeValutiamoICasinoRoute
   GestioneBankrollRoute: typeof GestioneBankrollRoute
   GiocoResponsabileRoute: typeof GiocoResponsabileRoute
+  GuidaCasinoOnlineItaliaRoute: typeof GuidaCasinoOnlineItaliaRoute
   GuidaRtpRoute: typeof GuidaRtpRoute
   MetodiPagamentoCasinoRoute: typeof MetodiPagamentoCasinoRoute
   MiglioriCasinoOnlineRoute: typeof MiglioriCasinoOnlineRoute
@@ -773,6 +786,13 @@ declare module '@tanstack/react-router' {
       path: '/guida-rtp'
       fullPath: '/guida-rtp'
       preLoaderRoute: typeof GuidaRtpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guida-casino-online-italia': {
+      id: '/guida-casino-online-italia'
+      path: '/guida-casino-online-italia'
+      fullPath: '/guida-casino-online-italia'
+      preLoaderRoute: typeof GuidaCasinoOnlineItaliaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gioco-responsabile': {
@@ -959,6 +979,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComeValutiamoICasinoRoute: ComeValutiamoICasinoRoute,
   GestioneBankrollRoute: GestioneBankrollRoute,
   GiocoResponsabileRoute: GiocoResponsabileRoute,
+  GuidaCasinoOnlineItaliaRoute: GuidaCasinoOnlineItaliaRoute,
   GuidaRtpRoute: GuidaRtpRoute,
   MetodiPagamentoCasinoRoute: MetodiPagamentoCasinoRoute,
   MiglioriCasinoOnlineRoute: MiglioriCasinoOnlineRoute,
@@ -989,3 +1010,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
