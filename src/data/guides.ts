@@ -12,6 +12,14 @@ export type Guide = {
 
 export const guides: Guide[] = [
   {
+    path: "/guida-casino-online-italia",
+    title: "Guida casino online Italia",
+    description:
+      "Guida completa ai casino online ADM: bonus, slot, roulette, blackjack e recensioni affidabili.",
+    changefreq: "weekly",
+    priority: "1.0",
+  },
+  {
     path: "/migliori-casino-online-adm",
     title: "Migliori casino online ADM",
     description: "Migliori casino online ADM e casino online autorizzati: criteri verificabili e tutele.",
