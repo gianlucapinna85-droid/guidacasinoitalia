@@ -59,8 +59,8 @@ const FAQS = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Guida Casino Italia | Migliori Casinò Online ADM, Bonus e Slot Aggiornate 2026" },
-      { name: "description", content: "Migliori casinò online ADM e casinò online sicuri in Italia: bonus casinò senza deposito, bonus benvenuto casinò 2026, slot online affidabili, recensioni casinò ADM e guide casinò online." },
+      { title: "Guida Casinò Italia | Migliori Casino Online ADM, Bonus e Recensioni 2026" },
+      { name: "description", content: "Guida Casinò Italia confronta i migliori casino online ADM in Italia con bonus di benvenuto, recensioni complete, slot machine, roulette, blackjack e guide aggiornate per giocare in modo sicuro e responsabile." },
 
       { name: "keywords", content: "migliori casino online adm, bonus casino senza deposito, casino online sicuri italia, slot online affidabili, guide casino online, recensioni casino adm, bonus benvenuto casino 2026, casino adm, casino aams, bonus senza deposito, bonus senza deposito immediato, casino online sicuri, casino online italiani, migliori casino online 2026, concessione adm, gioco legale italia, casino con spid, come verificare licenza adm, casino legali italia elenco, quali sono i casino con concessione adm" },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
@@ -71,16 +71,16 @@ export const Route = createFileRoute("/")({
       { name: "geo.region", content: "IT" },
       { name: "language", content: "it-IT" },
       { name: "author", content: "GuidaCasinò.IT" },
-      { property: "og:title", content: "Guida Casino Italia | Migliori Casinò Online ADM, Bonus e Slot Aggiornate 2026" },
-      { property: "og:description", content: "Migliori casinò online ADM e casinò online sicuri in Italia: bonus casinò senza deposito, bonus benvenuto casinò 2026, slot online affidabili, recensioni casinò ADM e guide casinò online." },
+      { property: "og:title", content: "Guida Casinò Italia | Migliori Casino Online ADM, Bonus e Recensioni 2026" },
+      { property: "og:description", content: "Guida Casinò Italia confronta i migliori casino online ADM in Italia con bonus di benvenuto, recensioni complete, slot machine, roulette, blackjack e guide aggiornate per giocare in modo sicuro e responsabile." },
 
       { property: "og:url", content: "https://www.guidacasino-italia.it/" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "it_IT" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:url", content: "https://www.guidacasino-italia.it/" },
-      { name: "twitter:title", content: "Guida Casino Italia | Migliori Casinò Online ADM, Bonus e Slot Aggiornate 2026" },
-      { name: "twitter:description", content: "Migliori casinò online ADM e casinò online sicuri in Italia: bonus casinò senza deposito, bonus benvenuto casinò 2026, slot online affidabili, recensioni casinò ADM e guide casinò online." },
+      { name: "twitter:title", content: "Guida Casinò Italia | Migliori Casino Online ADM, Bonus e Recensioni 2026" },
+      { name: "twitter:description", content: "Guida Casinò Italia confronta i migliori casino online ADM in Italia con bonus di benvenuto, recensioni complete, slot machine, roulette, blackjack e guide aggiornate per giocare in modo sicuro e responsabile." },
 
 
     ],
