@@ -463,6 +463,7 @@ function HomePage() {
     <PageShell>
       <Hero />
       <ComparisonTable />
+      <HomeBlocksSection />
       <TopicsSection />
       <OperatorsSection />
       <BrandIntroSection />
