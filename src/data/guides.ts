@@ -258,6 +258,48 @@ export const guides: Guide[] = [
     changefreq: "weekly",
     priority: "0.8",
   },
+  {
+    path: "/scommesse-sportive-online-adm",
+    title: "Scommesse sportive online ADM",
+    description: "Come funzionano le scommesse sportive online sui siti con concessione ADM: quote, mercati e tutele.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
+    path: "/migliori-siti-scommesse-adm",
+    title: "Migliori siti scommesse ADM",
+    description: "Criteri di confronto tra i migliori siti scommesse ADM: margine sulle quote, prelievi e app.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
+    path: "/pronostici-calcio-come-analizzare",
+    title: "Pronostici calcio: come analizzare",
+    description: "Metodo per analizzare una partita di calcio: expected goals, contesto e probabilità implicita.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
+    path: "/scommesse-live-come-funzionano",
+    title: "Scommesse live: come funzionano",
+    description: "Quote in tempo reale, ritardo del segnale, cash out e rischi specifici delle scommesse live.",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
+  {
+    path: "/scommesse-serie-a-guida",
+    title: "Scommesse Serie A: mercati e statistiche",
+    description: "Mercati, quote e statistiche da valutare sulla Serie A, con lettura del margine del bookmaker.",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
+  {
+    path: "/casino-o-scommesse-sportive",
+    title: "Casinò online o scommesse sportive",
+    description: "Differenze tra casinò online e scommesse sportive: RTP, margine, ruolo dell'analisi e tutele.",
+    changefreq: "monthly",
+    priority: "0.8",
+  },
 ];
 
 
