@@ -366,6 +366,72 @@ const TOPICS = [
   { to: "/migliori-casino-online" as const, label: "Recensioni Casinò", text: "Schede operatore con concessione, pagamenti e catalogo." },
 ];
 
+/** Blocchi SEO tematici della home (casinò, bonus, slot, tavoli, guide, news). */
+const HOME_BLOCKS = [
+  {
+    to: "/migliori-casino-online-adm" as const,
+    title: "Migliori Casino ADM Oggi",
+    text: "I casino online autorizzati ADM confrontati da Guida Casinò Italia su concessione, catalogo e tutele.",
+  },
+  {
+    to: "/bonus-casino-online-senza-deposito" as const,
+    title: "Bonus Casino Più Convenienti",
+    text: "Come si leggono davvero le condizioni: requisiti di puntata, scadenze e limiti di conversione.",
+  },
+  {
+    to: "/slot-online-soldi-veri" as const,
+    title: "Slot Più Giocate del Momento",
+    text: "Slot online soldi veri sui concessionari ADM: RNG certificato, RTP, volatilità e provider.",
+  },
+  {
+    to: "/roulette-online-italia" as const,
+    title: "Roulette e Blackjack Online",
+    text: "Varianti, regole e margine del banco su roulette online Italia e blackjack online ADM.",
+  },
+  {
+    to: "/casino-online-principianti" as const,
+    title: "Guide per Principianti",
+    text: "Conto di gioco, limiti di spesa, RTP e primi errori da evitare, spiegati passo per passo.",
+  },
+  {
+    to: "/news" as const,
+    title: "Ultime News Casino Online",
+    text: "Aggiornamenti su normativa ADM, nuovi metodi di pagamento, slot e condizioni dei bonus.",
+  },
+];
+
+function HomeBlocksSection() {
+  return (
+    <section id="sezioni-seo" className="border-t border-border bg-card/30">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-16">
+        <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">
+          Guida Casinò Italia
+        </p>
+        <h2 className="mt-1 font-serif text-lg md:text-4xl">
+          Casino ADM, bonus, slot e tavoli: da dove iniziare
+        </h2>
+        <div className="mt-3 grid grid-cols-2 gap-2.5 md:mt-8 md:grid-cols-3 md:gap-4">
+          {HOME_BLOCKS.map((b) => (
+            <Link
+              key={b.to}
+              to={b.to}
+              className="flex flex-col rounded-xl border border-border bg-card p-2.5 transition-colors hover:border-gold/50 md:p-5"
+            >
+              <h3 className="font-serif text-[14px] text-gold md:text-lg">{b.title}</h3>
+              <p className="mt-1 line-clamp-3 text-[12px] leading-snug text-muted-foreground md:text-sm">
+                {b.text}
+              </p>
+              <span className="mt-2 inline-flex w-fit items-center gap-1 text-[11px] font-semibold text-gold md:text-xs">
+                Approfondisci <ArrowRight className="h-3 w-3" />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function TopicsSection() {
   return (
     <section id="sezioni" className="border-t border-border">
