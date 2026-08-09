@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VerificareLicenzaAdmRouteImport } from './routes/verificare-licenza-adm'
 import { Route as SlotRtpAltoRouteImport } from './routes/slot-rtp-alto'
+import { Route as SlotOnlineSoldiVeriRouteImport } from './routes/slot-online-soldi-veri'
 import { Route as SlotOnlineRouteImport } from './routes/slot-online'
 import { Route as SlotGratisDemoRouteImport } from './routes/slot-gratis-demo'
 import { Route as SlotAltaVolatilitaRouteImport } from './routes/slot-alta-volatilita'
@@ -18,6 +19,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapReviewsDotxmlRouteImport } from './routes/sitemap-reviews[.]xml'
 import { Route as SitemapNewsDotxmlRouteImport } from './routes/sitemap-news[.]xml'
 import { Route as SitemapGuidesDotxmlRouteImport } from './routes/sitemap-guides[.]xml'
+import { Route as RouletteOnlineItaliaRouteImport } from './routes/roulette-online-italia'
 import { Route as RequisitiScommessaBonusRouteImport } from './routes/requisiti-scommessa-bonus'
 import { Route as QuoteLiveVsPrematchRouteImport } from './routes/quote-live-vs-prematch'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -25,6 +27,7 @@ import { Route as PrelieviVelociRouteImport } from './routes/prelievi-veloci'
 import { Route as PagamentiSicuriCasinoRouteImport } from './routes/pagamenti-sicuri-casino'
 import { Route as OperatoriCasinoEScommesseRouteImport } from './routes/operatori-casino-e-scommesse'
 import { Route as NoteLegaliRouteImport } from './routes/note-legali'
+import { Route as MiglioriCasinoOnlineAdmRouteImport } from './routes/migliori-casino-online-adm'
 import { Route as MiglioriCasinoOnlineRouteImport } from './routes/migliori-casino-online'
 import { Route as MetodiPagamentoCasinoRouteImport } from './routes/metodi-pagamento-casino'
 import { Route as GuidaRtpRouteImport } from './routes/guida-rtp'
@@ -43,7 +46,9 @@ import { Route as CasinoLiveRouteImport } from './routes/casino-live'
 import { Route as CasinoAdmVsEsteriRouteImport } from './routes/casino-adm-vs-esteri'
 import { Route as BonusSenzaDepositoRouteImport } from './routes/bonus-senza-deposito'
 import { Route as BonusScommesseSportiveRouteImport } from './routes/bonus-scommesse-sportive'
+import { Route as BonusCasinoOnlineSenzaDepositoRouteImport } from './routes/bonus-casino-online-senza-deposito'
 import { Route as BonusBenvenutoCasinoRouteImport } from './routes/bonus-benvenuto-casino'
+import { Route as BlackjackOnlineItaliaRouteImport } from './routes/blackjack-online-italia'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
@@ -58,6 +63,11 @@ const VerificareLicenzaAdmRoute = VerificareLicenzaAdmRouteImport.update({
 const SlotRtpAltoRoute = SlotRtpAltoRouteImport.update({
   id: '/slot-rtp-alto',
   path: '/slot-rtp-alto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SlotOnlineSoldiVeriRoute = SlotOnlineSoldiVeriRouteImport.update({
+  id: '/slot-online-soldi-veri',
+  path: '/slot-online-soldi-veri',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SlotOnlineRoute = SlotOnlineRouteImport.update({
@@ -95,6 +105,11 @@ const SitemapGuidesDotxmlRoute = SitemapGuidesDotxmlRouteImport.update({
   path: '/sitemap-guides.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RouletteOnlineItaliaRoute = RouletteOnlineItaliaRouteImport.update({
+  id: '/roulette-online-italia',
+  path: '/roulette-online-italia',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RequisitiScommessaBonusRoute = RequisitiScommessaBonusRouteImport.update({
   id: '/requisiti-scommessa-bonus',
   path: '/requisiti-scommessa-bonus',
@@ -129,6 +144,11 @@ const OperatoriCasinoEScommesseRoute =
 const NoteLegaliRoute = NoteLegaliRouteImport.update({
   id: '/note-legali',
   path: '/note-legali',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MiglioriCasinoOnlineAdmRoute = MiglioriCasinoOnlineAdmRouteImport.update({
+  id: '/migliori-casino-online-adm',
+  path: '/migliori-casino-online-adm',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MiglioriCasinoOnlineRoute = MiglioriCasinoOnlineRouteImport.update({
@@ -223,9 +243,20 @@ const BonusScommesseSportiveRoute = BonusScommesseSportiveRouteImport.update({
   path: '/bonus-scommesse-sportive',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BonusCasinoOnlineSenzaDepositoRoute =
+  BonusCasinoOnlineSenzaDepositoRouteImport.update({
+    id: '/bonus-casino-online-senza-deposito',
+    path: '/bonus-casino-online-senza-deposito',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const BonusBenvenutoCasinoRoute = BonusBenvenutoCasinoRouteImport.update({
   id: '/bonus-benvenuto-casino',
   path: '/bonus-benvenuto-casino',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlackjackOnlineItaliaRoute = BlackjackOnlineItaliaRouteImport.update({
+  id: '/blackjack-online-italia',
+  path: '/blackjack-online-italia',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -256,7 +287,9 @@ const NewsSlugRoute = NewsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
+  '/bonus-casino-online-senza-deposito': typeof BonusCasinoOnlineSenzaDepositoRoute
   '/bonus-scommesse-sportive': typeof BonusScommesseSportiveRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/casino-adm-vs-esteri': typeof CasinoAdmVsEsteriRoute
@@ -275,6 +308,7 @@ export interface FileRoutesByFullPath {
   '/guida-rtp': typeof GuidaRtpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
+  '/migliori-casino-online-adm': typeof MiglioriCasinoOnlineAdmRoute
   '/note-legali': typeof NoteLegaliRoute
   '/operatori-casino-e-scommesse': typeof OperatoriCasinoEScommesseRoute
   '/pagamenti-sicuri-casino': typeof PagamentiSicuriCasinoRoute
@@ -282,6 +316,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
   '/requisiti-scommessa-bonus': typeof RequisitiScommessaBonusRoute
+  '/roulette-online-italia': typeof RouletteOnlineItaliaRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap-news.xml': typeof SitemapNewsDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
@@ -289,6 +324,7 @@ export interface FileRoutesByFullPath {
   '/slot-alta-volatilita': typeof SlotAltaVolatilitaRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
+  '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
   '/news/$slug': typeof NewsSlugRoute
@@ -298,7 +334,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
+  '/bonus-casino-online-senza-deposito': typeof BonusCasinoOnlineSenzaDepositoRoute
   '/bonus-scommesse-sportive': typeof BonusScommesseSportiveRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/casino-adm-vs-esteri': typeof CasinoAdmVsEsteriRoute
@@ -317,6 +355,7 @@ export interface FileRoutesByTo {
   '/guida-rtp': typeof GuidaRtpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
+  '/migliori-casino-online-adm': typeof MiglioriCasinoOnlineAdmRoute
   '/note-legali': typeof NoteLegaliRoute
   '/operatori-casino-e-scommesse': typeof OperatoriCasinoEScommesseRoute
   '/pagamenti-sicuri-casino': typeof PagamentiSicuriCasinoRoute
@@ -324,6 +363,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
   '/requisiti-scommessa-bonus': typeof RequisitiScommessaBonusRoute
+  '/roulette-online-italia': typeof RouletteOnlineItaliaRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap-news.xml': typeof SitemapNewsDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
@@ -331,6 +371,7 @@ export interface FileRoutesByTo {
   '/slot-alta-volatilita': typeof SlotAltaVolatilitaRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
+  '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
   '/news/$slug': typeof NewsSlugRoute
@@ -341,7 +382,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
+  '/bonus-casino-online-senza-deposito': typeof BonusCasinoOnlineSenzaDepositoRoute
   '/bonus-scommesse-sportive': typeof BonusScommesseSportiveRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/casino-adm-vs-esteri': typeof CasinoAdmVsEsteriRoute
@@ -360,6 +403,7 @@ export interface FileRoutesById {
   '/guida-rtp': typeof GuidaRtpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
+  '/migliori-casino-online-adm': typeof MiglioriCasinoOnlineAdmRoute
   '/note-legali': typeof NoteLegaliRoute
   '/operatori-casino-e-scommesse': typeof OperatoriCasinoEScommesseRoute
   '/pagamenti-sicuri-casino': typeof PagamentiSicuriCasinoRoute
@@ -367,6 +411,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
   '/requisiti-scommessa-bonus': typeof RequisitiScommessaBonusRoute
+  '/roulette-online-italia': typeof RouletteOnlineItaliaRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap-news.xml': typeof SitemapNewsDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
@@ -374,6 +419,7 @@ export interface FileRoutesById {
   '/slot-alta-volatilita': typeof SlotAltaVolatilitaRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
+  '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
   '/news/$slug': typeof NewsSlugRoute
@@ -385,7 +431,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/blackjack-online-italia'
     | '/bonus-benvenuto-casino'
+    | '/bonus-casino-online-senza-deposito'
     | '/bonus-scommesse-sportive'
     | '/bonus-senza-deposito'
     | '/casino-adm-vs-esteri'
@@ -404,6 +452,7 @@ export interface FileRouteTypes {
     | '/guida-rtp'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
+    | '/migliori-casino-online-adm'
     | '/note-legali'
     | '/operatori-casino-e-scommesse'
     | '/pagamenti-sicuri-casino'
@@ -411,6 +460,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/quote-live-vs-prematch'
     | '/requisiti-scommessa-bonus'
+    | '/roulette-online-italia'
     | '/sitemap-guides.xml'
     | '/sitemap-news.xml'
     | '/sitemap-reviews.xml'
@@ -418,6 +468,7 @@ export interface FileRouteTypes {
     | '/slot-alta-volatilita'
     | '/slot-gratis-demo'
     | '/slot-online'
+    | '/slot-online-soldi-veri'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
     | '/news/$slug'
@@ -427,7 +478,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/blackjack-online-italia'
     | '/bonus-benvenuto-casino'
+    | '/bonus-casino-online-senza-deposito'
     | '/bonus-scommesse-sportive'
     | '/bonus-senza-deposito'
     | '/casino-adm-vs-esteri'
@@ -446,6 +499,7 @@ export interface FileRouteTypes {
     | '/guida-rtp'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
+    | '/migliori-casino-online-adm'
     | '/note-legali'
     | '/operatori-casino-e-scommesse'
     | '/pagamenti-sicuri-casino'
@@ -453,6 +507,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/quote-live-vs-prematch'
     | '/requisiti-scommessa-bonus'
+    | '/roulette-online-italia'
     | '/sitemap-guides.xml'
     | '/sitemap-news.xml'
     | '/sitemap-reviews.xml'
@@ -460,6 +515,7 @@ export interface FileRouteTypes {
     | '/slot-alta-volatilita'
     | '/slot-gratis-demo'
     | '/slot-online'
+    | '/slot-online-soldi-veri'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
     | '/news/$slug'
@@ -469,7 +525,9 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/blackjack-online-italia'
     | '/bonus-benvenuto-casino'
+    | '/bonus-casino-online-senza-deposito'
     | '/bonus-scommesse-sportive'
     | '/bonus-senza-deposito'
     | '/casino-adm-vs-esteri'
@@ -488,6 +546,7 @@ export interface FileRouteTypes {
     | '/guida-rtp'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
+    | '/migliori-casino-online-adm'
     | '/note-legali'
     | '/operatori-casino-e-scommesse'
     | '/pagamenti-sicuri-casino'
@@ -495,6 +554,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/quote-live-vs-prematch'
     | '/requisiti-scommessa-bonus'
+    | '/roulette-online-italia'
     | '/sitemap-guides.xml'
     | '/sitemap-news.xml'
     | '/sitemap-reviews.xml'
@@ -502,6 +562,7 @@ export interface FileRouteTypes {
     | '/slot-alta-volatilita'
     | '/slot-gratis-demo'
     | '/slot-online'
+    | '/slot-online-soldi-veri'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
     | '/news/$slug'
@@ -512,7 +573,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlackjackOnlineItaliaRoute: typeof BlackjackOnlineItaliaRoute
   BonusBenvenutoCasinoRoute: typeof BonusBenvenutoCasinoRoute
+  BonusCasinoOnlineSenzaDepositoRoute: typeof BonusCasinoOnlineSenzaDepositoRoute
   BonusScommesseSportiveRoute: typeof BonusScommesseSportiveRoute
   BonusSenzaDepositoRoute: typeof BonusSenzaDepositoRoute
   CasinoAdmVsEsteriRoute: typeof CasinoAdmVsEsteriRoute
@@ -531,6 +594,7 @@ export interface RootRouteChildren {
   GuidaRtpRoute: typeof GuidaRtpRoute
   MetodiPagamentoCasinoRoute: typeof MetodiPagamentoCasinoRoute
   MiglioriCasinoOnlineRoute: typeof MiglioriCasinoOnlineRoute
+  MiglioriCasinoOnlineAdmRoute: typeof MiglioriCasinoOnlineAdmRoute
   NoteLegaliRoute: typeof NoteLegaliRoute
   OperatoriCasinoEScommesseRoute: typeof OperatoriCasinoEScommesseRoute
   PagamentiSicuriCasinoRoute: typeof PagamentiSicuriCasinoRoute
@@ -538,6 +602,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   QuoteLiveVsPrematchRoute: typeof QuoteLiveVsPrematchRoute
   RequisitiScommessaBonusRoute: typeof RequisitiScommessaBonusRoute
+  RouletteOnlineItaliaRoute: typeof RouletteOnlineItaliaRoute
   SitemapGuidesDotxmlRoute: typeof SitemapGuidesDotxmlRoute
   SitemapNewsDotxmlRoute: typeof SitemapNewsDotxmlRoute
   SitemapReviewsDotxmlRoute: typeof SitemapReviewsDotxmlRoute
@@ -545,6 +610,7 @@ export interface RootRouteChildren {
   SlotAltaVolatilitaRoute: typeof SlotAltaVolatilitaRoute
   SlotGratisDemoRoute: typeof SlotGratisDemoRoute
   SlotOnlineRoute: typeof SlotOnlineRoute
+  SlotOnlineSoldiVeriRoute: typeof SlotOnlineSoldiVeriRoute
   SlotRtpAltoRoute: typeof SlotRtpAltoRoute
   VerificareLicenzaAdmRoute: typeof VerificareLicenzaAdmRoute
   NewsSlugRoute: typeof NewsSlugRoute
@@ -567,6 +633,13 @@ declare module '@tanstack/react-router' {
       path: '/slot-rtp-alto'
       fullPath: '/slot-rtp-alto'
       preLoaderRoute: typeof SlotRtpAltoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/slot-online-soldi-veri': {
+      id: '/slot-online-soldi-veri'
+      path: '/slot-online-soldi-veri'
+      fullPath: '/slot-online-soldi-veri'
+      preLoaderRoute: typeof SlotOnlineSoldiVeriRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/slot-online': {
@@ -618,6 +691,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapGuidesDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/roulette-online-italia': {
+      id: '/roulette-online-italia'
+      path: '/roulette-online-italia'
+      fullPath: '/roulette-online-italia'
+      preLoaderRoute: typeof RouletteOnlineItaliaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/requisiti-scommessa-bonus': {
       id: '/requisiti-scommessa-bonus'
       path: '/requisiti-scommessa-bonus'
@@ -665,6 +745,13 @@ declare module '@tanstack/react-router' {
       path: '/note-legali'
       fullPath: '/note-legali'
       preLoaderRoute: typeof NoteLegaliRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/migliori-casino-online-adm': {
+      id: '/migliori-casino-online-adm'
+      path: '/migliori-casino-online-adm'
+      fullPath: '/migliori-casino-online-adm'
+      preLoaderRoute: typeof MiglioriCasinoOnlineAdmRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/migliori-casino-online': {
@@ -793,11 +880,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BonusScommesseSportiveRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bonus-casino-online-senza-deposito': {
+      id: '/bonus-casino-online-senza-deposito'
+      path: '/bonus-casino-online-senza-deposito'
+      fullPath: '/bonus-casino-online-senza-deposito'
+      preLoaderRoute: typeof BonusCasinoOnlineSenzaDepositoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/bonus-benvenuto-casino': {
       id: '/bonus-benvenuto-casino'
       path: '/bonus-benvenuto-casino'
       fullPath: '/bonus-benvenuto-casino'
       preLoaderRoute: typeof BonusBenvenutoCasinoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blackjack-online-italia': {
+      id: '/blackjack-online-italia'
+      path: '/blackjack-online-italia'
+      fullPath: '/blackjack-online-italia'
+      preLoaderRoute: typeof BlackjackOnlineItaliaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -840,7 +941,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlackjackOnlineItaliaRoute: BlackjackOnlineItaliaRoute,
   BonusBenvenutoCasinoRoute: BonusBenvenutoCasinoRoute,
+  BonusCasinoOnlineSenzaDepositoRoute: BonusCasinoOnlineSenzaDepositoRoute,
   BonusScommesseSportiveRoute: BonusScommesseSportiveRoute,
   BonusSenzaDepositoRoute: BonusSenzaDepositoRoute,
   CasinoAdmVsEsteriRoute: CasinoAdmVsEsteriRoute,
@@ -859,6 +962,7 @@ const rootRouteChildren: RootRouteChildren = {
   GuidaRtpRoute: GuidaRtpRoute,
   MetodiPagamentoCasinoRoute: MetodiPagamentoCasinoRoute,
   MiglioriCasinoOnlineRoute: MiglioriCasinoOnlineRoute,
+  MiglioriCasinoOnlineAdmRoute: MiglioriCasinoOnlineAdmRoute,
   NoteLegaliRoute: NoteLegaliRoute,
   OperatoriCasinoEScommesseRoute: OperatoriCasinoEScommesseRoute,
   PagamentiSicuriCasinoRoute: PagamentiSicuriCasinoRoute,
@@ -866,6 +970,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   QuoteLiveVsPrematchRoute: QuoteLiveVsPrematchRoute,
   RequisitiScommessaBonusRoute: RequisitiScommessaBonusRoute,
+  RouletteOnlineItaliaRoute: RouletteOnlineItaliaRoute,
   SitemapGuidesDotxmlRoute: SitemapGuidesDotxmlRoute,
   SitemapNewsDotxmlRoute: SitemapNewsDotxmlRoute,
   SitemapReviewsDotxmlRoute: SitemapReviewsDotxmlRoute,
@@ -873,6 +978,7 @@ const rootRouteChildren: RootRouteChildren = {
   SlotAltaVolatilitaRoute: SlotAltaVolatilitaRoute,
   SlotGratisDemoRoute: SlotGratisDemoRoute,
   SlotOnlineRoute: SlotOnlineRoute,
+  SlotOnlineSoldiVeriRoute: SlotOnlineSoldiVeriRoute,
   SlotRtpAltoRoute: SlotRtpAltoRoute,
   VerificareLicenzaAdmRoute: VerificareLicenzaAdmRoute,
   NewsSlugRoute: NewsSlugRoute,
@@ -883,13 +989,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
