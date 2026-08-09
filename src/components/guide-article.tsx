@@ -93,6 +93,141 @@ export function guideHead(cfg: GuideConfig) {
   };
 }
 
+/** Come guideHead, con in più lo schema WebPage (per le landing SEO tematiche). */
+export function guideHeadWithWebPage(cfg: GuideConfig) {
+  const base = guideHead(cfg);
+  const canonical = `${SITE_URL}${cfg.path}`;
+  return {
+    ...base,
+    scripts: [
+      ...base.scripts,
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: cfg.h1,
+          headline: cfg.h1,
+          description: cfg.description,
+          url: canonical,
+          inLanguage: "it-IT",
+          isPartOf: {
+            "@type": "WebSite",
+            name: "Guida Casinò Italia",
+            url: `${SITE_URL}/`,
+          },
+          publisher: { "@type": "Organization", name: "Guida Casinò Italia", url: `${SITE_URL}/` },
+        }),
+      },
+    ],
+  };
+}
+
+/** Tabella comparativa riutilizzabile nelle landing SEO. */
+export function SeoTable({
+  caption,
+  headers,
+  rows,
+}: {
+  caption: string;
+  headers: string[];
+  rows: string[][];
+}) {
+  return (
+    <section className="mt-10">
+      <h2 className="font-serif text-2xl">{caption}</h2>
+      <div className="mt-4 overflow-x-auto rounded-xl border border-border">
+        <table className="w-full min-w-[520px] text-left text-sm">
+          <thead className="bg-card">
+            <tr>
+              {headers.map((h) => (
+                <th key={h} className="px-3 py-2.5 text-[11px] uppercase tracking-wider text-gold">
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr key={r.join("|")} className="border-t border-border">
+                {r.map((c, i) => (
+                  <td key={i} className="px-3 py-2.5 text-muted-foreground">
+                    {c}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
+
+/** Blocco vantaggi / svantaggi. */
+export function ProsCons({ pros, cons }: { pros: string[]; cons: string[] }) {
+  return (
+    <section className="mt-10 grid gap-4 md:grid-cols-2">
+      <div className="rounded-xl border border-border bg-card p-5">
+        <h2 className="font-serif text-xl text-gold">Vantaggi</h2>
+        <ul className="mt-3 space-y-2 text-sm text-foreground/90">
+          {pros.map((p) => (
+            <li key={p} className="flex gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+              {p}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="rounded-xl border border-border bg-card p-5">
+        <h2 className="font-serif text-xl">Svantaggi e limiti</h2>
+        <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+          {cons.map((c) => (
+            <li key={c} className="flex gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground" />
+              {c}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+/** Link interni verso home e comparatore. */
+export function InternalCtaLinks() {
+  return (
+    <section className="mt-10 rounded-xl border border-gold/30 bg-gold/5 p-5">
+      <h2 className="font-serif text-xl">Continua su Guida Casinò Italia</h2>
+      <p className="mt-2 text-sm text-muted-foreground">
+        Guida Casinò Italia confronta i casino online ADM più affidabili con schede aggiornate,
+        recensioni complete e guide informative.
+      </p>
+      <div className="mt-3 flex flex-wrap gap-2 text-sm">
+        <Link
+          to="/"
+          className="rounded-full border border-gold/40 bg-gold/10 px-3 py-1.5 text-gold hover:bg-gold/20"
+        >
+          Home Guida Casinò Italia
+        </Link>
+        <Link
+          to="/"
+          hash="comparatore"
+          className="rounded-full border border-gold/40 bg-gold/10 px-3 py-1.5 text-gold hover:bg-gold/20"
+        >
+          Comparatore casinò ADM
+        </Link>
+        <Link
+          to="/migliori-casino-online"
+          className="rounded-full border border-border px-3 py-1.5 hover:border-gold/50"
+        >
+          Migliori casinò online
+        </Link>
+      </div>
+    </section>
+  );
+}
+
 export function GuideArticle({ cfg, children }: { cfg: GuideConfig; children?: ReactNode }) {
   return (
     <PageShell>

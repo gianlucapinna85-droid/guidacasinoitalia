@@ -234,8 +234,11 @@ export function Header() {
 
         <nav className="hidden gap-6 text-sm md:flex">
           <Link to="/" hash="operatori" className="text-muted-foreground transition-colors hover:text-foreground">Operatori ADM</Link>
-          <Link to="/bonus-senza-deposito" className="text-muted-foreground transition-colors hover:text-foreground">Bonus casinò</Link>
-          <Link to="/slot-online" className="text-muted-foreground transition-colors hover:text-foreground">Slot online</Link>
+          <Link to="/migliori-casino-online-adm" className="text-muted-foreground transition-colors hover:text-foreground">Casinò ADM</Link>
+          <Link to="/bonus-casino-online-senza-deposito" className="text-muted-foreground transition-colors hover:text-foreground">Bonus casinò</Link>
+          <Link to="/roulette-online-italia" className="text-muted-foreground transition-colors hover:text-foreground">Roulette</Link>
+          <Link to="/blackjack-online-italia" className="text-muted-foreground transition-colors hover:text-foreground">Blackjack</Link>
+          <Link to="/slot-online-soldi-veri" className="text-muted-foreground transition-colors hover:text-foreground">Slot online</Link>
           <Link to="/casino-online-principianti" className="text-muted-foreground transition-colors hover:text-foreground">Guide</Link>
           <Link to="/news" className="text-muted-foreground transition-colors hover:text-foreground">News</Link>
           <Link to="/come-registrarsi" className="text-muted-foreground transition-colors hover:text-foreground">Come registrarsi</Link>
@@ -290,6 +293,10 @@ export function Footer() {
             <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground">Guide</h4>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
               <li><Link to="/bonus-senza-deposito" className="hover:text-foreground">Bonus senza deposito</Link></li>
+              <li><Link to="/migliori-casino-online-adm" className="hover:text-foreground">Migliori casino online ADM</Link></li>
+              <li><Link to="/slot-online-soldi-veri" className="hover:text-foreground">Slot online soldi veri</Link></li>
+              <li><Link to="/roulette-online-italia" className="hover:text-foreground">Roulette online Italia</Link></li>
+              <li><Link to="/blackjack-online-italia" className="hover:text-foreground">Blackjack online Italia</Link></li>
               <li><Link to="/come-scegliere-casino-online-adm" className="hover:text-foreground">Come scegliere un casinò ADM</Link></li>
               <li><Link to="/verificare-licenza-adm" className="hover:text-foreground">Verificare una licenza ADM</Link></li>
               <li><Link to="/slot-rtp-alto" className="hover:text-foreground">Slot con RTP alto</Link></li>

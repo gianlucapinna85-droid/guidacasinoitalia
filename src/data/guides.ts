@@ -12,6 +12,41 @@ export type Guide = {
 
 export const guides: Guide[] = [
   {
+    path: "/migliori-casino-online-adm",
+    title: "Migliori casino online ADM",
+    description: "Migliori casino online ADM e casino online autorizzati: criteri verificabili e tutele.",
+    changefreq: "weekly",
+    priority: "1.0",
+  },
+  {
+    path: "/bonus-casino-online-senza-deposito",
+    title: "Bonus casino online senza deposito",
+    description: "Come funzionano i bonus casino senza deposito: requisiti di puntata, scadenze e limiti.",
+    changefreq: "weekly",
+    priority: "1.0",
+  },
+  {
+    path: "/slot-online-soldi-veri",
+    title: "Slot online soldi veri",
+    description: "Slot online soldi veri sui casino ADM: RNG certificato, RTP, volatilità e provider.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
+    path: "/roulette-online-italia",
+    title: "Roulette online Italia",
+    description: "Roulette online in Italia: varianti europea, francese e americana, margine e tavoli live.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
+    path: "/blackjack-online-italia",
+    title: "Blackjack online Italia",
+    description: "Blackjack online in Italia: regole, varianti, basic strategy e tavoli live ADM.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
     path: "/migliori-casino-online",
     title: "Migliori casinò online 2026",
     description: "Confronto dei migliori casinò online con concessione ADM: criteri e parametri verificabili.",

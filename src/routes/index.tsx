@@ -59,8 +59,8 @@ const FAQS = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Guida Casino Italia | Migliori Casinò Online ADM, Bonus e Slot Aggiornate 2026" },
-      { name: "description", content: "Migliori casinò online ADM e casinò online sicuri in Italia: bonus casinò senza deposito, bonus benvenuto casinò 2026, slot online affidabili, recensioni casinò ADM e guide casinò online." },
+      { title: "Guida Casinò Italia | Migliori Casino Online ADM, Bonus e Recensioni 2026" },
+      { name: "description", content: "Guida Casinò Italia confronta i migliori casino online ADM in Italia con bonus di benvenuto, recensioni complete, slot machine, roulette, blackjack e guide aggiornate per giocare in modo sicuro e responsabile." },
 
       { name: "keywords", content: "migliori casino online adm, bonus casino senza deposito, casino online sicuri italia, slot online affidabili, guide casino online, recensioni casino adm, bonus benvenuto casino 2026, casino adm, casino aams, bonus senza deposito, bonus senza deposito immediato, casino online sicuri, casino online italiani, migliori casino online 2026, concessione adm, gioco legale italia, casino con spid, come verificare licenza adm, casino legali italia elenco, quali sono i casino con concessione adm" },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
@@ -71,16 +71,16 @@ export const Route = createFileRoute("/")({
       { name: "geo.region", content: "IT" },
       { name: "language", content: "it-IT" },
       { name: "author", content: "GuidaCasinò.IT" },
-      { property: "og:title", content: "Guida Casino Italia | Migliori Casinò Online ADM, Bonus e Slot Aggiornate 2026" },
-      { property: "og:description", content: "Migliori casinò online ADM e casinò online sicuri in Italia: bonus casinò senza deposito, bonus benvenuto casinò 2026, slot online affidabili, recensioni casinò ADM e guide casinò online." },
+      { property: "og:title", content: "Guida Casinò Italia | Migliori Casino Online ADM, Bonus e Recensioni 2026" },
+      { property: "og:description", content: "Guida Casinò Italia confronta i migliori casino online ADM in Italia con bonus di benvenuto, recensioni complete, slot machine, roulette, blackjack e guide aggiornate per giocare in modo sicuro e responsabile." },
 
       { property: "og:url", content: "https://www.guidacasino-italia.it/" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "it_IT" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:url", content: "https://www.guidacasino-italia.it/" },
-      { name: "twitter:title", content: "Guida Casino Italia | Migliori Casinò Online ADM, Bonus e Slot Aggiornate 2026" },
-      { name: "twitter:description", content: "Migliori casinò online ADM e casinò online sicuri in Italia: bonus casinò senza deposito, bonus benvenuto casinò 2026, slot online affidabili, recensioni casinò ADM e guide casinò online." },
+      { name: "twitter:title", content: "Guida Casinò Italia | Migliori Casino Online ADM, Bonus e Recensioni 2026" },
+      { name: "twitter:description", content: "Guida Casinò Italia confronta i migliori casino online ADM in Italia con bonus di benvenuto, recensioni complete, slot machine, roulette, blackjack e guide aggiornate per giocare in modo sicuro e responsabile." },
 
 
     ],
@@ -366,6 +366,72 @@ const TOPICS = [
   { to: "/migliori-casino-online" as const, label: "Recensioni Casinò", text: "Schede operatore con concessione, pagamenti e catalogo." },
 ];
 
+/** Blocchi SEO tematici della home (casinò, bonus, slot, tavoli, guide, news). */
+const HOME_BLOCKS = [
+  {
+    to: "/migliori-casino-online-adm" as const,
+    title: "Migliori Casino ADM Oggi",
+    text: "I casino online autorizzati ADM confrontati da Guida Casinò Italia su concessione, catalogo e tutele.",
+  },
+  {
+    to: "/bonus-casino-online-senza-deposito" as const,
+    title: "Bonus Casino Più Convenienti",
+    text: "Come si leggono davvero le condizioni: requisiti di puntata, scadenze e limiti di conversione.",
+  },
+  {
+    to: "/slot-online-soldi-veri" as const,
+    title: "Slot Più Giocate del Momento",
+    text: "Slot online soldi veri sui concessionari ADM: RNG certificato, RTP, volatilità e provider.",
+  },
+  {
+    to: "/roulette-online-italia" as const,
+    title: "Roulette e Blackjack Online",
+    text: "Varianti, regole e margine del banco su roulette online Italia e blackjack online ADM.",
+  },
+  {
+    to: "/casino-online-principianti" as const,
+    title: "Guide per Principianti",
+    text: "Conto di gioco, limiti di spesa, RTP e primi errori da evitare, spiegati passo per passo.",
+  },
+  {
+    to: "/news" as const,
+    title: "Ultime News Casino Online",
+    text: "Aggiornamenti su normativa ADM, nuovi metodi di pagamento, slot e condizioni dei bonus.",
+  },
+];
+
+function HomeBlocksSection() {
+  return (
+    <section id="sezioni-seo" className="border-t border-border bg-card/30">
+      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-16">
+        <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">
+          Guida Casinò Italia
+        </p>
+        <h2 className="mt-1 font-serif text-lg md:text-4xl">
+          Casino ADM, bonus, slot e tavoli: da dove iniziare
+        </h2>
+        <div className="mt-3 grid grid-cols-2 gap-2.5 md:mt-8 md:grid-cols-3 md:gap-4">
+          {HOME_BLOCKS.map((b) => (
+            <Link
+              key={b.to}
+              to={b.to}
+              className="flex flex-col rounded-xl border border-border bg-card p-2.5 transition-colors hover:border-gold/50 md:p-5"
+            >
+              <h3 className="font-serif text-[14px] text-gold md:text-lg">{b.title}</h3>
+              <p className="mt-1 line-clamp-3 text-[12px] leading-snug text-muted-foreground md:text-sm">
+                {b.text}
+              </p>
+              <span className="mt-2 inline-flex w-fit items-center gap-1 text-[11px] font-semibold text-gold md:text-xs">
+                Approfondisci <ArrowRight className="h-3 w-3" />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function TopicsSection() {
   return (
     <section id="sezioni" className="border-t border-border">
@@ -397,6 +463,7 @@ function HomePage() {
     <PageShell>
       <Hero />
       <ComparisonTable />
+      <HomeBlocksSection />
       <TopicsSection />
       <OperatorsSection />
       <BrandIntroSection />
@@ -664,21 +731,21 @@ function Hero() {
             Portale informativo indipendente
           </div>
           <h1 className="mt-1.5 font-serif text-[1.25rem] leading-[1.05] md:mt-6 md:text-6xl">
-            Guida Casino Italia 2026{" "}
+            Migliori Casino Online ADM in Italia{" "}
             <span className="block text-gold md:inline">
-              migliori casinò online con concessione ADM
+              recensioni, bonus e guide di Guida Casinò Italia
             </span>
           </h1>
           <CurrentMonthBadge />
           <div className="mt-1.5 max-w-2xl md:mt-6">
             <p
-              className={`text-[13px] leading-[1.35] text-muted-foreground md:text-lg md:leading-normal ${expanded ? "" : "line-clamp-2 md:line-clamp-none"}`}
+              className={`text-[13px] leading-[1.35] text-muted-foreground md:text-lg md:leading-normal ${expanded ? "" : "line-clamp-3 md:line-clamp-none"}`}
             >
-              Guida Casino Italia è una guida indipendente ai migliori casinò online ADM disponibili
-              in Italia, con recensioni verificate, bonus aggiornati e confronti tra i principali
-              operatori legali. Raccogliamo dati su casinò ADM, bonus senza deposito e recensioni
-              AAMS degli operatori titolari di concessione dell'Agenzia delle Dogane e dei Monopoli:
-              non offriamo servizi di gioco, non promuoviamo bonus e non incoraggiamo la
+              Guida Casinò Italia confronta i casino online ADM più affidabili in Italia: recensioni
+              complete, bonus di benvenuto, slot machine, roulette e blackjack. Le recensioni di
+              Guida Casinò Italia sono aggiornate quotidianamente su dati pubblici e riguardano
+              esclusivamente operatori titolari di concessione dell'Agenzia delle Dogane e dei
+              Monopoli: non offriamo servizi di gioco, non promuoviamo bonus e non incoraggiamo la
               partecipazione a giochi con vincite in denaro.
             </p>
             <button
