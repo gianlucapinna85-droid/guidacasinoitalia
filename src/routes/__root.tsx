@@ -151,6 +151,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           url: "https://www.guidacasino-italia.it/",
           description: "Editore indipendente di informazioni comparative sui concessionari ADM.",
           areaServed: "IT",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://www.guidacasino-italia.it/favicon-512x512.png",
+            width: 512,
+            height: 512,
+          },
         }),
       },
     ],
