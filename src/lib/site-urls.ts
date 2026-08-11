@@ -34,7 +34,15 @@ export function getSiteEntries(): SiteEntry[] {
       changefreq: "weekly" as const,
       priority: "0.7",
     })),
+    { path: "/blog", changefreq: "daily" as const, priority: "0.9" },
+    ...blogArticles.map((a) => ({
+      path: `/blog/${a.slug}`,
+      lastmod: a.updated ?? a.date,
+      changefreq: "weekly" as const,
+      priority: "0.8",
+    })),
     { path: "/note-legali", changefreq: "yearly" as const, priority: "0.4" },
+
     { path: "/privacy", changefreq: "yearly" as const, priority: "0.4" },
     ...operators.map((op) => ({
       path: `/operatori/${op.slug}`,
