@@ -440,10 +440,14 @@ function OperatorPage() {
                 q: `Quali metodi di pagamento accetta ${op.name}?`,
                 a: `${op.name} dichiara i seguenti metodi tracciabili: ${op.paymentMethods.join(", ")}. Deposito minimo ${meta?.minDeposit ?? "n.d."}, prelievo minimo ${meta?.minWithdrawal ?? "n.d."}. Il metodo deve essere intestato al titolare del conto di gioco.`,
               },
-              {
-                q: `Quanto tempo richiede un prelievo su ${op.name}?`,
-                a: `I tempi dipendono dal metodo scelto e dallo stato della verifica documentale: senza documenti convalidati nessun concessionario ADM può liquidare un prelievo. ${meta?.fastWithdrawal ? "L'operatore dichiara tempi di elaborazione rapidi." : "I tempi dichiarati sono in linea con la media di categoria."}`,
-              },
+              ...(facts
+                ? []
+                : [
+                    {
+                      q: `Quanto tempo richiede un prelievo su ${op.name}?`,
+                      a: `I tempi dipendono dal metodo scelto e dallo stato della verifica documentale: senza documenti convalidati nessun concessionario ADM può liquidare un prelievo. ${meta?.fastWithdrawal ? "L'operatore dichiara tempi di elaborazione rapidi." : "I tempi dichiarati sono in linea con la media di categoria."}`,
+                    },
+                  ]),
               {
                 q: `Qual è l'RTP medio dichiarato da ${op.name}?`,
                 a: `L'RTP medio dichiarato è ${op.rtpAverage}. È un valore statistico teorico calcolato su un numero molto elevato di giocate: il dato attendibile per il singolo gioco è quello riportato nella sua scheda informativa.`,
