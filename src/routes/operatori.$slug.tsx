@@ -425,6 +425,7 @@ function OperatorPage() {
         <FaqSlider
           title={`Domande frequenti su ${op.name}`}
           items={[
+              ...(facts ? facts.faqs.map((f) => ({ q: f.q, a: f.a })) : []),
               {
                 q: `${op.name} è un casinò sicuro e legale in Italia?`,
                 a: `${op.name} risulta titolare della concessione ${op.concessionN}, verificabile nell'elenco pubblico dei concessionari su adm.gov.it. I giochi sono collegati al totalizzatore nazionale e sottoposti al controllo dell'Agenzia delle Dogane e dei Monopoli.`,
