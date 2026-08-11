@@ -97,6 +97,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "google-site-verification", content: "HhcCYnFE0-bjVDSP36wy43sJXySOc1G7bRlVhupj7Po" },
       // og:title / og:description / og:image sono definiti dalle singole rotte
       // per evitare anteprime social duplicate su tutte le pagine.
+    ],
     links: [
       { rel: "stylesheet", href: appCss },
       // Set completo di icone: necessario perche Google mostri il logo nei risultati
