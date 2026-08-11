@@ -32,10 +32,15 @@ export const Route = createFileRoute("/operatori/$slug")({
       };
     }
     const { operator } = loaderData;
+    const facts = getOperatorFacts(operator.slug);
     const canonical = `https://www.guidacasino-italia.it/operatori/${operator.slug}`;
     const nd = operator.noDepositBonus?.amount;
-    const title = `${operator.name} Casinò ADM 2026: Recensione e Bonus`;
-    const description = `${operator.name}: recensione del casinò ADM ${operator.concessionN}. ${nd ? `Bonus senza deposito ${nd}, ` : ""}RTP ${operator.rtpAverage}, ${operator.games}+ giochi. +18.`.slice(0, 158);
+    const title = facts
+      ? `${operator.name}: prelievi, tempi e verifica documenti 2026`
+      : `${operator.name} Casinò ADM 2026: Recensione e Bonus`;
+    const description = facts
+      ? `${operator.name}: metodi di prelievo con limiti e tempi dichiarati, verifica documenti, limiti di deposito e novità 2026. Dati da fonti ufficiali. +18.`.slice(0, 158)
+      : `${operator.name}: recensione del casinò ADM ${operator.concessionN}. ${nd ? `Bonus senza deposito ${nd}, ` : ""}RTP ${operator.rtpAverage}, ${operator.games}+ giochi. +18.`.slice(0, 158);
     return {
       meta: [
         { title },
