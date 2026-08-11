@@ -18,7 +18,9 @@ const RULES: LinkRule[] = [
   { phrases: ["migliori casinò online ADM", "migliori casino online ADM", "casinò online ADM", "casino online ADM"], to: "/migliori-casino-online-adm" },
   { phrases: ["migliori casinò online", "migliori casino online"], to: "/migliori-casino-online" },
   { phrases: ["guida completa ai casinò online", "guida ai casinò online italiani", "guida casinò online Italia"], to: "/guida-casino-online-italia" },
+  { phrases: ["bonus immediato senza deposito e senza documento", "bonus immediato senza deposito", "bonus immediato con SPID", "registrazione con SPID", "SPID"], to: "/bonus-immediato-spid" },
   { phrases: ["bonus senza deposito aggiornati", "bonus casinò senza deposito", "bonus casino senza deposito", "bonus senza deposito"], to: "/bonus-casino-online-senza-deposito" },
+
   { phrases: ["bonus di benvenuto"], to: "/bonus-benvenuto-casino" },
   { phrases: ["requisiti di scommessa", "requisito di puntata"], to: "/requisiti-scommessa-bonus" },
   { phrases: ["slot online consigliate", "slot online con soldi veri", "slot online soldi veri", "slot online"], to: "/slot-online-soldi-veri" },
