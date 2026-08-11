@@ -119,6 +119,13 @@ export const Route = createFileRoute("/operatori/$slug")({
             "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: [
+              ...(facts
+                ? facts.faqs.map((f) => ({
+                    "@type": "Question",
+                    name: f.q,
+                    acceptedAnswer: { "@type": "Answer", text: f.a },
+                  }))
+                : []),
               {
                 "@type": "Question",
                 name: `${operator.name} ha la concessione ADM?`,
