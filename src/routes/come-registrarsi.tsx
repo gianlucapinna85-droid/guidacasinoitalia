@@ -9,11 +9,11 @@ const CANON = "https://www.guidacasino-italia.it/come-registrarsi";
 export const Route = createFileRoute("/come-registrarsi")({
   head: () => ({
     meta: [
-      { title: "Come Registrarsi su un Casinò ADM 2026 — Guida Passo Passo con SPID" },
+      { title: "Come Registrarsi su un Casinò ADM 2026 con SPID" },
       {
         name: "description",
         content:
-          "Come registrarsi su un casinò online con concessione ADM: documenti richiesti, verifica identità, registrazione con SPID o CIE, limiti di deposito e attivazione del bonus senza deposito. Guida informativa +18.",
+          "Registrazione su un casinò ADM: documenti, verifica identità con SPID o CIE, limiti di deposito e attivazione del conto gioco. Guida +18.",
       },
       {
         name: "keywords",

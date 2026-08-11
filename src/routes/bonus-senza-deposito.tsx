@@ -7,8 +7,8 @@ import bonusVideoUrl from "@/assets/video/bonus-senza-deposito.mp4.asset.json";
 export const Route = createFileRoute("/bonus-senza-deposito")({
   head: () => ({
     meta: [
-      { title: "Bonus Senza Deposito Casinò ADM 2026 — Guida Completa e Come Funzionano" },
-      { name: "description", content: "Bonus senza deposito casinò ADM: cosa sono, perché i concessionari li offrono, come funzionano i requisiti di puntata (wagering), condizioni, verifica identità e differenze con i bonus di benvenuto. Guida informativa aggiornata 2026." },
+      { title: "Bonus Senza Deposito Casinò ADM 2026: Guida Completa" },
+      { name: "description", content: "Bonus senza deposito casinò ADM: cosa sono, requisiti di puntata, condizioni, verifica identità e differenze con i bonus di benvenuto. Guida 2026." },
       { name: "keywords", content: "bonus senza deposito, casinò ADM, no deposit bonus, bonus benvenuto, requisiti di puntata, wagering, free spin senza deposito, bonus casinò 2026, concessione ADM" },
       { property: "og:title", content: "Bonus Senza Deposito Casinò ADM — Guida Completa 2026" },
       { property: "og:description", content: "Come funzionano i bonus senza deposito nei casinò ADM: wagering, condizioni, verifica identità e trasparenza. Guida informativa." },
