@@ -101,12 +101,14 @@ for (const file of files) {
 }
 
 // 8. sitemap + robots
-for (const f of ["src/routes/sitemap[.]xml.ts", "src/routes/sitemap-guides[.]xml.ts", "src/routes/sitemap-reviews[.]xml.ts"]) {
+// La sitemap principale delega a src/lib/site-urls.ts (registro unico URL).
+for (const f of ["src/routes/sitemap[.]xml.ts", "src/routes/sitemap-guides[.]xml.ts", "src/routes/sitemap-reviews[.]xml.ts", "src/lib/site-urls.ts"]) {
   const full = join(ROOT, f);
   if (!existsSync(full)) { warn(f, "sitemap mancante"); continue; }
   const s = readFileSync(full, "utf8");
-  if (!s.includes(`const BASE_URL = "${CANONICAL_ORIGIN}"`)) err(f, "BASE_URL non canonico");
-  if (!s.includes("<urlset")) err(f, "sitemap non valida (manca <urlset>)");
+  const delegates = s.includes("@/lib/site-urls");
+  if (!delegates && !s.includes(`const BASE_URL = "${CANONICAL_ORIGIN}"`)) err(f, "BASE_URL non canonico");
+  if (!delegates && !s.includes("<urlset")) err(f, "sitemap non valida (manca <urlset>)");
 }
 const robotsPath = join(ROOT, "public/robots.txt");
 if (existsSync(robotsPath)) {
