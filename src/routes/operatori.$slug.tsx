@@ -198,7 +198,9 @@ function OperatorPage() {
         <header className="mt-6 border-b border-border pb-8">
           <p className="text-xs uppercase tracking-widest text-gold">Recensione informativa 2026</p>
           <h1 className="mt-2 font-serif text-4xl md:text-5xl">
-            {op.name}: recensione casinò ADM e bonus senza deposito
+            {facts
+              ? `${op.name}: prelievi, verifica documenti e limiti — guida operativa`
+              : `${op.name}: recensione casinò ADM e bonus senza deposito`}
           </h1>
           <p className="mt-3 text-sm text-muted-foreground">
             Concessione <strong className="text-foreground">{op.concessionN}</strong> — dati riferiti
