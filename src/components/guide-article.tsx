@@ -42,6 +42,7 @@ export function guideHead(cfg: GuideConfig) {
       { name: "keywords", content: cfg.keywords },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
       { property: "og:title", content: cfg.title },
+      ...socialImageMeta(),
       { property: "og:description", content: cfg.description },
       { property: "og:url", content: canonical },
       { property: "og:type", content: "article" },
