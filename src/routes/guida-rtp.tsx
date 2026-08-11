@@ -4,6 +4,7 @@ import { PageShell } from "@/components/site-layout";
 import { RelatedLinks } from "@/components/casino-ui";
 import { providers } from "@/lib/providers";
 import { sortedOperators } from "@/lib/operators";
+import { socialImageMeta } from "@/lib/social-image";
 
 const CANONICAL = "https://www.guidacasino-italia.it/guida-rtp";
 const TITLE = "Guida RTP 2026: cos'è il Return to Player e come si legge";
@@ -45,6 +46,7 @@ export const Route = createFileRoute("/guida-rtp")({
       },
       { name: "robots", content: "index, follow, max-snippet:-1" },
       { property: "og:title", content: TITLE },
+      ...socialImageMeta(),
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: CANONICAL },
       { property: "og:type", content: "article" },

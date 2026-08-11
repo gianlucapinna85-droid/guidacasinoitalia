@@ -9,6 +9,7 @@ import { getCasinoMeta } from "@/data/casinos";
 import { RatingBadge, CasinoBadges } from "@/components/casino-ui";
 import { ComparisonTable } from "@/components/comparison-table";
 import { ReadMore } from "@/components/read-more";
+import { socialImageMeta } from "@/lib/social-image";
 
 
 // Caricato in differita: sticky footer, non serve al primo render
@@ -72,6 +73,7 @@ export const Route = createFileRoute("/")({
       { name: "language", content: "it-IT" },
       { name: "author", content: "GuidaCasinò.IT" },
       { property: "og:title", content: "Guida Casinò Italia | Migliori Casino Online ADM, Bonus e Recensioni 2026" },
+      ...socialImageMeta(),
       { property: "og:description", content: "Guida Casinò Italia confronta i migliori casino online ADM in Italia con bonus di benvenuto, recensioni complete, slot machine, roulette, blackjack e guide aggiornate per giocare in modo sicuro e responsabile." },
 
       { property: "og:url", content: "https://www.guidacasino-italia.it/" },

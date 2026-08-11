@@ -12,6 +12,7 @@ import { FaqSlider } from "@/components/faq-slider";
 
 
 import { RatingBadge, CasinoBadges, RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
+import { socialImageMeta } from "@/lib/social-image";
 
 
 function loadOperator(slug: string) {
@@ -50,6 +51,7 @@ export const Route = createFileRoute("/operatori/$slug")({
           content: `${operator.name}, ${operator.name} recensione, ${operator.name} opinioni, ${operator.name} casinò ADM, ${operator.name} bonus senza deposito, ${operator.name} prelievo, casino online sicuri, casino AAMS 2026, concessione ADM`,
         },
         { property: "og:title", content: title },
+        ...socialImageMeta(),
         { property: "og:description", content: description },
         { property: "og:url", content: canonical },
         { property: "og:type", content: "article" },

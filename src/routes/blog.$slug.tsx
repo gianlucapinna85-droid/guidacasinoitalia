@@ -6,6 +6,7 @@ import { FaqSlider } from "@/components/faq-slider";
 import { BlogSidebar, ExternalBlogButton } from "@/components/blog-ui";
 import { withInternalLinks, newLinkBudget, PRONOSTICI_URL } from "@/lib/internal-links";
 import { blogBySlug, relatedArticles, readingMinutes, type BlogArticle } from "@/data/blog";
+import { socialImageMeta } from "@/lib/social-image";
 
 const SITE_URL = "https://www.guidacasino-italia.it";
 
@@ -28,6 +29,7 @@ export const Route = createFileRoute("/blog/$slug")({
         { name: "keywords", content: a.keywords },
         { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
         { property: "og:title", content: a.title },
+        ...socialImageMeta(),
         { property: "og:description", content: a.description },
         { property: "og:url", content: canonical },
         { property: "og:type", content: "article" },

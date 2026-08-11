@@ -3,6 +3,7 @@ import { CalendarDays, ArrowRight } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
 import { RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
 import { sortedNews } from "@/data/news";
+import { socialImageMeta } from "@/lib/social-image";
 
 const CANONICAL = "https://www.guidacasino-italia.it/news";
 const TITLE = "News Casinò e Bonus 2026 | Aggiornamenti ADM, slot e pagamenti";
@@ -21,6 +22,7 @@ export const Route = createFileRoute("/news/")({
       },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
       { property: "og:title", content: TITLE },
+      ...socialImageMeta(),
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: CANONICAL },
       { property: "og:type", content: "website" },

@@ -5,6 +5,7 @@ import { PageShell } from "@/components/site-layout";
 import { RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
 import { ReadMore } from "@/components/read-more";
 import { FaqSlider } from "@/components/faq-slider";
+import { socialImageMeta } from "@/lib/social-image";
 
 
 
@@ -42,6 +43,7 @@ export function guideHead(cfg: GuideConfig) {
       { name: "keywords", content: cfg.keywords },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
       { property: "og:title", content: cfg.title },
+      ...socialImageMeta(),
       { property: "og:description", content: cfg.description },
       { property: "og:url", content: canonical },
       { property: "og:type", content: "article" },

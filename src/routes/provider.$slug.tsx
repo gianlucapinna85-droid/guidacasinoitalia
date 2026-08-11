@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
 import { operators } from "@/lib/operators";
 import { providers } from "@/lib/providers";
+import { socialImageMeta } from "@/lib/social-image";
 
 function load(slug: string) {
   const op = operators.find((o) => o.slug === slug);
@@ -28,6 +29,8 @@ export const Route = createFileRoute("/provider/$slug")({
         { name: "robots", content: "noindex, follow" },
 
         { property: "og:title", content: title },
+
+        ...socialImageMeta(),
         { property: "og:description", content: description },
         { property: "og:url", content: canonical },
         { property: "og:type", content: "article" },

@@ -95,13 +95,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "robots", content: "index, follow, max-image-preview:large" },
       { name: "ga-site-verification", content: "RwL30R0PEfu27ruq0gqBSzrB" },
       { name: "google-site-verification", content: "HhcCYnFE0-bjVDSP36wy43sJXySOc1G7bRlVhupj7Po" },
-      { property: "og:title", content: "Guida Casino Italia 2026 | Migliori Casinò ADM, Bonus Senza Deposito e Recensioni AAMS" },
-      { name: "twitter:title", content: "Guida Casino Italia 2026 | Migliori Casinò ADM, Bonus Senza Deposito e Recensioni AAMS" },
-      { property: "og:description", content: "Confronta i migliori casinò online ADM/AAMS, bonus senza deposito, recensioni verificate e guide complete sui siti legali italiani aggiornati al 2026." },
-      { name: "twitter:description", content: "Confronta i migliori casinò online ADM/AAMS, bonus senza deposito, recensioni verificate e guide complete sui siti legali italiani aggiornati al 2026." },
-
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/cf8e0514-8e16-4a73-b5c2-c762d8a04391" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/cf8e0514-8e16-4a73-b5c2-c762d8a04391" },
+      // og:title / og:description / og:image sono definiti dalle singole rotte
+      // per evitare anteprime social duplicate su tutte le pagine.
     ],
     links: [
       { rel: "stylesheet", href: appCss },

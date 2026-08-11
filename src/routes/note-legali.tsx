@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-layout";
+import { socialImageMeta } from "@/lib/social-image";
 
 export const Route = createFileRoute("/note-legali")({
   head: () => ({
@@ -7,6 +8,7 @@ export const Route = createFileRoute("/note-legali")({
       { title: "Note legali e disclaimer — GuidaCasinò.IT" },
       { name: "description", content: "Disclaimer, natura informativa del portale, riferimenti al D.L. 87/2018 e responsabilità editoriale di GuidaCasinò.IT." },
       { property: "og:title", content: "Note legali — GuidaCasinò.IT" },
+      ...socialImageMeta(),
       { property: "og:description", content: "Disclaimer editoriale e riferimenti normativi." },
       { property: "og:url", content: "https://www.guidacasino-italia.it/note-legali" },
       { name: "robots", content: "index, follow" },

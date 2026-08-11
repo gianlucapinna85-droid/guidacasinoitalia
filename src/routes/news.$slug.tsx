@@ -4,6 +4,7 @@ import { PageShell } from "@/components/site-layout";
 import { RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
 import { ReadMore } from "@/components/read-more";
 import { newsBySlug, sortedNews, type NewsArticle } from "@/data/news";
+import { socialImageMeta } from "@/lib/social-image";
 
 const SITE_URL = "https://www.guidacasino-italia.it";
 
@@ -26,6 +27,7 @@ export const Route = createFileRoute("/news/$slug")({
         { name: "keywords", content: a.keywords },
         { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
         { property: "og:title", content: a.title },
+        ...socialImageMeta(),
         { property: "og:description", content: a.description },
         { property: "og:url", content: canonical },
         { property: "og:type", content: "article" },

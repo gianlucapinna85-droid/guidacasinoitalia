@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-layout";
 import { Phone, ExternalLink, ShieldAlert } from "lucide-react";
+import { socialImageMeta } from "@/lib/social-image";
 
 export const Route = createFileRoute("/gioco-responsabile")({
   head: () => ({
@@ -8,6 +9,7 @@ export const Route = createFileRoute("/gioco-responsabile")({
       { title: "Gioco responsabile e risorse di supporto — GuidaCasinò.IT" },
       { name: "description", content: "Informazioni sul Disturbo da Gioco d'Azzardo (DGA), autoesclusione RUA, numero verde 800 558822 e strumenti di tutela per i giocatori." },
       { property: "og:title", content: "Gioco responsabile — GuidaCasinò.IT" },
+      ...socialImageMeta(),
       { property: "og:description", content: "Numeri di aiuto, autoesclusione e strumenti di autolimitazione." },
       { property: "og:url", content: "https://www.guidacasino-italia.it/gioco-responsabile" },
       { property: "og:type", content: "article" },
