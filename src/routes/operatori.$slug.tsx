@@ -448,10 +448,14 @@ function OperatorPage() {
                 q: `Qual è l'RTP medio dichiarato da ${op.name}?`,
                 a: `L'RTP medio dichiarato è ${op.rtpAverage}. È un valore statistico teorico calcolato su un numero molto elevato di giocate: il dato attendibile per il singolo gioco è quello riportato nella sua scheda informativa.`,
               },
-              {
-                q: `Come ci si registra su ${op.name}?`,
-                a: `Servono maggiore età, codice fiscale e un documento d'identità valido; in alternativa è spesso disponibile l'accesso con SPID o CIE, che rende la verifica immediata. Prima della prima giocata è consigliabile impostare i limiti di deposito.`,
-              },
+              ...(facts
+                ? []
+                : [
+                    {
+                      q: `Come ci si registra su ${op.name}?`,
+                      a: `Servono maggiore età, codice fiscale e un documento d'identità valido; in alternativa è spesso disponibile l'accesso con SPID o CIE, che rende la verifica immediata. Prima della prima giocata è consigliabile impostare i limiti di deposito.`,
+                    },
+                  ]),
           ]}
         />
 
