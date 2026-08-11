@@ -315,6 +315,13 @@ export function Footer() {
               <li><Link to="/slot-rtp-alto" className="hover:text-foreground">Slot con RTP alto</Link></li>
               <li><Link to="/pagamenti-sicuri-casino" className="hover:text-foreground">Pagamenti sicuri</Link></li>
               <li><Link to="/news" className="hover:text-foreground">News casinò</Link></li>
+              <li><Link to="/blog" className="hover:text-foreground">Blog casinò e sport</Link></li>
+              <li>
+                <a href={EXTERNAL_BLOG_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-gold hover:text-foreground">
+                  📖 Approfondimenti Extra Casinò
+                </a>
+              </li>
+
               <li><Link to="/come-registrarsi" className="hover:text-foreground">Come registrarsi</Link></li>
               <li><a href="https://www.adm.gov.it" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-foreground">ADM</a></li>
               <li><a href="https://www.giocaresponsabile.it" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-foreground">Gioca Responsabile</a></li>
