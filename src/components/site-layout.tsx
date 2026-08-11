@@ -5,6 +5,8 @@ import { ShieldCheck, Ban, LifeBuoy, Landmark, BadgeCheck, Youtube, Instagram, M
 import vietato18Url from "@/assets/logos/v18.webp";
 import admLogoUrl from "@/assets/logos/adm.webp";
 import { RelatedProjectBox } from "@/components/casino-ui";
+import { EXTERNAL_BLOG_URL } from "@/lib/internal-links";
+
 
 const vietato18 = { url: vietato18Url };
 const admLogo = { url: admLogoUrl };
@@ -241,6 +243,17 @@ export function Header() {
           <Link to="/slot-online-soldi-veri" className="text-muted-foreground transition-colors hover:text-foreground">Slot online</Link>
           <Link to="/casino-online-principianti" className="text-muted-foreground transition-colors hover:text-foreground">Guide</Link>
           <Link to="/news" className="text-muted-foreground transition-colors hover:text-foreground">News</Link>
+          <Link to="/blog" className="text-muted-foreground transition-colors hover:text-foreground">Blog</Link>
+          <a
+            href={EXTERNAL_BLOG_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-gold/50 bg-gold/10 px-2.5 py-1 text-xs font-semibold text-gold transition-colors hover:bg-gold/20"
+            title="Approfondimenti Extra Casinò"
+          >
+            📖 Approfondimenti Extra
+          </a>
+
           <Link to="/come-registrarsi" className="text-muted-foreground transition-colors hover:text-foreground">Come registrarsi</Link>
           <Link to="/gioco-responsabile" className="text-muted-foreground transition-colors hover:text-foreground">Gioco responsabile</Link>
           <a
@@ -302,6 +315,13 @@ export function Footer() {
               <li><Link to="/slot-rtp-alto" className="hover:text-foreground">Slot con RTP alto</Link></li>
               <li><Link to="/pagamenti-sicuri-casino" className="hover:text-foreground">Pagamenti sicuri</Link></li>
               <li><Link to="/news" className="hover:text-foreground">News casinò</Link></li>
+              <li><Link to="/blog" className="hover:text-foreground">Blog casinò e sport</Link></li>
+              <li>
+                <a href={EXTERNAL_BLOG_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-gold hover:text-foreground">
+                  📖 Approfondimenti Extra Casinò
+                </a>
+              </li>
+
               <li><Link to="/come-registrarsi" className="hover:text-foreground">Come registrarsi</Link></li>
               <li><a href="https://www.adm.gov.it" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-foreground">ADM</a></li>
               <li><a href="https://www.giocaresponsabile.it" target="_blank" rel="noopener noreferrer nofollow" className="hover:text-foreground">Gioca Responsabile</a></li>

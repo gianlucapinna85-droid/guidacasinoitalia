@@ -58,9 +58,11 @@ import { Route as BonusBenvenutoCasinoRouteImport } from './routes/bonus-benvenu
 import { Route as BlackjackOnlineItaliaRouteImport } from './routes/blackjack-online-italia'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
 import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ApiPublicReindexRouteImport } from './routes/api/public/reindex'
 
 const VerificareLicenzaAdmRoute = VerificareLicenzaAdmRouteImport.update({
@@ -317,6 +319,11 @@ const NewsIndexRoute = NewsIndexRouteImport.update({
   path: '/news/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProviderSlugRoute = ProviderSlugRouteImport.update({
   id: '/provider/$slug',
   path: '/provider/$slug',
@@ -330,6 +337,11 @@ const OperatoriSlugRoute = OperatoriSlugRouteImport.update({
 const NewsSlugRoute = NewsSlugRouteImport.update({
   id: '/news/$slug',
   path: '/news/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPublicReindexRoute = ApiPublicReindexRouteImport.update({
@@ -387,9 +399,11 @@ export interface FileRoutesByFullPath {
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/news/': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
 }
@@ -442,9 +456,11 @@ export interface FileRoutesByTo {
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
+  '/blog': typeof BlogIndexRoute
   '/news': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
 }
@@ -498,9 +514,11 @@ export interface FileRoutesById {
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/news/': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
 }
@@ -555,9 +573,11 @@ export interface FileRouteTypes {
     | '/slot-online-soldi-veri'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
+    | '/blog/$slug'
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
+    | '/blog/'
     | '/news/'
     | '/api/public/reindex'
   fileRoutesByTo: FileRoutesByTo
@@ -610,9 +630,11 @@ export interface FileRouteTypes {
     | '/slot-online-soldi-veri'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
+    | '/blog/$slug'
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
+    | '/blog'
     | '/news'
     | '/api/public/reindex'
   id:
@@ -665,9 +687,11 @@ export interface FileRouteTypes {
     | '/slot-online-soldi-veri'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
+    | '/blog/$slug'
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
+    | '/blog/'
     | '/news/'
     | '/api/public/reindex'
   fileRoutesById: FileRoutesById
@@ -721,9 +745,11 @@ export interface RootRouteChildren {
   SlotOnlineSoldiVeriRoute: typeof SlotOnlineSoldiVeriRoute
   SlotRtpAltoRoute: typeof SlotRtpAltoRoute
   VerificareLicenzaAdmRoute: typeof VerificareLicenzaAdmRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   NewsSlugRoute: typeof NewsSlugRoute
   OperatoriSlugRoute: typeof OperatoriSlugRoute
   ProviderSlugRoute: typeof ProviderSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   NewsIndexRoute: typeof NewsIndexRoute
   ApiPublicReindexRoute: typeof ApiPublicReindexRoute
 }
@@ -1073,6 +1099,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/provider/$slug': {
       id: '/provider/$slug'
       path: '/provider/$slug'
@@ -1092,6 +1125,13 @@ declare module '@tanstack/react-router' {
       path: '/news/$slug'
       fullPath: '/news/$slug'
       preLoaderRoute: typeof NewsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/reindex': {
@@ -1153,9 +1193,11 @@ const rootRouteChildren: RootRouteChildren = {
   SlotOnlineSoldiVeriRoute: SlotOnlineSoldiVeriRoute,
   SlotRtpAltoRoute: SlotRtpAltoRoute,
   VerificareLicenzaAdmRoute: VerificareLicenzaAdmRoute,
+  BlogSlugRoute: BlogSlugRoute,
   NewsSlugRoute: NewsSlugRoute,
   OperatoriSlugRoute: OperatoriSlugRoute,
   ProviderSlugRoute: ProviderSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
   NewsIndexRoute: NewsIndexRoute,
   ApiPublicReindexRoute: ApiPublicReindexRoute,
 }
