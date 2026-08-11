@@ -169,6 +169,7 @@ function OperatorPage() {
   const data = Route.useLoaderData() as ReturnType<typeof loadOperator>;
   const { operator: op, review } = data;
   const meta = getCasinoMeta(op.slug);
+  const facts = getOperatorFacts(op.slug);
 
 
   return (
