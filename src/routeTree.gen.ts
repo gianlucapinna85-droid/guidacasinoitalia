@@ -58,6 +58,7 @@ import { Route as BonusBenvenutoCasinoRouteImport } from './routes/bonus-benvenu
 import { Route as BlackjackOnlineItaliaRouteImport } from './routes/blackjack-online-italia'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
 import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
@@ -317,6 +318,11 @@ const NewsIndexRoute = NewsIndexRouteImport.update({
   path: '/news/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProviderSlugRoute = ProviderSlugRouteImport.update({
   id: '/provider/$slug',
   path: '/provider/$slug',
@@ -390,6 +396,7 @@ export interface FileRoutesByFullPath {
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/news/': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
 }
@@ -445,6 +452,7 @@ export interface FileRoutesByTo {
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
+  '/blog': typeof BlogIndexRoute
   '/news': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
 }
@@ -501,6 +509,7 @@ export interface FileRoutesById {
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/news/': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
 }
@@ -558,6 +567,7 @@ export interface FileRouteTypes {
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
+    | '/blog/'
     | '/news/'
     | '/api/public/reindex'
   fileRoutesByTo: FileRoutesByTo
@@ -613,6 +623,7 @@ export interface FileRouteTypes {
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
+    | '/blog'
     | '/news'
     | '/api/public/reindex'
   id:
@@ -668,6 +679,7 @@ export interface FileRouteTypes {
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
+    | '/blog/'
     | '/news/'
     | '/api/public/reindex'
   fileRoutesById: FileRoutesById
@@ -724,6 +736,7 @@ export interface RootRouteChildren {
   NewsSlugRoute: typeof NewsSlugRoute
   OperatoriSlugRoute: typeof OperatoriSlugRoute
   ProviderSlugRoute: typeof ProviderSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   NewsIndexRoute: typeof NewsIndexRoute
   ApiPublicReindexRoute: typeof ApiPublicReindexRoute
 }
@@ -1073,6 +1086,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/provider/$slug': {
       id: '/provider/$slug'
       path: '/provider/$slug'
@@ -1156,19 +1176,10 @@ const rootRouteChildren: RootRouteChildren = {
   NewsSlugRoute: NewsSlugRoute,
   OperatoriSlugRoute: OperatoriSlugRoute,
   ProviderSlugRoute: ProviderSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
   NewsIndexRoute: NewsIndexRoute,
   ApiPublicReindexRoute: ApiPublicReindexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
