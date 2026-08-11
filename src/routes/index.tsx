@@ -60,7 +60,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Guida Casinò Italia | Migliori Casino Online ADM, Bonus e Recensioni 2026" },
-      { name: "description", content: "Guida Casinò Italia confronta i migliori casino online ADM in Italia con bonus di benvenuto, recensioni complete, slot machine, roulette, blackjack e guide aggiornate per giocare in modo sicuro e responsabile." },
+      { name: "description", content: "Confronta i migliori casino online ADM in Italia: bonus senza deposito, recensioni, slot, roulette e guide per giocare sicuri. +18." },
 
       { name: "keywords", content: "migliori casino online adm, bonus casino senza deposito, casino online sicuri italia, slot online affidabili, guide casino online, recensioni casino adm, bonus benvenuto casino 2026, casino adm, casino aams, bonus senza deposito, bonus senza deposito immediato, casino online sicuri, casino online italiani, migliori casino online 2026, concessione adm, gioco legale italia, casino con spid, come verificare licenza adm, casino legali italia elenco, quali sono i casino con concessione adm" },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },

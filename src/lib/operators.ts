@@ -79,7 +79,7 @@ export const operators: Operator[] = [
       "Strumenti di autolimitazione integrati",
       "Assistenza clienti in italiano 7/7",
     ],
-    officialUrl: "https://www.gambling-affiliation.com/cpc/v=TsWva1YIp3UhwL9jgBymG724pB-oBUfAgKbFokBRsA8_GA7331V2&aff_var_1=",
+    officialUrl: "https://www.gambling-affiliation.com/cpc/v=R8wXBNnDZM6f0akrpUSQiNEj5-mhd1u.1tu1EeNP.sU_GA7331V2&aff_var_1=",
     noDepositBonus: {
       amount: "€ 250",
       description:
@@ -106,7 +106,7 @@ export const operators: Operator[] = [
       amount: "€ 50",
       description: "Bonus senza deposito accreditato alla registrazione con SPID, utilizzabile secondo i termini e le condizioni pubblicate dal concessionario.",
     },
-    officialUrl: "https://www.gambling-affiliation.com/cpc/v=xBkL0SQeG1L69qeCbRpuVzHccnxw8FpRkjHVhT-tYbA_GA7331V2&aff_var_1=",
+    officialUrl: "https://www.gambling-affiliation.com/cpc/v=ygsz7IxMpBBmd9DqVLtoKx3VO3UjScKEJSxSuDd-Pkc_GA7331V2&aff_var_1=",
   },  
   {slug: "betflag",
     name: "Betflag",
@@ -125,7 +125,7 @@ export const operators: Operator[] = [
       amount: "€ 5.000",
       description: "Bonus senza deposito accreditato alla registrazione con verifica dei documenti, utilizzabile secondo i termini e le condizioni pubblicate dal concessionario.",
     },
-    officialUrl: "https://www.gambling-affiliation.com/cpc/v=czbkTrTha5NkIDGy3O9i.yfHqtS5S3i52BJh.ziioP8_GA7331V2&aff_var_1=",
+    officialUrl: "https://www.gambling-affiliation.com/cpc/v=62T8l7JK3S0jGpRDr9IP3pEuv8Z80EqQbaJyoUtxHmw_GA7331V2",
   },
     {
     slug: "sunbet",
@@ -145,7 +145,7 @@ export const operators: Operator[] = [
       amount: "€ 10",
       description: "Bonus senza deposito accreditato alla convalida del documento (5€ Sport + 5€ Casinò).",
     },
-  officialUrl: "https://www.gambling-affiliation.com/cpc/v=r-pjVdIlD.awE540kQttwJhlChLVX9pg98I6gO07Ikk_GA7331V2",
+  officialUrl: "https://www.gambling-affiliation.com/cpc/v=Aty2QqabnWNLz3VgZ4XEtrdld6Ug1nGQ.COaqXcHzGw_GA7331V2",
     },
   {
     slug: "william-hill",
@@ -166,7 +166,7 @@ export const operators: Operator[] = [
       description:
         "Credito di gioco riconosciuto ai nuovi utenti che completano la registrazione con SPID e la verifica dell'identità, senza obbligo di deposito. Soggetto ai requisiti di puntata e alle condizioni pubblicate dal concessionario.",
     },
-  officialUrl:"https://www.gambling-affiliation.com/cpc/v=gqQBo.2b6e.KfTQV7nTXKskb73-G6EmaG7DESllWKnI_GA7331V2&aff_var_1=",
+  officialUrl:"https://www.gambling-affiliation.com/cpc/v=VopSkYOMWKVOwNnTtCwvzGzBJEPPGIqd59mZyxyQArQ_GA7331V2&aff_var_1=",
   },
   {
 
