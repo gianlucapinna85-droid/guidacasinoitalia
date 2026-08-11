@@ -61,6 +61,7 @@ import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
 import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
+import { Route as ApiPublicReindexRouteImport } from './routes/api/public/reindex'
 
 const VerificareLicenzaAdmRoute = VerificareLicenzaAdmRouteImport.update({
   id: '/verificare-licenza-adm',
@@ -331,6 +332,11 @@ const NewsSlugRoute = NewsSlugRouteImport.update({
   path: '/news/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicReindexRoute = ApiPublicReindexRouteImport.update({
+  id: '/api/public/reindex',
+  path: '/api/public/reindex',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -385,6 +391,7 @@ export interface FileRoutesByFullPath {
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
   '/news/': typeof NewsIndexRoute
+  '/api/public/reindex': typeof ApiPublicReindexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -439,6 +446,7 @@ export interface FileRoutesByTo {
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
   '/news': typeof NewsIndexRoute
+  '/api/public/reindex': typeof ApiPublicReindexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -494,6 +502,7 @@ export interface FileRoutesById {
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
   '/news/': typeof NewsIndexRoute
+  '/api/public/reindex': typeof ApiPublicReindexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -550,6 +559,7 @@ export interface FileRouteTypes {
     | '/operatori/$slug'
     | '/provider/$slug'
     | '/news/'
+    | '/api/public/reindex'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -604,6 +614,7 @@ export interface FileRouteTypes {
     | '/operatori/$slug'
     | '/provider/$slug'
     | '/news'
+    | '/api/public/reindex'
   id:
     | '__root__'
     | '/'
@@ -658,6 +669,7 @@ export interface FileRouteTypes {
     | '/operatori/$slug'
     | '/provider/$slug'
     | '/news/'
+    | '/api/public/reindex'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -713,6 +725,7 @@ export interface RootRouteChildren {
   OperatoriSlugRoute: typeof OperatoriSlugRoute
   ProviderSlugRoute: typeof ProviderSlugRoute
   NewsIndexRoute: typeof NewsIndexRoute
+  ApiPublicReindexRoute: typeof ApiPublicReindexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1081,6 +1094,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/reindex': {
+      id: '/api/public/reindex'
+      path: '/api/public/reindex'
+      fullPath: '/api/public/reindex'
+      preLoaderRoute: typeof ApiPublicReindexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1137,6 +1157,7 @@ const rootRouteChildren: RootRouteChildren = {
   OperatoriSlugRoute: OperatoriSlugRoute,
   ProviderSlugRoute: ProviderSlugRoute,
   NewsIndexRoute: NewsIndexRoute,
+  ApiPublicReindexRoute: ApiPublicReindexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -100,10 +100,25 @@ function withCacheHeaders(request: Request, response: Response): Response {
   });
 }
 
+function maybeTriggerAutoIndex(request: Request): void {
+  if (request.method !== "GET") return;
+  try {
+    if (new URL(request.url).hostname.toLowerCase() !== CANONICAL_HOST) return;
+  } catch {
+    return;
+  }
+  void import("./lib/auto-index.server")
+    .then((m) => m.triggerAutoIndexOnce())
+    .catch((error) => console.error("[auto-index] import fallito", error));
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     const redirect = canonicalHostRedirect(request);
     if (redirect) return redirect;
+    // Pubblicazione -> sitemap aggiornata -> invio automatico a Google e Bing.
+    // Parte una sola volta per rilascio, solo sul dominio canonico di produzione.
+    maybeTriggerAutoIndex(request);
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);

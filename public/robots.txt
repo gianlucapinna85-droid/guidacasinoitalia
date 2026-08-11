@@ -62,8 +62,10 @@ Allow: /
 User-agent: MistralAI-User
 Allow: /
 
-Sitemap: https://www.guidacasino-italia.it/sitemap.xml
+# Bingbot / IndexNow: chiave di verifica pubblicata su
+# https://www.guidacasino-italia.it/44e0631aa489f9354a3a6b35db7c0b53.txt
 
+Sitemap: https://www.guidacasino-italia.it/sitemap.xml
 Sitemap: https://www.guidacasino-italia.it/sitemap-guides.xml
 Sitemap: https://www.guidacasino-italia.it/sitemap-reviews.xml
 Sitemap: https://www.guidacasino-italia.it/sitemap-news.xml
