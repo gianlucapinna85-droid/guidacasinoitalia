@@ -3,6 +3,7 @@ import { PageShell } from "@/components/site-layout";
 import { RelatedLinks } from "@/components/casino-ui";
 import { UserPlus, ShieldCheck, AlertTriangle, CheckCircle2, IdCard } from "lucide-react";
 import regVideoUrl from "@/assets/video/come-registrarsi.mp4.asset.json";
+import { socialImageMeta } from "@/lib/social-image";
 
 const CANON = "https://www.guidacasino-italia.it/come-registrarsi";
 
@@ -21,6 +22,7 @@ export const Route = createFileRoute("/come-registrarsi")({
           "come registrarsi casinò online, registrazione casino ADM, verifica identità casinò, registrazione con SPID, conto gioco ADM, bonus senza deposito registrazione, casino AAMS registrazione",
       },
       { property: "og:title", content: "Come Registrarsi su un Casinò ADM — Guida Passo Passo 2026" },
+      ...socialImageMeta(),
       {
         property: "og:description",
         content:

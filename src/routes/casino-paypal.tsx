@@ -4,6 +4,7 @@ import { PageShell } from "@/components/site-layout";
 import { RelatedLinks, CasinoBadges, RatingBadge } from "@/components/casino-ui";
 import { sortedOperators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
+import { socialImageMeta } from "@/lib/social-image";
 
 const CANONICAL = "https://www.guidacasino-italia.it/casino-paypal";
 const TITLE = "Casinò PayPal ADM 2026: siti legali che accettano PayPal";
@@ -41,6 +42,7 @@ export const Route = createFileRoute("/casino-paypal")({
       },
       { name: "robots", content: "index, follow, max-snippet:-1" },
       { property: "og:title", content: TITLE },
+      ...socialImageMeta(),
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: CANONICAL },
       { property: "og:type", content: "article" },

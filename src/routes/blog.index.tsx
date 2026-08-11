@@ -4,6 +4,7 @@ import { PageShell } from "@/components/site-layout";
 import { RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
 import { BlogSidebar, ExternalBlogButton } from "@/components/blog-ui";
 import { sortedBlog, blogCategories, readingMinutes } from "@/data/blog";
+import { socialImageMeta } from "@/lib/social-image";
 
 const SITE_URL = "https://www.guidacasino-italia.it";
 const CANONICAL = `${SITE_URL}/blog`;
@@ -23,6 +24,7 @@ export const Route = createFileRoute("/blog/")({
       },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
       { property: "og:title", content: TITLE },
+      ...socialImageMeta(),
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: CANONICAL },
       { property: "og:type", content: "website" },

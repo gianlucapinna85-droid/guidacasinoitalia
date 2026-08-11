@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-layout";
+import { socialImageMeta } from "@/lib/social-image";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
@@ -7,6 +8,7 @@ export const Route = createFileRoute("/privacy")({
       { title: "Privacy e Cookie Policy — GuidaCasinò.IT" },
       { name: "description", content: "Informativa privacy ai sensi del GDPR (Reg. UE 2016/679) e cookie policy di GuidaCasinò.IT." },
       { property: "og:title", content: "Privacy & Cookie — GuidaCasinò.IT" },
+      ...socialImageMeta(),
       { property: "og:description", content: "Trattamento dei dati personali e utilizzo dei cookie." },
       { property: "og:url", content: "https://www.guidacasino-italia.it/privacy" },
     ],
