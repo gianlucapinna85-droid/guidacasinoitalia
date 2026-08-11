@@ -5,6 +5,8 @@ import { operators } from "@/lib/operators";
 import { buildReview } from "@/lib/operator-review";
 import { getCasinoMeta } from "@/data/casinos";
 import { getDeepDive } from "@/data/casino-deepdive";
+import { getOperatorFacts } from "@/data/operator-facts";
+import { OperatorFactsSections } from "@/components/operator-facts";
 import { ReadMore } from "@/components/read-more";
 import { FaqSlider } from "@/components/faq-slider";
 
