@@ -5,6 +5,7 @@ import { PageShell } from "@/components/site-layout";
 import { RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
 import { ReadMore } from "@/components/read-more";
 import { FaqSlider } from "@/components/faq-slider";
+import { socialImageMeta } from "@/lib/social-image";
 
 
 
