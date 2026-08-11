@@ -300,7 +300,16 @@ export const guides: Guide[] = [
     changefreq: "monthly",
     priority: "0.8",
   },
+  {
+    path: "/bonus-immediato-spid",
+    title: "Bonus immediato con SPID",
+    description:
+      "Bonus immediato senza deposito e senza documento: come SPID rende la verifica dell'identità istantanea sui casinò ADM.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
 ];
+
 
 
 
