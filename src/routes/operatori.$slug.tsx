@@ -5,6 +5,8 @@ import { operators } from "@/lib/operators";
 import { buildReview } from "@/lib/operator-review";
 import { getCasinoMeta } from "@/data/casinos";
 import { getDeepDive } from "@/data/casino-deepdive";
+import { getOperatorFacts } from "@/data/operator-facts";
+import { OperatorFactsSections } from "@/components/operator-facts";
 import { ReadMore } from "@/components/read-more";
 import { FaqSlider } from "@/components/faq-slider";
 
@@ -30,10 +32,15 @@ export const Route = createFileRoute("/operatori/$slug")({
       };
     }
     const { operator } = loaderData;
+    const facts = getOperatorFacts(operator.slug);
     const canonical = `https://www.guidacasino-italia.it/operatori/${operator.slug}`;
     const nd = operator.noDepositBonus?.amount;
-    const title = `${operator.name} Casinò ADM 2026: Recensione e Bonus`;
-    const description = `${operator.name}: recensione del casinò ADM ${operator.concessionN}. ${nd ? `Bonus senza deposito ${nd}, ` : ""}RTP ${operator.rtpAverage}, ${operator.games}+ giochi. +18.`.slice(0, 158);
+    const title = facts
+      ? `${operator.name}: prelievi, tempi e verifica documenti 2026`
+      : `${operator.name} Casinò ADM 2026: Recensione e Bonus`;
+    const description = facts
+      ? `${operator.name}: metodi di prelievo con limiti e tempi dichiarati, verifica documenti, limiti di deposito e novità 2026. Dati da fonti ufficiali. +18.`.slice(0, 158)
+      : `${operator.name}: recensione del casinò ADM ${operator.concessionN}. ${nd ? `Bonus senza deposito ${nd}, ` : ""}RTP ${operator.rtpAverage}, ${operator.games}+ giochi. +18.`.slice(0, 158);
     return {
       meta: [
         { title },
@@ -117,6 +124,13 @@ export const Route = createFileRoute("/operatori/$slug")({
             "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: [
+              ...(facts
+                ? facts.faqs.map((f) => ({
+                    "@type": "Question",
+                    name: f.q,
+                    acceptedAnswer: { "@type": "Answer", text: f.a },
+                  }))
+                : []),
               {
                 "@type": "Question",
                 name: `${operator.name} ha la concessione ADM?`,
@@ -167,6 +181,7 @@ function OperatorPage() {
   const data = Route.useLoaderData() as ReturnType<typeof loadOperator>;
   const { operator: op, review } = data;
   const meta = getCasinoMeta(op.slug);
+  const facts = getOperatorFacts(op.slug);
 
 
   return (
@@ -183,7 +198,9 @@ function OperatorPage() {
         <header className="mt-6 border-b border-border pb-8">
           <p className="text-xs uppercase tracking-widest text-gold">Recensione informativa 2026</p>
           <h1 className="mt-2 font-serif text-4xl md:text-5xl">
-            {op.name}: recensione casinò ADM e bonus senza deposito
+            {facts
+              ? `${op.name}: prelievi, verifica documenti e limiti — guida operativa`
+              : `${op.name}: recensione casinò ADM e bonus senza deposito`}
           </h1>
           <p className="mt-3 text-sm text-muted-foreground">
             Concessione <strong className="text-foreground">{op.concessionN}</strong> — dati riferiti
@@ -257,6 +274,9 @@ function OperatorPage() {
           </section>
         ) : null}
 
+        {facts ? <OperatorFactsSections facts={facts} name={op.name} /> : null}
+
+
 
         <section className="mt-12">
           <h2 className="font-serif text-2xl">
@@ -326,19 +346,20 @@ function OperatorPage() {
           </p>
         </section>
 
-        <section className="mt-10">
-          <h2 className="font-serif text-2xl">Come registrarsi e verificare il conto su {op.name}</h2>
-          <ReadMore collapsedHeight="4.5rem" className="mt-1">
-            <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-              La registrazione su {op.name} richiede la maggiore età, un documento d'identità valido e il codice
-              fiscale; in alternativa è spesso disponibile l'accesso con SPID o CIE, che rende la verifica
-              immediata. Solo al termine della verifica il conto di gioco diventa pienamente operativo e viene
-              accreditato l'eventuale bonus senza deposito. Prima della prima giocata è consigliabile impostare i
-              limiti di deposito previsti dalla normativa italiana.
-            </p>
-          </ReadMore>
-
-        </section>
+        {facts ? null : (
+          <section className="mt-10">
+            <h2 className="font-serif text-2xl">Come registrarsi e verificare il conto su {op.name}</h2>
+            <ReadMore collapsedHeight="4.5rem" className="mt-1">
+              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                La registrazione su {op.name} richiede la maggiore età, un documento d'identità valido e il codice
+                fiscale; in alternativa è spesso disponibile l'accesso con SPID o CIE, che rende la verifica
+                immediata. Solo al termine della verifica il conto di gioco diventa pienamente operativo e viene
+                accreditato l'eventuale bonus senza deposito. Prima della prima giocata è consigliabile impostare i
+                limiti di deposito previsti dalla normativa italiana.
+              </p>
+            </ReadMore>
+          </section>
+        )}
 
 
         <section className="mt-10 grid gap-6 md:grid-cols-2">
@@ -423,6 +444,7 @@ function OperatorPage() {
         <FaqSlider
           title={`Domande frequenti su ${op.name}`}
           items={[
+              ...(facts ? facts.faqs.map((f) => ({ q: f.q, a: f.a })) : []),
               {
                 q: `${op.name} è un casinò sicuro e legale in Italia?`,
                 a: `${op.name} risulta titolare della concessione ${op.concessionN}, verificabile nell'elenco pubblico dei concessionari su adm.gov.it. I giochi sono collegati al totalizzatore nazionale e sottoposti al controllo dell'Agenzia delle Dogane e dei Monopoli.`,
@@ -437,18 +459,26 @@ function OperatorPage() {
                 q: `Quali metodi di pagamento accetta ${op.name}?`,
                 a: `${op.name} dichiara i seguenti metodi tracciabili: ${op.paymentMethods.join(", ")}. Deposito minimo ${meta?.minDeposit ?? "n.d."}, prelievo minimo ${meta?.minWithdrawal ?? "n.d."}. Il metodo deve essere intestato al titolare del conto di gioco.`,
               },
-              {
-                q: `Quanto tempo richiede un prelievo su ${op.name}?`,
-                a: `I tempi dipendono dal metodo scelto e dallo stato della verifica documentale: senza documenti convalidati nessun concessionario ADM può liquidare un prelievo. ${meta?.fastWithdrawal ? "L'operatore dichiara tempi di elaborazione rapidi." : "I tempi dichiarati sono in linea con la media di categoria."}`,
-              },
+              ...(facts
+                ? []
+                : [
+                    {
+                      q: `Quanto tempo richiede un prelievo su ${op.name}?`,
+                      a: `I tempi dipendono dal metodo scelto e dallo stato della verifica documentale: senza documenti convalidati nessun concessionario ADM può liquidare un prelievo. ${meta?.fastWithdrawal ? "L'operatore dichiara tempi di elaborazione rapidi." : "I tempi dichiarati sono in linea con la media di categoria."}`,
+                    },
+                  ]),
               {
                 q: `Qual è l'RTP medio dichiarato da ${op.name}?`,
                 a: `L'RTP medio dichiarato è ${op.rtpAverage}. È un valore statistico teorico calcolato su un numero molto elevato di giocate: il dato attendibile per il singolo gioco è quello riportato nella sua scheda informativa.`,
               },
-              {
-                q: `Come ci si registra su ${op.name}?`,
-                a: `Servono maggiore età, codice fiscale e un documento d'identità valido; in alternativa è spesso disponibile l'accesso con SPID o CIE, che rende la verifica immediata. Prima della prima giocata è consigliabile impostare i limiti di deposito.`,
-              },
+              ...(facts
+                ? []
+                : [
+                    {
+                      q: `Come ci si registra su ${op.name}?`,
+                      a: `Servono maggiore età, codice fiscale e un documento d'identità valido; in alternativa è spesso disponibile l'accesso con SPID o CIE, che rende la verifica immediata. Prima della prima giocata è consigliabile impostare i limiti di deposito.`,
+                    },
+                  ]),
           ]}
         />
 
