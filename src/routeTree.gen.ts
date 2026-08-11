@@ -62,6 +62,7 @@ import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
 import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ApiPublicReindexRouteImport } from './routes/api/public/reindex'
 
 const VerificareLicenzaAdmRoute = VerificareLicenzaAdmRouteImport.update({
@@ -338,6 +339,11 @@ const NewsSlugRoute = NewsSlugRouteImport.update({
   path: '/news/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicReindexRoute = ApiPublicReindexRouteImport.update({
   id: '/api/public/reindex',
   path: '/api/public/reindex',
@@ -393,6 +399,7 @@ export interface FileRoutesByFullPath {
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
@@ -449,6 +456,7 @@ export interface FileRoutesByTo {
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
@@ -506,6 +514,7 @@ export interface FileRoutesById {
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
@@ -564,6 +573,7 @@ export interface FileRouteTypes {
     | '/slot-online-soldi-veri'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
+    | '/blog/$slug'
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
@@ -620,6 +630,7 @@ export interface FileRouteTypes {
     | '/slot-online-soldi-veri'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
+    | '/blog/$slug'
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
@@ -676,6 +687,7 @@ export interface FileRouteTypes {
     | '/slot-online-soldi-veri'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
+    | '/blog/$slug'
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
@@ -733,6 +745,7 @@ export interface RootRouteChildren {
   SlotOnlineSoldiVeriRoute: typeof SlotOnlineSoldiVeriRoute
   SlotRtpAltoRoute: typeof SlotRtpAltoRoute
   VerificareLicenzaAdmRoute: typeof VerificareLicenzaAdmRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   NewsSlugRoute: typeof NewsSlugRoute
   OperatoriSlugRoute: typeof OperatoriSlugRoute
   ProviderSlugRoute: typeof ProviderSlugRoute
@@ -1114,6 +1127,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/reindex': {
       id: '/api/public/reindex'
       path: '/api/public/reindex'
@@ -1173,6 +1193,7 @@ const rootRouteChildren: RootRouteChildren = {
   SlotOnlineSoldiVeriRoute: SlotOnlineSoldiVeriRoute,
   SlotRtpAltoRoute: SlotRtpAltoRoute,
   VerificareLicenzaAdmRoute: VerificareLicenzaAdmRoute,
+  BlogSlugRoute: BlogSlugRoute,
   NewsSlugRoute: NewsSlugRoute,
   OperatoriSlugRoute: OperatoriSlugRoute,
   ProviderSlugRoute: ProviderSlugRoute,

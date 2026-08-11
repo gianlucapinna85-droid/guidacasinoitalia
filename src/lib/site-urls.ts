@@ -6,6 +6,8 @@
 import { operators } from "@/lib/operators";
 import { guides } from "@/data/guides";
 import { news } from "@/data/news";
+import { blogArticles } from "@/data/blog";
+
 
 export const BASE_URL = "https://www.guidacasino-italia.it";
 
