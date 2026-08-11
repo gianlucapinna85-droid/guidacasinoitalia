@@ -241,6 +241,17 @@ export function Header() {
           <Link to="/slot-online-soldi-veri" className="text-muted-foreground transition-colors hover:text-foreground">Slot online</Link>
           <Link to="/casino-online-principianti" className="text-muted-foreground transition-colors hover:text-foreground">Guide</Link>
           <Link to="/news" className="text-muted-foreground transition-colors hover:text-foreground">News</Link>
+          <Link to="/blog" className="text-muted-foreground transition-colors hover:text-foreground">Blog</Link>
+          <a
+            href={EXTERNAL_BLOG_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-gold/50 bg-gold/10 px-2.5 py-1 text-xs font-semibold text-gold transition-colors hover:bg-gold/20"
+            title="Approfondimenti Extra Casinò"
+          >
+            📖 Approfondimenti Extra
+          </a>
+
           <Link to="/come-registrarsi" className="text-muted-foreground transition-colors hover:text-foreground">Come registrarsi</Link>
           <Link to="/gioco-responsabile" className="text-muted-foreground transition-colors hover:text-foreground">Gioco responsabile</Link>
           <a
