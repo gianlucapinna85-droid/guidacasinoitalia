@@ -3,7 +3,7 @@ import { GuideArticle, guideHead, type GuideConfig } from "@/components/guide-ar
 
 const CFG: GuideConfig = {
   path: "/casino-online-italia",
-  title: "Casinò online in Italia 2026: come funzionano, regole ADM e tutele",
+  title: "Casinò online in Italia 2026: regole ADM e tutele",
   h1: "Casinò online in Italia: come funzionano, normativa ADM e tutele del giocatore",
   description:
     "Guida generale ai casinò online in Italia nel 2026: concessione ADM, quadro normativo, giochi disponibili, pagamenti, tassazione delle vincite e strumenti di tutela. Contenuto informativo, solo +18.",

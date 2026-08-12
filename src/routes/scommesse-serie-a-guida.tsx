@@ -3,7 +3,7 @@ import { GuideArticle, guideHeadWithWebPage, type GuideConfig } from "@/componen
 
 const cfg: GuideConfig = {
   path: "/scommesse-serie-a-guida",
-  title: "Scommesse Serie A 2026: mercati, quote e statistiche da valutare",
+  title: "Scommesse Serie A 2026: mercati, quote e statistiche",
   h1: "Scommesse Serie A: guida ai mercati e alle statistiche",
   description:
     "Guida alle scommesse sulla Serie A: mercati più liquidi, margini sulle quote, statistiche utili, fattore campo e calendario europeo. Contenuto informativo. Solo +18.",

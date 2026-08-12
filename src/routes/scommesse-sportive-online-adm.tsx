@@ -3,7 +3,7 @@ import { GuideArticle, guideHeadWithWebPage, type GuideConfig } from "@/componen
 
 const cfg: GuideConfig = {
   path: "/scommesse-sportive-online-adm",
-  title: "Scommesse sportive online ADM 2026: guida completa e siti autorizzati",
+  title: "Scommesse sportive online ADM 2026: guida completa",
   h1: "Scommesse sportive online ADM: guida completa 2026",
   description:
     "Guida alle scommesse sportive online con concessione ADM nel 2026: come funzionano i siti autorizzati, quote, mercati, palinsesto calcio, prelievi e tutele. Contenuto informativo. Solo +18.",

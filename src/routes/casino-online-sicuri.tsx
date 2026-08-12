@@ -3,7 +3,7 @@ import { GuideArticle, guideHead, type GuideConfig } from "@/components/guide-ar
 
 const CFG: GuideConfig = {
   path: "/casino-online-sicuri",
-  title: "Casinò online sicuri ADM 2026: come riconoscere i siti legali",
+  title: "Casinò online sicuri ADM 2026: i siti legali",
   h1: "Casinò online sicuri: come riconoscere un sito legale con concessione ADM",
   description:
     "Guida pratica per riconoscere i casinò online sicuri in Italia: verifica della concessione ADM (ex AAMS), certificazioni, protezione dei dati, prelievi garantiti e siti da evitare. Solo +18.",

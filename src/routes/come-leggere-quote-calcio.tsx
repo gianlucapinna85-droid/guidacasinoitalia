@@ -3,7 +3,7 @@ import { GuideArticle, guideHead, type GuideConfig } from "@/components/guide-ar
 
 const cfg: GuideConfig = {
   path: "/come-leggere-quote-calcio",
-  title: "Come leggere le quote calcio e costruire una schedina | Guida 2026",
+  title: "Come leggere le quote calcio: guida pratica 2026",
   h1: "Come leggere le quote calcio e costruire una schedina",
   description:
     "Guida alla lettura delle quote calcio: probabilità implicita, margine del bookmaker, mercati 1X2, over/under e handicap, e come si struttura una schedina in modo consapevole. Contenuto informativo. Solo +18.",

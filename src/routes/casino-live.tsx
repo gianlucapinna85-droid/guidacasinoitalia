@@ -3,7 +3,7 @@ import { GuideArticle, guideHead, type GuideConfig } from "@/components/guide-ar
 
 const CFG: GuideConfig = {
   path: "/casino-live",
-  title: "Casinò live 2026: come funziona il gioco con croupier dal vivo",
+  title: "Casinò live 2026: come funziona il croupier dal vivo",
   h1: "Casinò live: come funziona il gioco con croupier dal vivo sui siti ADM",
   description:
     "Guida al casinò live sui concessionari ADM: come funzionano roulette, blackjack e game show con croupier reali, streaming, limiti di puntata e differenze con i giochi RNG. Solo +18.",

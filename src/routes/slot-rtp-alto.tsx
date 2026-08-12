@@ -3,7 +3,7 @@ import { GuideArticle, guideHead, type GuideConfig } from "@/components/guide-ar
 
 const CFG: GuideConfig = {
   path: "/slot-rtp-alto",
-  title: "Slot online con RTP alto: cosa significa e come usarlo | 2026",
+  title: "Slot online con RTP alto: cosa significa | 2026",
   h1: "Slot con RTP alto: cosa significa davvero e come si usa il dato",
   description:
     "Come si legge l'RTP di una slot, perché un valore alto non garantisce vincite, differenze fra configurazioni e come confrontare i cataloghi dei concessionari ADM. Solo +18.",

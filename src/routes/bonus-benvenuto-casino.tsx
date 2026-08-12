@@ -3,7 +3,7 @@ import { GuideArticle, guideHead, type GuideConfig } from "@/components/guide-ar
 
 const CFG: GuideConfig = {
   path: "/bonus-benvenuto-casino",
-  title: "Bonus di benvenuto casinò ADM 2026: come leggere le condizioni",
+  title: "Bonus di benvenuto casinò ADM 2026: le condizioni",
   h1: "Bonus di benvenuto casinò: come funzionano e come si leggono le condizioni",
   description:
     "Guida ai bonus di benvenuto dei casinò con concessione ADM: differenza con il bonus senza deposito, requisiti di puntata, giochi ammessi, scadenze e limite di vincita prelevabile. Solo +18.",

@@ -3,7 +3,7 @@ import { GuideArticle, guideHeadWithWebPage, type GuideConfig } from "@/componen
 
 const cfg: GuideConfig = {
   path: "/casino-o-scommesse-sportive",
-  title: "Casinò online o scommesse sportive: differenze, RTP e margine",
+  title: "Casinò online o scommesse: differenze, RTP e margine",
   h1: "Casinò online e scommesse sportive: tutte le differenze",
   description:
     "Differenze tra casinò online e scommesse sportive sui siti ADM: RTP e margine, ruolo dell'analisi, ritmo di gioco, bonus e rischi specifici. Guida informativa. Solo +18.",

@@ -13,7 +13,7 @@ import { getCasinoMeta } from "@/data/casinos";
 
 const CFG: GuideConfig = {
   path: "/guida-casino-online-italia",
-  title: "Guida Casino Online Italia | Bonus, Slot, Roulette e Casino ADM 2026",
+  title: "Guida Casino Online Italia 2026: bonus, slot e ADM",
   description:
     "La guida completa ai casino online ADM in Italia: migliori bonus, slot machine, roulette, blackjack, recensioni affidabili e consigli per giocare in modo sicuro e responsabile.",
   h1: "Guida Casino Online Italia",

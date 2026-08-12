@@ -3,7 +3,7 @@ import { GuideArticle, guideHead, type GuideConfig } from "@/components/guide-ar
 
 const CFG: GuideConfig = {
   path: "/come-valutiamo-i-casino",
-  title: "Come valutiamo i casinò ADM: metodo, fonti e uso dell'IA — GuidaCasinò.IT",
+  title: "Come valutiamo i casinò ADM: metodo e fonti",
   h1: "Come lavora GuidaCasinò.IT: metodo di valutazione, fonti e uso dell'intelligenza artificiale",
   description:
     "Il metodo editoriale di GuidaCasinò.IT: criteri di confronto dei concessionari ADM, fonti verificabili, frequenza di aggiornamento, uso dell'intelligenza artificiale e indipendenza dei contenuti. Solo +18.",

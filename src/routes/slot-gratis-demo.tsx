@@ -3,7 +3,7 @@ import { GuideArticle, guideHead, type GuideConfig } from "@/components/guide-ar
 
 const CFG: GuideConfig = {
   path: "/slot-gratis-demo",
-  title: "Slot gratis online 2026: demo, RTP e come provarle sui casinò ADM",
+  title: "Slot gratis online 2026: demo e RTP sui casinò ADM",
   h1: "Slot gratis in versione demo: come funzionano sui casinò ADM",
   description:
     "Guida alle slot gratis online in modalità demo sui concessionari ADM: come si attivano, differenze con il denaro reale, RTP dichiarato, volatilità e limiti della prova gratuita. Solo +18.",
