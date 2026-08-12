@@ -3,7 +3,7 @@ import { GuideArticle, guideHeadWithWebPage, type GuideConfig } from "@/componen
 
 const cfg: GuideConfig = {
   path: "/migliori-siti-scommesse-adm",
-  title: "Migliori siti scommesse ADM 2026: criteri di confronto e quote",
+  title: "Migliori siti scommesse ADM 2026: come confrontarli",
   h1: "Migliori siti scommesse ADM: come confrontarli davvero",
   description:
     "Come confrontare i migliori siti scommesse con concessione ADM nel 2026: margine sulle quote, palinsesto, prelievi, app mobile e strumenti di tutela. Guida informativa. Solo +18.",

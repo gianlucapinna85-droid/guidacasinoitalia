@@ -3,7 +3,7 @@ import { GuideArticle, guideHeadWithWebPage, type GuideConfig } from "@/componen
 
 const cfg: GuideConfig = {
   path: "/pronostici-calcio-come-analizzare",
-  title: "Pronostici calcio: come analizzare una partita con i dati | 2026",
+  title: "Pronostici calcio: come analizzare una partita | 2026",
   h1: "Pronostici calcio: come analizzare una partita con i dati",
   description:
     "Metodo per analizzare una partita di calcio prima di un pronostico: expected goals, forma reale, contesto, quote e probabilità implicita. Contenuto informativo e statistico. Solo +18.",

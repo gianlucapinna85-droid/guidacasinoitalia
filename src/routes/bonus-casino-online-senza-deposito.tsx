@@ -10,7 +10,7 @@ import {
 
 const CFG: GuideConfig = {
   path: "/bonus-casino-online-senza-deposito",
-  title: "Bonus Casino Online Senza Deposito 2026 | Guida Casinò Italia",
+  title: "Bonus Casino Senza Deposito 2026 | Guida Casinò Italia",
   h1: "Bonus casino online senza deposito: come funzionano davvero",
   description:
     "Bonus casino senza deposito e bonus casino online gratis sui concessionari ADM: come funzionano, requisiti di puntata, scadenze e limiti. Informazione, non promozione. Solo +18.",

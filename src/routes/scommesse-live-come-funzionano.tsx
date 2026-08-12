@@ -3,7 +3,7 @@ import { GuideArticle, guideHeadWithWebPage, type GuideConfig } from "@/componen
 
 const cfg: GuideConfig = {
   path: "/scommesse-live-come-funzionano",
-  title: "Scommesse live: come funzionano quote in tempo reale e cash out",
+  title: "Scommesse live: come funzionano quote e cash out",
   h1: "Scommesse live: come funzionano davvero",
   description:
     "Guida alle scommesse live sui siti ADM: come si formano le quote in tempo reale, ritardo del segnale, cash out, margini e rischi specifici del gioco in diretta. Solo +18.",

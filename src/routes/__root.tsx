@@ -81,8 +81,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Guida Casino Italia 2026 | Migliori Casinò ADM, Bonus Senza Deposito e Recensioni AAMS" },
-      { name: "description", content: "Confronta i migliori casinò online ADM/AAMS, bonus senza deposito, recensioni verificate e guide complete sui siti legali italiani aggiornati al 2026." },
+      // title e description sono definiti dalle singole rotte per evitare duplicazioni
+
 
       { name: "author", content: "GuidaCasinò IT" },
       { name: "keywords", content: "casinò ADM, concessione ADM, gioco responsabile, comparatore casinò, RUA, autoesclusione, +18" },

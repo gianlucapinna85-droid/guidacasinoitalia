@@ -10,7 +10,7 @@ import {
 
 const CFG: GuideConfig = {
   path: "/blackjack-online-italia",
-  title: "Blackjack Online Italia 2026: regole e ADM | Guida Casinò Italia",
+  title: "Blackjack Online Italia 2026: regole e casinò ADM",
   h1: "Blackjack online in Italia: regole, varianti e margine del banco",
   description:
     "Blackjack online Italia sui casino ADM: regole, varianti, basic strategy, blackjack live e margine del banco. Guida informativa e non promozionale. Solo +18.",
