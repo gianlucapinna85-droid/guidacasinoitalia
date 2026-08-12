@@ -60,7 +60,7 @@ const FAQS = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Guida Casinò Italia | Migliori Casino Online ADM, Bonus e Recensioni 2026" },
+      { title: "Migliori Casino Online ADM 2026 | Guida Casinò Italia" },
       { name: "description", content: "Confronta i migliori casino online ADM in Italia: bonus senza deposito, recensioni, slot, roulette e guide per giocare sicuri. +18." },
 
       { name: "keywords", content: "migliori casino online adm, bonus casino senza deposito, casino online sicuri italia, slot online affidabili, guide casino online, recensioni casino adm, bonus benvenuto casino 2026, casino adm, casino aams, bonus senza deposito, bonus senza deposito immediato, casino online sicuri, casino online italiani, migliori casino online 2026, concessione adm, gioco legale italia, casino con spid, come verificare licenza adm, casino legali italia elenco, quali sono i casino con concessione adm" },
@@ -892,13 +892,8 @@ function OperatorsSection() {
               <Stat label="RTP medio" value={op.rtpAverage} />
               <div className="col-span-2 flex items-center justify-between gap-2 md:col-span-1 md:block">
                 <Stat label="Titoli" value={`${op.games}+`} />
-                <Link
-                  to="/provider/$slug"
-                  params={{ slug: op.slug }}
-                  className="inline-flex shrink-0 items-center justify-center rounded-md border border-gold/50 bg-gold/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold transition-colors hover:bg-gold/20 md:mt-2 md:px-3 md:py-1.5 md:text-[11px]"
-                >
-                  Provider
-                </Link>
+                <Stat label="Titoli" value={`${op.games}+`} />
+
               </div>
 
               <div className="col-span-2 md:col-span-3">
