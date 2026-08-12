@@ -890,11 +890,8 @@ function OperatorsSection() {
             <div className="grid grid-cols-2 gap-2 md:gap-3 md:grid-cols-3">
               <Stat label="Attivo dal" value={op.founded.toString()} />
               <Stat label="RTP medio" value={op.rtpAverage} />
-              <div className="col-span-2 flex items-center justify-between gap-2 md:col-span-1 md:block">
-                <Stat label="Titoli" value={`${op.games}+`} />
-                <Stat label="Titoli" value={`${op.games}+`} />
+              <Stat label="Titoli" value={`${op.games}+`} />
 
-              </div>
 
               <div className="col-span-2 md:col-span-3">
                 {op.noDepositBonus ? (
