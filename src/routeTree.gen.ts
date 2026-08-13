@@ -19,6 +19,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapReviewsDotxmlRouteImport } from './routes/sitemap-reviews[.]xml'
 import { Route as SitemapNewsDotxmlRouteImport } from './routes/sitemap-news[.]xml'
 import { Route as SitemapGuidesDotxmlRouteImport } from './routes/sitemap-guides[.]xml'
+import { Route as SitemapBlogDotxmlRouteImport } from './routes/sitemap-blog[.]xml'
 import { Route as ScommesseSportiveOnlineAdmRouteImport } from './routes/scommesse-sportive-online-adm'
 import { Route as ScommesseSerieAGuidaRouteImport } from './routes/scommesse-serie-a-guida'
 import { Route as ScommesseLiveComeFunzionanoRouteImport } from './routes/scommesse-live-come-funzionano'
@@ -114,6 +115,11 @@ const SitemapNewsDotxmlRoute = SitemapNewsDotxmlRouteImport.update({
 const SitemapGuidesDotxmlRoute = SitemapGuidesDotxmlRouteImport.update({
   id: '/sitemap-guides.xml',
   path: '/sitemap-guides.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapBlogDotxmlRoute = SitemapBlogDotxmlRouteImport.update({
+  id: '/sitemap-blog.xml',
+  path: '/sitemap-blog.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ScommesseSportiveOnlineAdmRoute =
@@ -396,6 +402,7 @@ export interface FileRoutesByFullPath {
   '/scommesse-live-come-funzionano': typeof ScommesseLiveComeFunzionanoRoute
   '/scommesse-serie-a-guida': typeof ScommesseSerieAGuidaRoute
   '/scommesse-sportive-online-adm': typeof ScommesseSportiveOnlineAdmRoute
+  '/sitemap-blog.xml': typeof SitemapBlogDotxmlRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap-news.xml': typeof SitemapNewsDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
@@ -454,6 +461,7 @@ export interface FileRoutesByTo {
   '/scommesse-live-come-funzionano': typeof ScommesseLiveComeFunzionanoRoute
   '/scommesse-serie-a-guida': typeof ScommesseSerieAGuidaRoute
   '/scommesse-sportive-online-adm': typeof ScommesseSportiveOnlineAdmRoute
+  '/sitemap-blog.xml': typeof SitemapBlogDotxmlRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap-news.xml': typeof SitemapNewsDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
@@ -513,6 +521,7 @@ export interface FileRoutesById {
   '/scommesse-live-come-funzionano': typeof ScommesseLiveComeFunzionanoRoute
   '/scommesse-serie-a-guida': typeof ScommesseSerieAGuidaRoute
   '/scommesse-sportive-online-adm': typeof ScommesseSportiveOnlineAdmRoute
+  '/sitemap-blog.xml': typeof SitemapBlogDotxmlRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap-news.xml': typeof SitemapNewsDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
@@ -573,6 +582,7 @@ export interface FileRouteTypes {
     | '/scommesse-live-come-funzionano'
     | '/scommesse-serie-a-guida'
     | '/scommesse-sportive-online-adm'
+    | '/sitemap-blog.xml'
     | '/sitemap-guides.xml'
     | '/sitemap-news.xml'
     | '/sitemap-reviews.xml'
@@ -631,6 +641,7 @@ export interface FileRouteTypes {
     | '/scommesse-live-come-funzionano'
     | '/scommesse-serie-a-guida'
     | '/scommesse-sportive-online-adm'
+    | '/sitemap-blog.xml'
     | '/sitemap-guides.xml'
     | '/sitemap-news.xml'
     | '/sitemap-reviews.xml'
@@ -689,6 +700,7 @@ export interface FileRouteTypes {
     | '/scommesse-live-come-funzionano'
     | '/scommesse-serie-a-guida'
     | '/scommesse-sportive-online-adm'
+    | '/sitemap-blog.xml'
     | '/sitemap-guides.xml'
     | '/sitemap-news.xml'
     | '/sitemap-reviews.xml'
@@ -748,6 +760,7 @@ export interface RootRouteChildren {
   ScommesseLiveComeFunzionanoRoute: typeof ScommesseLiveComeFunzionanoRoute
   ScommesseSerieAGuidaRoute: typeof ScommesseSerieAGuidaRoute
   ScommesseSportiveOnlineAdmRoute: typeof ScommesseSportiveOnlineAdmRoute
+  SitemapBlogDotxmlRoute: typeof SitemapBlogDotxmlRoute
   SitemapGuidesDotxmlRoute: typeof SitemapGuidesDotxmlRoute
   SitemapNewsDotxmlRoute: typeof SitemapNewsDotxmlRoute
   SitemapReviewsDotxmlRoute: typeof SitemapReviewsDotxmlRoute
@@ -837,6 +850,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap-guides.xml'
       fullPath: '/sitemap-guides.xml'
       preLoaderRoute: typeof SitemapGuidesDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap-blog.xml': {
+      id: '/sitemap-blog.xml'
+      path: '/sitemap-blog.xml'
+      fullPath: '/sitemap-blog.xml'
+      preLoaderRoute: typeof SitemapBlogDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/scommesse-sportive-online-adm': {
@@ -1204,6 +1224,7 @@ const rootRouteChildren: RootRouteChildren = {
   ScommesseLiveComeFunzionanoRoute: ScommesseLiveComeFunzionanoRoute,
   ScommesseSerieAGuidaRoute: ScommesseSerieAGuidaRoute,
   ScommesseSportiveOnlineAdmRoute: ScommesseSportiveOnlineAdmRoute,
+  SitemapBlogDotxmlRoute: SitemapBlogDotxmlRoute,
   SitemapGuidesDotxmlRoute: SitemapGuidesDotxmlRoute,
   SitemapNewsDotxmlRoute: SitemapNewsDotxmlRoute,
   SitemapReviewsDotxmlRoute: SitemapReviewsDotxmlRoute,
@@ -1225,3 +1246,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
