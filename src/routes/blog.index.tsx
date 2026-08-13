@@ -3,7 +3,7 @@ import { CalendarDays, Clock, ArrowRight } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
 import { RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
 import { BlogSidebar, ExternalBlogButton } from "@/components/blog-ui";
-import { sortedBlog, blogCategories, readingMinutes } from "@/data/blog";
+import { sortedBlog, readingMinutes, blogPath, categoryHubs, CATEGORY_SLUG } from "@/data/blog";
 import { socialImageMeta } from "@/lib/social-image";
 
 const SITE_URL = "https://www.guidacasino-italia.it";
@@ -51,7 +51,7 @@ export const Route = createFileRoute("/blog/")({
             description: a.description,
             datePublished: a.date,
             dateModified: a.updated ?? a.date,
-            url: `${SITE_URL}/blog/${a.slug}`,
+            url: `${SITE_URL}/blog/${CATEGORY_SLUG[a.category]}/${a.slug}`,
           })),
         }),
       },
@@ -133,14 +133,14 @@ function BlogIndex() {
                     </span>
                   </div>
                   <h2 className="mt-2 font-serif text-lg leading-snug">
-                    <Link to="/blog/$slug" params={{ slug: a.slug }} className="hover:text-gold">
+                    <Link to="/blog/$category/$slug" params={blogPath(a)} className="hover:text-gold">
                       {a.h1}
                     </Link>
                   </h2>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{a.summary}</p>
                   <Link
-                    to="/blog/$slug"
-                    params={{ slug: a.slug }}
+                    to="/blog/$category/$slug"
+                    params={blogPath(a)}
                     className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-gold"
                   >
                     Leggi l'articolo <ArrowRight className="h-4 w-4" />

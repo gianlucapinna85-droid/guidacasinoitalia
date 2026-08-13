@@ -64,6 +64,7 @@ import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
 import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
+import { Route as BlogCategoryIndexRouteImport } from './routes/blog.$category.index'
 import { Route as BlogCategorySlugRouteImport } from './routes/blog.$category.$slug'
 import { Route as ApiPublicReindexRouteImport } from './routes/api/public/reindex'
 
@@ -351,6 +352,11 @@ const NewsSlugRoute = NewsSlugRouteImport.update({
   path: '/news/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogCategoryIndexRoute = BlogCategoryIndexRouteImport.update({
+  id: '/blog/$category/',
+  path: '/blog/$category/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogCategorySlugRoute = BlogCategorySlugRouteImport.update({
   id: '/blog/$category/$slug',
   path: '/blog/$category/$slug',
@@ -420,6 +426,7 @@ export interface FileRoutesByFullPath {
   '/news/': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
+  '/blog/$category/': typeof BlogCategoryIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -479,6 +486,7 @@ export interface FileRoutesByTo {
   '/news': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
+  '/blog/$category': typeof BlogCategoryIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -539,6 +547,7 @@ export interface FileRoutesById {
   '/news/': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
+  '/blog/$category/': typeof BlogCategoryIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -600,6 +609,7 @@ export interface FileRouteTypes {
     | '/news/'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
+    | '/blog/$category/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -659,6 +669,7 @@ export interface FileRouteTypes {
     | '/news'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
+    | '/blog/$category'
   id:
     | '__root__'
     | '/'
@@ -718,6 +729,7 @@ export interface FileRouteTypes {
     | '/news/'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
+    | '/blog/$category/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -778,6 +790,7 @@ export interface RootRouteChildren {
   NewsIndexRoute: typeof NewsIndexRoute
   ApiPublicReindexRoute: typeof ApiPublicReindexRoute
   BlogCategorySlugRoute: typeof BlogCategorySlugRoute
+  BlogCategoryIndexRoute: typeof BlogCategoryIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1167,6 +1180,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$category/': {
+      id: '/blog/$category/'
+      path: '/blog/$category'
+      fullPath: '/blog/$category/'
+      preLoaderRoute: typeof BlogCategoryIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/$category/$slug': {
       id: '/blog/$category/$slug'
       path: '/blog/$category/$slug'
@@ -1242,6 +1262,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewsIndexRoute: NewsIndexRoute,
   ApiPublicReindexRoute: ApiPublicReindexRoute,
   BlogCategorySlugRoute: BlogCategorySlugRoute,
+  BlogCategoryIndexRoute: BlogCategoryIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
