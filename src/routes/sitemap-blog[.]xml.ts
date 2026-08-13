@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { blogArticles } from "@/data/blog";
-import { BASE_URL, renderUrlset, type SiteEntry } from "@/lib/site-urls";
+import { renderUrlset, type SiteEntry } from "@/lib/site-urls";
 
 export const Route = createFileRoute("/sitemap-blog.xml")({
   server: {
@@ -20,8 +20,6 @@ export const Route = createFileRoute("/sitemap-blog.xml")({
         ];
 
         const xml = renderUrlset(entries);
-        void BASE_URL;
-
         return new Response(xml, {
           headers: { "Content-Type": "application/xml", "Cache-Control": "public, max-age=3600" },
         });
