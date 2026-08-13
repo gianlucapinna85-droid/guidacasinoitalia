@@ -106,13 +106,15 @@ function BlogIndex() {
         <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_320px]">
           <div>
             <div className="flex flex-wrap gap-2">
-              {blogCategories.map((c) => (
-                <span
-                  key={c}
-                  className="rounded-full border border-gold/40 bg-gold/10 px-2.5 py-1 text-[11px] uppercase tracking-wide text-gold"
+              {categoryHubs.map((h) => (
+                <Link
+                  key={h.slug}
+                  to="/blog/$category"
+                  params={{ category: h.slug }}
+                  className="rounded-full border border-gold/40 bg-gold/10 px-2.5 py-1 text-[11px] uppercase tracking-wide text-gold transition-colors hover:bg-gold/20"
                 >
-                  {c}
-                </span>
+                  {h.category}
+                </Link>
               ))}
             </div>
 
