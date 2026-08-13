@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { blogArticles } from "@/data/blog";
+import { blogArticles, categoryHubs, CATEGORY_SLUG } from "@/data/blog";
 import { renderUrlset, type SiteEntry } from "@/lib/site-urls";
 
 export const Route = createFileRoute("/sitemap-blog.xml")({
@@ -11,8 +11,13 @@ export const Route = createFileRoute("/sitemap-blog.xml")({
         // ogni nuova pubblicazione aggiorna automaticamente la sitemap.
         const entries: SiteEntry[] = [
           { path: "/blog", changefreq: "daily", priority: "0.9" },
+          ...categoryHubs.map((h) => ({
+            path: `/blog/${h.slug}`,
+            changefreq: "daily" as const,
+            priority: "0.8",
+          })),
           ...blogArticles.map((a) => ({
-            path: `/blog/${a.slug}`,
+            path: `/blog/${CATEGORY_SLUG[a.category]}/${a.slug}`,
             lastmod: a.updated ?? a.date,
             changefreq: "weekly" as const,
             priority: "0.8",

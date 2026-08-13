@@ -64,7 +64,8 @@ import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
 import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
-import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as BlogCategoryIndexRouteImport } from './routes/blog.$category.index'
+import { Route as BlogCategorySlugRouteImport } from './routes/blog.$category.$slug'
 import { Route as ApiPublicReindexRouteImport } from './routes/api/public/reindex'
 
 const VerificareLicenzaAdmRoute = VerificareLicenzaAdmRouteImport.update({
@@ -351,9 +352,14 @@ const NewsSlugRoute = NewsSlugRouteImport.update({
   path: '/news/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/blog/$slug',
-  path: '/blog/$slug',
+const BlogCategoryIndexRoute = BlogCategoryIndexRouteImport.update({
+  id: '/blog/$category/',
+  path: '/blog/$category/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogCategorySlugRoute = BlogCategorySlugRouteImport.update({
+  id: '/blog/$category/$slug',
+  path: '/blog/$category/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPublicReindexRoute = ApiPublicReindexRouteImport.update({
@@ -413,13 +419,14 @@ export interface FileRoutesByFullPath {
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/news/': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
+  '/blog/$category/$slug': typeof BlogCategorySlugRoute
+  '/blog/$category/': typeof BlogCategoryIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -472,13 +479,14 @@ export interface FileRoutesByTo {
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
   '/blog': typeof BlogIndexRoute
   '/news': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
+  '/blog/$category/$slug': typeof BlogCategorySlugRoute
+  '/blog/$category': typeof BlogCategoryIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -532,13 +540,14 @@ export interface FileRoutesById {
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/news/': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
+  '/blog/$category/$slug': typeof BlogCategorySlugRoute
+  '/blog/$category/': typeof BlogCategoryIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -593,13 +602,14 @@ export interface FileRouteTypes {
     | '/slot-online-soldi-veri'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
-    | '/blog/$slug'
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
     | '/blog/'
     | '/news/'
     | '/api/public/reindex'
+    | '/blog/$category/$slug'
+    | '/blog/$category/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -652,13 +662,14 @@ export interface FileRouteTypes {
     | '/slot-online-soldi-veri'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
-    | '/blog/$slug'
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
     | '/blog'
     | '/news'
     | '/api/public/reindex'
+    | '/blog/$category/$slug'
+    | '/blog/$category'
   id:
     | '__root__'
     | '/'
@@ -711,13 +722,14 @@ export interface FileRouteTypes {
     | '/slot-online-soldi-veri'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
-    | '/blog/$slug'
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
     | '/blog/'
     | '/news/'
     | '/api/public/reindex'
+    | '/blog/$category/$slug'
+    | '/blog/$category/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -771,13 +783,14 @@ export interface RootRouteChildren {
   SlotOnlineSoldiVeriRoute: typeof SlotOnlineSoldiVeriRoute
   SlotRtpAltoRoute: typeof SlotRtpAltoRoute
   VerificareLicenzaAdmRoute: typeof VerificareLicenzaAdmRoute
-  BlogSlugRoute: typeof BlogSlugRoute
   NewsSlugRoute: typeof NewsSlugRoute
   OperatoriSlugRoute: typeof OperatoriSlugRoute
   ProviderSlugRoute: typeof ProviderSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   NewsIndexRoute: typeof NewsIndexRoute
   ApiPublicReindexRoute: typeof ApiPublicReindexRoute
+  BlogCategorySlugRoute: typeof BlogCategorySlugRoute
+  BlogCategoryIndexRoute: typeof BlogCategoryIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1167,11 +1180,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/blog/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
+    '/blog/$category/': {
+      id: '/blog/$category/'
+      path: '/blog/$category'
+      fullPath: '/blog/$category/'
+      preLoaderRoute: typeof BlogCategoryIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$category/$slug': {
+      id: '/blog/$category/$slug'
+      path: '/blog/$category/$slug'
+      fullPath: '/blog/$category/$slug'
+      preLoaderRoute: typeof BlogCategorySlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/reindex': {
@@ -1235,13 +1255,14 @@ const rootRouteChildren: RootRouteChildren = {
   SlotOnlineSoldiVeriRoute: SlotOnlineSoldiVeriRoute,
   SlotRtpAltoRoute: SlotRtpAltoRoute,
   VerificareLicenzaAdmRoute: VerificareLicenzaAdmRoute,
-  BlogSlugRoute: BlogSlugRoute,
   NewsSlugRoute: NewsSlugRoute,
   OperatoriSlugRoute: OperatoriSlugRoute,
   ProviderSlugRoute: ProviderSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   NewsIndexRoute: NewsIndexRoute,
   ApiPublicReindexRoute: ApiPublicReindexRoute,
+  BlogCategorySlugRoute: BlogCategorySlugRoute,
+  BlogCategoryIndexRoute: BlogCategoryIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

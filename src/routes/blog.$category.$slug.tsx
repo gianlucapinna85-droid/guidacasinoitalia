@@ -1,23 +1,45 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
 import { CalendarDays, Clock, ShieldCheck } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
 import { RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
 import { FaqSlider } from "@/components/faq-slider";
 import { BlogSidebar, ExternalBlogButton } from "@/components/blog-ui";
 import { withInternalLinks, newLinkBudget, PRONOSTICI_URL } from "@/lib/internal-links";
-import { blogBySlug, relatedArticles, readingMinutes, type BlogArticle } from "@/data/blog";
+import {
+  blogBySlug,
+  relatedArticles,
+  readingMinutes,
+  blogPath,
+  CATEGORY_SLUG,
+  hubBySlug,
+  type BlogArticle,
+} from "@/data/blog";
 import { socialImageMeta } from "@/lib/social-image";
 
 const SITE_URL = "https://www.guidacasino-italia.it";
 
-export const Route = createFileRoute("/blog/$slug")({
+export const Route = createFileRoute("/blog/$category/$slug")({
+  // Un solo URL canonico per articolo: se la categoria nel percorso non
+  // corrisponde a quella dell'articolo si reindirizza 301 a quella corretta.
+  beforeLoad: ({ params }) => {
+    const article = blogBySlug.get(params.slug);
+    if (!article) throw notFound();
+    const canonicalCategory = CATEGORY_SLUG[article.category];
+    if (params.category !== canonicalCategory) {
+      throw redirect({
+        to: "/blog/$category/$slug",
+        params: { category: canonicalCategory, slug: article.slug },
+        statusCode: 301,
+      });
+    }
+  },
   loader: ({ params }) => {
     const article = blogBySlug.get(params.slug);
     if (!article) throw notFound();
     return { article };
   },
   head: ({ params, loaderData }) => {
-    const canonical = `${SITE_URL}/blog/${params.slug}`;
+    const canonical = `${SITE_URL}/blog/${params.category}/${params.slug}`;
     const a = loaderData?.article as BlogArticle | undefined;
     if (!a) {
       return { meta: [{ title: "Articolo non disponibile" }, { name: "robots", content: "noindex" }] };
@@ -81,7 +103,13 @@ export const Route = createFileRoute("/blog/$slug")({
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
               { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
-              { "@type": "ListItem", position: 3, name: a.h1, item: canonical },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: hubBySlug.get(params.category)?.h1 ?? a.category,
+                item: `${SITE_URL}/blog/${params.category}`,
+              },
+              { "@type": "ListItem", position: 4, name: a.h1, item: canonical },
             ],
           }),
         },
@@ -108,7 +136,14 @@ function BlogDetail() {
             <Link to="/blog" className="hover:text-gold">
               Blog
             </Link>{" "}
-            / {article.category}
+            /{" "}
+            <Link
+              to="/blog/$category"
+              params={{ category: CATEGORY_SLUG[article.category] }}
+              className="hover:text-gold"
+            >
+              {article.category}
+            </Link>
           </nav>
 
           <header className="mt-4 border-b border-border pb-6">
@@ -217,8 +252,8 @@ function BlogDetail() {
               {related.map((r) => (
                 <li key={r.slug}>
                   <Link
-                    to="/blog/$slug"
-                    params={{ slug: r.slug }}
+                    to="/blog/$category/$slug"
+                    params={blogPath(r)}
                     className="text-muted-foreground hover:text-gold"
                   >
                     {r.h1}

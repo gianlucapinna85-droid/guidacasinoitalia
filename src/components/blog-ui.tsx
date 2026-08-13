@@ -1,7 +1,7 @@
 import { BookOpen } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { EXTERNAL_BLOG_URL } from "@/lib/internal-links";
-import { sortedBlog } from "@/data/blog";
+import { sortedBlog, blogPath } from "@/data/blog";
 
 /** Pulsante verso il blog esterno di approfondimento (apre in nuova scheda). */
 export function ExternalBlogButton({
@@ -36,7 +36,7 @@ export function BlogSidebar({ currentSlug }: { currentSlug?: string }) {
         <ul className="mt-3 space-y-2 text-sm">
           {recent.map((a) => (
             <li key={a.slug}>
-              <Link to="/blog/$slug" params={{ slug: a.slug }} className="text-muted-foreground hover:text-gold">
+              <Link to="/blog/$category/$slug" params={blogPath(a)} className="text-muted-foreground hover:text-gold">
                 {a.h1}
               </Link>
             </li>

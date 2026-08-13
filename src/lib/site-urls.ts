@@ -6,7 +6,7 @@
 import { operators } from "@/lib/operators";
 import { guides } from "@/data/guides";
 import { news } from "@/data/news";
-import { blogArticles } from "@/data/blog";
+import { blogArticles, categoryHubs, CATEGORY_SLUG } from "@/data/blog";
 
 
 export const BASE_URL = "https://www.guidacasino-italia.it";
@@ -35,8 +35,13 @@ export function getSiteEntries(): SiteEntry[] {
       priority: "0.7",
     })),
     { path: "/blog", changefreq: "daily" as const, priority: "0.9" },
+    ...categoryHubs.map((h) => ({
+      path: `/blog/${h.slug}`,
+      changefreq: "daily" as const,
+      priority: "0.8",
+    })),
     ...blogArticles.map((a) => ({
-      path: `/blog/${a.slug}`,
+      path: `/blog/${CATEGORY_SLUG[a.category]}/${a.slug}`,
       lastmod: a.updated ?? a.date,
       changefreq: "weekly" as const,
       priority: "0.8",
