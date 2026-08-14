@@ -57,7 +57,7 @@ export const operators: Operator[] = [
       "Strumenti di autolimitazione e adesione al RUA",
       "Assistenza clienti in lingua italiana",
     ],
-    officialUrl: "https://www.gambling-affiliation.com/cpc/v=QptH-A-Hwrgg7IxQRUHjDMEsUhWBNBY9a9pszbS0XIA_GA7331V2",
+    officialUrl: "https://www.gambling-affiliation.com/cpc/v=a-yTKpQqX3dLKLMvQJrGEp3tdThO2zuagjWbNALD2ao_GA7331V2",
     noDepositBonus: {
       amount: "Fino a 250 FREE SPINS",
       description:
