@@ -1,0 +1,127 @@
+// Registro delle slot più giocate in Italia (contenuto informativo).
+// Ogni slot rimanda alla scheda di un concessionario ADM diverso: il link
+// utilizzato è SEMPRE operator.officialUrl (nessun link definito qui).
+import libroEgizio from "@/assets/slots/libro-egizio.jpg";
+import libroEsploratore from "@/assets/slots/libro-esploratore.jpg";
+import minieraGemme from "@/assets/slots/miniera-gemme.jpg";
+import cittaOroJungla from "@/assets/slots/citta-oro-jungla.jpg";
+import stellaGemme from "@/assets/slots/stella-gemme.jpg";
+import dolciFrutti from "@/assets/slots/dolci-frutti.jpg";
+import olimpoFulmini from "@/assets/slots/olimpo-fulmini.jpg";
+import pescaGrossa from "@/assets/slots/pesca-grossa.jpg";
+import gallinaOro from "@/assets/slots/gallina-oro.jpg";
+import reginaNilo from "@/assets/slots/regina-nilo.jpg";
+
+export type Slot = {
+  name: string;
+  provider: string;
+  rtp: string;
+  volatility: "Bassa" | "Media" | "Alta";
+  image: string;
+  /** slug dell'operatore ADM su cui è disponibile (uno diverso per ogni slot) */
+  operatorSlug: string;
+  description: string;
+};
+
+export const slots: Slot[] = [
+  {
+    name: "Book of Ra",
+    provider: "Novomatic",
+    rtp: "95,1%",
+    volatility: "Alta",
+    image: libroEgizio,
+    operatorSlug: "snai",
+    description:
+      "La slot egizia più giocata in Italia: 5 rulli, simbolo speciale espandibile e 10 giri gratuiti.",
+  },
+  {
+    name: "Book of Dead",
+    provider: "Play'n GO",
+    rtp: "96,2%",
+    volatility: "Alta",
+    image: libroEsploratore,
+    operatorSlug: "leovegas",
+    description:
+      "Avventura archeologica con simbolo espandibile nei free spin e volatilità elevata.",
+  },
+  {
+    name: "Bonanza Megaways",
+    provider: "Big Time Gaming",
+    rtp: "96,0%",
+    volatility: "Alta",
+    image: minieraGemme,
+    operatorSlug: "netbet",
+    description:
+      "La Megaways originale: fino a 117.649 modi di vincita e reazioni a catena.",
+  },
+  {
+    name: "Gonzo's Quest Megaways",
+    provider: "Red Tiger",
+    rtp: "95,7%",
+    volatility: "Alta",
+    image: cittaOroJungla,
+    operatorSlug: "888",
+    description:
+      "Versione Megaways del classico Avalanche, con moltiplicatori progressivi.",
+  },
+  {
+    name: "Starburst",
+    provider: "NetEnt",
+    rtp: "96,1%",
+    volatility: "Bassa",
+    image: stellaGemme,
+    operatorSlug: "betflag",
+    description:
+      "Slot iconica a bassa volatilità con wild espandibili e re-spin.",
+  },
+  {
+    name: "Sweet Bonanza",
+    provider: "Pragmatic Play",
+    rtp: "96,5%",
+    volatility: "Alta",
+    image: dolciFrutti,
+    operatorSlug: "sunbet",
+    description:
+      "Pay Anywhere, tumble e moltiplicatori fino a 100x nei giri gratuiti.",
+  },
+  {
+    name: "Gates of Olympus",
+    provider: "Pragmatic Play",
+    rtp: "96,5%",
+    volatility: "Alta",
+    image: olimpoFulmini,
+    operatorSlug: "william-hill",
+    description:
+      "Tema mitologico con simboli cadenti e moltiplicatori cumulativi.",
+  },
+  {
+    name: "Big Bass Bonanza",
+    provider: "Reel Kingdom",
+    rtp: "96,7%",
+    volatility: "Media",
+    image: pescaGrossa,
+    operatorSlug: "lottomatica",
+    description:
+      "Serie di pesca molto popolare: simboli money e raccolta durante i free spin.",
+  },
+  {
+    name: "Fowl Play Gold",
+    provider: "Capecod",
+    rtp: "95,0%",
+    volatility: "Media",
+    image: gallinaOro,
+    operatorSlug: "goldbet",
+    description:
+      "Un classico dei casinò italiani, con bonus della gallina e uova d'oro.",
+  },
+  {
+    name: "Cleopatra",
+    provider: "IGT",
+    rtp: "95,0%",
+    volatility: "Media",
+    image: reginaNilo,
+    operatorSlug: "sisal",
+    description:
+      "Slot storica a tema egizio con 15 giri gratuiti e moltiplicatore 3x.",
+  },
+];
