@@ -51,9 +51,11 @@ export function ComparisonTable() {
               {rows.map(({ op, meta }) => (
                 <tr key={op.slug} className="border-t border-border align-middle">
                   <th scope="row" className="p-3 text-left font-medium text-foreground">
-                    <Link
-                      to="/operatori/$slug"
-                      params={{ slug: op.slug }}
+                    <a
+                      href={op.officialUrl}
+                      target="_blank"
+                      rel="noopener noreferrer sponsored"
+                      aria-label={`Vai al sito ufficiale di ${op.name}`}
                       className="inline-flex items-center gap-2 hover:opacity-80"
                     >
                       {op.logo ? (
@@ -69,7 +71,7 @@ export function ComparisonTable() {
                       ) : (
                         <span className="hover:text-gold">{op.name}</span>
                       )}
-                    </Link>
+                    </a>
                     <span className="block text-[10px] font-normal text-muted-foreground">
                       {op.concessionN}
                     </span>
@@ -121,9 +123,11 @@ export function ComparisonTable() {
             <div key={op.slug} className="rounded-xl border border-border bg-card p-2.5 sm:p-5">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <Link
-                    to="/operatori/$slug"
-                    params={{ slug: op.slug }}
+                  <a
+                    href={op.officialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer sponsored"
+                    aria-label={`Vai al sito ufficiale di ${op.name}`}
                     className="inline-flex items-center font-serif text-base hover:text-gold"
                   >
                     {op.logo ? (
@@ -139,7 +143,7 @@ export function ComparisonTable() {
                     ) : (
                       op.name
                     )}
-                  </Link>
+                  </a>
                   <p className="text-[10px] text-muted-foreground">{op.concessionN}</p>
                 </div>
                 <span className="shrink-0 rounded-lg border border-gold/50 bg-gold/10 px-2 py-1 font-serif text-sm text-gold">

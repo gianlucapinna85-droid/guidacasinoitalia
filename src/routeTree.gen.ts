@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VerificareLicenzaAdmRouteImport } from './routes/verificare-licenza-adm'
 import { Route as SlotRtpAltoRouteImport } from './routes/slot-rtp-alto'
+import { Route as SlotPiuGiocateRouteImport } from './routes/slot-piu-giocate'
 import { Route as SlotOnlineSoldiVeriRouteImport } from './routes/slot-online-soldi-veri'
 import { Route as SlotOnlineRouteImport } from './routes/slot-online'
 import { Route as SlotGratisDemoRouteImport } from './routes/slot-gratis-demo'
@@ -33,9 +34,11 @@ import { Route as PagamentiSicuriCasinoRouteImport } from './routes/pagamenti-si
 import { Route as OperatoriCasinoEScommesseRouteImport } from './routes/operatori-casino-e-scommesse'
 import { Route as NoteLegaliRouteImport } from './routes/note-legali'
 import { Route as MiglioriSitiScommesseAdmRouteImport } from './routes/migliori-siti-scommesse-adm'
+import { Route as MiglioriCasinoSceltiRouteImport } from './routes/migliori-casino-scelti'
 import { Route as MiglioriCasinoOnlineAdmRouteImport } from './routes/migliori-casino-online-adm'
 import { Route as MiglioriCasinoOnlineRouteImport } from './routes/migliori-casino-online'
 import { Route as MetodiPagamentoCasinoRouteImport } from './routes/metodi-pagamento-casino'
+import { Route as ListaCasinoAdmRouteImport } from './routes/lista-casino-adm'
 import { Route as GuidaRtpRouteImport } from './routes/guida-rtp'
 import { Route as GuidaCasinoOnlineItaliaRouteImport } from './routes/guida-casino-online-italia'
 import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabile'
@@ -61,6 +64,7 @@ import { Route as BlackjackOnlineItaliaRouteImport } from './routes/blackjack-on
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as SlotSlugRouteImport } from './routes/slot.$slug'
 import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
 import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
@@ -76,6 +80,11 @@ const VerificareLicenzaAdmRoute = VerificareLicenzaAdmRouteImport.update({
 const SlotRtpAltoRoute = SlotRtpAltoRouteImport.update({
   id: '/slot-rtp-alto',
   path: '/slot-rtp-alto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SlotPiuGiocateRoute = SlotPiuGiocateRouteImport.update({
+  id: '/slot-piu-giocate',
+  path: '/slot-piu-giocate',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SlotOnlineSoldiVeriRoute = SlotOnlineSoldiVeriRouteImport.update({
@@ -193,6 +202,11 @@ const MiglioriSitiScommesseAdmRoute =
     path: '/migliori-siti-scommesse-adm',
     getParentRoute: () => rootRouteImport,
   } as any)
+const MiglioriCasinoSceltiRoute = MiglioriCasinoSceltiRouteImport.update({
+  id: '/migliori-casino-scelti',
+  path: '/migliori-casino-scelti',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MiglioriCasinoOnlineAdmRoute = MiglioriCasinoOnlineAdmRouteImport.update({
   id: '/migliori-casino-online-adm',
   path: '/migliori-casino-online-adm',
@@ -206,6 +220,11 @@ const MiglioriCasinoOnlineRoute = MiglioriCasinoOnlineRouteImport.update({
 const MetodiPagamentoCasinoRoute = MetodiPagamentoCasinoRouteImport.update({
   id: '/metodi-pagamento-casino',
   path: '/metodi-pagamento-casino',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ListaCasinoAdmRoute = ListaCasinoAdmRouteImport.update({
+  id: '/lista-casino-adm',
+  path: '/lista-casino-adm',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GuidaRtpRoute = GuidaRtpRouteImport.update({
@@ -337,6 +356,11 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SlotSlugRoute = SlotSlugRouteImport.update({
+  id: '/slot/$slug',
+  path: '/slot/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProviderSlugRoute = ProviderSlugRouteImport.update({
   id: '/provider/$slug',
   path: '/provider/$slug',
@@ -392,9 +416,11 @@ export interface FileRoutesByFullPath {
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
   '/guida-rtp': typeof GuidaRtpRoute
+  '/lista-casino-adm': typeof ListaCasinoAdmRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
   '/migliori-casino-online-adm': typeof MiglioriCasinoOnlineAdmRoute
+  '/migliori-casino-scelti': typeof MiglioriCasinoSceltiRoute
   '/migliori-siti-scommesse-adm': typeof MiglioriSitiScommesseAdmRoute
   '/note-legali': typeof NoteLegaliRoute
   '/operatori-casino-e-scommesse': typeof OperatoriCasinoEScommesseRoute
@@ -417,11 +443,13 @@ export interface FileRoutesByFullPath {
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
+  '/slot-piu-giocate': typeof SlotPiuGiocateRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
+  '/slot/$slug': typeof SlotSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/news/': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
@@ -452,9 +480,11 @@ export interface FileRoutesByTo {
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
   '/guida-rtp': typeof GuidaRtpRoute
+  '/lista-casino-adm': typeof ListaCasinoAdmRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
   '/migliori-casino-online-adm': typeof MiglioriCasinoOnlineAdmRoute
+  '/migliori-casino-scelti': typeof MiglioriCasinoSceltiRoute
   '/migliori-siti-scommesse-adm': typeof MiglioriSitiScommesseAdmRoute
   '/note-legali': typeof NoteLegaliRoute
   '/operatori-casino-e-scommesse': typeof OperatoriCasinoEScommesseRoute
@@ -477,11 +507,13 @@ export interface FileRoutesByTo {
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
+  '/slot-piu-giocate': typeof SlotPiuGiocateRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
+  '/slot/$slug': typeof SlotSlugRoute
   '/blog': typeof BlogIndexRoute
   '/news': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
@@ -513,9 +545,11 @@ export interface FileRoutesById {
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
   '/guida-rtp': typeof GuidaRtpRoute
+  '/lista-casino-adm': typeof ListaCasinoAdmRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
   '/migliori-casino-online-adm': typeof MiglioriCasinoOnlineAdmRoute
+  '/migliori-casino-scelti': typeof MiglioriCasinoSceltiRoute
   '/migliori-siti-scommesse-adm': typeof MiglioriSitiScommesseAdmRoute
   '/note-legali': typeof NoteLegaliRoute
   '/operatori-casino-e-scommesse': typeof OperatoriCasinoEScommesseRoute
@@ -538,11 +572,13 @@ export interface FileRoutesById {
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
+  '/slot-piu-giocate': typeof SlotPiuGiocateRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
+  '/slot/$slug': typeof SlotSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/news/': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
@@ -575,9 +611,11 @@ export interface FileRouteTypes {
     | '/gioco-responsabile'
     | '/guida-casino-online-italia'
     | '/guida-rtp'
+    | '/lista-casino-adm'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
     | '/migliori-casino-online-adm'
+    | '/migliori-casino-scelti'
     | '/migliori-siti-scommesse-adm'
     | '/note-legali'
     | '/operatori-casino-e-scommesse'
@@ -600,11 +638,13 @@ export interface FileRouteTypes {
     | '/slot-gratis-demo'
     | '/slot-online'
     | '/slot-online-soldi-veri'
+    | '/slot-piu-giocate'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
+    | '/slot/$slug'
     | '/blog/'
     | '/news/'
     | '/api/public/reindex'
@@ -635,9 +675,11 @@ export interface FileRouteTypes {
     | '/gioco-responsabile'
     | '/guida-casino-online-italia'
     | '/guida-rtp'
+    | '/lista-casino-adm'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
     | '/migliori-casino-online-adm'
+    | '/migliori-casino-scelti'
     | '/migliori-siti-scommesse-adm'
     | '/note-legali'
     | '/operatori-casino-e-scommesse'
@@ -660,11 +702,13 @@ export interface FileRouteTypes {
     | '/slot-gratis-demo'
     | '/slot-online'
     | '/slot-online-soldi-veri'
+    | '/slot-piu-giocate'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
+    | '/slot/$slug'
     | '/blog'
     | '/news'
     | '/api/public/reindex'
@@ -695,9 +739,11 @@ export interface FileRouteTypes {
     | '/gioco-responsabile'
     | '/guida-casino-online-italia'
     | '/guida-rtp'
+    | '/lista-casino-adm'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
     | '/migliori-casino-online-adm'
+    | '/migliori-casino-scelti'
     | '/migliori-siti-scommesse-adm'
     | '/note-legali'
     | '/operatori-casino-e-scommesse'
@@ -720,11 +766,13 @@ export interface FileRouteTypes {
     | '/slot-gratis-demo'
     | '/slot-online'
     | '/slot-online-soldi-veri'
+    | '/slot-piu-giocate'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
+    | '/slot/$slug'
     | '/blog/'
     | '/news/'
     | '/api/public/reindex'
@@ -756,9 +804,11 @@ export interface RootRouteChildren {
   GiocoResponsabileRoute: typeof GiocoResponsabileRoute
   GuidaCasinoOnlineItaliaRoute: typeof GuidaCasinoOnlineItaliaRoute
   GuidaRtpRoute: typeof GuidaRtpRoute
+  ListaCasinoAdmRoute: typeof ListaCasinoAdmRoute
   MetodiPagamentoCasinoRoute: typeof MetodiPagamentoCasinoRoute
   MiglioriCasinoOnlineRoute: typeof MiglioriCasinoOnlineRoute
   MiglioriCasinoOnlineAdmRoute: typeof MiglioriCasinoOnlineAdmRoute
+  MiglioriCasinoSceltiRoute: typeof MiglioriCasinoSceltiRoute
   MiglioriSitiScommesseAdmRoute: typeof MiglioriSitiScommesseAdmRoute
   NoteLegaliRoute: typeof NoteLegaliRoute
   OperatoriCasinoEScommesseRoute: typeof OperatoriCasinoEScommesseRoute
@@ -781,11 +831,13 @@ export interface RootRouteChildren {
   SlotGratisDemoRoute: typeof SlotGratisDemoRoute
   SlotOnlineRoute: typeof SlotOnlineRoute
   SlotOnlineSoldiVeriRoute: typeof SlotOnlineSoldiVeriRoute
+  SlotPiuGiocateRoute: typeof SlotPiuGiocateRoute
   SlotRtpAltoRoute: typeof SlotRtpAltoRoute
   VerificareLicenzaAdmRoute: typeof VerificareLicenzaAdmRoute
   NewsSlugRoute: typeof NewsSlugRoute
   OperatoriSlugRoute: typeof OperatoriSlugRoute
   ProviderSlugRoute: typeof ProviderSlugRoute
+  SlotSlugRoute: typeof SlotSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   NewsIndexRoute: typeof NewsIndexRoute
   ApiPublicReindexRoute: typeof ApiPublicReindexRoute
@@ -807,6 +859,13 @@ declare module '@tanstack/react-router' {
       path: '/slot-rtp-alto'
       fullPath: '/slot-rtp-alto'
       preLoaderRoute: typeof SlotRtpAltoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/slot-piu-giocate': {
+      id: '/slot-piu-giocate'
+      path: '/slot-piu-giocate'
+      fullPath: '/slot-piu-giocate'
+      preLoaderRoute: typeof SlotPiuGiocateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/slot-online-soldi-veri': {
@@ -963,6 +1022,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MiglioriSitiScommesseAdmRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/migliori-casino-scelti': {
+      id: '/migliori-casino-scelti'
+      path: '/migliori-casino-scelti'
+      fullPath: '/migliori-casino-scelti'
+      preLoaderRoute: typeof MiglioriCasinoSceltiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/migliori-casino-online-adm': {
       id: '/migliori-casino-online-adm'
       path: '/migliori-casino-online-adm'
@@ -982,6 +1048,13 @@ declare module '@tanstack/react-router' {
       path: '/metodi-pagamento-casino'
       fullPath: '/metodi-pagamento-casino'
       preLoaderRoute: typeof MetodiPagamentoCasinoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lista-casino-adm': {
+      id: '/lista-casino-adm'
+      path: '/lista-casino-adm'
+      fullPath: '/lista-casino-adm'
+      preLoaderRoute: typeof ListaCasinoAdmRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/guida-rtp': {
@@ -1159,6 +1232,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/slot/$slug': {
+      id: '/slot/$slug'
+      path: '/slot/$slug'
+      fullPath: '/slot/$slug'
+      preLoaderRoute: typeof SlotSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/provider/$slug': {
       id: '/provider/$slug'
       path: '/provider/$slug'
@@ -1228,9 +1308,11 @@ const rootRouteChildren: RootRouteChildren = {
   GiocoResponsabileRoute: GiocoResponsabileRoute,
   GuidaCasinoOnlineItaliaRoute: GuidaCasinoOnlineItaliaRoute,
   GuidaRtpRoute: GuidaRtpRoute,
+  ListaCasinoAdmRoute: ListaCasinoAdmRoute,
   MetodiPagamentoCasinoRoute: MetodiPagamentoCasinoRoute,
   MiglioriCasinoOnlineRoute: MiglioriCasinoOnlineRoute,
   MiglioriCasinoOnlineAdmRoute: MiglioriCasinoOnlineAdmRoute,
+  MiglioriCasinoSceltiRoute: MiglioriCasinoSceltiRoute,
   MiglioriSitiScommesseAdmRoute: MiglioriSitiScommesseAdmRoute,
   NoteLegaliRoute: NoteLegaliRoute,
   OperatoriCasinoEScommesseRoute: OperatoriCasinoEScommesseRoute,
@@ -1253,11 +1335,13 @@ const rootRouteChildren: RootRouteChildren = {
   SlotGratisDemoRoute: SlotGratisDemoRoute,
   SlotOnlineRoute: SlotOnlineRoute,
   SlotOnlineSoldiVeriRoute: SlotOnlineSoldiVeriRoute,
+  SlotPiuGiocateRoute: SlotPiuGiocateRoute,
   SlotRtpAltoRoute: SlotRtpAltoRoute,
   VerificareLicenzaAdmRoute: VerificareLicenzaAdmRoute,
   NewsSlugRoute: NewsSlugRoute,
   OperatoriSlugRoute: OperatoriSlugRoute,
   ProviderSlugRoute: ProviderSlugRoute,
+  SlotSlugRoute: SlotSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   NewsIndexRoute: NewsIndexRoute,
   ApiPublicReindexRoute: ApiPublicReindexRoute,
