@@ -64,6 +64,7 @@ import { Route as BlackjackOnlineItaliaRouteImport } from './routes/blackjack-on
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as SlotSlugRouteImport } from './routes/slot.$slug'
 import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
 import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
@@ -355,6 +356,11 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SlotSlugRoute = SlotSlugRouteImport.update({
+  id: '/slot/$slug',
+  path: '/slot/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProviderSlugRoute = ProviderSlugRouteImport.update({
   id: '/provider/$slug',
   path: '/provider/$slug',
@@ -443,6 +449,7 @@ export interface FileRoutesByFullPath {
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
+  '/slot/$slug': typeof SlotSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/news/': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
@@ -506,6 +513,7 @@ export interface FileRoutesByTo {
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
+  '/slot/$slug': typeof SlotSlugRoute
   '/blog': typeof BlogIndexRoute
   '/news': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
@@ -570,6 +578,7 @@ export interface FileRoutesById {
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
+  '/slot/$slug': typeof SlotSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/news/': typeof NewsIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
@@ -635,6 +644,7 @@ export interface FileRouteTypes {
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
+    | '/slot/$slug'
     | '/blog/'
     | '/news/'
     | '/api/public/reindex'
@@ -698,6 +708,7 @@ export interface FileRouteTypes {
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
+    | '/slot/$slug'
     | '/blog'
     | '/news'
     | '/api/public/reindex'
@@ -761,6 +772,7 @@ export interface FileRouteTypes {
     | '/news/$slug'
     | '/operatori/$slug'
     | '/provider/$slug'
+    | '/slot/$slug'
     | '/blog/'
     | '/news/'
     | '/api/public/reindex'
@@ -825,6 +837,7 @@ export interface RootRouteChildren {
   NewsSlugRoute: typeof NewsSlugRoute
   OperatoriSlugRoute: typeof OperatoriSlugRoute
   ProviderSlugRoute: typeof ProviderSlugRoute
+  SlotSlugRoute: typeof SlotSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   NewsIndexRoute: typeof NewsIndexRoute
   ApiPublicReindexRoute: typeof ApiPublicReindexRoute
@@ -1219,6 +1232,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/slot/$slug': {
+      id: '/slot/$slug'
+      path: '/slot/$slug'
+      fullPath: '/slot/$slug'
+      preLoaderRoute: typeof SlotSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/provider/$slug': {
       id: '/provider/$slug'
       path: '/provider/$slug'
@@ -1321,6 +1341,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewsSlugRoute: NewsSlugRoute,
   OperatoriSlugRoute: OperatoriSlugRoute,
   ProviderSlugRoute: ProviderSlugRoute,
+  SlotSlugRoute: SlotSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   NewsIndexRoute: NewsIndexRoute,
   ApiPublicReindexRoute: ApiPublicReindexRoute,

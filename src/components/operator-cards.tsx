@@ -20,7 +20,13 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
             key={op.slug}
             className="flex flex-col overflow-hidden rounded-xl border border-border bg-card"
           >
-            <div className="relative flex h-16 items-center justify-center border-b border-border bg-white p-2 md:h-24">
+            <a
+              href={op.officialUrl}
+              target="_blank"
+              rel="noopener noreferrer sponsored"
+              aria-label={`Vai al sito ufficiale di ${op.name}`}
+              className="relative flex h-16 items-center justify-center border-b border-border bg-white p-2 md:h-24"
+            >
               {op.logo ? (
                 <img
                   src={op.logo}
@@ -42,7 +48,7 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
                   <RatingBadge rating={meta.rating} size="sm" />
                 </span>
               ) : null}
-            </div>
+            </a>
 
             <div className="flex flex-1 flex-col p-2.5 md:p-4">
               <h3 className="font-serif text-[15px] leading-tight md:text-lg">{op.name}</h3>

@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { guides } from "@/data/guides";
 import { operators } from "@/lib/operators";
+import { slots } from "@/data/slots";
 import { EXTERNAL_BLOG_URL } from "@/lib/internal-links";
 
 const PRINCIPALI = [
@@ -84,6 +85,22 @@ export function SiteNav() {
           <MenuGroup title="Guide">
             {guides.map((g) => (
               <MenuLink key={g.path} to={g.path} label={g.title} onClick={close} />
+            ))}
+          </MenuGroup>
+
+          <MenuGroup title="Slot più popolari">
+            <MenuLink to="/slot-piu-giocate" label="Le 10 slot più giocate" onClick={close} />
+            {slots.map((s) => (
+              <li key={s.slug}>
+                <Link
+                  to="/slot/$slug"
+                  params={{ slug: s.slug }}
+                  onClick={close}
+                  className="block rounded-md px-2 py-1.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+                >
+                  {s.name}
+                </Link>
+              </li>
             ))}
           </MenuGroup>
 
