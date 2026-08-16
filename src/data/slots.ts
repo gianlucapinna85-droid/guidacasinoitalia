@@ -24,8 +24,6 @@ export type Slot = {
   operatorSlug: string;
   /** descrizione breve (2 righe) usata nelle card */
   description: string;
-  /** approfondimento della pagina dedicata */
-  longDescription: string[];
 };
 
 export const slots: Slot[] = [
