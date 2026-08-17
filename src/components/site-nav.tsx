@@ -78,7 +78,9 @@ export function SiteNav() {
       >
         {open ? <Menu className="h-5 w-5 rotate-90" /> : <Menu className="h-5 w-5" />}
       </button>
+  );
 
+  const overlay = (
       <div
         id="menu-principale"
         className={`fixed inset-0 z-50 ${open ? "" : "pointer-events-none invisible opacity-0"} transition-opacity`}
