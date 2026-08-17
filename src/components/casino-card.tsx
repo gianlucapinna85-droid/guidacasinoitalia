@@ -54,7 +54,7 @@ export function CasinoRankCard({
                 height={96}
                 loading="lazy"
                 decoding="async"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain p-2"
               />
             ) : (
               <span className="font-serif text-lg text-neutral-800">{op.name}</span>

@@ -1005,7 +1005,7 @@ function OperatorLogo({
         alt={`Logo ${name}`}
         width={224}
         height={96}
-        className="h-full w-full object-cover"
+        className="h-full w-full object-contain p-2"
         loading="lazy"
         decoding="async"
         onError={() => setError(true)}
