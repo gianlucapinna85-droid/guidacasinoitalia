@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, lazy, Suspense } from "react";
+import { useState, useRef, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, ScrollText, Scale, Users, ArrowRight, CheckCircle2, Calendar, RefreshCw } from "lucide-react";
 import heroBgAvif from "@/assets/hero-bg.avif";
