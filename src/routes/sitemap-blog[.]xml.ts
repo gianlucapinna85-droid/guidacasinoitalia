@@ -1,30 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { blogArticles, categoryHubs, CATEGORY_SLUG } from "@/data/blog";
-import { renderUrlset, type SiteEntry } from "@/lib/site-urls";
+import { getBlogEntries, renderUrlset } from "@/lib/site-urls";
 
 export const Route = createFileRoute("/sitemap-blog.xml")({
   server: {
     handlers: {
       GET: async () => {
-        // lastmod deriva dal dato dell'articolo (updated, altrimenti date):
-        // ogni nuova pubblicazione aggiorna automaticamente la sitemap.
-        const entries: SiteEntry[] = [
-          { path: "/blog", changefreq: "daily", priority: "0.9" },
-          ...categoryHubs.map((h) => ({
-            path: `/blog/${h.slug}`,
-            changefreq: "daily" as const,
-            priority: "0.8",
-          })),
-          ...blogArticles.map((a) => ({
-            path: `/blog/${CATEGORY_SLUG[a.category]}/${a.slug}`,
-            lastmod: a.updated ?? a.date,
-            changefreq: "weekly" as const,
-            priority: "0.8",
-          })),
-        ];
-
-        const xml = renderUrlset(entries);
+        const xml = renderUrlset(getBlogEntries());
         return new Response(xml, {
           headers: { "Content-Type": "application/xml", "Cache-Control": "public, max-age=3600" },
         });
