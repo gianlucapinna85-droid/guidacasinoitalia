@@ -68,6 +68,7 @@ import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as SlotSlugRouteImport } from './routes/slot.$slug'
 import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
+import { Route as PagamentiSlugRouteImport } from './routes/pagamenti.$slug'
 import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 import { Route as BlogCategoryIndexRouteImport } from './routes/blog.$category.index'
@@ -378,6 +379,11 @@ const ProviderSlugRoute = ProviderSlugRouteImport.update({
   path: '/provider/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PagamentiSlugRoute = PagamentiSlugRouteImport.update({
+  id: '/pagamenti/$slug',
+  path: '/pagamenti/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OperatoriSlugRoute = OperatoriSlugRouteImport.update({
   id: '/operatori/$slug',
   path: '/operatori/$slug',
@@ -460,6 +466,7 @@ export interface FileRoutesByFullPath {
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
+  '/pagamenti/$slug': typeof PagamentiSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
   '/slot/$slug': typeof SlotSlugRoute
   '/blog/': typeof BlogIndexRoute
@@ -526,6 +533,7 @@ export interface FileRoutesByTo {
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
+  '/pagamenti/$slug': typeof PagamentiSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
   '/slot/$slug': typeof SlotSlugRoute
   '/blog': typeof BlogIndexRoute
@@ -593,6 +601,7 @@ export interface FileRoutesById {
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
+  '/pagamenti/$slug': typeof PagamentiSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
   '/slot/$slug': typeof SlotSlugRoute
   '/blog/': typeof BlogIndexRoute
@@ -661,6 +670,7 @@ export interface FileRouteTypes {
     | '/verificare-licenza-adm'
     | '/news/$slug'
     | '/operatori/$slug'
+    | '/pagamenti/$slug'
     | '/provider/$slug'
     | '/slot/$slug'
     | '/blog/'
@@ -727,6 +737,7 @@ export interface FileRouteTypes {
     | '/verificare-licenza-adm'
     | '/news/$slug'
     | '/operatori/$slug'
+    | '/pagamenti/$slug'
     | '/provider/$slug'
     | '/slot/$slug'
     | '/blog'
@@ -793,6 +804,7 @@ export interface FileRouteTypes {
     | '/verificare-licenza-adm'
     | '/news/$slug'
     | '/operatori/$slug'
+    | '/pagamenti/$slug'
     | '/provider/$slug'
     | '/slot/$slug'
     | '/blog/'
@@ -860,6 +872,7 @@ export interface RootRouteChildren {
   VerificareLicenzaAdmRoute: typeof VerificareLicenzaAdmRoute
   NewsSlugRoute: typeof NewsSlugRoute
   OperatoriSlugRoute: typeof OperatoriSlugRoute
+  PagamentiSlugRoute: typeof PagamentiSlugRoute
   ProviderSlugRoute: typeof ProviderSlugRoute
   SlotSlugRoute: typeof SlotSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
@@ -1286,6 +1299,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProviderSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pagamenti/$slug': {
+      id: '/pagamenti/$slug'
+      path: '/pagamenti/$slug'
+      fullPath: '/pagamenti/$slug'
+      preLoaderRoute: typeof PagamentiSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/operatori/$slug': {
       id: '/operatori/$slug'
       path: '/operatori/$slug'
@@ -1380,6 +1400,7 @@ const rootRouteChildren: RootRouteChildren = {
   VerificareLicenzaAdmRoute: VerificareLicenzaAdmRoute,
   NewsSlugRoute: NewsSlugRoute,
   OperatoriSlugRoute: OperatoriSlugRoute,
+  PagamentiSlugRoute: PagamentiSlugRoute,
   ProviderSlugRoute: ProviderSlugRoute,
   SlotSlugRoute: SlotSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
