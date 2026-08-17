@@ -474,7 +474,20 @@ function HomePage() {
   return (
     <PageShell>
       <Hero />
-      <CasinoComparator limit={6} />
+      <CasinoComparator
+        sectionId="tutti-i-casino"
+        eyebrow="Tutti i casinò"
+        title="Lista completa dei casinò ADM"
+        subtitle="Elenco integrale dei concessionari con licenza italiana presenti nel nostro database, con filtri e ordinamento."
+      />
+      <CasinoComparator
+        featuredOnly
+        sectionId="casino-consigliati"
+        eyebrow="Selezione redazionale"
+        title="Casinò consigliati dalla redazione"
+        subtitle="Solo i concessionari ADM che superano i nostri criteri di valutazione: voto redazionale, pagamenti e strumenti di tutela."
+      />
+
       <HomeBlocksSection />
       <TopicsSection />
       <OperatorsSection />
