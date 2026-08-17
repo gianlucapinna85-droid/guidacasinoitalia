@@ -43,6 +43,7 @@ const SECTIONS: Section[] = [
     id: "slot",
     title: "Slot",
     items: [
+      { href: "/slot", label: "Tutte le slot per provider e RTP" },
       { href: "/slot-piu-giocate", label: "Le 10 slot più giocate" },
       { href: "/slot-online-soldi-veri", label: "Slot online soldi veri" },
       { href: "/slot-alta-volatilita", label: "Slot ad alta volatilità" },
