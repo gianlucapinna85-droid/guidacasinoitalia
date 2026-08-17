@@ -25,7 +25,7 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
               target="_blank"
               rel="noopener noreferrer sponsored"
               aria-label={`Vai al sito ufficiale di ${op.name}`}
-              className="relative flex h-16 items-center justify-center border-b border-border bg-white p-2 md:h-24"
+              className="relative flex h-16 w-full items-center justify-center overflow-hidden border-b border-border bg-white md:h-24"
             >
               {op.logo ? (
                 <img
