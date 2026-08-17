@@ -62,9 +62,11 @@ import { Route as BonusCasinoOnlineSenzaDepositoRouteImport } from './routes/bon
 import { Route as BonusBenvenutoCasinoRouteImport } from './routes/bonus-benvenuto-casino'
 import { Route as BlackjackOnlineItaliaRouteImport } from './routes/blackjack-online-italia'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SlotIndexRouteImport } from './routes/slot.index'
 import { Route as RecensioniIndexRouteImport } from './routes/recensioni.index'
 import { Route as PagamentiIndexRouteImport } from './routes/pagamenti.index'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
+import { Route as BonusIndexRouteImport } from './routes/bonus.index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as SlotSlugRouteImport } from './routes/slot.$slug'
 import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
@@ -350,6 +352,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SlotIndexRoute = SlotIndexRouteImport.update({
+  id: '/slot/',
+  path: '/slot/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RecensioniIndexRoute = RecensioniIndexRouteImport.update({
   id: '/recensioni/',
   path: '/recensioni/',
@@ -363,6 +370,11 @@ const PagamentiIndexRoute = PagamentiIndexRouteImport.update({
 const NewsIndexRoute = NewsIndexRouteImport.update({
   id: '/news/',
   path: '/news/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BonusIndexRoute = BonusIndexRouteImport.update({
+  id: '/bonus/',
+  path: '/bonus/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
@@ -477,9 +489,11 @@ export interface FileRoutesByFullPath {
   '/provider/$slug': typeof ProviderSlugRoute
   '/slot/$slug': typeof SlotSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/bonus/': typeof BonusIndexRoute
   '/news/': typeof NewsIndexRoute
   '/pagamenti/': typeof PagamentiIndexRoute
   '/recensioni/': typeof RecensioniIndexRoute
+  '/slot/': typeof SlotIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
   '/blog/$category/': typeof BlogCategoryIndexRoute
@@ -545,9 +559,11 @@ export interface FileRoutesByTo {
   '/provider/$slug': typeof ProviderSlugRoute
   '/slot/$slug': typeof SlotSlugRoute
   '/blog': typeof BlogIndexRoute
+  '/bonus': typeof BonusIndexRoute
   '/news': typeof NewsIndexRoute
   '/pagamenti': typeof PagamentiIndexRoute
   '/recensioni': typeof RecensioniIndexRoute
+  '/slot': typeof SlotIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
   '/blog/$category': typeof BlogCategoryIndexRoute
@@ -614,9 +630,11 @@ export interface FileRoutesById {
   '/provider/$slug': typeof ProviderSlugRoute
   '/slot/$slug': typeof SlotSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/bonus/': typeof BonusIndexRoute
   '/news/': typeof NewsIndexRoute
   '/pagamenti/': typeof PagamentiIndexRoute
   '/recensioni/': typeof RecensioniIndexRoute
+  '/slot/': typeof SlotIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
   '/blog/$category/': typeof BlogCategoryIndexRoute
@@ -684,9 +702,11 @@ export interface FileRouteTypes {
     | '/provider/$slug'
     | '/slot/$slug'
     | '/blog/'
+    | '/bonus/'
     | '/news/'
     | '/pagamenti/'
     | '/recensioni/'
+    | '/slot/'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
     | '/blog/$category/'
@@ -752,9 +772,11 @@ export interface FileRouteTypes {
     | '/provider/$slug'
     | '/slot/$slug'
     | '/blog'
+    | '/bonus'
     | '/news'
     | '/pagamenti'
     | '/recensioni'
+    | '/slot'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
     | '/blog/$category'
@@ -820,9 +842,11 @@ export interface FileRouteTypes {
     | '/provider/$slug'
     | '/slot/$slug'
     | '/blog/'
+    | '/bonus/'
     | '/news/'
     | '/pagamenti/'
     | '/recensioni/'
+    | '/slot/'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
     | '/blog/$category/'
@@ -889,9 +913,11 @@ export interface RootRouteChildren {
   ProviderSlugRoute: typeof ProviderSlugRoute
   SlotSlugRoute: typeof SlotSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  BonusIndexRoute: typeof BonusIndexRoute
   NewsIndexRoute: typeof NewsIndexRoute
   PagamentiIndexRoute: typeof PagamentiIndexRoute
   RecensioniIndexRoute: typeof RecensioniIndexRoute
+  SlotIndexRoute: typeof SlotIndexRoute
   ApiPublicReindexRoute: typeof ApiPublicReindexRoute
   BlogCategorySlugRoute: typeof BlogCategorySlugRoute
   BlogCategoryIndexRoute: typeof BlogCategoryIndexRoute
@@ -1270,6 +1296,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/slot/': {
+      id: '/slot/'
+      path: '/slot'
+      fullPath: '/slot/'
+      preLoaderRoute: typeof SlotIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/recensioni/': {
       id: '/recensioni/'
       path: '/recensioni'
@@ -1289,6 +1322,13 @@ declare module '@tanstack/react-router' {
       path: '/news'
       fullPath: '/news/'
       preLoaderRoute: typeof NewsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bonus/': {
+      id: '/bonus/'
+      path: '/bonus'
+      fullPath: '/bonus/'
+      preLoaderRoute: typeof BonusIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/': {
@@ -1425,9 +1465,11 @@ const rootRouteChildren: RootRouteChildren = {
   ProviderSlugRoute: ProviderSlugRoute,
   SlotSlugRoute: SlotSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
+  BonusIndexRoute: BonusIndexRoute,
   NewsIndexRoute: NewsIndexRoute,
   PagamentiIndexRoute: PagamentiIndexRoute,
   RecensioniIndexRoute: RecensioniIndexRoute,
+  SlotIndexRoute: SlotIndexRoute,
   ApiPublicReindexRoute: ApiPublicReindexRoute,
   BlogCategorySlugRoute: BlogCategorySlugRoute,
   BlogCategoryIndexRoute: BlogCategoryIndexRoute,

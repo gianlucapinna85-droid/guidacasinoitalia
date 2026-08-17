@@ -26,6 +26,8 @@ export function getPageEntries(): SiteEntry[] {
   return [
     { path: "/", changefreq: "daily", priority: "1.0" },
     { path: "/migliori-casino-scelti", changefreq: "weekly", priority: "0.9" },
+    { path: "/slot", changefreq: "weekly", priority: "0.9" },
+    { path: "/bonus", changefreq: "weekly", priority: "0.9" },
     { path: "/slot-piu-giocate", changefreq: "weekly", priority: "0.9" },
     ...slots.map((s) => ({
       path: `/slot/${s.slug}`,
