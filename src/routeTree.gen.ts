@@ -18,6 +18,7 @@ import { Route as SlotGratisDemoRouteImport } from './routes/slot-gratis-demo'
 import { Route as SlotAltaVolatilitaRouteImport } from './routes/slot-alta-volatilita'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapReviewsDotxmlRouteImport } from './routes/sitemap-reviews[.]xml'
+import { Route as SitemapPagesDotxmlRouteImport } from './routes/sitemap-pages[.]xml'
 import { Route as SitemapNewsDotxmlRouteImport } from './routes/sitemap-news[.]xml'
 import { Route as SitemapGuidesDotxmlRouteImport } from './routes/sitemap-guides[.]xml'
 import { Route as SitemapBlogDotxmlRouteImport } from './routes/sitemap-blog[.]xml'
@@ -119,6 +120,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const SitemapReviewsDotxmlRoute = SitemapReviewsDotxmlRouteImport.update({
   id: '/sitemap-reviews.xml',
   path: '/sitemap-reviews.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapPagesDotxmlRoute = SitemapPagesDotxmlRouteImport.update({
+  id: '/sitemap-pages.xml',
+  path: '/sitemap-pages.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapNewsDotxmlRoute = SitemapNewsDotxmlRouteImport.update({
@@ -461,6 +467,7 @@ export interface FileRoutesByFullPath {
   '/sitemap-blog.xml': typeof SitemapBlogDotxmlRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap-news.xml': typeof SitemapNewsDotxmlRoute
+  '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/slot-alta-volatilita': typeof SlotAltaVolatilitaRoute
@@ -529,6 +536,7 @@ export interface FileRoutesByTo {
   '/sitemap-blog.xml': typeof SitemapBlogDotxmlRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap-news.xml': typeof SitemapNewsDotxmlRoute
+  '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/slot-alta-volatilita': typeof SlotAltaVolatilitaRoute
@@ -598,6 +606,7 @@ export interface FileRoutesById {
   '/sitemap-blog.xml': typeof SitemapBlogDotxmlRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
   '/sitemap-news.xml': typeof SitemapNewsDotxmlRoute
+  '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/slot-alta-volatilita': typeof SlotAltaVolatilitaRoute
@@ -668,6 +677,7 @@ export interface FileRouteTypes {
     | '/sitemap-blog.xml'
     | '/sitemap-guides.xml'
     | '/sitemap-news.xml'
+    | '/sitemap-pages.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
     | '/slot-alta-volatilita'
@@ -736,6 +746,7 @@ export interface FileRouteTypes {
     | '/sitemap-blog.xml'
     | '/sitemap-guides.xml'
     | '/sitemap-news.xml'
+    | '/sitemap-pages.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
     | '/slot-alta-volatilita'
@@ -804,6 +815,7 @@ export interface FileRouteTypes {
     | '/sitemap-blog.xml'
     | '/sitemap-guides.xml'
     | '/sitemap-news.xml'
+    | '/sitemap-pages.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
     | '/slot-alta-volatilita'
@@ -873,6 +885,7 @@ export interface RootRouteChildren {
   SitemapBlogDotxmlRoute: typeof SitemapBlogDotxmlRoute
   SitemapGuidesDotxmlRoute: typeof SitemapGuidesDotxmlRoute
   SitemapNewsDotxmlRoute: typeof SitemapNewsDotxmlRoute
+  SitemapPagesDotxmlRoute: typeof SitemapPagesDotxmlRoute
   SitemapReviewsDotxmlRoute: typeof SitemapReviewsDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SlotAltaVolatilitaRoute: typeof SlotAltaVolatilitaRoute
@@ -960,6 +973,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap-reviews.xml'
       fullPath: '/sitemap-reviews.xml'
       preLoaderRoute: typeof SitemapReviewsDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap-pages.xml': {
+      id: '/sitemap-pages.xml'
+      path: '/sitemap-pages.xml'
+      fullPath: '/sitemap-pages.xml'
+      preLoaderRoute: typeof SitemapPagesDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap-news.xml': {
@@ -1409,6 +1429,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapBlogDotxmlRoute: SitemapBlogDotxmlRoute,
   SitemapGuidesDotxmlRoute: SitemapGuidesDotxmlRoute,
   SitemapNewsDotxmlRoute: SitemapNewsDotxmlRoute,
+  SitemapPagesDotxmlRoute: SitemapPagesDotxmlRoute,
   SitemapReviewsDotxmlRoute: SitemapReviewsDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SlotAltaVolatilitaRoute: SlotAltaVolatilitaRoute,
