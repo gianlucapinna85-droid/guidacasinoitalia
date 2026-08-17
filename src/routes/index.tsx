@@ -12,10 +12,7 @@ import { ReadMore } from "@/components/read-more";
 import { socialImageMeta } from "@/lib/social-image";
 
 
-// Caricato in differita: sticky footer, non serve al primo render
-const StickyCompareCTA = lazy(() =>
-  import("@/components/casino-ui").then((m) => ({ default: m.StickyCompareCTA })),
-);
+
 
 
 const FAQS = [
