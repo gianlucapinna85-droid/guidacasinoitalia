@@ -769,7 +769,8 @@ function Hero() {
               I migliori casinò <ArrowRight className="h-3.5 w-3.5 shrink-0" />
             </Link>
             <Link
-              to="/lista-casino-adm"
+              to="/"
+              hash="comparatore"
               className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-1.5 text-[12px] font-semibold leading-tight text-gold transition-colors hover:bg-gold/20 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
             >
               Lista completa ADM <ArrowRight className="h-3.5 w-3.5 shrink-0" />

@@ -103,7 +103,8 @@ export function StickyCompareCTA() {
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 px-2 py-1 backdrop-blur md:hidden">
       <div className="mx-auto grid max-w-md grid-cols-2 gap-1.5">
         <Link
-          to="/lista-casino-adm"
+          to="/"
+          hash="comparatore"
           className="flex min-h-8 items-center justify-center gap-1 rounded-md bg-gold px-2 py-1 text-center text-[11px] font-bold leading-tight text-primary-foreground shadow-sm"
         >
           Lista completa ADM <ArrowRight className="h-3.5 w-3.5 shrink-0" />
