@@ -109,3 +109,41 @@
     letter-spacing: -0.02em;
   }
 }
+
+/* --- Micro-animazioni portale (card, CTA, badge, sezioni) --- */
+:root {
+  --gc-glow: oklch(0.84 0.16 78 / 0.45);
+}
+
+@keyframes gc-fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes gc-badge-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+@keyframes gc-pop {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+.gc-reveal { animation: gc-fade-up 0.5s ease both; }
+.gc-badge-pulse { animation: gc-badge-pulse 2.6s ease-in-out infinite; }
+.gc-pop { animation: gc-pop 0.25s ease both; }
+.gc-cta { position: relative; overflow: hidden; }
+.gc-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 -40%;
+  width: 35%;
+  background: linear-gradient(90deg, transparent, oklch(1 0 0 / 0.35), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.55s ease;
+}
+.gc-cta:hover::after { left: 115%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gc-reveal, .gc-badge-pulse, .gc-pop { animation: none; }
+  .gc-cta::after { display: none; }
+}
