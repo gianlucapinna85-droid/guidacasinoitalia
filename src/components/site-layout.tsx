@@ -249,6 +249,8 @@ export function Header() {
           <Link to="/casino-online-principianti" className="text-muted-foreground transition-colors hover:text-foreground">Guide</Link>
           <Link to="/news" className="text-muted-foreground transition-colors hover:text-foreground">News</Link>
           <Link to="/blog" className="text-muted-foreground transition-colors hover:text-foreground">Blog</Link>
+          <Link to="/recensioni" className="text-muted-foreground transition-colors hover:text-foreground">Recensioni</Link>
+          <Link to="/pagamenti" className="text-muted-foreground transition-colors hover:text-foreground">Pagamenti</Link>
           <a
             href={EXTERNAL_BLOG_URL}
             target="_blank"

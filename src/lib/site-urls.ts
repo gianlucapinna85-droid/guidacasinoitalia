@@ -8,6 +8,7 @@ import { guides } from "@/data/guides";
 import { news } from "@/data/news";
 import { blogArticles, categoryHubs, CATEGORY_SLUG } from "@/data/blog";
 import { slots } from "@/data/slots";
+import { activePaymentMethods } from "@/lib/payments";
 
 
 export const BASE_URL = "https://www.guidacasino-italia.it";
@@ -52,6 +53,13 @@ export function getSiteEntries(): SiteEntry[] {
     { path: "/slot-piu-giocate", changefreq: "weekly" as const, priority: "0.9" },
     ...slots.map((s) => ({
       path: `/slot/${s.slug}`,
+      changefreq: "monthly" as const,
+      priority: "0.7",
+    })),
+    { path: "/recensioni", changefreq: "weekly" as const, priority: "0.9" },
+    { path: "/pagamenti", changefreq: "monthly" as const, priority: "0.8" },
+    ...activePaymentMethods.map((m) => ({
+      path: `/pagamenti/${m.slug}`,
       changefreq: "monthly" as const,
       priority: "0.7",
     })),

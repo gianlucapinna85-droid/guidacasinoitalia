@@ -11,6 +11,8 @@ const PRINCIPALI = [
   { to: "/migliori-casino-scelti", label: "Migliori casinò scelti da noi" },
   { to: "/lista-casino-adm", label: "Lista completa casinò ADM" },
   { to: "/slot-piu-giocate", label: "Le 10 slot più giocate" },
+  { to: "/recensioni", label: "Recensioni casinò" },
+  { to: "/pagamenti", label: "Metodi di pagamento" },
   { to: "/news", label: "News" },
   { to: "/blog", label: "Blog" },
   { to: "/come-registrarsi", label: "Come registrarsi" },
