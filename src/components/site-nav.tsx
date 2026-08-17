@@ -5,6 +5,9 @@ import { guides } from "@/data/guides";
 import { operators } from "@/lib/operators";
 import { slots } from "@/data/slots";
 import { EXTERNAL_BLOG_URL } from "@/lib/internal-links";
+import { categoryHubs } from "@/data/blog";
+import { activePaymentMethods } from "@/lib/payments";
+import { news } from "@/data/news";
 
 const PRINCIPALI = [
   { to: "/", label: "Home" },
@@ -17,6 +20,29 @@ const PRINCIPALI = [
   { to: "/blog", label: "Blog" },
   { to: "/come-registrarsi", label: "Come registrarsi" },
   { to: "/come-valutiamo-i-casino", label: "Come valutiamo i casinò" },
+];
+
+const SCOMMESSE = [
+  { to: "/scommesse-sportive-online-adm", label: "Scommesse sportive online ADM" },
+  { to: "/migliori-siti-scommesse-adm", label: "Migliori siti scommesse ADM" },
+  { to: "/bonus-scommesse-sportive", label: "Bonus scommesse sportive" },
+  { to: "/scommesse-live-come-funzionano", label: "Scommesse live: come funzionano" },
+  { to: "/scommesse-serie-a-guida", label: "Guida scommesse Serie A" },
+  { to: "/pronostici-calcio-come-analizzare", label: "Pronostici calcio: come analizzarli" },
+  { to: "/quote-live-vs-prematch", label: "Quote live vs pre-match" },
+  { to: "/come-leggere-quote-calcio", label: "Come leggere le quote" },
+  { to: "/casino-o-scommesse-sportive", label: "Casinò o scommesse sportive?" },
+];
+
+const ALTRE = [
+  { to: "/bonus-immediato-spid", label: "Bonus immediato con SPID" },
+  { to: "/pagamenti-sicuri-casino", label: "Pagamenti sicuri nei casinò" },
+  { to: "/prelievi-veloci", label: "Prelievi veloci" },
+  { to: "/slot-alta-volatilita", label: "Slot ad alta volatilità" },
+  { to: "/slot-rtp-alto", label: "Slot con RTP alto" },
+  { to: "/casino-mobile-adm", label: "Casinò da mobile ADM" },
+  { to: "/casino-live", label: "Casinò live" },
+  { to: "/verificare-licenza-adm", label: "Verificare una licenza ADM" },
 ];
 
 const LEGALI = [
@@ -87,6 +113,66 @@ export function SiteNav() {
           <MenuGroup title="Guide">
             {guides.map((g) => (
               <MenuLink key={g.path} to={g.path} label={g.title} onClick={close} />
+            ))}
+          </MenuGroup>
+
+          <MenuGroup title="Scommesse sportive">
+            {SCOMMESSE.map((i) => (
+              <MenuLink key={i.to} to={i.to} label={i.label} onClick={close} />
+            ))}
+          </MenuGroup>
+
+          <MenuGroup title="Blog per categoria">
+            <MenuLink to="/blog" label="Tutti gli articoli" onClick={close} />
+            {categoryHubs.map((h) => (
+              <li key={h.slug}>
+                <Link
+                  to="/blog/$category"
+                  params={{ category: h.slug }}
+                  onClick={close}
+                  className="block rounded-md px-2 py-1.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+                >
+                  {h.title}
+                </Link>
+              </li>
+            ))}
+          </MenuGroup>
+
+          <MenuGroup title="Metodi di pagamento">
+            <MenuLink to="/pagamenti" label="Tutti i metodi" onClick={close} />
+            {activePaymentMethods.map((m) => (
+              <li key={m.slug}>
+                <Link
+                  to="/pagamenti/$slug"
+                  params={{ slug: m.slug }}
+                  onClick={close}
+                  className="block rounded-md px-2 py-1.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+                >
+                  {m.name}
+                </Link>
+              </li>
+            ))}
+          </MenuGroup>
+
+          <MenuGroup title="Ultime news">
+            <MenuLink to="/news" label="Tutte le news" onClick={close} />
+            {news.slice(0, 8).map((n) => (
+              <li key={n.slug}>
+                <Link
+                  to="/news/$slug"
+                  params={{ slug: n.slug }}
+                  onClick={close}
+                  className="block rounded-md px-2 py-1.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+                >
+                  {n.title}
+                </Link>
+              </li>
+            ))}
+          </MenuGroup>
+
+          <MenuGroup title="Altre pagine utili">
+            {ALTRE.map((i) => (
+              <MenuLink key={i.to} to={i.to} label={i.label} onClick={close} />
             ))}
           </MenuGroup>
 
