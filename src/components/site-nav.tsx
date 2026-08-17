@@ -67,7 +67,7 @@ export function SiteNav() {
     };
   }, [open]);
 
-  const overlay = (
+  const trigger = (
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
