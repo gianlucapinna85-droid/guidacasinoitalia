@@ -55,10 +55,19 @@ const LEGALI = [
 /** Menu hamburger: contiene tutte le sezioni del sito con link indicizzabili. */
 export function SiteNav() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const close = () => setOpen(false);
 
-  return (
-    <>
+  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  const overlay = (
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
