@@ -235,7 +235,9 @@ export function Header() {
             <BadgeCheck className="h-3.5 w-3.5" strokeWidth={2.4} />
             Verificato
           </span>
+          <SiteNav />
         </div>
+
 
         <nav className="hidden gap-6 text-sm md:flex">
           <Link to="/" hash="operatori" className="text-muted-foreground transition-colors hover:text-foreground">Operatori ADM</Link>
