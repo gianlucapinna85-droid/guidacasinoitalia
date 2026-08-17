@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, lazy, Suspense } from "react";
+import { useState, useRef, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, ScrollText, Scale, Users, ArrowRight, CheckCircle2, Calendar, RefreshCw } from "lucide-react";
 import heroBgAvif from "@/assets/hero-bg.avif";
@@ -12,10 +12,7 @@ import { ReadMore } from "@/components/read-more";
 import { socialImageMeta } from "@/lib/social-image";
 
 
-// Caricato in differita: sticky footer, non serve al primo render
-const StickyCompareCTA = lazy(() =>
-  import("@/components/casino-ui").then((m) => ({ default: m.StickyCompareCTA })),
-);
+
 
 
 const FAQS = [
@@ -488,9 +485,6 @@ function HomePage() {
       <ResponsibleSection />
       <LegalInfoSection />
       <div className="h-24 md:hidden" aria-hidden />
-      <Suspense fallback={null}>
-        <StickyCompareCTA />
-      </Suspense>
     </PageShell>
 
   );

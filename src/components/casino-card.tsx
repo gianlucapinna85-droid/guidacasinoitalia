@@ -82,9 +82,14 @@ export function CasinoRankCard({
           </div>
 
           {op.noDepositBonus?.amount ? (
-            <p className="mt-2 inline-block rounded-lg border border-gold/40 bg-gold/10 px-2.5 py-1 text-[13px] font-bold text-gold md:text-sm">
-              {op.noDepositBonus.amount}
-            </p>
+            <div className="mt-2 inline-flex flex-col gap-0.5 rounded-lg border border-gold/40 bg-gold/10 px-2.5 py-1">
+              <span className="text-[9px] font-bold uppercase tracking-widest text-gold/80 md:text-[10px]">
+                Bonus senza deposito
+              </span>
+              <span className="text-[13px] font-bold text-gold md:text-sm">
+                {op.noDepositBonus.amount}
+              </span>
+            </div>
           ) : (
             <p className="mt-2 text-[12px] text-muted-foreground">Bonus non dichiarato</p>
           )}
