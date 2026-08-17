@@ -230,6 +230,12 @@ export function SiteNav() {
           </p>
         </nav>
       </div>
+  );
+
+  return (
+    <>
+      {trigger}
+      {mounted ? createPortal(overlay, document.body) : null}
     </>
   );
 }
