@@ -44,7 +44,7 @@ export function CasinoRankCard({
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
             aria-label={`Vai al sito ufficiale di ${op.name}`}
-            className="flex h-16 flex-1 items-center justify-center overflow-hidden rounded-xl border border-border bg-white p-2 transition-transform duration-300 group-hover:scale-[1.03] md:h-20"
+            className="flex h-16 w-full flex-1 items-center justify-center overflow-hidden rounded-xl border border-border bg-white transition-transform duration-300 group-hover:scale-[1.03] md:h-20"
           >
             {op.logo ? (
               <img
@@ -54,7 +54,7 @@ export function CasinoRankCard({
                 height={96}
                 loading="lazy"
                 decoding="async"
-                className="h-full w-auto max-w-full object-contain"
+                className="h-full w-full object-cover"
               />
             ) : (
               <span className="font-serif text-lg text-neutral-800">{op.name}</span>
