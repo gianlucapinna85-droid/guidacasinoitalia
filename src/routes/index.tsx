@@ -97,19 +97,7 @@ export const Route = createFileRoute("/")({
     ],
     scripts: [
       {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          inLanguage: "it-IT",
-          mainEntity: [...QUICK_ANSWERS, ...FAQS].map((f) => ({
-            "@type": "Question",
-            name: f.q,
-            acceptedAnswer: { "@type": "Answer", text: f.a },
-          })),
-        }),
-      },
-      {
+
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
