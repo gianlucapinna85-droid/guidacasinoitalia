@@ -1,10 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-layout";
-import { ComparisonTable } from "@/components/comparison-table";
-import { OperatorCardsGrid } from "@/components/operator-cards";
+import { CasinoComparator } from "@/components/casino-comparator";
 import { socialImageMeta } from "@/lib/social-image";
 
-const TITLE = "Migliori casinò ADM scelti da noi 2026 | Guida Casinò Italia";
+const TITLE = "I migliori casinò ADM scelti da noi 2026 | Guida Casinò Italia";
 const DESC =
   "La selezione redazionale dei migliori casinò online con concessione ADM: confronto di bonus, RTP, pagamenti e prelievi. Contenuto informativo, +18.";
 const URL = "https://www.guidacasino-italia.it/migliori-casino-scelti";
