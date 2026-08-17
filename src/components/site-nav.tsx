@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { guides } from "@/data/guides";
@@ -54,10 +55,19 @@ const LEGALI = [
 /** Menu hamburger: contiene tutte le sezioni del sito con link indicizzabili. */
 export function SiteNav() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const close = () => setOpen(false);
 
-  return (
-    <>
+  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  const trigger = (
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -68,7 +78,9 @@ export function SiteNav() {
       >
         {open ? <Menu className="h-5 w-5 rotate-90" /> : <Menu className="h-5 w-5" />}
       </button>
+  );
 
+  const overlay = (
       <div
         id="menu-principale"
         className={`fixed inset-0 z-50 ${open ? "" : "pointer-events-none invisible opacity-0"} transition-opacity`}
@@ -218,6 +230,12 @@ export function SiteNav() {
           </p>
         </nav>
       </div>
+  );
+
+  return (
+    <>
+      {trigger}
+      {mounted ? createPortal(overlay, document.body) : null}
     </>
   );
 }
