@@ -66,7 +66,7 @@ export function ComparisonTable() {
                           width={144}
                           height={48}
                           decoding="async"
-                          className="h-8 w-24 rounded-md border border-border bg-white/95 object-contain p-1"
+                          className="h-10 w-28 shrink-0 overflow-hidden rounded-md border border-border bg-white object-cover"
                         />
                       ) : (
                         <span className="hover:text-gold">{op.name}</span>
@@ -138,7 +138,7 @@ export function ComparisonTable() {
                         width={144}
                         height={48}
                         decoding="async"
-                        className="h-9 w-28 rounded-md border border-border bg-white/95 object-contain p-1 md:h-9 md:w-28"
+                        className="h-10 w-28 shrink-0 overflow-hidden rounded-md border border-border bg-white object-cover"
                       />
                     ) : (
                       op.name

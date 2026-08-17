@@ -998,14 +998,14 @@ function OperatorLogo({
   const logoBox = (!logo || error) ? (
     fallback
   ) : (
-    <div className="flex h-12 w-28 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/40 bg-white p-1 shadow-sm md:h-24 md:w-56">
+    <div className="flex h-12 w-28 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/40 bg-white shadow-sm md:h-24 md:w-56">
       <img
         ref={imgRef}
         src={logo}
         alt={`Logo ${name}`}
         width={224}
         height={96}
-        className="h-full w-full object-contain"
+        className="h-full w-full object-cover"
         loading="lazy"
         decoding="async"
         onError={() => setError(true)}
