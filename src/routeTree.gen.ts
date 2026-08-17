@@ -71,6 +71,7 @@ import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
 import { Route as PagamentiSlugRouteImport } from './routes/pagamenti.$slug'
 import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
+import { Route as CasinoSlugRouteImport } from './routes/casino.$slug'
 import { Route as BlogCategoryIndexRouteImport } from './routes/blog.$category.index'
 import { Route as BlogCategorySlugRouteImport } from './routes/blog.$category.$slug'
 import { Route as ApiPublicReindexRouteImport } from './routes/api/public/reindex'
@@ -394,6 +395,11 @@ const NewsSlugRoute = NewsSlugRouteImport.update({
   path: '/news/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CasinoSlugRoute = CasinoSlugRouteImport.update({
+  id: '/casino/$slug',
+  path: '/casino/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogCategoryIndexRoute = BlogCategoryIndexRouteImport.update({
   id: '/blog/$category/',
   path: '/blog/$category/',
@@ -464,6 +470,7 @@ export interface FileRoutesByFullPath {
   '/slot-piu-giocate': typeof SlotPiuGiocateRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/casino/$slug': typeof CasinoSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/pagamenti/$slug': typeof PagamentiSlugRoute
@@ -531,6 +538,7 @@ export interface FileRoutesByTo {
   '/slot-piu-giocate': typeof SlotPiuGiocateRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/casino/$slug': typeof CasinoSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/pagamenti/$slug': typeof PagamentiSlugRoute
@@ -599,6 +607,7 @@ export interface FileRoutesById {
   '/slot-piu-giocate': typeof SlotPiuGiocateRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/casino/$slug': typeof CasinoSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
   '/pagamenti/$slug': typeof PagamentiSlugRoute
@@ -668,6 +677,7 @@ export interface FileRouteTypes {
     | '/slot-piu-giocate'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
+    | '/casino/$slug'
     | '/news/$slug'
     | '/operatori/$slug'
     | '/pagamenti/$slug'
@@ -735,6 +745,7 @@ export interface FileRouteTypes {
     | '/slot-piu-giocate'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
+    | '/casino/$slug'
     | '/news/$slug'
     | '/operatori/$slug'
     | '/pagamenti/$slug'
@@ -802,6 +813,7 @@ export interface FileRouteTypes {
     | '/slot-piu-giocate'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
+    | '/casino/$slug'
     | '/news/$slug'
     | '/operatori/$slug'
     | '/pagamenti/$slug'
@@ -870,6 +882,7 @@ export interface RootRouteChildren {
   SlotPiuGiocateRoute: typeof SlotPiuGiocateRoute
   SlotRtpAltoRoute: typeof SlotRtpAltoRoute
   VerificareLicenzaAdmRoute: typeof VerificareLicenzaAdmRoute
+  CasinoSlugRoute: typeof CasinoSlugRoute
   NewsSlugRoute: typeof NewsSlugRoute
   OperatoriSlugRoute: typeof OperatoriSlugRoute
   PagamentiSlugRoute: typeof PagamentiSlugRoute
@@ -1320,6 +1333,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/casino/$slug': {
+      id: '/casino/$slug'
+      path: '/casino/$slug'
+      fullPath: '/casino/$slug'
+      preLoaderRoute: typeof CasinoSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/$category/': {
       id: '/blog/$category/'
       path: '/blog/$category'
@@ -1398,6 +1418,7 @@ const rootRouteChildren: RootRouteChildren = {
   SlotPiuGiocateRoute: SlotPiuGiocateRoute,
   SlotRtpAltoRoute: SlotRtpAltoRoute,
   VerificareLicenzaAdmRoute: VerificareLicenzaAdmRoute,
+  CasinoSlugRoute: CasinoSlugRoute,
   NewsSlugRoute: NewsSlugRoute,
   OperatoriSlugRoute: OperatoriSlugRoute,
   PagamentiSlugRoute: PagamentiSlugRoute,
