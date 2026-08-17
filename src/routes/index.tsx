@@ -861,20 +861,18 @@ function Hero() {
           </div>
 
           <div className="mt-2 flex flex-nowrap items-stretch gap-2 md:mt-8 md:gap-3">
-            <a
-              href="#comparatore"
-              onClick={scrollToSection("comparatore")}
+            <Link
+              to="/migliori-casino-scelti"
               className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold px-3 py-1.5 text-[12px] font-bold leading-tight text-primary-foreground shadow-md shadow-gold/25 transition-all hover:brightness-110 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
             >
               Migliori casinò scelti <ArrowRight className="h-3.5 w-3.5 shrink-0" />
-            </a>
-            <a
-              href="#operatori"
-              onClick={scrollToSection("operatori")}
+            </Link>
+            <Link
+              to="/lista-casino-adm"
               className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-1.5 text-[12px] font-semibold leading-tight text-gold transition-colors hover:bg-gold/20 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
             >
               Lista completa ADM <ArrowRight className="h-3.5 w-3.5 shrink-0" />
-            </a>
+            </Link>
           </div>
 
           <p className="mt-1.5 text-[10px] text-muted-foreground md:mt-6 md:text-xs">
