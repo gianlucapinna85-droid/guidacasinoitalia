@@ -38,10 +38,16 @@ function bonusValue(amount?: string) {
 
 export function CasinoComparator({
   limit,
+  featuredOnly = false,
+  sectionId = "comparatore",
+  eyebrow = "Comparatore",
   title = "Comparatore casinò ADM",
   subtitle = "Confronta bonus, depositi, prelievi e voto redazionale dei concessionari con licenza italiana.",
 }: {
   limit?: number;
+  featuredOnly?: boolean;
+  sectionId?: string;
+  eyebrow?: string;
   title?: string;
   subtitle?: string;
 }) {
@@ -51,6 +57,7 @@ export function CasinoComparator({
   const rows = useMemo(() => {
     const list = operators
       .map((op) => ({ op, meta: getCasinoMeta(op.slug) }))
+      .filter(({ meta }) => (featuredOnly ? !!meta?.featured : true))
       .filter(({ op, meta }) =>
         active.every((f) => {
           if (f === "paypal") return !!meta?.paypal;
@@ -70,15 +77,16 @@ export function CasinoComparator({
     });
 
     return limit ? list.slice(0, limit) : list;
-  }, [active, sort, limit]);
+  }, [active, sort, limit, featuredOnly]);
 
   const toggle = (id: FilterId) =>
     setActive((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
 
   return (
-    <section id="comparatore" className="border-t border-border bg-background py-5 md:py-14">
+    <section id={sectionId} className="border-t border-border bg-background py-5 md:py-14">
       <div className="mx-auto max-w-6xl px-2.5 md:px-6">
-        <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Comparatore</p>
+        <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">{eyebrow}</p>
+
         <h2 className="mt-1 font-serif text-xl md:text-4xl">{title}</h2>
         <p className="mt-1.5 max-w-3xl text-[12px] leading-snug text-muted-foreground md:text-sm">
           {subtitle}
