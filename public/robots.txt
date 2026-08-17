@@ -66,6 +66,7 @@ Allow: /
 # https://www.guidacasino-italia.it/44e0631aa489f9354a3a6b35db7c0b53.txt
 
 Sitemap: https://www.guidacasino-italia.it/sitemap.xml
+Sitemap: https://www.guidacasino-italia.it/sitemap-pages.xml
 Sitemap: https://www.guidacasino-italia.it/sitemap-guides.xml
 Sitemap: https://www.guidacasino-italia.it/sitemap-reviews.xml
 Sitemap: https://www.guidacasino-italia.it/sitemap-blog.xml
