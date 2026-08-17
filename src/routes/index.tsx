@@ -485,9 +485,6 @@ function HomePage() {
       <ResponsibleSection />
       <LegalInfoSection />
       <div className="h-24 md:hidden" aria-hidden />
-      <Suspense fallback={null}>
-        <StickyCompareCTA />
-      </Suspense>
     </PageShell>
 
   );
