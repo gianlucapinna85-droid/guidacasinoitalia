@@ -46,12 +46,13 @@ function Page() {
         </p>
       </section>
 
-      <ComparisonTable />
-
-      <section className="mx-auto max-w-6xl px-2.5 pb-10 md:px-6 md:pb-16">
-        <h2 className="mb-3 font-serif text-lg md:text-3xl">Tutti gli operatori della selezione</h2>
-        <OperatorCardsGrid />
-      </section>
+      <CasinoComparator
+        featuredOnly
+        sectionId="casino-consigliati"
+        eyebrow="Selezione redazionale"
+        title="Casinò consigliati dalla redazione"
+        subtitle="Solo i concessionari ADM che superano i nostri criteri di valutazione: voto redazionale, pagamenti, prelievi e strumenti di tutela."
+      />
     </PageShell>
   );
 }
