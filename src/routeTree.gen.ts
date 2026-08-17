@@ -66,6 +66,7 @@ import { Route as SlotIndexRouteImport } from './routes/slot.index'
 import { Route as RecensioniIndexRouteImport } from './routes/recensioni.index'
 import { Route as PagamentiIndexRouteImport } from './routes/pagamenti.index'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
+import { Route as BonusIndexRouteImport } from './routes/bonus.index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as SlotSlugRouteImport } from './routes/slot.$slug'
 import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
@@ -371,6 +372,11 @@ const NewsIndexRoute = NewsIndexRouteImport.update({
   path: '/news/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BonusIndexRoute = BonusIndexRouteImport.update({
+  id: '/bonus/',
+  path: '/bonus/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
@@ -483,6 +489,7 @@ export interface FileRoutesByFullPath {
   '/provider/$slug': typeof ProviderSlugRoute
   '/slot/$slug': typeof SlotSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/bonus/': typeof BonusIndexRoute
   '/news/': typeof NewsIndexRoute
   '/pagamenti/': typeof PagamentiIndexRoute
   '/recensioni/': typeof RecensioniIndexRoute
@@ -552,6 +559,7 @@ export interface FileRoutesByTo {
   '/provider/$slug': typeof ProviderSlugRoute
   '/slot/$slug': typeof SlotSlugRoute
   '/blog': typeof BlogIndexRoute
+  '/bonus': typeof BonusIndexRoute
   '/news': typeof NewsIndexRoute
   '/pagamenti': typeof PagamentiIndexRoute
   '/recensioni': typeof RecensioniIndexRoute
@@ -622,6 +630,7 @@ export interface FileRoutesById {
   '/provider/$slug': typeof ProviderSlugRoute
   '/slot/$slug': typeof SlotSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/bonus/': typeof BonusIndexRoute
   '/news/': typeof NewsIndexRoute
   '/pagamenti/': typeof PagamentiIndexRoute
   '/recensioni/': typeof RecensioniIndexRoute
@@ -693,6 +702,7 @@ export interface FileRouteTypes {
     | '/provider/$slug'
     | '/slot/$slug'
     | '/blog/'
+    | '/bonus/'
     | '/news/'
     | '/pagamenti/'
     | '/recensioni/'
@@ -762,6 +772,7 @@ export interface FileRouteTypes {
     | '/provider/$slug'
     | '/slot/$slug'
     | '/blog'
+    | '/bonus'
     | '/news'
     | '/pagamenti'
     | '/recensioni'
@@ -831,6 +842,7 @@ export interface FileRouteTypes {
     | '/provider/$slug'
     | '/slot/$slug'
     | '/blog/'
+    | '/bonus/'
     | '/news/'
     | '/pagamenti/'
     | '/recensioni/'
@@ -901,6 +913,7 @@ export interface RootRouteChildren {
   ProviderSlugRoute: typeof ProviderSlugRoute
   SlotSlugRoute: typeof SlotSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  BonusIndexRoute: typeof BonusIndexRoute
   NewsIndexRoute: typeof NewsIndexRoute
   PagamentiIndexRoute: typeof PagamentiIndexRoute
   RecensioniIndexRoute: typeof RecensioniIndexRoute
@@ -1311,6 +1324,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bonus/': {
+      id: '/bonus/'
+      path: '/bonus'
+      fullPath: '/bonus/'
+      preLoaderRoute: typeof BonusIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/': {
       id: '/blog/'
       path: '/blog'
@@ -1445,6 +1465,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProviderSlugRoute: ProviderSlugRoute,
   SlotSlugRoute: SlotSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
+  BonusIndexRoute: BonusIndexRoute,
   NewsIndexRoute: NewsIndexRoute,
   PagamentiIndexRoute: PagamentiIndexRoute,
   RecensioniIndexRoute: RecensioniIndexRoute,
