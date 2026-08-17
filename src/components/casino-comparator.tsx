@@ -53,6 +53,7 @@ export function CasinoComparator({
 }) {
   const [active, setActive] = useState<FilterId[]>([]);
   const [sort, setSort] = useState<SortKey>("migliore");
+  const [showFilters, setShowFilters] = useState(false);
 
   const rows = useMemo(() => {
     const list = operators
@@ -92,52 +93,86 @@ export function CasinoComparator({
           {subtitle}
         </p>
 
-        {/* Filtri + ordinamento */}
-        <div className="mt-3 flex flex-col gap-2 rounded-xl border border-border bg-card p-2.5 md:mt-6 md:flex-row md:items-center md:justify-between md:p-3">
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="inline-flex items-center gap-1 pr-1 text-[10px] uppercase tracking-widest text-muted-foreground">
-              <SlidersHorizontal className="h-3.5 w-3.5 text-gold" /> Filtri
-            </span>
-            {FILTERS.map((f) => {
-              const on = active.includes(f.id);
-              return (
+        {/* Pulsante Filtra + contatore attivi */}
+        <div className="mt-3 flex items-center gap-2 md:mt-6">
+          <button
+            type="button"
+            aria-expanded={showFilters}
+            aria-pressed={active.length > 0}
+            onClick={() => setShowFilters((v) => !v)}
+            className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-semibold transition-all duration-200 md:text-xs"
+            style={{
+              borderColor: showFilters || active.length > 0 ? "var(--gold, #c9a227)" : "var(--border)",
+              background: showFilters || active.length > 0 ? "rgba(201,162,39,0.15)" : "transparent",
+              color: showFilters || active.length > 0 ? "var(--gold, #c9a227)" : "var(--muted-foreground)",
+            }}
+          >
+            <SlidersHorizontal className="h-3.5 w-3.5" /> Filtra
+            {active.length > 0 && (
+              <span className="ml-0.5 rounded-full bg-gold px-1.5 text-[10px] font-bold text-background">
+                {active.length}
+              </span>
+            )}
+          </button>
+          {active.length > 0 && (
+            <button
+              type="button"
+              onClick={() => setActive([])}
+              className="text-[11px] text-muted-foreground underline hover:text-foreground md:text-xs"
+            >
+              Azzera filtri
+            </button>
+          )}
+        </div>
+
+        {/* Filtri + ordinamento (collassabili) */}
+        {showFilters && (
+          <div className="mt-2 flex flex-col gap-2 rounded-xl border border-border bg-card p-2.5 md:flex-row md:items-center md:justify-between md:p-3">
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="inline-flex items-center gap-1 pr-1 text-[10px] uppercase tracking-widest text-muted-foreground">
+                <SlidersHorizontal className="h-3.5 w-3.5 text-gold" /> Filtri
+              </span>
+              {FILTERS.map((f) => {
+                const on = active.includes(f.id);
+                return (
+                  <button
+                    key={f.id}
+                    type="button"
+                    aria-pressed={on}
+                    onClick={() => toggle(f.id)}
+                    className={`rounded-full border px-2.5 py-1 text-[11px] font-semibold transition-all duration-200 md:text-xs ${
+                      on
+                        ? "border-gold bg-gold/15 text-gold"
+                        : "border-border text-muted-foreground hover:border-gold/40 hover:text-foreground"
+                    }`}
+                  >
+                    {f.label}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="pr-1 text-[10px] uppercase tracking-widest text-muted-foreground">
+                Ordina
+              </span>
+              {SORTS.map((s) => (
                 <button
-                  key={f.id}
+                  key={s.id}
                   type="button"
-                  aria-pressed={on}
-                  onClick={() => toggle(f.id)}
+                  aria-pressed={sort === s.id}
+                  onClick={() => setSort(s.id)}
                   className={`rounded-full border px-2.5 py-1 text-[11px] font-semibold transition-all duration-200 md:text-xs ${
-                    on
+                    sort === s.id
                       ? "border-gold bg-gold/15 text-gold"
                       : "border-border text-muted-foreground hover:border-gold/40 hover:text-foreground"
                   }`}
                 >
-                  {f.label}
+                  {s.label}
                 </button>
-              );
-            })}
+              ))}
+            </div>
           </div>
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="pr-1 text-[10px] uppercase tracking-widest text-muted-foreground">
-              Ordina
-            </span>
-            {SORTS.map((s) => (
-              <button
-                key={s.id}
-                type="button"
-                aria-pressed={sort === s.id}
-                onClick={() => setSort(s.id)}
-                className={`rounded-full border px-2.5 py-1 text-[11px] font-semibold transition-all duration-200 md:text-xs ${
-                  sort === s.id
-                    ? "border-gold bg-gold/15 text-gold"
-                    : "border-border text-muted-foreground hover:border-gold/40 hover:text-foreground"
-                }`}
-              >
-                {s.label}
-              </button>
-            ))}
-          </div>
-        </div>
+        )}
 
         <p className="mt-2 text-[11px] text-muted-foreground">
           {rows.length} operatori corrispondono ai criteri selezionati.
