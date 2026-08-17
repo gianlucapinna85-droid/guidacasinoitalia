@@ -10,6 +10,11 @@ import { RatingBadge, CasinoBadges } from "@/components/casino-ui";
 import { ComparisonTable } from "@/components/comparison-table";
 import { ReadMore } from "@/components/read-more";
 import { socialImageMeta } from "@/lib/social-image";
+import { OperatorCardsGrid } from "@/components/operator-cards";
+import { SlotsGrid } from "@/components/slots-grid";
+import { guides } from "@/data/guides";
+import { news } from "@/data/news";
+
 
 
 // Caricato in differita: sticky footer, non serve al primo render
