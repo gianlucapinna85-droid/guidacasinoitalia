@@ -53,6 +53,7 @@ export function CasinoComparator({
 }) {
   const [active, setActive] = useState<FilterId[]>([]);
   const [sort, setSort] = useState<SortKey>("migliore");
+  const [showFilters, setShowFilters] = useState(false);
 
   const rows = useMemo(() => {
     const list = operators
