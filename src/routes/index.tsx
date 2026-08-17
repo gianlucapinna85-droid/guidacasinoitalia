@@ -7,7 +7,7 @@ import { PageShell, ComplianceBadges, OfficialLogosBanner, OperatorTrustDots } f
 import { operators, sortedOperators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
 import { RatingBadge, CasinoBadges } from "@/components/casino-ui";
-import { ComparisonTable } from "@/components/comparison-table";
+import { CasinoComparator } from "@/components/casino-comparator";
 import { ReadMore } from "@/components/read-more";
 import { socialImageMeta } from "@/lib/social-image";
 
@@ -474,7 +474,7 @@ function HomePage() {
   return (
     <PageShell>
       <Hero />
-      <ComparisonTable />
+      <CasinoComparator limit={6} />
       <HomeBlocksSection />
       <TopicsSection />
       <OperatorsSection />

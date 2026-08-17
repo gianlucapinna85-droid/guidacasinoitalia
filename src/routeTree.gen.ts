@@ -62,10 +62,13 @@ import { Route as BonusCasinoOnlineSenzaDepositoRouteImport } from './routes/bon
 import { Route as BonusBenvenutoCasinoRouteImport } from './routes/bonus-benvenuto-casino'
 import { Route as BlackjackOnlineItaliaRouteImport } from './routes/blackjack-online-italia'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RecensioniIndexRouteImport } from './routes/recensioni.index'
+import { Route as PagamentiIndexRouteImport } from './routes/pagamenti.index'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as SlotSlugRouteImport } from './routes/slot.$slug'
 import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
+import { Route as PagamentiSlugRouteImport } from './routes/pagamenti.$slug'
 import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 import { Route as BlogCategoryIndexRouteImport } from './routes/blog.$category.index'
@@ -346,6 +349,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RecensioniIndexRoute = RecensioniIndexRouteImport.update({
+  id: '/recensioni/',
+  path: '/recensioni/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PagamentiIndexRoute = PagamentiIndexRouteImport.update({
+  id: '/pagamenti/',
+  path: '/pagamenti/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NewsIndexRoute = NewsIndexRouteImport.update({
   id: '/news/',
   path: '/news/',
@@ -364,6 +377,11 @@ const SlotSlugRoute = SlotSlugRouteImport.update({
 const ProviderSlugRoute = ProviderSlugRouteImport.update({
   id: '/provider/$slug',
   path: '/provider/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PagamentiSlugRoute = PagamentiSlugRouteImport.update({
+  id: '/pagamenti/$slug',
+  path: '/pagamenti/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OperatoriSlugRoute = OperatoriSlugRouteImport.update({
@@ -448,10 +466,13 @@ export interface FileRoutesByFullPath {
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
+  '/pagamenti/$slug': typeof PagamentiSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
   '/slot/$slug': typeof SlotSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/news/': typeof NewsIndexRoute
+  '/pagamenti/': typeof PagamentiIndexRoute
+  '/recensioni/': typeof RecensioniIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
   '/blog/$category/': typeof BlogCategoryIndexRoute
@@ -512,10 +533,13 @@ export interface FileRoutesByTo {
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
+  '/pagamenti/$slug': typeof PagamentiSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
   '/slot/$slug': typeof SlotSlugRoute
   '/blog': typeof BlogIndexRoute
   '/news': typeof NewsIndexRoute
+  '/pagamenti': typeof PagamentiIndexRoute
+  '/recensioni': typeof RecensioniIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
   '/blog/$category': typeof BlogCategoryIndexRoute
@@ -577,10 +601,13 @@ export interface FileRoutesById {
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
+  '/pagamenti/$slug': typeof PagamentiSlugRoute
   '/provider/$slug': typeof ProviderSlugRoute
   '/slot/$slug': typeof SlotSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/news/': typeof NewsIndexRoute
+  '/pagamenti/': typeof PagamentiIndexRoute
+  '/recensioni/': typeof RecensioniIndexRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
   '/blog/$category/': typeof BlogCategoryIndexRoute
@@ -643,10 +670,13 @@ export interface FileRouteTypes {
     | '/verificare-licenza-adm'
     | '/news/$slug'
     | '/operatori/$slug'
+    | '/pagamenti/$slug'
     | '/provider/$slug'
     | '/slot/$slug'
     | '/blog/'
     | '/news/'
+    | '/pagamenti/'
+    | '/recensioni/'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
     | '/blog/$category/'
@@ -707,10 +737,13 @@ export interface FileRouteTypes {
     | '/verificare-licenza-adm'
     | '/news/$slug'
     | '/operatori/$slug'
+    | '/pagamenti/$slug'
     | '/provider/$slug'
     | '/slot/$slug'
     | '/blog'
     | '/news'
+    | '/pagamenti'
+    | '/recensioni'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
     | '/blog/$category'
@@ -771,10 +804,13 @@ export interface FileRouteTypes {
     | '/verificare-licenza-adm'
     | '/news/$slug'
     | '/operatori/$slug'
+    | '/pagamenti/$slug'
     | '/provider/$slug'
     | '/slot/$slug'
     | '/blog/'
     | '/news/'
+    | '/pagamenti/'
+    | '/recensioni/'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
     | '/blog/$category/'
@@ -836,10 +872,13 @@ export interface RootRouteChildren {
   VerificareLicenzaAdmRoute: typeof VerificareLicenzaAdmRoute
   NewsSlugRoute: typeof NewsSlugRoute
   OperatoriSlugRoute: typeof OperatoriSlugRoute
+  PagamentiSlugRoute: typeof PagamentiSlugRoute
   ProviderSlugRoute: typeof ProviderSlugRoute
   SlotSlugRoute: typeof SlotSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   NewsIndexRoute: typeof NewsIndexRoute
+  PagamentiIndexRoute: typeof PagamentiIndexRoute
+  RecensioniIndexRoute: typeof RecensioniIndexRoute
   ApiPublicReindexRoute: typeof ApiPublicReindexRoute
   BlogCategorySlugRoute: typeof BlogCategorySlugRoute
   BlogCategoryIndexRoute: typeof BlogCategoryIndexRoute
@@ -1218,6 +1257,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/recensioni/': {
+      id: '/recensioni/'
+      path: '/recensioni'
+      fullPath: '/recensioni/'
+      preLoaderRoute: typeof RecensioniIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pagamenti/': {
+      id: '/pagamenti/'
+      path: '/pagamenti'
+      fullPath: '/pagamenti/'
+      preLoaderRoute: typeof PagamentiIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/news/': {
       id: '/news/'
       path: '/news'
@@ -1244,6 +1297,13 @@ declare module '@tanstack/react-router' {
       path: '/provider/$slug'
       fullPath: '/provider/$slug'
       preLoaderRoute: typeof ProviderSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pagamenti/$slug': {
+      id: '/pagamenti/$slug'
+      path: '/pagamenti/$slug'
+      fullPath: '/pagamenti/$slug'
+      preLoaderRoute: typeof PagamentiSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/operatori/$slug': {
@@ -1340,10 +1400,13 @@ const rootRouteChildren: RootRouteChildren = {
   VerificareLicenzaAdmRoute: VerificareLicenzaAdmRoute,
   NewsSlugRoute: NewsSlugRoute,
   OperatoriSlugRoute: OperatoriSlugRoute,
+  PagamentiSlugRoute: PagamentiSlugRoute,
   ProviderSlugRoute: ProviderSlugRoute,
   SlotSlugRoute: SlotSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   NewsIndexRoute: NewsIndexRoute,
+  PagamentiIndexRoute: PagamentiIndexRoute,
+  RecensioniIndexRoute: RecensioniIndexRoute,
   ApiPublicReindexRoute: ApiPublicReindexRoute,
   BlogCategorySlugRoute: BlogCategorySlugRoute,
   BlogCategoryIndexRoute: BlogCategoryIndexRoute,

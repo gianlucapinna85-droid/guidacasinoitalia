@@ -1,5 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { type ReactNode } from "react";
+import { lazy, Suspense, type ReactNode } from "react";
+import { SiteNav } from "@/components/site-nav";
+
+const ExitIntent = lazy(() => import("@/components/exit-intent"));
 import siteLogo from "@/assets/site-logo.webp";
 import { ShieldCheck, Ban, LifeBuoy, Landmark, BadgeCheck, Youtube, Instagram, Music2, Send } from "lucide-react";
 import vietato18Url from "@/assets/logos/v18.webp";
@@ -232,7 +235,9 @@ export function Header() {
             <BadgeCheck className="h-3.5 w-3.5" strokeWidth={2.4} />
             Verificato
           </span>
+          <SiteNav />
         </div>
+
 
         <nav className="hidden gap-6 text-sm md:flex">
           <Link to="/" hash="operatori" className="text-muted-foreground transition-colors hover:text-foreground">Operatori ADM</Link>
@@ -244,6 +249,8 @@ export function Header() {
           <Link to="/casino-online-principianti" className="text-muted-foreground transition-colors hover:text-foreground">Guide</Link>
           <Link to="/news" className="text-muted-foreground transition-colors hover:text-foreground">News</Link>
           <Link to="/blog" className="text-muted-foreground transition-colors hover:text-foreground">Blog</Link>
+          <Link to="/recensioni" className="text-muted-foreground transition-colors hover:text-foreground">Recensioni</Link>
+          <Link to="/pagamenti" className="text-muted-foreground transition-colors hover:text-foreground">Pagamenti</Link>
           <a
             href={EXTERNAL_BLOG_URL}
             target="_blank"
@@ -387,6 +394,9 @@ export function PageShell({ children }: { children: ReactNode }) {
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
+      <Suspense fallback={null}>
+        <ExitIntent />
+      </Suspense>
     </div>
   );
 }
