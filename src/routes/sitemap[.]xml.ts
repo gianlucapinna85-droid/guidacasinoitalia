@@ -1,14 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { getSiteEntries, renderUrlset } from "@/lib/site-urls";
+import { renderSitemapIndex } from "@/lib/site-urls";
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        // Le voci sono generate dai registri (guide, news, operatori):
-        // ogni nuova pagina entra in sitemap automaticamente.
-        const xml = renderUrlset(getSiteEntries());
+        // Indice sitemap: rimanda alle sitemap per categoria generate dai
+        // registri (pagine, guide, recensioni, blog, news).
+        const xml = renderSitemapIndex();
 
         return new Response(xml, {
           headers: {
