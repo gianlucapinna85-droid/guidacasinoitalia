@@ -232,40 +232,9 @@ export function Header() {
             <BadgeCheck className="h-3.5 w-3.5" strokeWidth={2.4} />
             Verificato
           </span>
+          <SiteNav />
         </div>
 
-        <nav className="hidden gap-6 text-sm md:flex">
-          <Link to="/" hash="operatori" className="text-muted-foreground transition-colors hover:text-foreground">Operatori ADM</Link>
-          <Link to="/migliori-casino-online-adm" className="text-muted-foreground transition-colors hover:text-foreground">Casinò ADM</Link>
-          <Link to="/bonus-casino-online-senza-deposito" className="text-muted-foreground transition-colors hover:text-foreground">Bonus casinò</Link>
-          <Link to="/roulette-online-italia" className="text-muted-foreground transition-colors hover:text-foreground">Roulette</Link>
-          <Link to="/blackjack-online-italia" className="text-muted-foreground transition-colors hover:text-foreground">Blackjack</Link>
-          <Link to="/slot-online-soldi-veri" className="text-muted-foreground transition-colors hover:text-foreground">Slot online</Link>
-          <Link to="/casino-online-principianti" className="text-muted-foreground transition-colors hover:text-foreground">Guide</Link>
-          <Link to="/news" className="text-muted-foreground transition-colors hover:text-foreground">News</Link>
-          <Link to="/blog" className="text-muted-foreground transition-colors hover:text-foreground">Blog</Link>
-          <a
-            href={EXTERNAL_BLOG_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full border border-gold/50 bg-gold/10 px-2.5 py-1 text-xs font-semibold text-gold transition-colors hover:bg-gold/20"
-            title="Approfondimenti Extra Casinò"
-          >
-            📖 Approfondimenti Extra
-          </a>
-
-          <Link to="/come-registrarsi" className="text-muted-foreground transition-colors hover:text-foreground">Come registrarsi</Link>
-          <Link to="/gioco-responsabile" className="text-muted-foreground transition-colors hover:text-foreground">Gioco responsabile</Link>
-          <a
-            href={YOUTUBE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Canale YouTube di GuidaCasinò.IT"
-            className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <Youtube className="h-4 w-4" /> YouTube
-          </a>
-        </nav>
 
 
       </div>
