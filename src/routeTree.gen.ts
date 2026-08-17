@@ -39,7 +39,6 @@ import { Route as MiglioriCasinoSceltiRouteImport } from './routes/migliori-casi
 import { Route as MiglioriCasinoOnlineAdmRouteImport } from './routes/migliori-casino-online-adm'
 import { Route as MiglioriCasinoOnlineRouteImport } from './routes/migliori-casino-online'
 import { Route as MetodiPagamentoCasinoRouteImport } from './routes/metodi-pagamento-casino'
-import { Route as ListaCasinoAdmRouteImport } from './routes/lista-casino-adm'
 import { Route as GuidaRtpRouteImport } from './routes/guida-rtp'
 import { Route as GuidaCasinoOnlineItaliaRouteImport } from './routes/guida-casino-online-italia'
 import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabile'
@@ -230,11 +229,6 @@ const MiglioriCasinoOnlineRoute = MiglioriCasinoOnlineRouteImport.update({
 const MetodiPagamentoCasinoRoute = MetodiPagamentoCasinoRouteImport.update({
   id: '/metodi-pagamento-casino',
   path: '/metodi-pagamento-casino',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ListaCasinoAdmRoute = ListaCasinoAdmRouteImport.update({
-  id: '/lista-casino-adm',
-  path: '/lista-casino-adm',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GuidaRtpRoute = GuidaRtpRouteImport.update({
@@ -446,7 +440,6 @@ export interface FileRoutesByFullPath {
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
   '/guida-rtp': typeof GuidaRtpRoute
-  '/lista-casino-adm': typeof ListaCasinoAdmRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
   '/migliori-casino-online-adm': typeof MiglioriCasinoOnlineAdmRoute
@@ -515,7 +508,6 @@ export interface FileRoutesByTo {
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
   '/guida-rtp': typeof GuidaRtpRoute
-  '/lista-casino-adm': typeof ListaCasinoAdmRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
   '/migliori-casino-online-adm': typeof MiglioriCasinoOnlineAdmRoute
@@ -585,7 +577,6 @@ export interface FileRoutesById {
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
   '/guida-rtp': typeof GuidaRtpRoute
-  '/lista-casino-adm': typeof ListaCasinoAdmRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
   '/migliori-casino-online-adm': typeof MiglioriCasinoOnlineAdmRoute
@@ -656,7 +647,6 @@ export interface FileRouteTypes {
     | '/gioco-responsabile'
     | '/guida-casino-online-italia'
     | '/guida-rtp'
-    | '/lista-casino-adm'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
     | '/migliori-casino-online-adm'
@@ -725,7 +715,6 @@ export interface FileRouteTypes {
     | '/gioco-responsabile'
     | '/guida-casino-online-italia'
     | '/guida-rtp'
-    | '/lista-casino-adm'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
     | '/migliori-casino-online-adm'
@@ -794,7 +783,6 @@ export interface FileRouteTypes {
     | '/gioco-responsabile'
     | '/guida-casino-online-italia'
     | '/guida-rtp'
-    | '/lista-casino-adm'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
     | '/migliori-casino-online-adm'
@@ -864,7 +852,6 @@ export interface RootRouteChildren {
   GiocoResponsabileRoute: typeof GiocoResponsabileRoute
   GuidaCasinoOnlineItaliaRoute: typeof GuidaCasinoOnlineItaliaRoute
   GuidaRtpRoute: typeof GuidaRtpRoute
-  ListaCasinoAdmRoute: typeof ListaCasinoAdmRoute
   MetodiPagamentoCasinoRoute: typeof MetodiPagamentoCasinoRoute
   MiglioriCasinoOnlineRoute: typeof MiglioriCasinoOnlineRoute
   MiglioriCasinoOnlineAdmRoute: typeof MiglioriCasinoOnlineAdmRoute
@@ -1120,13 +1107,6 @@ declare module '@tanstack/react-router' {
       path: '/metodi-pagamento-casino'
       fullPath: '/metodi-pagamento-casino'
       preLoaderRoute: typeof MetodiPagamentoCasinoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lista-casino-adm': {
-      id: '/lista-casino-adm'
-      path: '/lista-casino-adm'
-      fullPath: '/lista-casino-adm'
-      preLoaderRoute: typeof ListaCasinoAdmRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/guida-rtp': {
@@ -1408,7 +1388,6 @@ const rootRouteChildren: RootRouteChildren = {
   GiocoResponsabileRoute: GiocoResponsabileRoute,
   GuidaCasinoOnlineItaliaRoute: GuidaCasinoOnlineItaliaRoute,
   GuidaRtpRoute: GuidaRtpRoute,
-  ListaCasinoAdmRoute: ListaCasinoAdmRoute,
   MetodiPagamentoCasinoRoute: MetodiPagamentoCasinoRoute,
   MiglioriCasinoOnlineRoute: MiglioriCasinoOnlineRoute,
   MiglioriCasinoOnlineAdmRoute: MiglioriCasinoOnlineAdmRoute,

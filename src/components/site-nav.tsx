@@ -20,7 +20,6 @@ const SECTIONS: Section[] = [
     items: [
       { href: "/", label: "Home" },
       { href: "/migliori-casino-scelti", label: "Migliori casinò scelti da noi" },
-      { href: "/lista-casino-adm", label: "Lista completa casinò ADM" },
       { href: "/slot-piu-giocate", label: "Le 10 slot più giocate" },
       { href: "/come-registrarsi", label: "Come registrarsi" },
       { href: "/come-valutiamo-i-casino", label: "Come valutiamo i casinò" },
