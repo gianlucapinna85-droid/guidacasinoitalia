@@ -1,5 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { type ReactNode } from "react";
+import { lazy, Suspense, type ReactNode } from "react";
+import { SiteNav } from "@/components/site-nav";
+
+const ExitIntent = lazy(() => import("@/components/exit-intent"));
 import siteLogo from "@/assets/site-logo.webp";
 import { ShieldCheck, Ban, LifeBuoy, Landmark, BadgeCheck, Youtube, Instagram, Music2, Send } from "lucide-react";
 import vietato18Url from "@/assets/logos/v18.webp";
