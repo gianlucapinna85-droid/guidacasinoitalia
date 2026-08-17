@@ -400,6 +400,9 @@ export function PageShell({ children }: { children: ReactNode }) {
       <Suspense fallback={null}>
         <ExitIntent />
       </Suspense>
+      <Suspense fallback={null}>
+        <StickyCompareCTA />
+      </Suspense>
     </div>
   );
 }
