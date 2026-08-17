@@ -5,6 +5,8 @@ import { ShieldCheck, Ban, LifeBuoy, Landmark, BadgeCheck, Youtube, Instagram, M
 import vietato18Url from "@/assets/logos/v18.webp";
 import admLogoUrl from "@/assets/logos/adm.webp";
 import { RelatedProjectBox } from "@/components/casino-ui";
+import { SiteNav } from "@/components/site-nav";
+
 import { EXTERNAL_BLOG_URL } from "@/lib/internal-links";
 
 
