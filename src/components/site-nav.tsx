@@ -55,6 +55,7 @@ const SECTIONS: Section[] = [
     id: "bonus",
     title: "Bonus",
     items: [
+      { href: "/bonus", label: "Hub bonus: tutte le sottocategorie" },
       { href: "/bonus-casino-online-senza-deposito", label: "Bonus senza deposito" },
       { href: "/bonus-senza-deposito", label: "Bonus senza deposito: guida" },
       { href: "/bonus-immediato-spid", label: "Bonus immediato con SPID" },
