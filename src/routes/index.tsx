@@ -10,6 +10,11 @@ import { RatingBadge, CasinoBadges } from "@/components/casino-ui";
 import { ComparisonTable } from "@/components/comparison-table";
 import { ReadMore } from "@/components/read-more";
 import { socialImageMeta } from "@/lib/social-image";
+import { OperatorCardsGrid } from "@/components/operator-cards";
+import { SlotsGrid } from "@/components/slots-grid";
+import { guides } from "@/data/guides";
+import { news } from "@/data/news";
+
 
 
 // Caricato in differita: sticky footer, non serve al primo render
@@ -92,19 +97,7 @@ export const Route = createFileRoute("/")({
     ],
     scripts: [
       {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          inLanguage: "it-IT",
-          mainEntity: [...QUICK_ANSWERS, ...FAQS].map((f) => ({
-            "@type": "Question",
-            name: f.q,
-            acceptedAnswer: { "@type": "Answer", text: f.a },
-          })),
-        }),
-      },
-      {
+
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
@@ -470,34 +463,119 @@ function TopicsSection() {
 }
 
 function HomePage() {
+  const lastGuides = guides.slice(0, 2);
+  const lastNews = [...news]
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, 2);
 
   return (
     <PageShell>
       <Hero />
-      <ComparisonTable />
-      <HomeBlocksSection />
-      <TopicsSection />
-      <OperatorsSection />
-      <BrandIntroSection />
-      <ReviewsHubSection />
-      <GuidesSection />
-      <QuickAnswersSection />
-      <FAQSection />
 
-      <EvaluationGuideSection />
-      <SeoGuideSection />
-      <CriteriaSection />
-      <TrustStrip />
-      <ResponsibleSection />
+      {/* Banner casinò: griglia a due colonne, link affiliati invariati */}
+      <section id="operatori" className="mx-auto max-w-6xl px-2.5 py-4 md:px-6 md:py-12">
+        <h2 className="font-serif text-lg md:text-3xl">Casinò online ADM: banner e bonus</h2>
+        <p className="mt-1 text-[12px] leading-snug text-muted-foreground md:text-sm">
+          Concessionari con licenza ADM. Contenuto informativo, riservato ai maggiorenni.
+        </p>
+        <div className="mt-3">
+          <OperatorCardsGrid limit={6} />
+        </div>
+        <div className="mt-3 grid grid-cols-2 gap-2">
+          <Link
+            to="/lista-casino-adm"
+            className="inline-flex items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-2 text-[12px] font-bold text-gold md:text-sm"
+          >
+            Lista completa ADM <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+          <Link
+            to="/migliori-casino-scelti"
+            className="inline-flex items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold px-3 py-2 text-[12px] font-bold text-primary-foreground md:text-sm"
+          >
+            Casinò scelti da noi <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
+      </section>
+
+      {/* Ultime guide: solo anteprima di 3 righe + link alla pagina dedicata */}
+      <section className="border-t border-border bg-card/30">
+        <div className="mx-auto max-w-6xl px-2.5 py-4 md:px-6 md:py-12">
+          <h2 className="font-serif text-lg md:text-3xl">Ultime guide</h2>
+          <div className="mt-3 grid grid-cols-1 gap-2.5 sm:grid-cols-2 md:gap-4">
+            {lastGuides.map((g) => (
+              <article key={g.path} className="rounded-xl border border-border bg-card p-3 md:p-5">
+                <h3 className="font-serif text-[15px] md:text-lg">{g.title}</h3>
+                <p className="mt-1 line-clamp-3 text-[12px] leading-snug text-muted-foreground md:text-sm">
+                  {g.description}
+                </p>
+                <Link
+                  to={g.path}
+                  className="mt-2 inline-flex items-center gap-1 text-[12px] font-bold text-gold hover:underline md:text-sm"
+                >
+                  Continua a leggere <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10 slot scelte da noi */}
+      <section className="mx-auto max-w-6xl px-2.5 py-4 md:px-6 md:py-12">
+        <h2 className="font-serif text-lg md:text-3xl">Le slot più giocate scelte da noi</h2>
+        <p className="mt-1 text-[12px] leading-snug text-muted-foreground md:text-sm">
+          Illustrazioni originali. Ogni scheda ha una pagina dedicata con RTP, volatilità e come
+          funziona il gioco.
+        </p>
+        <SlotsGrid limit={6} />
+        <Link
+          to="/slot-piu-giocate"
+          className="mt-3 inline-flex items-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-2 text-[12px] font-bold text-gold md:text-sm"
+        >
+          Tutte le 10 slot <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      </section>
+
+      {/* Ultime 2 news */}
+      <section className="border-t border-border bg-card/30">
+        <div className="mx-auto max-w-6xl px-2.5 py-4 md:px-6 md:py-12">
+          <h2 className="font-serif text-lg md:text-3xl">Ultime news</h2>
+          <div className="mt-3 grid grid-cols-1 gap-2.5 sm:grid-cols-2 md:gap-4">
+            {lastNews.map((n) => (
+              <article key={n.slug} className="rounded-xl border border-border bg-card p-3 md:p-5">
+                <p className="text-[10px] uppercase tracking-widest text-gold">{n.category}</p>
+                <h3 className="mt-1 font-serif text-[15px] md:text-lg">{n.h1}</h3>
+                <p className="mt-1 line-clamp-3 text-[12px] leading-snug text-muted-foreground md:text-sm">
+                  {n.summary}
+                </p>
+                <Link
+                  to="/news/$slug"
+                  params={{ slug: n.slug }}
+                  className="mt-2 inline-flex items-center gap-1 text-[12px] font-bold text-gold hover:underline md:text-sm"
+                >
+                  Continua a leggere <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </article>
+            ))}
+          </div>
+          <Link
+            to="/news"
+            className="mt-3 inline-flex items-center gap-1 text-[12px] font-semibold text-gold hover:underline md:text-sm"
+          >
+            Tutte le news <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
+      </section>
+
       <LegalInfoSection />
       <div className="h-24 md:hidden" aria-hidden />
       <Suspense fallback={null}>
         <StickyCompareCTA />
       </Suspense>
     </PageShell>
-
   );
 }
+
 
 const QUICK_ANSWERS: { q: string; a: string }[] = [
   {
@@ -771,20 +849,18 @@ function Hero() {
           </div>
 
           <div className="mt-2 flex flex-nowrap items-stretch gap-2 md:mt-8 md:gap-3">
-            <a
-              href="#comparatore"
-              onClick={scrollToSection("comparatore")}
+            <Link
+              to="/migliori-casino-scelti"
               className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold px-3 py-1.5 text-[12px] font-bold leading-tight text-primary-foreground shadow-md shadow-gold/25 transition-all hover:brightness-110 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
             >
               Migliori casinò scelti <ArrowRight className="h-3.5 w-3.5 shrink-0" />
-            </a>
-            <a
-              href="#operatori"
-              onClick={scrollToSection("operatori")}
+            </Link>
+            <Link
+              to="/lista-casino-adm"
               className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-1.5 text-[12px] font-semibold leading-tight text-gold transition-colors hover:bg-gold/20 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
             >
               Lista completa ADM <ArrowRight className="h-3.5 w-3.5 shrink-0" />
-            </a>
+            </Link>
           </div>
 
           <p className="mt-1.5 text-[10px] text-muted-foreground md:mt-6 md:text-xs">
