@@ -392,6 +392,9 @@ export function PageShell({ children }: { children: ReactNode }) {
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
+      <Suspense fallback={null}>
+        <ExitIntent />
+      </Suspense>
     </div>
   );
 }
