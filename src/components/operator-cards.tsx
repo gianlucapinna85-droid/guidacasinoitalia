@@ -25,7 +25,7 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
               target="_blank"
               rel="noopener noreferrer sponsored"
               aria-label={`Vai al sito ufficiale di ${op.name}`}
-              className="relative flex h-16 w-full items-center justify-center overflow-hidden border-b border-border bg-white md:h-24"
+              className="gc-logo-frame relative flex h-16 w-full items-center justify-center overflow-hidden border-b border-border bg-card md:h-24"
             >
               {op.logo ? (
                 <img
@@ -35,10 +35,10 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
                   height={96}
                   loading="lazy"
                   decoding="async"
-                  className="h-full w-full object-contain p-2"
+                  className="gc-logo-img"
                 />
               ) : (
-                <span className="font-serif text-xl text-neutral-800">{op.name}</span>
+                <span className="font-serif text-xl text-foreground">{op.name}</span>
               )}
               <span className="absolute left-1 top-1 rounded-md bg-foreground/80 px-1.5 text-[10px] font-bold text-background">
                 {i + 1}

@@ -192,7 +192,7 @@ export default function ExitIntent() {
                   rel="noopener noreferrer sponsored nofollow"
                   onClick={() => void logExitPopupEvent("click", op.slug)}
                   aria-label={`Vai al sito ufficiale di ${op.name}`}
-                  className="flex h-14 items-center justify-center overflow-hidden rounded-lg border border-border bg-white transition-transform duration-300 group-hover:scale-[1.02]"
+                  className="gc-logo-frame flex h-14 items-center justify-center overflow-hidden rounded-lg border border-border bg-card transition-colors duration-300 hover:border-gold/60"
                 >
                   {op.logo ? (
                     <img
@@ -202,10 +202,10 @@ export default function ExitIntent() {
                       height={96}
                       loading="lazy"
                       decoding="async"
-                      className="h-full w-full object-contain p-2"
+                      className="gc-logo-img"
                     />
                   ) : (
-                    <span className="font-serif text-sm text-neutral-800">{op.name}</span>
+                    <span className="font-serif text-sm text-foreground">{op.name}</span>
                   )}
                 </a>
 
