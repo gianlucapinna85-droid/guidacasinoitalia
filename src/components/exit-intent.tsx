@@ -31,6 +31,7 @@ export default function ExitIntent() {
   const [config, setConfig] = useState<ExitPopupConfig | null>(null);
   const [open, setOpen] = useState(false);
   const shownRef = useRef(false);
+  const mountedAt = useRef(Date.now());
 
   useEffect(() => {
     let alive = true;
@@ -72,11 +73,17 @@ export default function ExitIntent() {
     if (typeof window === "undefined") return;
     if (!canShow(config)) return;
 
-    let armed = false;
+    // L'attesa di sicurezza parte dal montaggio della pagina, non dal caricamento
+    // della configurazione: così il comportamento è identico su rete lenta.
+    const ARM_MS = 8000;
+    let armed = Date.now() - mountedAt.current >= ARM_MS;
     let suppressedUntil = 0;
-    const armTimer = window.setTimeout(() => {
-      armed = true;
-    }, 8000);
+    const armTimer = window.setTimeout(
+      () => {
+        armed = true;
+      },
+      Math.max(0, ARM_MS - (Date.now() - mountedAt.current)),
+    );
 
     const show = () => {
       if (!armed || Date.now() < suppressedUntil || !canShow(config)) return;
