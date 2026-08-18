@@ -61,6 +61,7 @@ import { Route as BonusImmediatoSpidRouteImport } from './routes/bonus-immediato
 import { Route as BonusCasinoOnlineSenzaDepositoRouteImport } from './routes/bonus-casino-online-senza-deposito'
 import { Route as BonusBenvenutoCasinoRouteImport } from './routes/bonus-benvenuto-casino'
 import { Route as BlackjackOnlineItaliaRouteImport } from './routes/blackjack-online-italia'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SlotIndexRouteImport } from './routes/slot.index'
 import { Route as RecensioniIndexRouteImport } from './routes/recensioni.index'
@@ -347,6 +348,11 @@ const BlackjackOnlineItaliaRoute = BlackjackOnlineItaliaRouteImport.update({
   path: '/blackjack-online-italia',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -430,6 +436,7 @@ const ApiPublicReindexRoute = ApiPublicReindexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
   '/bonus-casino-online-senza-deposito': typeof BonusCasinoOnlineSenzaDepositoRoute
@@ -500,6 +507,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
   '/bonus-casino-online-senza-deposito': typeof BonusCasinoOnlineSenzaDepositoRoute
@@ -571,6 +579,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
   '/bonus-casino-online-senza-deposito': typeof BonusCasinoOnlineSenzaDepositoRoute
@@ -643,6 +652,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/auth'
     | '/blackjack-online-italia'
     | '/bonus-benvenuto-casino'
     | '/bonus-casino-online-senza-deposito'
@@ -713,6 +723,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/auth'
     | '/blackjack-online-italia'
     | '/bonus-benvenuto-casino'
     | '/bonus-casino-online-senza-deposito'
@@ -783,6 +794,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/auth'
     | '/blackjack-online-italia'
     | '/bonus-benvenuto-casino'
     | '/bonus-casino-online-senza-deposito'
@@ -854,6 +866,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRoute: typeof AuthRoute
   BlackjackOnlineItaliaRoute: typeof BlackjackOnlineItaliaRoute
   BonusBenvenutoCasinoRoute: typeof BonusBenvenutoCasinoRoute
   BonusCasinoOnlineSenzaDepositoRoute: typeof BonusCasinoOnlineSenzaDepositoRoute
@@ -1289,6 +1302,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlackjackOnlineItaliaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -1406,6 +1426,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRoute: AuthRoute,
   BlackjackOnlineItaliaRoute: BlackjackOnlineItaliaRoute,
   BonusBenvenutoCasinoRoute: BonusBenvenutoCasinoRoute,
   BonusCasinoOnlineSenzaDepositoRoute: BonusCasinoOnlineSenzaDepositoRoute,
