@@ -62,6 +62,7 @@ import { Route as BonusCasinoOnlineSenzaDepositoRouteImport } from './routes/bon
 import { Route as BonusBenvenutoCasinoRouteImport } from './routes/bonus-benvenuto-casino'
 import { Route as BlackjackOnlineItaliaRouteImport } from './routes/blackjack-online-italia'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SlotIndexRouteImport } from './routes/slot.index'
 import { Route as RecensioniIndexRouteImport } from './routes/recensioni.index'
@@ -78,6 +79,7 @@ import { Route as CasinoSlugRouteImport } from './routes/casino.$slug'
 import { Route as BlogCategoryIndexRouteImport } from './routes/blog.$category.index'
 import { Route as BlogCategorySlugRouteImport } from './routes/blog.$category.$slug'
 import { Route as ApiPublicReindexRouteImport } from './routes/api/public/reindex'
+import { Route as AuthenticatedAdminExitPopupRouteImport } from './routes/_authenticated/admin.exit-popup'
 
 const VerificareLicenzaAdmRoute = VerificareLicenzaAdmRouteImport.update({
   id: '/verificare-licenza-adm',
@@ -353,6 +355,10 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -433,6 +439,12 @@ const ApiPublicReindexRoute = ApiPublicReindexRouteImport.update({
   path: '/api/public/reindex',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAdminExitPopupRoute =
+  AuthenticatedAdminExitPopupRouteImport.update({
+    id: '/admin/exit-popup',
+    path: '/admin/exit-popup',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -501,6 +513,7 @@ export interface FileRoutesByFullPath {
   '/pagamenti/': typeof PagamentiIndexRoute
   '/recensioni/': typeof RecensioniIndexRoute
   '/slot/': typeof SlotIndexRoute
+  '/admin/exit-popup': typeof AuthenticatedAdminExitPopupRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
   '/blog/$category/': typeof BlogCategoryIndexRoute
@@ -572,6 +585,7 @@ export interface FileRoutesByTo {
   '/pagamenti': typeof PagamentiIndexRoute
   '/recensioni': typeof RecensioniIndexRoute
   '/slot': typeof SlotIndexRoute
+  '/admin/exit-popup': typeof AuthenticatedAdminExitPopupRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
   '/blog/$category': typeof BlogCategoryIndexRoute
@@ -579,6 +593,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
@@ -644,6 +659,7 @@ export interface FileRoutesById {
   '/pagamenti/': typeof PagamentiIndexRoute
   '/recensioni/': typeof RecensioniIndexRoute
   '/slot/': typeof SlotIndexRoute
+  '/_authenticated/admin/exit-popup': typeof AuthenticatedAdminExitPopupRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
   '/blog/$category/': typeof BlogCategoryIndexRoute
@@ -717,6 +733,7 @@ export interface FileRouteTypes {
     | '/pagamenti/'
     | '/recensioni/'
     | '/slot/'
+    | '/admin/exit-popup'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
     | '/blog/$category/'
@@ -788,12 +805,14 @@ export interface FileRouteTypes {
     | '/pagamenti'
     | '/recensioni'
     | '/slot'
+    | '/admin/exit-popup'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
     | '/blog/$category'
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
     | '/auth'
     | '/blackjack-online-italia'
     | '/bonus-benvenuto-casino'
@@ -859,6 +878,7 @@ export interface FileRouteTypes {
     | '/pagamenti/'
     | '/recensioni/'
     | '/slot/'
+    | '/_authenticated/admin/exit-popup'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
     | '/blog/$category/'
@@ -866,6 +886,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
   BlackjackOnlineItaliaRoute: typeof BlackjackOnlineItaliaRoute
   BonusBenvenutoCasinoRoute: typeof BonusBenvenutoCasinoRoute
@@ -1309,6 +1330,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -1421,11 +1449,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicReindexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/admin/exit-popup': {
+      id: '/_authenticated/admin/exit-popup'
+      path: '/admin/exit-popup'
+      fullPath: '/admin/exit-popup'
+      preLoaderRoute: typeof AuthenticatedAdminExitPopupRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminExitPopupRoute: typeof AuthenticatedAdminExitPopupRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminExitPopupRoute: AuthenticatedAdminExitPopupRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
   BlackjackOnlineItaliaRoute: BlackjackOnlineItaliaRoute,
   BonusBenvenutoCasinoRoute: BonusBenvenutoCasinoRoute,
