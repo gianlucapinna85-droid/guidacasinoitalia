@@ -44,22 +44,23 @@ export function CasinoRankCard({
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
             aria-label={`Vai al sito ufficiale di ${op.name}`}
-            className="flex h-16 w-full flex-1 items-center justify-center overflow-hidden rounded-xl border border-border bg-white transition-transform duration-300 group-hover:scale-[1.03] md:h-20"
+            className="gc-logo-frame flex h-16 w-full flex-1 items-center justify-center overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-colors duration-300 hover:border-gold/60 md:h-20"
           >
             {op.logo ? (
               <img
                 src={op.logo}
                 alt={`Logo ${op.name}`}
-                width={224}
-                height={96}
+                width={600}
+                height={200}
                 loading="lazy"
                 decoding="async"
-                className="h-full w-full object-contain p-2"
+                className="gc-logo-img"
               />
             ) : (
-              <span className="font-serif text-lg text-neutral-800">{op.name}</span>
+              <span className="font-serif text-lg text-foreground">{op.name}</span>
             )}
           </a>
+
         </div>
 
         {/* Info */}
