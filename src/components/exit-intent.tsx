@@ -31,6 +31,7 @@ export default function ExitIntent() {
   const [config, setConfig] = useState<ExitPopupConfig | null>(null);
   const [open, setOpen] = useState(false);
   const shownRef = useRef(false);
+  const mountedAt = useRef(Date.now());
 
   useEffect(() => {
     let alive = true;
