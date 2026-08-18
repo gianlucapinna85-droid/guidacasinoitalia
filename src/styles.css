@@ -173,3 +173,52 @@
   .gc-reveal, .gc-badge-pulse, .gc-pop { animation: none; }
   .gc-cta::after { display: none; }
 }
+
+/* --- Logo operatori: dimensione uniforme + animazione elegante --- */
+@utility gc-logo-frame {
+  position: relative;
+  isolation: isolate;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -60%;
+    width: 45%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.75), transparent);
+    transform: skewX(-16deg);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+  }
+  &:hover::after {
+    animation: gc-logo-shine 0.9s ease-out;
+  }
+}
+
+@utility gc-logo-img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  padding: 0.5rem;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.45s ease;
+  animation: gc-logo-in 0.5s ease both;
+  .gc-logo-frame:hover & {
+    transform: scale(1.06) translateY(-1px);
+    filter: saturate(1.08) drop-shadow(0 6px 12px rgba(28, 22, 8, 0.14));
+  }
+}
+
+@keyframes gc-logo-shine {
+  from { left: -60%; opacity: 0.9; }
+  to { left: 120%; opacity: 0; }
+}
+@keyframes gc-logo-in {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gc-logo-img { animation: none; transition: none; }
+  .gc-logo-frame::after { display: none; }
+}
