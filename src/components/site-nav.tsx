@@ -149,9 +149,10 @@ export function SiteNav() {
       aria-expanded={open}
       aria-controls="menu-principale"
       aria-label={open ? "Chiudi il menu" : "Apri il menu di navigazione"}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-gold/50 bg-gold/10 text-gold transition-all duration-300 hover:bg-gold/20 active:scale-95 md:h-10 md:w-10"
+      className="inline-flex h-10 items-center gap-1.5 rounded-full border border-gold/50 bg-gradient-to-b from-card to-secondary px-3 text-gold shadow-sm transition-all duration-300 hover:border-gold hover:shadow-[0_6px_18px_-10px_var(--gc-glow)] active:scale-95"
     >
       {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+      <span className="hidden text-xs font-bold uppercase tracking-widest sm:inline">Menu</span>
     </button>
   );
 
@@ -163,23 +164,30 @@ export function SiteNav() {
       }`}
     >
       <div
-        className="absolute inset-0 bg-background/80 backdrop-blur-sm"
+        className="absolute inset-0 bg-foreground/25 backdrop-blur-sm"
         onClick={close}
         aria-hidden
       />
       <nav
         aria-label="Menu principale"
-        className={`absolute right-0 top-0 flex h-full w-[88%] max-w-sm flex-col border-l border-border bg-card shadow-2xl transition-transform duration-300 ease-out ${
+        className={`absolute right-0 top-0 flex h-full w-[90%] max-w-sm flex-col border-l border-gold/25 bg-background shadow-[0_0_60px_-15px_rgba(28,22,8,0.35)] transition-transform duration-300 ease-out ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between border-b border-border px-4 py-3">
-          <span className="font-serif text-base">Sezioni del sito</span>
+        <div className="flex items-center justify-between border-b border-border bg-gradient-to-r from-secondary to-card px-4 py-3.5">
+          <div className="leading-tight">
+            <span className="block font-serif text-base">
+              GuidaCasinò<span className="text-gold">.IT</span>
+            </span>
+            <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
+              Tutte le sezioni
+            </span>
+          </div>
           <button
             type="button"
             onClick={close}
             aria-label="Chiudi il menu"
-            className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:text-foreground"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gold/40 bg-card text-gold transition-colors hover:bg-accent"
           >
             <X className="h-4 w-4" />
           </button>
@@ -191,28 +199,46 @@ export function SiteNav() {
             return (
               <div
                 key={s.id}
-                className="gc-fade-up border-b border-border/60 last:border-0"
+                className={`gc-fade-up mb-2 overflow-hidden rounded-xl border transition-colors ${
+                  isOpen ? "border-gold/45 bg-card shadow-[0_10px_26px_-22px_var(--gc-glow)]" : "border-border bg-card"
+                }`}
                 style={{ animationDelay: `${i * 25}ms` }}
               >
                 <button
                   type="button"
                   onClick={() => setExpanded(isOpen ? null : s.id)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between rounded-lg px-2 py-3 text-left font-serif text-[15px] text-foreground transition-colors hover:bg-muted"
+                  className="flex w-full items-center justify-between gap-2 px-3 py-3 text-left font-serif text-[15px] text-foreground transition-colors hover:bg-accent/60"
                 >
-                  {s.title}
-                  <ChevronDown
-                    className={`h-4 w-4 shrink-0 text-gold transition-transform duration-300 ${
-                      isOpen ? "rotate-180" : ""
-                    }`}
-                  />
+                  <span className="flex items-center gap-2.5">
+                    <span
+                      className={`flex h-7 w-7 items-center justify-center rounded-full border text-[11px] font-bold ${
+                        isOpen
+                          ? "border-gold bg-gold text-primary-foreground"
+                          : "border-gold/40 bg-accent text-gold"
+                      }`}
+                    >
+                      {s.title.charAt(0)}
+                    </span>
+                    {s.title}
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="rounded-full bg-secondary px-1.5 py-0.5 text-[10px] font-semibold text-muted-foreground">
+                      {s.items.length}
+                    </span>
+                    <ChevronDown
+                      className={`h-4 w-4 shrink-0 text-gold transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </span>
                 </button>
                 <div
                   className={`grid transition-all duration-300 ease-out ${
                     isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                   }`}
                 >
-                  <ul className="overflow-hidden">
+                  <ul className="overflow-hidden border-t border-border/70 px-1.5 py-1.5">
                     {s.items.map((it) => (
                       <li key={`${s.id}-${it.href}`}>
                         {it.external ? (
@@ -220,7 +246,7 @@ export function SiteNav() {
                             href={it.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block rounded-md px-3 py-2 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
+                            className="block rounded-lg px-3 py-2 text-sm font-semibold text-gold transition-colors hover:bg-accent"
                           >
                             {it.label}
                           </a>
@@ -228,10 +254,10 @@ export function SiteNav() {
                           <Link
                             to={it.href}
                             onClick={close}
-                            className="block rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                            className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
                             activeProps={{
                               className:
-                                "block rounded-md px-3 py-2 text-sm font-semibold text-gold",
+                                "block rounded-lg bg-accent px-3 py-2 text-sm font-semibold text-gold",
                             }}
                           >
                             {it.label}
@@ -252,6 +278,7 @@ export function SiteNav() {
       </nav>
     </div>
   );
+
 
   return (
     <>
