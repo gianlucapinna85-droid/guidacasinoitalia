@@ -482,6 +482,7 @@ function HomePage() {
       <HomeBlocksSection />
       <TopicsSection />
       <GuidesSection />
+      <SlotsHomeSection />
       <FAQSection />
       <ResponsibleSection />
       <LegalInfoSection />
