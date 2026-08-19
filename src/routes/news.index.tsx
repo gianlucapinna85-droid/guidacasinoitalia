@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CalendarDays, ArrowRight } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
-import { RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
+import { RelatedLinks } from "@/components/casino-ui";
 import { sortedNews } from "@/data/news";
 import { socialImageMeta } from "@/lib/social-image";
 
@@ -113,8 +113,6 @@ function NewsIndex() {
             </article>
           ))}
         </div>
-
-        <RelatedProjectBox className="mt-10" />
         <RelatedLinks />
       </div>
     </PageShell>

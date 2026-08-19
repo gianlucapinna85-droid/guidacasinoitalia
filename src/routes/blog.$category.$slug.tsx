@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
 import { CalendarDays, Clock, ShieldCheck } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
-import { RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
+import { RelatedLinks } from "@/components/casino-ui";
 import { FaqSlider } from "@/components/faq-slider";
 import { BlogSidebar, ExternalBlogButton } from "@/components/blog-ui";
 import { withInternalLinks, newLinkBudget, PRONOSTICI_URL } from "@/lib/internal-links";
@@ -265,8 +265,6 @@ function BlogDetail() {
               <ExternalBlogButton size="sm" />
             </div>
           </section>
-
-          <RelatedProjectBox className="mt-10" />
           <RelatedLinks />
 
           <p className="mt-8 flex items-start gap-2 text-xs text-muted-foreground">

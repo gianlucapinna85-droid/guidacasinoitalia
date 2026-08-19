@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ShieldCheck, Wallet, Zap, Star, ArrowRight, Trophy } from "lucide-react";
+import { ShieldCheck, Wallet, Zap, Star, ArrowRight } from "lucide-react";
 import { getCasinoMeta } from "@/data/casinos";
 import { operators } from "@/lib/operators";
 import { guides } from "@/data/guides";
@@ -117,38 +117,5 @@ export function StickyCompareCTA() {
         </Link>
       </div>
     </div>
-  );
-}
-
-export function RelatedProjectBox({ className = "" }: { className?: string }) {
-  return (
-    <aside
-      className={`rounded-xl border border-gold/30 bg-gold/5 p-4 sm:p-5 ${className}`}
-      aria-label="Progetto correlato: Pronostici Vincenti"
-    >
-      <div className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-3">
-        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-gold/40 bg-gold/10">
-          <Trophy className="h-4.5 w-4.5 text-gold" />
-        </span>
-        <div className="min-w-0">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-gold">
-            Progetto correlato
-          </p>
-          <p className="mt-1 font-serif text-base sm:text-lg">Segui anche le scommesse sportive?</p>
-          <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-            Per consultare pronostici calcio oggi, analisi Serie A, Champions League, quote
-            consigliate e schedine aggiornate quotidianamente, visita il progetto dedicato alle
-            scommesse sportive.
-          </p>
-          <a
-            href="https://pronostici-vincenti.it"
-            rel="noopener"
-            className="mt-3 inline-flex items-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3.5 py-2 text-sm font-semibold text-gold transition-colors hover:bg-gold/20"
-          >
-            Vai a Pronostici Vincenti <ArrowRight className="h-4 w-4" />
-          </a>
-        </div>
-      </div>
-    </aside>
   );
 }
