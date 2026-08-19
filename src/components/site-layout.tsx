@@ -61,11 +61,11 @@ export function OfficialLogosBanner() {
 
 export function OperatorTrustDots({ name }: { name?: string }) {
   const dot =
-    "flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 bg-white shadow-sm md:h-9 md:w-9";
-  const img = "h-5 w-5 object-contain md:h-6 md:w-6";
+    "flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 bg-white shadow-sm md:h-10 md:w-10";
+  const img = "h-6 w-6 object-contain md:h-7 md:w-7";
   return (
     <div
-      className="flex items-center gap-1"
+      className="flex w-full items-center justify-between gap-1"
       aria-label={`Garanzie di ${name ?? "operatore"}: concessione ADM, vietato ai minori di 18 anni, operatore legale in Italia, dati verificati`}
     >
       <span className={`${dot} border-gold/60`} title="Concessione ADM">
@@ -75,14 +75,14 @@ export function OperatorTrustDots({ name }: { name?: string }) {
         <img src={vietato18.url} alt="Vietato ai minori di 18 anni" width={20} height={20} className={img} loading="lazy" decoding="async" />
       </span>
       <span className={`${dot} border-border`} title="Operatore legale in Italia" role="img" aria-label="Bandiera italiana">
-        <span className="flex h-5 w-5 overflow-hidden rounded-full md:h-6 md:w-6">
+        <span className="flex h-6 w-6 overflow-hidden rounded-full md:h-7 md:w-7">
           <span className="h-full w-1/3 bg-[#008C45]" />
           <span className="h-full w-1/3 bg-white" />
           <span className="h-full w-1/3 bg-[#CD212A]" />
         </span>
       </span>
       <span className={`${dot} border-gold/60 bg-gold/10`} title="Verificato sull'elenco pubblico ADM">
-        <BadgeCheck className="h-5 w-5 text-gold md:h-6 md:w-6" strokeWidth={2.4} />
+        <BadgeCheck className="h-6 w-6 text-gold md:h-7 md:w-7" strokeWidth={2.4} />
       </span>
     </div>
   );
