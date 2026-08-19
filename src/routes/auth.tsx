@@ -20,9 +20,11 @@ export const Route = createFileRoute("/auth")({
 
 function AuthPage() {
   const navigate = useNavigate();
+  const claimAdmin = useServerFn(claimAdminWithInvite);
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [invite, setInvite] = useState("");
   const [msg, setMsg] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -42,17 +44,28 @@ function AuthPage() {
       if (error) return setMsg(error.message);
       navigate({ to: "/admin/exit-popup" });
     } else {
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: { emailRedirectTo: `${window.location.origin}/admin/exit-popup` },
       });
+      if (error) {
+        setBusy(false);
+        return setMsg(error.message);
+      }
+      let extra = "";
+      if (data.session) {
+        const res = await claimAdmin({ data: { code: invite } });
+        extra = ` ${res.message}`;
+      } else {
+        extra = " Conferma l'email, accedi e ripeti l'attivazione con il codice invito.";
+      }
       setBusy(false);
-      if (error) return setMsg(error.message);
-      setMsg("Registrazione inviata. Se richiesta, conferma l'email e poi accedi.");
+      setMsg(`Registrazione completata.${extra}`);
       setMode("signin");
     }
   }
+
 
   return (
     <PageShell>
