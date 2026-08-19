@@ -199,24 +199,40 @@ export function AgeBanner() {
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-3 py-2 md:px-4 md:py-4">
-        <Link to="/" className="flex items-center gap-2 md:gap-2.5">
+      <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-3 py-2 md:gap-4 md:px-4 md:py-3 lg:flex lg:justify-between">
+        <Link to="/" className="flex min-w-0 items-center gap-2 md:gap-2.5">
           <img
             src={siteLogo}
             alt="Logo GuidaCasinò.IT"
             width={36}
             height={36}
             decoding="async"
-            className="h-8 w-8 shrink-0 rounded-full object-contain md:h-11 md:w-11"
+            className="h-9 w-9 shrink-0 rounded-full object-contain md:h-11 md:w-11"
           />
-          <div className="leading-tight">
-            <div className="font-serif text-[15px] font-semibold md:text-lg">GuidaCasinò<span className="text-gold">.IT</span></div>
-            <div className="text-[9px] uppercase tracking-widest text-muted-foreground md:text-[10px]">Comparatore informativo</div>
+          <div className="min-w-0 leading-tight">
+            <div className="truncate font-serif text-[15px] font-semibold md:text-lg">GuidaCasinò<span className="text-gold">.IT</span></div>
+            <div className="truncate text-[9px] uppercase tracking-widest text-muted-foreground md:text-[10px]">Comparatore informativo</div>
           </div>
         </Link>
 
+        <nav className="hidden items-center gap-5 text-sm font-medium lg:flex">
+          <Link to="/migliori-casino-online-adm" className="text-muted-foreground transition-colors hover:text-foreground">Casinò ADM</Link>
+          <Link to="/bonus" className="text-muted-foreground transition-colors hover:text-foreground">Bonus</Link>
+          <Link to="/slot" className="text-muted-foreground transition-colors hover:text-foreground">Slot</Link>
+          <Link to="/recensioni" className="text-muted-foreground transition-colors hover:text-foreground">Recensioni</Link>
+          <Link to="/blog" className="text-muted-foreground transition-colors hover:text-foreground">Blog</Link>
+          <a
+            href={YOUTUBE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Canale YouTube di GuidaCasinò.IT"
+            className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <Youtube className="h-4 w-4" /> YouTube
+          </a>
+        </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5 md:gap-2">
           <a
             href="https://www.adm.gov.it"
             target="_blank"
@@ -236,31 +252,13 @@ export function Header() {
           </span>
           <span
             title="Operatori verificati sull'elenco pubblico ADM"
-            className="hidden items-center gap-1 rounded-full border border-gold/50 bg-gold/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-gold sm:inline-flex"
+            className="hidden items-center gap-1 rounded-full border border-gold/50 bg-gold/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-gold md:inline-flex"
           >
             <BadgeCheck className="h-3.5 w-3.5" strokeWidth={2.4} />
             Verificato
           </span>
           <SiteNav />
         </div>
-
-
-        <nav className="hidden items-center gap-5 text-sm font-medium lg:flex">
-          <Link to="/migliori-casino-online-adm" className="text-muted-foreground transition-colors hover:text-foreground">Casinò ADM</Link>
-          <Link to="/bonus" className="text-muted-foreground transition-colors hover:text-foreground">Bonus</Link>
-          <Link to="/slot" className="text-muted-foreground transition-colors hover:text-foreground">Slot</Link>
-          <Link to="/recensioni" className="text-muted-foreground transition-colors hover:text-foreground">Recensioni</Link>
-          <Link to="/blog" className="text-muted-foreground transition-colors hover:text-foreground">Blog</Link>
-          <a
-            href={YOUTUBE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Canale YouTube di GuidaCasinò.IT"
-            className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <Youtube className="h-4 w-4" /> YouTube
-          </a>
-        </nav>
 
 
       </div>
