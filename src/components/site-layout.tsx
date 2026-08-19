@@ -216,27 +216,27 @@ export function Header() {
         </Link>
 
 
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-2">
           <a
             href="https://www.adm.gov.it"
             target="_blank"
             rel="noopener noreferrer nofollow"
             aria-label="Concessione ADM — Agenzia delle Dogane e dei Monopoli"
             title="Operatori con concessione ADM"
-            className="flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-full border border-gold/60 bg-white shadow-sm md:h-9 md:w-9"
+            className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-gold/70 bg-white shadow-sm transition-transform hover:scale-105 md:h-10 md:w-10"
           >
-            <img src={admLogo.url} alt="Logo ufficiale ADM" width={20} height={20} className="h-4 w-4 object-contain md:h-6 md:w-6" loading="lazy" decoding="async" />
+            <img src={admBadgeUrl} alt="Logo ufficiale ADM" width={40} height={40} className="h-full w-full object-contain p-[2px]" loading="lazy" decoding="async" />
           </a>
           <span
             aria-label="Vietato ai minori di 18 anni"
             title="Vietato ai minori di 18 anni"
-            className="flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-full border border-destructive/60 bg-white shadow-sm md:h-9 md:w-9"
+            className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-destructive/70 bg-white shadow-sm md:h-10 md:w-10"
           >
-            <img src={vietato18.url} alt="Vietato ai minori di 18 anni" width={20} height={20} className="h-4 w-4 object-contain md:h-6 md:w-6" loading="lazy" decoding="async" />
+            <img src={vietato18BadgeUrl} alt="Vietato ai minori di 18 anni" width={40} height={40} className="h-full w-full object-contain p-[2px]" loading="lazy" decoding="async" />
           </span>
           <span
             title="Operatori verificati sull'elenco pubblico ADM"
-            className="hidden items-center gap-1 rounded-full border border-gold/50 bg-gold/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-gold sm:inline-flex"
+            className="hidden items-center gap-1 rounded-full border border-gold/50 bg-gold/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-gold sm:inline-flex"
           >
             <BadgeCheck className="h-3.5 w-3.5" strokeWidth={2.4} />
             Verificato
