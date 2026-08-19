@@ -10,6 +10,7 @@ import { RatingBadge, CasinoBadges } from "@/components/casino-ui";
 import { CasinoComparator } from "@/components/casino-comparator";
 import { ReadMore } from "@/components/read-more";
 import { socialImageMeta } from "@/lib/social-image";
+import { slots } from "@/data/slots";
 
 
 
