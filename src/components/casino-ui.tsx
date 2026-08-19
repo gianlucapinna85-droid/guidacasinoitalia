@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ShieldCheck, Wallet, Zap, Star, ArrowRight, Trophy } from "lucide-react";
+import { ShieldCheck, Wallet, Zap, Star, ArrowRight } from "lucide-react";
 import { getCasinoMeta } from "@/data/casinos";
 import { operators } from "@/lib/operators";
 import { guides } from "@/data/guides";
