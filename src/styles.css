@@ -230,7 +230,7 @@
   height: 100%;
   width: 100%;
   object-fit: contain;
-  padding: 0.15rem;
+  padding: 0;
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.45s ease;
   animation: gc-logo-in 0.5s ease both;
   .gc-logo-frame:hover & {
@@ -239,7 +239,7 @@
   }
 }
 @media (min-width: 768px) {
-  .gc-logo-img { padding: 0.4rem; }
+  .gc-logo-img { padding: 0.25rem; }
 }
 
 @keyframes gc-logo-shine {
