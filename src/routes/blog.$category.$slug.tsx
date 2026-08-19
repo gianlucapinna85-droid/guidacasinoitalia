@@ -126,7 +126,7 @@ function BlogDetail() {
 
   return (
     <PageShell>
-      <div className="mx-auto grid max-w-6xl gap-8 px-2.5 py-10 md:px-6 md:py-16 lg:grid-cols-[1fr_320px]">
+      <div className="mx-auto grid max-w-6xl xl:max-w-7xl gap-8 px-2.5 py-10 md:px-6 md:py-16 lg:grid-cols-[1fr_320px]">
         <article>
           <nav className="text-xs uppercase tracking-widest text-muted-foreground">
             <Link to="/" className="hover:text-gold">

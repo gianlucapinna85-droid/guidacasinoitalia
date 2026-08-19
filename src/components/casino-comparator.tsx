@@ -85,7 +85,7 @@ export function CasinoComparator({
 
   return (
     <section id={sectionId} className="border-t border-border bg-background py-5 md:py-14">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6">
+      <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6">
         <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">{eyebrow}</p>
 
         <h2 className="mt-1 font-serif text-xl md:text-4xl">{title}</h2>

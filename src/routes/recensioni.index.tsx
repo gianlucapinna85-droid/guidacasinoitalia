@@ -32,7 +32,7 @@ export const Route = createFileRoute("/recensioni/")({
 function Page() {
   return (
     <PageShell>
-      <section className="mx-auto max-w-6xl px-2.5 pt-5 md:px-6 md:pt-10">
+      <section className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 pt-5 md:px-6 md:pt-10">
         <nav aria-label="Breadcrumb" className="text-[11px] text-muted-foreground">
           <Link to="/" className="hover:text-foreground">Home</Link> / Recensioni
         </nav>
@@ -49,7 +49,7 @@ function Page() {
         subtitle="Ordina per voto, bonus o numero di giochi e filtra per metodo di pagamento e condizioni di conto."
       />
 
-      <section className="mx-auto max-w-6xl px-2.5 pb-10 md:px-6">
+      <section className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 pb-10 md:px-6">
         <h2 className="font-serif text-lg md:text-2xl">Tutte le recensioni</h2>
         <ul className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {operators.map((op) => (

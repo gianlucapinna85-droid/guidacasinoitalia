@@ -74,7 +74,7 @@ export const Route = createFileRoute("/blog/")({
 function BlogIndex() {
   return (
     <PageShell>
-      <div className="mx-auto max-w-6xl px-2.5 py-10 md:px-6 md:py-16">
+      <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 py-10 md:px-6 md:py-16">
         <nav className="text-xs uppercase tracking-widest text-muted-foreground">
           <Link to="/" className="hover:text-gold">
             Home

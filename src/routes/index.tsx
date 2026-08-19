@@ -250,7 +250,7 @@ function ReviewsHubSection() {
     (a, b) => (getCasinoMeta(b.slug)?.rating ?? 0) - (getCasinoMeta(a.slug)?.rating ?? 0),
   );
   return (
-    <section id="recensioni" className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-12">
+    <section id="recensioni" className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-5 md:py-12">
       <h2 className="font-serif text-lg md:text-3xl">Recensioni complete dei casinò ADM</h2>
       <p className="mt-1.5 line-clamp-3 max-w-3xl text-[12px] leading-snug text-muted-foreground md:line-clamp-none md:text-sm md:leading-relaxed">
         Ogni scheda approfondisce concessione, catalogo, metodi di pagamento, tempi di prelievo,
@@ -285,7 +285,7 @@ function ReviewsHubSection() {
 function GuidesSection() {
   return (
     <section className="border-t border-border bg-card/30">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-16">
+      <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-5 md:py-16">
         <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Approfondimenti</p>
         <h2 className="mt-1 font-serif text-lg md:text-4xl">Ultime guide</h2>
         <div className="mt-3 flex gap-2.5 overflow-x-auto pb-2 snap-x [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-8 md:grid md:gap-4 md:overflow-visible md:grid-cols-2 lg:grid-cols-3">
@@ -317,7 +317,7 @@ function SlotsHomeSection() {
   const list = slots.slice(0, 10);
   return (
     <section id="slot-piu-giocate" className="border-t border-border bg-card/30">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-16">
+      <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-5 md:py-16">
         <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Le più giocate</p>
         <h2 className="mt-1 font-serif text-lg md:text-4xl">Slot più giocate in Italia</h2>
         <p className="mt-2 line-clamp-3 max-w-3xl text-[12px] leading-snug text-muted-foreground md:line-clamp-none md:mt-3 md:text-sm md:leading-relaxed">
@@ -428,7 +428,7 @@ function BrandIntroSection() {
     "shrink-0 snap-start rounded-full border border-gold/30 bg-gold/5 px-2.5 py-1 text-[12px] text-gold transition-colors hover:bg-gold/15 whitespace-nowrap md:px-3.5 md:py-2 md:text-sm";
   return (
     <section className="border-b border-border bg-card/30">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-3 md:py-10">
+      <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-3 md:py-10">
         <div className="flex items-center justify-between gap-4">
           <h2 className="font-serif text-sm text-foreground md:text-2xl">
             Guide rapide
@@ -505,7 +505,7 @@ const HOME_BLOCKS = [
 function HomeBlocksSection() {
   return (
     <section id="sezioni-seo" className="border-t border-border bg-card/30">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-16">
+      <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-5 md:py-16">
         <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">
           Guida Casinò Italia
         </p>
@@ -547,7 +547,7 @@ function HomeBlocksSection() {
 function TopicsSection() {
   return (
     <section id="sezioni" className="border-t border-border">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-16">
+      <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-5 md:py-16">
         <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Esplora il portale</p>
         <h2 className="mt-1 font-serif text-lg md:text-4xl">Sezioni principali</h2>
         <div className="mt-3 grid grid-cols-2 gap-2.5 md:mt-8 md:grid-cols-4 md:gap-4">
@@ -754,7 +754,7 @@ const SEO_GUIDE: { h3: string; body: string[] }[] = [
 function LegalInfoSection() {
   return (
     <section id="informazioni-legali" className="border-y border-border bg-card/40">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-4 md:py-12">
+      <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-4 md:py-12">
         <details className="group">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-3">
             <div>
@@ -831,7 +831,7 @@ function Hero() {
         backgroundPosition: "center",
       }}
     >
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-3.5 md:py-28">
+      <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-3.5 md:py-28">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-gold/5 px-2 py-0.5 text-[10px] uppercase tracking-widest text-gold md:gap-2 md:px-3 md:py-1 md:text-xs">
             <ShieldCheck className="h-3 w-3" />
@@ -899,7 +899,7 @@ function TrustStrip() {
   ];
   return (
     <section className="border-b border-border bg-card/50">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-3 px-3 py-4 md:grid-cols-4 md:gap-4 md:py-8">
+      <div className="mx-auto grid max-w-6xl xl:max-w-7xl grid-cols-2 gap-3 px-3 py-4 md:grid-cols-4 md:gap-4 md:py-8">
         {items.map((it) => (
           <div key={it.label} className="flex items-start gap-1.5 md:gap-3">
             <it.icon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold md:h-5 md:w-5" />
@@ -913,7 +913,7 @@ function TrustStrip() {
 
 function OperatorsSection() {
   return (
-    <section id="operatori" className="mx-auto max-w-6xl px-2.5 md:px-6 py-5 md:py-14">
+    <section id="operatori" className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-5 md:py-14">
       <div className="mb-3 md:mb-6">
         <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Confronto</p>
         <div className="mt-1.5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between md:gap-3">
@@ -1145,7 +1145,7 @@ function CriteriaSection() {
   ];
   return (
     <section className="border-y border-border bg-card/40">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-6 md:py-24">
+      <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-6 md:py-24">
         <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Metodologia</p>
         <h2 className="mt-1.5 max-w-2xl font-serif text-lg md:text-4xl">
           Come selezioniamo le informazioni pubblicate
@@ -1234,7 +1234,7 @@ function EvaluationGuideSection() {
 
 function ResponsibleSection() {
   return (
-    <section className="mx-auto max-w-6xl px-2.5 md:px-6 py-6 md:py-24">
+    <section className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-6 md:py-24">
       <div className="grid gap-4 rounded-2xl border border-warning/30 bg-warning/5 p-4 md:grid-cols-[1.2fr_1fr] md:gap-10 md:p-12">
         <div>
           <p className="text-[11px] uppercase tracking-widest text-warning md:text-xs">Gioco responsabile</p>
