@@ -722,7 +722,7 @@ function Hero() {
     <section
       className="relative overflow-hidden border-b border-border"
       style={{
-        backgroundImage: `linear-gradient(180deg, rgba(255,253,248,0.94), rgba(255,247,232,0.97)), image-set(url(${heroBgAvif}) type("image/avif"), url(${heroBgWebp}) type("image/webp"))`,
+        backgroundImage: `linear-gradient(180deg, rgba(30,63,102,0.90), rgba(24,52,86,0.95)), image-set(url(${heroBgAvif}) type("image/avif"), url(${heroBgWebp}) type("image/webp"))`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
