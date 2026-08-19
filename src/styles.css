@@ -121,10 +121,25 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  p {
+    line-height: 1.7;
   }
   h1, h2, h3 {
     font-family: var(--font-serif);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.015em;
+    line-height: 1.22;
+    text-wrap: balance;
+  }
+  h2, h3 {
+    margin-bottom: 0.15em;
+  }
+  section + section {
+    margin-top: 0.25rem;
   }
 }
 
