@@ -58,7 +58,7 @@
 :root {
   --radius: 0.85rem;
   /* Blu moderno ed elegante — non troppo scuro */
-  --background: #1E3F६6;
+  --background: #1E3F66;
   --foreground: #F6F8FC;
   --card: #FFFFFF;
   --card-foreground: #17130B;
@@ -83,7 +83,7 @@
   --gold: #D4A82F;
   --gold-muted: #E3CB8A;
   --gradient-hero: linear-gradient(180deg, #24497A 0%, #1E3F66 100%);
-  --gradient-gold: linear-gradient(135deg, #E9C societ 0%, #C79A2E 100%);
+  --gradient-gold: linear-gradient(135deg, #E9CB6B 0%, #C79A2E 100%);
   --shadow-elegant: 0 12px 32px -18px rgba(6, 18, 36, 0.45);
   --shadow-gold: 0 10px 28px -14px rgba(212, 168, 47, 0.35);
 }
