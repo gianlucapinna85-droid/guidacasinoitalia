@@ -56,41 +56,56 @@
 }
 
 :root {
-  --radius: 0.75rem;
-  /* Bianco caldo / crema chiarissimo — luminoso e premium */
-  --background: #FFFDF8;
-  --foreground: #17130B;
+  --radius: 0.85rem;
+  /* Blu moderno ed elegante — non troppo scuro */
+  --background: #1E3F६6;
+  --foreground: #F6F8FC;
   --card: #FFFFFF;
   --card-foreground: #17130B;
   --popover: #FFFFFF;
   --popover-foreground: #17130B;
   /* Oro come colore principale */
-  --primary: #C79A2E;
-  --primary-foreground: #1A1508;
-  --secondary: #FFFBF2;
-  --secondary-foreground: #17130B;
-  --muted: #FFFBF2;
-  --muted-foreground: #6B6455;
-  --accent: #FDF4E1;
-  --accent-foreground: #17130B;
-  --destructive: #C0392B;
+  --primary: #D4A82F;
+  --primary-foreground: #16120A;
+  --secondary: #2A5183;
+  --secondary-foreground: #F6F8FC;
+  --muted: #2A5183;
+  --muted-foreground: #C6D5E8;
+  --accent: #2A5183;
+  --accent-foreground: #F6F8FC;
+  --destructive: #E05B4C;
   --destructive-foreground: #FFFFFF;
-  --warning: #B57F16;
-  --warning-foreground: #FFFFFF;
-  --border: #ECE3D0;
-  --input: #ECE3D0;
-  --ring: #C79A2E;
-  --gold: #B98C1F;
+  --warning: #E0B341;
+  --warning-foreground: #16120A;
+  --border: #3C6396;
+  --input: #3C6396;
+  --ring: #D4A82F;
+  --gold: #D4A82F;
   --gold-muted: #E3CB8A;
-  --gradient-hero: linear-gradient(180deg, #FFFDF8 0%, #FFF7E8 100%);
-  --gradient-gold: linear-gradient(135deg, #E2BC5C 0%, #B98C1F 100%);
-  --shadow-elegant: 0 12px 32px -18px rgba(28, 22, 8, 0.28);
-  --shadow-gold: 0 10px 28px -14px rgba(185, 140, 31, 0.35);
+  --gradient-hero: linear-gradient(180deg, #24497A 0%, #1E3F66 100%);
+  --gradient-gold: linear-gradient(135deg, #E9C societ 0%, #C79A2E 100%);
+  --shadow-elegant: 0 12px 32px -18px rgba(6, 18, 36, 0.45);
+  --shadow-gold: 0 10px 28px -14px rgba(212, 168, 47, 0.35);
 }
 
 .dark {
-  --background: #FFFDF8;
+  --background: #1E3F66;
+  --foreground: #F6F8FC;
+}
+
+/* Superfici chiare (card, pannelli bianchi): token invertiti per leggibilità */
+[class~="bg-card"],
+[class~="bg-white"],
+[class~="bg-popover"] {
   --foreground: #17130B;
+  --muted-foreground: #5F6675;
+  --border: #ECE3D0;
+  --secondary: #FFFBF2;
+  --secondary-foreground: #17130B;
+  --muted: #FFFBF2;
+  --accent: #FDF4E1;
+  --accent-foreground: #17130B;
+  --gold: #A87E14;
 }
 
 @layer base {
@@ -114,13 +129,26 @@
 
 /* --- Micro-animazioni portale (card, CTA, badge, sezioni) --- */
 :root {
-  --gc-glow: rgba(185, 140, 31, 0.35);
+  --gc-glow: rgba(212, 168, 47, 0.45);
 }
 
-/* Card su fondo chiaro: bianche, bordo sottile, ombra leggerissima */
-.gc-card {
-  box-shadow: 0 1px 2px rgba(28, 22, 8, 0.04), 0 10px 24px -20px rgba(28, 22, 8, 0.35);
+/* Card bianche con contorno dorato spesso — firma visiva del brand */
+.gc-card,
+[class~="bg-card"][class~="border"],
+[class~="bg-white"][class~="border"] {
+  border-width: 2px !important;
+  border-style: solid;
+  border-color: color-mix(in srgb, #C79A2E 70%, transparent) !important;
+  box-shadow: 0 1px 2px rgba(6, 18, 36, 0.06), 0 14px 30px -22px rgba(6, 18, 36, 0.45);
 }
+
+.gc-card:hover,
+[class~="bg-card"][class~="border"]:hover,
+[class~="bg-white"][class~="border"]:hover {
+  border-color: #C79A2E !important;
+  box-shadow: 0 2px 4px rgba(6, 18, 36, 0.08), 0 18px 38px -22px rgba(199, 154, 46, 0.45);
+}
+
 
 /* CTA secondaria: fondo bianco, bordo oro, hover crema */
 @utility gc-btn-secondary {
