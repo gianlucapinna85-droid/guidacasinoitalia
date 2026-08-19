@@ -10,6 +10,8 @@ import siteLogo from "@/assets/site-logo.webp";
 import { ShieldCheck, Ban, LifeBuoy, Landmark, BadgeCheck, Youtube, Instagram, Music2, Send } from "lucide-react";
 import vietato18Url from "@/assets/logos/v18.webp";
 import admLogoUrl from "@/assets/logos/adm.webp";
+import vietato18BadgeUrl from "@/assets/logos/v18-badge.webp";
+import admBadgeUrl from "@/assets/logos/adm-badge.webp";
 import { RelatedProjectBox } from "@/components/casino-ui";
 import { EXTERNAL_BLOG_URL } from "@/lib/internal-links";
 
@@ -62,27 +64,27 @@ export function OfficialLogosBanner() {
 export function OperatorTrustDots({ name }: { name?: string }) {
   const dot =
     "flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 bg-white shadow-sm md:h-10 md:w-10";
-  const img = "h-6 w-6 object-contain md:h-7 md:w-7";
+  const img = "h-full w-full scale-[1.06] object-contain p-[1px]";
   return (
     <div
       className="flex w-full items-center justify-between gap-1"
       aria-label={`Garanzie di ${name ?? "operatore"}: concessione ADM, vietato ai minori di 18 anni, operatore legale in Italia, dati verificati`}
     >
       <span className={`${dot} border-gold/60`} title="Concessione ADM">
-        <img src={admLogo.url} alt="Concessione ADM" width={20} height={20} className={img} loading="lazy" decoding="async" />
+        <img src={admBadgeUrl} alt="Concessione ADM" width={40} height={40} className={img} loading="lazy" decoding="async" />
       </span>
       <span className={`${dot} border-destructive/60`} title="Vietato ai minori di 18 anni">
-        <img src={vietato18.url} alt="Vietato ai minori di 18 anni" width={20} height={20} className={img} loading="lazy" decoding="async" />
+        <img src={vietato18BadgeUrl} alt="Vietato ai minori di 18 anni" width={40} height={40} className={img} loading="lazy" decoding="async" />
       </span>
       <span className={`${dot} border-border`} title="Operatore legale in Italia" role="img" aria-label="Bandiera italiana">
-        <span className="flex h-6 w-6 overflow-hidden rounded-full md:h-7 md:w-7">
+        <span className="flex h-full w-full overflow-hidden rounded-full">
           <span className="h-full w-1/3 bg-[#008C45]" />
           <span className="h-full w-1/3 bg-white" />
           <span className="h-full w-1/3 bg-[#CD212A]" />
         </span>
       </span>
       <span className={`${dot} border-gold/60 bg-gold/10`} title="Verificato sull'elenco pubblico ADM">
-        <BadgeCheck className="h-6 w-6 text-gold md:h-7 md:w-7" strokeWidth={2.4} />
+        <BadgeCheck className="h-7 w-7 text-gold md:h-8 md:w-8" strokeWidth={2.4} />
       </span>
     </div>
   );
