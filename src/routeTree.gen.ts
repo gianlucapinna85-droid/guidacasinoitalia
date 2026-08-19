@@ -56,6 +56,7 @@ import { Route as CasinoOnlineItaliaRouteImport } from './routes/casino-online-i
 import { Route as CasinoOScommesseSportiveRouteImport } from './routes/casino-o-scommesse-sportive'
 import { Route as CasinoMobileAdmRouteImport } from './routes/casino-mobile-adm'
 import { Route as CasinoLiveRouteImport } from './routes/casino-live'
+import { Route as CasinoItalianiBonusGratisSenzaDepositoRouteImport } from './routes/casino-italiani-bonus-gratis-senza-deposito'
 import { Route as CasinoAdmVsEsteriRouteImport } from './routes/casino-adm-vs-esteri'
 import { Route as BonusSenzaDepositoRouteImport } from './routes/bonus-senza-deposito'
 import { Route as BonusScommesseSportiveRouteImport } from './routes/bonus-scommesse-sportive'
@@ -328,6 +329,12 @@ const CasinoLiveRoute = CasinoLiveRouteImport.update({
   path: '/casino-live',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CasinoItalianiBonusGratisSenzaDepositoRoute =
+  CasinoItalianiBonusGratisSenzaDepositoRouteImport.update({
+    id: '/casino-italiani-bonus-gratis-senza-deposito',
+    path: '/casino-italiani-bonus-gratis-senza-deposito',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CasinoAdmVsEsteriRoute = CasinoAdmVsEsteriRouteImport.update({
   id: '/casino-adm-vs-esteri',
   path: '/casino-adm-vs-esteri',
@@ -470,6 +477,7 @@ export interface FileRoutesByFullPath {
   '/bonus-scommesse-sportive': typeof BonusScommesseSportiveRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/casino-adm-vs-esteri': typeof CasinoAdmVsEsteriRoute
+  '/casino-italiani-bonus-gratis-senza-deposito': typeof CasinoItalianiBonusGratisSenzaDepositoRoute
   '/casino-live': typeof CasinoLiveRoute
   '/casino-mobile-adm': typeof CasinoMobileAdmRoute
   '/casino-o-scommesse-sportive': typeof CasinoOScommesseSportiveRoute
@@ -544,6 +552,7 @@ export interface FileRoutesByTo {
   '/bonus-scommesse-sportive': typeof BonusScommesseSportiveRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/casino-adm-vs-esteri': typeof CasinoAdmVsEsteriRoute
+  '/casino-italiani-bonus-gratis-senza-deposito': typeof CasinoItalianiBonusGratisSenzaDepositoRoute
   '/casino-live': typeof CasinoLiveRoute
   '/casino-mobile-adm': typeof CasinoMobileAdmRoute
   '/casino-o-scommesse-sportive': typeof CasinoOScommesseSportiveRoute
@@ -620,6 +629,7 @@ export interface FileRoutesById {
   '/bonus-scommesse-sportive': typeof BonusScommesseSportiveRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/casino-adm-vs-esteri': typeof CasinoAdmVsEsteriRoute
+  '/casino-italiani-bonus-gratis-senza-deposito': typeof CasinoItalianiBonusGratisSenzaDepositoRoute
   '/casino-live': typeof CasinoLiveRoute
   '/casino-mobile-adm': typeof CasinoMobileAdmRoute
   '/casino-o-scommesse-sportive': typeof CasinoOScommesseSportiveRoute
@@ -696,6 +706,7 @@ export interface FileRouteTypes {
     | '/bonus-scommesse-sportive'
     | '/bonus-senza-deposito'
     | '/casino-adm-vs-esteri'
+    | '/casino-italiani-bonus-gratis-senza-deposito'
     | '/casino-live'
     | '/casino-mobile-adm'
     | '/casino-o-scommesse-sportive'
@@ -770,6 +781,7 @@ export interface FileRouteTypes {
     | '/bonus-scommesse-sportive'
     | '/bonus-senza-deposito'
     | '/casino-adm-vs-esteri'
+    | '/casino-italiani-bonus-gratis-senza-deposito'
     | '/casino-live'
     | '/casino-mobile-adm'
     | '/casino-o-scommesse-sportive'
@@ -845,6 +857,7 @@ export interface FileRouteTypes {
     | '/bonus-scommesse-sportive'
     | '/bonus-senza-deposito'
     | '/casino-adm-vs-esteri'
+    | '/casino-italiani-bonus-gratis-senza-deposito'
     | '/casino-live'
     | '/casino-mobile-adm'
     | '/casino-o-scommesse-sportive'
@@ -921,6 +934,7 @@ export interface RootRouteChildren {
   BonusScommesseSportiveRoute: typeof BonusScommesseSportiveRoute
   BonusSenzaDepositoRoute: typeof BonusSenzaDepositoRoute
   CasinoAdmVsEsteriRoute: typeof CasinoAdmVsEsteriRoute
+  CasinoItalianiBonusGratisSenzaDepositoRoute: typeof CasinoItalianiBonusGratisSenzaDepositoRoute
   CasinoLiveRoute: typeof CasinoLiveRoute
   CasinoMobileAdmRoute: typeof CasinoMobileAdmRoute
   CasinoOScommesseSportiveRoute: typeof CasinoOScommesseSportiveRoute
@@ -1316,6 +1330,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CasinoLiveRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/casino-italiani-bonus-gratis-senza-deposito': {
+      id: '/casino-italiani-bonus-gratis-senza-deposito'
+      path: '/casino-italiani-bonus-gratis-senza-deposito'
+      fullPath: '/casino-italiani-bonus-gratis-senza-deposito'
+      preLoaderRoute: typeof CasinoItalianiBonusGratisSenzaDepositoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/casino-adm-vs-esteri': {
       id: '/casino-adm-vs-esteri'
       path: '/casino-adm-vs-esteri'
@@ -1523,6 +1544,8 @@ const rootRouteChildren: RootRouteChildren = {
   BonusScommesseSportiveRoute: BonusScommesseSportiveRoute,
   BonusSenzaDepositoRoute: BonusSenzaDepositoRoute,
   CasinoAdmVsEsteriRoute: CasinoAdmVsEsteriRoute,
+  CasinoItalianiBonusGratisSenzaDepositoRoute:
+    CasinoItalianiBonusGratisSenzaDepositoRoute,
   CasinoLiveRoute: CasinoLiveRoute,
   CasinoMobileAdmRoute: CasinoMobileAdmRoute,
   CasinoOScommesseSportiveRoute: CasinoOScommesseSportiveRoute,
