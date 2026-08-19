@@ -837,7 +837,7 @@ function Hero() {
             <ShieldCheck className="h-3 w-3" />
             Portale informativo indipendente
           </div>
-          <h1 className="mt-1.5 font-serif text-[1.25rem] leading-[1.05] md:mt-6 md:text-6xl">
+          <h1 className="mt-1.5 font-serif text-[1.25rem] leading-[1.05] md:mt-6 md:text-6xl xl:text-7xl">
             Migliori Casino Online ADM in Italia{" "}
             <span className="block text-gold md:inline">
               recensioni, bonus e guide di Guida Casinò Italia
@@ -846,7 +846,7 @@ function Hero() {
           <CurrentMonthBadge />
           <div className="mt-1.5 max-w-2xl md:mt-6">
             <p
-              className={`text-[13px] leading-[1.35] text-muted-foreground md:text-lg md:leading-normal ${expanded ? "" : "line-clamp-3 md:line-clamp-none"}`}
+              className={`text-[13px] leading-[1.35] text-muted-foreground md:text-lg md:leading-normal xl:text-xl ${expanded ? "" : "line-clamp-3 md:line-clamp-none"}`}
             >
               Guida Casinò Italia confronta i casino online ADM più affidabili in Italia: recensioni
               complete, bonus di benvenuto, slot machine, roulette e blackjack. Le recensioni di
