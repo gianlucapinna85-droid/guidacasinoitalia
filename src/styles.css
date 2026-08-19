@@ -156,15 +156,16 @@
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  border-radius: 0.6rem;
-  border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
-  background: var(--card);
+  border-radius: 0.7rem;
+  border: 2px solid #C79A2E;
+  background: #FFFFFF;
   color: var(--card-foreground);
   font-weight: 700;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   &:hover {
     background: #FFF6E2;
-    border-color: var(--gold);
+    border-color: #A87E14;
+    transform: translateY(-1px);
   }
 }
 
