@@ -178,14 +178,14 @@ export function CasinoComparator({
           {rows.length} operatori corrispondono ai criteri selezionati.
         </p>
 
-        <div className="mt-3 grid gap-2.5 md:mt-5 md:gap-3">
+        <div className="mt-3 grid grid-cols-2 gap-2 px-1 sm:grid-cols-2 sm:gap-2.5 md:mt-5 md:grid-cols-3 md:px-0 md:gap-3 lg:grid-cols-4">
           {rows.map(({ op, meta }, i) => (
             <div key={op.slug} className="gc-pop" style={{ animationDelay: `${Math.min(i, 6) * 30}ms` }}>
               <CasinoRankCard op={op} meta={meta} rank={i + 1} />
             </div>
           ))}
           {rows.length === 0 ? (
-            <p className="rounded-xl border border-border bg-card p-6 text-center text-sm text-muted-foreground">
+            <p className="col-span-full rounded-xl border border-border bg-card p-6 text-center text-sm text-muted-foreground">
               Nessun operatore corrisponde ai filtri selezionati.
             </p>
           ) : null}
