@@ -308,7 +308,40 @@ export const guides: Guide[] = [
     changefreq: "weekly",
     priority: "0.9",
   },
+  {
+    path: "/come-ottenere-bonus-senza-deposito",
+    title: "Come ottenere un bonus senza deposito",
+    description:
+      "Procedura passo per passo per ottenere un bonus senza deposito su un casinò ADM: registrazione, verifica, attivazione e sblocco.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
+    path: "/siti-scommesse-bonus-senza-deposito",
+    title: "Siti scommesse con bonus senza deposito",
+    description:
+      "Quali siti di scommesse ADM offrono un bonus senza deposito e come verificare condizioni, quota minima e requisiti.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
+    path: "/casino-italiani-bonus-gratis-senza-deposito",
+    title: "Casinò italiani con bonus gratis senza deposito",
+    description:
+      "Come individuare e confrontare i casinò italiani ADM con bonus gratis senza deposito, oltre l'importo nominale.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
+    path: "/slot-con-bonus-senza-deposito",
+    title: "Slot con bonus senza deposito",
+    description:
+      "Free spin e saldo bonus sulle slot ADM: valore reale del pacchetto, contribuzione al requisito e tetto di conversione.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
 ];
+
 
 
 

@@ -15,7 +15,9 @@ import { Route as SlotPiuGiocateRouteImport } from './routes/slot-piu-giocate'
 import { Route as SlotOnlineSoldiVeriRouteImport } from './routes/slot-online-soldi-veri'
 import { Route as SlotOnlineRouteImport } from './routes/slot-online'
 import { Route as SlotGratisDemoRouteImport } from './routes/slot-gratis-demo'
+import { Route as SlotConBonusSenzaDepositoRouteImport } from './routes/slot-con-bonus-senza-deposito'
 import { Route as SlotAltaVolatilitaRouteImport } from './routes/slot-alta-volatilita'
+import { Route as SitiScommesseBonusSenzaDepositoRouteImport } from './routes/siti-scommesse-bonus-senza-deposito'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapReviewsDotxmlRouteImport } from './routes/sitemap-reviews[.]xml'
 import { Route as SitemapPagesDotxmlRouteImport } from './routes/sitemap-pages[.]xml'
@@ -46,6 +48,7 @@ import { Route as GestioneBankrollRouteImport } from './routes/gestione-bankroll
 import { Route as ComeValutiamoICasinoRouteImport } from './routes/come-valutiamo-i-casino'
 import { Route as ComeScegliereCasinoOnlineAdmRouteImport } from './routes/come-scegliere-casino-online-adm'
 import { Route as ComeRegistrarsiRouteImport } from './routes/come-registrarsi'
+import { Route as ComeOttenereBonusSenzaDepositoRouteImport } from './routes/come-ottenere-bonus-senza-deposito'
 import { Route as ComeLeggereQuoteCalcioRouteImport } from './routes/come-leggere-quote-calcio'
 import { Route as CasinoPaypalRouteImport } from './routes/casino-paypal'
 import { Route as CasinoOnlineSicuriRouteImport } from './routes/casino-online-sicuri'
@@ -54,6 +57,7 @@ import { Route as CasinoOnlineItaliaRouteImport } from './routes/casino-online-i
 import { Route as CasinoOScommesseSportiveRouteImport } from './routes/casino-o-scommesse-sportive'
 import { Route as CasinoMobileAdmRouteImport } from './routes/casino-mobile-adm'
 import { Route as CasinoLiveRouteImport } from './routes/casino-live'
+import { Route as CasinoItalianiBonusGratisSenzaDepositoRouteImport } from './routes/casino-italiani-bonus-gratis-senza-deposito'
 import { Route as CasinoAdmVsEsteriRouteImport } from './routes/casino-adm-vs-esteri'
 import { Route as BonusSenzaDepositoRouteImport } from './routes/bonus-senza-deposito'
 import { Route as BonusScommesseSportiveRouteImport } from './routes/bonus-scommesse-sportive'
@@ -111,11 +115,23 @@ const SlotGratisDemoRoute = SlotGratisDemoRouteImport.update({
   path: '/slot-gratis-demo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SlotConBonusSenzaDepositoRoute =
+  SlotConBonusSenzaDepositoRouteImport.update({
+    id: '/slot-con-bonus-senza-deposito',
+    path: '/slot-con-bonus-senza-deposito',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SlotAltaVolatilitaRoute = SlotAltaVolatilitaRouteImport.update({
   id: '/slot-alta-volatilita',
   path: '/slot-alta-volatilita',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitiScommesseBonusSenzaDepositoRoute =
+  SitiScommesseBonusSenzaDepositoRouteImport.update({
+    id: '/siti-scommesse-bonus-senza-deposito',
+    path: '/siti-scommesse-bonus-senza-deposito',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -272,6 +288,12 @@ const ComeRegistrarsiRoute = ComeRegistrarsiRouteImport.update({
   path: '/come-registrarsi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ComeOttenereBonusSenzaDepositoRoute =
+  ComeOttenereBonusSenzaDepositoRouteImport.update({
+    id: '/come-ottenere-bonus-senza-deposito',
+    path: '/come-ottenere-bonus-senza-deposito',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ComeLeggereQuoteCalcioRoute = ComeLeggereQuoteCalcioRouteImport.update({
   id: '/come-leggere-quote-calcio',
   path: '/come-leggere-quote-calcio',
@@ -314,6 +336,12 @@ const CasinoLiveRoute = CasinoLiveRouteImport.update({
   path: '/casino-live',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CasinoItalianiBonusGratisSenzaDepositoRoute =
+  CasinoItalianiBonusGratisSenzaDepositoRouteImport.update({
+    id: '/casino-italiani-bonus-gratis-senza-deposito',
+    path: '/casino-italiani-bonus-gratis-senza-deposito',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CasinoAdmVsEsteriRoute = CasinoAdmVsEsteriRouteImport.update({
   id: '/casino-adm-vs-esteri',
   path: '/casino-adm-vs-esteri',
@@ -456,6 +484,7 @@ export interface FileRoutesByFullPath {
   '/bonus-scommesse-sportive': typeof BonusScommesseSportiveRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/casino-adm-vs-esteri': typeof CasinoAdmVsEsteriRoute
+  '/casino-italiani-bonus-gratis-senza-deposito': typeof CasinoItalianiBonusGratisSenzaDepositoRoute
   '/casino-live': typeof CasinoLiveRoute
   '/casino-mobile-adm': typeof CasinoMobileAdmRoute
   '/casino-o-scommesse-sportive': typeof CasinoOScommesseSportiveRoute
@@ -464,6 +493,7 @@ export interface FileRoutesByFullPath {
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
   '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
+  '/come-ottenere-bonus-senza-deposito': typeof ComeOttenereBonusSenzaDepositoRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/come-scegliere-casino-online-adm': typeof ComeScegliereCasinoOnlineAdmRoute
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
@@ -494,7 +524,9 @@ export interface FileRoutesByFullPath {
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/siti-scommesse-bonus-senza-deposito': typeof SitiScommesseBonusSenzaDepositoRoute
   '/slot-alta-volatilita': typeof SlotAltaVolatilitaRoute
+  '/slot-con-bonus-senza-deposito': typeof SlotConBonusSenzaDepositoRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
@@ -528,6 +560,7 @@ export interface FileRoutesByTo {
   '/bonus-scommesse-sportive': typeof BonusScommesseSportiveRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/casino-adm-vs-esteri': typeof CasinoAdmVsEsteriRoute
+  '/casino-italiani-bonus-gratis-senza-deposito': typeof CasinoItalianiBonusGratisSenzaDepositoRoute
   '/casino-live': typeof CasinoLiveRoute
   '/casino-mobile-adm': typeof CasinoMobileAdmRoute
   '/casino-o-scommesse-sportive': typeof CasinoOScommesseSportiveRoute
@@ -536,6 +569,7 @@ export interface FileRoutesByTo {
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
   '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
+  '/come-ottenere-bonus-senza-deposito': typeof ComeOttenereBonusSenzaDepositoRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/come-scegliere-casino-online-adm': typeof ComeScegliereCasinoOnlineAdmRoute
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
@@ -566,7 +600,9 @@ export interface FileRoutesByTo {
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/siti-scommesse-bonus-senza-deposito': typeof SitiScommesseBonusSenzaDepositoRoute
   '/slot-alta-volatilita': typeof SlotAltaVolatilitaRoute
+  '/slot-con-bonus-senza-deposito': typeof SlotConBonusSenzaDepositoRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
@@ -602,6 +638,7 @@ export interface FileRoutesById {
   '/bonus-scommesse-sportive': typeof BonusScommesseSportiveRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
   '/casino-adm-vs-esteri': typeof CasinoAdmVsEsteriRoute
+  '/casino-italiani-bonus-gratis-senza-deposito': typeof CasinoItalianiBonusGratisSenzaDepositoRoute
   '/casino-live': typeof CasinoLiveRoute
   '/casino-mobile-adm': typeof CasinoMobileAdmRoute
   '/casino-o-scommesse-sportive': typeof CasinoOScommesseSportiveRoute
@@ -610,6 +647,7 @@ export interface FileRoutesById {
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
   '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
+  '/come-ottenere-bonus-senza-deposito': typeof ComeOttenereBonusSenzaDepositoRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/come-scegliere-casino-online-adm': typeof ComeScegliereCasinoOnlineAdmRoute
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
@@ -640,7 +678,9 @@ export interface FileRoutesById {
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/siti-scommesse-bonus-senza-deposito': typeof SitiScommesseBonusSenzaDepositoRoute
   '/slot-alta-volatilita': typeof SlotAltaVolatilitaRoute
+  '/slot-con-bonus-senza-deposito': typeof SlotConBonusSenzaDepositoRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
@@ -676,6 +716,7 @@ export interface FileRouteTypes {
     | '/bonus-scommesse-sportive'
     | '/bonus-senza-deposito'
     | '/casino-adm-vs-esteri'
+    | '/casino-italiani-bonus-gratis-senza-deposito'
     | '/casino-live'
     | '/casino-mobile-adm'
     | '/casino-o-scommesse-sportive'
@@ -684,6 +725,7 @@ export interface FileRouteTypes {
     | '/casino-online-sicuri'
     | '/casino-paypal'
     | '/come-leggere-quote-calcio'
+    | '/come-ottenere-bonus-senza-deposito'
     | '/come-registrarsi'
     | '/come-scegliere-casino-online-adm'
     | '/come-valutiamo-i-casino'
@@ -714,7 +756,9 @@ export interface FileRouteTypes {
     | '/sitemap-pages.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
+    | '/siti-scommesse-bonus-senza-deposito'
     | '/slot-alta-volatilita'
+    | '/slot-con-bonus-senza-deposito'
     | '/slot-gratis-demo'
     | '/slot-online'
     | '/slot-online-soldi-veri'
@@ -748,6 +792,7 @@ export interface FileRouteTypes {
     | '/bonus-scommesse-sportive'
     | '/bonus-senza-deposito'
     | '/casino-adm-vs-esteri'
+    | '/casino-italiani-bonus-gratis-senza-deposito'
     | '/casino-live'
     | '/casino-mobile-adm'
     | '/casino-o-scommesse-sportive'
@@ -756,6 +801,7 @@ export interface FileRouteTypes {
     | '/casino-online-sicuri'
     | '/casino-paypal'
     | '/come-leggere-quote-calcio'
+    | '/come-ottenere-bonus-senza-deposito'
     | '/come-registrarsi'
     | '/come-scegliere-casino-online-adm'
     | '/come-valutiamo-i-casino'
@@ -786,7 +832,9 @@ export interface FileRouteTypes {
     | '/sitemap-pages.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
+    | '/siti-scommesse-bonus-senza-deposito'
     | '/slot-alta-volatilita'
+    | '/slot-con-bonus-senza-deposito'
     | '/slot-gratis-demo'
     | '/slot-online'
     | '/slot-online-soldi-veri'
@@ -821,6 +869,7 @@ export interface FileRouteTypes {
     | '/bonus-scommesse-sportive'
     | '/bonus-senza-deposito'
     | '/casino-adm-vs-esteri'
+    | '/casino-italiani-bonus-gratis-senza-deposito'
     | '/casino-live'
     | '/casino-mobile-adm'
     | '/casino-o-scommesse-sportive'
@@ -829,6 +878,7 @@ export interface FileRouteTypes {
     | '/casino-online-sicuri'
     | '/casino-paypal'
     | '/come-leggere-quote-calcio'
+    | '/come-ottenere-bonus-senza-deposito'
     | '/come-registrarsi'
     | '/come-scegliere-casino-online-adm'
     | '/come-valutiamo-i-casino'
@@ -859,7 +909,9 @@ export interface FileRouteTypes {
     | '/sitemap-pages.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
+    | '/siti-scommesse-bonus-senza-deposito'
     | '/slot-alta-volatilita'
+    | '/slot-con-bonus-senza-deposito'
     | '/slot-gratis-demo'
     | '/slot-online'
     | '/slot-online-soldi-veri'
@@ -895,6 +947,7 @@ export interface RootRouteChildren {
   BonusScommesseSportiveRoute: typeof BonusScommesseSportiveRoute
   BonusSenzaDepositoRoute: typeof BonusSenzaDepositoRoute
   CasinoAdmVsEsteriRoute: typeof CasinoAdmVsEsteriRoute
+  CasinoItalianiBonusGratisSenzaDepositoRoute: typeof CasinoItalianiBonusGratisSenzaDepositoRoute
   CasinoLiveRoute: typeof CasinoLiveRoute
   CasinoMobileAdmRoute: typeof CasinoMobileAdmRoute
   CasinoOScommesseSportiveRoute: typeof CasinoOScommesseSportiveRoute
@@ -903,6 +956,7 @@ export interface RootRouteChildren {
   CasinoOnlineSicuriRoute: typeof CasinoOnlineSicuriRoute
   CasinoPaypalRoute: typeof CasinoPaypalRoute
   ComeLeggereQuoteCalcioRoute: typeof ComeLeggereQuoteCalcioRoute
+  ComeOttenereBonusSenzaDepositoRoute: typeof ComeOttenereBonusSenzaDepositoRoute
   ComeRegistrarsiRoute: typeof ComeRegistrarsiRoute
   ComeScegliereCasinoOnlineAdmRoute: typeof ComeScegliereCasinoOnlineAdmRoute
   ComeValutiamoICasinoRoute: typeof ComeValutiamoICasinoRoute
@@ -933,7 +987,9 @@ export interface RootRouteChildren {
   SitemapPagesDotxmlRoute: typeof SitemapPagesDotxmlRoute
   SitemapReviewsDotxmlRoute: typeof SitemapReviewsDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SitiScommesseBonusSenzaDepositoRoute: typeof SitiScommesseBonusSenzaDepositoRoute
   SlotAltaVolatilitaRoute: typeof SlotAltaVolatilitaRoute
+  SlotConBonusSenzaDepositoRoute: typeof SlotConBonusSenzaDepositoRoute
   SlotGratisDemoRoute: typeof SlotGratisDemoRoute
   SlotOnlineRoute: typeof SlotOnlineRoute
   SlotOnlineSoldiVeriRoute: typeof SlotOnlineSoldiVeriRoute
@@ -1001,11 +1057,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SlotGratisDemoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/slot-con-bonus-senza-deposito': {
+      id: '/slot-con-bonus-senza-deposito'
+      path: '/slot-con-bonus-senza-deposito'
+      fullPath: '/slot-con-bonus-senza-deposito'
+      preLoaderRoute: typeof SlotConBonusSenzaDepositoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/slot-alta-volatilita': {
       id: '/slot-alta-volatilita'
       path: '/slot-alta-volatilita'
       fullPath: '/slot-alta-volatilita'
       preLoaderRoute: typeof SlotAltaVolatilitaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/siti-scommesse-bonus-senza-deposito': {
+      id: '/siti-scommesse-bonus-senza-deposito'
+      path: '/siti-scommesse-bonus-senza-deposito'
+      fullPath: '/siti-scommesse-bonus-senza-deposito'
+      preLoaderRoute: typeof SitiScommesseBonusSenzaDepositoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -1218,6 +1288,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComeRegistrarsiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/come-ottenere-bonus-senza-deposito': {
+      id: '/come-ottenere-bonus-senza-deposito'
+      path: '/come-ottenere-bonus-senza-deposito'
+      fullPath: '/come-ottenere-bonus-senza-deposito'
+      preLoaderRoute: typeof ComeOttenereBonusSenzaDepositoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/come-leggere-quote-calcio': {
       id: '/come-leggere-quote-calcio'
       path: '/come-leggere-quote-calcio'
@@ -1272,6 +1349,13 @@ declare module '@tanstack/react-router' {
       path: '/casino-live'
       fullPath: '/casino-live'
       preLoaderRoute: typeof CasinoLiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/casino-italiani-bonus-gratis-senza-deposito': {
+      id: '/casino-italiani-bonus-gratis-senza-deposito'
+      path: '/casino-italiani-bonus-gratis-senza-deposito'
+      fullPath: '/casino-italiani-bonus-gratis-senza-deposito'
+      preLoaderRoute: typeof CasinoItalianiBonusGratisSenzaDepositoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/casino-adm-vs-esteri': {
@@ -1481,6 +1565,8 @@ const rootRouteChildren: RootRouteChildren = {
   BonusScommesseSportiveRoute: BonusScommesseSportiveRoute,
   BonusSenzaDepositoRoute: BonusSenzaDepositoRoute,
   CasinoAdmVsEsteriRoute: CasinoAdmVsEsteriRoute,
+  CasinoItalianiBonusGratisSenzaDepositoRoute:
+    CasinoItalianiBonusGratisSenzaDepositoRoute,
   CasinoLiveRoute: CasinoLiveRoute,
   CasinoMobileAdmRoute: CasinoMobileAdmRoute,
   CasinoOScommesseSportiveRoute: CasinoOScommesseSportiveRoute,
@@ -1489,6 +1575,7 @@ const rootRouteChildren: RootRouteChildren = {
   CasinoOnlineSicuriRoute: CasinoOnlineSicuriRoute,
   CasinoPaypalRoute: CasinoPaypalRoute,
   ComeLeggereQuoteCalcioRoute: ComeLeggereQuoteCalcioRoute,
+  ComeOttenereBonusSenzaDepositoRoute: ComeOttenereBonusSenzaDepositoRoute,
   ComeRegistrarsiRoute: ComeRegistrarsiRoute,
   ComeScegliereCasinoOnlineAdmRoute: ComeScegliereCasinoOnlineAdmRoute,
   ComeValutiamoICasinoRoute: ComeValutiamoICasinoRoute,
@@ -1519,7 +1606,9 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapPagesDotxmlRoute: SitemapPagesDotxmlRoute,
   SitemapReviewsDotxmlRoute: SitemapReviewsDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SitiScommesseBonusSenzaDepositoRoute: SitiScommesseBonusSenzaDepositoRoute,
   SlotAltaVolatilitaRoute: SlotAltaVolatilitaRoute,
+  SlotConBonusSenzaDepositoRoute: SlotConBonusSenzaDepositoRoute,
   SlotGratisDemoRoute: SlotGratisDemoRoute,
   SlotOnlineRoute: SlotOnlineRoute,
   SlotOnlineSoldiVeriRoute: SlotOnlineSoldiVeriRoute,
