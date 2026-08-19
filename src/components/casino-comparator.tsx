@@ -126,7 +126,7 @@ export function CasinoComparator({
         </div>
 
         {/* Filtri + ordinamento (collassabili) */}
-        <div className={`${showFilters ? "flex" : "hidden lg:flex"} mt-2 flex-col gap-2 rounded-xl border border-border bg-card p-2.5 md:flex-row md:items-center md:justify-between md:p-3 lg:mt-6 lg:p-4">
+        <div className={`${showFilters ? "flex" : "hidden lg:flex"} mt-2 flex-col gap-2 rounded-xl border border-border bg-card p-2.5 md:flex-row md:items-center md:justify-between md:p-3 lg:mt-6 lg:p-4`}>
             <div className="flex flex-wrap items-center gap-1.5">
               <span className="inline-flex items-center gap-1 pr-1 text-[10px] uppercase tracking-widest text-muted-foreground">
                 <SlidersHorizontal className="h-3.5 w-3.5 text-gold" /> Filtri
