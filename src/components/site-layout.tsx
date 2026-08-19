@@ -179,7 +179,7 @@ export function ComplianceBadges() {
 export function AgeBanner() {
   return (
     <div className="w-full border-b border-border bg-destructive/10 text-destructive-foreground">
-      <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-3 py-1 text-[10px] leading-snug md:gap-3 md:px-4 md:py-2 md:text-xs">
+      <div className="mx-auto flex max-w-6xl xl:max-w-7xl items-center justify-center gap-2 px-3 py-1 text-[10px] leading-snug md:gap-3 md:px-4 md:py-2 md:text-xs">
         <img
           src={vietato18.url}
           alt="Vietato ai minori di 18 anni"
@@ -199,7 +199,7 @@ export function AgeBanner() {
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
-      <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-3 py-2 md:gap-4 md:px-4 md:py-3 lg:flex lg:justify-between">
+      <div className="mx-auto grid max-w-6xl xl:max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-3 py-2 md:gap-4 md:px-4 md:py-3 lg:flex lg:justify-between lg:gap-8 lg:px-6 lg:py-4">
         <Link to="/" className="flex min-w-0 items-center gap-2 md:gap-2.5">
           <img
             src={siteLogo}
@@ -215,12 +215,12 @@ export function Header() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-5 text-sm font-medium lg:flex">
-          <Link to="/migliori-casino-online-adm" className="text-muted-foreground transition-colors hover:text-foreground">Casinò ADM</Link>
-          <Link to="/bonus" className="text-muted-foreground transition-colors hover:text-foreground">Bonus</Link>
-          <Link to="/slot" className="text-muted-foreground transition-colors hover:text-foreground">Slot</Link>
-          <Link to="/recensioni" className="text-muted-foreground transition-colors hover:text-foreground">Recensioni</Link>
-          <Link to="/blog" className="text-muted-foreground transition-colors hover:text-foreground">Blog</Link>
+        <nav className="hidden items-center gap-6 text-sm font-medium lg:flex xl:gap-8 xl:text-[15px]">
+          <Link to="/migliori-casino-online-adm" className="relative text-muted-foreground transition-colors after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-gold after:transition-all after:duration-300 hover:text-foreground hover:after:w-full">Casinò ADM</Link>
+          <Link to="/bonus" className="relative text-muted-foreground transition-colors after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-gold after:transition-all after:duration-300 hover:text-foreground hover:after:w-full">Bonus</Link>
+          <Link to="/slot" className="relative text-muted-foreground transition-colors after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-gold after:transition-all after:duration-300 hover:text-foreground hover:after:w-full">Slot</Link>
+          <Link to="/recensioni" className="relative text-muted-foreground transition-colors after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-gold after:transition-all after:duration-300 hover:text-foreground hover:after:w-full">Recensioni</Link>
+          <Link to="/blog" className="relative text-muted-foreground transition-colors after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-gold after:transition-all after:duration-300 hover:text-foreground hover:after:w-full">Blog</Link>
           <a
             href={YOUTUBE_URL}
             target="_blank"
@@ -269,7 +269,7 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="border-t border-border bg-card">
-      <div className="mx-auto max-w-6xl px-2.5 md:px-6 py-12">
+      <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-12">
         <div className="grid gap-8 md:grid-cols-4">
           <div className="md:col-span-2">
             <div className="font-serif text-lg font-semibold">GuidaCasinò<span className="text-gold">.IT</span></div>

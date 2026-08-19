@@ -48,7 +48,7 @@ export const Route = createFileRoute("/slot-piu-giocate")({
 function Page() {
   return (
     <PageShell>
-      <section className="mx-auto max-w-6xl px-2.5 py-5 md:px-6 md:py-12">
+      <section className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 py-5 md:px-6 md:py-12">
         <nav aria-label="Breadcrumb" className="text-[11px] text-muted-foreground">
           <Link to="/" className="hover:text-foreground">Home</Link> / Slot più giocate
         </nav>

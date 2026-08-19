@@ -48,7 +48,7 @@ export function CookieBanner() {
           aria-label="Informativa cookie"
           className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background/95 shadow-2xl backdrop-blur"
         >
-          <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-5 md:flex-row md:items-center md:justify-between">
+          <div className="mx-auto flex max-w-6xl xl:max-w-7xl flex-col gap-4 px-4 py-5 md:flex-row md:items-center md:justify-between">
             <div className="flex items-start gap-3">
               <Cookie className="mt-0.5 h-5 w-5 shrink-0 text-gold" aria-hidden />
               <div className="text-sm text-muted-foreground">
