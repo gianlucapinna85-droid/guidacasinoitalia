@@ -16,6 +16,7 @@ import { Route as SlotOnlineSoldiVeriRouteImport } from './routes/slot-online-so
 import { Route as SlotOnlineRouteImport } from './routes/slot-online'
 import { Route as SlotGratisDemoRouteImport } from './routes/slot-gratis-demo'
 import { Route as SlotAltaVolatilitaRouteImport } from './routes/slot-alta-volatilita'
+import { Route as SitiScommesseBonusSenzaDepositoRouteImport } from './routes/siti-scommesse-bonus-senza-deposito'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SitemapReviewsDotxmlRouteImport } from './routes/sitemap-reviews[.]xml'
 import { Route as SitemapPagesDotxmlRouteImport } from './routes/sitemap-pages[.]xml'
@@ -116,6 +117,12 @@ const SlotAltaVolatilitaRoute = SlotAltaVolatilitaRouteImport.update({
   path: '/slot-alta-volatilita',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitiScommesseBonusSenzaDepositoRoute =
+  SitiScommesseBonusSenzaDepositoRouteImport.update({
+    id: '/siti-scommesse-bonus-senza-deposito',
+    path: '/siti-scommesse-bonus-senza-deposito',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -494,6 +501,7 @@ export interface FileRoutesByFullPath {
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/siti-scommesse-bonus-senza-deposito': typeof SitiScommesseBonusSenzaDepositoRoute
   '/slot-alta-volatilita': typeof SlotAltaVolatilitaRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
@@ -566,6 +574,7 @@ export interface FileRoutesByTo {
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/siti-scommesse-bonus-senza-deposito': typeof SitiScommesseBonusSenzaDepositoRoute
   '/slot-alta-volatilita': typeof SlotAltaVolatilitaRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
@@ -640,6 +649,7 @@ export interface FileRoutesById {
   '/sitemap-pages.xml': typeof SitemapPagesDotxmlRoute
   '/sitemap-reviews.xml': typeof SitemapReviewsDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/siti-scommesse-bonus-senza-deposito': typeof SitiScommesseBonusSenzaDepositoRoute
   '/slot-alta-volatilita': typeof SlotAltaVolatilitaRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
@@ -714,6 +724,7 @@ export interface FileRouteTypes {
     | '/sitemap-pages.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
+    | '/siti-scommesse-bonus-senza-deposito'
     | '/slot-alta-volatilita'
     | '/slot-gratis-demo'
     | '/slot-online'
@@ -786,6 +797,7 @@ export interface FileRouteTypes {
     | '/sitemap-pages.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
+    | '/siti-scommesse-bonus-senza-deposito'
     | '/slot-alta-volatilita'
     | '/slot-gratis-demo'
     | '/slot-online'
@@ -859,6 +871,7 @@ export interface FileRouteTypes {
     | '/sitemap-pages.xml'
     | '/sitemap-reviews.xml'
     | '/sitemap.xml'
+    | '/siti-scommesse-bonus-senza-deposito'
     | '/slot-alta-volatilita'
     | '/slot-gratis-demo'
     | '/slot-online'
@@ -933,6 +946,7 @@ export interface RootRouteChildren {
   SitemapPagesDotxmlRoute: typeof SitemapPagesDotxmlRoute
   SitemapReviewsDotxmlRoute: typeof SitemapReviewsDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SitiScommesseBonusSenzaDepositoRoute: typeof SitiScommesseBonusSenzaDepositoRoute
   SlotAltaVolatilitaRoute: typeof SlotAltaVolatilitaRoute
   SlotGratisDemoRoute: typeof SlotGratisDemoRoute
   SlotOnlineRoute: typeof SlotOnlineRoute
@@ -1006,6 +1020,13 @@ declare module '@tanstack/react-router' {
       path: '/slot-alta-volatilita'
       fullPath: '/slot-alta-volatilita'
       preLoaderRoute: typeof SlotAltaVolatilitaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/siti-scommesse-bonus-senza-deposito': {
+      id: '/siti-scommesse-bonus-senza-deposito'
+      path: '/siti-scommesse-bonus-senza-deposito'
+      fullPath: '/siti-scommesse-bonus-senza-deposito'
+      preLoaderRoute: typeof SitiScommesseBonusSenzaDepositoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -1519,6 +1540,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapPagesDotxmlRoute: SitemapPagesDotxmlRoute,
   SitemapReviewsDotxmlRoute: SitemapReviewsDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SitiScommesseBonusSenzaDepositoRoute: SitiScommesseBonusSenzaDepositoRoute,
   SlotAltaVolatilitaRoute: SlotAltaVolatilitaRoute,
   SlotGratisDemoRoute: SlotGratisDemoRoute,
   SlotOnlineRoute: SlotOnlineRoute,
