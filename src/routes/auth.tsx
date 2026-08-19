@@ -90,6 +90,22 @@ function AuthPage() {
               className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
             />
           </div>
+          {mode === "signup" ? (
+            <div>
+              <label htmlFor="invite" className="text-xs uppercase tracking-wide text-muted-foreground">
+                Codice invito redazione
+              </label>
+              <input
+                id="invite"
+                type="password"
+                required
+                minLength={8}
+                value={invite}
+                onChange={(e) => setInvite(e.target.value)}
+                className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+              />
+            </div>
+          ) : null}
           {msg ? <p className="text-xs text-gold">{msg}</p> : null}
           <button
             type="submit"
@@ -107,7 +123,7 @@ function AuthPage() {
           </button>
         </form>
         <p className="mt-3 text-[11px] text-muted-foreground">
-          Il primo account registrato riceve automaticamente il ruolo di amministratore.
+          Gli account non hanno privilegi. Il ruolo di amministratore si attiva solo con il codice invito riservato della redazione.
         </p>
       </div>
     </PageShell>
