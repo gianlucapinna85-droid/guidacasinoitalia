@@ -97,6 +97,7 @@
 [class~="bg-card"],
 [class~="bg-white"],
 [class~="bg-popover"] {
+  color: var(--card-foreground);
   --foreground: #17130B;
   --muted-foreground: #5F6675;
   --border: #ECE3D0;
