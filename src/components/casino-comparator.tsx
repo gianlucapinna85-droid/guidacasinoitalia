@@ -94,7 +94,7 @@ export function CasinoComparator({
         </p>
 
         {/* Pulsante Filtra + contatore attivi */}
-        <div className="mt-3 flex items-center gap-2 md:mt-6">
+        <div className="mt-3 flex items-center gap-2 md:mt-6 lg:hidden">
           <button
             type="button"
             aria-expanded={showFilters}
@@ -126,8 +126,7 @@ export function CasinoComparator({
         </div>
 
         {/* Filtri + ordinamento (collassabili) */}
-        {showFilters && (
-          <div className="mt-2 flex flex-col gap-2 rounded-xl border border-border bg-card p-2.5 md:flex-row md:items-center md:justify-between md:p-3">
+        <div className={`${showFilters ? "flex" : "hidden lg:flex"} mt-2 flex-col gap-2 rounded-xl border border-border bg-card p-2.5 md:flex-row md:items-center md:justify-between md:p-3 lg:mt-6 lg:p-4">
             <div className="flex flex-wrap items-center gap-1.5">
               <span className="inline-flex items-center gap-1 pr-1 text-[10px] uppercase tracking-widest text-muted-foreground">
                 <SlidersHorizontal className="h-3.5 w-3.5 text-gold" /> Filtri
@@ -172,13 +171,12 @@ export function CasinoComparator({
               ))}
             </div>
           </div>
-        )}
 
         <p className="mt-2 text-[11px] text-muted-foreground">
           {rows.length} operatori corrispondono ai criteri selezionati.
         </p>
 
-        <div className="mt-3 grid grid-cols-2 gap-2 px-1 sm:grid-cols-2 sm:gap-2.5 md:mt-5 md:grid-cols-3 md:px-0 md:gap-3 lg:grid-cols-4">
+        <div className="mt-3 grid grid-cols-2 gap-2 px-1 sm:grid-cols-2 sm:gap-2.5 md:mt-5 md:grid-cols-3 md:px-0 md:gap-3 lg:grid-cols-4 lg:gap-4 xl:grid-cols-5 xl:gap-5">
           {rows.map(({ op, meta }, i) => (
             <div key={op.slug} className="gc-pop" style={{ animationDelay: `${Math.min(i, 6) * 30}ms` }}>
               <CasinoRankCard op={op} meta={meta} rank={i + 1} />

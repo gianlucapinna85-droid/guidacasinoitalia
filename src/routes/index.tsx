@@ -288,7 +288,7 @@ function GuidesSection() {
       <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-5 md:py-16">
         <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Approfondimenti</p>
         <h2 className="mt-1 font-serif text-lg md:text-4xl">Ultime guide</h2>
-        <div className="mt-3 flex gap-2.5 overflow-x-auto pb-2 snap-x [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-8 md:grid md:gap-4 md:overflow-visible md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-3 flex gap-2.5 overflow-x-auto pb-2 snap-x [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-8 md:grid md:gap-5 md:overflow-visible md:grid-cols-2 lg:grid-cols-3 xl:gap-6">
           {GUIDES.map((g) => (
             <Link
               key={g.to}
@@ -325,7 +325,7 @@ function SlotsHomeSection() {
           volatilità. Ogni gioco rimanda alla scheda di un operatore diverso.
         </p>
 
-        <div className="mt-3 grid grid-cols-2 gap-1.5 md:mt-8 md:grid-cols-3 md:gap-4">
+        <div className="mt-3 grid grid-cols-2 gap-1.5 md:mt-8 md:grid-cols-3 md:gap-4 lg:grid-cols-4 xl:grid-cols-5">
           {list.map((s) => {
             const op = operators.find((o) => o.slug === s.operatorSlug);
             return (
@@ -522,7 +522,7 @@ function HomeBlocksSection() {
           </Link>
           .
         </p>
-        <div className="mt-3 grid grid-cols-2 gap-2.5 md:mt-8 md:grid-cols-3 md:gap-4">
+        <div className="mt-3 grid grid-cols-2 gap-2.5 md:mt-8 md:grid-cols-3 md:gap-4 xl:grid-cols-4 xl:gap-6">
           {HOME_BLOCKS.map((b) => (
             <Link
               key={b.to}
@@ -550,7 +550,7 @@ function TopicsSection() {
       <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-5 md:py-16">
         <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Esplora il portale</p>
         <h2 className="mt-1 font-serif text-lg md:text-4xl">Sezioni principali</h2>
-        <div className="mt-3 grid grid-cols-2 gap-2.5 md:mt-8 md:grid-cols-4 md:gap-4">
+        <div className="mt-3 grid grid-cols-2 gap-2.5 md:mt-8 md:grid-cols-4 md:gap-4 xl:grid-cols-5 xl:gap-6">
           {TOPICS.map((t) => (
             <Link
               key={t.to}
