@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
+import { useServerFn } from "@tanstack/react-start";
+import { claimAdminWithInvite } from "@/lib/admin-access.functions";
 import { PageShell } from "@/components/site-layout";
 
 export const Route = createFileRoute("/auth")({
@@ -20,9 +22,11 @@ export const Route = createFileRoute("/auth")({
 
 function AuthPage() {
   const navigate = useNavigate();
+  const claimAdmin = useServerFn(claimAdminWithInvite);
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [invite, setInvite] = useState("");
   const [msg, setMsg] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -42,17 +46,28 @@ function AuthPage() {
       if (error) return setMsg(error.message);
       navigate({ to: "/admin/exit-popup" });
     } else {
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: { emailRedirectTo: `${window.location.origin}/admin/exit-popup` },
       });
+      if (error) {
+        setBusy(false);
+        return setMsg(error.message);
+      }
+      let extra = "";
+      if (data.session) {
+        const res = await claimAdmin({ data: { code: invite } });
+        extra = ` ${res.message}`;
+      } else {
+        extra = " Conferma l'email, accedi e ripeti l'attivazione con il codice invito.";
+      }
       setBusy(false);
-      if (error) return setMsg(error.message);
-      setMsg("Registrazione inviata. Se richiesta, conferma l'email e poi accedi.");
+      setMsg(`Registrazione completata.${extra}`);
       setMode("signin");
     }
   }
+
 
   return (
     <PageShell>
@@ -90,6 +105,22 @@ function AuthPage() {
               className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
             />
           </div>
+          {mode === "signup" ? (
+            <div>
+              <label htmlFor="invite" className="text-xs uppercase tracking-wide text-muted-foreground">
+                Codice invito redazione
+              </label>
+              <input
+                id="invite"
+                type="password"
+                required
+                minLength={8}
+                value={invite}
+                onChange={(e) => setInvite(e.target.value)}
+                className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+              />
+            </div>
+          ) : null}
           {msg ? <p className="text-xs text-gold">{msg}</p> : null}
           <button
             type="submit"
@@ -107,7 +138,7 @@ function AuthPage() {
           </button>
         </form>
         <p className="mt-3 text-[11px] text-muted-foreground">
-          Il primo account registrato riceve automaticamente il ruolo di amministratore.
+          Gli account non hanno privilegi. Il ruolo di amministratore si attiva solo con il codice invito riservato della redazione.
         </p>
       </div>
     </PageShell>
