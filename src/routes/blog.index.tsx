@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CalendarDays, Clock, ArrowRight } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
-import { RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
+import { RelatedLinks } from "@/components/casino-ui";
 import { BlogSidebar, ExternalBlogButton } from "@/components/blog-ui";
 import { sortedBlog, readingMinutes, blogPath, categoryHubs, CATEGORY_SLUG } from "@/data/blog";
 import { socialImageMeta } from "@/lib/social-image";
@@ -154,8 +154,6 @@ function BlogIndex() {
 
           <BlogSidebar />
         </div>
-
-        <RelatedProjectBox className="mt-12" />
         <RelatedLinks />
       </div>
     </PageShell>

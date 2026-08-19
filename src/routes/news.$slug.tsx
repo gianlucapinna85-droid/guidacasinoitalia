@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { CalendarDays, ShieldCheck } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
-import { RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
+import { RelatedLinks } from "@/components/casino-ui";
 import { ReadMore } from "@/components/read-more";
 import { newsBySlug, sortedNews, type NewsArticle } from "@/data/news";
 import { socialImageMeta } from "@/lib/social-image";
@@ -142,8 +142,6 @@ function NewsDetail() {
             ))}
           </ul>
         </section>
-
-        <RelatedProjectBox className="mt-10" />
         <RelatedLinks />
 
         <p className="mt-8 flex items-start gap-2 text-xs text-muted-foreground">

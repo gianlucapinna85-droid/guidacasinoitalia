@@ -12,7 +12,6 @@ import vietato18Url from "@/assets/logos/v18.webp";
 import admLogoUrl from "@/assets/logos/adm.webp";
 import vietato18BadgeUrl from "@/assets/logos/v18-badge.webp";
 import admBadgeUrl from "@/assets/logos/adm-badge.webp";
-import { RelatedProjectBox } from "@/components/casino-ui";
 import { EXTERNAL_BLOG_URL } from "@/lib/internal-links";
 
 
@@ -356,8 +355,6 @@ export function Footer() {
         <ComplianceBadges />
 
         <OfficialLogosBanner />
-
-        <RelatedProjectBox className="mt-8" />
 
 
 

@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
 import { CalendarDays, Clock, ArrowRight } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
-import { RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
+import { RelatedLinks } from "@/components/casino-ui";
 import { BlogSidebar, ExternalBlogButton } from "@/components/blog-ui";
 import {
   articlesByCategory,
@@ -183,8 +183,6 @@ function CategoryHubPage() {
 
           <BlogSidebar />
         </div>
-
-        <RelatedProjectBox className="mt-12" />
         <RelatedLinks />
       </div>
     </PageShell>

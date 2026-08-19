@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ShieldCheck } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
-import { RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
+import { RelatedLinks } from "@/components/casino-ui";
 import { ReadMore } from "@/components/read-more";
 import { FaqSlider } from "@/components/faq-slider";
 import { socialImageMeta } from "@/lib/social-image";
@@ -294,9 +294,6 @@ export function GuideArticle({ cfg, children }: { cfg: GuideConfig; children?: R
         {children}
 
         <FaqSlider items={cfg.faqs} title="Domande frequenti" />
-
-
-        <RelatedProjectBox className="mt-12" />
 
         <RelatedLinks />
 

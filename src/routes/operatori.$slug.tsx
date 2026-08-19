@@ -11,7 +11,7 @@ import { ReadMore } from "@/components/read-more";
 import { FaqSlider } from "@/components/faq-slider";
 
 
-import { RatingBadge, CasinoBadges, RelatedLinks, RelatedProjectBox } from "@/components/casino-ui";
+import { RatingBadge, CasinoBadges, RelatedLinks } from "@/components/casino-ui";
 import { socialImageMeta } from "@/lib/social-image";
 
 
@@ -512,7 +512,6 @@ function OperatorPage() {
           Contenuto informativo ai sensi dell'art. 9 D.L. 87/2018. Non costituisce comunicazione
           commerciale né incentivo al gioco. Vietato ai minori di 18 anni.
         </p>
-        <RelatedProjectBox className="mt-12" />
 
         <RelatedLinks currentSlug={op.slug} />
       </article>
