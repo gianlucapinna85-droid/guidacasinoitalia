@@ -61,27 +61,28 @@ export function OfficialLogosBanner() {
 
 export function OperatorTrustDots({ name }: { name?: string }) {
   const dot =
-    "flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-full border bg-white shadow-sm md:h-8 md:w-8";
+    "flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 bg-white shadow-sm md:h-9 md:w-9";
+  const img = "h-5 w-5 object-contain md:h-6 md:w-6";
   return (
     <div
-      className="flex items-center gap-1.5"
+      className="flex items-center gap-1"
       aria-label={`Garanzie di ${name ?? "operatore"}: concessione ADM, vietato ai minori di 18 anni, operatore legale in Italia, dati verificati`}
     >
       <span className={`${dot} border-gold/60`} title="Concessione ADM">
-        <img src={admLogo.url} alt="Concessione ADM" width={20} height={20} className="h-4 w-4 object-contain md:h-5 md:w-5" loading="lazy" decoding="async" />
+        <img src={admLogo.url} alt="Concessione ADM" width={20} height={20} className={img} loading="lazy" decoding="async" />
       </span>
       <span className={`${dot} border-destructive/60`} title="Vietato ai minori di 18 anni">
-        <img src={vietato18.url} alt="Vietato ai minori di 18 anni" width={20} height={20} className="h-4 w-4 object-contain md:h-5 md:w-5" loading="lazy" decoding="async" />
+        <img src={vietato18.url} alt="Vietato ai minori di 18 anni" width={20} height={20} className={img} loading="lazy" decoding="async" />
       </span>
       <span className={`${dot} border-border`} title="Operatore legale in Italia" role="img" aria-label="Bandiera italiana">
-        <span className="flex h-4 w-4 overflow-hidden rounded-full md:h-5 md:w-5">
+        <span className="flex h-5 w-5 overflow-hidden rounded-full md:h-6 md:w-6">
           <span className="h-full w-1/3 bg-[#008C45]" />
           <span className="h-full w-1/3 bg-white" />
           <span className="h-full w-1/3 bg-[#CD212A]" />
         </span>
       </span>
       <span className={`${dot} border-gold/60 bg-gold/10`} title="Verificato sull'elenco pubblico ADM">
-        <BadgeCheck className="h-4 w-4 text-gold md:h-5 md:w-5" strokeWidth={2.4} />
+        <BadgeCheck className="h-5 w-5 text-gold md:h-6 md:w-6" strokeWidth={2.4} />
       </span>
     </div>
   );
