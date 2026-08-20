@@ -10,7 +10,7 @@ import {
 
 const CFG: GuideConfig = {
   path: "/migliori-casino-online-adm",
-  title: "Migliori Casino Online ADM 2026 | Guida Casinò Italia",
+  title: "Guida ai Migliori Casino Online ADM 2026: criteri e verifica",
   h1: "Migliori casino online ADM in Italia: come riconoscerli nel 2026",
   description:
     "Migliori casino online ADM e casino online autorizzati ADM: criteri verificabili, concessione, catalogo, pagamenti e tutele dei casino online Italia sicuri. Solo +18.",
