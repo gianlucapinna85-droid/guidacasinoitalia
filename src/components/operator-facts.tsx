@@ -134,6 +134,9 @@ export function OperatorFactsSections({ facts, name }: { facts: OperatorFacts; n
         <PaymentTable rows={facts.deposits} caption={`Metodi di deposito dichiarati da ${name}`} />
       </section>
 
+      <WithdrawalComparison currentSlug={facts.slug} />
+
+
       <section className="mt-10">
         <h2 className="font-serif text-2xl">Verifica documenti {name}: iter, tempi e blocchi</h2>
         <p className="mt-3 text-base leading-relaxed text-muted-foreground">{facts.verification.intro}</p>
