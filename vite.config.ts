@@ -12,4 +12,10 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    define: {
+      // Data dell'ultima pubblicazione: alimenta la firma "Verificato il" negli articoli.
+      __BUILD_DATE__: JSON.stringify(new Date().toISOString()),
+    },
+  },
 });

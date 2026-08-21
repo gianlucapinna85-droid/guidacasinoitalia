@@ -80,6 +80,7 @@ import { Route as PagamentiSlugRouteImport } from './routes/pagamenti.$slug'
 import { Route as OperatoriSlugRouteImport } from './routes/operatori.$slug'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 import { Route as CasinoSlugRouteImport } from './routes/casino.$slug'
+import { Route as AutoreSlugRouteImport } from './routes/autore.$slug'
 import { Route as BlogCategoryIndexRouteImport } from './routes/blog.$category.index'
 import { Route as BlogCategorySlugRouteImport } from './routes/blog.$category.$slug'
 import { Route as ApiPublicReindexRouteImport } from './routes/api/public/reindex'
@@ -452,6 +453,11 @@ const CasinoSlugRoute = CasinoSlugRouteImport.update({
   path: '/casino/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AutoreSlugRoute = AutoreSlugRouteImport.update({
+  id: '/autore/$slug',
+  path: '/autore/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogCategoryIndexRoute = BlogCategoryIndexRouteImport.update({
   id: '/blog/$category/',
   path: '/blog/$category/',
@@ -533,6 +539,7 @@ export interface FileRoutesByFullPath {
   '/slot-piu-giocate': typeof SlotPiuGiocateRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/autore/$slug': typeof AutoreSlugRoute
   '/casino/$slug': typeof CasinoSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
@@ -609,6 +616,7 @@ export interface FileRoutesByTo {
   '/slot-piu-giocate': typeof SlotPiuGiocateRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/autore/$slug': typeof AutoreSlugRoute
   '/casino/$slug': typeof CasinoSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
@@ -687,6 +695,7 @@ export interface FileRoutesById {
   '/slot-piu-giocate': typeof SlotPiuGiocateRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/autore/$slug': typeof AutoreSlugRoute
   '/casino/$slug': typeof CasinoSlugRoute
   '/news/$slug': typeof NewsSlugRoute
   '/operatori/$slug': typeof OperatoriSlugRoute
@@ -765,6 +774,7 @@ export interface FileRouteTypes {
     | '/slot-piu-giocate'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
+    | '/autore/$slug'
     | '/casino/$slug'
     | '/news/$slug'
     | '/operatori/$slug'
@@ -841,6 +851,7 @@ export interface FileRouteTypes {
     | '/slot-piu-giocate'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
+    | '/autore/$slug'
     | '/casino/$slug'
     | '/news/$slug'
     | '/operatori/$slug'
@@ -918,6 +929,7 @@ export interface FileRouteTypes {
     | '/slot-piu-giocate'
     | '/slot-rtp-alto'
     | '/verificare-licenza-adm'
+    | '/autore/$slug'
     | '/casino/$slug'
     | '/news/$slug'
     | '/operatori/$slug'
@@ -996,6 +1008,7 @@ export interface RootRouteChildren {
   SlotPiuGiocateRoute: typeof SlotPiuGiocateRoute
   SlotRtpAltoRoute: typeof SlotRtpAltoRoute
   VerificareLicenzaAdmRoute: typeof VerificareLicenzaAdmRoute
+  AutoreSlugRoute: typeof AutoreSlugRoute
   CasinoSlugRoute: typeof CasinoSlugRoute
   NewsSlugRoute: typeof NewsSlugRoute
   OperatoriSlugRoute: typeof OperatoriSlugRoute
@@ -1512,6 +1525,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CasinoSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/autore/$slug': {
+      id: '/autore/$slug'
+      path: '/autore/$slug'
+      fullPath: '/autore/$slug'
+      preLoaderRoute: typeof AutoreSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/$category/': {
       id: '/blog/$category/'
       path: '/blog/$category'
@@ -1615,6 +1635,7 @@ const rootRouteChildren: RootRouteChildren = {
   SlotPiuGiocateRoute: SlotPiuGiocateRoute,
   SlotRtpAltoRoute: SlotRtpAltoRoute,
   VerificareLicenzaAdmRoute: VerificareLicenzaAdmRoute,
+  AutoreSlugRoute: AutoreSlugRoute,
   CasinoSlugRoute: CasinoSlugRoute,
   NewsSlugRoute: NewsSlugRoute,
   OperatoriSlugRoute: OperatoriSlugRoute,
