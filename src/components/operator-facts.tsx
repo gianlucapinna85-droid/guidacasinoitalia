@@ -1,6 +1,17 @@
 import { useState } from "react";
-import { AlertTriangle, BadgeCheck, ClipboardList, ExternalLink, Landmark, Timer, Wallet } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import {
+  AlertTriangle,
+  BadgeCheck,
+  ClipboardList,
+  ExternalLink,
+  Landmark,
+  Scale,
+  Timer,
+  Wallet,
+} from "lucide-react";
 import type { OperatorFacts, PaymentRow } from "@/data/operator-facts";
+import { withdrawalComparison } from "@/data/operator-facts";
 
 function formatDate(iso: string) {
   const [y, m, d] = iso.split("-");
@@ -88,6 +99,77 @@ function SourcesBlock({ facts }: { facts: OperatorFacts }) {
   );
 }
 
+function WithdrawalComparison({ currentSlug }: { currentSlug: string }) {
+  if (withdrawalComparison.length < 2) return null;
+  return (
+    <section className="mt-10">
+      <div className="flex items-center gap-2">
+        <Scale className="h-5 w-5 text-gold" />
+        <h2 className="font-serif text-2xl">Tempi di prelievo a confronto tra concessionari</h2>
+      </div>
+      <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+        Confronto costruito solo con operatori le cui condizioni sono state verificate una per una
+        sulla documentazione ufficiale. Nessun valore è stimato: gli operatori senza dati pubblicati
+        in forma testuale non compaiono in tabella.
+      </p>
+      <div className="mt-4 overflow-x-auto rounded-xl border border-border">
+        <table className="w-full min-w-[720px] text-sm">
+          <caption className="sr-only">
+            Confronto dei tempi e limiti di prelievo dichiarati dai concessionari verificati
+          </caption>
+          <thead>
+            <tr className="border-b border-border bg-card/60 text-left">
+              <th scope="col" className="p-3 font-medium">Operatore</th>
+              <th scope="col" className="p-3 font-medium">Metodo più rapido</th>
+              <th scope="col" className="p-3 font-medium">Tempo dichiarato</th>
+              <th scope="col" className="p-3 font-medium">Prelievo minimo</th>
+              <th scope="col" className="p-3 font-medium">Bonifico</th>
+              <th scope="col" className="p-3 font-medium">Documento</th>
+            </tr>
+          </thead>
+          <tbody>
+            {withdrawalComparison.map((r) => {
+              const isCurrent = r.slug === currentSlug;
+              return (
+                <tr
+                  key={r.slug}
+                  className={`border-b border-border align-top last:border-0 ${isCurrent ? "bg-gold/5" : ""}`}
+                >
+                  <th scope="row" className="p-3 text-left font-medium text-foreground">
+                    {isCurrent ? (
+                      <span>
+                        {r.name}
+                        <span className="mt-1 block text-xs font-normal text-gold">Questa scheda</span>
+                      </span>
+                    ) : (
+                      <Link
+                        to="/operatori/$slug"
+                        params={{ slug: r.slug }}
+                        className="text-gold underline underline-offset-4"
+                      >
+                        {r.name}
+                      </Link>
+                    )}
+                  </th>
+                  <td className="p-3 text-foreground/90">{r.fastestMethod}</td>
+                  <td className="p-3 text-foreground/90">{r.fastestTime}</td>
+                  <td className="p-3 text-foreground/90">{r.minWithdrawal}</td>
+                  <td className="p-3 text-foreground/90">{r.bankTransferTime}</td>
+                  <td className="p-3 text-foreground/90">{r.documentDeadline}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <p className="mt-3 text-xs text-muted-foreground">
+        Dati verificati singolarmente sulle fonti ufficiali di ciascun concessionario
+        {withdrawalComparison.map((r) => ` — ${r.name}: ${formatDate(r.verifiedOn)}`).join("")}.
+      </p>
+    </section>
+  );
+}
+
 export function OperatorFactsSections({ facts, name }: { facts: OperatorFacts; name: string }) {
   return (
     <>
@@ -122,6 +204,9 @@ export function OperatorFactsSections({ facts, name }: { facts: OperatorFacts; n
         </div>
         <PaymentTable rows={facts.deposits} caption={`Metodi di deposito dichiarati da ${name}`} />
       </section>
+
+      <WithdrawalComparison currentSlug={facts.slug} />
+
 
       <section className="mt-10">
         <h2 className="font-serif text-2xl">Verifica documenti {name}: iter, tempi e blocchi</h2>
