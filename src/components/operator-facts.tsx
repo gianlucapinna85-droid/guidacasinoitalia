@@ -1,6 +1,17 @@
 import { useState } from "react";
-import { AlertTriangle, BadgeCheck, ClipboardList, ExternalLink, Landmark, Timer, Wallet } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import {
+  AlertTriangle,
+  BadgeCheck,
+  ClipboardList,
+  ExternalLink,
+  Landmark,
+  Scale,
+  Timer,
+  Wallet,
+} from "lucide-react";
 import type { OperatorFacts, PaymentRow } from "@/data/operator-facts";
+import { withdrawalComparison } from "@/data/operator-facts";
 
 function formatDate(iso: string) {
   const [y, m, d] = iso.split("-");
