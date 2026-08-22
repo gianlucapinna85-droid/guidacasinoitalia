@@ -189,10 +189,6 @@ export function CasinoComparator({
           ) : null}
         </div>
 
-        <p className="mt-3 text-[11px] text-muted-foreground md:mt-4">
-          Contenuto informativo ai sensi dell'art. 9 D.L. 87/2018. Il gioco è vietato ai minori di 18
-          anni e può causare dipendenza patologica.
-        </p>
       </div>
     </section>
   );
