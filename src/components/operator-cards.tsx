@@ -23,7 +23,7 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
             <a
               href={op.officialUrl}
               target="_blank"
-              rel="noopener noreferrer sponsored"
+              rel="noopener noreferrer sponsored nofollow"
               aria-label={`Vai al sito ufficiale di ${op.name}`}
               className="gc-logo-frame relative flex h-16 w-full items-center justify-center overflow-hidden border-b border-border bg-card md:h-24"
             >

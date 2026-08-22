@@ -54,7 +54,7 @@ export function ComparisonTable() {
                     <a
                       href={op.officialUrl}
                       target="_blank"
-                      rel="noopener noreferrer sponsored"
+                      rel="noopener noreferrer sponsored nofollow"
                       aria-label={`Vai al sito ufficiale di ${op.name}`}
                       className="inline-flex items-center gap-2 hover:opacity-80"
                     >
@@ -126,7 +126,7 @@ export function ComparisonTable() {
                   <a
                     href={op.officialUrl}
                     target="_blank"
-                    rel="noopener noreferrer sponsored"
+                    rel="noopener noreferrer sponsored nofollow"
                     aria-label={`Vai al sito ufficiale di ${op.name}`}
                     className="inline-flex items-center font-serif text-base hover:text-gold"
                   >
@@ -176,10 +176,6 @@ export function ComparisonTable() {
 
 
 
-        <p className="mt-3 text-xs text-muted-foreground md:mt-4">
-          Contenuto informativo ai sensi dell'art. 9 D.L. 87/2018. Il gioco è vietato ai minori di 18
-          anni e può causare dipendenza patologica.
-        </p>
       </div>
     </section>
   );

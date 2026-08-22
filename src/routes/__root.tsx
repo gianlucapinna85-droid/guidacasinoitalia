@@ -87,7 +87,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "GuidaCasinò IT" },
       { name: "keywords", content: "casinò ADM, concessione ADM, gioco responsabile, comparatore casinò, RUA, autoesclusione, +18" },
       { name: "rating", content: "adult" },
-      { httpEquiv: "content-language", content: "it" },
       { property: "og:site_name", content: "Guida Casino Italia" },
       { property: "og:locale", content: "it_IT" },
       { property: "og:type", content: "website" },

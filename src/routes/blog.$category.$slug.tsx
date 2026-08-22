@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
-import { CalendarDays, Clock, ShieldCheck } from "lucide-react";
+import { CalendarDays, Clock } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
 import { RelatedLinks } from "@/components/casino-ui";
 import { FaqSlider } from "@/components/faq-slider";
@@ -15,6 +15,9 @@ import {
   type BlogArticle,
 } from "@/data/blog";
 import { socialImageMeta } from "@/lib/social-image";
+import { AuthorByline, AuthorBox } from "@/components/author-byline";
+import { LegalNote } from "@/components/legal-note";
+import { authorSchema, LAST_VERIFIED_ISO } from "@/lib/author";
 
 const SITE_URL = "https://www.guidacasino-italia.it";
 
@@ -74,11 +77,11 @@ export const Route = createFileRoute("/blog/$category/$slug")({
             description: a.description,
             inLanguage: "it-IT",
             datePublished: a.date,
-            dateModified: a.updated ?? a.date,
+            dateModified: LAST_VERIFIED_ISO,
             articleSection: a.category,
             keywords: a.keywords,
             mainEntityOfPage: canonical,
-            author: { "@type": "Organization", name: "Guida Casinò Italia", url: `${SITE_URL}/` },
+            author: authorSchema(),
             publisher: { "@type": "Organization", name: "Guida Casinò Italia", url: `${SITE_URL}/` },
           }),
         },
@@ -164,6 +167,7 @@ function BlogDetail() {
             <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground md:text-base">
               {article.summary}
             </p>
+            <AuthorByline className="mt-4" />
           </header>
 
           <nav className="mt-6 rounded-xl border border-border bg-card p-4">
@@ -265,13 +269,11 @@ function BlogDetail() {
               <ExternalBlogButton size="sm" />
             </div>
           </section>
+          <AuthorBox />
+
           <RelatedLinks />
 
-          <p className="mt-8 flex items-start gap-2 text-xs text-muted-foreground">
-            <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-            Contenuto informativo ai sensi dell'art. 9 D.L. 87/2018. Vietato ai minori di 18 anni.
-            Il gioco può causare dipendenza patologica. Telefono Verde ISS 800 558822.
-          </p>
+          <LegalNote />
         </article>
 
         <BlogSidebar currentSlug={article.slug} />

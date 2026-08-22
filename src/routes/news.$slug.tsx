@@ -1,10 +1,13 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { CalendarDays, ShieldCheck } from "lucide-react";
+import { CalendarDays } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
 import { RelatedLinks } from "@/components/casino-ui";
 import { ReadMore } from "@/components/read-more";
 import { newsBySlug, sortedNews, type NewsArticle } from "@/data/news";
 import { socialImageMeta } from "@/lib/social-image";
+import { AuthorByline, AuthorBox } from "@/components/author-byline";
+import { LegalNote } from "@/components/legal-note";
+import { authorSchema, LAST_VERIFIED_ISO } from "@/lib/author";
 
 const SITE_URL = "https://www.guidacasino-italia.it";
 
@@ -48,10 +51,10 @@ export const Route = createFileRoute("/news/$slug")({
             description: a.description,
             inLanguage: "it-IT",
             datePublished: a.date,
-            dateModified: a.date,
+            dateModified: LAST_VERIFIED_ISO,
             articleSection: a.category,
             mainEntityOfPage: canonical,
-            author: { "@type": "Organization", name: "GuidaCasinò.IT" },
+            author: authorSchema(),
             publisher: { "@type": "Organization", name: "GuidaCasinò.IT" },
           }),
         },
@@ -105,6 +108,7 @@ function NewsDetail() {
           <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground md:text-base">
             {article.description}
           </p>
+          <AuthorByline className="mt-4" />
         </header>
 
         {article.sections.map((s) => (
@@ -142,13 +146,11 @@ function NewsDetail() {
             ))}
           </ul>
         </section>
+        <AuthorBox />
+
         <RelatedLinks />
 
-        <p className="mt-8 flex items-start gap-2 text-xs text-muted-foreground">
-          <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-          Contenuto informativo ai sensi dell'art. 9 D.L. 87/2018. Vietato ai minori di 18 anni. Il
-          gioco può causare dipendenza patologica. Telefono Verde ISS 800 558822.
-        </p>
+        <LegalNote />
       </article>
     </PageShell>
   );

@@ -57,7 +57,7 @@ export function SlotsGrid({ limit }: { limit?: number }) {
                 <a
                   href={op.officialUrl}
                   target="_blank"
-                  rel="noopener noreferrer sponsored"
+                  rel="noopener noreferrer sponsored nofollow"
                   className="mt-auto inline-flex items-center justify-center gap-1 rounded-md border border-gold/40 bg-gold px-1.5 py-1.5 text-[10px] font-bold text-primary-foreground shadow-md shadow-gold/25 transition-all hover:brightness-110 md:text-sm"
                 >
                   Visita qui <ArrowRight className="h-3 w-3 shrink-0" />

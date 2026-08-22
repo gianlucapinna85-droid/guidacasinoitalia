@@ -70,11 +70,10 @@ export function CasinoRankCard({
               {rank}
             </span>
           ) : null}
-          <a
-            href={op.officialUrl}
-            target="_blank"
-            rel="noopener noreferrer sponsored nofollow"
-            aria-label={`Vai al sito ufficiale di ${op.name}`}
+          <Link
+            to="/operatori/$slug"
+            params={{ slug: op.slug }}
+            aria-label={`Scheda ${op.name}`}
             className="gc-logo-frame flex h-14 flex-1 items-center justify-center overflow-hidden rounded-lg border-2 border-gold/60 bg-card shadow-sm transition-colors duration-300 hover:border-gold md:h-16"
           >
             {op.logo ? (
@@ -90,7 +89,7 @@ export function CasinoRankCard({
             ) : (
               <span className="font-serif text-[13px] text-foreground md:text-base">{op.name}</span>
             )}
-          </a>
+          </Link>
         </div>
 
         {/* Riga nome + stelle */}

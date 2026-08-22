@@ -62,7 +62,7 @@ export function RelatedLinks({ currentSlug, currentPath }: { currentSlug?: strin
           <ul className="mt-2 space-y-2 text-sm">
             <li>
               <Link to="/" hash="comparatore" className="hover:text-gold">
-                Comparatore casinò ADM 2026
+                Comparatore ADM
               </Link>
             </li>
             {guideLinks.map((g) => (
@@ -86,7 +86,7 @@ export function RelatedLinks({ currentSlug, currentPath }: { currentSlug?: strin
                   params={{ slug: o.slug }}
                   className="inline-flex items-center gap-1 hover:text-gold"
                 >
-                  Recensione {o.name} <ArrowRight className="h-3 w-3" />
+                  {o.name} <ArrowRight className="h-3 w-3" />
                 </Link>
               </li>
             ))}
