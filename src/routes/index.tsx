@@ -70,7 +70,7 @@ export const Route = createFileRoute("/")({
       { name: "geo.region", content: "IT" },
       { name: "language", content: "it-IT" },
       { name: "author", content: "GuidaCasinò.IT" },
-      { property: "og:title", content: "Guida Casinò Italia | Migliori Casino Online ADM, Bonus e Recensioni 2026" },
+      { property: "og:title", content: "Migliori Casino Online ADM 2026 | Guida Casinò Italia" },
       ...socialImageMeta(),
       { property: "og:description", content: "Guida Casinò Italia confronta i migliori casino online ADM in Italia con bonus di benvenuto, recensioni complete, slot machine, roulette, blackjack e guide aggiornate per giocare in modo sicuro e responsabile." },
 
