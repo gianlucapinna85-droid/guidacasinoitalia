@@ -79,8 +79,8 @@ export const Route = createFileRoute("/")({
       { property: "og:locale", content: "it_IT" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:url", content: "https://www.guidacasino-italia.it/" },
-      { name: "twitter:title", content: "Guida Casinò Italia | Migliori Casino Online ADM, Bonus e Recensioni 2026" },
-      { name: "twitter:description", content: "Guida Casinò Italia confronta i migliori casino online ADM in Italia con bonus di benvenuto, recensioni complete, slot machine, roulette, blackjack e guide aggiornate per giocare in modo sicuro e responsabile." },
+      { name: "twitter:title", content: "Migliori Casino Online ADM 2026 | Guida Casinò Italia" },
+      { name: "twitter:description", content: "Confronta i migliori casino online ADM 2026: recensioni verificate, bonus senza deposito, slot e roulette. Guida sicura e imparziale. +18." },
 
 
     ],
