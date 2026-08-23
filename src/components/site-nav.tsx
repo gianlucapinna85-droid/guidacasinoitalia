@@ -13,7 +13,7 @@ const NAV_ITEMS: Item[] = [
   { href: "/bonus", label: "Bonus" },
   { href: "/slot", label: "Slot" },
   { href: "/recensioni", label: "Recensioni" },
-  { href: "/guide-casino-online-italia", label: "Guide" },
+  { href: "/guida-casino-online-italia", label: "Guide" },
   { href: "/news", label: "News" },
   { href: "/blog", label: "Blog" },
   { href: "/scommesse-sportive-online-adm", label: "Scommesse" },
