@@ -11,6 +11,9 @@ import goldbetLogo from "@/assets/logos/goldbet.webp";
 import snaiLogo from "@/assets/logos/snai.webp";
 import sisalLogo from "@/assets/logos/sisal.webp";
 import eplay24Logo from "@/assets/logos/eplay24.webp";
+import admiralbetAsset from "@/assets/logos/admiralbet.jpeg.asset.json";
+import stakeAsset from "@/assets/logos/stake.png.asset.json";
+import sportiumAsset from "@/assets/logos/sportium.png.asset.json";
 
 
 export type NoDepositBonus = {
