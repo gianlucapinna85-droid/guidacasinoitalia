@@ -160,6 +160,45 @@ export const casinos: CasinoMeta[] = [
     pros: ["Catalogo con provider internazionali", "Adesione al RUA"],
     cons: ["PayPal non disponibile", "Meno metodi di pagamento rispetto alla media"],
   },
+  {
+    slug: "admiralbet",
+    rating: 8.8,
+    paypal: true,
+    fastWithdrawal: true,
+    minDeposit: "5 €",
+    minWithdrawal: "10 €",
+    featured: false,
+    short:
+      "Concessionario con rete di punti vendita in Italia, sezione casinò e scommesse integrate e strumenti di autolimitazione standard ADM.",
+    pros: ["Punti vendita fisici sul territorio", "Catalogo slot ampio", "Registrazione con SPID"],
+    cons: ["Interfaccia con molte sezioni"],
+  },
+  {
+    slug: "stake",
+    rating: 8.6,
+    paypal: false,
+    fastWithdrawal: true,
+    minDeposit: "10 €",
+    minWithdrawal: "10 €",
+    featured: false,
+    short:
+      "Piattaforma moderna con concessione ADM, sezione live molto estesa e interfaccia essenziale anche da mobile.",
+    pros: ["Sezione live molto ampia", "Interfaccia moderna e veloce"],
+    cons: ["PayPal non disponibile", "Operatore recente sul mercato italiano"],
+  },
+  {
+    slug: "sportium",
+    rating: 8.3,
+    paypal: false,
+    fastWithdrawal: false,
+    minDeposit: "10 €",
+    minWithdrawal: "10 €",
+    featured: false,
+    short:
+      "Concessionario con offerta divisa tra sport e casinò, adesione al RUA e strumenti di gioco responsabile standard ADM.",
+    pros: ["Sport e casinò nello stesso conto", "Piattaforma leggera da mobile"],
+    cons: ["Catalogo più contenuto", "PayPal non dichiarato"],
+  },
 ];
 
 const bySlug = new Map(casinos.map((c) => [c.slug, c]));
