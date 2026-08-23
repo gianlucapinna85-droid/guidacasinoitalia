@@ -11,6 +11,9 @@ import goldbetLogo from "@/assets/logos/goldbet.webp";
 import snaiLogo from "@/assets/logos/snai.webp";
 import sisalLogo from "@/assets/logos/sisal.webp";
 import eplay24Logo from "@/assets/logos/eplay24.webp";
+import admiralbetAsset from "@/assets/logos/admiralbet.jpeg.asset.json";
+import stakeAsset from "@/assets/logos/stake.png.asset.json";
+import sportiumAsset from "@/assets/logos/sportium.png.asset.json";
 
 
 export type NoDepositBonus = {
@@ -273,6 +276,54 @@ export const operators: Operator[] = [
         "Importo di gioco indicato dal concessionario ai nuovi utenti verificati, senza deposito. Consulta i Termini e Condizioni ufficiali per requisiti e scadenze.",
     },
     officialUrl: "https://bonus.affilroi.com/Guidacasino/eplay24BONUS/c",
+  },
+  {
+    slug: "admiralbet",
+    name: "AdmiralBet",
+    logo: admiralbetAsset.url,
+    concessionN: "ADM n. 15228",
+    founded: 2017,
+    rtpAverage: "96,1%",
+    paymentMethods: ["Carte", "PayPal", "Postepay", "Bonifico", "Punti vendita"],
+    games: 2100,
+    highlights: [
+      "Concessione ADM in corso di validità",
+      "Rete di punti vendita fisici in Italia",
+      "Strumenti di autolimitazione e adesione al RUA",
+    ],
+    officialUrl: "https://www.admiralbet.it/gmg/refer/6a89894d9a7ddf0001d50c6e",
+  },
+  {
+    slug: "stake",
+    name: "Stake",
+    logo: stakeAsset.url,
+    concessionN: "ADM n. 15272",
+    founded: 2017,
+    rtpAverage: "96,4%",
+    paymentMethods: ["Carte", "Postepay", "Bonifico"],
+    games: 2000,
+    highlights: [
+      "Piattaforma moderna con catalogo internazionale",
+      "Sezione casinò live molto ampia",
+      "Strumenti di gioco responsabile ADM",
+    ],
+    officialUrl: "https://www.gambling-affiliation.com/cpc/v=Zf4INtJlghhCNvZK1iPr1vYPlu3PVfNJD.loouwHkdU_GA7331V2",
+  },
+  {
+    slug: "sportium",
+    name: "Sportium",
+    logo: sportiumAsset.url,
+    concessionN: "ADM n. 15290",
+    founded: 2020,
+    rtpAverage: "96,0%",
+    paymentMethods: ["Carte", "Postepay", "Bonifico"],
+    games: 1500,
+    highlights: [
+      "Sezioni sport e casinò integrate",
+      "Concessione ADM in corso di validità",
+      "Adesione al Registro Unico degli Autoesclusi",
+    ],
+    officialUrl: "https://www.gambling-affiliation.com/cpc/v=PQfBkFWn2RrgEyuC9pki0ijNK-VmYQIeJq3NKFVyvnY_GA7331V2",
   },
 ];
 
