@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VerificareLicenzaAdmRouteImport } from './routes/verificare-licenza-adm'
+import { Route as TempiPrelievoCasinoOnlineRouteImport } from './routes/tempi-prelievo-casino-online'
 import { Route as SlotRtpAltoRouteImport } from './routes/slot-rtp-alto'
 import { Route as SlotPiuGiocateRouteImport } from './routes/slot-piu-giocate'
 import { Route as SlotOnlineSoldiVeriRouteImport } from './routes/slot-online-soldi-veri'
@@ -53,7 +54,9 @@ import { Route as ComeLeggereQuoteCalcioRouteImport } from './routes/come-legger
 import { Route as CasinoPaypalRouteImport } from './routes/casino-paypal'
 import { Route as CasinoOnlineSicuriRouteImport } from './routes/casino-online-sicuri'
 import { Route as CasinoOnlinePrincipiantiRouteImport } from './routes/casino-online-principianti'
+import { Route as CasinoOnlineNuovi2026RouteImport } from './routes/casino-online-nuovi-2026'
 import { Route as CasinoOnlineItaliaRouteImport } from './routes/casino-online-italia'
+import { Route as CasinoOnlineChePaganoSubitoRouteImport } from './routes/casino-online-che-pagano-subito'
 import { Route as CasinoOScommesseSportiveRouteImport } from './routes/casino-o-scommesse-sportive'
 import { Route as CasinoMobileAdmRouteImport } from './routes/casino-mobile-adm'
 import { Route as CasinoLiveRouteImport } from './routes/casino-live'
@@ -91,6 +94,12 @@ const VerificareLicenzaAdmRoute = VerificareLicenzaAdmRouteImport.update({
   path: '/verificare-licenza-adm',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TempiPrelievoCasinoOnlineRoute =
+  TempiPrelievoCasinoOnlineRouteImport.update({
+    id: '/tempi-prelievo-casino-online',
+    path: '/tempi-prelievo-casino-online',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SlotRtpAltoRoute = SlotRtpAltoRouteImport.update({
   id: '/slot-rtp-alto',
   path: '/slot-rtp-alto',
@@ -316,11 +325,22 @@ const CasinoOnlinePrincipiantiRoute =
     path: '/casino-online-principianti',
     getParentRoute: () => rootRouteImport,
   } as any)
+const CasinoOnlineNuovi2026Route = CasinoOnlineNuovi2026RouteImport.update({
+  id: '/casino-online-nuovi-2026',
+  path: '/casino-online-nuovi-2026',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CasinoOnlineItaliaRoute = CasinoOnlineItaliaRouteImport.update({
   id: '/casino-online-italia',
   path: '/casino-online-italia',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CasinoOnlineChePaganoSubitoRoute =
+  CasinoOnlineChePaganoSubitoRouteImport.update({
+    id: '/casino-online-che-pagano-subito',
+    path: '/casino-online-che-pagano-subito',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CasinoOScommesseSportiveRoute =
   CasinoOScommesseSportiveRouteImport.update({
     id: '/casino-o-scommesse-sportive',
@@ -494,7 +514,9 @@ export interface FileRoutesByFullPath {
   '/casino-live': typeof CasinoLiveRoute
   '/casino-mobile-adm': typeof CasinoMobileAdmRoute
   '/casino-o-scommesse-sportive': typeof CasinoOScommesseSportiveRoute
+  '/casino-online-che-pagano-subito': typeof CasinoOnlineChePaganoSubitoRoute
   '/casino-online-italia': typeof CasinoOnlineItaliaRoute
+  '/casino-online-nuovi-2026': typeof CasinoOnlineNuovi2026Route
   '/casino-online-principianti': typeof CasinoOnlinePrincipiantiRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
@@ -538,6 +560,7 @@ export interface FileRoutesByFullPath {
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-piu-giocate': typeof SlotPiuGiocateRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
+  '/tempi-prelievo-casino-online': typeof TempiPrelievoCasinoOnlineRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
   '/autore/$slug': typeof AutoreSlugRoute
   '/casino/$slug': typeof CasinoSlugRoute
@@ -571,7 +594,9 @@ export interface FileRoutesByTo {
   '/casino-live': typeof CasinoLiveRoute
   '/casino-mobile-adm': typeof CasinoMobileAdmRoute
   '/casino-o-scommesse-sportive': typeof CasinoOScommesseSportiveRoute
+  '/casino-online-che-pagano-subito': typeof CasinoOnlineChePaganoSubitoRoute
   '/casino-online-italia': typeof CasinoOnlineItaliaRoute
+  '/casino-online-nuovi-2026': typeof CasinoOnlineNuovi2026Route
   '/casino-online-principianti': typeof CasinoOnlinePrincipiantiRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
@@ -615,6 +640,7 @@ export interface FileRoutesByTo {
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-piu-giocate': typeof SlotPiuGiocateRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
+  '/tempi-prelievo-casino-online': typeof TempiPrelievoCasinoOnlineRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
   '/autore/$slug': typeof AutoreSlugRoute
   '/casino/$slug': typeof CasinoSlugRoute
@@ -650,7 +676,9 @@ export interface FileRoutesById {
   '/casino-live': typeof CasinoLiveRoute
   '/casino-mobile-adm': typeof CasinoMobileAdmRoute
   '/casino-o-scommesse-sportive': typeof CasinoOScommesseSportiveRoute
+  '/casino-online-che-pagano-subito': typeof CasinoOnlineChePaganoSubitoRoute
   '/casino-online-italia': typeof CasinoOnlineItaliaRoute
+  '/casino-online-nuovi-2026': typeof CasinoOnlineNuovi2026Route
   '/casino-online-principianti': typeof CasinoOnlinePrincipiantiRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
@@ -694,6 +722,7 @@ export interface FileRoutesById {
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-piu-giocate': typeof SlotPiuGiocateRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
+  '/tempi-prelievo-casino-online': typeof TempiPrelievoCasinoOnlineRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
   '/autore/$slug': typeof AutoreSlugRoute
   '/casino/$slug': typeof CasinoSlugRoute
@@ -729,7 +758,9 @@ export interface FileRouteTypes {
     | '/casino-live'
     | '/casino-mobile-adm'
     | '/casino-o-scommesse-sportive'
+    | '/casino-online-che-pagano-subito'
     | '/casino-online-italia'
+    | '/casino-online-nuovi-2026'
     | '/casino-online-principianti'
     | '/casino-online-sicuri'
     | '/casino-paypal'
@@ -773,6 +804,7 @@ export interface FileRouteTypes {
     | '/slot-online-soldi-veri'
     | '/slot-piu-giocate'
     | '/slot-rtp-alto'
+    | '/tempi-prelievo-casino-online'
     | '/verificare-licenza-adm'
     | '/autore/$slug'
     | '/casino/$slug'
@@ -806,7 +838,9 @@ export interface FileRouteTypes {
     | '/casino-live'
     | '/casino-mobile-adm'
     | '/casino-o-scommesse-sportive'
+    | '/casino-online-che-pagano-subito'
     | '/casino-online-italia'
+    | '/casino-online-nuovi-2026'
     | '/casino-online-principianti'
     | '/casino-online-sicuri'
     | '/casino-paypal'
@@ -850,6 +884,7 @@ export interface FileRouteTypes {
     | '/slot-online-soldi-veri'
     | '/slot-piu-giocate'
     | '/slot-rtp-alto'
+    | '/tempi-prelievo-casino-online'
     | '/verificare-licenza-adm'
     | '/autore/$slug'
     | '/casino/$slug'
@@ -884,7 +919,9 @@ export interface FileRouteTypes {
     | '/casino-live'
     | '/casino-mobile-adm'
     | '/casino-o-scommesse-sportive'
+    | '/casino-online-che-pagano-subito'
     | '/casino-online-italia'
+    | '/casino-online-nuovi-2026'
     | '/casino-online-principianti'
     | '/casino-online-sicuri'
     | '/casino-paypal'
@@ -928,6 +965,7 @@ export interface FileRouteTypes {
     | '/slot-online-soldi-veri'
     | '/slot-piu-giocate'
     | '/slot-rtp-alto'
+    | '/tempi-prelievo-casino-online'
     | '/verificare-licenza-adm'
     | '/autore/$slug'
     | '/casino/$slug'
@@ -963,7 +1001,9 @@ export interface RootRouteChildren {
   CasinoLiveRoute: typeof CasinoLiveRoute
   CasinoMobileAdmRoute: typeof CasinoMobileAdmRoute
   CasinoOScommesseSportiveRoute: typeof CasinoOScommesseSportiveRoute
+  CasinoOnlineChePaganoSubitoRoute: typeof CasinoOnlineChePaganoSubitoRoute
   CasinoOnlineItaliaRoute: typeof CasinoOnlineItaliaRoute
+  CasinoOnlineNuovi2026Route: typeof CasinoOnlineNuovi2026Route
   CasinoOnlinePrincipiantiRoute: typeof CasinoOnlinePrincipiantiRoute
   CasinoOnlineSicuriRoute: typeof CasinoOnlineSicuriRoute
   CasinoPaypalRoute: typeof CasinoPaypalRoute
@@ -1007,6 +1047,7 @@ export interface RootRouteChildren {
   SlotOnlineSoldiVeriRoute: typeof SlotOnlineSoldiVeriRoute
   SlotPiuGiocateRoute: typeof SlotPiuGiocateRoute
   SlotRtpAltoRoute: typeof SlotRtpAltoRoute
+  TempiPrelievoCasinoOnlineRoute: typeof TempiPrelievoCasinoOnlineRoute
   VerificareLicenzaAdmRoute: typeof VerificareLicenzaAdmRoute
   AutoreSlugRoute: typeof AutoreSlugRoute
   CasinoSlugRoute: typeof CasinoSlugRoute
@@ -1033,6 +1074,13 @@ declare module '@tanstack/react-router' {
       path: '/verificare-licenza-adm'
       fullPath: '/verificare-licenza-adm'
       preLoaderRoute: typeof VerificareLicenzaAdmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tempi-prelievo-casino-online': {
+      id: '/tempi-prelievo-casino-online'
+      path: '/tempi-prelievo-casino-online'
+      fullPath: '/tempi-prelievo-casino-online'
+      preLoaderRoute: typeof TempiPrelievoCasinoOnlineRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/slot-rtp-alto': {
@@ -1336,11 +1384,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CasinoOnlinePrincipiantiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/casino-online-nuovi-2026': {
+      id: '/casino-online-nuovi-2026'
+      path: '/casino-online-nuovi-2026'
+      fullPath: '/casino-online-nuovi-2026'
+      preLoaderRoute: typeof CasinoOnlineNuovi2026RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/casino-online-italia': {
       id: '/casino-online-italia'
       path: '/casino-online-italia'
       fullPath: '/casino-online-italia'
       preLoaderRoute: typeof CasinoOnlineItaliaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/casino-online-che-pagano-subito': {
+      id: '/casino-online-che-pagano-subito'
+      path: '/casino-online-che-pagano-subito'
+      fullPath: '/casino-online-che-pagano-subito'
+      preLoaderRoute: typeof CasinoOnlineChePaganoSubitoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/casino-o-scommesse-sportive': {
@@ -1590,7 +1652,9 @@ const rootRouteChildren: RootRouteChildren = {
   CasinoLiveRoute: CasinoLiveRoute,
   CasinoMobileAdmRoute: CasinoMobileAdmRoute,
   CasinoOScommesseSportiveRoute: CasinoOScommesseSportiveRoute,
+  CasinoOnlineChePaganoSubitoRoute: CasinoOnlineChePaganoSubitoRoute,
   CasinoOnlineItaliaRoute: CasinoOnlineItaliaRoute,
+  CasinoOnlineNuovi2026Route: CasinoOnlineNuovi2026Route,
   CasinoOnlinePrincipiantiRoute: CasinoOnlinePrincipiantiRoute,
   CasinoOnlineSicuriRoute: CasinoOnlineSicuriRoute,
   CasinoPaypalRoute: CasinoPaypalRoute,
@@ -1634,6 +1698,7 @@ const rootRouteChildren: RootRouteChildren = {
   SlotOnlineSoldiVeriRoute: SlotOnlineSoldiVeriRoute,
   SlotPiuGiocateRoute: SlotPiuGiocateRoute,
   SlotRtpAltoRoute: SlotRtpAltoRoute,
+  TempiPrelievoCasinoOnlineRoute: TempiPrelievoCasinoOnlineRoute,
   VerificareLicenzaAdmRoute: VerificareLicenzaAdmRoute,
   AutoreSlugRoute: AutoreSlugRoute,
   CasinoSlugRoute: CasinoSlugRoute,

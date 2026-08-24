@@ -340,7 +340,32 @@ export const guides: Guide[] = [
     changefreq: "weekly",
     priority: "0.9",
   },
+  {
+    path: "/casino-online-che-pagano-subito",
+    title: "Casinò che pagano subito",
+    description:
+      "Tempi reali di accredito sui casinò ADM: metodi più rapidi, soglie minime e cause dei ritardi.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
+    path: "/tempi-prelievo-casino-online",
+    title: "Tempi di prelievo",
+    description:
+      "Quanto tempo ci vuole per prelevare da un casinò ADM: elaborazione, metodo di pagamento e verifica documenti.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
+    path: "/casino-online-nuovi-2026",
+    title: "Casinò nuovi 2026",
+    description:
+      "Come verificare un casinò online nuovo: concessione ADM, condizioni del bonus di lancio e segnali di affidabilità.",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
 ];
+
 
 
 
