@@ -64,9 +64,17 @@ for (const file of files) {
   const src = readFileSync(file, "utf8");
 
   // 1. vecchio dominio
-  if (/lovable\.app/.test(src) && !rel.startsWith("scripts/") && rel !== "src/server.ts") {
+  // 1. vecchio dominio (esclusi script e file auto-generati dalla piattaforma)
+  const AUTOGEN = /^src\/integrations\/supabase\//;
+  if (
+    /lovable\.app/.test(src) &&
+    !rel.startsWith("scripts/") &&
+    rel !== "src/server.ts" &&
+    !AUTOGEN.test(rel)
+  ) {
     err(rel, "contiene un riferimento a *.lovable.app");
   }
+
 
   // 2/3. canonical, og:url, twitter:url
   for (const m of src.matchAll(/rel:\s*["']canonical["'][^}]*href:\s*["']([^"']+)["']/g)) {
