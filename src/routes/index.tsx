@@ -58,8 +58,8 @@ const FAQS = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Migliori Casino Online ADM 2026 | Guida Casinò Italia" },
-      { name: "description", content: "Confronta i migliori casino online ADM 2026: recensioni verificate, bonus senza deposito, slot e roulette. Guida sicura e imparziale. +18." },
+      { title: "Guida Casinò Italia: Bonus, RTP e Concessionari Autorizzati" },
+      { name: "description", content: "Scopri la guida definitiva ai casinò online in Italia. Confronta i migliori bonus, analizza rtp, condizioni di concessione, concessionari ADM e gioco responsabile." },
 
       { name: "keywords", content: "migliori casino online adm, bonus casino senza deposito, casino online sicuri italia, slot online affidabili, guide casino online, recensioni casino adm, bonus benvenuto casino 2026, casino adm, casino aams, bonus senza deposito, bonus senza deposito immediato, casino online sicuri, casino online italiani, migliori casino online 2026, concessione adm, gioco legale italia, casino con spid, come verificare licenza adm, casino legali italia elenco, quali sono i casino con concessione adm" },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
@@ -70,17 +70,17 @@ export const Route = createFileRoute("/")({
       { name: "geo.region", content: "IT" },
       { name: "language", content: "it-IT" },
       { name: "author", content: "GuidaCasinò.IT" },
-      { property: "og:title", content: "Migliori Casino Online ADM 2026 | Guida Casinò Italia" },
+      { property: "og:title", content: "Guida Casinò Italia: Bonus, RTP e Concessionari Autorizzati" },
       ...socialImageMeta(),
-      { property: "og:description", content: "Confronta i migliori casino online ADM 2026: recensioni verificate, bonus senza deposito, slot e roulette. Guida sicura e imparziale. +18." },
+      { property: "og:description", content: "Scopri la guida definitiva ai casinò online in Italia. Confronta i migliori bonus, analizza rtp, condizioni di concessione, concessionari ADM e gioco responsabile." },
 
       { property: "og:url", content: "https://www.guidacasino-italia.it/" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "it_IT" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:url", content: "https://www.guidacasino-italia.it/" },
-      { name: "twitter:title", content: "Migliori Casino Online ADM 2026 | Guida Casinò Italia" },
-      { name: "twitter:description", content: "Confronta i migliori casino online ADM 2026: recensioni verificate, bonus senza deposito, slot e roulette. Guida sicura e imparziale. +18." },
+      { name: "twitter:title", content: "Guida Casinò Italia: Bonus, RTP e Concessionari Autorizzati" },
+      { name: "twitter:description", content: "Scopri la guida definitiva ai casinò online in Italia. Confronta i migliori bonus, analizza rtp, condizioni di concessione, concessionari ADM e gioco responsabile." },
 
 
     ],
@@ -569,6 +569,40 @@ function TopicsSection() {
   );
 }
 
+
+function KeywordOverviewSection() {
+  return (
+    <section className="mx-auto max-w-4xl px-2.5 md:px-6 py-6 md:py-16">
+      <h2 className="font-serif text-lg md:text-3xl">
+        Concessionari ADM, Leggi e Agenzia delle Dogane e dei Monopoli
+      </h2>
+      <p className="mt-2 text-[13px] leading-snug text-muted-foreground md:text-base md:leading-normal">
+        Benvenuto su questo portale informativo dedicato al mondo dei casinò online in Italia. I
+        concessionari presenti sul sito operano con regolare concessione rilasciata dall'agenzia
+        delle dogane e dei monopoli, nel pieno rispetto delle leggi e della normativa vigente in
+        Italia.
+      </p>
+
+      <h2 className="mt-5 font-serif text-lg md:mt-10 md:text-3xl">
+        Provider di Gioco, RTP e Volatilità delle Slot Machine
+      </h2>
+      <p className="mt-2 text-[13px] leading-snug text-muted-foreground md:text-base md:leading-normal">
+        Ti offriamo una guida completa per analizzare ogni provider di software, valutando l'RTP
+        (Return to Player) e la volatilità di ogni slot machine, con dati tecnici verificabili e
+        aggiornati.
+      </p>
+
+      <h2 className="mt-5 font-serif text-lg md:mt-10 md:text-3xl">
+        Approfondisci Condizioni, Bonus e Gioco Responsabile
+      </h2>
+      <p className="mt-2 text-[13px] leading-snug text-muted-foreground md:text-base md:leading-normal">
+        Approfondisci i dettagli e le condizioni di ogni promozione prima di richiedere un bonus.
+        Promuoviamo un ambiente di gioco sicuro e responsabile.
+      </p>
+    </section>
+  );
+}
+
 function HomePage() {
 
   return (
@@ -581,6 +615,7 @@ function HomePage() {
         subtitle="Elenco integrale dei concessionari con licenza italiana presenti nel nostro database, con filtri e ordinamento."
       />
       <TrustStrip />
+      <KeywordOverviewSection />
       <HomeBlocksSection />
       <TopicsSection />
       <GuidesSection />
@@ -838,9 +873,9 @@ function Hero() {
             Portale informativo indipendente
           </div>
           <h1 className="mt-1.5 font-serif text-[1.25rem] leading-[1.05] md:mt-6 md:text-6xl xl:text-7xl">
-            Migliori Casino Online ADM in Italia{" "}
+            Guida ai Casinò Online in Italia:{" "}
             <span className="block text-gold md:inline">
-              recensioni, bonus e guide di Guida Casinò Italia
+              Portale Informativo e Normativa
             </span>
           </h1>
           <CurrentMonthBadge />
