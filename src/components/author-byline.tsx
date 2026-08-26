@@ -13,6 +13,8 @@ export function AuthorByline({
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <img
+        loading="lazy"
+        decoding="async"
         src={AUTHOR.photo}
         alt={`${AUTHOR.name}, ${AUTHOR.role}`}
         width={44}
@@ -45,6 +47,8 @@ export function AuthorBox({ verifiedIso = LAST_VERIFIED_ISO }: { verifiedIso?: s
     <section className="mt-10 rounded-xl border border-border bg-card p-5">
       <div className="flex items-start gap-4">
         <img
+          loading="lazy"
+          decoding="async"
           src={AUTHOR.photo}
           alt={`Foto di ${AUTHOR.name}`}
           width={72}

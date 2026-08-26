@@ -22,6 +22,8 @@ export function SlotsGrid({ limit }: { limit?: number }) {
           >
             <Link to="/slot/$slug" params={{ slug: slot.slug }} className="block">
               <img
+                loading="lazy"
+                decoding="async"
                 src={slot.image}
                 alt={`Slot ${slot.name} di ${slot.provider}`}
                 width={640}
