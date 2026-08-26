@@ -29,7 +29,6 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
             >
               {op.logo ? (
                 <img
-                  loading="lazy"
                   decoding="async"
                   src={op.logo}
                   alt={`Logo ${op.name}`}

@@ -60,7 +60,6 @@ export function ComparisonTable() {
                     >
                       {op.logo ? (
                         <img
-                          loading="lazy"
                           decoding="async"
                           src={op.logo}
                           alt={`Logo ${op.name}`}
@@ -134,7 +133,6 @@ export function ComparisonTable() {
                   >
                     {op.logo ? (
                       <img
-                        loading="lazy"
                         decoding="async"
                         src={op.logo}
                         alt={`Logo ${op.name}`}
