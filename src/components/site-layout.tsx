@@ -180,7 +180,6 @@ export function AgeBanner() {
     <div className="w-full border-b border-border bg-destructive/10 text-destructive-foreground">
       <div className="mx-auto flex max-w-6xl xl:max-w-7xl items-center justify-center gap-2 px-3 py-1 text-[10px] leading-snug md:gap-3 md:px-4 md:py-2 md:text-xs">
         <img
-          decoding="async"
           src={vietato18.url}
           alt="Vietato ai minori di 18 anni"
           width={24}
@@ -202,7 +201,6 @@ export function Header() {
       <div className="mx-auto grid max-w-6xl xl:max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-3 py-2 md:gap-4 md:px-4 md:py-3 lg:flex lg:justify-between lg:gap-8 lg:px-6 lg:py-4">
         <Link to="/" className="flex min-w-0 items-center gap-2 md:gap-2.5">
           <img
-            decoding="async"
             src={siteLogo}
             alt="Logo GuidaCasinò.IT"
             width={36}

@@ -196,7 +196,6 @@ export default function ExitIntent() {
                 >
                   {op.logo ? (
                     <img
-                      decoding="async"
                       src={op.logo}
                       alt={`Logo ${op.name}`}
                       width={224}

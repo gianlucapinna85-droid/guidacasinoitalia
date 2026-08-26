@@ -335,7 +335,6 @@ function SlotsHomeSection() {
               >
                 <Link to="/slot/$slug" params={{ slug: s.slug }} className="block">
                   <img
-                    decoding="async"
                     src={s.image}
                     alt={`Slot ${s.name} di ${s.provider}`}
                     width={640}
@@ -1130,7 +1129,6 @@ function OperatorLogo({
   ) : (
     <div className="gc-logo-frame flex h-12 w-28 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/40 bg-card shadow-sm md:h-24 md:w-56">
       <img
-        decoding="async"
         ref={imgRef}
         src={logo}
         alt={`Logo ${name}`}

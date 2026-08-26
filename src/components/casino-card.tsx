@@ -78,7 +78,6 @@ export function CasinoRankCard({
           >
             {op.logo ? (
               <img
-                decoding="async"
                 src={op.logo}
                 alt={`Logo ${op.name}`}
                 width={600}
