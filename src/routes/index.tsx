@@ -569,7 +569,6 @@ function TopicsSection() {
   );
 }
 
-function HomePage() {
 
 function KeywordOverviewSection() {
   return (
