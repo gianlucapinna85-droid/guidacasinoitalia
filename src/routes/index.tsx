@@ -581,6 +581,7 @@ function HomePage() {
         subtitle="Elenco integrale dei concessionari con licenza italiana presenti nel nostro database, con filtri e ordinamento."
       />
       <TrustStrip />
+      <KeywordOverviewSection />
       <HomeBlocksSection />
       <TopicsSection />
       <GuidesSection />
