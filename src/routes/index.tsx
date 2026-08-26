@@ -571,6 +571,41 @@ function TopicsSection() {
 
 function HomePage() {
 
+function KeywordOverviewSection() {
+  return (
+    <section className="mx-auto max-w-4xl px-2.5 md:px-6 py-6 md:py-16">
+      <h2 className="font-serif text-lg md:text-3xl">
+        Concessionari ADM, Leggi e Agenzia delle Dogane e dei Monopoli
+      </h2>
+      <p className="mt-2 text-[13px] leading-snug text-muted-foreground md:text-base md:leading-normal">
+        Benvenuto su questo portale informativo dedicato al mondo dei casinò online in Italia. I
+        concessionari presenti sul sito operano con regolare concessione rilasciata dall'agenzia
+        delle dogane e dei monopoli, nel pieno rispetto delle leggi e della normativa vigente in
+        Italia.
+      </p>
+
+      <h2 className="mt-5 font-serif text-lg md:mt-10 md:text-3xl">
+        Provider di Gioco, RTP e Volatilità delle Slot Machine
+      </h2>
+      <p className="mt-2 text-[13px] leading-snug text-muted-foreground md:text-base md:leading-normal">
+        Ti offriamo una guida completa per analizzare ogni provider di software, valutando l'RTP
+        (Return to Player) e la volatilità di ogni slot machine, con dati tecnici verificabili e
+        aggiornati.
+      </p>
+
+      <h2 className="mt-5 font-serif text-lg md:mt-10 md:text-3xl">
+        Approfondisci Condizioni, Bonus e Gioco Responsabile
+      </h2>
+      <p className="mt-2 text-[13px] leading-snug text-muted-foreground md:text-base md:leading-normal">
+        Approfondisci i dettagli e le condizioni di ogni promozione prima di richiedere un bonus.
+        Promuoviamo un ambiente di gioco sicuro e responsabile.
+      </p>
+    </section>
+  );
+}
+
+function HomePage() {
+
   return (
     <PageShell>
       <Hero />
