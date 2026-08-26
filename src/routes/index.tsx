@@ -838,9 +838,9 @@ function Hero() {
             Portale informativo indipendente
           </div>
           <h1 className="mt-1.5 font-serif text-[1.25rem] leading-[1.05] md:mt-6 md:text-6xl xl:text-7xl">
-            Migliori Casino Online ADM in Italia{" "}
+            Guida ai Casinò Online in Italia:{" "}
             <span className="block text-gold md:inline">
-              recensioni, bonus e guide di Guida Casinò Italia
+              Portale Informativo e Normativa
             </span>
           </h1>
           <CurrentMonthBadge />
