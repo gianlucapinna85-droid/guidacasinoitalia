@@ -17,5 +17,16 @@ export default defineConfig({
       // Data dell'ultima pubblicazione: alimenta la firma "Verificato il" negli articoli.
       __BUILD_DATE__: JSON.stringify(new Date().toISOString()),
     },
+    build: {
+      // Minificazione esplicita del bundle client (audit SEO: "Minimizza JavaScript")
+      minify: "esbuild",
+      cssMinify: true,
+      target: "es2020",
+    },
+    esbuild: {
+      legalComments: "none",
+      drop: ["debugger"],
+      pure: ["console.debug"],
+    },
   },
 });
