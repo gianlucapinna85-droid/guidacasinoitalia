@@ -887,12 +887,13 @@ function Hero() {
             <p
               className={`text-[13px] leading-[1.35] text-muted-foreground md:text-lg md:leading-normal xl:text-xl ${expanded ? "" : "line-clamp-3 md:line-clamp-none"}`}
             >
-              Guida Casinò Italia confronta i casino online ADM più affidabili in Italia: recensioni
-              complete, bonus di benvenuto, slot machine, roulette e blackjack. Le recensioni di
-              Guida Casinò Italia sono aggiornate quotidianamente su dati pubblici e riguardano
-              esclusivamente operatori titolari di concessione dell'Agenzia delle Dogane e dei
-              Monopoli: non offriamo servizi di gioco, non promuoviamo bonus e non incoraggiamo la
-              partecipazione a giochi con vincite in denaro.
+              Guida Casinò Italia confronta i casino online con concessione ADM in Italia: schede
+              informative, condizioni di conto dichiarate, slot machine, roulette e blackjack. Le
+              schede sono aggiornate periodicamente su dati pubblici e riguardano esclusivamente
+              operatori titolari di concessione dell'Agenzia delle Dogane e dei Monopoli: non
+              offriamo servizi di gioco e non incoraggiamo la partecipazione a giochi con vincite in
+              denaro.
+
             </p>
             <button
               type="button"
