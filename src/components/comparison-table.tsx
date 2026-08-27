@@ -19,14 +19,15 @@ export function ComparisonTable() {
       <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6">
         <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Selezione redazionale</p>
         <h2 className="mt-1 font-serif text-lg md:text-4xl">
-          I migliori casinò ADM scelti da GuidaCasino.it
+          Confronto di quattro concessionari ADM
         </h2>
         <p className="mt-1.5 line-clamp-3 max-w-3xl text-[12px] leading-snug text-muted-foreground md:mt-3 md:line-clamp-none md:text-sm">
-          Selezione redazionale di GuidaCasino.it: i quattro concessionari ADM con i bonus e le
-          condizioni di conto migliori tra quelli analizzati. I valori sono indicativi e dichiarati
-          dagli operatori: verifica sempre i Termini e Condizioni ufficiali. Vietato ai minori di 18
-          anni.
+          Selezione editoriale basata sui dati pubblici disponibili alla data di aggiornamento. La
+          selezione non costituisce una raccomandazione e non garantisce convenienza, sicurezza o
+          vincite. I valori sono dichiarati dagli operatori: verifica sempre i Termini e Condizioni
+          ufficiali. Vietato ai minori di 18 anni.
         </p>
+
 
 
         {/* Desktop */}

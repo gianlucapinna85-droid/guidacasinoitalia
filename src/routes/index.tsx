@@ -812,13 +812,16 @@ function LegalInfoSection() {
               concessione, condizioni e informativa privacy sul sito ufficiale del concessionario.
             </p>
             <p>
-              Portale informativo indipendente. Non gestiamo piattaforme di gioco, non raccogliamo
-              scommesse e non pubblichiamo bonus o incentivi commerciali ai sensi dell'art. 9 del
-              D.L. 87/2018 (Decreto Dignità). I contenuti hanno finalità esclusivamente informative
-              e sono redatti sulla base di fonti pubbliche verificabili (elenco ADM, siti ufficiali
-              dei concessionari, normativa vigente). Non riceviamo compensi condizionati al
-              comportamento di gioco degli utenti.
+              Portale informativo indipendente. Non gestiamo piattaforme di gioco e non raccogliamo
+              scommesse. Non pubblichiamo messaggi promozionali né inviti al gioco ai sensi dell'art. 9
+              del D.L. 87/2018 (Decreto Dignità): gli importi di bonus eventualmente riportati sono
+              dati dichiarati dagli operatori, indicati a fini di confronto informativo con la data di
+              verifica. I contenuti sono redatti sulla base di fonti pubbliche (elenco ADM, siti
+              ufficiali dei concessionari, normativa vigente). Il sito può contenere collegamenti
+              commerciali verso i concessionari; non riceviamo compensi condizionati al comportamento
+              di gioco degli utenti.
             </p>
+
           </div>
 
           <ComplianceBadges />
@@ -837,13 +840,14 @@ function CurrentMonthBadge() {
   return (
     <div className="mt-1.5 inline-flex flex-wrap items-center gap-1.5 rounded-full border border-gold/30 bg-gold/10 px-2 py-0.5 text-[10px] font-medium text-gold md:mt-4 md:gap-2 md:px-3 md:py-1.5 md:text-xs">
       <Calendar className="h-3 w-3 md:h-3.5 md:w-3.5" />
-      <span>Lista verificata a {label}</span>
+      <span>Ultima verifica: {label.toLowerCase()}</span>
       <span className="mx-1 hidden h-3 w-px bg-gold/30 sm:inline-block" />
       <span className="hidden items-center gap-1 text-gold/80 sm:inline-flex">
         <RefreshCw className="h-3 w-3" />
-        Offerte controllate ogni mese
+        Dati aggiornati periodicamente sulla base delle fonti pubbliche disponibili
       </span>
     </div>
+
   );
 }
 
@@ -883,12 +887,13 @@ function Hero() {
             <p
               className={`text-[13px] leading-[1.35] text-muted-foreground md:text-lg md:leading-normal xl:text-xl ${expanded ? "" : "line-clamp-3 md:line-clamp-none"}`}
             >
-              Guida Casinò Italia confronta i casino online ADM più affidabili in Italia: recensioni
-              complete, bonus di benvenuto, slot machine, roulette e blackjack. Le recensioni di
-              Guida Casinò Italia sono aggiornate quotidianamente su dati pubblici e riguardano
-              esclusivamente operatori titolari di concessione dell'Agenzia delle Dogane e dei
-              Monopoli: non offriamo servizi di gioco, non promuoviamo bonus e non incoraggiamo la
-              partecipazione a giochi con vincite in denaro.
+              Guida Casinò Italia confronta i casino online con concessione ADM in Italia: schede
+              informative, condizioni di conto dichiarate, slot machine, roulette e blackjack. Le
+              schede sono aggiornate periodicamente su dati pubblici e riguardano esclusivamente
+              operatori titolari di concessione dell'Agenzia delle Dogane e dei Monopoli: non
+              offriamo servizi di gioco e non incoraggiamo la partecipazione a giochi con vincite in
+              denaro.
+
             </p>
             <button
               type="button"
@@ -1174,9 +1179,10 @@ function CriteriaSection() {
     },
     {
       n: "04",
-      title: "Assenza di incentivi",
-      body: "Non pubblichiamo codici promozionali, bonus o messaggi che inducano al gioco. Il portale ha finalità puramente informative.",
+      title: "Bonus solo come dato dichiarato",
+      body: "Non pubblichiamo codici promozionali né inviti al gioco. Gli eventuali importi indicati sono dati dichiarati dagli operatori alla data di verifica, riportati a titolo informativo e da controllare sui Termini e Condizioni ufficiali.",
     },
+
   ];
   return (
     <section className="border-y border-border bg-card/40">
