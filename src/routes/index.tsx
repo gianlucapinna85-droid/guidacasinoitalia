@@ -1175,9 +1175,10 @@ function CriteriaSection() {
     },
     {
       n: "04",
-      title: "Assenza di incentivi",
-      body: "Non pubblichiamo codici promozionali, bonus o messaggi che inducano al gioco. Il portale ha finalità puramente informative.",
+      title: "Bonus solo come dato dichiarato",
+      body: "Non pubblichiamo codici promozionali né inviti al gioco. Gli eventuali importi indicati sono dati dichiarati dagli operatori alla data di verifica, riportati a titolo informativo e da controllare sui Termini e Condizioni ufficiali.",
     },
+
   ];
   return (
     <section className="border-y border-border bg-card/40">
