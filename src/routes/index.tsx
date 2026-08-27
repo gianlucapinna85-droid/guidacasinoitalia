@@ -812,13 +812,16 @@ function LegalInfoSection() {
               concessione, condizioni e informativa privacy sul sito ufficiale del concessionario.
             </p>
             <p>
-              Portale informativo indipendente. Non gestiamo piattaforme di gioco, non raccogliamo
-              scommesse e non pubblichiamo bonus o incentivi commerciali ai sensi dell'art. 9 del
-              D.L. 87/2018 (Decreto Dignità). I contenuti hanno finalità esclusivamente informative
-              e sono redatti sulla base di fonti pubbliche verificabili (elenco ADM, siti ufficiali
-              dei concessionari, normativa vigente). Non riceviamo compensi condizionati al
-              comportamento di gioco degli utenti.
+              Portale informativo indipendente. Non gestiamo piattaforme di gioco e non raccogliamo
+              scommesse. Non pubblichiamo messaggi promozionali né inviti al gioco ai sensi dell'art. 9
+              del D.L. 87/2018 (Decreto Dignità): gli importi di bonus eventualmente riportati sono
+              dati dichiarati dagli operatori, indicati a fini di confronto informativo con la data di
+              verifica. I contenuti sono redatti sulla base di fonti pubbliche (elenco ADM, siti
+              ufficiali dei concessionari, normativa vigente). Il sito può contenere collegamenti
+              commerciali verso i concessionari; non riceviamo compensi condizionati al comportamento
+              di gioco degli utenti.
             </p>
+
           </div>
 
           <ComplianceBadges />
