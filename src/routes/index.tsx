@@ -837,13 +837,14 @@ function CurrentMonthBadge() {
   return (
     <div className="mt-1.5 inline-flex flex-wrap items-center gap-1.5 rounded-full border border-gold/30 bg-gold/10 px-2 py-0.5 text-[10px] font-medium text-gold md:mt-4 md:gap-2 md:px-3 md:py-1.5 md:text-xs">
       <Calendar className="h-3 w-3 md:h-3.5 md:w-3.5" />
-      <span>Lista verificata a {label}</span>
+      <span>Ultima verifica: {label.toLowerCase()}</span>
       <span className="mx-1 hidden h-3 w-px bg-gold/30 sm:inline-block" />
       <span className="hidden items-center gap-1 text-gold/80 sm:inline-flex">
         <RefreshCw className="h-3 w-3" />
-        Offerte controllate ogni mese
+        Dati aggiornati periodicamente sulla base delle fonti pubbliche disponibili
       </span>
     </div>
+
   );
 }
 
