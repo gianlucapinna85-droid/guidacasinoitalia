@@ -1,11 +1,16 @@
-// Metadati editoriali dei concessionari (voto, badge, dati di conto).
+// Metadati editoriali dei concessionari (voto redazionale, dati di conto dichiarati).
 // NOTA: questo file NON contiene link affiliati. Gli href degli operatori restano
 // definiti esclusivamente in src/lib/operators.ts (campo officialUrl) e non vanno modificati.
-// I valori economici sono indicativi: verifica sempre i Termini e Condizioni ufficiali.
+//
+// REGOLA REDAZIONALE: i valori economici e le caratteristiche riportate qui sono
+// DICHIARATI DAGLI OPERATORI sui rispettivi siti ufficiali e non costituiscono una
+// verifica indipendente. Non usare superlativi ("i più alti", "tra i più ampi",
+// "verifica immediata") né dati stimati: se un dato non è documentato, usare
+// "dato non disponibile" oppure rimandare al sito ufficiale del concessionario.
 
 export type CasinoMeta = {
   slug: string;
-  rating: number; // 1-10
+  rating: number; // 1-10 — valutazione redazionale, non un dato dell'operatore
   paypal: boolean;
   fastWithdrawal: boolean;
   minDeposit: string;
@@ -15,6 +20,13 @@ export type CasinoMeta = {
   pros: string[];
   cons: string[];
 };
+
+/** Data dell'ultimo controllo redazionale delle informazioni riportate in questo file. */
+export const CASINOS_LAST_CHECK = "agosto 2026";
+
+/** Formula standard da mostrare accanto ai dati di conto. */
+export const DECLARED_DATA_NOTE =
+  `Dati dichiarati dall'operatore e rilevati dalle pagine pubbliche del concessionario (ultimo controllo: ${CASINOS_LAST_CHECK}). Verificare importi, limiti, commissioni e tempi sul sito ufficiale dell'operatore.`;
 
 export const casinos: CasinoMeta[] = [
   {
@@ -26,9 +38,9 @@ export const casinos: CasinoMeta[] = [
     minWithdrawal: "10 €",
     featured: true,
     short:
-      "Concessionario ADM con catalogo slot molto ampio, app mobile curata e strumenti di autolimitazione ben visibili nel conto di gioco.",
-    pros: ["Catalogo slot e live molto ampio", "App mobile tra le più complete", "Verifica identità rapida"],
-    cons: ["Interfaccia ricca, meno immediata per chi inizia"],
+      "Concessionario ADM con sezione slot e sezione live, app per iOS e Android e strumenti di autolimitazione accessibili dall'area conto.",
+    pros: ["Catalogo slot e live", "App per iOS e Android", "Strumenti di autolimitazione nell'area conto"],
+    cons: ["Interfaccia con molte sezioni, meno immediata per chi inizia"],
   },
   {
     slug: "netbet",
@@ -39,9 +51,9 @@ export const casinos: CasinoMeta[] = [
     minWithdrawal: "10 €",
     featured: true,
     short:
-      "Operatore storico attivo dal 2001, con sezione casinò e sport integrate e assistenza in lingua italiana tutti i giorni.",
-    pros: ["Operatore con lunga storia sul mercato", "Assistenza in italiano 7/7", "Metodi di pagamento diffusi"],
-    cons: ["Sezione live meno estesa rispetto ai maggiori concessionari"],
+      "Operatore attivo sul mercato italiano con sezione casinò e sezione scommesse nello stesso conto e assistenza dichiarata in lingua italiana.",
+    pros: ["Casinò e scommesse nello stesso conto", "Assistenza dichiarata in italiano", "Metodi di pagamento diffusi"],
+    cons: ["Sezione live più contenuta rispetto ad altri concessionari analizzati"],
   },
   {
     slug: "888",
@@ -52,9 +64,9 @@ export const casinos: CasinoMeta[] = [
     minWithdrawal: "20 €",
     featured: true,
     short:
-      "Piattaforma proprietaria con RTP medio dichiarato tra i più alti del confronto e sezione gioco responsabile molto strutturata.",
-    pros: ["RTP medio dichiarato elevato", "Piattaforma proprietaria stabile", "Strumenti di tutela ben documentati"],
-    cons: ["Prelievo minimo più alto della media"],
+      "Piattaforma proprietaria con sezione dedicata al gioco responsabile e RTP indicato nelle schede dei singoli giochi.",
+    pros: ["Piattaforma proprietaria", "Sezione gioco responsabile documentata", "RTP indicato per singolo gioco"],
+    cons: ["Prelievo minimo dichiarato di 20 €, superiore agli altri operatori in elenco"],
   },
   {
     slug: "betflag",
@@ -65,9 +77,9 @@ export const casinos: CasinoMeta[] = [
     minWithdrawal: "10 €",
     featured: false,
     short:
-      "Concessionario italiano con oltre 2.400 titoli, registrazione con SPID/CIE e limiti di deposito personalizzabili.",
-    pros: ["Deposito minimo contenuto", "Registrazione SPID/CIE", "Catalogo giochi molto ampio"],
-    cons: ["Interfaccia desktop meno moderna"],
+      "Concessionario italiano con registrazione tramite SPID o CIE dichiarata sul sito ufficiale e limiti di deposito impostabili dall'area conto.",
+    pros: ["Deposito minimo dichiarato di 5 €", "Registrazione con SPID/CIE dichiarata", "Catalogo slot e giochi da tavolo"],
+    cons: ["Interfaccia desktop meno recente"],
   },
   {
     slug: "sunbet",
@@ -78,9 +90,9 @@ export const casinos: CasinoMeta[] = [
     minWithdrawal: "10 €",
     featured: false,
     short:
-      "Concessionario recente (2020) con offerta divisa tra sport e casinò e strumenti di gioco responsabile standard ADM.",
-    pros: ["Sezioni sport e casinò integrate", "Piattaforma leggera anche da mobile"],
-    cons: ["Operatore recente, meno storico", "Tempi di prelievo nella media"],
+      "Concessionario con offerta divisa tra sport e casinò e strumenti di gioco responsabile previsti dalla normativa ADM.",
+    pros: ["Sezioni sport e casinò integrate", "Interfaccia utilizzabile da mobile"],
+    cons: ["Presenza sul mercato italiano più recente", "Tempi di prelievo non dichiarati come rapidi"],
   },
   {
     slug: "william-hill",
@@ -91,9 +103,9 @@ export const casinos: CasinoMeta[] = [
     minWithdrawal: "10 €",
     featured: false,
     short:
-      "Marchio internazionale con concessione ADM, registrazione immediata con SPID e adesione al Registro Unico degli Autoesclusi.",
-    pros: ["Marchio internazionale consolidato", "Registrazione immediata con SPID", "Prelievi rapidi dichiarati"],
-    cons: ["Catalogo slot più contenuto rispetto ai concorrenti"],
+      "Marchio internazionale con concessione ADM, registrazione con SPID dichiarata e adesione al Registro Unico degli Autoesclusi.",
+    pros: ["Marchio attivo in più mercati", "Registrazione con SPID dichiarata", "Adesione al RUA"],
+    cons: ["Catalogo slot più contenuto rispetto ad altri operatori in elenco"],
   },
   {
     slug: "lottomatica",
@@ -104,8 +116,8 @@ export const casinos: CasinoMeta[] = [
     minWithdrawal: "10 €",
     featured: true,
     short:
-      "Concessionario storico del mercato italiano, con rete di punti vendita fisici per depositi e prelievi in contanti.",
-    pros: ["Rete capillare di punti vendita", "Catalogo oltre 2.500 titoli", "Verifica con SPID/CIE"],
+      "Concessionario con rete di punti vendita fisici sul territorio, indicati dall'operatore anche per depositi e prelievi in contanti.",
+    pros: ["Rete di punti vendita sul territorio", "Catalogo slot e giochi da tavolo", "Verifica con SPID/CIE dichiarata"],
     cons: ["Molte sezioni: navigazione inizialmente dispersiva"],
   },
   {
@@ -117,9 +129,9 @@ export const casinos: CasinoMeta[] = [
     minWithdrawal: "10 €",
     featured: false,
     short:
-      "Concessionario con forte presenza territoriale, verifica dell'identità tramite SPID o documento e limiti personalizzabili.",
-    pros: ["Punti vendita in tutta Italia", "Limiti di deposito personalizzabili"],
-    cons: ["RTP medio dichiarato leggermente sotto i migliori"],
+      "Concessionario con punti vendita sul territorio, verifica dell'identità tramite SPID o documento e limiti di deposito impostabili.",
+    pros: ["Punti vendita in più regioni", "Limiti di deposito impostabili dall'area conto"],
+    cons: ["RTP dichiarato non aggregato in una pagina unica"],
   },
   {
     slug: "snai",
@@ -130,9 +142,9 @@ export const casinos: CasinoMeta[] = [
     minWithdrawal: "10 €",
     featured: false,
     short:
-      "Operatore storico con rete di agenzie sul territorio, catalogo tra i più ampi e assistenza interamente in italiano.",
-    pros: ["Oltre 2.600 titoli disponibili", "Rete di agenzie fisiche", "Assistenza in italiano"],
-    cons: ["RTP medio dichiarato in linea con la media"],
+      "Operatore con rete di agenzie sul territorio, sezione casinò e sezione scommesse e assistenza dichiarata in lingua italiana.",
+    pros: ["Catalogo slot e live", "Rete di agenzie fisiche", "Assistenza dichiarata in italiano"],
+    cons: ["Alcuni dati di conto non sono pubblicati in forma aggregata"],
   },
   {
     slug: "sisal",
@@ -143,9 +155,9 @@ export const casinos: CasinoMeta[] = [
     minWithdrawal: "10 €",
     featured: false,
     short:
-      "Concessionario storico dei giochi pubblici in Italia, con registrazione SPID e strumenti di autoesclusione integrati.",
-    pros: ["Concessionario storico dal 1946", "Registrazione SPID immediata", "Strumenti di autoesclusione integrati"],
-    cons: ["Sezione live meno estesa"],
+      "Concessionario storico dei giochi pubblici in Italia, con registrazione SPID dichiarata e strumenti di autoesclusione nell'area conto.",
+    pros: ["Operatore attivo da decenni sul mercato italiano", "Registrazione con SPID dichiarata", "Strumenti di autoesclusione nell'area conto"],
+    cons: ["Sezione live più contenuta"],
   },
   {
     slug: "eplay24",
@@ -156,9 +168,9 @@ export const casinos: CasinoMeta[] = [
     minWithdrawal: "10 €",
     featured: false,
     short:
-      "Concessionario con catalogo slot internazionale e adesione al Registro Unico degli Autoesclusi; PayPal non risulta tra i metodi dichiarati.",
-    pros: ["Catalogo con provider internazionali", "Adesione al RUA"],
-    cons: ["PayPal non disponibile", "Meno metodi di pagamento rispetto alla media"],
+      "Concessionario con catalogo di provider internazionali e adesione al Registro Unico degli Autoesclusi; PayPal non risulta tra i metodi dichiarati.",
+    pros: ["Provider internazionali nel catalogo", "Adesione al RUA"],
+    cons: ["PayPal non dichiarato", "Elenco dei metodi di pagamento più ridotto"],
   },
   {
     slug: "admiralbet",
@@ -169,8 +181,8 @@ export const casinos: CasinoMeta[] = [
     minWithdrawal: "10 €",
     featured: false,
     short:
-      "Concessionario con rete di punti vendita in Italia, sezione casinò e scommesse integrate e strumenti di autolimitazione standard ADM.",
-    pros: ["Punti vendita fisici sul territorio", "Catalogo slot ampio", "Registrazione con SPID"],
+      "Concessionario con punti vendita in Italia, sezione casinò e sezione scommesse e strumenti di autolimitazione previsti dalla normativa ADM.",
+    pros: ["Punti vendita sul territorio", "Casinò e scommesse nello stesso conto", "Registrazione con SPID dichiarata"],
     cons: ["Interfaccia con molte sezioni"],
   },
   {
@@ -182,9 +194,9 @@ export const casinos: CasinoMeta[] = [
     minWithdrawal: "10 €",
     featured: false,
     short:
-      "Piattaforma moderna con concessione ADM, sezione live molto estesa e interfaccia essenziale anche da mobile.",
-    pros: ["Sezione live molto ampia", "Interfaccia moderna e veloce"],
-    cons: ["PayPal non disponibile", "Operatore recente sul mercato italiano"],
+      "Piattaforma con concessione ADM, sezione live dedicata e interfaccia essenziale anche da dispositivo mobile.",
+    pros: ["Sezione live dedicata", "Interfaccia essenziale su mobile"],
+    cons: ["PayPal non dichiarato", "Presenza sul mercato italiano recente"],
   },
   {
     slug: "sportium",
@@ -195,8 +207,8 @@ export const casinos: CasinoMeta[] = [
     minWithdrawal: "10 €",
     featured: false,
     short:
-      "Concessionario con offerta divisa tra sport e casinò, adesione al RUA e strumenti di gioco responsabile standard ADM.",
-    pros: ["Sport e casinò nello stesso conto", "Piattaforma leggera da mobile"],
+      "Concessionario con offerta divisa tra sport e casinò, adesione al RUA e strumenti di gioco responsabile previsti dalla normativa ADM.",
+    pros: ["Sport e casinò nello stesso conto", "Interfaccia leggera da mobile"],
     cons: ["Catalogo più contenuto", "PayPal non dichiarato"],
   },
 ];
