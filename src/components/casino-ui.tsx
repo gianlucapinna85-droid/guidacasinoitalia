@@ -28,7 +28,7 @@ export function CasinoBadges({ slug }: { slug: string }) {
     <div className="flex flex-wrap gap-1 md:gap-1.5">
       <Badge icon={ShieldCheck} label="ADM" />
       {meta?.paypal ? <Badge icon={Wallet} label="PayPal" /> : null}
-      {meta?.fastWithdrawal ? <Badge icon={Zap} label="Prelievo rapido" /> : null}
+      {meta?.fastWithdrawal ? <Badge icon={Zap} label="Prelievo rapido dichiarato" /> : null}
     </div>
   );
 }
