@@ -249,6 +249,8 @@ function OperatorPage() {
           </table>
         </section>
 
+        <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{DECLARED_DATA_NOTE}</p>
+
         {meta ? (
           <section className="mt-10 grid gap-6 md:grid-cols-2">
             <div className="rounded-xl border border-gold/30 bg-gold/5 p-6">
