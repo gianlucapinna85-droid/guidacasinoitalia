@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Minus } from "lucide-react";
 import { operators } from "@/lib/operators";
-import { getCasinoMeta } from "@/data/casinos";
+import { getCasinoMeta, DECLARED_DATA_NOTE } from "@/data/casinos";
 
 /**
  * Comparatore completo: Casinò, Bonus, PayPal, Prelievo, RTP, Voto, Azione.
@@ -117,6 +117,10 @@ export function ComparisonTable() {
             </tbody>
           </table>
         </div>
+
+        <p className="mt-3 text-[10px] leading-relaxed text-muted-foreground md:text-xs">
+          {DECLARED_DATA_NOTE}
+        </p>
 
         {/* Mobile: solo le 2 schede principali per arrivare subito al contenuto */}
         <div className="mt-3 grid gap-2.5 md:hidden">
