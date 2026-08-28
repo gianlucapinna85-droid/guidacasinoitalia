@@ -161,7 +161,7 @@ export function CasinoRankCard({
               </span>
               {meta?.fastWithdrawal ? (
                 <span className="rounded-full border border-border px-1.5 py-0.5 text-[8px] font-semibold uppercase tracking-wide text-muted-foreground md:text-[9px]">
-                  Prelievo rapido
+                  Prelievo rapido dichiarato
                 </span>
               ) : null}
               {meta?.paypal ? (
