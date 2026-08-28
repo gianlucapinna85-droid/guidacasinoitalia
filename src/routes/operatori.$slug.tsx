@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight, CheckCircle2, AlertTriangle, ShieldCheck, Credit
 import { PageShell } from "@/components/site-layout";
 import { operators } from "@/lib/operators";
 import { buildReview } from "@/lib/operator-review";
-import { getCasinoMeta } from "@/data/casinos";
+import { getCasinoMeta, DECLARED_DATA_NOTE } from "@/data/casinos";
 import { getDeepDive } from "@/data/casino-deepdive";
 import { getOperatorFacts } from "@/data/operator-facts";
 import { OperatorFactsSections } from "@/components/operator-facts";
