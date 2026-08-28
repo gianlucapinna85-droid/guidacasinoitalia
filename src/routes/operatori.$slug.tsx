@@ -235,7 +235,7 @@ function OperatorPage() {
                 ["Deposito minimo", meta?.minDeposit ?? "n.d."],
                 ["Prelievo minimo", meta?.minWithdrawal ?? "n.d."],
                 ["PayPal", meta?.paypal ? "Dichiarato" : "Non dichiarato"],
-                ["Prelievo rapido", meta?.fastWithdrawal ? "Dichiarato" : "Non dichiarato"],
+                ["Prelievo rapido dichiarato", meta?.fastWithdrawal ? "Sì, dichiarato dall'operatore" : "Non dichiarato"],
                 ["RTP medio dichiarato", op.rtpAverage],
               ].map(([k, v]) => (
                 <tr key={k} className="border-b border-border last:border-0">
