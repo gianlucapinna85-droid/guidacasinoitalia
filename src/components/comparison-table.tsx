@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Minus } from "lucide-react";
 import { operators } from "@/lib/operators";
-import { getCasinoMeta } from "@/data/casinos";
+import { getCasinoMeta, DECLARED_DATA_NOTE } from "@/data/casinos";
 
 /**
  * Comparatore completo: Casinò, Bonus, PayPal, Prelievo, RTP, Voto, Azione.
