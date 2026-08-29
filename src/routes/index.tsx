@@ -68,7 +68,7 @@ export const Route = createFileRoute("/")({
       { name: "audience", content: "adults 18+" },
       { name: "rating", content: "adult" },
       { name: "geo.region", content: "IT" },
-      { name: "language", content: "it-IT" },
+      
       { name: "author", content: "GuidaCasinò.IT" },
       { property: "og:title", content: "Guida Casinò Italia: Bonus, RTP e Concessionari Autorizzati" },
       ...socialImageMeta(),
