@@ -68,7 +68,7 @@ export const Route = createFileRoute("/")({
       { name: "audience", content: "adults 18+" },
       { name: "rating", content: "adult" },
       { name: "geo.region", content: "IT" },
-      { name: "language", content: "it-IT" },
+      
       { name: "author", content: "GuidaCasinò.IT" },
       { property: "og:title", content: "Guida Casinò Italia: Bonus, RTP e Concessionari Autorizzati" },
       ...socialImageMeta(),
@@ -1336,25 +1336,17 @@ function FAQSection() {
       <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Domande frequenti</p>
       <h2 className="mt-1.5 font-serif text-lg md:text-4xl">Chiarimenti</h2>
 
-      {/* mobile: slider orizzontale */}
-      <div className="mt-3 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      {/* render unico: evita testi duplicati nel DOM */}
+      <div className="mt-4 divide-y divide-border rounded-xl border border-border bg-card md:mt-8">
         {FAQS.map((f) => (
-          <div key={f.q} className="w-[82%] shrink-0 snap-start rounded-xl border border-border bg-card p-2.5">
-            <h3 className="text-[12px] font-semibold leading-snug">{f.q}</h3>
-            <p className="mt-1.5 text-[12px] leading-snug text-muted-foreground">{f.a}</p>
-          </div>
-        ))}
-      </div>
-      <p className="mt-1 text-[11px] text-muted-foreground md:hidden">Scorri per vedere altre risposte →</p>
-
-      <div className="mt-8 hidden divide-y divide-border rounded-xl border border-border bg-card md:block">
-        {FAQS.map((f) => (
-          <details key={f.q} className="group p-6 [&_summary::-webkit-details-marker]:hidden">
-            <summary className="flex cursor-pointer items-center justify-between gap-4 text-base font-medium">
+          <details key={f.q} className="group p-3 md:p-6 [&_summary::-webkit-details-marker]:hidden">
+            <summary className="flex cursor-pointer items-center justify-between gap-3 text-[13px] font-medium md:text-base">
               {f.q}
               <span className="text-gold transition-transform group-open:rotate-45">+</span>
             </summary>
-            <p className="mt-3 text-sm text-muted-foreground">{f.a}</p>
+            <p className="mt-2 text-[12.5px] leading-snug text-muted-foreground md:mt-3 md:text-sm">
+              {f.a}
+            </p>
           </details>
         ))}
       </div>

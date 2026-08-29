@@ -98,7 +98,7 @@ export function ComplianceBadges() {
       sub: "Agenzia Dogane e Monopoli",
       note: "Concessionari verificati",
       accent: "gold" as const,
-      href: "https://www.adm.gov.it",
+      href: "/verificare-licenza-adm",
     },
     {
       icon: Ban,
@@ -113,7 +113,7 @@ export function ComplianceBadges() {
       sub: "Registro Unico Autoesclusi",
       note: "Autoesclusione gratuita",
       accent: "gold" as const,
-      href: "https://www.adm.gov.it",
+      href: "/gioco-responsabile",
     },
     {
       icon: LifeBuoy,
@@ -188,7 +188,7 @@ export function AgeBanner() {
         <span className="text-foreground/90">
           <strong className="font-semibold text-destructive">Vietato ai minori di 18 anni.</strong>{" "}
           Il gioco può causare dipendenza patologica. Probabilità di vincita su{" "}
-          <a href="https://www.adm.gov.it" target="_blank" rel="noopener noreferrer nofollow" className="underline">adm.gov.it</a>.
+          <Link to="/verificare-licenza-adm" className="underline">adm.gov.it</Link>.
         </span>
       </div>
     </div>
@@ -232,16 +232,14 @@ export function Header() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-1.5 md:gap-2">
-          <a
-            href="https://www.adm.gov.it"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
+          <Link
+            to="/verificare-licenza-adm"
             aria-label="Concessione ADM — Agenzia delle Dogane e dei Monopoli"
             title="Operatori con concessione ADM"
             className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-gold/70 bg-white shadow-sm transition-transform hover:scale-105 md:h-10 md:w-10"
           >
             <img src={admBadgeUrl} alt="Logo ufficiale ADM" width={40} height={40} className="h-full w-full object-contain p-[2px]" loading="lazy" decoding="async" />
-          </a>
+          </Link>
           <span
             aria-label="Vietato ai minori di 18 anni"
             title="Vietato ai minori di 18 anni"

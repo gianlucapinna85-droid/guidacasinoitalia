@@ -11,29 +11,17 @@ export function FaqSlider({ items, title }: { items: FaqItem[]; title: string })
     <section id="faq" className="mt-10">
       <h2 className="font-serif text-xl md:text-2xl">{title}</h2>
 
-      {/* mobile: slider orizzontale */}
-      <div className="mt-4 -mx-2.5 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-2.5 pb-2 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      {/* render unico (niente testo duplicato nel DOM): accordion responsive */}
+      <div className="mt-4 space-y-2.5 md:mt-6 md:space-y-4">
         {items.map((f) => (
-          <div
-            key={f.q}
-            className="w-[82%] shrink-0 snap-start rounded-xl border border-border bg-card p-3.5"
-          >
-            <div className="flex items-start gap-2">
+          <details key={f.q} className="rounded-xl border border-border bg-card p-3.5 md:p-5">
+            <summary className="flex cursor-pointer items-start gap-2 font-medium">
               <HelpCircle className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-              <h3 className="text-[13px] font-semibold leading-snug">{f.q}</h3>
-            </div>
-            <p className="mt-2 text-[12.5px] leading-relaxed text-muted-foreground">{f.a}</p>
-          </div>
-        ))}
-      </div>
-      <p className="mt-1 text-[11px] text-muted-foreground md:hidden">Scorri per vedere altre risposte →</p>
-
-      {/* desktop: accordion */}
-      <div className="mt-6 hidden space-y-4 md:block">
-        {items.map((f) => (
-          <details key={f.q} className="rounded-xl border border-border bg-card p-5">
-            <summary className="cursor-pointer font-medium">{f.q}</summary>
-            <p className="mt-3 text-sm text-muted-foreground">{f.a}</p>
+              <span className="text-[13px] leading-snug md:text-base">{f.q}</span>
+            </summary>
+            <p className="mt-2 text-[12.5px] leading-relaxed text-muted-foreground md:mt-3 md:text-sm">
+              {f.a}
+            </p>
           </details>
         ))}
       </div>
