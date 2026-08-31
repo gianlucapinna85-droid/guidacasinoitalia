@@ -295,7 +295,7 @@ function GuidesSection() {
               to={g.to}
               className="flex w-[78%] shrink-0 snap-start flex-col rounded-xl border border-border bg-card p-2.5 transition-colors hover:border-gold/50 md:w-auto md:shrink md:p-5"
             >
-              <h3 className="font-serif text-[14px] md:text-lg">{g.title}</h3>
+              <div className="font-serif text-[14px] md:text-lg">{g.title}</div>
               <p className="mt-1 line-clamp-2 text-[12px] leading-snug text-muted-foreground md:text-sm">
                 {g.text}
               </p>
@@ -345,11 +345,11 @@ function SlotsHomeSection() {
                   />
                 </Link>
                 <div className="flex flex-1 flex-col p-1.5 md:p-2.5">
-                  <h3 className="truncate font-serif text-[12px] leading-tight md:text-base">
+                  <div className="truncate font-serif text-[12px] leading-tight md:text-base">
                     <Link to="/slot/$slug" params={{ slug: s.slug }} className="hover:text-gold">
                       {s.name}
                     </Link>
-                  </h3>
+                  </div>
                   <p className="truncate text-[9px] uppercase tracking-wide text-muted-foreground md:text-xs">
                     {s.provider}
                   </p>
@@ -529,7 +529,7 @@ function HomeBlocksSection() {
               to={b.to}
               className="flex flex-col rounded-xl border border-border bg-card p-2.5 transition-colors hover:border-gold/50 md:p-5"
             >
-              <h3 className="font-serif text-[14px] text-gold md:text-lg">{b.title}</h3>
+              <div className="font-serif text-[14px] text-gold md:text-lg">{b.title}</div>
               <p className="mt-1 line-clamp-3 text-[12px] leading-snug text-muted-foreground md:text-sm">
                 {b.text}
               </p>
@@ -557,7 +557,7 @@ function TopicsSection() {
               to={t.to}
               className="flex flex-col rounded-xl border border-border bg-card p-2.5 transition-colors hover:border-gold/50 md:p-5"
             >
-              <h3 className="font-serif text-[14px] text-gold md:text-lg">{t.label}</h3>
+              <div className="font-serif text-[14px] text-gold md:text-lg">{t.label}</div>
               <p className="mt-1 line-clamp-3 text-[12px] leading-snug text-muted-foreground md:text-sm">
                 {t.text}
               </p>
@@ -721,7 +721,7 @@ function SeoGuideSection() {
           {SEO_GUIDE.map((item) => (
             <details key={item.h3} className="group w-[80%] shrink-0 snap-start rounded-xl border border-border bg-background p-4 md:w-auto md:rounded-none md:border-0 md:p-6 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between gap-4 text-[15px] font-medium text-foreground md:text-base">
-                <h3 className="font-serif text-base md:text-lg">{item.h3}</h3>
+                <div className="font-serif text-base md:text-lg">{item.h3}</div>
                 <span className="text-gold transition-transform group-open:rotate-45">+</span>
               </summary>
               <div className="mt-3 space-y-2.5 text-[13px] leading-relaxed text-muted-foreground md:mt-4 md:space-y-3 md:text-sm">
@@ -999,7 +999,7 @@ function OperatorsSection() {
               <OperatorLogo logo={op.logo} name={op.name} index={idx} officialUrl={op.officialUrl} />
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="font-serif text-[15px] md:text-lg">{op.name}</h3>
+                  <div className="font-serif text-[15px] md:text-lg">{op.name}</div>
                   {getCasinoMeta(op.slug) ? (
                     <RatingBadge rating={getCasinoMeta(op.slug)!.rating} size="sm" />
                   ) : null}
@@ -1195,7 +1195,7 @@ function CriteriaSection() {
           {criteria.map((c) => (
             <div key={c.n} className="w-[78%] shrink-0 snap-start rounded-xl border border-border bg-background p-3 md:w-auto md:p-6">
               <div className="font-serif text-lg text-gold md:text-2xl">{c.n}</div>
-              <h3 className="mt-1 font-serif text-base md:text-xl">{c.title}</h3>
+              <div className="mt-1 font-serif text-base md:text-xl">{c.title}</div>
               <p className="mt-1.5 text-[13px] leading-snug text-muted-foreground md:text-sm md:leading-normal">{c.body}</p>
             </div>
           ))}
@@ -1252,7 +1252,7 @@ function EvaluationGuideSection() {
           <div className="mt-3 space-y-3 md:mt-6 md:space-y-6">
             {criteria.map((c) => (
               <div key={c.title}>
-                <h3 className="font-serif text-[15px] text-foreground md:text-xl">{c.title}</h3>
+                <div className="font-serif text-[15px] text-foreground md:text-xl">{c.title}</div>
                 <p className="mt-1 text-[13px] leading-snug text-muted-foreground md:text-sm md:leading-relaxed">{c.body}</p>
               </div>
             ))}
