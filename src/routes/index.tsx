@@ -349,7 +349,7 @@ function SlotsHomeSection() {
                     <Link to="/slot/$slug" params={{ slug: s.slug }} className="hover:text-gold">
                       {s.name}
                     </Link>
-                  </h3>
+                  </div>
                   <p className="truncate text-[9px] uppercase tracking-wide text-muted-foreground md:text-xs">
                     {s.provider}
                   </p>
