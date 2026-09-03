@@ -60,19 +60,11 @@ export function OfferBoard({
                   <p className="truncate text-[11px] uppercase tracking-wider text-muted-foreground">
                     {op.concessionN}
                   </p>
-                  {op.noDepositBonus ? (
-                    <p className="mt-1 text-sm font-semibold text-gold">
-                      {op.noDepositBonus.amount}
-                      <span className="ml-1 text-[11px] font-normal text-muted-foreground">
-                        (dichiarato dall&apos;operatore)
-                      </span>
-                    </p>
-                  ) : (
-                    <p className="mt-1 text-[11px] text-muted-foreground">
-                      Deposito min. {meta?.minDeposit ?? "n.d."} · Prelievo min.{" "}
-                      {meta?.minWithdrawal ?? "n.d."}
-                    </p>
-                  )}
+                  <BonusLines slug={op.slug} />
+                  <p className="mt-1 text-[11px] text-muted-foreground">
+                    Deposito min. {meta?.minDeposit ?? "n.d."} · Prelievo min.{" "}
+                    {meta?.minWithdrawal ?? "n.d."}
+                  </p>
                 </div>
               </div>
 
