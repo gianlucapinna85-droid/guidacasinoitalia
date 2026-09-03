@@ -51,6 +51,7 @@ import { Route as ComeScegliereCasinoOnlineAdmRouteImport } from './routes/come-
 import { Route as ComeRegistrarsiRouteImport } from './routes/come-registrarsi'
 import { Route as ComeOttenereBonusSenzaDepositoRouteImport } from './routes/come-ottenere-bonus-senza-deposito'
 import { Route as ComeLeggereQuoteCalcioRouteImport } from './routes/come-leggere-quote-calcio'
+import { Route as CasinoPostepayRouteImport } from './routes/casino-postepay'
 import { Route as CasinoPaypalRouteImport } from './routes/casino-paypal'
 import { Route as CasinoOnlineSicuriRouteImport } from './routes/casino-online-sicuri'
 import { Route as CasinoOnlinePrincipiantiRouteImport } from './routes/casino-online-principianti'
@@ -312,6 +313,11 @@ const ComeLeggereQuoteCalcioRoute = ComeLeggereQuoteCalcioRouteImport.update({
   path: '/come-leggere-quote-calcio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CasinoPostepayRoute = CasinoPostepayRouteImport.update({
+  id: '/casino-postepay',
+  path: '/casino-postepay',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CasinoPaypalRoute = CasinoPaypalRouteImport.update({
   id: '/casino-paypal',
   path: '/casino-paypal',
@@ -542,6 +548,7 @@ export interface FileRoutesByFullPath {
   '/casino-online-principianti': typeof CasinoOnlinePrincipiantiRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
+  '/casino-postepay': typeof CasinoPostepayRoute
   '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
   '/come-ottenere-bonus-senza-deposito': typeof ComeOttenereBonusSenzaDepositoRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
@@ -625,6 +632,7 @@ export interface FileRoutesByTo {
   '/casino-online-principianti': typeof CasinoOnlinePrincipiantiRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
+  '/casino-postepay': typeof CasinoPostepayRoute
   '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
   '/come-ottenere-bonus-senza-deposito': typeof ComeOttenereBonusSenzaDepositoRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
@@ -710,6 +718,7 @@ export interface FileRoutesById {
   '/casino-online-principianti': typeof CasinoOnlinePrincipiantiRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
+  '/casino-postepay': typeof CasinoPostepayRoute
   '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
   '/come-ottenere-bonus-senza-deposito': typeof ComeOttenereBonusSenzaDepositoRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
@@ -795,6 +804,7 @@ export interface FileRouteTypes {
     | '/casino-online-principianti'
     | '/casino-online-sicuri'
     | '/casino-paypal'
+    | '/casino-postepay'
     | '/come-leggere-quote-calcio'
     | '/come-ottenere-bonus-senza-deposito'
     | '/come-registrarsi'
@@ -878,6 +888,7 @@ export interface FileRouteTypes {
     | '/casino-online-principianti'
     | '/casino-online-sicuri'
     | '/casino-paypal'
+    | '/casino-postepay'
     | '/come-leggere-quote-calcio'
     | '/come-ottenere-bonus-senza-deposito'
     | '/come-registrarsi'
@@ -962,6 +973,7 @@ export interface FileRouteTypes {
     | '/casino-online-principianti'
     | '/casino-online-sicuri'
     | '/casino-paypal'
+    | '/casino-postepay'
     | '/come-leggere-quote-calcio'
     | '/come-ottenere-bonus-senza-deposito'
     | '/come-registrarsi'
@@ -1047,6 +1059,7 @@ export interface RootRouteChildren {
   CasinoOnlinePrincipiantiRoute: typeof CasinoOnlinePrincipiantiRoute
   CasinoOnlineSicuriRoute: typeof CasinoOnlineSicuriRoute
   CasinoPaypalRoute: typeof CasinoPaypalRoute
+  CasinoPostepayRoute: typeof CasinoPostepayRoute
   ComeLeggereQuoteCalcioRoute: typeof ComeLeggereQuoteCalcioRoute
   ComeOttenereBonusSenzaDepositoRoute: typeof ComeOttenereBonusSenzaDepositoRoute
   ComeRegistrarsiRoute: typeof ComeRegistrarsiRoute
@@ -1403,6 +1416,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComeLeggereQuoteCalcioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/casino-postepay': {
+      id: '/casino-postepay'
+      path: '/casino-postepay'
+      fullPath: '/casino-postepay'
+      preLoaderRoute: typeof CasinoPostepayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/casino-paypal': {
       id: '/casino-paypal'
       path: '/casino-paypal'
@@ -1722,6 +1742,7 @@ const rootRouteChildren: RootRouteChildren = {
   CasinoOnlinePrincipiantiRoute: CasinoOnlinePrincipiantiRoute,
   CasinoOnlineSicuriRoute: CasinoOnlineSicuriRoute,
   CasinoPaypalRoute: CasinoPaypalRoute,
+  CasinoPostepayRoute: CasinoPostepayRoute,
   ComeLeggereQuoteCalcioRoute: ComeLeggereQuoteCalcioRoute,
   ComeOttenereBonusSenzaDepositoRoute: ComeOttenereBonusSenzaDepositoRoute,
   ComeRegistrarsiRoute: ComeRegistrarsiRoute,
