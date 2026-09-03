@@ -5,6 +5,29 @@ import { PageShell } from "@/components/site-layout";
 import { RelatedLinks, RatingBadge } from "@/components/casino-ui";
 import { sortedOperators, type Operator } from "@/lib/operators";
 import { getCasinoMeta, DECLARED_DATA_NOTE } from "@/data/casinos";
+import { getOperatorBonus, BONUS_NOTE } from "@/data/bonuses";
+
+/** Bonus ufficiali (senza deposito e con deposito) dichiarati dal concessionario. */
+export function BonusLines({ slug }: { slug: string }) {
+  const bonus = getOperatorBonus(slug);
+  if (!bonus) return null;
+  return (
+    <div className="mt-1 space-y-0.5">
+      <p className="text-sm font-semibold text-gold">
+        Senza deposito:{" "}
+        {bonus.noDeposit ? (
+          bonus.noDeposit.amount
+        ) : (
+          <span className="font-normal text-muted-foreground">dato non disponibile</span>
+        )}
+      </p>
+      <p className="text-[12px] text-foreground/80">
+        Con deposito:{" "}
+        {bonus.deposit ? bonus.deposit.amount : <span className="text-muted-foreground">dato non disponibile</span>}
+      </p>
+    </div>
+  );
+}
 
 /**
  * Blocco offerte ad alta visibilità: logo, dato dichiarato dall'operatore e
