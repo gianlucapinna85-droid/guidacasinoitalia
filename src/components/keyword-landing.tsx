@@ -115,6 +115,7 @@ export function OfferBoard({
       </div>
 
       <p className="mt-4 text-[11px] leading-snug text-muted-foreground">{DECLARED_DATA_NOTE}</p>
+      <p className="mt-2 text-[11px] leading-snug text-muted-foreground">{BONUS_NOTE}</p>
     </section>
   );
 }
