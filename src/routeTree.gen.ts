@@ -51,6 +51,7 @@ import { Route as ComeScegliereCasinoOnlineAdmRouteImport } from './routes/come-
 import { Route as ComeRegistrarsiRouteImport } from './routes/come-registrarsi'
 import { Route as ComeOttenereBonusSenzaDepositoRouteImport } from './routes/come-ottenere-bonus-senza-deposito'
 import { Route as ComeLeggereQuoteCalcioRouteImport } from './routes/come-leggere-quote-calcio'
+import { Route as CasinoPostepayRouteImport } from './routes/casino-postepay'
 import { Route as CasinoPaypalRouteImport } from './routes/casino-paypal'
 import { Route as CasinoOnlineSicuriRouteImport } from './routes/casino-online-sicuri'
 import { Route as CasinoOnlinePrincipiantiRouteImport } from './routes/casino-online-principianti'
@@ -68,6 +69,7 @@ import { Route as CasinoAdmVsEsteriRouteImport } from './routes/casino-adm-vs-es
 import { Route as BonusSenzaDepositoRouteImport } from './routes/bonus-senza-deposito'
 import { Route as BonusScommesseSportiveRouteImport } from './routes/bonus-scommesse-sportive'
 import { Route as BonusImmediatoSpidRouteImport } from './routes/bonus-immediato-spid'
+import { Route as BonusCasinoUfficialiRouteImport } from './routes/bonus-casino-ufficiali'
 import { Route as BonusCasinoOnlineSenzaDepositoRouteImport } from './routes/bonus-casino-online-senza-deposito'
 import { Route as BonusBenvenutoCasinoRouteImport } from './routes/bonus-benvenuto-casino'
 import { Route as BlackjackOnlineItaliaRouteImport } from './routes/blackjack-online-italia'
@@ -312,6 +314,11 @@ const ComeLeggereQuoteCalcioRoute = ComeLeggereQuoteCalcioRouteImport.update({
   path: '/come-leggere-quote-calcio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CasinoPostepayRoute = CasinoPostepayRouteImport.update({
+  id: '/casino-postepay',
+  path: '/casino-postepay',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CasinoPaypalRoute = CasinoPaypalRouteImport.update({
   id: '/casino-paypal',
   path: '/casino-paypal',
@@ -400,6 +407,11 @@ const BonusScommesseSportiveRoute = BonusScommesseSportiveRouteImport.update({
 const BonusImmediatoSpidRoute = BonusImmediatoSpidRouteImport.update({
   id: '/bonus-immediato-spid',
   path: '/bonus-immediato-spid',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BonusCasinoUfficialiRoute = BonusCasinoUfficialiRouteImport.update({
+  id: '/bonus-casino-ufficiali',
+  path: '/bonus-casino-ufficiali',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BonusCasinoOnlineSenzaDepositoRoute =
@@ -525,6 +537,7 @@ export interface FileRoutesByFullPath {
   '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
   '/bonus-casino-online-senza-deposito': typeof BonusCasinoOnlineSenzaDepositoRoute
+  '/bonus-casino-ufficiali': typeof BonusCasinoUfficialiRoute
   '/bonus-immediato-spid': typeof BonusImmediatoSpidRoute
   '/bonus-scommesse-sportive': typeof BonusScommesseSportiveRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
@@ -542,6 +555,7 @@ export interface FileRoutesByFullPath {
   '/casino-online-principianti': typeof CasinoOnlinePrincipiantiRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
+  '/casino-postepay': typeof CasinoPostepayRoute
   '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
   '/come-ottenere-bonus-senza-deposito': typeof ComeOttenereBonusSenzaDepositoRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
@@ -608,6 +622,7 @@ export interface FileRoutesByTo {
   '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
   '/bonus-casino-online-senza-deposito': typeof BonusCasinoOnlineSenzaDepositoRoute
+  '/bonus-casino-ufficiali': typeof BonusCasinoUfficialiRoute
   '/bonus-immediato-spid': typeof BonusImmediatoSpidRoute
   '/bonus-scommesse-sportive': typeof BonusScommesseSportiveRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
@@ -625,6 +640,7 @@ export interface FileRoutesByTo {
   '/casino-online-principianti': typeof CasinoOnlinePrincipiantiRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
+  '/casino-postepay': typeof CasinoPostepayRoute
   '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
   '/come-ottenere-bonus-senza-deposito': typeof ComeOttenereBonusSenzaDepositoRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
@@ -693,6 +709,7 @@ export interface FileRoutesById {
   '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
   '/bonus-casino-online-senza-deposito': typeof BonusCasinoOnlineSenzaDepositoRoute
+  '/bonus-casino-ufficiali': typeof BonusCasinoUfficialiRoute
   '/bonus-immediato-spid': typeof BonusImmediatoSpidRoute
   '/bonus-scommesse-sportive': typeof BonusScommesseSportiveRoute
   '/bonus-senza-deposito': typeof BonusSenzaDepositoRoute
@@ -710,6 +727,7 @@ export interface FileRoutesById {
   '/casino-online-principianti': typeof CasinoOnlinePrincipiantiRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
+  '/casino-postepay': typeof CasinoPostepayRoute
   '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
   '/come-ottenere-bonus-senza-deposito': typeof ComeOttenereBonusSenzaDepositoRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
@@ -778,6 +796,7 @@ export interface FileRouteTypes {
     | '/blackjack-online-italia'
     | '/bonus-benvenuto-casino'
     | '/bonus-casino-online-senza-deposito'
+    | '/bonus-casino-ufficiali'
     | '/bonus-immediato-spid'
     | '/bonus-scommesse-sportive'
     | '/bonus-senza-deposito'
@@ -795,6 +814,7 @@ export interface FileRouteTypes {
     | '/casino-online-principianti'
     | '/casino-online-sicuri'
     | '/casino-paypal'
+    | '/casino-postepay'
     | '/come-leggere-quote-calcio'
     | '/come-ottenere-bonus-senza-deposito'
     | '/come-registrarsi'
@@ -861,6 +881,7 @@ export interface FileRouteTypes {
     | '/blackjack-online-italia'
     | '/bonus-benvenuto-casino'
     | '/bonus-casino-online-senza-deposito'
+    | '/bonus-casino-ufficiali'
     | '/bonus-immediato-spid'
     | '/bonus-scommesse-sportive'
     | '/bonus-senza-deposito'
@@ -878,6 +899,7 @@ export interface FileRouteTypes {
     | '/casino-online-principianti'
     | '/casino-online-sicuri'
     | '/casino-paypal'
+    | '/casino-postepay'
     | '/come-leggere-quote-calcio'
     | '/come-ottenere-bonus-senza-deposito'
     | '/come-registrarsi'
@@ -945,6 +967,7 @@ export interface FileRouteTypes {
     | '/blackjack-online-italia'
     | '/bonus-benvenuto-casino'
     | '/bonus-casino-online-senza-deposito'
+    | '/bonus-casino-ufficiali'
     | '/bonus-immediato-spid'
     | '/bonus-scommesse-sportive'
     | '/bonus-senza-deposito'
@@ -962,6 +985,7 @@ export interface FileRouteTypes {
     | '/casino-online-principianti'
     | '/casino-online-sicuri'
     | '/casino-paypal'
+    | '/casino-postepay'
     | '/come-leggere-quote-calcio'
     | '/come-ottenere-bonus-senza-deposito'
     | '/come-registrarsi'
@@ -1030,6 +1054,7 @@ export interface RootRouteChildren {
   BlackjackOnlineItaliaRoute: typeof BlackjackOnlineItaliaRoute
   BonusBenvenutoCasinoRoute: typeof BonusBenvenutoCasinoRoute
   BonusCasinoOnlineSenzaDepositoRoute: typeof BonusCasinoOnlineSenzaDepositoRoute
+  BonusCasinoUfficialiRoute: typeof BonusCasinoUfficialiRoute
   BonusImmediatoSpidRoute: typeof BonusImmediatoSpidRoute
   BonusScommesseSportiveRoute: typeof BonusScommesseSportiveRoute
   BonusSenzaDepositoRoute: typeof BonusSenzaDepositoRoute
@@ -1047,6 +1072,7 @@ export interface RootRouteChildren {
   CasinoOnlinePrincipiantiRoute: typeof CasinoOnlinePrincipiantiRoute
   CasinoOnlineSicuriRoute: typeof CasinoOnlineSicuriRoute
   CasinoPaypalRoute: typeof CasinoPaypalRoute
+  CasinoPostepayRoute: typeof CasinoPostepayRoute
   ComeLeggereQuoteCalcioRoute: typeof ComeLeggereQuoteCalcioRoute
   ComeOttenereBonusSenzaDepositoRoute: typeof ComeOttenereBonusSenzaDepositoRoute
   ComeRegistrarsiRoute: typeof ComeRegistrarsiRoute
@@ -1403,6 +1429,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComeLeggereQuoteCalcioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/casino-postepay': {
+      id: '/casino-postepay'
+      path: '/casino-postepay'
+      fullPath: '/casino-postepay'
+      preLoaderRoute: typeof CasinoPostepayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/casino-paypal': {
       id: '/casino-paypal'
       path: '/casino-paypal'
@@ -1520,6 +1553,13 @@ declare module '@tanstack/react-router' {
       path: '/bonus-immediato-spid'
       fullPath: '/bonus-immediato-spid'
       preLoaderRoute: typeof BonusImmediatoSpidRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bonus-casino-ufficiali': {
+      id: '/bonus-casino-ufficiali'
+      path: '/bonus-casino-ufficiali'
+      fullPath: '/bonus-casino-ufficiali'
+      preLoaderRoute: typeof BonusCasinoUfficialiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/bonus-casino-online-senza-deposito': {
@@ -1704,6 +1744,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlackjackOnlineItaliaRoute: BlackjackOnlineItaliaRoute,
   BonusBenvenutoCasinoRoute: BonusBenvenutoCasinoRoute,
   BonusCasinoOnlineSenzaDepositoRoute: BonusCasinoOnlineSenzaDepositoRoute,
+  BonusCasinoUfficialiRoute: BonusCasinoUfficialiRoute,
   BonusImmediatoSpidRoute: BonusImmediatoSpidRoute,
   BonusScommesseSportiveRoute: BonusScommesseSportiveRoute,
   BonusSenzaDepositoRoute: BonusSenzaDepositoRoute,
@@ -1722,6 +1763,7 @@ const rootRouteChildren: RootRouteChildren = {
   CasinoOnlinePrincipiantiRoute: CasinoOnlinePrincipiantiRoute,
   CasinoOnlineSicuriRoute: CasinoOnlineSicuriRoute,
   CasinoPaypalRoute: CasinoPaypalRoute,
+  CasinoPostepayRoute: CasinoPostepayRoute,
   ComeLeggereQuoteCalcioRoute: ComeLeggereQuoteCalcioRoute,
   ComeOttenereBonusSenzaDepositoRoute: ComeOttenereBonusSenzaDepositoRoute,
   ComeRegistrarsiRoute: ComeRegistrarsiRoute,

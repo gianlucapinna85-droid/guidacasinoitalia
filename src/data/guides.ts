@@ -364,6 +364,46 @@ export const guides: Guide[] = [
     changefreq: "weekly",
     priority: "0.8",
   },
+  {
+    path: "/casino-con-spid",
+    title: "Casinò con SPID",
+    description:
+      "Registrazione e verifica dell'identità con SPID sui concessionari ADM: come funziona e quali operatori la dichiarano.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
+    path: "/casino-deposito-minimo-5-euro",
+    title: "Deposito minimo 5 euro",
+    description:
+      "Casinò ADM con deposito minimo basso: importi dichiarati, prelievo minimo e metodi di pagamento accettati.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
+    path: "/casino-apple-pay",
+    title: "Casinò con Apple Pay",
+    description:
+      "Depositi con Apple Pay sui casinò ADM: come funziona da iPhone, tempi di accredito e limiti dichiarati.",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
+  {
+    path: "/casino-postepay",
+    title: "Casinò con Postepay",
+    description:
+      "Postepay sui casinò e siti scommesse ADM: deposito, prelievo, tempi e commissioni dichiarate dagli operatori.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
+    path: "/bonus-casino-ufficiali",
+    title: "Bonus ufficiali dei concessionari",
+    description:
+      "Bonus con deposito e senza deposito dichiarati dai concessionari ADM, con requisiti di puntata e fonte ufficiale.",
+    changefreq: "weekly",
+    priority: "1.0",
+  },
 ];
 
 
