@@ -1,10 +1,9 @@
 import { useMemo } from "react";
 import { useRouterState } from "@tanstack/react-router";
-import { ArrowUpRight, BadgeCheck } from "lucide-react";
+import { BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { operators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
-import { StarRating } from "@/components/casino-card";
 
 function pathSeed(pathname: string) {
   // hash stabile: pagine diverse ricevono selezioni di operatori diverse
@@ -36,61 +35,48 @@ export function PageOfferStrip({ placement = "page" }: { placement?: "article" |
   if (selected.length === 0) return null;
 
   return (
-    <aside className={placement === "article" ? "mt-8" : "border-t border-border bg-secondary/35 py-7"} aria-label="Operatori ADM in evidenza">
+    <aside className={placement === "article" ? "mt-6" : "border-t border-border bg-secondary/35 py-4"} aria-label="Operatori ADM in evidenza">
       <div className={placement === "article" ? "" : "mx-auto max-w-6xl px-2.5 md:px-6"}>
-        <div className="mb-3 grid grid-cols-[minmax(0,1fr)_auto] items-end gap-3">
-          <div className="min-w-0">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-gold">Confronto rapido</p>
-            <h2 className="mt-1 font-serif text-xl md:text-2xl">Casinò ADM da confrontare</h2>
-          </div>
+        <div className="mb-2 flex items-baseline justify-between gap-3">
+          <h2 className="font-serif text-base md:text-lg">
+            <span className="mr-2 text-[10px] font-sans font-bold uppercase tracking-widest text-gold">Confronto rapido</span>
+            Casinò ADM consigliati
+          </h2>
           <span className="shrink-0 text-[10px] font-semibold text-muted-foreground">Solo +18</span>
         </div>
 
-        <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
-
+        <div className="grid gap-1.5 sm:grid-cols-2">
           {selected.map((operator) => {
             const meta = getCasinoMeta(operator.slug);
             return (
-            <article key={operator.slug} className="flex flex-col overflow-hidden rounded-lg border border-offer-border bg-offer shadow-sm">
+            <article
+              key={operator.slug}
+              className="grid grid-cols-[5rem_minmax(0,1fr)_auto] items-center gap-2.5 rounded-lg border border-offer-border bg-offer px-2.5 py-2 shadow-sm"
+            >
               <a
                 href={operator.officialUrl}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
                 aria-label={`Vai al sito ufficiale di ${operator.name}`}
-                className={`gc-logo-frame flex h-16 min-w-0 items-center justify-center px-4 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold ${operator.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}
+                className={`gc-logo-frame flex h-10 w-20 shrink-0 items-center justify-center rounded-md px-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${operator.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}
               >
-                <img src={operator.logo} alt={`Logo ${operator.name}`} width={600} height={200} loading="lazy" decoding="async" className="gc-logo-img max-h-12 w-auto max-w-[88%] object-contain" />
+                <img src={operator.logo} alt={`Logo ${operator.name}`} width={600} height={200} loading="lazy" decoding="async" className="gc-logo-img max-h-8 w-auto max-w-[92%] object-contain" />
               </a>
-              <div className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-0.5 border-y border-offer-border px-2 py-1">
-                {meta ? (
-                  <span className="flex items-center gap-0.5 font-bold text-gold" title={`Valutazione redazionale ${meta.rating.toFixed(1)}/10`}>
-                    <StarRating rating={meta.rating} size="sm" />
-                    <span className="text-[9px]">{meta.rating.toFixed(1)}</span>
-                  </span>
-                ) : null}
-                <span className="text-[8px] font-semibold uppercase tracking-wide text-muted-foreground">{operator.concessionN}</span>
-                {meta?.spid ? (
-                  <span className="rounded-sm border border-gold/50 bg-gold/10 px-1 py-px text-[8px] font-extrabold uppercase tracking-wide text-gold" title="Registrazione con SPID disponibile">SPID</span>
-                ) : null}
+              <div className="min-w-0">
+                <p className="truncate text-[8px] font-bold uppercase tracking-wide text-muted-foreground">
+                  {operator.noDepositBonus?.amount ? "Senza deposito" : "Bonus di benvenuto"}
+                  {meta?.spid ? " · SPID" : ""}
+                </p>
+                <p className={`truncate font-serif text-sm font-bold leading-tight ${operator.noDepositBonus?.amount || operator.depositBonus?.amount ? "text-gold" : "text-[10px] font-normal text-muted-foreground"}`}>
+                  {operator.noDepositBonus?.amount ?? operator.depositBonus?.amount ?? "Senza deposito non disponibile"}
+                </p>
               </div>
-              <div className="flex min-w-0 flex-1 items-center justify-between gap-2 px-3 py-2">
-                <div className="min-w-0">
-                  <p className="text-[9px] font-bold uppercase tracking-wide text-muted-foreground">
-                    {operator.noDepositBonus?.amount ? "Senza deposito" : "Bonus di benvenuto"}
-                  </p>
-                  <p className={`break-words font-serif font-bold leading-tight ${operator.noDepositBonus?.amount || operator.depositBonus?.amount ? "text-base text-gold" : "text-[10px] text-muted-foreground"}`}>
-                    {operator.noDepositBonus?.amount ?? operator.depositBonus?.amount ?? "Senza deposito non disponibile"}
-                  </p>
-                </div>
-                <BadgeCheck className="h-4 w-4 shrink-0 text-gold" aria-label="Operatore verificato dalla redazione" />
-              </div>
-              <div className="border-t border-offer-border bg-gold/[0.12] p-2">
-                <Button asChild size="sm" className="h-10 w-full px-2 text-[11px] font-extrabold uppercase">
-                  <a href={operator.officialUrl} target="_blank" rel="noopener noreferrer sponsored nofollow">
-                    Visita <ArrowUpRight className="h-3.5 w-3.5" />
-                  </a>
-                </Button>
-              </div>
+              <Button asChild size="sm" className="h-8 shrink-0 gap-1 px-2.5 text-[10px] font-extrabold uppercase">
+                <a href={operator.officialUrl} target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label={`Visita il sito ufficiale di ${operator.name} (verificato dalla redazione)`}>
+                  Visita il sito
+                  <BadgeCheck className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+              </Button>
             </article>
             );
           })}
