@@ -62,14 +62,14 @@ export function CasinoRankCard({
   const needsDarkLogoSurface = op.slug === "stake";
 
   return (
-    <article className="gc-card group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold/70 hover:shadow-md">
-      <div className="grid min-h-24 grid-cols-[minmax(0,1fr)_8.25rem] items-stretch border-b border-border sm:grid-cols-[minmax(0,1fr)_9.5rem]">
+    <article className="gc-card group relative flex h-full flex-col overflow-hidden rounded-lg border border-offer-border bg-offer shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold/70 hover:shadow-md">
+      <div className="grid min-h-24 grid-cols-[minmax(0,1fr)_8.25rem] items-stretch border-b border-offer-border sm:grid-cols-[minmax(0,1fr)_9.5rem]">
         <a
           href={op.officialUrl}
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
           aria-label={`Vai al sito ufficiale di ${op.name}`}
-          className={`gc-logo-frame flex min-w-0 items-center justify-center px-5 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold ${needsDarkLogoSurface ? "bg-logo-contrast" : "bg-card"}`}
+          className={`gc-logo-frame flex min-w-0 items-center justify-center px-5 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold ${needsDarkLogoSurface ? "bg-logo-contrast" : "bg-offer-deep"}`}
         >
           {op.logo ? (
             <img
@@ -85,7 +85,7 @@ export function CasinoRankCard({
             <span className="font-serif text-2xl text-foreground">{op.name}</span>
           )}
         </a>
-        <div className="flex items-center border-l border-border bg-secondary/10 p-2.5">
+        <div className="flex items-center border-l border-offer-border bg-gold/[0.12] p-2.5">
           <Button asChild className="gc-cta h-12 w-full px-2 text-xs font-extrabold uppercase">
             <a href={op.officialUrl} target="_blank" rel="noopener noreferrer sponsored nofollow">
               Visita <ArrowRight className="h-4 w-4" />
@@ -120,8 +120,8 @@ export function CasinoRankCard({
         </div>
 
 
-        <dl className="grid grid-cols-2 rounded-md border border-border">
-          <div className="min-w-0 border-r border-border bg-secondary/40 px-2.5 py-2">
+        <dl className="grid grid-cols-2 rounded-md border border-offer-border">
+          <div className="min-w-0 border-r border-offer-border bg-offer-deep px-2.5 py-2">
             <dt className="text-[9px] font-bold uppercase text-muted-foreground">Senza deposito</dt>
             <dd className="mt-0.5 break-words font-serif text-[13px] font-bold leading-snug text-gold">
               {op.noDepositBonus?.amount ?? "Vedi offerta"}
@@ -187,7 +187,7 @@ export function CasinoRankCard({
         ) : null}
       </div>
 
-      <p className="border-t border-border bg-secondary/30 px-3 py-1.5 text-[9px] leading-tight text-muted-foreground">
+      <p className="border-t border-offer-border bg-offer-deep px-3 py-1.5 text-[9px] leading-tight text-muted-foreground">
         Gioca responsabilmente · 18+ · Offerte soggette a termini e condizioni dell'operatore
       </p>
     </article>
