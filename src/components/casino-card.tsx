@@ -68,7 +68,7 @@ export function CasinoRankCard({
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
           aria-label={`Vai al sito ufficiale di ${op.name}`}
-          className="gc-logo-frame flex min-w-0 items-center justify-center bg-offer-deep px-5 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
+          className={`gc-logo-frame flex min-w-0 items-center justify-center px-5 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold ${op.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}
         >
           {op.logo ? (
             <img
