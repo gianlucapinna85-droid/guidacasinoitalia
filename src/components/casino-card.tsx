@@ -136,7 +136,13 @@ export function CasinoRankCard({
         </p>
 
         <div className="mt-auto space-y-1.5">
+          <Button asChild className="gc-cta h-11 w-full text-[13px] font-extrabold uppercase">
+            <a href={op.officialUrl} target="_blank" rel="noopener noreferrer sponsored nofollow">
+              Vai al sito ufficiale <ArrowRight className="h-4 w-4" />
+            </a>
+          </Button>
           <div className="flex items-center justify-between gap-2">
+
             <Link
               to="/operatori/$slug"
               params={{ slug: op.slug }}
