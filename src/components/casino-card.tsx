@@ -107,16 +107,16 @@ export function CasinoRankCard({
           <span className="shrink-0 text-[10px] font-semibold text-muted-foreground">Licenza {op.concessionN}</span>
         </div>
 
-        <dl className="grid grid-cols-2 overflow-hidden rounded-md border border-border">
+        <dl className="grid grid-cols-2 rounded-md border border-border">
           <div className="min-w-0 border-r border-border bg-secondary/40 px-2.5 py-2">
             <dt className="text-[9px] font-bold uppercase text-muted-foreground">Senza deposito</dt>
-            <dd className="mt-0.5 line-clamp-2 font-serif text-sm font-bold leading-tight text-gold">
+            <dd className="mt-0.5 break-words font-serif text-[13px] font-bold leading-snug text-gold">
               {op.noDepositBonus?.amount ?? "Vedi offerta"}
             </dd>
           </div>
           <div className="min-w-0 bg-gold/[0.08] px-2.5 py-2">
             <dt className="text-[9px] font-bold uppercase text-muted-foreground">Con deposito</dt>
-            <dd className="mt-0.5 line-clamp-2 font-serif text-sm font-bold leading-tight text-foreground">
+            <dd className="mt-0.5 break-words font-serif text-[13px] font-bold leading-snug text-foreground">
               {op.depositBonus?.amount ?? "Vedi offerta"}
             </dd>
           </div>
