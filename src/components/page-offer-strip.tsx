@@ -19,6 +19,7 @@ const PER_STRIP = 4;
 
 export function PageOfferStrip({ placement = "page" }: { placement?: "article" | "page" }) {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const snapshots = useBonusSnapshots();
   const selected = useMemo(() => {
     const available = operators.filter((operator) => operator.logo && operator.officialUrl);
     if (available.length <= PER_STRIP) return available;
@@ -64,11 +65,11 @@ export function PageOfferStrip({ placement = "page" }: { placement?: "article" |
               </a>
               <div className="min-w-0">
                 <p className="truncate text-[8px] font-bold uppercase tracking-wide text-muted-foreground">
-                  {operator.noDepositBonus?.amount ? "Senza deposito" : "Bonus di benvenuto"}
+                  {bonus.noDeposit ? "Senza deposito" : "Bonus di benvenuto"}
                   {meta?.spid ? " · SPID" : ""}
                 </p>
-                <p className={`truncate font-serif text-sm font-bold leading-tight ${operator.noDepositBonus?.amount || operator.depositBonus?.amount ? "text-gold" : "text-[10px] font-normal text-muted-foreground"}`}>
-                  {operator.noDepositBonus?.amount ?? operator.depositBonus?.amount ?? "Senza deposito non disponibile"}
+                <p className={`truncate font-serif text-sm font-bold leading-tight ${bonus.noDeposit || bonus.deposit ? "text-gold" : "text-[10px] font-normal text-muted-foreground"}`}>
+                  {bonus.noDeposit ?? bonus.deposit ?? "Senza deposito non disponibile"}
                 </p>
               </div>
               <Button asChild size="sm" className="h-8 shrink-0 gap-1 px-2.5 text-[10px] font-extrabold uppercase">
