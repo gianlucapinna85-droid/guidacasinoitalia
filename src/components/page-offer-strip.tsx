@@ -53,7 +53,7 @@ export function PageOfferStrip({ placement = "page" }: { placement?: "article" |
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
                 aria-label={`Vai al sito ufficiale di ${operator.name}`}
-                className={`gc-logo-frame flex h-20 min-w-0 items-center justify-center border-b border-offer-border px-4 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold ${operator.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}
+                className={`gc-logo-frame flex h-20 min-w-0 items-center justify-center border-b border-offer-border px-4 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold bg-offer-deep`}
               >
                 <img src={operator.logo} alt={`Logo ${operator.name}`} width={600} height={200} loading="lazy" decoding="async" className="gc-logo-img max-h-16 w-auto max-w-[88%] object-contain" />
               </a>
