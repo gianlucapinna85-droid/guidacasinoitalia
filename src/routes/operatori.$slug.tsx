@@ -13,6 +13,7 @@ import { FaqSlider } from "@/components/faq-slider";
 
 import { RatingBadge, CasinoBadges, RelatedLinks } from "@/components/casino-ui";
 import { socialImageMeta } from "@/lib/social-image";
+import { AUTHOR, LAST_VERIFIED_ISO } from "@/lib/author";
 
 
 function loadOperator(slug: string) {
