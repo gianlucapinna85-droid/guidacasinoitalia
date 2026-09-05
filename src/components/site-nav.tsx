@@ -86,7 +86,7 @@ export function SiteNav() {
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-2.5">
+        <div className="p-2.5">
           <p className="px-1.5 pb-1.5 text-[9px] font-bold uppercase tracking-widest text-gold">
             Sezioni principali
           </p>
