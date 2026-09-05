@@ -110,7 +110,7 @@ export function StickyCompareCTA() {
           Lista completa ADM <ArrowRight className="h-3.5 w-3.5 shrink-0" />
         </Link>
         <Link
-          to="/migliori-casino-scelti"
+          to="/migliori-casino-online-adm"
           className="flex min-h-8 items-center justify-center gap-1 rounded-md border border-gold/50 bg-card px-2 py-1 text-center text-[11px] font-bold leading-tight text-foreground shadow-sm"
         >
           I migliori casinò <Star className="h-3.5 w-3.5 shrink-0 text-gold" fill="currentColor" />

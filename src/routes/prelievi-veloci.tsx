@@ -3,7 +3,7 @@ import { GuideArticle, guideHead, type GuideConfig } from "@/components/guide-ar
 
 const CFG: GuideConfig = {
   path: "/prelievi-veloci",
-  title: "Casinò con prelievi veloci 2026: tempi reali e verifiche ADM",
+  title: "Casinò con prelievi veloci: guida ADM 2026",
   h1: "Casinò con prelievi veloci: quanto si aspetta davvero e da cosa dipende",
   description:
     "Come funzionano i prelievi rapidi sui casinò con concessione ADM: fasi di elaborazione, verifica dei documenti, metodi più veloci e cause dei ritardi. Confronto informativo. Solo +18.",

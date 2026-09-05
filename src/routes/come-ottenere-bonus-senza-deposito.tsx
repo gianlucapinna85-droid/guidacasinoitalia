@@ -10,7 +10,7 @@ import {
 
 const CFG: GuideConfig = {
   path: "/come-ottenere-bonus-senza-deposito",
-  title: "Come ottenere un bonus senza deposito: procedura passo per passo | 2026",
+  title: "Come ottenere un bonus senza deposito: guida 2026",
   h1: "Come ottenere un bonus senza deposito su un casinò ADM",
   description:
     "La procedura reale per ottenere un bonus senza deposito su un concessionario ADM: registrazione, verifica dell'identità, attivazione e sblocco. Guida informativa, +18.",

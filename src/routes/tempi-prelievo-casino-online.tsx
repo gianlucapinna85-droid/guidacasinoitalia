@@ -3,7 +3,7 @@ import { GuideArticle, guideHead, type GuideConfig } from "@/components/guide-ar
 
 const CFG: GuideConfig = {
   path: "/tempi-prelievo-casino-online",
-  title: "Tempi di prelievo casinò online: quanto tempo ci vuole davvero",
+  title: "Tempi di prelievo casinò online ADM 2026",
   h1: "Quanto tempo ci vuole per prelevare da un casinò online ADM",
   description:
     "Tempi di prelievo dichiarati dai principali concessionari ADM: quanto ci mette Snai, Goldbet, Sisal e gli altri, differenze per metodo e cosa fare se il pagamento tarda. +18.",

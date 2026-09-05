@@ -10,7 +10,7 @@ import {
 
 const CFG: GuideConfig = {
   path: "/roulette-online-italia",
-  title: "Roulette Online Italia 2026: guida ADM | Guida Casinò Italia",
+  title: "Roulette online Italia 2026: regole e guida ADM",
   h1: "Roulette online in Italia: varianti, regole e margine del banco",
   description:
     "Roulette online Italia sui casino ADM: roulette europea, francese e americana, margine del banco, roulette live e limiti di puntata. Guida informativa. Solo +18.",
