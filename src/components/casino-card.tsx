@@ -59,16 +59,17 @@ export function CasinoRankCard({
   rank,
 }: CasinoCardData & { rank?: number }) {
   const [open, setOpen] = useState(false);
+  const needsDarkLogoSurface = op.slug === "stake";
 
   return (
     <article className="gc-card group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold/70 hover:shadow-md">
-      <div className="border-b border-border">
+      <div className="grid min-h-24 grid-cols-[minmax(0,1fr)_8.25rem] items-stretch border-b border-border sm:grid-cols-[minmax(0,1fr)_9.5rem]">
         <a
           href={op.officialUrl}
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
           aria-label={`Vai al sito ufficiale di ${op.name}`}
-          className="gc-logo-frame flex h-28 w-full items-center justify-center px-5 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
+          className={`gc-logo-frame flex min-w-0 items-center justify-center px-5 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold ${needsDarkLogoSurface ? "bg-logo-contrast" : "bg-card"}`}
         >
           {op.logo ? (
             <img
@@ -78,12 +79,19 @@ export function CasinoRankCard({
               height={200}
               loading="lazy"
               decoding="async"
-              className="gc-logo-img h-full w-full"
+              className="gc-logo-img h-16 w-full max-w-52"
             />
           ) : (
             <span className="font-serif text-2xl text-foreground">{op.name}</span>
           )}
         </a>
+        <div className="flex items-center border-l border-border bg-secondary/10 p-2.5">
+          <Button asChild className="gc-cta h-12 w-full px-2 text-xs font-extrabold uppercase">
+            <a href={op.officialUrl} target="_blank" rel="noopener noreferrer sponsored nofollow">
+              Visita <ArrowRight className="h-4 w-4" />
+            </a>
+          </Button>
+        </div>
       </div>
 
       <div className="flex flex-1 flex-col gap-2.5 p-3">
@@ -136,11 +144,6 @@ export function CasinoRankCard({
         </p>
 
         <div className="mt-auto space-y-1.5">
-          <Button asChild className="gc-cta h-11 w-full text-[13px] font-extrabold uppercase">
-            <a href={op.officialUrl} target="_blank" rel="noopener noreferrer sponsored nofollow">
-              Vai al sito ufficiale <ArrowRight className="h-4 w-4" />
-            </a>
-          </Button>
           <div className="flex items-center justify-between gap-2">
 
             <Link
