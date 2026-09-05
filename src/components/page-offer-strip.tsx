@@ -33,7 +33,7 @@ export function PageOfferStrip({ placement = "page" }: { placement?: "article" |
         <div className="grid gap-2.5 lg:grid-cols-3">
           {selected.map((operator) => (
             <article key={operator.slug} className="grid min-h-28 grid-cols-[minmax(0,1fr)_8rem] overflow-hidden rounded-lg border border-offer-border bg-offer shadow-sm">
-              <div className="grid min-w-0 grid-rows-[4.75rem_auto]">
+              <div className="grid min-w-0 grid-rows-[4.5rem_auto]">
                 <a
                   href={operator.officialUrl}
                   target="_blank"
@@ -45,8 +45,12 @@ export function PageOfferStrip({ placement = "page" }: { placement?: "article" |
                 </a>
                 <div className="flex min-w-0 items-center justify-between gap-2 px-3 py-2">
                   <div className="min-w-0">
-                    <h3 className="truncate font-serif text-sm">{operator.name}</h3>
-                    <p className="truncate text-xs font-bold text-gold">{operator.noDepositBonus?.amount ?? operator.depositBonus?.amount ?? "Offerta sul sito"}</p>
+                    <p className="text-[9px] font-bold uppercase tracking-wide text-muted-foreground">
+                      {operator.noDepositBonus?.amount ? "Senza deposito" : "Bonus di benvenuto"}
+                    </p>
+                    <p className="break-words font-serif text-base font-bold leading-tight text-gold">
+                      {operator.noDepositBonus?.amount ?? operator.depositBonus?.amount ?? "Offerta sul sito"}
+                    </p>
                   </div>
                   <BadgeCheck className="h-4 w-4 shrink-0 text-gold" aria-label="Operatore verificato" />
                 </div>

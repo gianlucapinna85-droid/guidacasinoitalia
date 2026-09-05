@@ -183,7 +183,7 @@ export function CasinoComparator({
         <div className="mt-3 grid grid-cols-1 gap-3 px-0 md:mt-6 lg:grid-cols-2 lg:gap-4">
           {rows.map(({ op, meta }, i) => (
             <div key={op.slug} className="gc-pop" style={{ animationDelay: `${Math.min(i, 6) * 30}ms` }}>
-              <CasinoRankCard op={op} meta={meta} rank={i + 1} />
+              <CasinoRankCard op={op} meta={meta} />
             </div>
           ))}
           {rows.length === 0 ? (
