@@ -1,5 +1,4 @@
-// Dati puramente illustrativi. Le concessioni ADM sono verificabili su adm.gov.it.
-// Sostituisci con dati verificati e link ai T&C ufficiali prima della pubblicazione.
+// Dati editoriali da verificare periodicamente sulle fonti indicate.
 import leovegasLogo from "@/assets/logos/leovegas.webp";
 import netbetLogo from "@/assets/logos/netbet.webp";
 import betflagLogo from "@/assets/logos/betflag.webp";

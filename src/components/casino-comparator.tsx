@@ -3,6 +3,7 @@ import { SlidersHorizontal } from "lucide-react";
 import { operators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
 import { CasinoRankCard } from "@/components/casino-card";
+import { Button } from "@/components/ui/button";
 
 /**
  * Comparatore casinò ADM con filtri e ordinamento.
@@ -95,17 +96,14 @@ export function CasinoComparator({
 
         {/* Pulsante Filtra + contatore attivi */}
         <div className="mt-3 flex items-center gap-2 md:mt-6 lg:hidden">
-          <button
+          <Button
             type="button"
+            variant="outline"
+            size="sm"
             aria-expanded={showFilters}
             aria-pressed={active.length > 0}
             onClick={() => setShowFilters((v) => !v)}
-            className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-semibold transition-all duration-200 md:text-xs"
-            style={{
-              borderColor: showFilters || active.length > 0 ? "var(--gold, #c9a227)" : "var(--border)",
-              background: showFilters || active.length > 0 ? "rgba(201,162,39,0.15)" : "transparent",
-              color: showFilters || active.length > 0 ? "var(--gold, #c9a227)" : "var(--muted-foreground)",
-            }}
+            className={showFilters || active.length > 0 ? "border-gold bg-gold/15 text-gold" : "text-muted-foreground"}
           >
             <SlidersHorizontal className="h-3.5 w-3.5" /> Filtra
             {active.length > 0 && (
@@ -113,15 +111,17 @@ export function CasinoComparator({
                 {active.length}
               </span>
             )}
-          </button>
+          </Button>
           {active.length > 0 && (
-            <button
+            <Button
               type="button"
+              variant="ghost"
+              size="sm"
               onClick={() => setActive([])}
               className="text-[11px] text-muted-foreground underline hover:text-foreground md:text-xs"
             >
               Azzera filtri
-            </button>
+            </Button>
           )}
         </div>
 
@@ -134,19 +134,21 @@ export function CasinoComparator({
               {FILTERS.map((f) => {
                 const on = active.includes(f.id);
                 return (
-                  <button
+                  <Button
                     key={f.id}
                     type="button"
+                    variant="outline"
+                    size="sm"
                     aria-pressed={on}
                     onClick={() => toggle(f.id)}
-                    className={`rounded-full border px-2.5 py-1 text-[11px] font-semibold transition-all duration-200 md:text-xs ${
+                    className={`h-8 rounded-full px-2.5 text-[11px] md:text-xs ${
                       on
                         ? "border-gold bg-gold/15 text-gold"
                         : "border-border text-muted-foreground hover:border-gold/40 hover:text-foreground"
                     }`}
                   >
                     {f.label}
-                  </button>
+                  </Button>
                 );
               })}
             </div>
@@ -155,19 +157,21 @@ export function CasinoComparator({
                 Ordina
               </span>
               {SORTS.map((s) => (
-                <button
+                <Button
                   key={s.id}
                   type="button"
+                  variant="outline"
+                  size="sm"
                   aria-pressed={sort === s.id}
                   onClick={() => setSort(s.id)}
-                  className={`rounded-full border px-2.5 py-1 text-[11px] font-semibold transition-all duration-200 md:text-xs ${
+                  className={`h-8 rounded-full px-2.5 text-[11px] md:text-xs ${
                     sort === s.id
                       ? "border-gold bg-gold/15 text-gold"
                       : "border-border text-muted-foreground hover:border-gold/40 hover:text-foreground"
                   }`}
                 >
                   {s.label}
-                </button>
+                </Button>
               ))}
             </div>
           </div>
@@ -176,7 +180,7 @@ export function CasinoComparator({
           {rows.length} operatori corrispondono ai criteri selezionati.
         </p>
 
-        <div className="mt-3 grid grid-cols-1 gap-3 px-0 sm:grid-cols-2 sm:gap-4 md:mt-6 lg:grid-cols-3 lg:gap-5 xl:grid-cols-4">
+        <div className="mt-3 grid grid-cols-1 gap-3 px-0 sm:grid-cols-2 md:mt-6 lg:grid-cols-3 lg:gap-4">
           {rows.map(({ op, meta }, i) => (
             <div key={op.slug} className="gc-pop" style={{ animationDelay: `${Math.min(i, 6) * 30}ms` }}>
               <CasinoRankCard op={op} meta={meta} rank={i + 1} />
