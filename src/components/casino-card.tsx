@@ -93,54 +93,36 @@ export function CasinoRankCard({
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col gap-2.5 p-3">
-        <div className="flex min-w-0 items-start justify-between gap-2">
-          <div className="min-w-0">
-            <div className="flex min-w-0 items-center gap-2">
-              {rank ? (
-                <span className="shrink-0 rounded-sm bg-gold px-1.5 py-0.5 text-[9px] font-extrabold uppercase text-primary-foreground" aria-label={`Posizione ${rank}`}>
-                  Top {rank}
-                </span>
-              ) : null}
-              <h3 className="truncate font-serif text-base leading-tight">{op.name}</h3>
-            </div>
-            <span className="text-[10px] font-semibold text-muted-foreground">Licenza {op.concessionN}</span>
-          </div>
-          <div className="flex shrink-0 flex-col items-end gap-0.5">
-            {meta ? (
-              <span className="flex items-center gap-1 text-xs font-bold text-gold">
-                <StarRating rating={meta.rating} size="sm" /> {meta.rating.toFixed(1)}
-              </span>
-            ) : null}
-            <span className="inline-flex items-center gap-1 text-[9px] font-semibold uppercase text-muted-foreground">
-              <BadgeCheck className="h-3 w-3 text-gold" /> Verificato
-            </span>
-          </div>
-        </div>
-
-
-        <dl className="grid grid-cols-2 rounded-md border border-offer-border">
-          <div className="min-w-0 border-r border-offer-border bg-offer-deep px-2.5 py-2">
-            <dt className="text-[9px] font-bold uppercase text-muted-foreground">Senza deposito</dt>
-            <dd className="mt-0.5 break-words font-serif text-[13px] font-bold leading-snug text-gold">
+      <div className="flex flex-1 flex-col gap-2 p-3">
+        <dl className="grid grid-cols-2 overflow-hidden rounded-md border border-offer-border">
+          <div className="min-w-0 border-r border-offer-border bg-offer-deep px-2.5 py-2.5">
+            <dt className="text-[9px] font-bold uppercase tracking-wide text-muted-foreground">Senza deposito</dt>
+            <dd className="mt-0.5 break-words font-serif text-lg font-bold leading-tight text-gold">
               {op.noDepositBonus?.amount ?? "Vedi offerta"}
             </dd>
           </div>
-          <div className="min-w-0 bg-gold/[0.08] px-2.5 py-2">
-            <dt className="text-[9px] font-bold uppercase text-muted-foreground">Con deposito</dt>
-            <dd className="mt-0.5 break-words font-serif text-[13px] font-bold leading-snug text-foreground">
+          <div className="min-w-0 bg-gold/[0.10] px-2.5 py-2.5">
+            <dt className="text-[9px] font-bold uppercase tracking-wide text-muted-foreground">Con deposito</dt>
+            <dd className="mt-0.5 break-words font-serif text-lg font-bold leading-tight text-foreground">
               {op.depositBonus?.amount ?? "Vedi offerta"}
             </dd>
           </div>
         </dl>
 
-        <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] text-muted-foreground">
+        <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-[10px] text-muted-foreground">
+          {meta ? (
+            <span className="flex items-center gap-1 font-bold text-gold">
+              <StarRating rating={meta.rating} size="sm" /> {meta.rating.toFixed(1)}
+            </span>
+          ) : null}
+          <span className="inline-flex items-center gap-1 font-semibold uppercase">
+            <BadgeCheck className="h-3 w-3 text-gold" /> Verificato
+          </span>
           <span>RTP <strong className="text-foreground">{op.rtpAverage}</strong></span>
-          <span aria-hidden="true">·</span>
           <span>{op.games}+ giochi</span>
-          <span aria-hidden="true">·</span>
-          <span className="font-semibold text-foreground">18+ ADM</span>
-        </p>
+          <span>ADM {op.concessionN}</span>
+        </div>
+
 
         <div className="mt-auto space-y-1.5">
           <div className="flex items-center justify-between gap-2">
