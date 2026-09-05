@@ -45,11 +45,11 @@ export const operatorBonuses: OperatorBonus[] = [
   {
     slug: "leovegas",
     noDeposit: {
-      amount: "Fino a 50 giri gratis",
+      amount: "50 giri gratis",
       condition: "Registrazione con SPID e verifica dell'identità, senza deposito.",
     },
     deposit: {
-      amount: "Fino a 1.500 € + 250 giri gratis",
+      amount: "1.500 € + 250 giri",
       condition: "Offerta casinò su più depositi; sezione live fino a 2.000 € sui primi 3 depositi.",
     },
     source: "https://www.leovegas.it/promozioni/offerta-benvenuto-casino",
@@ -61,7 +61,7 @@ export const operatorBonuses: OperatorBonus[] = [
       condition: "Registrazione con SPID e verifica del conto, senza deposito.",
     },
     deposit: {
-      amount: "Fino a 2.000 € (casinò) · 100% fino a 1.000 € (sport)",
+      amount: "Fino a 2.000 €",
       condition: "Deposito minimo 10 € dichiarato sull'offerta sport.",
     },
     source: "https://www.netbet.it/promozioni",
@@ -69,7 +69,7 @@ export const operatorBonuses: OperatorBonus[] = [
   {
     slug: "888",
     noDeposit: {
-      amount: "88 giri gratis + 50 alla verifica",
+      amount: "88+50 giri gratis",
       condition: "Giri alla registrazione e ulteriori giri alla convalida del documento.",
     },
     deposit: {
@@ -81,11 +81,11 @@ export const operatorBonuses: OperatorBonus[] = [
   {
     slug: "betflag",
     noDeposit: {
-      amount: "5.000 € slot + 25 € virtual (massimale)",
+      amount: "Fino a 5.000 €",
       condition: "Registrazione con CIE/SPID; accredito a step al raggiungimento del giocato.",
     },
     deposit: {
-      amount: "Fino a 5.000 € (slot) · fino a 3.000 € (casinò live)",
+      amount: "Fino a 5.000 €",
       condition: "Accredito progressivo a step; validità dichiarata 30 giorni.",
     },
     source: "https://info.betflag.it/promozioni-e-bonus",
@@ -93,7 +93,7 @@ export const operatorBonuses: OperatorBonus[] = [
   {
     slug: "sunbet",
     noDeposit: {
-      amount: "10 € (5 € sport + 5 € casinò)",
+      amount: "10 € gratis",
       condition: "Accredito alla convalida del documento, senza deposito.",
     },
     deposit: {
@@ -105,11 +105,11 @@ export const operatorBonuses: OperatorBonus[] = [
   {
     slug: "william-hill",
     noDeposit: {
-      amount: "10 € sport con SPID",
+      amount: "10 € gratis",
       condition: "Registrazione con SPID e verifica dell'identità, senza deposito.",
     },
     deposit: {
-      amount: "100 € cash + 100 € free bet (sport) · 100% fino a 1.000 € + 50 giri (casinò)",
+      amount: "Fino a 1.000 € + 50 giri",
       condition: "Deposito minimo dichiarato 20 € sull'offerta casinò.",
     },
     source: "https://www.williamhill.it/",
@@ -117,12 +117,12 @@ export const operatorBonuses: OperatorBonus[] = [
   {
     slug: "lottomatica",
     noDeposit: {
-      amount: "Bonus alla verifica del conto (importo indicato in registrazione)",
+      amount: "Bonus alla verifica",
       condition:
         "Riconosciuto ai nuovi conti verificati con SPID/CIE: l'importo è mostrato durante la registrazione.",
     },
     deposit: {
-      amount: "Fino a 6.550 € (scommesse) · fino a 5.000 € (casinò)",
+      amount: "Fino a 5.000 €",
       condition: "Offerta selezionabile durante la registrazione e legata ai primi depositi.",
     },
     source: "https://www.lottomatica.it/bonus/bonus-di-benvenuto",
@@ -132,12 +132,12 @@ export const operatorBonuses: OperatorBonus[] = [
   {
     slug: "goldbet",
     noDeposit: {
-      amount: "Fino a 1.000 € in Play Bonus Slot",
+      amount: "Fino a 1.000 € slot",
       condition:
         "Registrazione con SPID e conto convalidato, senza deposito; accredito progressivo secondo i T&C.",
     },
     deposit: {
-      amount: "Fino a 5.050 € (casinò) · fino a 2.150 € (scommesse)",
+      amount: "Fino a 5.050 €",
       condition: "Bonus di benvenuto sui primi depositi, con requisiti di giocato indicati nei T&C.",
     },
     source: "https://www.goldbet.it/bonus/tutti",
@@ -147,11 +147,11 @@ export const operatorBonuses: OperatorBonus[] = [
   {
     slug: "snai",
     noDeposit: {
-      amount: "Bonus senza deposito attivo (importo non pubblicato)",
+      amount: "Bonus senza deposito",
       condition: "Sezione dedicata sul sito ufficiale: importo indicato in fase di registrazione.",
     },
     deposit: {
-      amount: "Fino a 1.500 € (sport) · fino a 3.000 € (casinò)",
+      amount: "Fino a 3.000 €",
       condition: "Deposito minimo 10 € entro 14 giorni dalla registrazione; bonifico escluso.",
     },
     source: "https://www.snai.it/bonus/bonus-benvenuto",
@@ -159,12 +159,12 @@ export const operatorBonuses: OperatorBonus[] = [
   {
     slug: "sisal",
     noDeposit: {
-      amount: 'Bonus senza deposito "Salva il Bottino"',
+      amount: "Bonus senza deposito",
       condition:
         "Gioco promozionale riservato ai nuovi conti verificati, senza obbligo di deposito; premio variabile secondo i T&C.",
     },
     deposit: {
-      amount: "Fino a 6.000 € (casinò Fun Bonus) · fino a 5.050 € (Real + Fun)",
+      amount: "Fino a 6.000 €",
       condition:
         "Bonus di benvenuto selezionabile in registrazione; requisiti e scadenze nei T&C ufficiali.",
     },
@@ -177,7 +177,7 @@ export const operatorBonuses: OperatorBonus[] = [
       condition: "Credito riconosciuto ai nuovi conti verificati, senza deposito.",
     },
     deposit: {
-      amount: "100% fino a 500 € + 50 giri (casinò) · 100% fino a 1.000 € (sport)",
+      amount: "500 € + 50 giri",
       condition: "Deposito minimo 10 €; bonus sbloccato a scaglioni progressivi secondo i T&C.",
     },
     source: "https://www.eplay24.it/",
@@ -187,11 +187,11 @@ export const operatorBonuses: OperatorBonus[] = [
   {
     slug: "admiralbet",
     noDeposit: {
-      amount: "2.000 € + 1.000 giri gratis (massimale)",
+      amount: "2.000 € + 1.000 giri",
       condition: "Registrazione con SPID; accredito progressivo secondo i T&C.",
     },
     deposit: {
-      amount: "200% fino a 5.000 € (slot) · fino a 7.000 € + 1.000 giri (sport)",
+      amount: "Fino a 5.000 € + giri",
       condition: "Bonus di primo deposito con SPID, soggetto ai requisiti dei T&C ufficiali.",
     },
     source: "https://www.admiralbet.it/promozioni/bonus-benvenuto",
@@ -199,11 +199,11 @@ export const operatorBonuses: OperatorBonus[] = [
   {
     slug: "stake",
     noDeposit: {
-      amount: "50 € senza deposito (25 € sport + 25 € casinò)",
+      amount: "50 € gratis",
       condition: "Accredito alla registrazione con conto verificato, senza deposito.",
     },
     deposit: {
-      amount: "Fino a 2.000 € sui primi 3 depositi",
+      amount: "Fino a 2.000 €",
       condition: "Primo deposito minimo 10 €; promozione con scadenza indicata nei T&C.",
     },
     source: "https://stake.it/promo",
@@ -217,7 +217,7 @@ export const operatorBonuses: OperatorBonus[] = [
       condition: "Bonus riconosciuto ai nuovi conti verificati, senza deposito.",
     },
     deposit: {
-      amount: "100% fino a 2.000 € (casinò) · fino a 2.050 € totali con la sezione sport",
+      amount: "Fino a 2.000 €",
       condition: "Requisito di puntata dichiarato 50x; dettagli completi nei T&C ufficiali.",
     },
     source: "https://www.sportium.it/",
