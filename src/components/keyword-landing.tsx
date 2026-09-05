@@ -174,6 +174,7 @@ export function KeywordLanding({
   offerSubtitle?: string;
   children: ReactNode;
 }) {
+  const pathname = useLocation({ select: (l) => l.pathname });
   return (
     <PageShell>
       <article className="mx-auto max-w-4xl px-2.5 py-8 md:px-6 md:py-16">
