@@ -10,7 +10,7 @@ import {
 
 const CFG: GuideConfig = {
   path: "/siti-scommesse-bonus-senza-deposito",
-  title: "Quali siti di scommesse danno bonus senza deposito | Guida 2026",
+  title: "Siti scommesse con bonus senza deposito: guida 2026",
   h1: "Quali siti di scommesse danno un bonus senza deposito",
   description:
     "Come si individuano i siti di scommesse con concessione ADM che offrono un bonus senza deposito, dove si legge il regolamento e quali condizioni verificare. Contenuto informativo, +18.",

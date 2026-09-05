@@ -46,7 +46,7 @@ export const Route = createFileRoute("/blog/$category/")({
       meta: [
         { title: hub.title },
         { name: "description", content: hub.description },
-        { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
+        { name: "robots", content: (loaderData?.articles.length ?? 0) >= 3 ? "index, follow, max-snippet:-1, max-image-preview:large" : "noindex, follow" },
         { property: "og:title", content: hub.title },
         ...socialImageMeta(),
         { property: "og:description", content: hub.description },

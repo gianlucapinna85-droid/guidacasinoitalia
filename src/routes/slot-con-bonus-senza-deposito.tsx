@@ -10,7 +10,7 @@ import {
 
 const CFG: GuideConfig = {
   path: "/slot-con-bonus-senza-deposito",
-  title: "Slot con bonus senza deposito: free spin e requisiti | Guida 2026",
+  title: "Slot con bonus senza deposito: free spin e requisiti",
   h1: "Slot con bonus senza deposito: come funzionano free spin e requisiti",
   description:
     "Come funzionano i bonus slot senza deposito sui casinò ADM: free spin, valore del giro, contribuzione al requisito, volatilità e tetto di conversione. Informativo, +18.",

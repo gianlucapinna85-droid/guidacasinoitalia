@@ -907,7 +907,7 @@ function Hero() {
 
           <div className="mt-2 flex flex-nowrap items-stretch gap-2 md:mt-8 md:gap-3">
             <Link
-              to="/migliori-casino-scelti"
+              to="/migliori-casino-online-adm"
               className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold px-3 py-1.5 text-[12px] font-bold leading-tight text-primary-foreground shadow-md shadow-gold/25 transition-all hover:brightness-110 sm:flex-none md:px-4 md:py-2.5 md:text-sm"
             >
               I migliori casinò <ArrowRight className="h-3.5 w-3.5 shrink-0" />

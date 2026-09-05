@@ -10,7 +10,7 @@ import {
 
 const CFG: GuideConfig = {
   path: "/slot-online-soldi-veri",
-  title: "Slot Online Soldi Veri 2026: guida ADM | Guida Casinò Italia",
+  title: "Slot online soldi veri 2026: guida ADM",
   h1: "Slot online soldi veri: come funzionano sui casino ADM",
   description:
     "Slot online soldi veri sui casino ADM: RNG certificato, RTP, volatilità, provider e differenze con le slot machine online in demo. Guida informativa. Solo +18.",

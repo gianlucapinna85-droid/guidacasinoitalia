@@ -10,7 +10,7 @@ import {
 
 const CFG: GuideConfig = {
   path: "/casino-italiani-bonus-gratis-senza-deposito",
-  title: "Qual è il casinò italiano con bonus gratis senza deposito | 2026",
+  title: "Casinò italiani con bonus gratis senza deposito 2026",
   h1: "Qual è il casinò italiano con bonus gratis senza deposito",
   description:
     "Come individuare i casinò italiani con concessione ADM che offrono un bonus gratis senza deposito e come confrontare le condizioni reali delle offerte. Informativo, +18.",

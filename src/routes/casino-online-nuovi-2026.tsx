@@ -3,7 +3,7 @@ import { GuideArticle, guideHead, type GuideConfig } from "@/components/guide-ar
 
 const CFG: GuideConfig = {
   path: "/casino-online-nuovi-2026",
-  title: "Casinò online nuovi 2026: come verificarli prima di iscriversi",
+  title: "Casinò online nuovi 2026: come verificarli",
   h1: "Casinò online nuovi nel 2026: cosa controllare prima di aprire un conto",
   description:
     "Nuovi casinò online in Italia nel 2026: come verificare la concessione ADM appena rilasciata, leggere le condizioni del bonus e valutare pagamenti e assistenza. +18.",

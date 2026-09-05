@@ -3,7 +3,7 @@ import { GuideArticle, guideHead, type GuideConfig } from "@/components/guide-ar
 
 const CFG: GuideConfig = {
   path: "/casino-online-che-pagano-subito",
-  title: "Casinò online che pagano subito: tempi reali di accredito 2026",
+  title: "Casinò che pagano subito: tempi di accredito 2026",
   h1: "Casinò online che pagano subito: quali dichiarano l'accredito più rapido",
   description:
     "Quali casinò ADM dichiarano prelievi immediati e quanto si aspetta davvero: tempi per metodo, soglie minime, verifica documenti e cause di ritardo. Informativo, +18.",

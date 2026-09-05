@@ -25,7 +25,6 @@ export type SiteEntry = {
 export function getPageEntries(): SiteEntry[] {
   return [
     { path: "/", changefreq: "daily", priority: "1.0" },
-    { path: "/migliori-casino-scelti", changefreq: "weekly", priority: "0.9" },
     { path: "/slot", changefreq: "weekly", priority: "0.9" },
     { path: "/bonus", changefreq: "weekly", priority: "0.9" },
     { path: "/slot-piu-giocate", changefreq: "weekly", priority: "0.9" },
@@ -72,7 +71,7 @@ export function getReviewEntries(): SiteEntry[] {
 export function getBlogEntries(): SiteEntry[] {
   return [
     { path: "/blog", changefreq: "daily", priority: "0.9" },
-    ...categoryHubs.map((h) => ({
+    ...categoryHubs.filter((h) => blogArticles.filter((a) => a.category === h.category).length >= 3).map((h) => ({
       path: `/blog/${h.slug}`,
       changefreq: "daily" as const,
       priority: "0.8",
@@ -89,7 +88,7 @@ export function getBlogEntries(): SiteEntry[] {
 /** News: lastmod dalla data di pubblicazione dell'articolo. */
 export function getNewsEntries(): SiteEntry[] {
   return [
-    { path: "/news", changefreq: "daily", priority: "0.9" },
+    { path: "/news", changefreq: "weekly", priority: "0.9" },
     ...news.map((n) => ({
       path: `/news/${n.slug}`,
       lastmod: n.date,
