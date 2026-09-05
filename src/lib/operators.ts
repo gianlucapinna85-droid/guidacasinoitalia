@@ -66,7 +66,7 @@ export const operators: Operator[] = [
     ],
     officialUrl: "https://www.gambling-affiliation.com/cpc/v=a-yTKpQqX3dLKLMvQJrGEp3tdThO2zuagjWbNALD2ao_GA7331V2",
     noDepositBonus: {
-      amount: "Fino a 250 FREE SPINS",
+      amount: "250 giri gratis",
       description:
         "Importo di gioco riconosciuto dopo la verifica dell'identità, senza necessità di effettuare alcun deposito. Soggetto ai requisiti di puntata e alle condizioni pubblicate dal concessionario.",
     },
