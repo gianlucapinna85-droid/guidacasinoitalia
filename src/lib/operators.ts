@@ -13,6 +13,8 @@ import eplay24Logo from "@/assets/logos/eplay24.webp";
 import admiralbetAsset from "@/assets/logos/admiralbet.jpeg.asset.json";
 import stakeAsset from "@/assets/logos/stake-hd.png.asset.json";
 import sportiumAsset from "@/assets/logos/sportium-hd.png.asset.json";
+import betssonLogo from "@/assets/logos/betsson.webp";
+import starcasinoLogo from "@/assets/logos/starcasino.webp";
 import { getOperatorBonus } from "@/data/bonuses";
 
 
@@ -328,6 +330,38 @@ export const operators: Operator[] = [
       "Adesione al Registro Unico degli Autoesclusi",
     ],
     officialUrl: "https://www.gambling-affiliation.com/cpc/v=PQfBkFWn2RrgEyuC9pki0ijNK-VmYQIeJq3NKFVyvnY_GA7331V2",
+  },
+  {
+    slug: "betsson",
+    name: "Betsson",
+    logo: betssonLogo,
+    concessionN: "ADM n. 16027",
+    founded: 1963,
+    rtpAverage: "96,3%",
+    paymentMethods: ["Carte", "PayPal", "Postepay", "Skrill", "Bonifico"],
+    games: 5000,
+    highlights: [
+      "Concessione ADM in corso di validità",
+      "Catalogo slot molto ampio e sezione live dedicata",
+      "Strumenti di autolimitazione e adesione al RUA",
+    ],
+    officialUrl: "https://record.betsson.it/_QqqnemKYee-I-QCHHOFI22Nd7ZgqdRLk/1/",
+  },
+  {
+    slug: "starcasino",
+    name: "StarCasinò",
+    logo: starcasinoLogo,
+    concessionN: "ADM n. 16026",
+    founded: 2012,
+    rtpAverage: "96,2%",
+    paymentMethods: ["Carte", "PayPal", "Postepay", "Skrill", "Bonifico"],
+    games: 3000,
+    highlights: [
+      "Concessione ADM in corso di validità",
+      "Sezione live con tavoli in italiano",
+      "Strumenti di gioco responsabile e adesione al RUA",
+    ],
+    officialUrl: "https://record.starcasino.it/_QqqnemKYee_PSO5RLscKcGNd7ZgqdRLk/1/",
   },
 ];
 
