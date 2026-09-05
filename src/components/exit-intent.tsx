@@ -216,16 +216,24 @@ export default function ExitIntent() {
                   </span>
                 </div>
 
-                {op.noDepositBonus?.amount ? (
-                  <div className="mt-2 rounded-lg border border-gold/40 bg-gold/10 px-2 py-1">
+                <div className="mt-2 space-y-1">
+                  <div className="rounded-lg border border-gold/40 bg-gold/10 px-2 py-1">
                     <p className="text-[9px] font-bold uppercase tracking-widest text-gold/80">
-                      Bonus senza deposito
+                      Senza deposito
                     </p>
-                    <p className="text-[12px] font-bold text-gold">{op.noDepositBonus.amount}</p>
+                    <p className="text-[12px] font-bold text-gold">
+                      {op.noDepositBonus?.amount ?? "Non dichiarato"}
+                    </p>
                   </div>
-                ) : (
-                  <p className="mt-2 text-[11px] text-muted-foreground">Bonus non dichiarato</p>
-                )}
+                  <div className="rounded-lg border border-border px-2 py-1">
+                    <p className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">
+                      Con deposito
+                    </p>
+                    <p className="text-[12px] font-bold text-foreground">
+                      {op.depositBonus?.amount ?? "Vedi sito ufficiale"}
+                    </p>
+                  </div>
+                </div>
 
                 <dl className="mt-2 grid grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-muted-foreground">
                   <div>
