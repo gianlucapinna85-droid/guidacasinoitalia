@@ -7,3 +7,4 @@
 - [ ] Pubblicare, verificare Search Console e inviare una sola volta la sitemap aggiornata.
 - [x] Analizzare il profilo backlink e documentare l'azione esterna necessaria per i link sitewide.
 - [x] Verificare desktop/mobile e controlli SEO locali.
+- [x] Inserire offerte conversione con operatori diversi nelle guide e in fondo a tutte le pagine pubbliche.

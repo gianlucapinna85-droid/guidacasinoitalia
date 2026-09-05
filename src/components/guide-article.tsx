@@ -8,6 +8,7 @@ import { socialImageMeta } from "@/lib/social-image";
 import { AuthorByline, AuthorBox } from "@/components/author-byline";
 import { LegalNote } from "@/components/legal-note";
 import { authorSchema, LAST_VERIFIED_ISO } from "@/lib/author";
+import { PageOfferStrip } from "@/components/page-offer-strip";
 
 
 
@@ -252,6 +253,8 @@ export function GuideArticle({ cfg, children }: { cfg: GuideConfig; children?: R
           <p className="mt-4 text-sm text-muted-foreground md:text-base">{cfg.description}</p>
           <AuthorByline className="mt-4" />
         </header>
+
+        <PageOfferStrip placement="article" />
 
         <nav className="mt-8 rounded-xl border border-border bg-card p-5">
           <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Indice</p>

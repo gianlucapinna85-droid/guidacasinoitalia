@@ -13,6 +13,7 @@ import admLogoUrl from "@/assets/logos/adm.webp";
 import vietato18BadgeUrl from "@/assets/logos/v18-badge.webp";
 import admBadgeUrl from "@/assets/logos/adm-badge.webp";
 import { EXTERNAL_BLOG_URL } from "@/lib/internal-links";
+import { PageOfferStrip } from "@/components/page-offer-strip";
 
 
 const vietato18 = { url: vietato18Url };
@@ -374,6 +375,7 @@ export function PageShell({ children }: { children: ReactNode }) {
       <AgeBanner />
       <Header />
       <main className="flex-1">{children}</main>
+      <PageOfferStrip />
       <Footer />
       <Suspense fallback={null}>
         <ExitIntent />
