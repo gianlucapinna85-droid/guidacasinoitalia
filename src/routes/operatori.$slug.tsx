@@ -13,6 +13,7 @@ import { FaqSlider } from "@/components/faq-slider";
 
 import { RatingBadge, CasinoBadges, RelatedLinks } from "@/components/casino-ui";
 import { socialImageMeta } from "@/lib/social-image";
+import { AUTHOR, LAST_VERIFIED_ISO, authorSchema } from "@/lib/author";
 
 
 function loadOperator(slug: string) {
@@ -69,9 +70,9 @@ export const Route = createFileRoute("/operatori/$slug")({
             headline: title,
             description,
             inLanguage: "it-IT",
-            author: { "@type": "Organization", name: "GuidaCasinò.IT" },
+            author: authorSchema(),
             publisher: { "@type": "Organization", name: "GuidaCasinò.IT" },
-            dateModified: new Date().toISOString().slice(0, 10),
+            dateModified: LAST_VERIFIED_ISO,
             mainEntityOfPage: canonical,
             about: {
               "@type": "Organization",
@@ -92,11 +93,25 @@ export const Route = createFileRoute("/operatori/$slug")({
               "@type": "Organization",
               name: operator.name,
               identifier: operator.concessionN,
-              url: canonical,
+              url: operator.officialUrl,
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: getCasinoMeta(operator.slug)?.rating ?? 8.5,
+                bestRating: 10,
+                worstRating: 1,
+                ratingCount: 1,
+              },
             },
-            author: { "@type": "Organization", name: "GuidaCasinò.IT" },
+            author: {
+              "@type": "Person",
+              name: AUTHOR.name,
+              url: AUTHOR.url,
+              image: AUTHOR.photoAbsolute,
+              jobTitle: AUTHOR.role,
+            },
             publisher: { "@type": "Organization", name: "GuidaCasinò.IT" },
-            datePublished: new Date().toISOString().slice(0, 10),
+            datePublished: LAST_VERIFIED_ISO,
+            dateModified: LAST_VERIFIED_ISO,
             reviewRating: {
               "@type": "Rating",
               ratingValue: getCasinoMeta(operator.slug)?.rating ?? 8.5,
