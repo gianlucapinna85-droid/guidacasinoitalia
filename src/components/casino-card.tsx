@@ -62,17 +62,14 @@ export function CasinoRankCard({
 
   return (
     <article className="gc-card group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold/70 hover:shadow-md">
-      {/* filetto superiore dorato: dettaglio editoriale, non decorazione invadente */}
-      <span aria-hidden="true" className="block h-[3px] w-full bg-gradient-to-r from-gold/20 via-gold to-gold/20" />
-
-      <div className="flex flex-1 flex-col gap-2.5 p-3">
-        <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-3">
-          <Link
-            to="/operatori/$slug"
-            params={{ slug: op.slug }}
-            aria-label={`Scheda ${op.name}`}
-            className="gc-logo-frame relative flex h-12 w-[5.5rem] shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-gold"
-          >
+      <div className="relative grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 border-b border-gold/35 bg-background px-3 py-2.5">
+        <a
+          href={op.officialUrl}
+          target="_blank"
+          rel="noopener noreferrer sponsored nofollow"
+          aria-label={`Vai al sito ufficiale di ${op.name}`}
+          className="gc-logo-frame flex h-16 min-w-0 items-center justify-start overflow-hidden rounded-md bg-card px-2 transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+        >
             {op.logo ? (
               <img
                 src={op.logo}
@@ -81,56 +78,46 @@ export function CasinoRankCard({
                 height={200}
                 loading="lazy"
                 decoding="async"
-                className="gc-logo-img"
+                className="gc-logo-img max-w-[9.5rem]"
               />
             ) : (
-              <span className="truncate px-1 font-serif text-xs text-foreground">{op.name}</span>
+              <span className="truncate px-2 font-serif text-lg text-foreground">{op.name}</span>
             )}
-          </Link>
+        </a>
+        <div className="flex shrink-0 flex-col items-end gap-1">
+          {rank ? (
+            <span className="rounded-md bg-gold px-2 py-0.5 text-[10px] font-extrabold uppercase text-primary-foreground" aria-label={`Posizione ${rank}`}>
+              Top {rank}
+            </span>
+          ) : null}
+          {meta ? (
+            <span className="flex items-center gap-1 text-xs font-bold text-gold">
+              <StarRating rating={meta.rating} size="sm" /> {meta.rating.toFixed(1)}
+            </span>
+          ) : null}
+          <span className="inline-flex items-center gap-1 text-[9px] font-semibold uppercase text-muted-foreground">
+            <BadgeCheck className="h-3 w-3 text-gold" /> Verificato
+          </span>
+        </div>
+      </div>
 
-          <div className="min-w-0">
-            <div className="flex items-center gap-2">
-              <h3 className="truncate font-serif text-base leading-tight tracking-tight">{op.name}</h3>
-              {rank ? (
-                <span
-                  className="shrink-0 rounded-md border border-gold/40 bg-gold/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-gold"
-                  aria-label={`Posizione ${rank}`}
-                >
-                  #{rank}
-                </span>
-              ) : null}
-            </div>
-            <div className="mt-1 flex min-w-0 items-center gap-1.5">
-              {meta ? (
-                <>
-                  <StarRating rating={meta.rating} size="sm" />
-                  <span className="text-[11px] font-bold text-gold">{meta.rating.toFixed(1)}</span>
-                  <span aria-hidden="true" className="text-[10px] text-muted-foreground">·</span>
-                </>
-              ) : null}
-              <span className="inline-flex min-w-0 items-center gap-1 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
-                <BadgeCheck className="h-3 w-3 shrink-0 text-gold" />
-                <span className="truncate">{op.concessionN}</span>
-              </span>
-            </div>
-          </div>
+      <div className="flex flex-1 flex-col gap-2.5 p-3">
+        <div className="flex min-w-0 items-center justify-between gap-2">
+          <h3 className="truncate font-serif text-base leading-tight">{op.name}</h3>
+          <span className="shrink-0 text-[10px] font-semibold text-muted-foreground">Licenza {op.concessionN}</span>
         </div>
 
-        <dl className="overflow-hidden rounded-lg border border-border">
-          <div className="flex items-start justify-between gap-2 border-b border-border bg-gold/[0.07] px-2.5 py-1.5">
-            <dt className="mt-px shrink-0 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
-              Senza deposito
-            </dt>
-            <dd className="min-w-0 text-right font-serif text-[13px] font-bold leading-snug text-gold">
-              {op.noDepositBonus?.amount ?? "Vedi sito ufficiale"}
+        <dl className="grid grid-cols-2 overflow-hidden rounded-md border border-border">
+          <div className="min-w-0 border-r border-border bg-secondary/40 px-2.5 py-2">
+            <dt className="text-[9px] font-bold uppercase text-muted-foreground">Senza deposito</dt>
+            <dd className="mt-0.5 line-clamp-2 font-serif text-sm font-bold leading-tight text-gold">
+              {op.noDepositBonus?.amount ?? "Vedi offerta"}
             </dd>
           </div>
-          <div className="flex items-start justify-between gap-2 bg-secondary/40 px-2.5 py-1.5">
-            <dt className="mt-px shrink-0 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
-              Con deposito
-            </dt>
-            <dd className="min-w-0 text-right text-[12px] font-semibold leading-snug text-foreground">
-              {op.depositBonus?.amount ?? "Vedi sito ufficiale"}
+          <div className="min-w-0 bg-gold/[0.08] px-2.5 py-2">
+            <dt className="text-[9px] font-bold uppercase text-muted-foreground">Con deposito</dt>
+            <dd className="mt-0.5 line-clamp-2 font-serif text-sm font-bold leading-tight text-foreground">
+              {op.depositBonus?.amount ?? "Vedi offerta"}
             </dd>
           </div>
         </dl>
@@ -144,7 +131,7 @@ export function CasinoRankCard({
         </p>
 
         <div className="mt-auto space-y-1.5">
-          <Button asChild className="gc-cta h-10 w-full text-[12px] font-extrabold uppercase tracking-wide">
+          <Button asChild className="gc-cta h-11 w-full text-[13px] font-extrabold uppercase tracking-wide">
             <a href={op.officialUrl} target="_blank" rel="noopener noreferrer sponsored nofollow">
               Vai al sito ufficiale <ArrowRight className="h-4 w-4" />
             </a>
