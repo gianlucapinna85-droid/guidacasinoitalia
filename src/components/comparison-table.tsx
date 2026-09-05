@@ -78,7 +78,12 @@ export function ComparisonTable() {
                     </span>
                   </th>
                   <td className="p-3 text-foreground/90">
-                    {op.noDepositBonus?.amount ?? "Non dichiarato"}
+                    <span className="block font-semibold text-gold">
+                      {op.noDepositBonus?.amount ?? "Non dichiarato"}
+                    </span>
+                    <span className="block text-[11px] text-muted-foreground">
+                      Con deposito: {op.depositBonus?.amount ?? "vedi sito ufficiale"}
+                    </span>
                   </td>
                   <td className="p-3">
                     <YesNo value={!!meta?.paypal} />
@@ -156,7 +161,14 @@ export function ComparisonTable() {
                 </span>
               </div>
               <dl className="mt-2 grid grid-cols-2 gap-2 text-[12px]">
-                <Cell label="Bonus" value={op.noDepositBonus?.amount ?? "Non dichiarato"} />
+                <Cell
+                  label="Senza deposito"
+                  value={op.noDepositBonus?.amount ?? "Non dichiarato"}
+                />
+                <Cell
+                  label="Con deposito"
+                  value={op.depositBonus?.amount ?? "Vedi sito ufficiale"}
+                />
                 <Cell label="PayPal" value={meta?.paypal ? "Sì" : "No"} />
                 <Cell label="Prelievo" value={meta?.minWithdrawal ?? "n.d."} />
                 <Cell label="RTP" value={op.rtpAverage} />

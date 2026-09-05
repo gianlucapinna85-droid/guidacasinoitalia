@@ -143,6 +143,7 @@ function Page() {
                   <tr>
                     <th className="px-3 py-2 font-semibold">Operatore</th>
                     <th className="px-3 py-2 font-semibold">Bonus senza deposito</th>
+                    <th className="px-3 py-2 font-semibold">Bonus con deposito</th>
                     <th className="px-3 py-2 font-semibold">Condizioni sintetiche</th>
                     <th className="px-3 py-2 font-semibold">Scheda</th>
                   </tr>
@@ -152,6 +153,9 @@ function Page() {
                     <tr key={o.slug} className="border-t border-border">
                       <td className="px-3 py-2 font-semibold">{o.name}</td>
                       <td className="px-3 py-2 text-gold">{o.noDepositBonus!.amount}</td>
+                      <td className="px-3 py-2 text-foreground/90">
+                        {o.depositBonus?.amount ?? "Vedi sito ufficiale"}
+                      </td>
                       <td className="px-3 py-2 text-muted-foreground">
                         {o.noDepositBonus!.description}
                       </td>

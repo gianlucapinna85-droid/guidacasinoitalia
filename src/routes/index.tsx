@@ -1049,6 +1049,21 @@ function OperatorsSection() {
                     </p>
                   </div>
                 ) : null}
+                {op.depositBonus ? (
+                  <div className="mb-1 rounded-lg border border-border p-1.5 md:p-3">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="rounded-full border border-border bg-muted px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-foreground">
+                        Con deposito
+                      </span>
+                      <span className="font-serif text-sm text-foreground md:text-lg">
+                        {op.depositBonus.amount}
+                      </span>
+                    </div>
+                    <p className="mt-1 text-[10px] leading-relaxed text-foreground/85 md:text-xs">
+                      {op.depositBonus.description}
+                    </p>
+                  </div>
+                ) : null}
                 <ul className="mt-0.5 space-y-0.5">
                   {op.highlights.map((h) => (
                     <li key={h} className="flex items-start gap-1.5 text-[12px] leading-snug text-muted-foreground md:text-sm">
