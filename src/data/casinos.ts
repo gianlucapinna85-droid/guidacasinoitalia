@@ -13,6 +13,8 @@ export type CasinoMeta = {
   rating: number; // 1-10 — valutazione redazionale, non un dato dell'operatore
   paypal: boolean;
   fastWithdrawal: boolean;
+  /** Registrazione con SPID dichiarata sul sito ufficiale. */
+  spid: boolean;
   minDeposit: string;
   minWithdrawal: string;
   featured: boolean;
