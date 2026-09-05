@@ -224,6 +224,34 @@ export const operatorBonuses: OperatorBonus[] = [
     sourceType: "settore",
     secondarySource: "slotjava.it / bonusfinder.it, rilevazione settembre 2026",
   },
+  {
+    slug: "betsson",
+    noDeposit: {
+      amount: "200 € senza deposito",
+      condition: "Importo riportato per i nuovi conti verificati; rollover 50x indicato sul Fun Bonus.",
+    },
+    deposit: {
+      amount: "Fino a 1.000 € cashback",
+      condition: "Cashback settimanale fino a 250 € su slot in selezione, dopo la prima ricarica.",
+    },
+    source: "https://www.betsson.it/blog/news/bonus-benvenuto-casino/",
+    sourceType: "settore",
+    secondarySource: "corrieredellosport.it, rilevazione settembre 2026",
+  },
+  {
+    slug: "starcasino",
+    noDeposit: {
+      amount: "50 giri gratis",
+      condition: "Giri riconosciuti alla registrazione con conto verificato, senza deposito.",
+    },
+    deposit: {
+      amount: "Fino a 2.000 € cashback",
+      condition: "Cashback 50% sulla perdita netta su slot selezionate, più giri gratis come Fun Bonus.",
+    },
+    source: "https://www.starcasino.it/promozioni",
+    sourceType: "settore",
+    secondarySource: "tuttosport.com / sitidigiochi.com, rilevazione settembre 2026",
+  },
 
 ];
 

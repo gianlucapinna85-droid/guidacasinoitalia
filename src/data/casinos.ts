@@ -227,6 +227,34 @@ export const casinos: CasinoMeta[] = [
     pros: ["Sport e casinò nello stesso conto", "Interfaccia leggera da mobile"],
     cons: ["Catalogo più contenuto", "PayPal non dichiarato"],
   },
+  {
+    slug: "betsson",
+    rating: 8.9,
+    paypal: true,
+    fastWithdrawal: true,
+    spid: true,
+    minDeposit: "10 €",
+    minWithdrawal: "10 €",
+    featured: false,
+    short:
+      "Marchio internazionale con concessione ADM, catalogo slot molto ampio e sezione live con tavoli in italiano.",
+    pros: ["Catalogo slot molto ampio", "Sezione live dedicata", "Registrazione con SPID dichiarata"],
+    cons: ["Interfaccia con molte sezioni promozionali"],
+  },
+  {
+    slug: "starcasino",
+    rating: 8.8,
+    paypal: true,
+    fastWithdrawal: true,
+    spid: true,
+    minDeposit: "10 €",
+    minWithdrawal: "10 €",
+    featured: false,
+    short:
+      "Concessionario con sezione casinò e sezione live, app dedicata e strumenti di autolimitazione accessibili dall'area conto.",
+    pros: ["Sezione live con tavoli in italiano", "App per iOS e Android", "Registrazione con SPID dichiarata"],
+    cons: ["Presenza sul mercato italiano più recente rispetto ai concessionari storici"],
+  },
 ];
 
 const bySlug = new Map(casinos.map((c) => [c.slug, c]));
