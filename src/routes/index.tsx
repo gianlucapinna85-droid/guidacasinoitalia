@@ -58,7 +58,7 @@ const FAQS = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Guida Casinò Italia: Bonus, RTP e Concessionari Autorizzati" },
+      { title: "Casinò Online ADM 2026: Bonus Senza Deposito e Recensioni" },
       { name: "description", content: "Scopri la guida definitiva ai casinò online in Italia. Confronta i migliori bonus, analizza rtp, condizioni di concessione, concessionari ADM e gioco responsabile." },
 
       { name: "keywords", content: "migliori casino online adm, bonus casino senza deposito, casino online sicuri italia, slot online affidabili, guide casino online, recensioni casino adm, bonus benvenuto casino 2026, casino adm, casino aams, bonus senza deposito, bonus senza deposito immediato, casino online sicuri, casino online italiani, migliori casino online 2026, concessione adm, gioco legale italia, casino con spid, come verificare licenza adm, casino legali italia elenco, quali sono i casino con concessione adm" },
@@ -70,7 +70,7 @@ export const Route = createFileRoute("/")({
       { name: "geo.region", content: "IT" },
       
       { name: "author", content: "GuidaCasinò.IT" },
-      { property: "og:title", content: "Guida Casinò Italia: Bonus, RTP e Concessionari Autorizzati" },
+      { property: "og:title", content: "Casinò Online ADM 2026: Bonus Senza Deposito e Recensioni" },
       ...socialImageMeta(),
       { property: "og:description", content: "Scopri la guida definitiva ai casinò online in Italia. Confronta i migliori bonus, analizza rtp, condizioni di concessione, concessionari ADM e gioco responsabile." },
 
@@ -79,7 +79,7 @@ export const Route = createFileRoute("/")({
       { property: "og:locale", content: "it_IT" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:url", content: "https://www.guidacasino-italia.it/" },
-      { name: "twitter:title", content: "Guida Casinò Italia: Bonus, RTP e Concessionari Autorizzati" },
+      { name: "twitter:title", content: "Casinò Online ADM 2026: Bonus Senza Deposito e Recensioni" },
       { name: "twitter:description", content: "Scopri la guida definitiva ai casinò online in Italia. Confronta i migliori bonus, analizza rtp, condizioni di concessione, concessionari ADM e gioco responsabile." },
 
 
