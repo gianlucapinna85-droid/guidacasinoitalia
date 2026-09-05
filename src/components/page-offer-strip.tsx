@@ -1,10 +1,9 @@
 import { useMemo } from "react";
 import { useRouterState } from "@tanstack/react-router";
-import { ArrowUpRight, BadgeCheck } from "lucide-react";
+import { BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { operators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
-import { StarRating } from "@/components/casino-card";
 
 function pathSeed(pathname: string) {
   // hash stabile: pagine diverse ricevono selezioni di operatori diverse
@@ -36,13 +35,13 @@ export function PageOfferStrip({ placement = "page" }: { placement?: "article" |
   if (selected.length === 0) return null;
 
   return (
-    <aside className={placement === "article" ? "mt-8" : "border-t border-border bg-secondary/35 py-7"} aria-label="Operatori ADM in evidenza">
+    <aside className={placement === "article" ? "mt-6" : "border-t border-border bg-secondary/35 py-4"} aria-label="Operatori ADM in evidenza">
       <div className={placement === "article" ? "" : "mx-auto max-w-6xl px-2.5 md:px-6"}>
-        <div className="mb-3 grid grid-cols-[minmax(0,1fr)_auto] items-end gap-3">
-          <div className="min-w-0">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-gold">Confronto rapido</p>
-            <h2 className="mt-1 font-serif text-xl md:text-2xl">Casinò ADM da confrontare</h2>
-          </div>
+        <div className="mb-2 flex items-baseline justify-between gap-3">
+          <h2 className="font-serif text-base md:text-lg">
+            <span className="mr-2 text-[10px] font-sans font-bold uppercase tracking-widest text-gold">Confronto rapido</span>
+            Casinò ADM consigliati
+          </h2>
           <span className="shrink-0 text-[10px] font-semibold text-muted-foreground">Solo +18</span>
         </div>
 
