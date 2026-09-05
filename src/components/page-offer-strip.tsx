@@ -5,16 +5,29 @@ import { Button } from "@/components/ui/button";
 import { operators } from "@/lib/operators";
 
 function pathSeed(pathname: string) {
-  return [...pathname].reduce((total, character) => total + character.charCodeAt(0), 0);
+  // hash stabile: pagine diverse ricevono selezioni di operatori diverse
+  let hash = 2166136261;
+  for (const character of pathname) {
+    hash ^= character.charCodeAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return Math.abs(hash);
 }
+
+const PER_STRIP = 4;
 
 export function PageOfferStrip({ placement = "page" }: { placement?: "article" | "page" }) {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   const selected = useMemo(() => {
     const available = operators.filter((operator) => operator.logo && operator.officialUrl);
-    if (available.length <= 3) return available;
-    const start = (pathSeed(pathname) + (placement === "article" ? 0 : 5)) % available.length;
-    return [0, 1, 2].map((offset) => available[(start + offset * 3) % available.length]);
+    if (available.length <= PER_STRIP) return available;
+    const seed = pathSeed(pathname);
+    // rotazione + passo coprimo: nessun operatore ripetuto nello stesso blocco
+    const step = 1 + (seed % (available.length - 1));
+    const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
+    const safeStep = gcd(step, available.length) === 1 ? step : 1;
+    const start = (seed + (placement === "article" ? 0 : PER_STRIP * safeStep)) % available.length;
+    return Array.from({ length: PER_STRIP }, (_, index) => available[(start + index * safeStep) % available.length]);
   }, [pathname, placement]);
 
   if (selected.length === 0) return null;
@@ -30,7 +43,8 @@ export function PageOfferStrip({ placement = "page" }: { placement?: "article" |
           <span className="shrink-0 text-[10px] font-semibold text-muted-foreground">Solo +18</span>
         </div>
 
-        <div className="grid gap-2.5 lg:grid-cols-3">
+        <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
+
           {selected.map((operator) => (
             <article key={operator.slug} className="grid min-h-28 grid-cols-[minmax(0,1fr)_8rem] overflow-hidden rounded-lg border border-offer-border bg-offer shadow-sm">
               <div className="grid min-w-0 grid-rows-[4.5rem_auto]">
