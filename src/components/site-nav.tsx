@@ -65,63 +65,82 @@ export function SiteNav() {
       />
       <nav
         aria-label="Menu principale"
-        className={`absolute right-0 top-0 flex h-full w-[90%] max-w-sm flex-col border-l border-gold/25 bg-background shadow-[0_0_60px_-15px_rgba(28,22,8,0.35)] transition-transform duration-300 ease-out ${
+        className={`absolute right-0 top-0 flex h-full w-[86%] max-w-xs flex-col border-l border-gold/25 bg-background shadow-[0_0_60px_-15px_rgba(28,22,8,0.35)] transition-transform duration-300 ease-out ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between border-b border-border bg-gradient-to-r from-secondary to-card px-4 py-3.5">
-          <div className="leading-tight">
-            <span className="block font-serif text-base">
-              GuidaCasinò<span className="text-gold">.IT</span>
-            </span>
-            <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
-              Navigazione
-            </span>
-          </div>
+        <div className="flex items-center justify-between border-b border-border bg-gradient-to-r from-secondary to-card px-3.5 py-2.5">
+          <span className="font-serif text-base leading-none">
+            GuidaCasinò<span className="text-gold">.IT</span>
+          </span>
           <button
             type="button"
             onClick={close}
             aria-label="Chiudi il menu"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gold/40 bg-card text-gold transition-colors hover:bg-accent"
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-gold/40 bg-card text-gold transition-colors hover:bg-accent"
           >
             <X className="h-4 w-4" />
           </button>
         </div>
 
-        <ul className="flex-1 overflow-y-auto px-2 py-3">
-          {NAV_ITEMS.map((it, i) => (
-            <li
-              key={it.href}
-              className="gc-fade-up"
-              style={{ animationDelay: `${i * 30}ms` }}
-            >
-              {it.external ? (
-                <a
-                  href={it.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block rounded-xl border border-transparent px-4 py-3 font-serif text-[15px] font-semibold text-gold transition-colors hover:bg-accent"
-                >
-                  {it.label}
-                </a>
-              ) : (
+        <div className="flex-1 overflow-y-auto p-2.5">
+          <p className="px-1.5 pb-1.5 text-[9px] font-bold uppercase tracking-widest text-gold">
+            Sezioni principali
+          </p>
+          <ul className="grid grid-cols-2 gap-1.5">
+            {MAIN_ITEMS.map((it) => (
+              <li key={it.href}>
                 <Link
                   to={it.href}
                   onClick={close}
-                  className="block rounded-xl border border-transparent px-4 py-3 font-serif text-[15px] text-foreground transition-colors hover:bg-accent hover:border-border"
+                  className="flex h-full items-center rounded-lg border border-border bg-card px-2.5 py-2.5 text-[13px] font-semibold text-foreground transition-colors hover:border-gold/60 hover:bg-accent"
                   activeProps={{
                     className:
-                      "block rounded-xl border border-gold/40 bg-accent px-4 py-3 font-serif text-[15px] font-semibold text-gold",
+                      "flex h-full items-center rounded-lg border border-gold/60 bg-accent px-2.5 py-2.5 text-[13px] font-semibold text-gold",
                   }}
                 >
                   {it.label}
                 </Link>
-              )}
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
 
-        <p className="px-4 py-3 text-[10px] leading-snug text-muted-foreground">
+          <p className="px-1.5 pb-1.5 pt-3 text-[9px] font-bold uppercase tracking-widest text-gold">
+            Guide e informazioni
+          </p>
+          <ul className="grid gap-1">
+            {INFO_ITEMS.map((it) => (
+              <li key={it.href}>
+                {it.external ? (
+                  <a
+                    href={it.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between rounded-lg border border-transparent px-2.5 py-2 text-[13px] font-semibold text-gold transition-colors hover:bg-accent"
+                  >
+                    {it.label}
+                    <span aria-hidden="true" className="text-[10px]">↗</span>
+                  </a>
+                ) : (
+                  <Link
+                    to={it.href}
+                    onClick={close}
+                    className="flex items-center justify-between rounded-lg border border-transparent px-2.5 py-2 text-[13px] text-foreground transition-colors hover:bg-accent"
+                    activeProps={{
+                      className:
+                        "flex items-center justify-between rounded-lg border border-gold/40 bg-accent px-2.5 py-2 text-[13px] font-semibold text-gold",
+                    }}
+                  >
+                    {it.label}
+                    <span aria-hidden="true" className="text-[10px] text-muted-foreground">›</span>
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <p className="border-t border-border px-3.5 py-2 text-[9px] leading-snug text-muted-foreground">
           Vietato ai minori di 18 anni. Il gioco può causare dipendenza patologica.
         </p>
       </nav>
