@@ -92,6 +92,7 @@ import { Route as AutoreSlugRouteImport } from './routes/autore.$slug'
 import { Route as BlogCategoryIndexRouteImport } from './routes/blog.$category.index'
 import { Route as BlogCategorySlugRouteImport } from './routes/blog.$category.$slug'
 import { Route as ApiPublicReindexRouteImport } from './routes/api/public/reindex'
+import { Route as ApiPublicCheckBonusRouteImport } from './routes/api/public/check-bonus'
 import { Route as AuthenticatedAdminExitPopupRouteImport } from './routes/_authenticated/admin.exit-popup'
 
 const VerificareLicenzaAdmRoute = VerificareLicenzaAdmRouteImport.update({
@@ -524,6 +525,11 @@ const ApiPublicReindexRoute = ApiPublicReindexRouteImport.update({
   path: '/api/public/reindex',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicCheckBonusRoute = ApiPublicCheckBonusRouteImport.update({
+  id: '/api/public/check-bonus',
+  path: '/api/public/check-bonus',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedAdminExitPopupRoute =
   AuthenticatedAdminExitPopupRouteImport.update({
     id: '/admin/exit-popup',
@@ -612,6 +618,7 @@ export interface FileRoutesByFullPath {
   '/recensioni/': typeof RecensioniIndexRoute
   '/slot/': typeof SlotIndexRoute
   '/admin/exit-popup': typeof AuthenticatedAdminExitPopupRoute
+  '/api/public/check-bonus': typeof ApiPublicCheckBonusRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
   '/blog/$category/': typeof BlogCategoryIndexRoute
@@ -697,6 +704,7 @@ export interface FileRoutesByTo {
   '/recensioni': typeof RecensioniIndexRoute
   '/slot': typeof SlotIndexRoute
   '/admin/exit-popup': typeof AuthenticatedAdminExitPopupRoute
+  '/api/public/check-bonus': typeof ApiPublicCheckBonusRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
   '/blog/$category': typeof BlogCategoryIndexRoute
@@ -784,6 +792,7 @@ export interface FileRoutesById {
   '/recensioni/': typeof RecensioniIndexRoute
   '/slot/': typeof SlotIndexRoute
   '/_authenticated/admin/exit-popup': typeof AuthenticatedAdminExitPopupRoute
+  '/api/public/check-bonus': typeof ApiPublicCheckBonusRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
   '/blog/$category/': typeof BlogCategoryIndexRoute
@@ -871,6 +880,7 @@ export interface FileRouteTypes {
     | '/recensioni/'
     | '/slot/'
     | '/admin/exit-popup'
+    | '/api/public/check-bonus'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
     | '/blog/$category/'
@@ -956,6 +966,7 @@ export interface FileRouteTypes {
     | '/recensioni'
     | '/slot'
     | '/admin/exit-popup'
+    | '/api/public/check-bonus'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
     | '/blog/$category'
@@ -1042,6 +1053,7 @@ export interface FileRouteTypes {
     | '/recensioni/'
     | '/slot/'
     | '/_authenticated/admin/exit-popup'
+    | '/api/public/check-bonus'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
     | '/blog/$category/'
@@ -1128,6 +1140,7 @@ export interface RootRouteChildren {
   PagamentiIndexRoute: typeof PagamentiIndexRoute
   RecensioniIndexRoute: typeof RecensioniIndexRoute
   SlotIndexRoute: typeof SlotIndexRoute
+  ApiPublicCheckBonusRoute: typeof ApiPublicCheckBonusRoute
   ApiPublicReindexRoute: typeof ApiPublicReindexRoute
   BlogCategorySlugRoute: typeof BlogCategorySlugRoute
   BlogCategoryIndexRoute: typeof BlogCategoryIndexRoute
@@ -1716,6 +1729,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicReindexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/check-bonus': {
+      id: '/api/public/check-bonus'
+      path: '/api/public/check-bonus'
+      fullPath: '/api/public/check-bonus'
+      preLoaderRoute: typeof ApiPublicCheckBonusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_authenticated/admin/exit-popup': {
       id: '/_authenticated/admin/exit-popup'
       path: '/admin/exit-popup'
@@ -1819,6 +1839,7 @@ const rootRouteChildren: RootRouteChildren = {
   PagamentiIndexRoute: PagamentiIndexRoute,
   RecensioniIndexRoute: RecensioniIndexRoute,
   SlotIndexRoute: SlotIndexRoute,
+  ApiPublicCheckBonusRoute: ApiPublicCheckBonusRoute,
   ApiPublicReindexRoute: ApiPublicReindexRoute,
   BlogCategorySlugRoute: BlogCategorySlugRoute,
   BlogCategoryIndexRoute: BlogCategoryIndexRoute,
