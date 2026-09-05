@@ -4,6 +4,7 @@ import { ArrowRight, BadgeCheck, ChevronDown } from "lucide-react";
 import type { Operator } from "@/lib/operators";
 import { getCasinoMeta, type CasinoMeta } from "@/data/casinos";
 import { Button } from "@/components/ui/button";
+import { displayBonuses, useBonusSnapshots } from "@/lib/use-bonus-snapshots";
 
 /**
  * Card operatore compatta (~metà altezza): logo/CTA in alto, info principali
