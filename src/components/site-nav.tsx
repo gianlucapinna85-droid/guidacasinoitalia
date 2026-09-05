@@ -7,16 +7,19 @@ import { EXTERNAL_BLOG_URL } from "@/lib/internal-links";
 type Item = { href: string; label: string; external?: boolean };
 
 /** Voci principali del menu — link diretti, niente tendine espandibili. */
-const NAV_ITEMS: Item[] = [
+const MAIN_ITEMS: Item[] = [
   { href: "/", label: "Home" },
   { href: "/migliori-casino-online-adm", label: "Casinò ADM" },
   { href: "/bonus", label: "Bonus" },
   { href: "/slot", label: "Slot" },
   { href: "/recensioni", label: "Recensioni" },
+  { href: "/scommesse-sportive-online-adm", label: "Scommesse" },
+];
+
+const INFO_ITEMS: Item[] = [
   { href: "/guida-casino-online-italia", label: "Guide" },
   { href: "/news", label: "News" },
   { href: "/blog", label: "Blog" },
-  { href: "/scommesse-sportive-online-adm", label: "Scommesse" },
   { href: "/pagamenti", label: "Pagamenti" },
   { href: "/gioco-responsabile", label: "Gioco responsabile" },
   { href: EXTERNAL_BLOG_URL, label: "Approfondimenti extra", external: true },
