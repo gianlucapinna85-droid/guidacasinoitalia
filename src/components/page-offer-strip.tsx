@@ -22,13 +22,14 @@ export function PageOfferStrip({ placement = "page" }: { placement?: "article" |
     const available = operators.filter((operator) => operator.logo && operator.officialUrl);
     if (available.length <= PER_STRIP) return available;
     const seed = pathSeed(pathname);
-    // rotazione + passo coprimo: nessun operatore ripetuto nello stesso blocco
-    const step = 1 + (seed % (available.length - 1));
-    const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
-    const safeStep = gcd(step, available.length) === 1 ? step : 1;
-    const start = (seed + (placement === "article" ? 0 : PER_STRIP * safeStep)) % available.length;
-    return Array.from({ length: PER_STRIP }, (_, index) => available[(start + index * safeStep) % available.length]);
+    // ordine pseudo-casuale ma stabile per pagina: ogni URL mostra operatori diversi
+    const shuffled = [...available].sort(
+      (a, b) => pathSeed(`${seed}:${a.slug}`) - pathSeed(`${seed}:${b.slug}`),
+    );
+    const offset = placement === "article" ? 0 : PER_STRIP;
+    return Array.from({ length: PER_STRIP }, (_, index) => shuffled[(offset + index) % shuffled.length]);
   }, [pathname, placement]);
+
 
   if (selected.length === 0) return null;
 
