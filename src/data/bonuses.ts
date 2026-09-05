@@ -134,8 +134,12 @@ export const operatorBonuses: OperatorBonus[] = [
   {
     slug: "sisal",
     noDeposit: null,
-    deposit: null,
-    source: "https://www.sisal.it/bonus/bonus-benvenuto",
+    deposit: {
+      amount: "Fino a 6.000 € (casinò Fun Bonus) · fino a 5.050 € (Real + Fun)",
+      condition:
+        "Bonus di benvenuto selezionabile in registrazione; requisiti e scadenze nei T&C ufficiali.",
+    },
+    source: "https://www.sisal.it/bonus/bonus-benvenuto/casino",
   },
   {
     slug: "eplay24",
