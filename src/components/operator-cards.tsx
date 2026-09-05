@@ -25,7 +25,7 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
               target="_blank"
               rel="noopener noreferrer sponsored nofollow"
               aria-label={`Vai al sito ufficiale di ${op.name}`}
-              className="gc-logo-frame relative flex h-24 w-full items-center justify-center overflow-hidden border-b border-border bg-card md:h-28"
+              className="gc-logo-frame flex h-28 w-full items-center justify-center overflow-hidden border-b border-border px-5 py-3 md:h-32"
             >
               {op.logo ? (
                 <img
@@ -35,23 +35,21 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
                   height={96}
                   loading="lazy"
                   decoding="async"
-                  className="gc-logo-img"
+                  className="gc-logo-img h-full w-full"
                 />
               ) : (
                 <span className="font-serif text-xl text-foreground">{op.name}</span>
               )}
-              <span className="absolute left-1 top-1 rounded-md bg-foreground/80 px-1.5 text-[10px] font-bold text-background">
-                {i + 1}
-              </span>
-              {meta?.rating ? (
-                <span className="absolute right-1 top-1">
-                  <RatingBadge rating={meta.rating} size="sm" />
-                </span>
-              ) : null}
             </a>
 
             <div className="flex flex-1 flex-col p-2.5 md:p-4">
-              <h3 className="font-serif text-[15px] leading-tight md:text-lg">{op.name}</h3>
+              <div className="flex items-center justify-between gap-2">
+                <h3 className="font-serif text-[15px] leading-tight md:text-lg">{op.name}</h3>
+                <div className="flex shrink-0 items-center gap-1.5">
+                  <span className="rounded-sm bg-gold px-1.5 py-0.5 text-[9px] font-extrabold uppercase text-primary-foreground">Top {i + 1}</span>
+                  {meta?.rating ? <RatingBadge rating={meta.rating} size="sm" /> : null}
+                </div>
+              </div>
               <p className="text-[10px] uppercase tracking-wide text-muted-foreground md:text-xs">
                 {op.concessionN}
               </p>
