@@ -59,7 +59,6 @@ export function CasinoRankCard({
   rank,
 }: CasinoCardData & { rank?: number }) {
   const [open, setOpen] = useState(false);
-  const needsDarkLogoSurface = op.slug === "stake";
 
   return (
     <article className="gc-card group relative flex h-full flex-col overflow-hidden rounded-lg border border-offer-border bg-offer shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold/70 hover:shadow-md">
@@ -69,7 +68,7 @@ export function CasinoRankCard({
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
           aria-label={`Vai al sito ufficiale di ${op.name}`}
-          className={`gc-logo-frame flex min-w-0 items-center justify-center px-5 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold ${needsDarkLogoSurface ? "bg-logo-contrast" : "bg-offer-deep"}`}
+          className={`gc-logo-frame flex min-w-0 items-center justify-center px-5 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold ${op.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}
         >
           {op.logo ? (
             <img
