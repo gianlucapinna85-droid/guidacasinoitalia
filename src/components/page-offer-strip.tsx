@@ -32,15 +32,15 @@ export function PageOfferStrip({ placement = "page" }: { placement?: "article" |
 
         <div className="grid gap-2.5 lg:grid-cols-3">
           {selected.map((operator) => (
-            <article key={operator.slug} className="grid min-h-24 grid-cols-[6.75rem_minmax(0,1fr)] overflow-hidden rounded-lg border border-gold/50 bg-card shadow-sm">
+            <article key={operator.slug} className="overflow-hidden rounded-lg border border-gold/50 bg-card shadow-sm">
               <a
                 href={operator.officialUrl}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
                 aria-label={`Vai al sito ufficiale di ${operator.name}`}
-                className="gc-logo-frame flex min-h-24 items-center justify-center border-r border-border bg-card p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                className="gc-logo-frame flex h-24 items-center justify-center border-b border-border px-4 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
               >
-                <img src={operator.logo} alt={`Logo ${operator.name}`} width={220} height={90} loading="lazy" decoding="async" className="gc-logo-img max-h-16" />
+                <img src={operator.logo} alt={`Logo ${operator.name}`} width={600} height={200} loading="lazy" decoding="async" className="gc-logo-img h-full w-full" />
               </a>
               <div className="flex min-w-0 flex-col justify-between p-2.5">
                 <div className="min-w-0">

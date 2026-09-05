@@ -62,13 +62,13 @@ export function CasinoRankCard({
 
   return (
     <article className="gc-card group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold/70 hover:shadow-md">
-      <div className="border-b border-gold/45 bg-background">
+      <div className="border-b border-border">
         <a
           href={op.officialUrl}
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
           aria-label={`Vai al sito ufficiale di ${op.name}`}
-          className="gc-logo-frame flex h-24 w-full items-center justify-center px-5 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
+          className="gc-logo-frame flex h-28 w-full items-center justify-center px-5 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
         >
           {op.logo ? (
             <img
@@ -78,7 +78,7 @@ export function CasinoRankCard({
               height={200}
               loading="lazy"
               decoding="async"
-              className="gc-logo-img h-16 w-auto max-w-full"
+              className="gc-logo-img h-full w-full"
             />
           ) : (
             <span className="font-serif text-2xl text-foreground">{op.name}</span>
