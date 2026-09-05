@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, BadgeCheck, ChevronDown } from "lucide-react";
 import type { Operator } from "@/lib/operators";
 import { getCasinoMeta, type CasinoMeta } from "@/data/casinos";
-import { OperatorTrustDots } from "@/components/site-layout";
+import { Button } from "@/components/ui/button";
 
 /**
  * Card operatore compatta (~metà altezza): logo/CTA in alto, info principali
@@ -61,21 +61,15 @@ export function CasinoRankCard({
   const [open, setOpen] = useState(false);
 
   return (
-    <article className="gc-card group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_-24px_var(--gc-glow)]">
-      <div className="flex flex-1 flex-col p-3 md:p-4">
-        {/* Intestazione: rank + logo grande + nome/voto */}
+    <article className="gc-card group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-gold">
+      <div className="flex flex-1 flex-col p-3">
         <div className="flex items-center gap-3">
           <Link
             to="/operatori/$slug"
             params={{ slug: op.slug }}
             aria-label={`Scheda ${op.name}`}
-            className="gc-logo-frame relative flex h-20 w-[42%] shrink-0 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/60 bg-card shadow-sm transition-colors duration-300 hover:border-gold sm:h-24"
+            className="gc-logo-frame flex h-14 w-24 shrink-0 items-center justify-center overflow-hidden rounded-md border border-border bg-card transition-colors hover:border-gold sm:h-16 sm:w-28"
           >
-            {rank ? (
-              <span className="absolute left-1 top-1 z-10 flex h-6 w-6 items-center justify-center rounded-full border border-gold/60 bg-gold/15 font-serif text-[11px] font-bold text-gold">
-                {rank}
-              </span>
-            ) : null}
             {op.logo ? (
               <img
                 src={op.logo}
@@ -92,72 +86,54 @@ export function CasinoRankCard({
           </Link>
 
           <div className="min-w-0 flex-1">
-            <h3 className="font-serif text-lg leading-tight md:text-xl">{op.name}</h3>
+            <div className="flex items-start justify-between gap-2">
+              <h3 className="font-serif text-base leading-tight md:text-lg">{op.name}</h3>
+              {rank ? (
+                <span className="inline-flex h-7 min-w-7 shrink-0 items-center justify-center rounded-full bg-primary px-1 text-xs font-extrabold text-primary-foreground" aria-label={`Posizione ${rank}`}>
+                  {rank}
+                </span>
+              ) : null}
+            </div>
             {meta ? (
-              <div className="mt-1 flex flex-wrap items-center gap-1.5">
-                <StarRating rating={meta.rating} />
-                <span className="text-[13px] font-bold text-gold">{meta.rating.toFixed(1)}/10</span>
+              <div className="mt-1 flex items-center gap-1.5">
+                <StarRating rating={meta.rating} size="sm" />
+                <span className="text-xs font-bold text-gold">{meta.rating.toFixed(1)}/10</span>
               </div>
             ) : null}
-            <p className="mt-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+            <p className="mt-1 truncate text-[10px] font-semibold uppercase text-muted-foreground">
               {op.concessionN}
             </p>
           </div>
         </div>
 
-        {/* Pallini ADM/bandiera */}
-        <div className="mt-2.5">
-          <OperatorTrustDots name={op.name} />
-        </div>
-
-        {/* Bonus: testo completo, nessun troncamento */}
-        <div className="mt-3 grid gap-2">
-          <div className="rounded-xl border-2 border-gold/50 bg-gold/10 px-3 py-2">
-            <span className="block text-[10px] font-bold uppercase tracking-widest text-gold/80">
-              Bonus senza deposito
-            </span>
-            <span className="mt-0.5 block text-[15px] font-bold leading-snug text-gold md:text-base">
-              {op.noDepositBonus?.amount ?? "Non dichiarato"}
-            </span>
+        <div className="mt-3 divide-y divide-border rounded-md border border-border bg-secondary/60 px-3">
+          <div className="grid grid-cols-[6.25rem_1fr] items-start gap-2 py-2">
+            <span className="text-[10px] font-bold uppercase leading-4 text-muted-foreground">Senza deposito</span>
+            <strong className="text-right text-[13px] leading-4 text-gold">{op.noDepositBonus?.amount ?? "Non disponibile"}</strong>
           </div>
-          <div className="rounded-xl border border-border bg-secondary/60 px-3 py-2">
-            <span className="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-              Bonus con deposito
-            </span>
-            <span className="mt-0.5 block text-[15px] font-bold leading-snug text-foreground md:text-base">
-              {op.depositBonus?.amount ?? "Vedi sito ufficiale"}
-            </span>
+          <div className="grid grid-cols-[6.25rem_1fr] items-start gap-2 py-2">
+            <span className="text-[10px] font-bold uppercase leading-4 text-muted-foreground">Con deposito</span>
+            <strong className="text-right text-[13px] leading-4 text-foreground">{op.depositBonus?.amount ?? "Non disponibile"}</strong>
           </div>
         </div>
 
-        <dl className="mt-2 grid grid-cols-2 gap-2 text-[12px]">
-          <div className="rounded-lg border border-border px-2.5 py-1.5">
-            <dt className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">RTP medio</dt>
-            <dd className="font-bold text-foreground">{op.rtpAverage}</dd>
-          </div>
-          <div className="rounded-lg border border-border px-2.5 py-1.5">
-            <dt className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">Giochi</dt>
-            <dd className="font-bold text-foreground">{op.games}+</dd>
-          </div>
+        <dl className="mt-2 flex items-center gap-3 text-[11px] text-muted-foreground">
+          <div className="flex gap-1"><dt>RTP</dt><dd className="font-bold text-foreground">{op.rtpAverage}</dd></div>
+          <span aria-hidden="true">•</span>
+          <div className="flex gap-1"><dt>Giochi</dt><dd className="font-bold text-foreground">{op.games}+</dd></div>
+          <span aria-hidden="true">•</span>
+          <span className="font-semibold text-foreground">18+ · ADM</span>
         </dl>
 
-        {/* CTA grandi */}
-        <div className="mt-3 flex flex-col gap-2">
-          <a
-            href={op.officialUrl}
-            target="_blank"
-            rel="noopener noreferrer sponsored nofollow"
-            className="gc-cta inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gold px-4 text-[15px] font-extrabold uppercase tracking-wide text-primary-foreground shadow-lg shadow-gold/30 transition-all duration-200 hover:brightness-110 active:scale-[0.98] md:text-base"
-          >
-            Vai al sito ufficiale <ArrowRight className="h-4 w-4" />
-          </a>
-          <Link
-            to="/operatori/$slug"
-            params={{ slug: op.slug }}
-            className="gc-btn-secondary min-h-10 w-full px-3 text-[13px]"
-          >
-            Leggi la recensione
-          </Link>
+        <div className="mt-3 grid grid-cols-[1fr_auto] gap-2">
+          <Button asChild size="lg" className="gc-cta min-h-11 px-3 text-sm font-extrabold uppercase">
+            <a href={op.officialUrl} target="_blank" rel="noopener noreferrer sponsored nofollow">
+              Sito ufficiale <ArrowRight />
+            </a>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="min-h-11 px-3 text-xs">
+            <Link to="/operatori/$slug" params={{ slug: op.slug }}>Recensione</Link>
+          </Button>
         </div>
 
         {/* Dettagli extra */}
@@ -165,7 +141,7 @@ export function CasinoRankCard({
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
-          className="mt-2 inline-flex items-center gap-1 self-start text-[12px] font-semibold text-muted-foreground transition-colors hover:text-gold"
+          className="mt-2 inline-flex min-h-8 items-center gap-1 self-start text-[11px] font-semibold text-muted-foreground transition-colors hover:text-gold"
         >
           {open ? "Mostra meno" : "Continua a leggere"}
           <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
@@ -193,8 +169,8 @@ export function CasinoRankCard({
         ) : null}
       </div>
 
-      <p className="border-t border-border px-3 py-1.5 text-[10px] leading-tight text-muted-foreground md:px-4">
-        18+ · Gioco responsabile · Operatore con concessione ADM
+      <p className="border-t border-border px-3 py-1.5 text-[10px] leading-tight text-muted-foreground">
+        Gioca responsabilmente · Offerte soggette a termini e verifica
       </p>
     </article>
   );
