@@ -91,8 +91,22 @@ export const Route = createFileRoute("/api/public/check-bonus")({
 
         const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
+        // Gli importi verificati manualmente (status "manual") non vengono
+        // sovrascritti dal rilevamento automatico, che può leggere pagine
+        // non aggiornate o contenuti promozionali di terze parti.
+        const { data: existing } = await supabaseAdmin
+          .from("bonus_snapshots")
+          .select("slug, status");
+        const manualSlugs = new Set(
+          (existing ?? []).filter((r) => r.status === "manual").map((r) => r.slug),
+        );
+
         const results: Array<Record<string, unknown>> = [];
         const checks = operatorBonuses.map(async (bonus) => {
+          if (manualSlugs.has(bonus.slug)) {
+            results.push({ slug: bonus.slug, skipped: "manual" });
+            return;
+          }
           const operator = operators.find((o) => o.slug === bonus.slug);
           // prima la pagina promozionale ufficiale; in alternativa il link affiliato
           const candidates = [bonus.source, operator?.officialUrl].filter(
