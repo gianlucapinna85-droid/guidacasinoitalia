@@ -147,7 +147,7 @@ export const operatorBonuses: OperatorBonus[] = [
   {
     slug: "snai",
     noDeposit: {
-      amount: "Bonus senza deposito",
+      amount: "Bonus gratis",
       condition: "Sezione dedicata sul sito ufficiale: importo indicato in fase di registrazione.",
     },
     deposit: {
@@ -159,7 +159,7 @@ export const operatorBonuses: OperatorBonus[] = [
   {
     slug: "sisal",
     noDeposit: {
-      amount: "Bonus senza deposito",
+      amount: "Bonus gratis",
       condition:
         "Gioco promozionale riservato ai nuovi conti verificati, senza obbligo di deposito; premio variabile secondo i T&C.",
     },
