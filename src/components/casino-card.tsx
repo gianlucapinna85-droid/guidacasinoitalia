@@ -113,11 +113,11 @@ export function CasinoRankCard({
         <dl className="rounded border border-border bg-secondary/60 px-2 py-1 text-[11px]">
           <div className="flex items-baseline justify-between gap-2 leading-5">
             <dt className="shrink-0 text-[10px] font-bold uppercase text-muted-foreground">Senza dep.</dt>
-            <dd className="truncate text-right font-bold text-gold">{op.noDepositBonus?.amount ?? "n.d."}</dd>
+            <dd className="line-clamp-2 text-right font-bold leading-4 text-gold">{op.noDepositBonus?.amount ?? "n.d."}</dd>
           </div>
           <div className="flex items-baseline justify-between gap-2 leading-5">
             <dt className="shrink-0 text-[10px] font-bold uppercase text-muted-foreground">Con dep.</dt>
-            <dd className="truncate text-right font-semibold text-foreground">{op.depositBonus?.amount ?? "n.d."}</dd>
+            <dd className="line-clamp-2 text-right font-semibold leading-4 text-foreground">{op.depositBonus?.amount ?? "n.d."}</dd>
           </div>
         </dl>
 
