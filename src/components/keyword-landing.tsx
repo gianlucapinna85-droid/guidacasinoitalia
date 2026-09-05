@@ -1,11 +1,41 @@
 import type { ReactNode } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle2, ExternalLink, ShieldCheck } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
 import { RelatedLinks, RatingBadge } from "@/components/casino-ui";
 import { sortedOperators, type Operator } from "@/lib/operators";
 import { getCasinoMeta, DECLARED_DATA_NOTE } from "@/data/casinos";
 import { getOperatorBonus, BONUS_NOTE } from "@/data/bonuses";
+import { guides } from "@/data/guides";
+
+/**
+ * Rete di rimandi tra le guide: ogni pagina informativa segnala le altre
+ * guide principali (esclusa quella corrente), così i crawler trovano sempre
+ * percorsi interni verso ogni contenuto e le pagine nuove ricevono link
+ * dalle pagine già indicizzate.
+ */
+function GuideNetwork() {
+  const pathname = useLocation({ select: (l) => l.pathname });
+  const related = guides
+    .filter((g) => g.path !== pathname)
+    .sort((a, b) => Number(b.priority) - Number(a.priority))
+    .slice(0, 8);
+  return (
+    <section className="mt-12" aria-label="Guide collegate">
+      <h2 className="font-serif text-2xl">Guide collegate</h2>
+      <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+        {related.map((g) => (
+          <li key={g.path} className="rounded-xl border border-border bg-card p-4">
+            <Link to={g.path} className="font-medium hover:text-gold">
+              {g.title}
+            </Link>
+            <p className="mt-1 text-xs leading-snug text-muted-foreground">{g.description}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
 
 /** Bonus ufficiali (senza deposito e con deposito) dichiarati dal concessionario. */
 export function BonusLines({ slug }: { slug: string }) {
@@ -144,6 +174,7 @@ export function KeywordLanding({
   offerSubtitle?: string;
   children: ReactNode;
 }) {
+  const pathname = useLocation({ select: (l) => l.pathname });
   return (
     <PageShell>
       <article className="mx-auto max-w-4xl px-2.5 py-8 md:px-6 md:py-16">
@@ -190,7 +221,9 @@ export function KeywordLanding({
           </Link>
         </div>
 
-        <RelatedLinks />
+        <GuideNetwork />
+
+        <RelatedLinks currentPath={pathname} />
 
         <p className="mt-8 flex items-start gap-2 text-xs text-muted-foreground">
           <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
