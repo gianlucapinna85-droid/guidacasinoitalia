@@ -70,9 +70,9 @@ export const Route = createFileRoute("/operatori/$slug")({
             headline: title,
             description,
             inLanguage: "it-IT",
-            author: { "@type": "Organization", name: "GuidaCasinò.IT" },
+            author: authorSchema(),
             publisher: { "@type": "Organization", name: "GuidaCasinò.IT" },
-            dateModified: new Date().toISOString().slice(0, 10),
+            dateModified: LAST_VERIFIED_ISO,
             mainEntityOfPage: canonical,
             about: {
               "@type": "Organization",
