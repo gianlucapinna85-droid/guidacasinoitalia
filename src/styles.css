@@ -270,3 +270,18 @@
   .gc-logo-img { animation: none; transition: none; }
   .gc-logo-frame::after { display: none; }
 }
+
+/* Sicurezza contrasto: una superficie scura annidata dentro una card chiara
+   ripristina i token del tema scuro (evita testo scuro su fondo scuro). */
+[class~="bg-card"] [class~="bg-background"],
+[class~="bg-white"] [class~="bg-background"] {
+  --foreground: #F6F8FC;
+  --muted-foreground: #D6E3F2;
+  --border: #3C6396;
+  --secondary: #2A5183;
+  --secondary-foreground: #F6F8FC;
+  --muted: #2A5183;
+  --accent: #2A5183;
+  --gold: #D4A82F;
+  color: var(--foreground);
+}
