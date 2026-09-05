@@ -23,13 +23,23 @@ export type OperatorBonus = {
   deposit: BonusDetail | null;
   /** Pagina ufficiale dell'operatore da cui proviene il dato. */
   source: string;
+  /**
+   * "ufficiale" = importo letto sulla pagina promozionale del concessionario.
+   * "settore"   = importo riportato da testate/comparatori di settore quando la
+   *               pagina ufficiale non è consultabile automaticamente; va sempre
+   *               verificato sul sito dell'operatore prima di aderire.
+   */
+  sourceType?: "ufficiale" | "settore";
+  /** Riferimento della fonte di settore, quando sourceType = "settore". */
+  secondarySource?: string;
 };
 
 /** Data dell'ultima rilevazione delle pagine promozionali ufficiali. */
-export const BONUS_LAST_CHECK = "3 settembre 2026";
+export const BONUS_LAST_CHECK = "5 settembre 2026";
 
 export const BONUS_NOTE =
-  `Bonus rilevati dalle pagine promozionali ufficiali dei concessionari (ultimo controllo: ${BONUS_LAST_CHECK}). Gli importi "fino a" sono massimali dichiarati in promozione e sono soggetti a requisiti di puntata, deposito minimo e scadenze indicati nei Termini e Condizioni dell'operatore. Dove il dato non è pubblicato in forma verificabile riportiamo "dato non disponibile".`;
+  `Bonus rilevati dalle pagine promozionali ufficiali dei concessionari (ultimo controllo: ${BONUS_LAST_CHECK}). Quando la pagina ufficiale non è consultabile, l'importo è ripreso da testate e comparatori di settore e va verificato sul sito dell'operatore. Gli importi "fino a" sono massimali dichiarati in promozione e sono soggetti a requisiti di puntata, deposito minimo e scadenze indicati nei Termini e Condizioni dell'operatore.`;
+
 
 export const operatorBonuses: OperatorBonus[] = [
   {
@@ -106,18 +116,33 @@ export const operatorBonuses: OperatorBonus[] = [
   },
   {
     slug: "lottomatica",
-    noDeposit: null,
+    noDeposit: {
+      amount: "Bonus alla verifica del conto (importo indicato in registrazione)",
+      condition:
+        "Riconosciuto ai nuovi conti verificati con SPID/CIE: l'importo è mostrato durante la registrazione.",
+    },
     deposit: {
-      amount: "Fino a 6.550 € (scommesse)",
+      amount: "Fino a 6.550 € (scommesse) · fino a 5.000 € (casinò)",
       condition: "Offerta selezionabile durante la registrazione e legata ai primi depositi.",
     },
     source: "https://www.lottomatica.it/bonus/bonus-di-benvenuto",
+    sourceType: "settore",
+    secondarySource: "bonusfinder.it / diretta.it, rilevazione settembre 2026",
   },
   {
     slug: "goldbet",
-    noDeposit: null,
-    deposit: null,
+    noDeposit: {
+      amount: "Fino a 1.000 € in Play Bonus Slot",
+      condition:
+        "Registrazione con SPID e conto convalidato, senza deposito; accredito progressivo secondo i T&C.",
+    },
+    deposit: {
+      amount: "Fino a 5.050 € (casinò) · fino a 2.150 € (scommesse)",
+      condition: "Bonus di benvenuto sui primi depositi, con requisiti di giocato indicati nei T&C.",
+    },
     source: "https://www.goldbet.it/bonus/tutti",
+    sourceType: "settore",
+    secondarySource: "gazzetta.it / procasino.it, rilevazione settembre 2026",
   },
   {
     slug: "snai",
@@ -133,7 +158,11 @@ export const operatorBonuses: OperatorBonus[] = [
   },
   {
     slug: "sisal",
-    noDeposit: null,
+    noDeposit: {
+      amount: 'Bonus senza deposito "Salva il Bottino"',
+      condition:
+        "Gioco promozionale riservato ai nuovi conti verificati, senza obbligo di deposito; premio variabile secondo i T&C.",
+    },
     deposit: {
       amount: "Fino a 6.000 € (casinò Fun Bonus) · fino a 5.050 € (Real + Fun)",
       condition:
@@ -143,9 +172,17 @@ export const operatorBonuses: OperatorBonus[] = [
   },
   {
     slug: "eplay24",
-    noDeposit: null,
-    deposit: null,
+    noDeposit: {
+      amount: "Fino a 25 €",
+      condition: "Credito riconosciuto ai nuovi conti verificati, senza deposito.",
+    },
+    deposit: {
+      amount: "100% fino a 500 € + 50 giri (casinò) · 100% fino a 1.000 € (sport)",
+      condition: "Deposito minimo 10 €; bonus sbloccato a scaglioni progressivi secondo i T&C.",
+    },
     source: "https://www.eplay24.it/",
+    sourceType: "settore",
+    secondarySource: "codicipromozionali365.it / casinoitaliani.it, rilevazione settembre 2026",
   },
   {
     slug: "admiralbet",
@@ -161,19 +198,33 @@ export const operatorBonuses: OperatorBonus[] = [
   },
   {
     slug: "stake",
-    noDeposit: null,
+    noDeposit: {
+      amount: "50 € senza deposito (25 € sport + 25 € casinò)",
+      condition: "Accredito alla registrazione con conto verificato, senza deposito.",
+    },
     deposit: {
-      amount: "100% fino a 750 €",
-      condition: "Primo deposito, minimo dichiarato 10 €; promozione con scadenza mensile.",
+      amount: "Fino a 2.000 € sui primi 3 depositi",
+      condition: "Primo deposito minimo 10 €; promozione con scadenza indicata nei T&C.",
     },
     source: "https://stake.it/promo",
+    sourceType: "settore",
+    secondarySource: "tuttosport.com / goal.com, rilevazione settembre 2026",
   },
   {
     slug: "sportium",
-    noDeposit: null,
-    deposit: null,
+    noDeposit: {
+      amount: "Fino a 100 €",
+      condition: "Bonus riconosciuto ai nuovi conti verificati, senza deposito.",
+    },
+    deposit: {
+      amount: "100% fino a 2.000 € (casinò) · fino a 2.050 € totali con la sezione sport",
+      condition: "Requisito di puntata dichiarato 50x; dettagli completi nei T&C ufficiali.",
+    },
     source: "https://www.sportium.it/",
+    sourceType: "settore",
+    secondarySource: "slotjava.it / bonusfinder.it, rilevazione settembre 2026",
   },
+
 ];
 
 const byBonusSlug = new Map(operatorBonuses.map((b) => [b.slug, b]));
