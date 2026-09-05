@@ -14,6 +14,7 @@ import eplay24Logo from "@/assets/logos/eplay24.webp";
 import admiralbetAsset from "@/assets/logos/admiralbet.jpeg.asset.json";
 import stakeAsset from "@/assets/logos/stake.png.asset.json";
 import sportiumAsset from "@/assets/logos/sportium.png.asset.json";
+import { getOperatorBonus } from "@/data/bonuses";
 
 
 export type NoDepositBonus = {
