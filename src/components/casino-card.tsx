@@ -62,18 +62,13 @@ export function CasinoRankCard({
 
   return (
     <article className="gc-card group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold/70 hover:shadow-md">
-      <div className="relative grid min-h-20 grid-cols-[minmax(0,1fr)_9.75rem] overflow-hidden border-b border-gold/45 bg-background">
-        {rank ? (
-          <span className="absolute left-2 top-2 z-10 rounded-sm bg-gold px-1.5 py-0.5 text-[9px] font-extrabold uppercase text-primary-foreground shadow-sm" aria-label={`Posizione ${rank}`}>
-            Top {rank}
-          </span>
-        ) : null}
+      <div className="border-b border-gold/45 bg-background">
         <a
           href={op.officialUrl}
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
           aria-label={`Vai al sito ufficiale di ${op.name}`}
-          className="gc-logo-frame flex min-w-0 items-center justify-center px-4 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
+          className="gc-logo-frame flex h-24 w-full items-center justify-center px-5 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
         >
           {op.logo ? (
             <img
@@ -83,23 +78,25 @@ export function CasinoRankCard({
               height={200}
               loading="lazy"
               decoding="async"
-              className="gc-logo-img h-14 w-full"
+              className="gc-logo-img h-16 w-auto max-w-full"
             />
           ) : (
-            <span className="font-serif text-xl text-foreground">{op.name}</span>
+            <span className="font-serif text-2xl text-foreground">{op.name}</span>
           )}
         </a>
-        <Button asChild className="gc-cta h-full min-h-20 rounded-none border-l border-gold/70 px-3 text-[12px] font-extrabold uppercase leading-tight">
-          <a href={op.officialUrl} target="_blank" rel="noopener noreferrer sponsored nofollow">
-            <span>Vai al sito<br />ufficiale</span><ArrowRight className="h-4 w-4" />
-          </a>
-        </Button>
       </div>
 
       <div className="flex flex-1 flex-col gap-2.5 p-3">
         <div className="flex min-w-0 items-start justify-between gap-2">
           <div className="min-w-0">
-            <h3 className="truncate font-serif text-base leading-tight">{op.name}</h3>
+            <div className="flex min-w-0 items-center gap-2">
+              {rank ? (
+                <span className="shrink-0 rounded-sm bg-gold px-1.5 py-0.5 text-[9px] font-extrabold uppercase text-primary-foreground" aria-label={`Posizione ${rank}`}>
+                  Top {rank}
+                </span>
+              ) : null}
+              <h3 className="truncate font-serif text-base leading-tight">{op.name}</h3>
+            </div>
             <span className="text-[10px] font-semibold text-muted-foreground">Licenza {op.concessionN}</span>
           </div>
           <div className="flex shrink-0 flex-col items-end gap-0.5">
@@ -113,6 +110,7 @@ export function CasinoRankCard({
             </span>
           </div>
         </div>
+
 
         <dl className="grid grid-cols-2 rounded-md border border-border">
           <div className="min-w-0 border-r border-border bg-secondary/40 px-2.5 py-2">
@@ -138,7 +136,13 @@ export function CasinoRankCard({
         </p>
 
         <div className="mt-auto space-y-1.5">
+          <Button asChild className="gc-cta h-11 w-full text-[13px] font-extrabold uppercase">
+            <a href={op.officialUrl} target="_blank" rel="noopener noreferrer sponsored nofollow">
+              Vai al sito ufficiale <ArrowRight className="h-4 w-4" />
+            </a>
+          </Button>
           <div className="flex items-center justify-between gap-2">
+
             <Link
               to="/operatori/$slug"
               params={{ slug: op.slug }}
