@@ -12,7 +12,7 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
   const list = limit ? sortedOperators.slice(0, limit) : sortedOperators;
 
   return (
-    <div className="grid grid-cols-2 gap-2.5 md:gap-4">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-4 xl:grid-cols-3">
       {list.map((op, i) => {
         const meta = getCasinoMeta(op.slug);
         return (
@@ -25,7 +25,7 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
               target="_blank"
               rel="noopener noreferrer sponsored nofollow"
               aria-label={`Vai al sito ufficiale di ${op.name}`}
-              className="gc-logo-frame relative flex h-16 w-full items-center justify-center overflow-hidden border-b border-border bg-card md:h-24"
+              className="gc-logo-frame relative flex h-24 w-full items-center justify-center overflow-hidden border-b border-border bg-card md:h-28"
             >
               {op.logo ? (
                 <img
@@ -56,13 +56,13 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
                 {op.concessionN}
               </p>
               <div className="mt-1.5 space-y-1">
-                <p className="rounded-md border border-gold/40 bg-gold/10 px-2 py-1 text-[11px] font-bold leading-tight text-gold md:text-sm">
+                <p className="rounded-md border border-gold/40 bg-gold/10 px-2 py-1 text-[15px] font-bold leading-snug text-gold md:text-base">
                   <span className="block text-[8px] font-bold uppercase tracking-wider text-gold/80">
                     Senza deposito
                   </span>
                   {op.noDepositBonus?.amount ?? "Non dichiarato"}
                 </p>
-                <p className="rounded-md border border-border px-2 py-1 text-[11px] font-bold leading-tight text-foreground md:text-sm">
+                <p className="rounded-md border border-border px-2 py-1 text-[15px] font-bold leading-snug text-foreground md:text-base">
                   <span className="block text-[8px] font-bold uppercase tracking-wider text-muted-foreground">
                     Con deposito
                   </span>
@@ -85,9 +85,9 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
                   href={op.officialUrl}
                   target="_blank"
                   rel="noopener noreferrer nofollow sponsored"
-                  className="inline-flex w-full items-center justify-center gap-1.5 rounded-md border border-gold/40 bg-gold px-3 py-2 text-[12px] font-bold text-primary-foreground shadow-md shadow-gold/25 transition-all hover:brightness-110 md:text-sm"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-gold/40 bg-gold px-4 py-3 text-[15px] font-extrabold uppercase tracking-wide text-primary-foreground shadow-md shadow-gold/25 transition-all hover:brightness-110 md:text-sm"
                 >
-                  Visita qui <ArrowRight className="h-3.5 w-3.5 shrink-0" />
+                  Vai al sito ufficiale <ArrowRight className="h-3.5 w-3.5 shrink-0" />
                 </a>
                 <Link
                   to="/operatori/$slug"
