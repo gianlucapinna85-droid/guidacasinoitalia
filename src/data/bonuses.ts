@@ -23,13 +23,23 @@ export type OperatorBonus = {
   deposit: BonusDetail | null;
   /** Pagina ufficiale dell'operatore da cui proviene il dato. */
   source: string;
+  /**
+   * "ufficiale" = importo letto sulla pagina promozionale del concessionario.
+   * "settore"   = importo riportato da testate/comparatori di settore quando la
+   *               pagina ufficiale non è consultabile automaticamente; va sempre
+   *               verificato sul sito dell'operatore prima di aderire.
+   */
+  sourceType?: "ufficiale" | "settore";
+  /** Riferimento della fonte di settore, quando sourceType = "settore". */
+  secondarySource?: string;
 };
 
 /** Data dell'ultima rilevazione delle pagine promozionali ufficiali. */
-export const BONUS_LAST_CHECK = "3 settembre 2026";
+export const BONUS_LAST_CHECK = "5 settembre 2026";
 
 export const BONUS_NOTE =
-  `Bonus rilevati dalle pagine promozionali ufficiali dei concessionari (ultimo controllo: ${BONUS_LAST_CHECK}). Gli importi "fino a" sono massimali dichiarati in promozione e sono soggetti a requisiti di puntata, deposito minimo e scadenze indicati nei Termini e Condizioni dell'operatore. Dove il dato non è pubblicato in forma verificabile riportiamo "dato non disponibile".`;
+  `Bonus rilevati dalle pagine promozionali ufficiali dei concessionari (ultimo controllo: ${BONUS_LAST_CHECK}). Quando la pagina ufficiale non è consultabile, l'importo è ripreso da testate e comparatori di settore e va verificato sul sito dell'operatore. Gli importi "fino a" sono massimali dichiarati in promozione e sono soggetti a requisiti di puntata, deposito minimo e scadenze indicati nei Termini e Condizioni dell'operatore.`;
+
 
 export const operatorBonuses: OperatorBonus[] = [
   {
