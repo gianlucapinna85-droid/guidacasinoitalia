@@ -327,9 +327,26 @@ export const operators: Operator[] = [
   },
 ];
 
+// Allinea i bonus mostrati nei banner ai dati verificati sulle pagine ufficiali
+// (src/data/bonuses.ts). Dove il dato non è verificabile il campo resta assente
+// e la UI rimanda al sito ufficiale.
+for (const op of operators) {
+  const verified = getOperatorBonus(op.slug);
+  if (!verified) continue;
+  op.noDepositBonus = verified.noDeposit
+    ? { amount: verified.noDeposit.amount, description: verified.noDeposit.condition }
+    : undefined;
+  op.depositBonus = verified.deposit
+    ? { amount: verified.deposit.amount, description: verified.deposit.condition }
+    : undefined;
+  op.bonusSource = verified.source;
+}
+
 export const sortedOperators = [...operators].sort((a, b) => {
-  const aVal = parseNoDepositAmount(a.noDepositBonus?.amount);
-  const bVal = parseNoDepositAmount(b.noDepositBonus?.amount);
-  return bVal - aVal;
+  const rank = (o: Operator) =>
+    (o.noDepositBonus ? 2000000 : 0) +
+    parseNoDepositAmount(o.noDepositBonus?.amount) +
+    (o.depositBonus ? 1000 : 0);
+  return rank(b) - rank(a);
 });
 
