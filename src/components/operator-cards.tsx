@@ -55,11 +55,20 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
               <p className="text-[10px] uppercase tracking-wide text-muted-foreground md:text-xs">
                 {op.concessionN}
               </p>
-              {op.noDepositBonus?.amount ? (
-                <p className="mt-1.5 rounded-md border border-gold/40 bg-gold/10 px-2 py-1 text-[11px] font-bold leading-tight text-gold md:text-sm">
-                  {op.noDepositBonus.amount}
+              <div className="mt-1.5 space-y-1">
+                <p className="rounded-md border border-gold/40 bg-gold/10 px-2 py-1 text-[11px] font-bold leading-tight text-gold md:text-sm">
+                  <span className="block text-[8px] font-bold uppercase tracking-wider text-gold/80">
+                    Senza deposito
+                  </span>
+                  {op.noDepositBonus?.amount ?? "Non dichiarato"}
                 </p>
-              ) : null}
+                <p className="rounded-md border border-border px-2 py-1 text-[11px] font-bold leading-tight text-foreground md:text-sm">
+                  <span className="block text-[8px] font-bold uppercase tracking-wider text-muted-foreground">
+                    Con deposito
+                  </span>
+                  {op.depositBonus?.amount ?? "Vedi sito ufficiale"}
+                </p>
+              </div>
               <dl className="mt-2 grid grid-cols-2 gap-1 text-[10px] text-muted-foreground md:text-xs">
                 <div>
                   <dt className="uppercase tracking-wide">RTP</dt>
