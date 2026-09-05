@@ -62,13 +62,13 @@ export function CasinoRankCard({
 
   return (
     <article className="gc-card group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-gold">
-      <div className="flex flex-1 flex-col p-3">
-        <div className="flex items-center gap-3">
+      <div className="flex flex-1 flex-col gap-2 p-2.5">
+        <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-2.5">
           <Link
             to="/operatori/$slug"
             params={{ slug: op.slug }}
             aria-label={`Scheda ${op.name}`}
-            className="gc-logo-frame flex h-14 w-24 shrink-0 items-center justify-center overflow-hidden rounded-md border border-border bg-card transition-colors hover:border-gold sm:h-16 sm:w-28"
+            className="gc-logo-frame flex h-10 w-[4.5rem] shrink-0 items-center justify-center overflow-hidden rounded border border-border bg-card transition-colors hover:border-gold"
           >
             {op.logo ? (
               <img
@@ -81,98 +81,102 @@ export function CasinoRankCard({
                 className="gc-logo-img"
               />
             ) : (
-              <span className="font-serif text-base text-foreground">{op.name}</span>
+              <span className="truncate px-1 font-serif text-xs text-foreground">{op.name}</span>
             )}
           </Link>
 
-          <div className="min-w-0 flex-1">
-            <div className="flex items-start justify-between gap-2">
-              <h3 className="font-serif text-base leading-tight md:text-lg">{op.name}</h3>
+          <div className="min-w-0">
+            <div className="flex items-center gap-1.5">
+              <h3 className="truncate font-serif text-sm leading-tight md:text-base">{op.name}</h3>
               {rank ? (
-                <span className="inline-flex h-7 min-w-7 shrink-0 items-center justify-center rounded-full bg-primary px-1 text-xs font-extrabold text-primary-foreground" aria-label={`Posizione ${rank}`}>
+                <span
+                  className="inline-flex h-5 min-w-5 shrink-0 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-extrabold text-primary-foreground"
+                  aria-label={`Posizione ${rank}`}
+                >
                   {rank}
                 </span>
               ) : null}
             </div>
-            {meta ? (
-              <div className="mt-1 flex items-center gap-1.5">
-                <StarRating rating={meta.rating} size="sm" />
-                <span className="text-xs font-bold text-gold">{meta.rating.toFixed(1)}/10</span>
-              </div>
-            ) : null}
-            <p className="mt-1 truncate text-[10px] font-semibold uppercase text-muted-foreground">
-              {op.concessionN}
-            </p>
+            <div className="mt-0.5 flex min-w-0 items-center gap-1.5">
+              {meta ? (
+                <>
+                  <StarRating rating={meta.rating} size="sm" />
+                  <span className="text-[11px] font-bold text-gold">{meta.rating.toFixed(1)}</span>
+                  <span aria-hidden="true" className="text-[10px] text-muted-foreground">·</span>
+                </>
+              ) : null}
+              <span className="truncate text-[10px] uppercase text-muted-foreground">{op.concessionN}</span>
+            </div>
           </div>
         </div>
 
-        <div className="mt-3 divide-y divide-border rounded-md border border-border bg-secondary/60 px-3">
-          <div className="grid grid-cols-[6.25rem_1fr] items-start gap-2 py-2">
-            <span className="text-[10px] font-bold uppercase leading-4 text-muted-foreground">Senza deposito</span>
-            <strong className="text-right text-[13px] leading-4 text-gold">{op.noDepositBonus?.amount ?? "Non disponibile"}</strong>
+        <dl className="rounded border border-border bg-secondary/60 px-2 py-1 text-[11px]">
+          <div className="flex items-baseline justify-between gap-2 leading-5">
+            <dt className="shrink-0 text-[10px] font-bold uppercase text-muted-foreground">Senza dep.</dt>
+            <dd className="min-w-0 line-clamp-2 text-right font-bold leading-4 text-gold">{op.noDepositBonus?.amount ?? "n.d."}</dd>
           </div>
-          <div className="grid grid-cols-[6.25rem_1fr] items-start gap-2 py-2">
-            <span className="text-[10px] font-bold uppercase leading-4 text-muted-foreground">Con deposito</span>
-            <strong className="text-right text-[13px] leading-4 text-foreground">{op.depositBonus?.amount ?? "Non disponibile"}</strong>
+          <div className="flex items-baseline justify-between gap-2 leading-5">
+            <dt className="shrink-0 text-[10px] font-bold uppercase text-muted-foreground">Con dep.</dt>
+            <dd className="min-w-0 line-clamp-2 text-right font-semibold leading-4 text-foreground">{op.depositBonus?.amount ?? "n.d."}</dd>
           </div>
-        </div>
-
-        <dl className="mt-2 flex items-center gap-3 text-[11px] text-muted-foreground">
-          <div className="flex gap-1"><dt>RTP</dt><dd className="font-bold text-foreground">{op.rtpAverage}</dd></div>
-          <span aria-hidden="true">•</span>
-          <div className="flex gap-1"><dt>Giochi</dt><dd className="font-bold text-foreground">{op.games}+</dd></div>
-          <span aria-hidden="true">•</span>
-          <span className="font-semibold text-foreground">18+ · ADM</span>
         </dl>
 
-        <div className="mt-3 grid grid-cols-[1fr_auto] gap-2">
-          <Button asChild size="lg" className="gc-cta min-h-11 px-3 text-sm font-extrabold uppercase">
+        <p className="flex items-center gap-2 truncate text-[10px] text-muted-foreground">
+          <span>RTP <strong className="text-foreground">{op.rtpAverage}</strong></span>
+          <span aria-hidden="true">·</span>
+          <span>{op.games}+ giochi</span>
+          <span aria-hidden="true">·</span>
+          <span className="font-semibold text-foreground">18+ ADM</span>
+        </p>
+
+        <div className="mt-auto grid grid-cols-[1fr_auto] gap-1.5">
+          <Button asChild className="gc-cta h-9 px-2 text-[12px] font-extrabold uppercase">
             <a href={op.officialUrl} target="_blank" rel="noopener noreferrer sponsored nofollow">
-              Sito ufficiale <ArrowRight />
+              Sito ufficiale <ArrowRight className="h-3.5 w-3.5" />
             </a>
           </Button>
-          <Button asChild variant="outline" size="lg" className="min-h-11 px-3 text-xs">
+          <Button asChild variant="outline" className="h-9 px-2 text-[11px]">
             <Link to="/operatori/$slug" params={{ slug: op.slug }}>Recensione</Link>
           </Button>
         </div>
 
-        {/* Dettagli extra */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
-          className="mt-2 inline-flex min-h-8 items-center gap-1 self-start text-[11px] font-semibold text-muted-foreground transition-colors hover:text-gold"
+          className="inline-flex items-center gap-1 self-start text-[10px] font-semibold text-muted-foreground transition-colors hover:text-gold"
         >
-          {open ? "Mostra meno" : "Continua a leggere"}
-          <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
+          {open ? "Mostra meno" : "Dettagli"}
+          <ChevronDown className={`h-3 w-3 transition-transform ${open ? "rotate-180" : ""}`} />
         </button>
 
         {open ? (
-          <div className="gc-pop mt-2 border-t border-border pt-2">
-            <div className="flex flex-wrap items-center gap-1.5">
-              <span className="inline-flex items-center gap-1 rounded-full border border-gold/40 bg-gold/10 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-gold">
+          <div className="gc-pop border-t border-border pt-1.5">
+            <div className="flex flex-wrap items-center gap-1">
+              <span className="inline-flex items-center gap-1 rounded-full border border-gold/40 bg-gold/10 px-1.5 py-0.5 text-[10px] font-bold uppercase text-gold">
                 <BadgeCheck className="h-3 w-3" /> {op.concessionN}
               </span>
               {meta?.fastWithdrawal ? (
-                <span className="rounded-full border border-border px-2 py-0.5 text-[11px] font-semibold text-muted-foreground">
+                <span className="rounded-full border border-border px-1.5 py-0.5 text-[10px] font-semibold text-muted-foreground">
                   Prelievo rapido dichiarato
                 </span>
               ) : null}
               {meta?.paypal ? (
-                <span className="rounded-full border border-border px-2 py-0.5 text-[11px] font-semibold text-muted-foreground">
+                <span className="rounded-full border border-border px-1.5 py-0.5 text-[10px] font-semibold text-muted-foreground">
                   PayPal
                 </span>
               ) : null}
             </div>
-            <p className="mt-1.5 text-[12px] leading-snug text-muted-foreground">{op.paymentMethods.join(" · ")}</p>
+            <p className="mt-1 text-[11px] leading-snug text-muted-foreground">{op.paymentMethods.join(" · ")}</p>
           </div>
         ) : null}
       </div>
 
-      <p className="border-t border-border px-3 py-1.5 text-[10px] leading-tight text-muted-foreground">
-        Gioca responsabilmente · Offerte soggette a termini e verifica
+      <p className="border-t border-border px-2.5 py-1 text-[9px] leading-tight text-muted-foreground">
+        Gioca responsabilmente · 18+ · Offerte soggette a termini
       </p>
     </article>
   );
 }
+
 
