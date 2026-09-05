@@ -46,27 +46,41 @@ export function PageOfferStrip({ placement = "page" }: { placement?: "article" |
 
         <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
 
-          {selected.map((operator) => (
+          {selected.map((operator) => {
+            const meta = getCasinoMeta(operator.slug);
+            return (
             <article key={operator.slug} className="flex flex-col overflow-hidden rounded-lg border border-offer-border bg-offer shadow-sm">
               <a
                 href={operator.officialUrl}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
                 aria-label={`Vai al sito ufficiale di ${operator.name}`}
-                className={`gc-logo-frame flex h-20 min-w-0 items-center justify-center border-b border-offer-border px-4 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold ${operator.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}
+                className={`gc-logo-frame flex h-16 min-w-0 items-center justify-center px-4 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold ${operator.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}
               >
-                <img src={operator.logo} alt={`Logo ${operator.name}`} width={600} height={200} loading="lazy" decoding="async" className="gc-logo-img max-h-16 w-auto max-w-[88%] object-contain" />
+                <img src={operator.logo} alt={`Logo ${operator.name}`} width={600} height={200} loading="lazy" decoding="async" className="gc-logo-img max-h-12 w-auto max-w-[88%] object-contain" />
               </a>
+              <div className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-0.5 border-y border-offer-border px-2 py-1">
+                {meta ? (
+                  <span className="flex items-center gap-0.5 font-bold text-gold" title={`Valutazione redazionale ${meta.rating.toFixed(1)}/10`}>
+                    <StarRating rating={meta.rating} size="sm" />
+                    <span className="text-[9px]">{meta.rating.toFixed(1)}</span>
+                  </span>
+                ) : null}
+                <span className="text-[8px] font-semibold uppercase tracking-wide text-muted-foreground">{operator.concessionN}</span>
+                {meta?.spid ? (
+                  <span className="rounded-sm border border-gold/50 bg-gold/10 px-1 py-px text-[8px] font-extrabold uppercase tracking-wide text-gold" title="Registrazione con SPID disponibile">SPID</span>
+                ) : null}
+              </div>
               <div className="flex min-w-0 flex-1 items-center justify-between gap-2 px-3 py-2">
                 <div className="min-w-0">
                   <p className="text-[9px] font-bold uppercase tracking-wide text-muted-foreground">
                     {operator.noDepositBonus?.amount ? "Senza deposito" : "Bonus di benvenuto"}
                   </p>
-                  <p className="break-words font-serif text-base font-bold leading-tight text-gold">
-                    {operator.noDepositBonus?.amount ?? operator.depositBonus?.amount ?? "Offerta sul sito"}
+                  <p className={`break-words font-serif font-bold leading-tight ${operator.noDepositBonus?.amount || operator.depositBonus?.amount ? "text-base text-gold" : "text-[10px] text-muted-foreground"}`}>
+                    {operator.noDepositBonus?.amount ?? operator.depositBonus?.amount ?? "Senza deposito non disponibile"}
                   </p>
                 </div>
-                <BadgeCheck className="h-4 w-4 shrink-0 text-gold" aria-label="Operatore verificato" />
+                <BadgeCheck className="h-4 w-4 shrink-0 text-gold" aria-label="Operatore verificato dalla redazione" />
               </div>
               <div className="border-t border-offer-border bg-gold/[0.12] p-2">
                 <Button asChild size="sm" className="h-10 w-full px-2 text-[11px] font-extrabold uppercase">
@@ -76,8 +90,8 @@ export function PageOfferStrip({ placement = "page" }: { placement?: "article" |
                 </Button>
               </div>
             </article>
-
-          ))}
+            );
+          })}
         </div>
         <p className="mt-2 text-[9px] leading-snug text-muted-foreground">
           Offerte soggette a termini e condizioni dell’operatore. Il gioco è vietato ai minori e può causare dipendenza.
