@@ -53,6 +53,7 @@
   --color-ring: var(--ring);
   --color-gold: var(--gold);
   --color-gold-muted: var(--gold-muted);
+  --color-logo-contrast: var(--logo-contrast);
 }
 
 :root {
@@ -82,6 +83,7 @@
   --ring: #D4A82F;
   --gold: #D4A82F;
   --gold-muted: #E3CB8A;
+  --logo-contrast: #172A3A;
   --gradient-hero: linear-gradient(180deg, #24497A 0%, #1E3F66 100%);
   --gradient-gold: linear-gradient(135deg, #E9CB6B 0%, #C79A2E 100%);
   --shadow-elegant: 0 12px 32px -18px rgba(6, 18, 36, 0.45);

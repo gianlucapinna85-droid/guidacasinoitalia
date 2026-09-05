@@ -32,17 +32,31 @@ export function PageOfferStrip({ placement = "page" }: { placement?: "article" |
 
         <div className="grid gap-2.5 lg:grid-cols-3">
           {selected.map((operator) => (
-            <article key={operator.slug} className="overflow-hidden rounded-lg border border-gold/50 bg-card shadow-sm">
-              <a
-                href={operator.officialUrl}
-                target="_blank"
-                rel="noopener noreferrer sponsored nofollow"
-                aria-label={`Vai al sito ufficiale di ${operator.name}`}
-                className="gc-logo-frame flex h-24 items-center justify-center border-b border-border px-4 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
-              >
-                <img src={operator.logo} alt={`Logo ${operator.name}`} width={600} height={200} loading="lazy" decoding="async" className="gc-logo-img h-full w-full" />
-              </a>
-              <div className="flex min-w-0 flex-col justify-between p-2.5">
+            <article key={operator.slug} className="grid min-h-28 grid-cols-[minmax(0,1fr)_8rem] overflow-hidden rounded-lg border border-gold/50 bg-card shadow-sm">
+              <div className="grid min-w-0 grid-rows-[4.75rem_auto]">
+                <a
+                  href={operator.officialUrl}
+                  target="_blank"
+                  rel="noopener noreferrer sponsored nofollow"
+                  aria-label={`Vai al sito ufficiale di ${operator.name}`}
+                  className={`gc-logo-frame flex min-w-0 items-center justify-center border-b border-border px-4 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold ${operator.slug === "stake" ? "bg-logo-contrast" : "bg-card"}`}
+                >
+                  <img src={operator.logo} alt={`Logo ${operator.name}`} width={600} height={200} loading="lazy" decoding="async" className="gc-logo-img h-14 w-full max-w-44" />
+                </a>
+                <div className="min-w-0 px-3 py-2">
+                  <h3 className="truncate font-serif text-sm">{operator.name}</h3>
+                  <p className="truncate text-xs font-bold text-gold">{operator.noDepositBonus?.amount ?? operator.depositBonus?.amount ?? "Offerta sul sito"}</p>
+                </div>
+              </div>
+              <div className="flex items-center border-l border-border bg-secondary/10 p-2">
+                <Button asChild size="sm" className="h-11 w-full px-2 text-[11px] font-extrabold uppercase">
+                  <a href={operator.officialUrl} target="_blank" rel="noopener noreferrer sponsored nofollow">
+                    Visita <ArrowUpRight className="h-3.5 w-3.5" />
+                  </a>
+                </Button>
+              </div>
+              {/* Informazioni incorporate nella colonna sinistra: nessuna sovrapposizione sul marchio. */}
+              <div className="hidden">
                 <div className="min-w-0">
                   <div className="flex items-center justify-between gap-2">
                     <h3 className="truncate font-serif text-base">{operator.name}</h3>
