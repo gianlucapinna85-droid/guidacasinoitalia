@@ -61,21 +61,21 @@ export function CasinoRankCard({
   const [open, setOpen] = useState(false);
 
   return (
-    <article className="gc-card group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-24px_var(--gc-glow)]">
-      <div className="flex flex-1 flex-col p-1.5 md:p-2.5">
-        {/* Logo = bottone affiliato */}
-        <div className="flex items-center gap-1">
-          {rank ? (
-            <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-gold/50 bg-gold/10 font-serif text-[8px] font-bold text-gold md:h-5 md:w-5 md:text-[10px]">
-              {rank}
-            </span>
-          ) : null}
+    <article className="gc-card group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_-24px_var(--gc-glow)]">
+      <div className="flex flex-1 flex-col p-3 md:p-4">
+        {/* Intestazione: rank + logo grande + nome/voto */}
+        <div className="flex items-center gap-3">
           <Link
             to="/operatori/$slug"
             params={{ slug: op.slug }}
             aria-label={`Scheda ${op.name}`}
-            className="gc-logo-frame flex h-14 flex-1 items-center justify-center overflow-hidden rounded-lg border-2 border-gold/60 bg-card shadow-sm transition-colors duration-300 hover:border-gold md:h-16"
+            className="gc-logo-frame relative flex h-20 w-[42%] shrink-0 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/60 bg-card shadow-sm transition-colors duration-300 hover:border-gold sm:h-24"
           >
+            {rank ? (
+              <span className="absolute left-1 top-1 z-10 flex h-6 w-6 items-center justify-center rounded-full border border-gold/60 bg-gold/15 font-serif text-[11px] font-bold text-gold">
+                {rank}
+              </span>
+            ) : null}
             {op.logo ? (
               <img
                 src={op.logo}
@@ -87,105 +87,116 @@ export function CasinoRankCard({
                 className="gc-logo-img"
               />
             ) : (
-              <span className="font-serif text-[13px] text-foreground md:text-base">{op.name}</span>
+              <span className="font-serif text-base text-foreground">{op.name}</span>
             )}
           </Link>
-        </div>
 
-        {/* Riga nome + stelle */}
-        <div className="mt-1 flex items-center justify-between gap-1">
-          <h3 className="truncate font-serif text-[12px] leading-tight md:text-sm">{op.name}</h3>
-          {meta ? <StarRating rating={meta.rating} size="sm" /> : null}
+          <div className="min-w-0 flex-1">
+            <h3 className="font-serif text-lg leading-tight md:text-xl">{op.name}</h3>
+            {meta ? (
+              <div className="mt-1 flex flex-wrap items-center gap-1.5">
+                <StarRating rating={meta.rating} />
+                <span className="text-[13px] font-bold text-gold">{meta.rating.toFixed(1)}/10</span>
+              </div>
+            ) : null}
+            <p className="mt-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+              {op.concessionN}
+            </p>
+          </div>
         </div>
 
         {/* Pallini ADM/bandiera */}
-        <div className="mt-0.5">
+        <div className="mt-2.5">
           <OperatorTrustDots name={op.name} />
         </div>
 
-        {/* Info principali: bonus + RTP */}
-        <div className="mt-1.5 grid grid-cols-1 gap-1">
-          <div className="rounded-md border border-gold/40 bg-gold/10 px-1.5 py-0.5">
-            <span className="block text-[7px] font-bold uppercase tracking-wider text-gold/80 md:text-[8px]">
+        {/* Bonus: testo completo, nessun troncamento */}
+        <div className="mt-3 grid gap-2">
+          <div className="rounded-xl border-2 border-gold/50 bg-gold/10 px-3 py-2">
+            <span className="block text-[10px] font-bold uppercase tracking-widest text-gold/80">
               Bonus senza deposito
             </span>
-            <span className="block truncate text-[11px] font-bold text-gold md:text-xs">
+            <span className="mt-0.5 block text-[15px] font-bold leading-snug text-gold md:text-base">
               {op.noDepositBonus?.amount ?? "Non dichiarato"}
             </span>
           </div>
-          <div className="rounded-md border border-border px-1.5 py-0.5">
-            <span className="block text-[7px] font-bold uppercase tracking-wider text-muted-foreground md:text-[8px]">
+          <div className="rounded-xl border border-border bg-secondary/60 px-3 py-2">
+            <span className="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
               Bonus con deposito
             </span>
-            <span className="block truncate text-[11px] font-bold text-foreground md:text-xs">
+            <span className="mt-0.5 block text-[15px] font-bold leading-snug text-foreground md:text-base">
               {op.depositBonus?.amount ?? "Vedi sito ufficiale"}
-            </span>
-          </div>
-          <div className="rounded-md border border-border px-1.5 py-0.5">
-            <span className="block text-[7px] font-bold uppercase tracking-wider text-muted-foreground md:text-[8px]">
-              RTP · Giochi
-            </span>
-            <span className="block truncate text-[11px] font-bold text-foreground md:text-xs">
-              {op.rtpAverage} · {op.games}+
             </span>
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="mt-1.5 flex flex-col gap-1">
+        <dl className="mt-2 grid grid-cols-2 gap-2 text-[12px]">
+          <div className="rounded-lg border border-border px-2.5 py-1.5">
+            <dt className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">RTP medio</dt>
+            <dd className="font-bold text-foreground">{op.rtpAverage}</dd>
+          </div>
+          <div className="rounded-lg border border-border px-2.5 py-1.5">
+            <dt className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">Giochi</dt>
+            <dd className="font-bold text-foreground">{op.games}+</dd>
+          </div>
+        </dl>
+
+        {/* CTA grandi */}
+        <div className="mt-3 flex flex-col gap-2">
           <a
             href={op.officialUrl}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
-            className="gc-cta inline-flex items-center justify-center gap-1 rounded-md bg-gold px-2 py-1.5 text-[11px] font-bold text-primary-foreground shadow-md shadow-gold/25 transition-all duration-200 hover:brightness-110 active:scale-[0.98] md:text-xs"
+            className="gc-cta inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gold px-4 text-[15px] font-extrabold uppercase tracking-wide text-primary-foreground shadow-lg shadow-gold/30 transition-all duration-200 hover:brightness-110 active:scale-[0.98] md:text-base"
           >
-            Visita <ArrowRight className="h-3 w-3" />
+            Vai al sito ufficiale <ArrowRight className="h-4 w-4" />
           </a>
           <Link
             to="/operatori/$slug"
             params={{ slug: op.slug }}
-            className="gc-btn-secondary w-full px-1.5 py-1 text-[10px] md:text-[11px]"
+            className="gc-btn-secondary min-h-10 w-full px-3 text-[13px]"
           >
-            Recensione
+            Leggi la recensione
           </Link>
         </div>
 
-        {/* Dettagli extra compattati */}
+        {/* Dettagli extra */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
-          className="mt-1 inline-flex items-center gap-0.5 text-[9px] font-semibold text-muted-foreground transition-colors hover:text-gold md:text-[10px]"
+          className="mt-2 inline-flex items-center gap-1 self-start text-[12px] font-semibold text-muted-foreground transition-colors hover:text-gold"
         >
-          {open ? "Meno" : "Continua"}
-          <ChevronDown className={`h-2.5 w-2.5 transition-transform ${open ? "rotate-180" : ""}`} />
+          {open ? "Mostra meno" : "Continua a leggere"}
+          <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
         </button>
 
         {open ? (
-          <div className="gc-pop mt-1 border-t border-border pt-1">
-            <div className="flex flex-wrap items-center gap-1">
-              <span className="inline-flex items-center gap-0.5 rounded-full border border-gold/40 bg-gold/10 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wide text-gold md:text-[9px]">
-                <BadgeCheck className="h-2 w-2" /> {op.concessionN}
+          <div className="gc-pop mt-2 border-t border-border pt-2">
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="inline-flex items-center gap-1 rounded-full border border-gold/40 bg-gold/10 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-gold">
+                <BadgeCheck className="h-3 w-3" /> {op.concessionN}
               </span>
               {meta?.fastWithdrawal ? (
-                <span className="rounded-full border border-border px-1.5 py-0.5 text-[8px] font-semibold uppercase tracking-wide text-muted-foreground md:text-[9px]">
+                <span className="rounded-full border border-border px-2 py-0.5 text-[11px] font-semibold text-muted-foreground">
                   Prelievo rapido dichiarato
                 </span>
               ) : null}
               {meta?.paypal ? (
-                <span className="rounded-full border border-border px-1.5 py-0.5 text-[8px] font-semibold uppercase tracking-wide text-muted-foreground md:text-[9px]">
+                <span className="rounded-full border border-border px-2 py-0.5 text-[11px] font-semibold text-muted-foreground">
                   PayPal
                 </span>
               ) : null}
             </div>
-            <p className="mt-1 text-[8px] text-muted-foreground md:text-[10px]">{op.paymentMethods.join(" · ")}</p>
+            <p className="mt-1.5 text-[12px] leading-snug text-muted-foreground">{op.paymentMethods.join(" · ")}</p>
           </div>
         ) : null}
       </div>
 
-      <p className="border-t border-border px-1.5 py-0.5 text-[7px] leading-tight text-muted-foreground md:px-2.5 md:text-[9px]">
-        18+ · Gioco responsabile · ADM
+      <p className="border-t border-border px-3 py-1.5 text-[10px] leading-tight text-muted-foreground md:px-4">
+        18+ · Gioco responsabile · Operatore con concessione ADM
       </p>
     </article>
   );
 }
+
