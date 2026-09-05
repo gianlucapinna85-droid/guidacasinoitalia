@@ -21,11 +21,44 @@
 }
 
 
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./fonts/dmserifdisplay-400-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./fonts/firasans-400-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./fonts/firasans-500-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./fonts/firasans-700-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-sans: "Fira Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "DM Serif Display", ui-serif, Georgia, serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -54,6 +87,9 @@
   --color-gold: var(--gold);
   --color-gold-muted: var(--gold-muted);
   --color-logo-contrast: var(--logo-contrast);
+  --color-offer: var(--offer);
+  --color-offer-deep: var(--offer-deep);
+  --color-offer-border: var(--offer-border);
 }
 
 :root {
@@ -84,6 +120,10 @@
   --gold: #D4A82F;
   --gold-muted: #E3CB8A;
   --logo-contrast: #172A3A;
+  /* Avorio editoriale per i banner offerta */
+  --offer: #F7F1E4;
+  --offer-deep: #EFE7D3;
+  --offer-border: #E0D3B4;
   --gradient-hero: linear-gradient(180deg, #24497A 0%, #1E3F66 100%);
   --gradient-gold: linear-gradient(135deg, #E9CB6B 0%, #C79A2E 100%);
   --shadow-elegant: 0 12px 32px -18px rgba(6, 18, 36, 0.45);
@@ -95,10 +135,12 @@
   --foreground: #F6F8FC;
 }
 
-/* Superfici chiare (card, pannelli bianchi): token invertiti per leggibilità */
+/* Superfici chiare (card, pannelli, banner avorio): token invertiti per leggibilità */
 [class~="bg-card"],
 [class~="bg-white"],
-[class~="bg-popover"] {
+[class~="bg-popover"],
+[class~="bg-offer"],
+[class~="bg-offer-deep"] {
   color: var(--card-foreground);
   --foreground: #17130B;
   --muted-foreground: #5F6675;
@@ -109,6 +151,14 @@
   --accent: #FDF4E1;
   --accent-foreground: #17130B;
   --gold: #A87E14;
+}
+
+/* Superfici avorio: bordi e secondari caldi */
+[class~="bg-offer"],
+[class~="bg-offer-deep"] {
+  --border: #E0D3B4;
+  --secondary: #FDF8EC;
+  --muted: #FDF8EC;
 }
 
 @layer base {
