@@ -4,6 +4,7 @@ import { BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { operators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
+import { displayBonuses, useBonusSnapshots } from "@/lib/use-bonus-snapshots";
 
 function pathSeed(pathname: string) {
   // hash stabile: pagine diverse ricevono selezioni di operatori diverse
@@ -49,6 +50,7 @@ export function PageOfferStrip({ placement = "page" }: { placement?: "article" |
         <div className="grid gap-1.5 sm:grid-cols-2">
           {selected.map((operator) => {
             const meta = getCasinoMeta(operator.slug);
+            const bonus = displayBonuses(operator, snapshots);
             return (
             <article
               key={operator.slug}
