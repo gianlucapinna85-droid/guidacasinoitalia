@@ -66,7 +66,7 @@ export function CasinoRankCard({
   return (
     <article className="gc-card group relative flex h-full flex-col overflow-hidden rounded-xl border border-offer-border bg-offer shadow-sm transition-all hover:border-gold/70 hover:shadow-md">
       {/* Riga principale: logo | bonus | CTA */}
-      <div className="grid grid-cols-[6.5rem_minmax(0,1fr)_auto] items-stretch gap-0 sm:grid-cols-[8rem_minmax(0,1fr)_auto]">
+      <div className="grid grid-cols-[7.5rem_minmax(0,1fr)_auto] items-stretch gap-0 sm:grid-cols-[9.5rem_minmax(0,1fr)_auto]">
         {/* Colonna logo: stelline + licenza sotto il logo */}
         <div className={`flex min-w-0 flex-col ${op.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}>
           <a
@@ -74,7 +74,7 @@ export function CasinoRankCard({
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
             aria-label={`Vai al sito ufficiale di ${op.name}`}
-            className="gc-logo-frame flex min-h-[3.5rem] flex-1 items-center justify-center px-2.5 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
+            className="gc-logo-frame flex min-h-[4rem] flex-1 items-center justify-center px-2 py-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
           >
             {op.logo ? (
               <img
@@ -84,7 +84,7 @@ export function CasinoRankCard({
                 height={200}
                 loading="lazy"
                 decoding="async"
-                className="gc-logo-img max-h-11 w-auto max-w-[92%]"
+                className="gc-logo-img max-h-14 w-auto max-w-[96%]"
               />
             ) : (
               <span className="truncate font-serif text-base text-foreground">{op.name}</span>
@@ -94,18 +94,18 @@ export function CasinoRankCard({
             {meta ? (
               <span className="flex items-center gap-1" title={`Valutazione redazionale ${meta.rating.toFixed(1)}/10`}>
                 <StarRating rating={meta.rating} size="sm" />
-                <span className="text-[9px] font-bold text-gold">{meta.rating.toFixed(1)}</span>
+                <span className="text-[10px] font-bold text-gold">{meta.rating.toFixed(1)}</span>
               </span>
             ) : null}
-            <span className="truncate text-[8px] font-semibold uppercase tracking-wide text-muted-foreground">
+            <span className="whitespace-nowrap text-[9px] font-semibold uppercase tracking-wide text-muted-foreground">
               {op.concessionN}
             </span>
           </div>
         </div>
 
         {/* Colonna centrale: tag + bonus in evidenza */}
-        <div className="flex min-w-0 flex-col justify-center gap-0.5 px-3 py-2.5">
-          <p className="truncate text-[9px] font-bold uppercase tracking-wide text-muted-foreground sm:text-[10px]">
+        <div className="flex min-w-0 flex-col justify-center gap-0.5 px-2.5 py-2.5">
+          <p className="whitespace-nowrap text-[9px] font-bold uppercase tracking-wide text-muted-foreground sm:text-[10px]">
             {bonus.noDeposit ? "Senza deposito" : "Bonus di benvenuto"}
             {meta?.spid ? (
               <span className="ml-1 rounded-sm border border-gold/50 bg-gold/10 px-1 py-px text-[8px] font-extrabold text-gold">
@@ -114,36 +114,38 @@ export function CasinoRankCard({
             ) : null}
           </p>
           <p
-            className={`break-words font-serif font-bold leading-tight ${
+            className={`whitespace-nowrap font-serif font-bold leading-tight ${
               bonus.noDeposit || bonus.deposit
-                ? "text-[15px] text-gold sm:text-xl"
+                ? "text-[13px] text-gold sm:text-xl"
                 : "text-[10px] font-normal text-muted-foreground"
             }`}
           >
             {bonus.noDeposit ?? bonus.deposit ?? "Bonus senza deposito non disponibile"}
           </p>
           {bonus.noDeposit && bonus.deposit ? (
-            <p className="truncate text-[10px] text-muted-foreground">
+            <p className="text-[10px] leading-snug text-muted-foreground">
               Con deposito: <strong className="font-semibold text-foreground">{bonus.deposit}</strong>
             </p>
           ) : null}
-          <p className="truncate text-[9px] text-muted-foreground">
+          <p className="whitespace-nowrap text-[9px] text-muted-foreground">
             RTP {op.rtpAverage} · {op.games}+ giochi
           </p>
         </div>
 
         {/* Colonna CTA: pulsante oro */}
-        <div className="relative flex shrink-0 items-center border-l border-offer-border bg-gold/[0.12] p-2 sm:p-2.5">
+        <div className="relative flex shrink-0 items-center border-l border-offer-border bg-gold/[0.12] p-2">
           <BadgeCheck
             className="absolute right-1 top-1 h-3 w-3 text-gold"
             aria-label="Operatore verificato dalla redazione"
           />
-          <Button asChild className="gc-cta h-11 flex-col gap-0 px-3 text-[10px] font-extrabold uppercase leading-tight sm:h-12 sm:px-4 sm:text-xs">
-            <a href={op.officialUrl} target="_blank" rel="noopener noreferrer sponsored nofollow">
-              Visita
-              <span className="inline-flex items-center gap-0.5">
-                il sito <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
-              </span>
+          <Button asChild className="gc-cta h-11 whitespace-nowrap px-2 text-[10px] font-extrabold uppercase leading-tight sm:h-12 sm:px-4 sm:text-xs">
+            <a
+              href={op.officialUrl}
+              target="_blank"
+              rel="noopener noreferrer sponsored nofollow"
+              className="inline-flex items-center gap-1"
+            >
+              Visita il sito <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
             </a>
           </Button>
         </div>
