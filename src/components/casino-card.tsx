@@ -61,29 +61,49 @@ export function CasinoRankCard({
 
   return (
     <article className="gc-card group relative flex h-full flex-col overflow-hidden rounded-lg border border-offer-border bg-offer shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold/70 hover:shadow-md">
-      <div className="grid min-h-24 grid-cols-[minmax(0,1fr)_8.25rem] items-stretch border-b border-offer-border sm:grid-cols-[minmax(0,1fr)_9.5rem]">
-        <a
-          href={op.officialUrl}
-          target="_blank"
-          rel="noopener noreferrer sponsored nofollow"
-          aria-label={`Vai al sito ufficiale di ${op.name}`}
-          className={`gc-logo-frame flex min-w-0 items-center justify-center px-5 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold ${op.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}
-        >
-          {op.logo ? (
-            <img
-              src={op.logo}
-              alt={`Logo ${op.name}`}
-              width={600}
-              height={200}
-              loading="lazy"
-              decoding="async"
-              className="gc-logo-img max-h-[4.5rem] w-auto max-w-[88%]"
-            />
-          ) : (
-            <span className="font-serif text-2xl text-foreground">{op.name}</span>
-          )}
-        </a>
-        <div className="flex items-center border-l border-offer-border bg-gold/[0.12] p-2.5">
+      <div className="grid grid-cols-[minmax(0,1fr)_8.25rem] items-stretch border-b border-offer-border sm:grid-cols-[minmax(0,1fr)_9.5rem]">
+        <div className={`flex min-w-0 flex-col ${op.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}>
+          <a
+            href={op.officialUrl}
+            target="_blank"
+            rel="noopener noreferrer sponsored nofollow"
+            aria-label={`Vai al sito ufficiale di ${op.name}`}
+            className="gc-logo-frame flex min-h-[4.25rem] flex-1 items-center justify-center px-5 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
+          >
+            {op.logo ? (
+              <img
+                src={op.logo}
+                alt={`Logo ${op.name}`}
+                width={600}
+                height={200}
+                loading="lazy"
+                decoding="async"
+                className="gc-logo-img max-h-14 w-auto max-w-[88%]"
+              />
+            ) : (
+              <span className="font-serif text-2xl text-foreground">{op.name}</span>
+            )}
+          </a>
+          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 border-t border-offer-border bg-offer px-2 py-1">
+            {meta ? (
+              <span className="flex items-center gap-1 font-bold text-gold" title={`Valutazione redazionale ${meta.rating.toFixed(1)}/10`}>
+                <StarRating rating={meta.rating} size="sm" />
+                <span className="text-[10px]">{meta.rating.toFixed(1)}</span>
+              </span>
+            ) : null}
+            <span className="text-[9px] font-semibold uppercase tracking-wide text-muted-foreground">{op.concessionN}</span>
+            {meta?.spid ? (
+              <span className="rounded-sm border border-gold/50 bg-gold/10 px-1 py-px text-[9px] font-extrabold uppercase tracking-wide text-gold" title="Registrazione con SPID disponibile">
+                SPID
+              </span>
+            ) : null}
+          </div>
+        </div>
+        <div className="relative flex items-center border-l border-offer-border bg-gold/[0.12] p-2.5">
+          <BadgeCheck
+            className="absolute right-1 top-1 h-3.5 w-3.5 text-gold"
+            aria-label="Operatore verificato dalla redazione"
+          />
           <Button asChild className="gc-cta h-12 w-full px-2 text-xs font-extrabold uppercase">
             <a href={op.officialUrl} target="_blank" rel="noopener noreferrer sponsored nofollow">
               Visita <ArrowRight className="h-4 w-4" />
@@ -96,31 +116,30 @@ export function CasinoRankCard({
         <dl className="grid grid-cols-2 overflow-hidden rounded-md border border-offer-border">
           <div className="min-w-0 border-r border-offer-border bg-offer-deep px-2.5 py-2.5">
             <dt className="text-[9px] font-bold uppercase tracking-wide text-muted-foreground">Senza deposito</dt>
-            <dd className="mt-0.5 break-words font-serif text-lg font-bold leading-tight text-gold">
-              {op.noDepositBonus?.amount ?? "Vedi offerta"}
+            <dd className={`mt-0.5 break-words font-serif font-bold leading-tight ${op.noDepositBonus ? "text-lg text-gold" : "text-[11px] text-muted-foreground"}`}>
+              {op.noDepositBonus?.amount ?? "Bonus senza deposito non disponibile"}
             </dd>
           </div>
           <div className="min-w-0 bg-gold/[0.10] px-2.5 py-2.5">
             <dt className="text-[9px] font-bold uppercase tracking-wide text-muted-foreground">Con deposito</dt>
-            <dd className="mt-0.5 break-words font-serif text-lg font-bold leading-tight text-foreground">
-              {op.depositBonus?.amount ?? "Vedi offerta"}
+            <dd className={`mt-0.5 break-words font-serif font-bold leading-tight ${op.depositBonus ? "text-lg text-foreground" : "text-[11px] text-muted-foreground"}`}>
+              {op.depositBonus?.amount ?? "Vedi sito ufficiale"}
             </dd>
           </div>
         </dl>
 
-        <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-[10px] text-muted-foreground">
-          {meta ? (
-            <span className="flex items-center gap-1 font-bold text-gold">
-              <StarRating rating={meta.rating} size="sm" /> {meta.rating.toFixed(1)}
-            </span>
-          ) : null}
-          <span className="inline-flex items-center gap-1 font-semibold uppercase">
-            <BadgeCheck className="h-3 w-3 text-gold" /> Verificato
-          </span>
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] text-muted-foreground">
           <span>RTP <strong className="text-foreground">{op.rtpAverage}</strong></span>
+          <span aria-hidden="true">·</span>
           <span>{op.games}+ giochi</span>
-          <span>{op.concessionN}</span>
+          {meta?.spid ? (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>Registrazione SPID</span>
+            </>
+          ) : null}
         </div>
+
 
 
         <div className="mt-auto space-y-1.5">
