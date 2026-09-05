@@ -68,7 +68,7 @@ export function SiteNav() {
       />
       <nav
         aria-label="Menu principale"
-        className={`absolute right-0 top-0 flex h-full w-[86%] max-w-xs flex-col border-l border-gold/25 bg-background shadow-[0_0_60px_-15px_rgba(28,22,8,0.35)] transition-transform duration-300 ease-out ${
+        className={`absolute right-0 top-0 flex max-h-full w-[86%] max-w-xs flex-col overflow-y-auto rounded-bl-2xl border-b border-l border-gold/25 bg-background shadow-[0_0_60px_-15px_rgba(28,22,8,0.35)] transition-transform duration-300 ease-out ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
