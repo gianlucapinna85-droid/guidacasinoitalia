@@ -55,7 +55,7 @@ export function PageOfferStrip({ placement = "page" }: { placement?: "article" |
                 aria-label={`Vai al sito ufficiale di ${operator.name}`}
                 className={`gc-logo-frame flex h-20 min-w-0 items-center justify-center border-b border-offer-border px-4 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold ${operator.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}
               >
-                <img src={operator.logo} alt={`Logo ${operator.name}`} width={600} height={200} loading="lazy" decoding="async" className="gc-logo-img h-14 w-full max-w-40 object-contain" />
+                <img src={operator.logo} alt={`Logo ${operator.name}`} width={600} height={200} loading="lazy" decoding="async" className="gc-logo-img max-h-16 w-auto max-w-[88%] object-contain" />
               </a>
               <div className="flex min-w-0 flex-1 items-center justify-between gap-2 px-3 py-2">
                 <div className="min-w-0">

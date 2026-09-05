@@ -77,7 +77,7 @@ export function CasinoRankCard({
               height={200}
               loading="lazy"
               decoding="async"
-              className="gc-logo-img h-16 w-full max-w-52"
+              className="gc-logo-img max-h-[4.5rem] w-auto max-w-[88%]"
             />
           ) : (
             <span className="font-serif text-2xl text-foreground">{op.name}</span>
