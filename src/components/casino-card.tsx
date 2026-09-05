@@ -4,6 +4,7 @@ import { ArrowRight, BadgeCheck, ChevronDown } from "lucide-react";
 import type { Operator } from "@/lib/operators";
 import { getCasinoMeta, type CasinoMeta } from "@/data/casinos";
 import { Button } from "@/components/ui/button";
+import { displayBonuses, useBonusSnapshots } from "@/lib/use-bonus-snapshots";
 
 /**
  * Card operatore compatta (~metà altezza): logo/CTA in alto, info principali
@@ -58,6 +59,8 @@ export function CasinoRankCard({
   meta,
 }: CasinoCardData & { rank?: number }) {
   const [open, setOpen] = useState(false);
+  const snapshots = useBonusSnapshots();
+  const bonus = displayBonuses(op, snapshots);
 
   return (
     <article className="gc-card group relative flex h-full flex-col overflow-hidden rounded-lg border border-offer-border bg-offer shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold/70 hover:shadow-md">
@@ -116,14 +119,14 @@ export function CasinoRankCard({
         <dl className="grid grid-cols-2 overflow-hidden rounded-md border border-offer-border">
           <div className="min-w-0 border-r border-offer-border bg-offer-deep px-2.5 py-2.5">
             <dt className="text-[9px] font-bold uppercase tracking-wide text-muted-foreground">Senza deposito</dt>
-            <dd className={`mt-0.5 break-words font-serif font-bold leading-tight ${op.noDepositBonus ? "text-lg text-gold" : "text-[11px] text-muted-foreground"}`}>
-              {op.noDepositBonus?.amount ?? "Bonus senza deposito non disponibile"}
+            <dd className={`mt-0.5 break-words font-serif font-bold leading-tight ${bonus.noDeposit ? "text-lg text-gold" : "text-[11px] text-muted-foreground"}`}>
+              {bonus.noDeposit ?? "Bonus senza deposito non disponibile"}
             </dd>
           </div>
           <div className="min-w-0 bg-gold/[0.10] px-2.5 py-2.5">
             <dt className="text-[9px] font-bold uppercase tracking-wide text-muted-foreground">Con deposito</dt>
-            <dd className={`mt-0.5 break-words font-serif font-bold leading-tight ${op.depositBonus ? "text-lg text-foreground" : "text-[11px] text-muted-foreground"}`}>
-              {op.depositBonus?.amount ?? "Vedi sito ufficiale"}
+            <dd className={`mt-0.5 break-words font-serif font-bold leading-tight ${bonus.deposit ? "text-lg text-foreground" : "text-[11px] text-muted-foreground"}`}>
+              {bonus.deposit ?? "Vedi sito ufficiale"}
             </dd>
           </div>
         </dl>

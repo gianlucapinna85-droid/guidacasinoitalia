@@ -14,6 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
+      bonus_snapshots: {
+        Row: {
+          deposit: string | null
+          no_deposit: string | null
+          slug: string
+          snippet: string | null
+          source_url: string | null
+          status: string
+          verified_at: string
+        }
+        Insert: {
+          deposit?: string | null
+          no_deposit?: string | null
+          slug: string
+          snippet?: string | null
+          source_url?: string | null
+          status?: string
+          verified_at?: string
+        }
+        Update: {
+          deposit?: string | null
+          no_deposit?: string | null
+          slug?: string
+          snippet?: string | null
+          source_url?: string | null
+          status?: string
+          verified_at?: string
+        }
+        Relationships: []
+      }
       exit_popup_config: {
         Row: {
           badge_label: string
