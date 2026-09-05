@@ -312,3 +312,11 @@
   --gold: #D4A82F;
   color: var(--foreground);
 }
+
+/* Logo scuro su superficie scura (es. Stake): invertito per leggibilità */
+.bg-logo-contrast .gc-logo-img {
+  filter: invert(1);
+}
+.bg-logo-contrast {
+  color: #F6F8FC;
+}
