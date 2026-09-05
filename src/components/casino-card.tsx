@@ -56,7 +56,6 @@ function Star({ className, strokeWidth }: { className?: string; strokeWidth?: nu
 export function CasinoRankCard({
   op,
   meta,
-  rank,
 }: CasinoCardData & { rank?: number }) {
   const [open, setOpen] = useState(false);
 
