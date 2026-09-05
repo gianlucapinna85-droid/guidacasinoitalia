@@ -34,6 +34,10 @@ export type Operator = {
   highlights: string[];
   officialUrl: string;
   noDepositBonus?: NoDepositBonus;
+  /** Bonus di benvenuto con deposito dichiarato sulla pagina ufficiale. */
+  depositBonus?: NoDepositBonus;
+  /** Pagina ufficiale da cui provengono i bonus. */
+  bonusSource?: string;
 };
 
 
