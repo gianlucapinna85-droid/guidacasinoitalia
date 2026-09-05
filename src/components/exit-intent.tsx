@@ -165,7 +165,7 @@ export default function ExitIntent() {
           type="button"
           onClick={() => setOpen(false)}
           aria-label="Chiudi la finestra"
-          className="absolute right-2 top-2 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/90 text-muted-foreground transition-colors hover:border-gold/50 hover:text-foreground"
+          className="absolute right-2 top-2 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-foreground transition-colors hover:border-gold/50 hover:text-foreground"
         >
           <X className="h-5 w-5" />
         </button>
@@ -184,7 +184,7 @@ export default function ExitIntent() {
               <article
                 key={op.slug}
                 style={{ animationDelay: `${i * 70}ms` }}
-                className="group flex animate-fade-in flex-col rounded-xl border border-border bg-background p-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/50 hover:shadow-[0_14px_32px_-22px_var(--gc-glow)]"
+                className="group flex animate-fade-in flex-col rounded-xl border-2 border-gold/40 bg-secondary p-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/50 hover:shadow-[0_14px_32px_-22px_var(--gc-glow)]"
               >
                 <a
                   href={op.officialUrl}
@@ -192,7 +192,7 @@ export default function ExitIntent() {
                   rel="noopener noreferrer sponsored nofollow"
                   onClick={() => void logExitPopupEvent("click", op.slug)}
                   aria-label={`Vai al sito ufficiale di ${op.name}`}
-                  className="gc-logo-frame flex h-14 items-center justify-center overflow-hidden rounded-lg border border-border bg-card transition-colors duration-300 hover:border-gold/60"
+                  className="gc-logo-frame flex h-16 items-center justify-center overflow-hidden rounded-lg border border-border bg-white transition-colors duration-300 hover:border-gold/60"
                 >
                   {op.logo ? (
                     <img
@@ -221,7 +221,7 @@ export default function ExitIntent() {
                     <p className="text-[9px] font-bold uppercase tracking-widest text-gold/80">
                       Senza deposito
                     </p>
-                    <p className="text-[12px] font-bold text-gold">
+                    <p className="text-[14px] font-bold text-gold">
                       {op.noDepositBonus?.amount ?? "Non dichiarato"}
                     </p>
                   </div>
@@ -229,7 +229,7 @@ export default function ExitIntent() {
                     <p className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">
                       Con deposito
                     </p>
-                    <p className="text-[12px] font-bold text-foreground">
+                    <p className="text-[14px] font-bold text-foreground">
                       {op.depositBonus?.amount ?? "Vedi sito ufficiale"}
                     </p>
                   </div>

@@ -284,7 +284,7 @@ function ReviewsHubSection() {
 
 function GuidesSection() {
   return (
-    <section className="border-t border-border bg-card/30">
+    <section className="border-t border-border bg-white/5">
       <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-5 md:py-16">
         <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Approfondimenti</p>
         <h2 className="mt-1 font-serif text-lg md:text-4xl">Ultime guide</h2>
@@ -316,7 +316,7 @@ function GuidesSection() {
 function SlotsHomeSection() {
   const list = slots.slice(0, 10);
   return (
-    <section id="slot-piu-giocate" className="border-t border-border bg-card/30">
+    <section id="slot-piu-giocate" className="border-t border-border bg-white/5">
       <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-5 md:py-16">
         <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Le più giocate</p>
         <h2 className="mt-1 font-serif text-lg md:text-4xl">Slot più giocate in Italia</h2>
@@ -427,7 +427,7 @@ function BrandIntroSection() {
   const cls =
     "shrink-0 snap-start rounded-full border border-gold/30 bg-gold/5 px-2.5 py-1 text-[12px] text-gold transition-colors hover:bg-gold/15 whitespace-nowrap md:px-3.5 md:py-2 md:text-sm";
   return (
-    <section className="border-b border-border bg-card/30">
+    <section className="border-b border-border bg-white/5">
       <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-3 md:py-10">
         <div className="flex items-center justify-between gap-4">
           <h2 className="font-serif text-sm text-foreground md:text-2xl">
@@ -504,7 +504,7 @@ const HOME_BLOCKS = [
 
 function HomeBlocksSection() {
   return (
-    <section id="sezioni-seo" className="border-t border-border bg-card/30">
+    <section id="sezioni-seo" className="border-t border-border bg-white/5">
       <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-5 md:py-16">
         <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">
           Guida Casinò Italia
@@ -658,7 +658,7 @@ const QUICK_ANSWERS: { q: string; a: string }[] = [
 
 function QuickAnswersSection() {
   return (
-    <section id="risposte-rapide" className="border-t border-border bg-card/30">
+    <section id="risposte-rapide" className="border-t border-border bg-white/5">
       <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-6 md:py-16">
         <h2 className="font-serif text-lg font-semibold md:text-3xl">
           Risposte rapide sui casinò ADM in Italia
@@ -705,7 +705,7 @@ function QuickAnswersSection() {
 
 function SeoGuideSection() {
   return (
-    <section className="border-t border-border bg-card/30">
+    <section className="border-t border-border bg-white/5">
       <div className="mx-auto max-w-4xl px-2.5 md:px-6 py-8 md:py-20">
         <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Approfondimento</p>
         <h2 className="mt-1.5 font-serif text-xl md:text-4xl">
@@ -788,7 +788,7 @@ const SEO_GUIDE: { h3: string; body: string[] }[] = [
 
 function LegalInfoSection() {
   return (
-    <section id="informazioni-legali" className="border-y border-border bg-card/40">
+    <section id="informazioni-legali" className="border-y border-border bg-white/5">
       <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-4 md:py-12">
         <details className="group">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-3">
@@ -938,7 +938,7 @@ function TrustStrip() {
     { icon: Users, label: "Strumenti di autolimitazione evidenziati" },
   ];
   return (
-    <section className="border-b border-border bg-card/50">
+    <section className="border-b border-border bg-white/5">
       <div className="mx-auto grid max-w-6xl xl:max-w-7xl grid-cols-2 gap-3 px-3 py-4 md:grid-cols-4 md:gap-4 md:py-8">
         {items.map((it) => (
           <div key={it.label} className="flex items-start gap-1.5 md:gap-3">
@@ -1200,7 +1200,7 @@ function CriteriaSection() {
 
   ];
   return (
-    <section className="border-y border-border bg-card/40">
+    <section className="border-y border-border bg-white/5">
       <div className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 md:px-6 py-6 md:py-24">
         <p className="text-[11px] uppercase tracking-widest text-gold md:text-xs">Metodologia</p>
         <h2 className="mt-1.5 max-w-2xl font-serif text-lg md:text-4xl">
