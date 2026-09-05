@@ -119,7 +119,7 @@ export function CasinoRankCard({
           </span>
           <span>RTP <strong className="text-foreground">{op.rtpAverage}</strong></span>
           <span>{op.games}+ giochi</span>
-          <span>ADM {op.concessionN}</span>
+          <span>{op.concessionN}</span>
         </div>
 
 
