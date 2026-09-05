@@ -219,7 +219,7 @@
   .gc-cta::after { display: none; }
 }
 
-/* --- Logo operatori: dimensione uniforme + animazione elegante --- */
+/* --- Logo operatori: fascia integrata, nitida e senza riquadri separati --- */
 @utility gc-logo-frame {
   position: relative;
   isolation: isolate;
@@ -230,7 +230,7 @@
     bottom: 0;
     left: -60%;
     width: 45%;
-    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.75), transparent);
+    background: linear-gradient(100deg, transparent, oklch(1 0 0 / 0.22), transparent);
     transform: skewX(-16deg);
     opacity: 0;
     pointer-events: none;
@@ -242,19 +242,16 @@
 }
 
 @utility gc-logo-img {
-  height: 100%;
-  width: 100%;
   object-fit: contain;
   padding: 0;
+  image-rendering: auto;
+  backface-visibility: hidden;
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.45s ease;
   animation: gc-logo-in 0.5s ease both;
   .gc-logo-frame:hover & {
     transform: scale(1.06) translateY(-1px);
-    filter: saturate(1.08) drop-shadow(0 6px 12px rgba(28, 22, 8, 0.14));
+    filter: saturate(1.08) drop-shadow(0 6px 12px oklch(0.12 0.03 255 / 0.22));
   }
-}
-@media (min-width: 768px) {
-  .gc-logo-img { padding: 0.25rem; }
 }
 
 @keyframes gc-logo-shine {

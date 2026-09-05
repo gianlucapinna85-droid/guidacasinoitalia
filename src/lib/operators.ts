@@ -11,8 +11,8 @@ import snaiLogo from "@/assets/logos/snai.webp";
 import sisalLogo from "@/assets/logos/sisal.webp";
 import eplay24Logo from "@/assets/logos/eplay24.webp";
 import admiralbetAsset from "@/assets/logos/admiralbet.jpeg.asset.json";
-import stakeAsset from "@/assets/logos/stake.png.asset.json";
-import sportiumAsset from "@/assets/logos/sportium.png.asset.json";
+import stakeAsset from "@/assets/logos/stake-hd.png.asset.json";
+import sportiumAsset from "@/assets/logos/sportium-hd.png.asset.json";
 import { getOperatorBonus } from "@/data/bonuses";
 
 
