@@ -105,7 +105,7 @@ export const operatorBonuses: OperatorBonus[] = [
   {
     slug: "william-hill",
     noDeposit: {
-      amount: "10 € gratis",
+      amount: "50 € gratis",
       condition: "Registrazione con SPID e verifica dell'identità, senza deposito.",
     },
     deposit: {
