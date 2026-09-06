@@ -4,7 +4,7 @@ import { operators } from "@/lib/operators";
 import { socialImageMeta } from "@/lib/social-image";
 
 const BASE = "https://www.guidacasino-italia.it";
-const TITLE = "Bonus Casino Online: sottocategorie, requisiti e condizioni";
+const TITLE = "Bonus casino online in Italia 2026: tipi e requisiti ADM";
 const DESC =
   "Hub dei bonus casino ADM: senza deposito, di benvenuto, immediati con SPID, requisiti di scommessa e bonus scommesse. Informativa, +18, gioco responsabile.";
 const URL = `${BASE}/bonus`;
