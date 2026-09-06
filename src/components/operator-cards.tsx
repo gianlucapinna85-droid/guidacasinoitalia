@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { sortedOperators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
 import { RatingBadge } from "@/components/casino-ui";
+import { AdmBadgeDot } from "@/components/casino-card";
 
 /**
  * Banner operatori ADM in griglia a due colonne.
@@ -25,7 +26,7 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
               target="_blank"
               rel="noopener noreferrer sponsored nofollow"
               aria-label={`Vai al sito ufficiale di ${op.name}`}
-              className="gc-logo-frame flex h-28 w-full items-center justify-center overflow-hidden border-b border-border px-5 py-3 md:h-32"
+              className="gc-logo-frame relative flex h-28 w-full items-center justify-center overflow-hidden border-b border-border px-5 py-3 md:h-32"
             >
               {op.logo ? (
                 <img
@@ -40,6 +41,7 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
               ) : (
                 <span className="font-serif text-xl text-foreground">{op.name}</span>
               )}
+              <AdmBadgeDot className="right-1.5 top-1.5 h-6 w-6 sm:h-6 sm:w-6" />
             </a>
 
             <div className="flex flex-1 flex-col p-2.5 md:p-4">

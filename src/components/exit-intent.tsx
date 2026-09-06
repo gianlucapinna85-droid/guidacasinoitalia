@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { X, ArrowRight, BadgeCheck, Star, Wallet } from "lucide-react";
 import { operators, type Operator } from "@/lib/operators";
 import { getCasinoMeta, type CasinoMeta } from "@/data/casinos";
+import { AdmBadgeDot } from "@/components/casino-card";
 import {
   DEFAULT_EXIT_POPUP_CONFIG,
   fetchExitPopupConfig,
@@ -192,7 +193,7 @@ export default function ExitIntent() {
                   rel="noopener noreferrer sponsored nofollow"
                   onClick={() => void logExitPopupEvent("click", op.slug)}
                   aria-label={`Vai al sito ufficiale di ${op.name}`}
-                  className="gc-logo-frame flex h-16 items-center justify-center overflow-hidden rounded-lg border border-border bg-white transition-colors duration-300 hover:border-gold/60"
+                  className="gc-logo-frame relative flex h-16 items-center justify-center overflow-hidden rounded-lg border border-border bg-white transition-colors duration-300 hover:border-gold/60"
                 >
                   {op.logo ? (
                     <img
@@ -207,6 +208,7 @@ export default function ExitIntent() {
                   ) : (
                     <span className="font-serif text-sm text-foreground">{op.name}</span>
                   )}
+                  <AdmBadgeDot className="right-1 top-1 h-5 w-5 sm:h-5 sm:w-5" />
                 </a>
 
                 <div className="mt-2 flex flex-wrap items-center gap-1.5">
