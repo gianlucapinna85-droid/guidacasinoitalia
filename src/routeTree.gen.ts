@@ -55,6 +55,7 @@ import { Route as CasinoPostepayRouteImport } from './routes/casino-postepay'
 import { Route as CasinoPaypalRouteImport } from './routes/casino-paypal'
 import { Route as CasinoOnlineSicuriRouteImport } from './routes/casino-online-sicuri'
 import { Route as CasinoOnlinePrincipiantiRouteImport } from './routes/casino-online-principianti'
+import { Route as CasinoOnlinePerRegioneRouteImport } from './routes/casino-online-per-regione'
 import { Route as CasinoOnlineNuovi2026RouteImport } from './routes/casino-online-nuovi-2026'
 import { Route as CasinoOnlineItaliaRouteImport } from './routes/casino-online-italia'
 import { Route as CasinoOnlineChePaganoSubitoRouteImport } from './routes/casino-online-che-pagano-subito'
@@ -336,6 +337,11 @@ const CasinoOnlinePrincipiantiRoute =
     path: '/casino-online-principianti',
     getParentRoute: () => rootRouteImport,
   } as any)
+const CasinoOnlinePerRegioneRoute = CasinoOnlinePerRegioneRouteImport.update({
+  id: '/casino-online-per-regione',
+  path: '/casino-online-per-regione',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CasinoOnlineNuovi2026Route = CasinoOnlineNuovi2026RouteImport.update({
   id: '/casino-online-nuovi-2026',
   path: '/casino-online-nuovi-2026',
@@ -558,6 +564,7 @@ export interface FileRoutesByFullPath {
   '/casino-online-che-pagano-subito': typeof CasinoOnlineChePaganoSubitoRoute
   '/casino-online-italia': typeof CasinoOnlineItaliaRoute
   '/casino-online-nuovi-2026': typeof CasinoOnlineNuovi2026Route
+  '/casino-online-per-regione': typeof CasinoOnlinePerRegioneRoute
   '/casino-online-principianti': typeof CasinoOnlinePrincipiantiRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
@@ -644,6 +651,7 @@ export interface FileRoutesByTo {
   '/casino-online-che-pagano-subito': typeof CasinoOnlineChePaganoSubitoRoute
   '/casino-online-italia': typeof CasinoOnlineItaliaRoute
   '/casino-online-nuovi-2026': typeof CasinoOnlineNuovi2026Route
+  '/casino-online-per-regione': typeof CasinoOnlinePerRegioneRoute
   '/casino-online-principianti': typeof CasinoOnlinePrincipiantiRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
@@ -732,6 +740,7 @@ export interface FileRoutesById {
   '/casino-online-che-pagano-subito': typeof CasinoOnlineChePaganoSubitoRoute
   '/casino-online-italia': typeof CasinoOnlineItaliaRoute
   '/casino-online-nuovi-2026': typeof CasinoOnlineNuovi2026Route
+  '/casino-online-per-regione': typeof CasinoOnlinePerRegioneRoute
   '/casino-online-principianti': typeof CasinoOnlinePrincipiantiRoute
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
@@ -820,6 +829,7 @@ export interface FileRouteTypes {
     | '/casino-online-che-pagano-subito'
     | '/casino-online-italia'
     | '/casino-online-nuovi-2026'
+    | '/casino-online-per-regione'
     | '/casino-online-principianti'
     | '/casino-online-sicuri'
     | '/casino-paypal'
@@ -906,6 +916,7 @@ export interface FileRouteTypes {
     | '/casino-online-che-pagano-subito'
     | '/casino-online-italia'
     | '/casino-online-nuovi-2026'
+    | '/casino-online-per-regione'
     | '/casino-online-principianti'
     | '/casino-online-sicuri'
     | '/casino-paypal'
@@ -993,6 +1004,7 @@ export interface FileRouteTypes {
     | '/casino-online-che-pagano-subito'
     | '/casino-online-italia'
     | '/casino-online-nuovi-2026'
+    | '/casino-online-per-regione'
     | '/casino-online-principianti'
     | '/casino-online-sicuri'
     | '/casino-paypal'
@@ -1081,6 +1093,7 @@ export interface RootRouteChildren {
   CasinoOnlineChePaganoSubitoRoute: typeof CasinoOnlineChePaganoSubitoRoute
   CasinoOnlineItaliaRoute: typeof CasinoOnlineItaliaRoute
   CasinoOnlineNuovi2026Route: typeof CasinoOnlineNuovi2026Route
+  CasinoOnlinePerRegioneRoute: typeof CasinoOnlinePerRegioneRoute
   CasinoOnlinePrincipiantiRoute: typeof CasinoOnlinePrincipiantiRoute
   CasinoOnlineSicuriRoute: typeof CasinoOnlineSicuriRoute
   CasinoPaypalRoute: typeof CasinoPaypalRoute
@@ -1470,6 +1483,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CasinoOnlinePrincipiantiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/casino-online-per-regione': {
+      id: '/casino-online-per-regione'
+      path: '/casino-online-per-regione'
+      fullPath: '/casino-online-per-regione'
+      preLoaderRoute: typeof CasinoOnlinePerRegioneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/casino-online-nuovi-2026': {
       id: '/casino-online-nuovi-2026'
       path: '/casino-online-nuovi-2026'
@@ -1780,6 +1800,7 @@ const rootRouteChildren: RootRouteChildren = {
   CasinoOnlineChePaganoSubitoRoute: CasinoOnlineChePaganoSubitoRoute,
   CasinoOnlineItaliaRoute: CasinoOnlineItaliaRoute,
   CasinoOnlineNuovi2026Route: CasinoOnlineNuovi2026Route,
+  CasinoOnlinePerRegioneRoute: CasinoOnlinePerRegioneRoute,
   CasinoOnlinePrincipiantiRoute: CasinoOnlinePrincipiantiRoute,
   CasinoOnlineSicuriRoute: CasinoOnlineSicuriRoute,
   CasinoPaypalRoute: CasinoPaypalRoute,
