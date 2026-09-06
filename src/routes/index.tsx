@@ -8,6 +8,7 @@ import { operators, sortedOperators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
 import { RatingBadge, CasinoBadges } from "@/components/casino-ui";
 import { CasinoComparator } from "@/components/casino-comparator";
+import { AdmBadgeDot } from "@/components/casino-card";
 import { ReadMore } from "@/components/read-more";
 import { socialImageMeta } from "@/lib/social-image";
 import { slots } from "@/data/slots";
