@@ -52,7 +52,14 @@ export function RelatedLinks({ currentSlug, currentPath }: { currentSlug?: strin
     .filter((o) => o.slug !== currentSlug)
     .sort((a, b) => (getCasinoMeta(b.slug)?.rating ?? 0) - (getCasinoMeta(a.slug)?.rating ?? 0))
     .slice(0, 6);
-  const guideLinks = guides.filter((g) => g.path !== currentPath).slice(0, 5);
+  // Rotazione deterministica: ogni pagina suggerisce un blocco diverso di
+  // guide, così nel complesso tutte le guide ricevono link interni.
+  const pool = guides.filter((g) => g.path !== currentPath);
+  let hash = 0;
+  const key = currentPath ?? currentSlug ?? "";
+  for (let i = 0; i < key.length; i++) hash = (hash * 31 + key.charCodeAt(i)) >>> 0;
+  const start = pool.length ? hash % pool.length : 0;
+  const guideLinks = Array.from({ length: Math.min(5, pool.length) }, (_, i) => pool[(start + i) % pool.length]);
   return (
     <section className="mt-12 rounded-xl border border-border bg-card p-6">
       <h2 className="font-serif text-xl">Contenuti correlati</h2>
