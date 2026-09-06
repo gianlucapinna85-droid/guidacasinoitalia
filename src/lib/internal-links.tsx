@@ -37,6 +37,7 @@ const RULES: LinkRule[] = [
   { phrases: ["PayPal"], to: "/casino-paypal" },
   { phrases: ["licenza ADM", "concessione ADM"], to: "/verificare-licenza-adm" },
   { phrases: ["casinò sicuri", "casino sicuri", "sicurezza del conto di gioco"], to: "/casino-online-sicuri" },
+  { phrases: ["casinò online per regione", "regione per regione", "differenze regionali"], to: "/casino-online-per-regione" },
   { phrases: ["gestione del bankroll", "bankroll"], to: "/gestione-bankroll" },
   { phrases: ["gioco responsabile", "autoesclusione"], to: "/gioco-responsabile" },
   { phrases: ["come registrarsi", "registrazione del conto di gioco"], to: "/come-registrarsi" },

@@ -97,6 +97,13 @@ export const guides: Guide[] = [
     priority: "0.9",
   },
   {
+    path: "/casino-online-per-regione",
+    title: "Casinò online per regione",
+    description: "Dove si concentra l'interesse per i casinò online in Italia e cosa cambia davvero tra le regioni.",
+    changefreq: "monthly",
+    priority: "0.8",
+  },
+  {
     path: "/come-valutiamo-i-casino",
     title: "Come valutiamo i casinò ADM",
     description: "Metodo editoriale di GuidaCasinò.IT: criteri, fonti verificabili e uso dell'intelligenza artificiale.",
