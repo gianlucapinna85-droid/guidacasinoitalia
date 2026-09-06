@@ -87,7 +87,7 @@ export function CasinoRankCard({
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
             aria-label={`Vai al sito ufficiale di ${op.name}`}
-            className="gc-logo-frame flex min-h-[4rem] flex-1 items-center justify-center px-2 py-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
+            className="gc-logo-frame relative flex min-h-[4rem] flex-1 items-center justify-center px-2 py-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
           >
             {op.logo ? (
               <img
@@ -102,6 +102,7 @@ export function CasinoRankCard({
             ) : (
               <span className="truncate font-serif text-base text-foreground">{op.name}</span>
             )}
+            <AdmBadgeDot />
           </a>
           <div className="flex flex-col items-center gap-0.5 border-t border-offer-border bg-offer px-1 py-1">
             {meta ? (

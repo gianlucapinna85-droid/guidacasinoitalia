@@ -62,9 +62,10 @@ export function PageOfferStrip({ placement = "page" }: { placement?: "article" |
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
                 aria-label={`Vai al sito ufficiale di ${operator.name}`}
-                className={`gc-logo-frame flex h-10 w-20 shrink-0 items-center justify-center rounded-md px-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${operator.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}
+                className={`gc-logo-frame relative flex h-10 w-20 shrink-0 items-center justify-center rounded-md px-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${operator.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}
               >
                 <img src={operator.logo} alt={`Logo ${operator.name}`} width={600} height={200} loading="lazy" decoding="async" className="gc-logo-img max-h-8 w-auto max-w-[92%] object-contain" />
+                <AdmBadgeDot className="h-3.5 w-3.5 sm:h-3.5 sm:w-3.5" />
               </a>
               <div className="min-w-0">
                 <p className="truncate text-[8px] font-bold uppercase tracking-wide text-muted-foreground">
