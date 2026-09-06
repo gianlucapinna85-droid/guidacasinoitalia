@@ -66,7 +66,7 @@ export function CasinoRankCard({
   return (
     <article className="gc-card group relative flex h-full flex-col overflow-hidden rounded-xl border border-offer-border bg-offer shadow-sm transition-all hover:border-gold/70 hover:shadow-md">
       {/* Riga principale: logo | bonus | CTA */}
-      <div className="grid grid-cols-[8rem_minmax(0,1fr)_auto] items-stretch gap-0 sm:grid-cols-[10rem_minmax(0,1fr)_auto]">
+      <div className="grid grid-cols-[7rem_minmax(0,1fr)_auto] items-stretch gap-0 sm:grid-cols-[10rem_minmax(0,1fr)_auto]">
         {/* Colonna logo: stelline + licenza sotto il logo */}
         <div className={`flex min-w-0 flex-col ${op.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}>
           <a
@@ -114,13 +114,13 @@ export function CasinoRankCard({
             ) : null}
           </p>
           {bonus.noDeposit ? (
-            <p className="whitespace-nowrap font-serif text-[12px] font-bold leading-tight text-gold sm:text-lg">
+            <p className="whitespace-nowrap font-serif text-[10.5px] font-bold leading-tight text-gold sm:text-lg">
               {bonus.noDeposit}
             </p>
           ) : null}
           {bonus.deposit ? (
-            <p className="whitespace-nowrap font-serif text-[12px] font-bold leading-tight text-gold sm:text-lg">
-              {bonus.noDeposit ? <span className="mr-1 font-sans text-[9px] font-semibold uppercase tracking-wide text-muted-foreground">Con deposito:</span> : null}
+            <p className="whitespace-nowrap font-serif text-[10.5px] font-bold leading-tight text-gold sm:text-lg">
+              {bonus.noDeposit ? <span className="mr-0.5 font-sans text-[8px] font-semibold uppercase tracking-wide text-muted-foreground">+Deposito:</span> : null}
               {bonus.deposit}
             </p>
           ) : null}
@@ -136,7 +136,7 @@ export function CasinoRankCard({
 
         {/* Colonna CTA: pulsante oro */}
         <div className="flex shrink-0 items-center border-l border-offer-border bg-gold/[0.12] p-1.5 sm:p-2.5">
-          <Button asChild className="gc-cta h-12 whitespace-nowrap px-2.5 text-[11px] font-extrabold uppercase leading-tight sm:h-13 sm:px-4 sm:text-sm">
+          <Button asChild className="gc-cta h-12 whitespace-nowrap px-2 text-[10px] font-extrabold uppercase leading-tight sm:h-13 sm:px-4 sm:text-sm">
             <a
               href={op.officialUrl}
               target="_blank"
