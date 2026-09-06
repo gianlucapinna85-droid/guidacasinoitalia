@@ -60,6 +60,7 @@ export const Route = createFileRoute("/bonus/")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
+      { name: "keywords", content: "bonus casino italia, bonus senza deposito italiani, bonus casino adm 2026, bonus benvenuto casino italia, bonus spid" },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },

@@ -13,6 +13,7 @@ export const Route = createFileRoute("/pagamenti/")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
+      { name: "keywords", content: "metodi pagamento casino italia, casino paypal italia, casino postepay, bonifico casino adm, prelievi casino italiani" },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
