@@ -5,6 +5,19 @@ import type { Operator } from "@/lib/operators";
 import { getCasinoMeta, type CasinoMeta } from "@/data/casinos";
 import { Button } from "@/components/ui/button";
 import { displayBonuses, useBonusSnapshots } from "@/lib/use-bonus-snapshots";
+import admBadgeUrl from "@/assets/logos/adm-badge.webp";
+
+/** Pallino con il logo ufficiale ADM, in angolo al riquadro del logo operatore. */
+export function AdmBadgeDot({ className = "" }: { className?: string }) {
+  return (
+    <span
+      className={`pointer-events-none absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center overflow-hidden rounded-full border border-gold/60 bg-offer shadow-sm sm:h-5 sm:w-5 ${className}`}
+      title="Operatore con concessione ADM"
+    >
+      <img src={admBadgeUrl} alt="Logo ufficiale ADM" width={20} height={20} loading="lazy" decoding="async" className="h-full w-full object-contain p-[1.5px]" />
+    </span>
+  );
+}
 
 /**
  * Scheda operatore a banner orizzontale: logo a sinistra (con stelline,

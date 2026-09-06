@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { operators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
 import { displayBonuses, useBonusSnapshots } from "@/lib/use-bonus-snapshots";
+import { AdmBadgeDot } from "@/components/casino-card";
 
 function pathSeed(pathname: string) {
   // hash stabile: pagine diverse ricevono selezioni di operatori diverse
