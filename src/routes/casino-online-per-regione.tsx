@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { GuideArticle, guideHeadWithWebPage, SeoTable, InternalCtaLinks, type GuideConfig } from "@/components/guide-article";
 
 const CFG: GuideConfig = {
@@ -106,6 +106,19 @@ export const Route = createFileRoute("/casino-online-per-regione")({
         interesse pubblici. Non sono dati ufficiali di raccolta: quelli sono pubblicati dall'Agenzia
         delle Dogane e dei Monopoli.
       </p>
+      <section className="mt-8 rounded-xl border border-border bg-card p-5">
+        <h2 className="font-serif text-xl">Approfondimenti regione per regione</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Analisi dedicate alle regioni con la domanda più alta: cosa è regolato a livello nazionale
+          e cosa dipende dalle norme locali.
+        </p>
+        <ul className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
+          <li><Link to="/scommesse-sportive-lazio" className="text-gold hover:underline">Scommesse sportive nel Lazio</Link></li>
+          <li><Link to="/slot-online-lazio" className="text-gold hover:underline">Slot online nel Lazio</Link></li>
+          <li><Link to="/scommesse-sportive-campania" className="text-gold hover:underline">Scommesse sportive in Campania</Link></li>
+          <li><Link to="/slot-online-campania" className="text-gold hover:underline">Slot online in Campania</Link></li>
+        </ul>
+      </section>
       <InternalCtaLinks />
     </GuideArticle>
   ),
