@@ -21,13 +21,7 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
             key={op.slug}
             className="flex flex-col overflow-hidden rounded-xl border border-border bg-card"
           >
-            <a
-              href={op.officialUrl}
-              target="_blank"
-              rel="noopener noreferrer sponsored nofollow"
-              aria-label={`Vai al sito ufficiale di ${op.name}`}
-              className="gc-logo-frame relative flex h-28 w-full items-center justify-center overflow-hidden border-b border-border px-5 py-3 md:h-32"
-            >
+            <div className="gc-logo-frame relative flex h-28 w-full items-center justify-center overflow-hidden border-b border-border px-5 py-3 md:h-32">
               {op.logo ? (
                 <img
                   src={op.logo}
@@ -42,7 +36,7 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
                 <span className="font-serif text-xl text-foreground">{op.name}</span>
               )}
               <AdmBadgeDot className="h-6 w-6" />
-            </a>
+            </div>
 
             <div className="flex flex-1 flex-col p-2.5 md:p-4">
               <div className="flex items-center justify-between gap-2">
