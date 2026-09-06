@@ -103,30 +103,36 @@ export function CasinoRankCard({
           </div>
         </div>
 
-        {/* Colonna centrale: tag + bonus in evidenza */}
-        <div className="flex min-w-0 flex-col justify-center gap-0.5 px-1.5 py-2.5">
-          <p className="whitespace-nowrap text-[9px] font-bold uppercase tracking-wide text-muted-foreground sm:text-[10px]">
-            {bonus.noDeposit ? "Senza deposito" : "Bonus di benvenuto"}
-            {meta?.spid ? (
-              <span className="ml-1 rounded-sm border border-gold/50 bg-gold/10 px-1 py-px text-[8px] font-extrabold text-gold">
-                SPID
-              </span>
-            ) : null}
-          </p>
+        {/* Colonna centrale: bonus in evidenza con etichette chiare */}
+        <div className="flex min-w-0 flex-col justify-center gap-0.5 px-1.5 py-2">
           {bonus.noDeposit ? (
-            <p className="gc-bonus whitespace-nowrap font-serif text-[10px] font-bold leading-tight text-gold sm:text-lg">
-              {bonus.noDeposit}
-            </p>
+            <div className="flex flex-col gap-0 leading-tight">
+              <p className="flex items-center gap-0.5 whitespace-nowrap text-[8px] font-bold uppercase tracking-wide text-muted-foreground sm:text-[9px]">
+                Senza deposito
+                {meta?.spid ? (
+                  <span className="rounded-sm border border-gold/50 bg-gold/10 px-0.5 text-[7px] font-extrabold text-gold">
+                    SPID
+                  </span>
+                ) : null}
+              </p>
+              <p className="gc-bonus whitespace-nowrap font-serif text-[11px] font-bold leading-tight text-gold sm:text-lg">
+                {bonus.noDeposit}
+              </p>
+            </div>
           ) : null}
           {bonus.deposit ? (
-            <p className="gc-bonus whitespace-nowrap font-serif text-[10px] font-bold leading-tight text-gold sm:text-lg">
-              {bonus.noDeposit ? <span className="mr-0.5 font-sans text-[9px] font-bold text-muted-foreground">+</span> : null}
-              {bonus.deposit}
-            </p>
+            <div className="flex flex-col gap-0 leading-tight">
+              <p className="whitespace-nowrap text-[8px] font-bold uppercase tracking-wide text-muted-foreground sm:text-[9px]">
+                Con deposito
+              </p>
+              <p className="gc-bonus whitespace-nowrap font-serif text-[11px] font-bold leading-tight text-gold sm:text-lg">
+                {bonus.deposit}
+              </p>
+            </div>
           ) : null}
           {!bonus.noDeposit && !bonus.deposit ? (
             <p className="whitespace-nowrap text-[10px] text-muted-foreground">
-              Bonus senza deposito non disponibile
+              Nessun bonus disponibile
             </p>
           ) : null}
           <p className="whitespace-nowrap text-[9px] text-muted-foreground">
