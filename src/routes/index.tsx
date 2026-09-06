@@ -1164,17 +1164,7 @@ function OperatorLogo({
     </div>
   );
 
-  return (
-    <a
-      href={officialUrl}
-      target="_blank"
-      rel="noopener noreferrer nofollow sponsored"
-      aria-label={`Visita il sito ufficiale di ${name}`}
-      className="inline-block transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:ring-offset-2 focus:ring-offset-background rounded-xl"
-    >
-      {logoBox}
-    </a>
-  );
+  return <div className="inline-block">{logoBox}</div>;
 }
 
 function CriteriaSection() {
