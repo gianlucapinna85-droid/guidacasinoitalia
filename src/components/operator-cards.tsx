@@ -41,7 +41,7 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
               ) : (
                 <span className="font-serif text-xl text-foreground">{op.name}</span>
               )}
-              <AdmBadgeDot className="right-1.5 top-1.5 h-6 w-6 sm:h-6 sm:w-6" />
+              <AdmBadgeDot className="h-6 w-6" />
             </a>
 
             <div className="flex flex-1 flex-col p-2.5 md:p-4">

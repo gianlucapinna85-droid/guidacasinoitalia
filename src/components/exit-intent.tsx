@@ -208,7 +208,7 @@ export default function ExitIntent() {
                   ) : (
                     <span className="font-serif text-sm text-foreground">{op.name}</span>
                   )}
-                  <AdmBadgeDot className="right-1 top-1 h-5 w-5 sm:h-5 sm:w-5" />
+                  <AdmBadgeDot className="h-5 w-5" />
                 </a>
 
                 <div className="mt-2 flex flex-wrap items-center gap-1.5">
