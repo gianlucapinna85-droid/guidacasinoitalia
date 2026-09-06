@@ -5,6 +5,19 @@ import type { Operator } from "@/lib/operators";
 import { getCasinoMeta, type CasinoMeta } from "@/data/casinos";
 import { Button } from "@/components/ui/button";
 import { displayBonuses, useBonusSnapshots } from "@/lib/use-bonus-snapshots";
+import admBadgeUrl from "@/assets/logos/adm-badge.webp";
+
+/** Pallino con il logo ufficiale ADM, nell'angolo in alto a destra del riquadro logo. */
+export function AdmBadgeDot({ className = "" }: { className?: string }) {
+  return (
+    <span
+      className={`pointer-events-none absolute right-1 top-1 flex items-center justify-center overflow-hidden rounded-full border border-gold/60 bg-offer shadow-sm ${className || "h-4 w-4 sm:h-5 sm:w-5"}`}
+      title="Operatore con concessione ADM"
+    >
+      <img src={admBadgeUrl} alt="Logo ufficiale ADM" width={20} height={20} loading="lazy" decoding="async" className="h-full w-full object-contain p-[1.5px]" />
+    </span>
+  );
+}
 
 /**
  * Scheda operatore a banner orizzontale: logo a sinistra (con stelline,
@@ -74,7 +87,7 @@ export function CasinoRankCard({
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
             aria-label={`Vai al sito ufficiale di ${op.name}`}
-            className="gc-logo-frame flex min-h-[4rem] flex-1 items-center justify-center px-2 py-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
+            className="gc-logo-frame relative flex min-h-[4rem] flex-1 items-center justify-center px-2 py-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
           >
             {op.logo ? (
               <img
@@ -89,6 +102,7 @@ export function CasinoRankCard({
             ) : (
               <span className="truncate font-serif text-base text-foreground">{op.name}</span>
             )}
+            <AdmBadgeDot />
           </a>
           <div className="flex flex-col items-center gap-0.5 border-t border-offer-border bg-offer px-1 py-1">
             {meta ? (

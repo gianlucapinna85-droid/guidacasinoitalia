@@ -8,6 +8,7 @@ import { operators, sortedOperators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
 import { RatingBadge, CasinoBadges } from "@/components/casino-ui";
 import { CasinoComparator } from "@/components/casino-comparator";
+import { AdmBadgeDot } from "@/components/casino-card";
 import { ReadMore } from "@/components/read-more";
 import { socialImageMeta } from "@/lib/social-image";
 import { slots } from "@/data/slots";
@@ -1147,7 +1148,7 @@ function OperatorLogo({
   const logoBox = (!logo || error) ? (
     fallback
   ) : (
-    <div className="gc-logo-frame flex h-12 w-28 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/40 bg-card shadow-sm md:h-24 md:w-56">
+    <div className="gc-logo-frame relative flex h-12 w-28 items-center justify-center overflow-hidden rounded-xl border-2 border-gold/40 bg-card shadow-sm md:h-24 md:w-56">
       <img
         ref={imgRef}
         src={logo}
@@ -1159,6 +1160,7 @@ function OperatorLogo({
         decoding="async"
         onError={() => setError(true)}
       />
+      <AdmBadgeDot className="h-4 w-4 md:h-5 md:w-5" />
     </div>
   );
 
