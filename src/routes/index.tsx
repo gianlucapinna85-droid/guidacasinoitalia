@@ -389,7 +389,7 @@ function SlotsHomeSection() {
                       params={{ slug: s.slug }}
                       className="gc-btn-secondary inline-flex items-center justify-center w-full px-1.5 py-1 text-[10px] md:text-[11px]"
                     >
-                      Recensione
+                      Scheda {s.name}
                     </Link>
                   </div>
                   <p className="mt-1 border-t border-border pt-0.5 text-[7px] leading-tight text-muted-foreground md:text-[9px]">
