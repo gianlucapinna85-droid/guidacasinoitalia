@@ -120,7 +120,7 @@ export function CasinoRankCard({
           ) : null}
           {bonus.deposit ? (
             <p className="gc-bonus whitespace-nowrap font-serif text-[10px] font-bold leading-tight text-gold sm:text-lg">
-              {bonus.noDeposit ? <span className="mr-0.5 font-sans text-[7.5px] font-semibold uppercase tracking-wide text-muted-foreground">+Deposito:</span> : null}
+              {bonus.noDeposit ? <span className="mr-0.5 font-sans text-[9px] font-bold text-muted-foreground">+</span> : null}
               {bonus.deposit}
             </p>
           ) : null}
