@@ -72,9 +72,17 @@ export function CasinoComparator({
       );
 
     list.sort((a, b) => {
-      if (sort === "bonus")
-        return bonusValue(b.op.noDepositBonus?.amount) - bonusValue(a.op.noDepositBonus?.amount);
       if (sort === "giochi") return b.op.games - a.op.games;
+      if (sort === "rating") return (b.meta?.rating ?? 0) - (a.meta?.rating ?? 0);
+      // "migliore" e "bonus": prima chi offre il bonus senza deposito più alto,
+      // a parità (o in assenza) conta il bonus con deposito, poi il voto.
+      const noDepDiff =
+        bonusValue(b.op.noDepositBonus?.amount) - bonusValue(a.op.noDepositBonus?.amount);
+      if (sort === "bonus") return noDepDiff;
+      if (noDepDiff !== 0) return noDepDiff;
+      const depDiff =
+        bonusValue(b.op.depositBonus?.amount) - bonusValue(a.op.depositBonus?.amount);
+      if (depDiff !== 0) return depDiff;
       return (b.meta?.rating ?? 0) - (a.meta?.rating ?? 0);
     });
 

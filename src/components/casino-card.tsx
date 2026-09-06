@@ -66,7 +66,7 @@ export function CasinoRankCard({
   return (
     <article className="gc-card group relative flex h-full flex-col overflow-hidden rounded-xl border border-offer-border bg-offer shadow-sm transition-all hover:border-gold/70 hover:shadow-md">
       {/* Riga principale: logo | bonus | CTA */}
-      <div className="grid grid-cols-[7.5rem_minmax(0,1fr)_auto] items-stretch gap-0 sm:grid-cols-[9.5rem_minmax(0,1fr)_auto]">
+      <div className="grid grid-cols-[8rem_minmax(0,1fr)_auto] items-stretch gap-0 sm:grid-cols-[10rem_minmax(0,1fr)_auto]">
         {/* Colonna logo: stelline + licenza sotto il logo */}
         <div className={`flex min-w-0 flex-col ${op.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}>
           <a
@@ -84,7 +84,7 @@ export function CasinoRankCard({
                 height={200}
                 loading="lazy"
                 decoding="async"
-                className="gc-logo-img max-h-14 w-auto max-w-[96%]"
+                className="gc-logo-img max-h-16 w-auto max-w-[96%]"
               />
             ) : (
               <span className="truncate font-serif text-base text-foreground">{op.name}</span>
