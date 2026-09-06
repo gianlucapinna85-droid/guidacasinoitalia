@@ -14,6 +14,8 @@ import { Route as TempiPrelievoCasinoOnlineRouteImport } from './routes/tempi-pr
 import { Route as SlotRtpAltoRouteImport } from './routes/slot-rtp-alto'
 import { Route as SlotPiuGiocateRouteImport } from './routes/slot-piu-giocate'
 import { Route as SlotOnlineSoldiVeriRouteImport } from './routes/slot-online-soldi-veri'
+import { Route as SlotOnlineLazioRouteImport } from './routes/slot-online-lazio'
+import { Route as SlotOnlineCampaniaRouteImport } from './routes/slot-online-campania'
 import { Route as SlotOnlineRouteImport } from './routes/slot-online'
 import { Route as SlotGratisDemoRouteImport } from './routes/slot-gratis-demo'
 import { Route as SlotConBonusSenzaDepositoRouteImport } from './routes/slot-con-bonus-senza-deposito'
@@ -26,6 +28,8 @@ import { Route as SitemapNewsDotxmlRouteImport } from './routes/sitemap-news[.]x
 import { Route as SitemapGuidesDotxmlRouteImport } from './routes/sitemap-guides[.]xml'
 import { Route as SitemapBlogDotxmlRouteImport } from './routes/sitemap-blog[.]xml'
 import { Route as ScommesseSportiveOnlineAdmRouteImport } from './routes/scommesse-sportive-online-adm'
+import { Route as ScommesseSportiveLazioRouteImport } from './routes/scommesse-sportive-lazio'
+import { Route as ScommesseSportiveCampaniaRouteImport } from './routes/scommesse-sportive-campania'
 import { Route as ScommesseSerieAGuidaRouteImport } from './routes/scommesse-serie-a-guida'
 import { Route as ScommesseLiveComeFunzionanoRouteImport } from './routes/scommesse-live-come-funzionano'
 import { Route as RouletteOnlineItaliaRouteImport } from './routes/roulette-online-italia'
@@ -123,6 +127,16 @@ const SlotOnlineSoldiVeriRoute = SlotOnlineSoldiVeriRouteImport.update({
   path: '/slot-online-soldi-veri',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SlotOnlineLazioRoute = SlotOnlineLazioRouteImport.update({
+  id: '/slot-online-lazio',
+  path: '/slot-online-lazio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SlotOnlineCampaniaRoute = SlotOnlineCampaniaRouteImport.update({
+  id: '/slot-online-campania',
+  path: '/slot-online-campania',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SlotOnlineRoute = SlotOnlineRouteImport.update({
   id: '/slot-online',
   path: '/slot-online',
@@ -184,6 +198,17 @@ const ScommesseSportiveOnlineAdmRoute =
   ScommesseSportiveOnlineAdmRouteImport.update({
     id: '/scommesse-sportive-online-adm',
     path: '/scommesse-sportive-online-adm',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ScommesseSportiveLazioRoute = ScommesseSportiveLazioRouteImport.update({
+  id: '/scommesse-sportive-lazio',
+  path: '/scommesse-sportive-lazio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScommesseSportiveCampaniaRoute =
+  ScommesseSportiveCampaniaRouteImport.update({
+    id: '/scommesse-sportive-campania',
+    path: '/scommesse-sportive-campania',
     getParentRoute: () => rootRouteImport,
   } as any)
 const ScommesseSerieAGuidaRoute = ScommesseSerieAGuidaRouteImport.update({
@@ -601,6 +626,8 @@ export interface FileRoutesByFullPath {
   '/roulette-online-italia': typeof RouletteOnlineItaliaRoute
   '/scommesse-live-come-funzionano': typeof ScommesseLiveComeFunzionanoRoute
   '/scommesse-serie-a-guida': typeof ScommesseSerieAGuidaRoute
+  '/scommesse-sportive-campania': typeof ScommesseSportiveCampaniaRoute
+  '/scommesse-sportive-lazio': typeof ScommesseSportiveLazioRoute
   '/scommesse-sportive-online-adm': typeof ScommesseSportiveOnlineAdmRoute
   '/sitemap-blog.xml': typeof SitemapBlogDotxmlRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
@@ -613,6 +640,8 @@ export interface FileRoutesByFullPath {
   '/slot-con-bonus-senza-deposito': typeof SlotConBonusSenzaDepositoRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
+  '/slot-online-campania': typeof SlotOnlineCampaniaRoute
+  '/slot-online-lazio': typeof SlotOnlineLazioRoute
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-piu-giocate': typeof SlotPiuGiocateRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
@@ -689,6 +718,8 @@ export interface FileRoutesByTo {
   '/roulette-online-italia': typeof RouletteOnlineItaliaRoute
   '/scommesse-live-come-funzionano': typeof ScommesseLiveComeFunzionanoRoute
   '/scommesse-serie-a-guida': typeof ScommesseSerieAGuidaRoute
+  '/scommesse-sportive-campania': typeof ScommesseSportiveCampaniaRoute
+  '/scommesse-sportive-lazio': typeof ScommesseSportiveLazioRoute
   '/scommesse-sportive-online-adm': typeof ScommesseSportiveOnlineAdmRoute
   '/sitemap-blog.xml': typeof SitemapBlogDotxmlRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
@@ -701,6 +732,8 @@ export interface FileRoutesByTo {
   '/slot-con-bonus-senza-deposito': typeof SlotConBonusSenzaDepositoRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
+  '/slot-online-campania': typeof SlotOnlineCampaniaRoute
+  '/slot-online-lazio': typeof SlotOnlineLazioRoute
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-piu-giocate': typeof SlotPiuGiocateRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
@@ -779,6 +812,8 @@ export interface FileRoutesById {
   '/roulette-online-italia': typeof RouletteOnlineItaliaRoute
   '/scommesse-live-come-funzionano': typeof ScommesseLiveComeFunzionanoRoute
   '/scommesse-serie-a-guida': typeof ScommesseSerieAGuidaRoute
+  '/scommesse-sportive-campania': typeof ScommesseSportiveCampaniaRoute
+  '/scommesse-sportive-lazio': typeof ScommesseSportiveLazioRoute
   '/scommesse-sportive-online-adm': typeof ScommesseSportiveOnlineAdmRoute
   '/sitemap-blog.xml': typeof SitemapBlogDotxmlRoute
   '/sitemap-guides.xml': typeof SitemapGuidesDotxmlRoute
@@ -791,6 +826,8 @@ export interface FileRoutesById {
   '/slot-con-bonus-senza-deposito': typeof SlotConBonusSenzaDepositoRoute
   '/slot-gratis-demo': typeof SlotGratisDemoRoute
   '/slot-online': typeof SlotOnlineRoute
+  '/slot-online-campania': typeof SlotOnlineCampaniaRoute
+  '/slot-online-lazio': typeof SlotOnlineLazioRoute
   '/slot-online-soldi-veri': typeof SlotOnlineSoldiVeriRoute
   '/slot-piu-giocate': typeof SlotPiuGiocateRoute
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
@@ -869,6 +906,8 @@ export interface FileRouteTypes {
     | '/roulette-online-italia'
     | '/scommesse-live-come-funzionano'
     | '/scommesse-serie-a-guida'
+    | '/scommesse-sportive-campania'
+    | '/scommesse-sportive-lazio'
     | '/scommesse-sportive-online-adm'
     | '/sitemap-blog.xml'
     | '/sitemap-guides.xml'
@@ -881,6 +920,8 @@ export interface FileRouteTypes {
     | '/slot-con-bonus-senza-deposito'
     | '/slot-gratis-demo'
     | '/slot-online'
+    | '/slot-online-campania'
+    | '/slot-online-lazio'
     | '/slot-online-soldi-veri'
     | '/slot-piu-giocate'
     | '/slot-rtp-alto'
@@ -957,6 +998,8 @@ export interface FileRouteTypes {
     | '/roulette-online-italia'
     | '/scommesse-live-come-funzionano'
     | '/scommesse-serie-a-guida'
+    | '/scommesse-sportive-campania'
+    | '/scommesse-sportive-lazio'
     | '/scommesse-sportive-online-adm'
     | '/sitemap-blog.xml'
     | '/sitemap-guides.xml'
@@ -969,6 +1012,8 @@ export interface FileRouteTypes {
     | '/slot-con-bonus-senza-deposito'
     | '/slot-gratis-demo'
     | '/slot-online'
+    | '/slot-online-campania'
+    | '/slot-online-lazio'
     | '/slot-online-soldi-veri'
     | '/slot-piu-giocate'
     | '/slot-rtp-alto'
@@ -1046,6 +1091,8 @@ export interface FileRouteTypes {
     | '/roulette-online-italia'
     | '/scommesse-live-come-funzionano'
     | '/scommesse-serie-a-guida'
+    | '/scommesse-sportive-campania'
+    | '/scommesse-sportive-lazio'
     | '/scommesse-sportive-online-adm'
     | '/sitemap-blog.xml'
     | '/sitemap-guides.xml'
@@ -1058,6 +1105,8 @@ export interface FileRouteTypes {
     | '/slot-con-bonus-senza-deposito'
     | '/slot-gratis-demo'
     | '/slot-online'
+    | '/slot-online-campania'
+    | '/slot-online-lazio'
     | '/slot-online-soldi-veri'
     | '/slot-piu-giocate'
     | '/slot-rtp-alto'
@@ -1136,6 +1185,8 @@ export interface RootRouteChildren {
   RouletteOnlineItaliaRoute: typeof RouletteOnlineItaliaRoute
   ScommesseLiveComeFunzionanoRoute: typeof ScommesseLiveComeFunzionanoRoute
   ScommesseSerieAGuidaRoute: typeof ScommesseSerieAGuidaRoute
+  ScommesseSportiveCampaniaRoute: typeof ScommesseSportiveCampaniaRoute
+  ScommesseSportiveLazioRoute: typeof ScommesseSportiveLazioRoute
   ScommesseSportiveOnlineAdmRoute: typeof ScommesseSportiveOnlineAdmRoute
   SitemapBlogDotxmlRoute: typeof SitemapBlogDotxmlRoute
   SitemapGuidesDotxmlRoute: typeof SitemapGuidesDotxmlRoute
@@ -1148,6 +1199,8 @@ export interface RootRouteChildren {
   SlotConBonusSenzaDepositoRoute: typeof SlotConBonusSenzaDepositoRoute
   SlotGratisDemoRoute: typeof SlotGratisDemoRoute
   SlotOnlineRoute: typeof SlotOnlineRoute
+  SlotOnlineCampaniaRoute: typeof SlotOnlineCampaniaRoute
+  SlotOnlineLazioRoute: typeof SlotOnlineLazioRoute
   SlotOnlineSoldiVeriRoute: typeof SlotOnlineSoldiVeriRoute
   SlotPiuGiocateRoute: typeof SlotPiuGiocateRoute
   SlotRtpAltoRoute: typeof SlotRtpAltoRoute
@@ -1207,6 +1260,20 @@ declare module '@tanstack/react-router' {
       path: '/slot-online-soldi-veri'
       fullPath: '/slot-online-soldi-veri'
       preLoaderRoute: typeof SlotOnlineSoldiVeriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/slot-online-lazio': {
+      id: '/slot-online-lazio'
+      path: '/slot-online-lazio'
+      fullPath: '/slot-online-lazio'
+      preLoaderRoute: typeof SlotOnlineLazioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/slot-online-campania': {
+      id: '/slot-online-campania'
+      path: '/slot-online-campania'
+      fullPath: '/slot-online-campania'
+      preLoaderRoute: typeof SlotOnlineCampaniaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/slot-online': {
@@ -1291,6 +1358,20 @@ declare module '@tanstack/react-router' {
       path: '/scommesse-sportive-online-adm'
       fullPath: '/scommesse-sportive-online-adm'
       preLoaderRoute: typeof ScommesseSportiveOnlineAdmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scommesse-sportive-lazio': {
+      id: '/scommesse-sportive-lazio'
+      path: '/scommesse-sportive-lazio'
+      fullPath: '/scommesse-sportive-lazio'
+      preLoaderRoute: typeof ScommesseSportiveLazioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scommesse-sportive-campania': {
+      id: '/scommesse-sportive-campania'
+      path: '/scommesse-sportive-campania'
+      fullPath: '/scommesse-sportive-campania'
+      preLoaderRoute: typeof ScommesseSportiveCampaniaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/scommesse-serie-a-guida': {
@@ -1851,6 +1932,8 @@ const rootRouteChildren: RootRouteChildren = {
   RouletteOnlineItaliaRoute: RouletteOnlineItaliaRoute,
   ScommesseLiveComeFunzionanoRoute: ScommesseLiveComeFunzionanoRoute,
   ScommesseSerieAGuidaRoute: ScommesseSerieAGuidaRoute,
+  ScommesseSportiveCampaniaRoute: ScommesseSportiveCampaniaRoute,
+  ScommesseSportiveLazioRoute: ScommesseSportiveLazioRoute,
   ScommesseSportiveOnlineAdmRoute: ScommesseSportiveOnlineAdmRoute,
   SitemapBlogDotxmlRoute: SitemapBlogDotxmlRoute,
   SitemapGuidesDotxmlRoute: SitemapGuidesDotxmlRoute,
@@ -1863,6 +1946,8 @@ const rootRouteChildren: RootRouteChildren = {
   SlotConBonusSenzaDepositoRoute: SlotConBonusSenzaDepositoRoute,
   SlotGratisDemoRoute: SlotGratisDemoRoute,
   SlotOnlineRoute: SlotOnlineRoute,
+  SlotOnlineCampaniaRoute: SlotOnlineCampaniaRoute,
+  SlotOnlineLazioRoute: SlotOnlineLazioRoute,
   SlotOnlineSoldiVeriRoute: SlotOnlineSoldiVeriRoute,
   SlotPiuGiocateRoute: SlotPiuGiocateRoute,
   SlotRtpAltoRoute: SlotRtpAltoRoute,
