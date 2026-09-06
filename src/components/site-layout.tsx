@@ -296,6 +296,7 @@ export function Footer() {
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground">Guide</h4>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+              <li><Link to="/guide" className="font-medium text-foreground hover:text-gold">Tutte le guide</Link></li>
               <li><Link to="/bonus-senza-deposito" className="hover:text-foreground">Bonus senza deposito</Link></li>
               <li><Link to="/migliori-casino-online-adm" className="hover:text-foreground">Migliori casino online ADM</Link></li>
               <li><Link to="/slot-online-soldi-veri" className="hover:text-foreground">Slot online soldi veri</Link></li>

@@ -9,17 +9,21 @@ import { getOperatorBonus, BONUS_NOTE } from "@/data/bonuses";
 import { guides } from "@/data/guides";
 
 /**
- * Rete di rimandi tra le guide: ogni pagina informativa segnala le altre
- * guide principali (esclusa quella corrente), così i crawler trovano sempre
- * percorsi interni verso ogni contenuto e le pagine nuove ricevono link
- * dalle pagine già indicizzate.
+ * Rete di rimandi tra le guide: ogni pagina informativa segnala un blocco
+ * diverso di guide (rotazione deterministica sul percorso), così TUTTE le
+ * guide — non solo quelle a priorità alta — ricevono link interni dai
+ * contenuti già indicizzati e i crawler trovano sempre percorsi verso ogni
+ * pagina.
  */
 function GuideNetwork() {
   const pathname = useLocation({ select: (l) => l.pathname });
-  const related = guides
-    .filter((g) => g.path !== pathname)
-    .sort((a, b) => Number(b.priority) - Number(a.priority))
-    .slice(0, 8);
+  const pool = guides.filter((g) => g.path !== pathname);
+  // Hash semplice del percorso: stesso blocco per la stessa pagina (stabile
+  // tra render e crawl), blocco diverso tra pagine diverse.
+  let hash = 0;
+  for (let i = 0; i < pathname.length; i++) hash = (hash * 31 + pathname.charCodeAt(i)) >>> 0;
+  const start = hash % pool.length;
+  const related = Array.from({ length: Math.min(12, pool.length) }, (_, i) => pool[(start + i) % pool.length]);
   return (
     <section className="mt-12" aria-label="Guide collegate">
       <h2 className="font-serif text-2xl">Guide collegate</h2>
@@ -33,6 +37,11 @@ function GuideNetwork() {
           </li>
         ))}
       </ul>
+      <p className="mt-4 text-sm">
+        <Link to="/guide" className="inline-flex items-center gap-1 font-medium text-gold hover:underline">
+          Tutte le guide del sito <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      </p>
     </section>
   );
 }
