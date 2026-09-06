@@ -171,7 +171,7 @@ export function CasinoRankCard({
           params={{ slug: op.slug }}
           className="text-[11px] font-semibold text-foreground underline-offset-2 transition-colors hover:text-gold hover:underline"
         >
-          Leggi la recensione
+          Recensione {op.name}
         </Link>
         <button
           type="button"
