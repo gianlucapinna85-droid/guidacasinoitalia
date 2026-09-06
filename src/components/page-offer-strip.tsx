@@ -57,16 +57,12 @@ export function PageOfferStrip({ placement = "page" }: { placement?: "article" |
               key={operator.slug}
               className="grid grid-cols-[5rem_minmax(0,1fr)_auto] items-center gap-2.5 rounded-lg border border-offer-border bg-offer px-2.5 py-2 shadow-sm"
             >
-              <a
-                href={operator.officialUrl}
-                target="_blank"
-                rel="noopener noreferrer sponsored nofollow"
-                aria-label={`Vai al sito ufficiale di ${operator.name}`}
-                className={`gc-logo-frame relative flex h-10 w-20 shrink-0 items-center justify-center rounded-md px-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${operator.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}
+              <div
+                className={`gc-logo-frame relative flex h-10 w-20 shrink-0 items-center justify-center rounded-md px-1.5 ${operator.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}
               >
                 <img src={operator.logo} alt={`Logo ${operator.name}`} width={600} height={200} loading="lazy" decoding="async" className="gc-logo-img max-h-8 w-auto max-w-[92%] object-contain" />
                 <AdmBadgeDot className="h-3.5 w-3.5 sm:h-3.5 sm:w-3.5" />
-              </a>
+              </div>
               <div className="min-w-0">
                 <p className="truncate text-[8px] font-bold uppercase tracking-wide text-muted-foreground">
                   {bonus.noDeposit ? "Senza deposito" : "Bonus di benvenuto"}

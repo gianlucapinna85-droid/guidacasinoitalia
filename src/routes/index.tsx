@@ -389,7 +389,7 @@ function SlotsHomeSection() {
                       params={{ slug: s.slug }}
                       className="gc-btn-secondary inline-flex items-center justify-center w-full px-1.5 py-1 text-[10px] md:text-[11px]"
                     >
-                      Recensione
+                      Scheda {s.name}
                     </Link>
                   </div>
                   <p className="mt-1 border-t border-border pt-0.5 text-[7px] leading-tight text-muted-foreground md:text-[9px]">
@@ -1091,7 +1091,7 @@ function OperatorsSection() {
                 params={{ slug: op.slug }}
                 className="inline-flex items-center justify-center gap-1 rounded-md border border-border px-3 py-1.5 text-xs font-medium md:py-2 md:text-xs text-muted-foreground transition-colors hover:text-foreground"
               >
-                Leggi l'analisi completa
+                Analisi {op.name}
               </Link>
               <p className="text-center text-[10px] uppercase tracking-wider text-muted-foreground">
                 Solo +18 — Gioca responsabile
@@ -1164,17 +1164,7 @@ function OperatorLogo({
     </div>
   );
 
-  return (
-    <a
-      href={officialUrl}
-      target="_blank"
-      rel="noopener noreferrer nofollow sponsored"
-      aria-label={`Visita il sito ufficiale di ${name}`}
-      className="inline-block transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:ring-offset-2 focus:ring-offset-background rounded-xl"
-    >
-      {logoBox}
-    </a>
-  );
+  return <div className="inline-block">{logoBox}</div>;
 }
 
 function CriteriaSection() {

@@ -82,13 +82,7 @@ export function CasinoRankCard({
       <div className="grid grid-cols-[6.5rem_minmax(0,1fr)_auto] items-stretch gap-0 sm:grid-cols-[10rem_minmax(0,1fr)_auto]">
         {/* Colonna logo: stelline + licenza sotto il logo */}
         <div className={`flex min-w-0 flex-col ${op.slug === "stake" ? "bg-logo-contrast" : "bg-offer-deep"}`}>
-          <a
-            href={op.officialUrl}
-            target="_blank"
-            rel="noopener noreferrer sponsored nofollow"
-            aria-label={`Vai al sito ufficiale di ${op.name}`}
-            className="gc-logo-frame relative flex min-h-[4rem] flex-1 items-center justify-center px-2 py-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold"
-          >
+          <div className="gc-logo-frame relative flex min-h-[4rem] flex-1 items-center justify-center px-2 py-2.5">
             {op.logo ? (
               <img
                 src={op.logo}
@@ -103,7 +97,7 @@ export function CasinoRankCard({
               <span className="truncate font-serif text-base text-foreground">{op.name}</span>
             )}
             <AdmBadgeDot />
-          </a>
+          </div>
           <div className="flex flex-col items-center gap-0.5 border-t border-offer-border bg-offer px-1 py-1">
             {meta ? (
               <span className="flex items-center gap-1" title={`Valutazione redazionale ${meta.rating.toFixed(1)}/10`}>
@@ -177,7 +171,7 @@ export function CasinoRankCard({
           params={{ slug: op.slug }}
           className="text-[11px] font-semibold text-foreground underline-offset-2 transition-colors hover:text-gold hover:underline"
         >
-          Leggi la recensione
+          Recensione {op.name}
         </Link>
         <button
           type="button"
