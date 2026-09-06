@@ -1091,7 +1091,7 @@ function OperatorsSection() {
                 params={{ slug: op.slug }}
                 className="inline-flex items-center justify-center gap-1 rounded-md border border-border px-3 py-1.5 text-xs font-medium md:py-2 md:text-xs text-muted-foreground transition-colors hover:text-foreground"
               >
-                Leggi l'analisi completa
+                Analisi {op.name}
               </Link>
               <p className="text-center text-[10px] uppercase tracking-wider text-muted-foreground">
                 Solo +18 — Gioca responsabile
