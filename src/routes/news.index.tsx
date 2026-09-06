@@ -15,6 +15,7 @@ export const Route = createFileRoute("/news/")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
+      { name: "keywords", content: "news casino italia, notizie adm gioco online, aggiornamenti casino italiani 2026" },
       {
         name: "keywords",
         content:

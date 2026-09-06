@@ -14,6 +14,7 @@ export const Route = createFileRoute("/slot-piu-giocate")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
+      { name: "keywords", content: "slot piu giocate italia, slot popolari casino adm, book of ra italia, megaways italia, slot piu giocate 2026" },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },

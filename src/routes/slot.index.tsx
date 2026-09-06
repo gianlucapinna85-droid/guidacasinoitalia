@@ -5,7 +5,7 @@ import { providers } from "@/lib/providers";
 import { socialImageMeta } from "@/lib/social-image";
 
 const BASE = "https://www.guidacasino-italia.it";
-const TITLE = "Slot Online per Provider: elenco giochi e RTP dichiarato";
+const TITLE = "Slot online in Italia per provider: elenco giochi e RTP";
 const DESC =
   "Elenco delle slot online disponibili sui casinò ADM, raggruppate per provider con RTP dichiarato e volatilità. Contenuto informativo, +18, gioco responsabile.";
 const URL = `${BASE}/slot`;
@@ -15,6 +15,7 @@ export const Route = createFileRoute("/slot/")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
+      { name: "keywords", content: "slot online italia, slot adm per provider, rtp slot italia, slot online lazio, slot online campania" },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },

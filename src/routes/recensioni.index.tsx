@@ -14,6 +14,7 @@ export const Route = createFileRoute("/recensioni/")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
+      { name: "keywords", content: "recensioni casino online italia, recensioni casino adm, migliori casino italiani, casino online roma, casino online napoli, casino online milano" },
       { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },

@@ -27,6 +27,7 @@ export const Route = createFileRoute("/slot/$slug")({
       meta: [
         { title },
         { name: "description", content: desc },
+        { name: "keywords", content: `slot ${loaderData.name}, ${loaderData.name} rtp, slot ${loaderData.provider} italia, slot online italia, slot adm` },
         { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },

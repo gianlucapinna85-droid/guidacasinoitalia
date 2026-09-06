@@ -25,6 +25,7 @@ export const Route = createFileRoute("/pagamenti/$slug")({
       meta: [
         { title },
         { name: "description", content: desc },
+        { name: "keywords", content: `${method.name} casino italia, casino online ${method.name.toLowerCase()}, depositi e prelievi ${method.name}, casino adm italia` },
         { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large" },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },

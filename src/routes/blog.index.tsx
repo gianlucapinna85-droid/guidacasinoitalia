@@ -17,6 +17,7 @@ export const Route = createFileRoute("/blog/")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
+      { name: "keywords", content: "blog casino italia, approfondimenti scommesse adm, guide gioco online italia" },
       {
         name: "keywords",
         content:

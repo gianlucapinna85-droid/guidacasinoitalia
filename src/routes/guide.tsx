@@ -13,6 +13,7 @@ export const Route = createFileRoute("/guide")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
+      { name: "keywords", content: "guide casino online italia, guide scommesse adm, casino online lazio, casino online campania, casino online lombardia, guide bonus senza deposito italia" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
