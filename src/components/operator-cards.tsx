@@ -88,7 +88,7 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
                   params={{ slug: op.slug }}
                   className="mt-1.5 inline-flex w-full items-center justify-center rounded-md border border-border px-3 py-1.5 text-[11px] font-semibold text-muted-foreground transition-colors hover:text-foreground md:text-sm"
                 >
-                  Recensione
+                  Recensione {op.name}
                 </Link>
                 <p className="mt-1.5 text-[9px] leading-tight text-muted-foreground">
                   18+ · Gioca responsabilmente · Concessione ADM
