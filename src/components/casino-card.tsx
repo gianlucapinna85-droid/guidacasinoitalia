@@ -104,7 +104,7 @@ export function CasinoRankCard({
         </div>
 
         {/* Colonna centrale: tag + bonus in evidenza */}
-        <div className="flex min-w-0 flex-col justify-center gap-0.5 px-2.5 py-2.5">
+        <div className="flex min-w-0 flex-col justify-center gap-0.5 overflow-hidden px-2 py-2.5">
           <p className="whitespace-nowrap text-[9px] font-bold uppercase tracking-wide text-muted-foreground sm:text-[10px]">
             {bonus.noDeposit ? "Senza deposito" : "Bonus di benvenuto"}
             {meta?.spid ? (
@@ -113,18 +113,20 @@ export function CasinoRankCard({
               </span>
             ) : null}
           </p>
-          <p
-            className={`whitespace-nowrap font-serif font-bold leading-tight ${
-              bonus.noDeposit || bonus.deposit
-                ? "text-[13px] text-gold sm:text-xl"
-                : "text-[10px] font-normal text-muted-foreground"
-            }`}
-          >
-            {bonus.noDeposit ?? bonus.deposit ?? "Bonus senza deposito non disponibile"}
-          </p>
-          {bonus.noDeposit && bonus.deposit ? (
-            <p className="text-[10px] leading-snug text-muted-foreground">
-              Con deposito: <strong className="font-semibold text-foreground">{bonus.deposit}</strong>
+          {bonus.noDeposit ? (
+            <p className="whitespace-nowrap font-serif text-[12px] font-bold leading-tight text-gold sm:text-lg">
+              {bonus.noDeposit}
+            </p>
+          ) : null}
+          {bonus.deposit ? (
+            <p className="whitespace-nowrap font-serif text-[12px] font-bold leading-tight text-gold sm:text-lg">
+              {bonus.noDeposit ? <span className="mr-1 font-sans text-[9px] font-semibold uppercase tracking-wide text-muted-foreground">Con deposito:</span> : null}
+              {bonus.deposit}
+            </p>
+          ) : null}
+          {!bonus.noDeposit && !bonus.deposit ? (
+            <p className="whitespace-nowrap text-[10px] text-muted-foreground">
+              Bonus senza deposito non disponibile
             </p>
           ) : null}
           <p className="whitespace-nowrap text-[9px] text-muted-foreground">
@@ -133,19 +135,16 @@ export function CasinoRankCard({
         </div>
 
         {/* Colonna CTA: pulsante oro */}
-        <div className="relative flex shrink-0 items-center border-l border-offer-border bg-gold/[0.12] p-2">
-          <BadgeCheck
-            className="absolute right-1 top-1 h-3 w-3 text-gold"
-            aria-label="Operatore verificato dalla redazione"
-          />
-          <Button asChild className="gc-cta h-11 whitespace-nowrap px-2 text-[10px] font-extrabold uppercase leading-tight sm:h-12 sm:px-4 sm:text-xs">
+        <div className="flex shrink-0 items-center border-l border-offer-border bg-gold/[0.12] p-1.5 sm:p-2.5">
+          <Button asChild className="gc-cta h-12 whitespace-nowrap px-2.5 text-[11px] font-extrabold uppercase leading-tight sm:h-13 sm:px-4 sm:text-sm">
             <a
               href={op.officialUrl}
               target="_blank"
               rel="noopener noreferrer sponsored nofollow"
+              aria-label={`Visita il sito ufficiale di ${op.name} (verificato dalla redazione)`}
               className="inline-flex items-center gap-1"
             >
-              Visita il sito <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+              Visita il sito <BadgeCheck className="h-3.5 w-3.5" aria-hidden="true" />
             </a>
           </Button>
         </div>
