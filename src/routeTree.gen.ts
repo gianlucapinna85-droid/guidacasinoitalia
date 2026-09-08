@@ -78,6 +78,7 @@ import { Route as BonusImmediatoSpidRouteImport } from './routes/bonus-immediato
 import { Route as BonusCasinoUfficialiRouteImport } from './routes/bonus-casino-ufficiali'
 import { Route as BonusCasinoOnlineSenzaDepositoRouteImport } from './routes/bonus-casino-online-senza-deposito'
 import { Route as BonusBenvenutoCasinoRouteImport } from './routes/bonus-benvenuto-casino'
+import { Route as Bonus50EuroSenzaDepositoRouteImport } from './routes/bonus-50-euro-senza-deposito'
 import { Route as BlackjackOnlineItaliaRouteImport } from './routes/blackjack-online-italia'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
@@ -463,6 +464,12 @@ const BonusBenvenutoCasinoRoute = BonusBenvenutoCasinoRouteImport.update({
   path: '/bonus-benvenuto-casino',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Bonus50EuroSenzaDepositoRoute =
+  Bonus50EuroSenzaDepositoRouteImport.update({
+    id: '/bonus-50-euro-senza-deposito',
+    path: '/bonus-50-euro-senza-deposito',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const BlackjackOnlineItaliaRoute = BlackjackOnlineItaliaRouteImport.update({
   id: '/blackjack-online-italia',
   path: '/blackjack-online-italia',
@@ -578,6 +585,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
+  '/bonus-50-euro-senza-deposito': typeof Bonus50EuroSenzaDepositoRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
   '/bonus-casino-online-senza-deposito': typeof BonusCasinoOnlineSenzaDepositoRoute
   '/bonus-casino-ufficiali': typeof BonusCasinoUfficialiRoute
@@ -670,6 +678,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
+  '/bonus-50-euro-senza-deposito': typeof Bonus50EuroSenzaDepositoRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
   '/bonus-casino-online-senza-deposito': typeof BonusCasinoOnlineSenzaDepositoRoute
   '/bonus-casino-ufficiali': typeof BonusCasinoUfficialiRoute
@@ -764,6 +773,7 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
+  '/bonus-50-euro-senza-deposito': typeof Bonus50EuroSenzaDepositoRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
   '/bonus-casino-online-senza-deposito': typeof BonusCasinoOnlineSenzaDepositoRoute
   '/bonus-casino-ufficiali': typeof BonusCasinoUfficialiRoute
@@ -858,6 +868,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/blackjack-online-italia'
+    | '/bonus-50-euro-senza-deposito'
     | '/bonus-benvenuto-casino'
     | '/bonus-casino-online-senza-deposito'
     | '/bonus-casino-ufficiali'
@@ -950,6 +961,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/blackjack-online-italia'
+    | '/bonus-50-euro-senza-deposito'
     | '/bonus-benvenuto-casino'
     | '/bonus-casino-online-senza-deposito'
     | '/bonus-casino-ufficiali'
@@ -1043,6 +1055,7 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/auth'
     | '/blackjack-online-italia'
+    | '/bonus-50-euro-senza-deposito'
     | '/bonus-benvenuto-casino'
     | '/bonus-casino-online-senza-deposito'
     | '/bonus-casino-ufficiali'
@@ -1137,6 +1150,7 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
   BlackjackOnlineItaliaRoute: typeof BlackjackOnlineItaliaRoute
+  Bonus50EuroSenzaDepositoRoute: typeof Bonus50EuroSenzaDepositoRoute
   BonusBenvenutoCasinoRoute: typeof BonusBenvenutoCasinoRoute
   BonusCasinoOnlineSenzaDepositoRoute: typeof BonusCasinoOnlineSenzaDepositoRoute
   BonusCasinoUfficialiRoute: typeof BonusCasinoUfficialiRoute
@@ -1710,6 +1724,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BonusBenvenutoCasinoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bonus-50-euro-senza-deposito': {
+      id: '/bonus-50-euro-senza-deposito'
+      path: '/bonus-50-euro-senza-deposito'
+      fullPath: '/bonus-50-euro-senza-deposito'
+      preLoaderRoute: typeof Bonus50EuroSenzaDepositoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blackjack-online-italia': {
       id: '/blackjack-online-italia'
       path: '/blackjack-online-italia'
@@ -1883,6 +1904,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
   BlackjackOnlineItaliaRoute: BlackjackOnlineItaliaRoute,
+  Bonus50EuroSenzaDepositoRoute: Bonus50EuroSenzaDepositoRoute,
   BonusBenvenutoCasinoRoute: BonusBenvenutoCasinoRoute,
   BonusCasinoOnlineSenzaDepositoRoute: BonusCasinoOnlineSenzaDepositoRoute,
   BonusCasinoUfficialiRoute: BonusCasinoUfficialiRoute,
