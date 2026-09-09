@@ -352,6 +352,14 @@ export const guides: Guide[] = [
     priority: "0.9",
   },
   {
+    path: "/osservatorio-bonus-adm",
+    title: "Osservatorio bonus ADM",
+    description:
+      "Rilevazione periodica dei bonus dichiarati dai concessionari ADM: metodo, fonti e dati liberamente citabili.",
+    changefreq: "monthly",
+    priority: "0.9",
+  },
+  {
     path: "/come-ottenere-bonus-senza-deposito",
     title: "Come ottenere un bonus senza deposito",
     description:
