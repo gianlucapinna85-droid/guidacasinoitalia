@@ -39,6 +39,7 @@ import { Route as PronosticiCalcioComeAnalizzareRouteImport } from './routes/pro
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PrelieviVelociRouteImport } from './routes/prelievi-veloci'
 import { Route as PagamentiSicuriCasinoRouteImport } from './routes/pagamenti-sicuri-casino'
+import { Route as OsservatorioBonusAdmRouteImport } from './routes/osservatorio-bonus-adm'
 import { Route as OperatoriCasinoEScommesseRouteImport } from './routes/operatori-casino-e-scommesse'
 import { Route as NoteLegaliRouteImport } from './routes/note-legali'
 import { Route as MiglioriSitiScommesseAdmRouteImport } from './routes/migliori-siti-scommesse-adm'
@@ -257,6 +258,11 @@ const PrelieviVelociRoute = PrelieviVelociRouteImport.update({
 const PagamentiSicuriCasinoRoute = PagamentiSicuriCasinoRouteImport.update({
   id: '/pagamenti-sicuri-casino',
   path: '/pagamenti-sicuri-casino',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OsservatorioBonusAdmRoute = OsservatorioBonusAdmRouteImport.update({
+  id: '/osservatorio-bonus-adm',
+  path: '/osservatorio-bonus-adm',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OperatoriCasinoEScommesseRoute =
@@ -625,6 +631,7 @@ export interface FileRoutesByFullPath {
   '/migliori-siti-scommesse-adm': typeof MiglioriSitiScommesseAdmRoute
   '/note-legali': typeof NoteLegaliRoute
   '/operatori-casino-e-scommesse': typeof OperatoriCasinoEScommesseRoute
+  '/osservatorio-bonus-adm': typeof OsservatorioBonusAdmRoute
   '/pagamenti-sicuri-casino': typeof PagamentiSicuriCasinoRoute
   '/prelievi-veloci': typeof PrelieviVelociRoute
   '/privacy': typeof PrivacyRoute
@@ -718,6 +725,7 @@ export interface FileRoutesByTo {
   '/migliori-siti-scommesse-adm': typeof MiglioriSitiScommesseAdmRoute
   '/note-legali': typeof NoteLegaliRoute
   '/operatori-casino-e-scommesse': typeof OperatoriCasinoEScommesseRoute
+  '/osservatorio-bonus-adm': typeof OsservatorioBonusAdmRoute
   '/pagamenti-sicuri-casino': typeof PagamentiSicuriCasinoRoute
   '/prelievi-veloci': typeof PrelieviVelociRoute
   '/privacy': typeof PrivacyRoute
@@ -813,6 +821,7 @@ export interface FileRoutesById {
   '/migliori-siti-scommesse-adm': typeof MiglioriSitiScommesseAdmRoute
   '/note-legali': typeof NoteLegaliRoute
   '/operatori-casino-e-scommesse': typeof OperatoriCasinoEScommesseRoute
+  '/osservatorio-bonus-adm': typeof OsservatorioBonusAdmRoute
   '/pagamenti-sicuri-casino': typeof PagamentiSicuriCasinoRoute
   '/prelievi-veloci': typeof PrelieviVelociRoute
   '/privacy': typeof PrivacyRoute
@@ -908,6 +917,7 @@ export interface FileRouteTypes {
     | '/migliori-siti-scommesse-adm'
     | '/note-legali'
     | '/operatori-casino-e-scommesse'
+    | '/osservatorio-bonus-adm'
     | '/pagamenti-sicuri-casino'
     | '/prelievi-veloci'
     | '/privacy'
@@ -1001,6 +1011,7 @@ export interface FileRouteTypes {
     | '/migliori-siti-scommesse-adm'
     | '/note-legali'
     | '/operatori-casino-e-scommesse'
+    | '/osservatorio-bonus-adm'
     | '/pagamenti-sicuri-casino'
     | '/prelievi-veloci'
     | '/privacy'
@@ -1095,6 +1106,7 @@ export interface FileRouteTypes {
     | '/migliori-siti-scommesse-adm'
     | '/note-legali'
     | '/operatori-casino-e-scommesse'
+    | '/osservatorio-bonus-adm'
     | '/pagamenti-sicuri-casino'
     | '/prelievi-veloci'
     | '/privacy'
@@ -1190,6 +1202,7 @@ export interface RootRouteChildren {
   MiglioriSitiScommesseAdmRoute: typeof MiglioriSitiScommesseAdmRoute
   NoteLegaliRoute: typeof NoteLegaliRoute
   OperatoriCasinoEScommesseRoute: typeof OperatoriCasinoEScommesseRoute
+  OsservatorioBonusAdmRoute: typeof OsservatorioBonusAdmRoute
   PagamentiSicuriCasinoRoute: typeof PagamentiSicuriCasinoRoute
   PrelieviVelociRoute: typeof PrelieviVelociRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -1449,6 +1462,13 @@ declare module '@tanstack/react-router' {
       path: '/pagamenti-sicuri-casino'
       fullPath: '/pagamenti-sicuri-casino'
       preLoaderRoute: typeof PagamentiSicuriCasinoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/osservatorio-bonus-adm': {
+      id: '/osservatorio-bonus-adm'
+      path: '/osservatorio-bonus-adm'
+      fullPath: '/osservatorio-bonus-adm'
+      preLoaderRoute: typeof OsservatorioBonusAdmRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/operatori-casino-e-scommesse': {
@@ -1945,6 +1965,7 @@ const rootRouteChildren: RootRouteChildren = {
   MiglioriSitiScommesseAdmRoute: MiglioriSitiScommesseAdmRoute,
   NoteLegaliRoute: NoteLegaliRoute,
   OperatoriCasinoEScommesseRoute: OperatoriCasinoEScommesseRoute,
+  OsservatorioBonusAdmRoute: OsservatorioBonusAdmRoute,
   PagamentiSicuriCasinoRoute: PagamentiSicuriCasinoRoute,
   PrelieviVelociRoute: PrelieviVelociRoute,
   PrivacyRoute: PrivacyRoute,
