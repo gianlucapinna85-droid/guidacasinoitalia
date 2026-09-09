@@ -102,6 +102,7 @@ import { Route as BlogCategorySlugRouteImport } from './routes/blog.$category.$s
 import { Route as ApiPublicReindexRouteImport } from './routes/api/public/reindex'
 import { Route as ApiPublicCheckBonusRouteImport } from './routes/api/public/check-bonus'
 import { Route as AuthenticatedAdminExitPopupRouteImport } from './routes/_authenticated/admin.exit-popup'
+import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
 const VerificareLicenzaAdmRoute = VerificareLicenzaAdmRouteImport.update({
   id: '/verificare-licenza-adm',
@@ -586,6 +587,12 @@ const AuthenticatedAdminExitPopupRoute =
     path: '/admin/exit-popup',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const LovableEmailTransactionalPreviewRoute =
+  LovableEmailTransactionalPreviewRouteImport.update({
+    id: '/lovable/email/transactional/preview',
+    path: '/lovable/email/transactional/preview',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -680,6 +687,7 @@ export interface FileRoutesByFullPath {
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
   '/blog/$category/': typeof BlogCategoryIndexRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -774,6 +782,7 @@ export interface FileRoutesByTo {
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
   '/blog/$category': typeof BlogCategoryIndexRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -870,6 +879,7 @@ export interface FileRoutesById {
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
   '/blog/$category/': typeof BlogCategoryIndexRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -966,6 +976,7 @@ export interface FileRouteTypes {
     | '/api/public/reindex'
     | '/blog/$category/$slug'
     | '/blog/$category/'
+    | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -1060,6 +1071,7 @@ export interface FileRouteTypes {
     | '/api/public/reindex'
     | '/blog/$category/$slug'
     | '/blog/$category'
+    | '/lovable/email/transactional/preview'
   id:
     | '__root__'
     | '/'
@@ -1155,6 +1167,7 @@ export interface FileRouteTypes {
     | '/api/public/reindex'
     | '/blog/$category/$slug'
     | '/blog/$category/'
+    | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -1250,6 +1263,7 @@ export interface RootRouteChildren {
   ApiPublicReindexRoute: typeof ApiPublicReindexRoute
   BlogCategorySlugRoute: typeof BlogCategorySlugRoute
   BlogCategoryIndexRoute: typeof BlogCategoryIndexRoute
+  LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1905,6 +1919,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminExitPopupRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/lovable/email/transactional/preview': {
+      id: '/lovable/email/transactional/preview'
+      path: '/lovable/email/transactional/preview'
+      fullPath: '/lovable/email/transactional/preview'
+      preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -2013,6 +2034,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicReindexRoute: ApiPublicReindexRoute,
   BlogCategorySlugRoute: BlogCategorySlugRoute,
   BlogCategoryIndexRoute: BlogCategoryIndexRoute,
+  LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

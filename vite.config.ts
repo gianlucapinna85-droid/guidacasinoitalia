@@ -5,6 +5,11 @@
 //     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const rootDir = path.dirname(fileURLToPath(import.meta.url));
+
 
 export default defineConfig({
   tanstackStart: {
@@ -13,10 +18,18 @@ export default defineConfig({
     server: { entry: "server" },
   },
   vite: {
+    resolve: {
+      alias: {
+        "entities/lib/decode.js": path.resolve(rootDir, "node_modules/entities/lib/decode.js"),
+        "entities/lib/encode.js": path.resolve(rootDir, "node_modules/entities/lib/encode.js"),
+        entities: path.resolve(rootDir, "node_modules/entities"),
+      },
+    },
     define: {
       // Data dell'ultima pubblicazione: alimenta la firma "Verificato il" negli articoli.
       __BUILD_DATE__: JSON.stringify(new Date().toISOString()),
     },
+
     build: {
       // Minificazione esplicita del bundle client (audit SEO: "Minimizza JavaScript")
       minify: "esbuild",
