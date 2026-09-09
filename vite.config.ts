@@ -18,10 +18,18 @@ export default defineConfig({
     server: { entry: "server" },
   },
   vite: {
+    resolve: {
+      alias: {
+        "entities/lib/decode.js": path.resolve(rootDir, "node_modules/entities/lib/decode.js"),
+        "entities/lib/encode.js": path.resolve(rootDir, "node_modules/entities/lib/encode.js"),
+        entities: path.resolve(rootDir, "node_modules/entities"),
+      },
+    },
     define: {
       // Data dell'ultima pubblicazione: alimenta la firma "Verificato il" negli articoli.
       __BUILD_DATE__: JSON.stringify(new Date().toISOString()),
     },
+
     build: {
       // Minificazione esplicita del bundle client (audit SEO: "Minimizza JavaScript")
       minify: "esbuild",
