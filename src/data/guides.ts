@@ -344,6 +344,14 @@ export const guides: Guide[] = [
     priority: "0.9",
   },
   {
+    path: "/bonus-50-euro-senza-deposito",
+    title: "Bonus 50 euro senza deposito",
+    description:
+      "Cosa offrono davvero i casinò ADM dietro la ricerca \"50 euro senza deposito\": importi reali, requisiti di puntata e tetti di vincita.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
     path: "/come-ottenere-bonus-senza-deposito",
     title: "Come ottenere un bonus senza deposito",
     description:
