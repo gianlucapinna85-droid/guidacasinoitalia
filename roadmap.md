@@ -8,3 +8,6 @@
 - [x] Analizzare il profilo backlink e documentare l'azione esterna necessaria per i link sitewide.
 - [x] Verificare desktop/mobile e controlli SEO locali.
 - [x] Inserire offerte conversione con operatori diversi nelle guide e in fondo a tutte le pagine pubbliche.
+- [x] Risorsa citabile: pagina /osservatorio-bonus-adm online.
+- [x] Pacchetto candidature link esterni con destinazioni verificate e testi pronti (documenti).
+- [ ] Invii esterni (Gioconews, JAMMA, Agipronews, forum) e rimozione widget su pronostici-vincenti.it: azioni manuali dell'utente.
