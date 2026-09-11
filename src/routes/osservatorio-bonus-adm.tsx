@@ -120,6 +120,7 @@ export const Route = createFileRoute("/osservatorio-bonus-adm")({
         <h2 className="font-serif text-xl">Approfondimenti collegati</h2>
         <ul className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
           <li><Link to="/bonus-senza-deposito" className="text-gold hover:underline">Bonus senza deposito: guida completa</Link></li>
+          <li><Link to="/blog/$category/$slug" params={{ category: "bonus-casino", slug: "quanto-valgono-bonus-senza-deposito-italia" }} className="text-gold hover:underline">Quanto valgono davvero i bonus senza deposito: l'analisi dei dati</Link></li>
           <li><Link to="/bonus-casino-ufficiali" className="text-gold hover:underline">Bonus ufficiali dei concessionari</Link></li>
           <li><Link to="/requisiti-scommessa-bonus" className="text-gold hover:underline">Requisiti di scommessa spiegati</Link></li>
           <li><Link to="/come-valutiamo-i-casino" className="text-gold hover:underline">Come valutiamo i casinò</Link></li>

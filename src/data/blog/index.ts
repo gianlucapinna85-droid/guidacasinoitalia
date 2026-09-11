@@ -3,11 +3,12 @@
 // IndexNow e risottomissione a Google Search Console.
 import type { BlogArticle, BlogCategory } from "./types";
 import { batch01 } from "./batch-01";
+import { batch02 } from "./batch-02";
 import { batchSport01 } from "./sport-01";
 
 export type { BlogArticle, BlogCategory, BlogSection, BlogFaq } from "./types";
 
-export const blogArticles: BlogArticle[] = [...batch01, ...batchSport01];
+export const blogArticles: BlogArticle[] = [...batch02, ...batch01, ...batchSport01];
 
 export const sortedBlog: BlogArticle[] = [...blogArticles].sort((a, b) =>
   b.date.localeCompare(a.date),
