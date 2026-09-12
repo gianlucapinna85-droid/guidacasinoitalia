@@ -37,6 +37,20 @@ function AuthPage() {
     });
   }, [navigate]);
 
+  async function onGoogle() {
+    setBusy(true);
+    setMsg(null);
+    const result = await lovable.auth.signInWithOAuth("google", {
+      redirect_uri: window.location.origin,
+    });
+    if (result.error) {
+      setBusy(false);
+      return setMsg("Accesso con Google non riuscito. Riprova.");
+    }
+    if (result.redirected) return;
+    navigate({ to: "/admin/exit-popup" });
+  }
+
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setBusy(true);
