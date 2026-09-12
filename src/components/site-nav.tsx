@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
+import { LogIn, Menu, X } from "lucide-react";
 import { EXTERNAL_BLOG_URL } from "@/lib/internal-links";
 
 type Item = { href: string; label: string; external?: boolean };
@@ -87,6 +87,14 @@ export function SiteNav() {
         </div>
 
         <div className="p-2.5">
+          <Link
+            to="/auth"
+            onClick={close}
+            className="mb-3 flex items-center justify-center gap-2 rounded-lg border border-gold/60 bg-gold/10 px-3 py-2.5 text-[13px] font-bold text-gold transition-colors hover:bg-accent"
+          >
+            <LogIn className="h-4 w-4" aria-hidden="true" />
+            Accedi con Google
+          </Link>
           <p className="px-1.5 pb-1.5 text-[9px] font-bold uppercase tracking-widest text-gold">
             Sezioni principali
           </p>
