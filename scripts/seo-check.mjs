@@ -65,7 +65,7 @@ for (const file of files) {
 
   // 1. vecchio dominio
   // 1. vecchio dominio (esclusi script e file auto-generati dalla piattaforma)
-  const AUTOGEN = /^src\/integrations\/supabase\//;
+  const AUTOGEN = /^src\/(integrations\/supabase|routes\/lovable)\//;
   if (
     /lovable\.app/.test(src) &&
     !rel.startsWith("scripts/") &&
