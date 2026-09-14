@@ -88,12 +88,12 @@ export function SiteNav() {
 
         <div className="p-2.5">
           <Link
-            to="/auth"
+            to="/iscriviti"
             onClick={close}
-            className="mb-3 flex items-center justify-center gap-2 rounded-lg border border-gold/60 bg-gold/10 px-3 py-2.5 text-[13px] font-bold text-gold transition-colors hover:bg-accent"
+            className="mb-3 flex items-center justify-center gap-2 rounded-lg bg-gold px-3 py-2.5 text-[13px] font-bold text-primary-foreground transition-opacity hover:opacity-90"
           >
-            <LogIn className="h-4 w-4" aria-hidden="true" />
-            Accedi con Google
+            <Mail className="h-4 w-4" aria-hidden="true" />
+            Iscriviti alla newsletter
           </Link>
           <p className="px-1.5 pb-1.5 text-[9px] font-bold uppercase tracking-widest text-gold">
             Sezioni principali
