@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "@tanstack/react-router";
-import { LogIn, Menu, X } from "lucide-react";
+import { Mail, Menu, X } from "lucide-react";
 import { EXTERNAL_BLOG_URL } from "@/lib/internal-links";
 
 type Item = { href: string; label: string; external?: boolean };
