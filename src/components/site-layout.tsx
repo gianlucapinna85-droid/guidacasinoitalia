@@ -7,7 +7,7 @@ const StickyCompareCTA = lazy(() =>
   import("@/components/casino-ui").then((m) => ({ default: m.StickyCompareCTA })),
 );
 import siteLogo from "@/assets/site-logo.webp";
-import { ShieldCheck, Ban, LifeBuoy, Landmark, BadgeCheck, Youtube, Instagram, Music2, Send, LogIn } from "lucide-react";
+import { ShieldCheck, Ban, LifeBuoy, Landmark, BadgeCheck, Youtube, Instagram, Music2, Send, Mail } from "lucide-react";
 import vietato18Url from "@/assets/logos/v18.webp";
 import admLogoUrl from "@/assets/logos/adm.webp";
 import vietato18BadgeUrl from "@/assets/logos/v18-badge.webp";
