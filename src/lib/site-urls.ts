@@ -42,6 +42,7 @@ export function getPageEntries(): SiteEntry[] {
     })),
     { path: "/autore/gianluca-pinna", changefreq: "monthly", priority: "0.6" },
     { path: "/guide", changefreq: "weekly", priority: "0.9" },
+    { path: "/iscriviti", changefreq: "monthly", priority: "0.5" },
     { path: "/note-legali", changefreq: "yearly", priority: "0.4" },
     { path: "/privacy", changefreq: "yearly", priority: "0.4" },
   ];
