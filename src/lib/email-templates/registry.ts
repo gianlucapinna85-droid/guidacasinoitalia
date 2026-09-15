@@ -1,4 +1,5 @@
 import type { ComponentType } from 'react'
+import { template as newsletterWelcomeTemplate } from './newsletter-welcome'
 
 export interface TemplateEntry {
   component: ComponentType<any>
