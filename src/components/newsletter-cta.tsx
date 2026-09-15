@@ -106,9 +106,8 @@ export function NewsletterCTA() {
               <ShieldCheck className="mt-0.5 h-3 w-3 shrink-0 text-gold" aria-hidden="true" />
               Iscrivendoti dichiari di avere più di 18 anni e accetti la{" "}
               <a href="/privacy" className="underline hover:text-foreground">
-                privacy policy
+                privacy policy.
               </a>
-              .
             </p>
           </form>
         )}
