@@ -40,7 +40,7 @@ export function NewsletterCTA() {
   return (
     <section
       aria-label="Iscrizione alla newsletter"
-      className="border-y border-gold/35 bg-gradient-to-br from-secondary via-card to-secondary"
+      className="border-y border-gold/35 bg-secondary"
     >
       <div className="mx-auto grid max-w-6xl gap-5 px-4 py-8 md:grid-cols-[minmax(0,1fr)_minmax(0,22rem)] md:items-center md:gap-8 md:px-6 md:py-10 xl:max-w-7xl">
         <div className="min-w-0">
