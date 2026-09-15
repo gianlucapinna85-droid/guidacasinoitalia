@@ -9,6 +9,7 @@ import { subscribeToNewsletter } from "@/lib/newsletter.functions";
  * prima del footer): posizione strategica, senza occupare spazio nell'intestazione.
  */
 export function NewsletterCTA() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
   const subscribe = useServerFn(subscribeToNewsletter);
   const [email, setEmail] = useState("");
   const [busy, setBusy] = useState(false);
