@@ -35,6 +35,8 @@ export function NewsletterCTA() {
     }
   }
 
+  if (pathname.startsWith("/iscriviti")) return null;
+
   return (
     <section
       aria-label="Iscrizione alla newsletter"
