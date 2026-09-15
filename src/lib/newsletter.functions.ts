@@ -26,5 +26,17 @@ export const subscribeToNewsletter = createServerFn({ method: "POST" })
       if (error.code === "23505") return { ok: true, already: true };
       throw new Error("Iscrizione non riuscita");
     }
+
+    // Email di benvenuto: non deve mai far fallire l'iscrizione.
+    try {
+      const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
+      await sendTemplateEmail("newsletter-welcome", email, {
+        templateData: { recipient: email },
+        idempotencyKey: `newsletter-welcome-${email}`,
+      });
+    } catch (e) {
+      console.error("[newsletter] invio email fallito", e);
+    }
+
     return { ok: true, already: false };
   });
