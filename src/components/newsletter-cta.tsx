@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouterState } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { Mail, Check, Bell, ShieldCheck } from "lucide-react";
 import { subscribeToNewsletter } from "@/lib/newsletter.functions";
