@@ -248,15 +248,6 @@ export function Header() {
           >
             <img src={vietato18BadgeUrl} alt="Vietato ai minori di 18 anni" width={40} height={40} className="h-full w-full object-contain p-[2px]" loading="lazy" decoding="async" />
           </span>
-          <Link
-            to="/iscriviti"
-            aria-label="Iscriviti alla newsletter"
-            title="Iscriviti alla newsletter"
-            className="inline-flex h-9 shrink-0 items-center justify-center gap-1.5 rounded-full bg-gold px-3 text-[11px] font-bold text-primary-foreground shadow-sm transition-opacity hover:opacity-90 md:h-10 md:px-4 md:text-xs"
-          >
-            <Mail className="h-4 w-4" strokeWidth={2.2} aria-hidden="true" />
-            <span className="hidden sm:inline">Iscriviti</span>
-          </Link>
           <SiteNav />
         </div>
 
