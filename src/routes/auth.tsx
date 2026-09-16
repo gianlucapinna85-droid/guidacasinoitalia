@@ -51,6 +51,18 @@ function AuthPage() {
     navigate({ to: "/admin/exit-popup" });
   }
 
+  async function onForgotPassword() {
+    setMsg(null);
+    if (!email.trim()) return setMsg("Inserisci prima la tua email, poi riprova.");
+    setBusy(true);
+    const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {
+      redirectTo: `${window.location.origin}/reset-password`,
+    });
+    setBusy(false);
+    if (error) return setMsg(error.message);
+    setMsg("Ti abbiamo inviato un'email con il link per reimpostare la password.");
+  }
+
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setBusy(true);
