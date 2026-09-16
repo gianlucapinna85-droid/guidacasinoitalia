@@ -181,12 +181,17 @@ export function AgeBanner() {
   return (
     <div className="w-full border-b border-border bg-destructive/10 text-destructive-foreground">
       <div className="mx-auto flex max-w-6xl xl:max-w-7xl items-center justify-center gap-2 px-3 py-1 text-[10px] leading-snug md:gap-3 md:px-4 md:py-2 md:text-xs">
-        <img
-          src={vietato18.url}
-          alt="Vietato ai minori di 18 anni"
-          width={24}
-          height={24}
-          className="h-4 w-4 shrink-0 md:h-7 md:w-7" loading="eager" decoding="async" />
+        <span className="flex h-6 w-6 shrink-0 items-center justify-center overflow-hidden rounded-full border border-destructive/60 bg-white shadow-sm md:h-7 md:w-7">
+          <img
+            src={vietato18BadgeUrl}
+            alt="Vietato ai minori di 18 anni"
+            width={28}
+            height={28}
+            className="h-full w-full object-contain p-[1px]"
+            loading="eager"
+            decoding="async"
+          />
+        </span>
         <span className="text-foreground/90">
           <strong className="font-semibold text-destructive">Vietato ai minori di 18 anni.</strong>{" "}
           Il gioco può causare dipendenza patologica. Probabilità di vincita su{" "}

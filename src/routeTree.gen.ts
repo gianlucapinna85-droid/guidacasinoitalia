@@ -33,6 +33,7 @@ import { Route as ScommesseSportiveCampaniaRouteImport } from './routes/scommess
 import { Route as ScommesseSerieAGuidaRouteImport } from './routes/scommesse-serie-a-guida'
 import { Route as ScommesseLiveComeFunzionanoRouteImport } from './routes/scommesse-live-come-funzionano'
 import { Route as RouletteOnlineItaliaRouteImport } from './routes/roulette-online-italia'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as RequisitiScommessaBonusRouteImport } from './routes/requisiti-scommessa-bonus'
 import { Route as QuoteLiveVsPrematchRouteImport } from './routes/quote-live-vs-prematch'
 import { Route as PronosticiCalcioComeAnalizzareRouteImport } from './routes/pronostici-calcio-come-analizzare'
@@ -231,6 +232,11 @@ const ScommesseLiveComeFunzionanoRoute =
 const RouletteOnlineItaliaRoute = RouletteOnlineItaliaRouteImport.update({
   id: '/roulette-online-italia',
   path: '/roulette-online-italia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RequisitiScommessaBonusRoute = RequisitiScommessaBonusRouteImport.update({
@@ -664,6 +670,7 @@ export interface FileRoutesByFullPath {
   '/pronostici-calcio-come-analizzare': typeof PronosticiCalcioComeAnalizzareRoute
   '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
   '/requisiti-scommessa-bonus': typeof RequisitiScommessaBonusRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/roulette-online-italia': typeof RouletteOnlineItaliaRoute
   '/scommesse-live-come-funzionano': typeof ScommesseLiveComeFunzionanoRoute
   '/scommesse-serie-a-guida': typeof ScommesseSerieAGuidaRoute
@@ -762,6 +769,7 @@ export interface FileRoutesByTo {
   '/pronostici-calcio-come-analizzare': typeof PronosticiCalcioComeAnalizzareRoute
   '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
   '/requisiti-scommessa-bonus': typeof RequisitiScommessaBonusRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/roulette-online-italia': typeof RouletteOnlineItaliaRoute
   '/scommesse-live-come-funzionano': typeof ScommesseLiveComeFunzionanoRoute
   '/scommesse-serie-a-guida': typeof ScommesseSerieAGuidaRoute
@@ -862,6 +870,7 @@ export interface FileRoutesById {
   '/pronostici-calcio-come-analizzare': typeof PronosticiCalcioComeAnalizzareRoute
   '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
   '/requisiti-scommessa-bonus': typeof RequisitiScommessaBonusRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/roulette-online-italia': typeof RouletteOnlineItaliaRoute
   '/scommesse-live-come-funzionano': typeof ScommesseLiveComeFunzionanoRoute
   '/scommesse-serie-a-guida': typeof ScommesseSerieAGuidaRoute
@@ -962,6 +971,7 @@ export interface FileRouteTypes {
     | '/pronostici-calcio-come-analizzare'
     | '/quote-live-vs-prematch'
     | '/requisiti-scommessa-bonus'
+    | '/reset-password'
     | '/roulette-online-italia'
     | '/scommesse-live-come-funzionano'
     | '/scommesse-serie-a-guida'
@@ -1060,6 +1070,7 @@ export interface FileRouteTypes {
     | '/pronostici-calcio-come-analizzare'
     | '/quote-live-vs-prematch'
     | '/requisiti-scommessa-bonus'
+    | '/reset-password'
     | '/roulette-online-italia'
     | '/scommesse-live-come-funzionano'
     | '/scommesse-serie-a-guida'
@@ -1159,6 +1170,7 @@ export interface FileRouteTypes {
     | '/pronostici-calcio-come-analizzare'
     | '/quote-live-vs-prematch'
     | '/requisiti-scommessa-bonus'
+    | '/reset-password'
     | '/roulette-online-italia'
     | '/scommesse-live-come-funzionano'
     | '/scommesse-serie-a-guida'
@@ -1259,6 +1271,7 @@ export interface RootRouteChildren {
   PronosticiCalcioComeAnalizzareRoute: typeof PronosticiCalcioComeAnalizzareRoute
   QuoteLiveVsPrematchRoute: typeof QuoteLiveVsPrematchRoute
   RequisitiScommessaBonusRoute: typeof RequisitiScommessaBonusRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   RouletteOnlineItaliaRoute: typeof RouletteOnlineItaliaRoute
   ScommesseLiveComeFunzionanoRoute: typeof ScommesseLiveComeFunzionanoRoute
   ScommesseSerieAGuidaRoute: typeof ScommesseSerieAGuidaRoute
@@ -1473,6 +1486,13 @@ declare module '@tanstack/react-router' {
       path: '/roulette-online-italia'
       fullPath: '/roulette-online-italia'
       preLoaderRoute: typeof RouletteOnlineItaliaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/requisiti-scommessa-bonus': {
@@ -2054,6 +2074,7 @@ const rootRouteChildren: RootRouteChildren = {
   PronosticiCalcioComeAnalizzareRoute: PronosticiCalcioComeAnalizzareRoute,
   QuoteLiveVsPrematchRoute: QuoteLiveVsPrematchRoute,
   RequisitiScommessaBonusRoute: RequisitiScommessaBonusRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   RouletteOnlineItaliaRoute: RouletteOnlineItaliaRoute,
   ScommesseLiveComeFunzionanoRoute: ScommesseLiveComeFunzionanoRoute,
   ScommesseSerieAGuidaRoute: ScommesseSerieAGuidaRoute,
