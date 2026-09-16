@@ -170,6 +170,16 @@ function AuthPage() {
           >
             {mode === "signin" ? "Non hai un account? Registrati" : "Hai già un account? Accedi"}
           </button>
+          {mode === "signin" ? (
+            <button
+              type="button"
+              onClick={onForgotPassword}
+              disabled={busy}
+              className="w-full text-center text-xs text-muted-foreground underline-offset-2 hover:text-gold hover:underline disabled:opacity-60"
+            >
+              Password dimenticata?
+            </button>
+          ) : null}
         </form>
         <p className="mt-3 text-[11px] text-muted-foreground">
           Gli account non hanno privilegi. Il ruolo di amministratore si attiva solo con il codice invito riservato della redazione.
