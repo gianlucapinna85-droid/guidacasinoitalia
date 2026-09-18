@@ -68,6 +68,7 @@ import { Route as CasinoOnlineNuovi2026RouteImport } from './routes/casino-onlin
 import { Route as CasinoOnlineItaliaRouteImport } from './routes/casino-online-italia'
 import { Route as CasinoOnlineChePaganoSubitoRouteImport } from './routes/casino-online-che-pagano-subito'
 import { Route as CasinoOScommesseSportiveRouteImport } from './routes/casino-o-scommesse-sportive'
+import { Route as CasinoNonAamsRouteImport } from './routes/casino-non-aams'
 import { Route as CasinoMobileAdmRouteImport } from './routes/casino-mobile-adm'
 import { Route as CasinoLiveRouteImport } from './routes/casino-live'
 import { Route as CasinoItalianiBonusGratisSenzaDepositoRouteImport } from './routes/casino-italiani-bonus-gratis-senza-deposito'
@@ -418,6 +419,11 @@ const CasinoOScommesseSportiveRoute =
     path: '/casino-o-scommesse-sportive',
     getParentRoute: () => rootRouteImport,
   } as any)
+const CasinoNonAamsRoute = CasinoNonAamsRouteImport.update({
+  id: '/casino-non-aams',
+  path: '/casino-non-aams',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CasinoMobileAdmRoute = CasinoMobileAdmRouteImport.update({
   id: '/casino-mobile-adm',
   path: '/casino-mobile-adm',
@@ -643,6 +649,7 @@ export interface FileRoutesByFullPath {
   '/casino-italiani-bonus-gratis-senza-deposito': typeof CasinoItalianiBonusGratisSenzaDepositoRoute
   '/casino-live': typeof CasinoLiveRoute
   '/casino-mobile-adm': typeof CasinoMobileAdmRoute
+  '/casino-non-aams': typeof CasinoNonAamsRoute
   '/casino-o-scommesse-sportive': typeof CasinoOScommesseSportiveRoute
   '/casino-online-che-pagano-subito': typeof CasinoOnlineChePaganoSubitoRoute
   '/casino-online-italia': typeof CasinoOnlineItaliaRoute
@@ -743,6 +750,7 @@ export interface FileRoutesByTo {
   '/casino-italiani-bonus-gratis-senza-deposito': typeof CasinoItalianiBonusGratisSenzaDepositoRoute
   '/casino-live': typeof CasinoLiveRoute
   '/casino-mobile-adm': typeof CasinoMobileAdmRoute
+  '/casino-non-aams': typeof CasinoNonAamsRoute
   '/casino-o-scommesse-sportive': typeof CasinoOScommesseSportiveRoute
   '/casino-online-che-pagano-subito': typeof CasinoOnlineChePaganoSubitoRoute
   '/casino-online-italia': typeof CasinoOnlineItaliaRoute
@@ -845,6 +853,7 @@ export interface FileRoutesById {
   '/casino-italiani-bonus-gratis-senza-deposito': typeof CasinoItalianiBonusGratisSenzaDepositoRoute
   '/casino-live': typeof CasinoLiveRoute
   '/casino-mobile-adm': typeof CasinoMobileAdmRoute
+  '/casino-non-aams': typeof CasinoNonAamsRoute
   '/casino-o-scommesse-sportive': typeof CasinoOScommesseSportiveRoute
   '/casino-online-che-pagano-subito': typeof CasinoOnlineChePaganoSubitoRoute
   '/casino-online-italia': typeof CasinoOnlineItaliaRoute
@@ -947,6 +956,7 @@ export interface FileRouteTypes {
     | '/casino-italiani-bonus-gratis-senza-deposito'
     | '/casino-live'
     | '/casino-mobile-adm'
+    | '/casino-non-aams'
     | '/casino-o-scommesse-sportive'
     | '/casino-online-che-pagano-subito'
     | '/casino-online-italia'
@@ -1047,6 +1057,7 @@ export interface FileRouteTypes {
     | '/casino-italiani-bonus-gratis-senza-deposito'
     | '/casino-live'
     | '/casino-mobile-adm'
+    | '/casino-non-aams'
     | '/casino-o-scommesse-sportive'
     | '/casino-online-che-pagano-subito'
     | '/casino-online-italia'
@@ -1148,6 +1159,7 @@ export interface FileRouteTypes {
     | '/casino-italiani-bonus-gratis-senza-deposito'
     | '/casino-live'
     | '/casino-mobile-adm'
+    | '/casino-non-aams'
     | '/casino-o-scommesse-sportive'
     | '/casino-online-che-pagano-subito'
     | '/casino-online-italia'
@@ -1250,6 +1262,7 @@ export interface RootRouteChildren {
   CasinoItalianiBonusGratisSenzaDepositoRoute: typeof CasinoItalianiBonusGratisSenzaDepositoRoute
   CasinoLiveRoute: typeof CasinoLiveRoute
   CasinoMobileAdmRoute: typeof CasinoMobileAdmRoute
+  CasinoNonAamsRoute: typeof CasinoNonAamsRoute
   CasinoOScommesseSportiveRoute: typeof CasinoOScommesseSportiveRoute
   CasinoOnlineChePaganoSubitoRoute: typeof CasinoOnlineChePaganoSubitoRoute
   CasinoOnlineItaliaRoute: typeof CasinoOnlineItaliaRoute
@@ -1746,6 +1759,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CasinoOScommesseSportiveRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/casino-non-aams': {
+      id: '/casino-non-aams'
+      path: '/casino-non-aams'
+      fullPath: '/casino-non-aams'
+      preLoaderRoute: typeof CasinoNonAamsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/casino-mobile-adm': {
       id: '/casino-mobile-adm'
       path: '/casino-mobile-adm'
@@ -2061,6 +2081,7 @@ const rootRouteChildren: RootRouteChildren = {
     CasinoItalianiBonusGratisSenzaDepositoRoute,
   CasinoLiveRoute: CasinoLiveRoute,
   CasinoMobileAdmRoute: CasinoMobileAdmRoute,
+  CasinoNonAamsRoute: CasinoNonAamsRoute,
   CasinoOScommesseSportiveRoute: CasinoOScommesseSportiveRoute,
   CasinoOnlineChePaganoSubitoRoute: CasinoOnlineChePaganoSubitoRoute,
   CasinoOnlineItaliaRoute: CasinoOnlineItaliaRoute,
