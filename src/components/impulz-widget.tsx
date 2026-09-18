@@ -26,10 +26,51 @@ export function ImpulzWidget() {
     const impulzWindow = window as ImpulzWindow;
     let widgetObserver: MutationObserver | null = null;
     let positionTimer: number | null = null;
+    let userRequestedOpen = false;
+    let userOpenedChat = false;
+    let openRequestTimer: number | null = null;
+    const gatedLaunchers = new Set<HTMLButtonElement>();
+
+    const handleExplicitOpen = (event: Event) => {
+      if (!event.isTrusted) return;
+      userRequestedOpen = true;
+      if (openRequestTimer !== null) window.clearTimeout(openRequestTimer);
+      openRequestTimer = window.setTimeout(() => {
+        userRequestedOpen = false;
+        openRequestTimer = null;
+      }, 1500);
+    };
+
+    const enforceExplicitOpen = (shadowRoot: ShadowRoot) => {
+      const widget = shadowRoot.querySelector<HTMLElement>(".betting-chat-widget");
+      const chat = shadowRoot.querySelector<HTMLElement>(".chatbot");
+      const isOpen = widget?.classList.contains("chat-open") || chat?.classList.contains("show");
+
+      if (!isOpen) {
+        if (!userRequestedOpen) userOpenedChat = false;
+        return;
+      }
+
+      if (userRequestedOpen) {
+        userOpenedChat = true;
+        return;
+      }
+
+      if (userOpenedChat) return;
+
+      // Il provider può avviare la chat da timer/configurazioni remote.
+      // Senza un clic reale sul pulsante, la riportiamo sempre allo stato chiuso.
+      widget?.classList.remove("chat-open");
+      chat?.classList.remove("show");
+      chat?.setAttribute("aria-hidden", "true");
+    };
+
     const adjustPosition = () => {
       const root = document.getElementById("betting-chat-widget-root");
       const shadowRoot = root?.shadowRoot;
       if (!shadowRoot) return;
+
+      enforceExplicitOpen(shadowRoot);
 
       let positionStyle = shadowRoot.getElementById(POSITION_STYLE_ID) as HTMLStyleElement | null;
       if (!positionStyle) {
@@ -129,13 +170,25 @@ export function ImpulzWidget() {
       if (!launcher) return;
       launcher.setAttribute("aria-label", "Apri l’assistente GuidaCasinò");
       launcher.title = "Assistente GuidaCasinò";
+      if (!gatedLaunchers.has(launcher)) {
+        launcher.addEventListener("pointerdown", handleExplicitOpen, { capture: true });
+        launcher.addEventListener("touchstart", handleExplicitOpen, { capture: true, passive: true });
+        launcher.addEventListener("click", handleExplicitOpen, { capture: true });
+        gatedLaunchers.add(launcher);
+      }
 
       if (!widgetObserver) {
         widgetObserver = new MutationObserver(() => {
+          enforceExplicitOpen(shadowRoot);
           if (positionTimer !== null) window.clearTimeout(positionTimer);
           positionTimer = window.setTimeout(adjustPosition, 50);
         });
-        widgetObserver.observe(shadowRoot, { childList: true, subtree: true });
+        widgetObserver.observe(shadowRoot, {
+          attributes: true,
+          attributeFilter: ["class"],
+          childList: true,
+          subtree: true,
+        });
       }
     };
     const initialise = () => {
@@ -163,7 +216,13 @@ export function ImpulzWidget() {
       return () => {
         existingScript.removeEventListener("load", initialise);
         widgetObserver?.disconnect();
+        gatedLaunchers.forEach((launcher) => {
+          launcher.removeEventListener("pointerdown", handleExplicitOpen, { capture: true });
+          launcher.removeEventListener("touchstart", handleExplicitOpen, { capture: true });
+          launcher.removeEventListener("click", handleExplicitOpen, { capture: true });
+        });
         if (positionTimer !== null) window.clearTimeout(positionTimer);
+        if (openRequestTimer !== null) window.clearTimeout(openRequestTimer);
       };
     }
 
@@ -177,7 +236,13 @@ export function ImpulzWidget() {
     return () => {
       script.removeEventListener("load", initialise);
       widgetObserver?.disconnect();
+      gatedLaunchers.forEach((launcher) => {
+        launcher.removeEventListener("pointerdown", handleExplicitOpen, { capture: true });
+        launcher.removeEventListener("touchstart", handleExplicitOpen, { capture: true });
+        launcher.removeEventListener("click", handleExplicitOpen, { capture: true });
+      });
       if (positionTimer !== null) window.clearTimeout(positionTimer);
+      if (openRequestTimer !== null) window.clearTimeout(openRequestTimer);
     };
   }, [canLoad]);
 
