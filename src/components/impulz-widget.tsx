@@ -29,7 +29,32 @@ export function ImpulzWidget() {
     let userRequestedOpen = false;
     let explicitlyOpened = false;
     let openRequestTimer: number | null = null;
+    let gamesNavDone = false;
+    const gamesNavTimers = new Set<number>();
     const gatedLaunchers = new Set<HTMLButtonElement>();
+
+    // Dopo un'apertura esplicita, porta la chat direttamente sulla sezione "Giochi".
+    const openGamesSection = () => {
+      if (gamesNavDone) return;
+      const root = document.getElementById("betting-chat-widget-root");
+      const shadowRoot = root?.shadowRoot;
+      if (!shadowRoot) return;
+      const chat = shadowRoot.querySelector<HTMLElement>(".chatbot");
+      if (!chat?.classList.contains("show")) return;
+      const gamesButton = shadowRoot.querySelector<HTMLButtonElement>(".bt2-arena-mi.bt2-arena-games");
+      if (!gamesButton) return;
+      gamesNavDone = true;
+      gamesButton.click();
+    };
+
+    const scheduleGamesSection = () => {
+      gamesNavDone = false;
+      gamesNavTimers.forEach((timer) => window.clearTimeout(timer));
+      gamesNavTimers.clear();
+      [350, 900, 1800, 3000].forEach((delay) => {
+        gamesNavTimers.add(window.setTimeout(openGamesSection, delay));
+      });
+    };
 
     const handleExplicitOpen = (event: Event) => {
       if (!event.isTrusted) return;
