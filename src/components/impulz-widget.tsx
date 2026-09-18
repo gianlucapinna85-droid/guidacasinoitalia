@@ -168,7 +168,8 @@ export function ImpulzWidget() {
             }
           }
           @media (prefers-reduced-motion: reduce) {
-            .chatbot-toggler.bt2-closed-entry {
+            .chatbot-toggler.bt2-closed-entry,
+            .chatbot-toggler.bt2-closed-entry .bt2-closed-entry__status {
               animation: none !important;
               transition: none !important;
             }
