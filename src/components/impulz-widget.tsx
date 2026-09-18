@@ -25,7 +25,7 @@ export function ImpulzWidget() {
 
     const impulzWindow = window as ImpulzWindow;
     let widgetObserver: MutationObserver | null = null;
-    let positionInterval: number | null = null;
+    let positionTimer: number | null = null;
     const adjustPosition = () => {
       const root = document.getElementById("betting-chat-widget-root");
       const shadowRoot = root?.shadowRoot;
@@ -36,56 +36,70 @@ export function ImpulzWidget() {
         const style = document.createElement("style");
         style.id = POSITION_STYLE_ID;
         style.textContent = `
-        .chatbot-toggler.bt2-closed-entry {
-          width: 52px !important;
-          height: 52px !important;
-          min-width: 52px !important;
-          min-height: 52px !important;
-          max-width: 52px !important;
-          max-height: 52px !important;
-          padding: 0 !important;
-          border: 2px solid #d4a82f !important;
-          border-radius: 50% !important;
-          background: #ffffff !important;
-          box-shadow: 0 8px 22px rgba(8, 25, 45, .25) !important;
-          overflow: hidden !important;
-        }
-        .chatbot-toggler.bt2-closed-entry .bt2-closed-entry__mark {
-          color: #1e3f66 !important;
-        }
-        @media (max-width: 767px) {
-          .betting-chat-widget,
-          .chatbot,
-          .chatbot.show { bottom: 96px !important; }
           .chatbot-toggler.bt2-closed-entry {
-            right: 16px !important;
-            bottom: 88px !important;
-            width: 52px !important;
-            height: 52px !important;
+            box-sizing: border-box !important;
+            width: 60px !important;
+            height: 60px !important;
+            min-width: 60px !important;
+            min-height: 60px !important;
+            max-width: 60px !important;
+            max-height: 60px !important;
+            padding: 10px !important;
+            right: 18px !important;
+            bottom: 92px !important;
+            border: 3px solid #d4a82f !important;
+            border-radius: 999px !important;
+            background: #ffffff !important;
+            color: #1e3f66 !important;
+            box-shadow: 0 6px 18px rgba(8, 25, 45, .22), 0 0 0 3px rgba(255, 255, 255, .92) !important;
+            overflow: hidden !important;
+            transform: none !important;
+            transition: transform .18s ease, box-shadow .18s ease !important;
           }
-        }
-      `;
+          .chatbot-toggler.bt2-closed-entry:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 9px 24px rgba(8, 25, 45, .28), 0 0 0 3px rgba(255, 255, 255, .95) !important;
+          }
+          .chatbot-toggler.bt2-closed-entry:focus-visible {
+            outline: 3px solid #1e3f66 !important;
+            outline-offset: 3px !important;
+          }
+          .chatbot-toggler.bt2-closed-entry .bt2-closed-entry__mark {
+            display: grid !important;
+            width: 100% !important;
+            height: 100% !important;
+            place-items: center !important;
+            color: #1e3f66 !important;
+          }
+          .chatbot-toggler.bt2-closed-entry svg,
+          .chatbot-toggler.bt2-closed-entry img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
+          }
+          @media (max-width: 767px) {
+            .chatbot-toggler.bt2-closed-entry {
+              right: 14px !important;
+              bottom: 86px !important;
+            }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .chatbot-toggler.bt2-closed-entry { transition: none !important; }
+          }
+        `;
         shadowRoot.appendChild(style);
-        positionStyle = style;
       }
-
-      if (positionStyle !== shadowRoot.lastElementChild) shadowRoot.appendChild(positionStyle);
 
       const launcher = shadowRoot.querySelector<HTMLButtonElement>(".chatbot-toggler.bt2-closed-entry");
       if (!launcher) return;
       launcher.setAttribute("aria-label", "Apri l’assistente GuidaCasinò");
       launcher.title = "Assistente GuidaCasinò";
-      launcher.style.setProperty("width", "52px", "important");
-      launcher.style.setProperty("height", "52px", "important");
-      launcher.style.setProperty("min-width", "52px", "important");
-      launcher.style.setProperty("min-height", "52px", "important");
-      launcher.style.setProperty("max-width", "52px", "important");
-      launcher.style.setProperty("max-height", "52px", "important");
-      launcher.style.setProperty("padding", "0", "important");
-      launcher.style.setProperty("border-radius", "50%", "important");
 
       if (!widgetObserver) {
-        widgetObserver = new MutationObserver(adjustPosition);
+        widgetObserver = new MutationObserver(() => {
+          if (positionTimer !== null) window.clearTimeout(positionTimer);
+          positionTimer = window.setTimeout(adjustPosition, 50);
+        });
         widgetObserver.observe(shadowRoot, { childList: true, subtree: true });
       }
     };
@@ -104,11 +118,6 @@ export function ImpulzWidget() {
       adjustPosition();
       window.setTimeout(adjustPosition, 250);
       window.setTimeout(adjustPosition, 1000);
-      positionInterval = window.setInterval(adjustPosition, 400);
-      window.setTimeout(() => {
-        if (positionInterval !== null) window.clearInterval(positionInterval);
-        positionInterval = null;
-      }, 8000);
     };
 
     const existingScript = document.getElementById(IMPULZ_SCRIPT_ID) as HTMLScriptElement | null;
@@ -118,7 +127,7 @@ export function ImpulzWidget() {
       return () => {
         existingScript.removeEventListener("load", initialise);
         widgetObserver?.disconnect();
-        if (positionInterval !== null) window.clearInterval(positionInterval);
+        if (positionTimer !== null) window.clearTimeout(positionTimer);
       };
     }
 
@@ -132,7 +141,7 @@ export function ImpulzWidget() {
     return () => {
       script.removeEventListener("load", initialise);
       widgetObserver?.disconnect();
-      if (positionInterval !== null) window.clearInterval(positionInterval);
+      if (positionTimer !== null) window.clearTimeout(positionTimer);
     };
   }, [canLoad]);
 
