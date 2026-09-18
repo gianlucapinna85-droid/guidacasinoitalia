@@ -25,6 +25,7 @@ export function ImpulzWidget() {
 
     const impulzWindow = window as ImpulzWindow;
     let widgetObserver: MutationObserver | null = null;
+    let positionInterval: number | null = null;
     const adjustPosition = () => {
       const root = document.getElementById("betting-chat-widget-root");
       const shadowRoot = root?.shadowRoot;
@@ -93,6 +94,11 @@ export function ImpulzWidget() {
       adjustPosition();
       window.setTimeout(adjustPosition, 250);
       window.setTimeout(adjustPosition, 1000);
+      positionInterval = window.setInterval(adjustPosition, 400);
+      window.setTimeout(() => {
+        if (positionInterval !== null) window.clearInterval(positionInterval);
+        positionInterval = null;
+      }, 8000);
     };
 
     const existingScript = document.getElementById(IMPULZ_SCRIPT_ID) as HTMLScriptElement | null;
@@ -102,6 +108,7 @@ export function ImpulzWidget() {
       return () => {
         existingScript.removeEventListener("load", initialise);
         widgetObserver?.disconnect();
+        if (positionInterval !== null) window.clearInterval(positionInterval);
       };
     }
 
@@ -115,6 +122,7 @@ export function ImpulzWidget() {
     return () => {
       script.removeEventListener("load", initialise);
       widgetObserver?.disconnect();
+      if (positionInterval !== null) window.clearInterval(positionInterval);
     };
   }, [canLoad]);
 
