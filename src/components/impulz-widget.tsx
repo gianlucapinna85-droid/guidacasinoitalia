@@ -30,7 +30,8 @@ export function ImpulzWidget() {
       const shadowRoot = root?.shadowRoot;
       if (!shadowRoot) return;
 
-      if (!shadowRoot.getElementById(POSITION_STYLE_ID)) {
+      let positionStyle = shadowRoot.getElementById(POSITION_STYLE_ID) as HTMLStyleElement | null;
+      if (!positionStyle) {
         const style = document.createElement("style");
         style.id = POSITION_STYLE_ID;
         style.textContent = `
@@ -59,7 +60,10 @@ export function ImpulzWidget() {
         }
       `;
         shadowRoot.appendChild(style);
+        positionStyle = style;
       }
+
+      if (positionStyle !== shadowRoot.lastElementChild) shadowRoot.appendChild(positionStyle);
 
       const launcher = shadowRoot.querySelector<HTMLButtonElement>(".chatbot-toggler.bt2-closed-entry");
       if (!launcher) return;
