@@ -13,6 +13,7 @@ export const Route = createFileRoute("/gioco-responsabile")({
       { property: "og:description", content: "Numeri di aiuto, autoesclusione e strumenti di autolimitazione." },
       { property: "og:url", content: "https://www.guidacasino-italia.it/gioco-responsabile" },
       { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Gioco responsabile — GuidaCasinò.IT" },
       { name: "twitter:description", content: "Numeri di aiuto, autoesclusione RUA e strumenti di autolimitazione." },
     ],
@@ -24,8 +25,8 @@ export const Route = createFileRoute("/gioco-responsabile")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Gioco responsabile", item: "/gioco-responsabile" },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.guidacasino-italia.it/" },
+            { "@type": "ListItem", position: 2, name: "Gioco responsabile", item: "https://www.guidacasino-italia.it/gioco-responsabile" },
           ],
         }),
       },

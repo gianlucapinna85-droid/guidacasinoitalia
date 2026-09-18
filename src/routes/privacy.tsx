@@ -11,6 +11,8 @@ export const Route = createFileRoute("/privacy")({
       ...socialImageMeta(),
       { property: "og:description", content: "Trattamento dei dati personali e utilizzo dei cookie." },
       { property: "og:url", content: "https://www.guidacasino-italia.it/privacy" },
+      { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://www.guidacasino-italia.it/privacy" }],
     scripts: [
@@ -20,8 +22,8 @@ export const Route = createFileRoute("/privacy")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Privacy & Cookie", item: "/privacy" },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.guidacasino-italia.it/" },
+            { "@type": "ListItem", position: 2, name: "Privacy & Cookie", item: "https://www.guidacasino-italia.it/privacy" },
           ],
         }),
       },
