@@ -31,7 +31,7 @@ export function ImpulzWidget() {
     let openRequestTimer: number | null = null;
     const gatedLaunchers = new Set<HTMLButtonElement>();
 
-    const handleExplicitOpen = (event: MouseEvent) => {
+    const handleExplicitOpen = (event: Event) => {
       if (!event.isTrusted) return;
       userRequestedOpen = true;
       if (openRequestTimer !== null) window.clearTimeout(openRequestTimer);
@@ -47,12 +47,11 @@ export function ImpulzWidget() {
       const isOpen = widget?.classList.contains("chat-open") || chat?.classList.contains("show");
 
       if (!isOpen) {
-        userOpenedChat = false;
+        if (!userRequestedOpen) userOpenedChat = false;
         return;
       }
 
       if (userRequestedOpen) {
-        userRequestedOpen = false;
         userOpenedChat = true;
         return;
       }
@@ -172,6 +171,8 @@ export function ImpulzWidget() {
       launcher.setAttribute("aria-label", "Apri l’assistente GuidaCasinò");
       launcher.title = "Assistente GuidaCasinò";
       if (!gatedLaunchers.has(launcher)) {
+        launcher.addEventListener("pointerdown", handleExplicitOpen, { capture: true });
+        launcher.addEventListener("touchstart", handleExplicitOpen, { capture: true, passive: true });
         launcher.addEventListener("click", handleExplicitOpen, { capture: true });
         gatedLaunchers.add(launcher);
       }
@@ -215,9 +216,11 @@ export function ImpulzWidget() {
       return () => {
         existingScript.removeEventListener("load", initialise);
         widgetObserver?.disconnect();
-        gatedLaunchers.forEach((launcher) =>
-          launcher.removeEventListener("click", handleExplicitOpen, { capture: true }),
-        );
+        gatedLaunchers.forEach((launcher) => {
+          launcher.removeEventListener("pointerdown", handleExplicitOpen, { capture: true });
+          launcher.removeEventListener("touchstart", handleExplicitOpen, { capture: true });
+          launcher.removeEventListener("click", handleExplicitOpen, { capture: true });
+        });
         if (positionTimer !== null) window.clearTimeout(positionTimer);
         if (openRequestTimer !== null) window.clearTimeout(openRequestTimer);
       };
@@ -233,9 +236,11 @@ export function ImpulzWidget() {
     return () => {
       script.removeEventListener("load", initialise);
       widgetObserver?.disconnect();
-      gatedLaunchers.forEach((launcher) =>
-        launcher.removeEventListener("click", handleExplicitOpen, { capture: true }),
-      );
+      gatedLaunchers.forEach((launcher) => {
+        launcher.removeEventListener("pointerdown", handleExplicitOpen, { capture: true });
+        launcher.removeEventListener("touchstart", handleExplicitOpen, { capture: true });
+        launcher.removeEventListener("click", handleExplicitOpen, { capture: true });
+      });
       if (positionTimer !== null) window.clearTimeout(positionTimer);
       if (openRequestTimer !== null) window.clearTimeout(openRequestTimer);
     };
