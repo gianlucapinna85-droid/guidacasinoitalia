@@ -455,6 +455,14 @@ export const guides: Guide[] = [
     changefreq: "weekly",
     priority: "1.0",
   },
+  {
+    path: "/casino-non-aams",
+    title: "Casinò non AAMS: cosa sono",
+    description:
+      "Guida informativa ai casinò non AAMS: licenze internazionali, criteri di valutazione e differenze con la concessione ADM.",
+    changefreq: "monthly",
+    priority: "0.8",
+  },
 ];
 
 
