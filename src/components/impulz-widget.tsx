@@ -60,6 +60,7 @@ export function ImpulzWidget() {
       if (!event.isTrusted) return;
       userRequestedOpen = true;
       explicitlyOpened = true;
+      scheduleGamesSection();
       const root = document.getElementById("betting-chat-widget-root");
       root?.setAttribute("data-gc-explicit-open", "true");
       if (openRequestTimer !== null) window.clearTimeout(openRequestTimer);
