@@ -83,6 +83,7 @@ export function ImpulzWidget() {
       const isOpen = widget?.classList.contains("chat-open") || chat?.classList.contains("show");
 
       if (!isOpen) {
+        gamesNavDone = false;
         if (explicitlyOpened && !userRequestedOpen) {
           explicitlyOpened = false;
           widgetRoot.removeAttribute("data-gc-explicit-open");
