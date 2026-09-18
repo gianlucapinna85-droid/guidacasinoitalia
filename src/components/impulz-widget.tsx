@@ -27,36 +27,44 @@ export function ImpulzWidget() {
     let widgetObserver: MutationObserver | null = null;
     let positionTimer: number | null = null;
     let userRequestedOpen = false;
-    let userOpenedChat = false;
+    let explicitlyOpened = false;
     let openRequestTimer: number | null = null;
     const gatedLaunchers = new Set<HTMLButtonElement>();
 
     const handleExplicitOpen = (event: Event) => {
       if (!event.isTrusted) return;
       userRequestedOpen = true;
+      explicitlyOpened = true;
+      const root = document.getElementById("betting-chat-widget-root");
+      root?.setAttribute("data-gc-explicit-open", "true");
       if (openRequestTimer !== null) window.clearTimeout(openRequestTimer);
       openRequestTimer = window.setTimeout(() => {
         userRequestedOpen = false;
         openRequestTimer = null;
+        const currentRoot = document.getElementById("betting-chat-widget-root");
+        const currentChat = currentRoot?.shadowRoot?.querySelector<HTMLElement>(".chatbot");
+        if (!currentChat?.classList.contains("show")) {
+          explicitlyOpened = false;
+          currentRoot?.removeAttribute("data-gc-explicit-open");
+        }
       }, 1500);
     };
 
     const enforceExplicitOpen = (shadowRoot: ShadowRoot) => {
+      const widgetRoot = shadowRoot.host;
       const widget = shadowRoot.querySelector<HTMLElement>(".betting-chat-widget");
       const chat = shadowRoot.querySelector<HTMLElement>(".chatbot");
       const isOpen = widget?.classList.contains("chat-open") || chat?.classList.contains("show");
 
       if (!isOpen) {
-        if (!userRequestedOpen) userOpenedChat = false;
+        if (explicitlyOpened && !userRequestedOpen) {
+          explicitlyOpened = false;
+          widgetRoot.removeAttribute("data-gc-explicit-open");
+        }
         return;
       }
 
-      if (userRequestedOpen) {
-        userOpenedChat = true;
-        return;
-      }
-
-      if (userOpenedChat) return;
+      if (explicitlyOpened || userRequestedOpen) return;
 
       // Il provider può avviare la chat da timer/configurazioni remote.
       // Senza un clic reale sul pulsante, la riportiamo sempre allo stato chiuso.
@@ -77,6 +85,12 @@ export function ImpulzWidget() {
         const style = document.createElement("style");
         style.id = POSITION_STYLE_ID;
         style.textContent = `
+          :host(:not([data-gc-explicit-open="true"])) .chatbot {
+            display: none !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            opacity: 0 !important;
+          }
           .chatbot-toggler.bt2-closed-entry {
             box-sizing: border-box !important;
             display: flex !important;
@@ -135,6 +149,9 @@ export function ImpulzWidget() {
             object-fit: contain !important;
           }
           .chatbot-toggler.bt2-closed-entry .bt2-closed-entry__status {
+            display: none !important;
+          }
+          .chatbot-toggler.bt2-closed-entry .gc-live-status {
             box-sizing: border-box !important;
             position: absolute !important;
             z-index: 2 !important;
@@ -149,16 +166,20 @@ export function ImpulzWidget() {
             border-radius: 999px !important;
             background: #22a447 !important;
             box-shadow: 0 2px 6px rgba(8, 25, 45, .28), 0 0 0 0 rgba(34, 164, 71, .55) !important;
+            opacity: 1 !important;
+            transform: scale(1) !important;
             animation: gc-live-pulse 1.8s ease-in-out infinite !important;
           }
           @keyframes gc-live-pulse {
             0%, 100% {
               box-shadow: 0 2px 6px rgba(8, 25, 45, .28), 0 0 0 0 rgba(34, 164, 71, .55) !important;
               opacity: 1 !important;
+              transform: scale(1) !important;
             }
             50% {
               box-shadow: 0 2px 6px rgba(8, 25, 45, .28), 0 0 0 7px rgba(34, 164, 71, 0) !important;
-              opacity: .55 !important;
+              opacity: .35 !important;
+              transform: scale(.72) !important;
             }
           }
           @media (max-width: 767px) {
@@ -169,7 +190,7 @@ export function ImpulzWidget() {
           }
           @media (prefers-reduced-motion: reduce) {
             .chatbot-toggler.bt2-closed-entry,
-            .chatbot-toggler.bt2-closed-entry .bt2-closed-entry__status {
+            .chatbot-toggler.bt2-closed-entry .gc-live-status {
               animation: none !important;
               transition: none !important;
             }
@@ -182,6 +203,12 @@ export function ImpulzWidget() {
       if (!launcher) return;
       launcher.setAttribute("aria-label", "Apri l’assistente GuidaCasinò");
       launcher.title = "Assistente GuidaCasinò";
+      if (!launcher.querySelector(".gc-live-status")) {
+        const liveStatus = document.createElement("span");
+        liveStatus.className = "gc-live-status";
+        liveStatus.setAttribute("aria-hidden", "true");
+        launcher.appendChild(liveStatus);
+      }
       if (!gatedLaunchers.has(launcher)) {
         launcher.addEventListener("pointerdown", handleExplicitOpen, { capture: true });
         launcher.addEventListener("touchstart", handleExplicitOpen, { capture: true, passive: true });
