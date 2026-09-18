@@ -51,6 +51,7 @@ export function ImpulzWidget() {
     };
 
     const enforceExplicitOpen = (shadowRoot: ShadowRoot) => {
+      const widgetRoot = shadowRoot.host;
       const widget = shadowRoot.querySelector<HTMLElement>(".betting-chat-widget");
       const chat = shadowRoot.querySelector<HTMLElement>(".chatbot");
       const isOpen = widget?.classList.contains("chat-open") || chat?.classList.contains("show");
@@ -58,7 +59,7 @@ export function ImpulzWidget() {
       if (!isOpen) {
         if (explicitlyOpened && !userRequestedOpen) {
           explicitlyOpened = false;
-          root?.removeAttribute("data-gc-explicit-open");
+          widgetRoot.removeAttribute("data-gc-explicit-open");
         }
         return;
       }
