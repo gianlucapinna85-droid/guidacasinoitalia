@@ -24,6 +24,7 @@ export function ImpulzWidget() {
     if (!canLoad) return;
 
     const impulzWindow = window as ImpulzWindow;
+    let widgetObserver: MutationObserver | null = null;
     const adjustPosition = () => {
       const root = document.getElementById("betting-chat-widget-root");
       const shadowRoot = root?.shadowRoot;
@@ -34,11 +35,13 @@ export function ImpulzWidget() {
         style.id = POSITION_STYLE_ID;
         style.textContent = `
         .chatbot-toggler.bt2-closed-entry {
-          width: 58px !important;
-          height: 58px !important;
+          width: 52px !important;
+          height: 52px !important;
           border: 2px solid #d4a82f !important;
+          border-radius: 50% !important;
           background: #ffffff !important;
           box-shadow: 0 8px 22px rgba(8, 25, 45, .25) !important;
+          overflow: hidden !important;
         }
         .chatbot-toggler.bt2-closed-entry .bt2-closed-entry__mark {
           color: #1e3f66 !important;
@@ -50,8 +53,8 @@ export function ImpulzWidget() {
           .chatbot-toggler.bt2-closed-entry {
             right: 16px !important;
             bottom: 88px !important;
-            width: 54px !important;
-            height: 54px !important;
+            width: 52px !important;
+            height: 52px !important;
           }
         }
       `;
@@ -62,6 +65,14 @@ export function ImpulzWidget() {
       if (!launcher) return;
       launcher.setAttribute("aria-label", "Apri l’assistente GuidaCasinò");
       launcher.title = "Assistente GuidaCasinò";
+      launcher.style.setProperty("width", "52px", "important");
+      launcher.style.setProperty("height", "52px", "important");
+      launcher.style.setProperty("border-radius", "50%", "important");
+
+      if (!widgetObserver) {
+        widgetObserver = new MutationObserver(adjustPosition);
+        widgetObserver.observe(shadowRoot, { childList: true, subtree: true });
+      }
     };
     const initialise = () => {
       if (document.documentElement.dataset.impulzInitialised === "true") return;
@@ -86,6 +97,7 @@ export function ImpulzWidget() {
       else existingScript.addEventListener("load", initialise, { once: true });
       return () => {
         existingScript.removeEventListener("load", initialise);
+        widgetObserver?.disconnect();
       };
     }
 
@@ -98,6 +110,7 @@ export function ImpulzWidget() {
 
     return () => {
       script.removeEventListener("load", initialise);
+      widgetObserver?.disconnect();
     };
   }, [canLoad]);
 
