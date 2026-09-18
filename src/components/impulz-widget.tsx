@@ -283,6 +283,8 @@ export function ImpulzWidget() {
       else existingScript.addEventListener("load", initialise, { once: true });
       return () => {
         existingScript.removeEventListener("load", initialise);
+        gamesNavTimers.forEach((timer) => window.clearTimeout(timer));
+        gamesNavTimers.clear();
         widgetObserver?.disconnect();
         gatedLaunchers.forEach((launcher) => {
           launcher.removeEventListener("pointerdown", handleExplicitOpen, { capture: true });
@@ -303,6 +305,8 @@ export function ImpulzWidget() {
 
     return () => {
       script.removeEventListener("load", initialise);
+      gamesNavTimers.forEach((timer) => window.clearTimeout(timer));
+      gamesNavTimers.clear();
       widgetObserver?.disconnect();
       gatedLaunchers.forEach((launcher) => {
         launcher.removeEventListener("pointerdown", handleExplicitOpen, { capture: true });
