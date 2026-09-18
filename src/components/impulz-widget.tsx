@@ -148,7 +148,18 @@ export function ImpulzWidget() {
             border: 3px solid #ffffff !important;
             border-radius: 999px !important;
             background: #22a447 !important;
-            box-shadow: 0 2px 6px rgba(8, 25, 45, .28) !important;
+            box-shadow: 0 2px 6px rgba(8, 25, 45, .28), 0 0 0 0 rgba(34, 164, 71, .55) !important;
+            animation: gc-live-pulse 1.8s ease-in-out infinite !important;
+          }
+          @keyframes gc-live-pulse {
+            0%, 100% {
+              box-shadow: 0 2px 6px rgba(8, 25, 45, .28), 0 0 0 0 rgba(34, 164, 71, .55) !important;
+              opacity: 1 !important;
+            }
+            50% {
+              box-shadow: 0 2px 6px rgba(8, 25, 45, .28), 0 0 0 7px rgba(34, 164, 71, 0) !important;
+              opacity: .55 !important;
+            }
           }
           @media (max-width: 767px) {
             .chatbot-toggler.bt2-closed-entry {
@@ -157,7 +168,8 @@ export function ImpulzWidget() {
             }
           }
           @media (prefers-reduced-motion: reduce) {
-            .chatbot-toggler.bt2-closed-entry {
+            .chatbot-toggler.bt2-closed-entry,
+            .chatbot-toggler.bt2-closed-entry .bt2-closed-entry__status {
               animation: none !important;
               transition: none !important;
             }
