@@ -1,5 +1,5 @@
 ## Indicizzazione Google e reindirizzamenti
-- [ ] Leggere i dati reali di Search Console
-- [ ] Verificare sitemap, URL canoniche e redirect
-- [ ] Correggere tutte le cause tecniche confermate
-- [ ] Verificare il sito e preparare il reinvio a Google
+- [x] Leggere i dati reali di Search Console
+- [x] Verificare sitemap, URL canoniche e redirect
+- [x] Correggere gli URL relativi non validi nei breadcrumb strutturati
+- [ ] Verificare la versione pubblicata e reinviare la sitemap a Google
