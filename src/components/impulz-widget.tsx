@@ -165,21 +165,23 @@ export function ImpulzWidget() {
             border: 3px solid #ffffff !important;
             border-radius: 999px !important;
             background: #22a447 !important;
-            box-shadow: 0 2px 6px rgba(8, 25, 45, .28), 0 0 0 0 rgba(34, 164, 71, .55) !important;
-            opacity: 1 !important;
-            transform: scale(1) !important;
-            animation: gc-live-pulse 1.8s ease-in-out infinite !important;
+            box-shadow: 0 2px 6px rgba(8, 25, 45, .28);
+            opacity: 1;
+            transform: scale(1);
+            transform-origin: center;
+            animation: gc-live-pulse 1.4s ease-in-out infinite !important;
+            will-change: transform, opacity, box-shadow;
           }
           @keyframes gc-live-pulse {
             0%, 100% {
-              box-shadow: 0 2px 6px rgba(8, 25, 45, .28), 0 0 0 0 rgba(34, 164, 71, .55) !important;
-              opacity: 1 !important;
-              transform: scale(1) !important;
+              box-shadow: 0 2px 6px rgba(8, 25, 45, .28), 0 0 0 0 rgba(34, 164, 71, .72);
+              opacity: 1;
+              transform: scale(1);
             }
             50% {
-              box-shadow: 0 2px 6px rgba(8, 25, 45, .28), 0 0 0 7px rgba(34, 164, 71, 0) !important;
-              opacity: .35 !important;
-              transform: scale(.72) !important;
+              box-shadow: 0 2px 6px rgba(8, 25, 45, .28), 0 0 0 8px rgba(34, 164, 71, 0);
+              opacity: .3;
+              transform: scale(.68);
             }
           }
           @media (max-width: 767px) {
