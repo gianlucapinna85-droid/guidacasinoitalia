@@ -39,6 +39,11 @@ export function ImpulzWidget() {
         .chatbot-toggler.bt2-closed-entry {
           width: 52px !important;
           height: 52px !important;
+          min-width: 52px !important;
+          min-height: 52px !important;
+          max-width: 52px !important;
+          max-height: 52px !important;
+          padding: 0 !important;
           border: 2px solid #d4a82f !important;
           border-radius: 50% !important;
           background: #ffffff !important;
@@ -72,6 +77,11 @@ export function ImpulzWidget() {
       launcher.title = "Assistente GuidaCasinò";
       launcher.style.setProperty("width", "52px", "important");
       launcher.style.setProperty("height", "52px", "important");
+      launcher.style.setProperty("min-width", "52px", "important");
+      launcher.style.setProperty("min-height", "52px", "important");
+      launcher.style.setProperty("max-width", "52px", "important");
+      launcher.style.setProperty("max-height", "52px", "important");
+      launcher.style.setProperty("padding", "0", "important");
       launcher.style.setProperty("border-radius", "50%", "important");
 
       if (!widgetObserver) {
