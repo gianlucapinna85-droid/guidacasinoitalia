@@ -22,6 +22,7 @@ const INFO_ITEMS: Item[] = [
   { href: "/blog", label: "Blog" },
   { href: "/pagamenti", label: "Pagamenti" },
   { href: "/gioco-responsabile", label: "Gioco responsabile" },
+  { href: "/assistente-guida-casino", label: "Assistente GuidaCasinò" },
   { href: EXTERNAL_BLOG_URL, label: "Approfondimenti extra", external: true },
 ];
 

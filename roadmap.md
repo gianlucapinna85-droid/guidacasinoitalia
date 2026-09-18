@@ -8,3 +8,5 @@
 - [x] Integrare esclusivamente il token publisher di Guida Casino Italia
 - [x] Caricare il widget una sola volta, in italiano e sul lato destro
 - [x] Non includere dati o configurazioni di Pronostici Vincenti
+- [x] Rialzare il pulsante su mobile per evitare sovrapposizioni
+- [x] Creare una pagina informativa dedicata e collegarla nel sito
