@@ -27,11 +27,12 @@ export function ImpulzWidget() {
     const adjustPosition = () => {
       const root = document.getElementById("betting-chat-widget-root");
       const shadowRoot = root?.shadowRoot;
-      if (!shadowRoot || shadowRoot.getElementById(POSITION_STYLE_ID)) return;
+      if (!shadowRoot) return;
 
-      const style = document.createElement("style");
-      style.id = POSITION_STYLE_ID;
-      style.textContent = `
+      if (!shadowRoot.getElementById(POSITION_STYLE_ID)) {
+        const style = document.createElement("style");
+        style.id = POSITION_STYLE_ID;
+        style.textContent = `
         .chatbot-toggler.bt2-closed-entry {
           width: 220px !important;
           height: 64px !important;
@@ -92,7 +93,15 @@ export function ImpulzWidget() {
           .chatbot-toggler.bt2-closed-entry { transition: none !important; }
         }
       `;
-      shadowRoot.appendChild(style);
+        shadowRoot.appendChild(style);
+      }
+
+      const launcher = shadowRoot.querySelector<HTMLButtonElement>(".chatbot-toggler.bt2-closed-entry");
+      if (!launcher) return;
+      launcher.setAttribute("aria-label", "Apri l’assistente GuidaCasinò");
+      launcher.title = "Chiedi all’assistente";
+      launcher.style.setProperty("width", window.innerWidth < 768 ? "206px" : "220px", "important");
+      launcher.style.setProperty("height", window.innerWidth < 768 ? "58px" : "64px", "important");
     };
     const initialise = () => {
       if (document.documentElement.dataset.impulzInitialised === "true") return;
@@ -108,6 +117,7 @@ export function ImpulzWidget() {
       document.documentElement.dataset.impulzInitialised = "true";
       adjustPosition();
       window.setTimeout(adjustPosition, 250);
+      window.setTimeout(adjustPosition, 1000);
     };
 
     const existingScript = document.getElementById(IMPULZ_SCRIPT_ID) as HTMLScriptElement | null;
