@@ -27,18 +27,26 @@ export function ImpulzWidget() {
     let widgetObserver: MutationObserver | null = null;
     let positionTimer: number | null = null;
     let userRequestedOpen = false;
+    let explicitlyOpened = false;
     let openRequestTimer: number | null = null;
     const gatedLaunchers = new Set<HTMLButtonElement>();
 
     const handleExplicitOpen = (event: Event) => {
       if (!event.isTrusted) return;
       userRequestedOpen = true;
+      explicitlyOpened = true;
       const root = document.getElementById("betting-chat-widget-root");
       root?.setAttribute("data-gc-explicit-open", "true");
       if (openRequestTimer !== null) window.clearTimeout(openRequestTimer);
       openRequestTimer = window.setTimeout(() => {
         userRequestedOpen = false;
         openRequestTimer = null;
+        const currentRoot = document.getElementById("betting-chat-widget-root");
+        const currentChat = currentRoot?.shadowRoot?.querySelector<HTMLElement>(".chatbot");
+        if (!currentChat?.classList.contains("show")) {
+          explicitlyOpened = false;
+          currentRoot?.removeAttribute("data-gc-explicit-open");
+        }
       }, 1500);
     };
 
@@ -47,9 +55,15 @@ export function ImpulzWidget() {
       const chat = shadowRoot.querySelector<HTMLElement>(".chatbot");
       const isOpen = widget?.classList.contains("chat-open") || chat?.classList.contains("show");
 
-      if (!isOpen) return;
+      if (!isOpen) {
+        if (explicitlyOpened && !userRequestedOpen) {
+          explicitlyOpened = false;
+          root?.removeAttribute("data-gc-explicit-open");
+        }
+        return;
+      }
 
-      if (userRequestedOpen) return;
+      if (explicitlyOpened || userRequestedOpen) return;
 
       // Il provider può avviare la chat da timer/configurazioni remote.
       // Senza un clic reale sul pulsante, la riportiamo sempre allo stato chiuso.
