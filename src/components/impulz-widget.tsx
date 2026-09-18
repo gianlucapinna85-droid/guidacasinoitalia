@@ -142,10 +142,11 @@ export function ImpulzWidget() {
       if (document.documentElement.dataset.impulzInitialised === "true") return;
       if (typeof impulzWindow.initBettingChat !== "function") return;
 
+      // expandOnMobile = false: il widget si apre SOLO dopo il tocco esplicito
       impulzWindow.initBettingChat(
         GUIDA_CASINO_PUBLISHER_TOKEN,
         "italian",
-        true,
+        false,
         undefined,
         "right",
       );
