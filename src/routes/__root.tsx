@@ -15,6 +15,7 @@ import playfairFontUrl from "@/fonts/playfair.woff2?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { CookieBanner } from "../components/cookie-banner";
 import { AnalyticsLoader } from "../components/analytics-loader";
+import { ImpulzWidget } from "../components/impulz-widget";
 
 function NotFoundComponent() {
   return (
@@ -183,6 +184,7 @@ function RootComponent() {
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
       <AnalyticsLoader />
+      <ImpulzWidget />
       <CookieBanner />
     </QueryClientProvider>
   );
