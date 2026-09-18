@@ -24,6 +24,7 @@ export function ImpulzWidget() {
     if (!canLoad) return;
 
     const impulzWindow = window as ImpulzWindow;
+    let widgetObserver: MutationObserver | null = null;
     const adjustPosition = () => {
       const root = document.getElementById("betting-chat-widget-root");
       const shadowRoot = root?.shadowRoot;
@@ -98,10 +99,23 @@ export function ImpulzWidget() {
 
       const launcher = shadowRoot.querySelector<HTMLButtonElement>(".chatbot-toggler.bt2-closed-entry");
       if (!launcher) return;
-      launcher.setAttribute("aria-label", "Apri l’assistente GuidaCasinò");
-      launcher.title = "Chiedi all’assistente";
-      launcher.style.setProperty("width", window.innerWidth < 768 ? "206px" : "220px", "important");
-      launcher.style.setProperty("height", window.innerWidth < 768 ? "58px" : "64px", "important");
+      const expectedWidth = window.innerWidth < 768 ? "206px" : "220px";
+      const expectedHeight = window.innerWidth < 768 ? "58px" : "64px";
+      if (launcher.getAttribute("aria-label") !== "Apri l’assistente GuidaCasinò") {
+        launcher.setAttribute("aria-label", "Apri l’assistente GuidaCasinò");
+      }
+      if (launcher.title !== "Chiedi all’assistente") launcher.title = "Chiedi all’assistente";
+      if (launcher.style.getPropertyValue("width") !== expectedWidth) {
+        launcher.style.setProperty("width", expectedWidth, "important");
+      }
+      if (launcher.style.getPropertyValue("height") !== expectedHeight) {
+        launcher.style.setProperty("height", expectedHeight, "important");
+      }
+
+      if (!widgetObserver) {
+        widgetObserver = new MutationObserver(adjustPosition);
+        widgetObserver.observe(shadowRoot, { childList: true, subtree: true, attributes: true });
+      }
     };
     const initialise = () => {
       if (document.documentElement.dataset.impulzInitialised === "true") return;
@@ -124,7 +138,10 @@ export function ImpulzWidget() {
     if (existingScript) {
       if (typeof impulzWindow.initBettingChat === "function") initialise();
       else existingScript.addEventListener("load", initialise, { once: true });
-      return () => existingScript.removeEventListener("load", initialise);
+      return () => {
+        existingScript.removeEventListener("load", initialise);
+        widgetObserver?.disconnect();
+      };
     }
 
     const script = document.createElement("script");
@@ -134,7 +151,10 @@ export function ImpulzWidget() {
     script.addEventListener("load", initialise, { once: true });
     document.body.appendChild(script);
 
-    return () => script.removeEventListener("load", initialise);
+    return () => {
+      script.removeEventListener("load", initialise);
+      widgetObserver?.disconnect();
+    };
   }, [canLoad]);
 
   return null;
