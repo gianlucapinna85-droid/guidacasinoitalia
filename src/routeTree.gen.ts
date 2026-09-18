@@ -84,6 +84,7 @@ import { Route as BonusBenvenutoCasinoRouteImport } from './routes/bonus-benvenu
 import { Route as Bonus50EuroSenzaDepositoRouteImport } from './routes/bonus-50-euro-senza-deposito'
 import { Route as BlackjackOnlineItaliaRouteImport } from './routes/blackjack-online-italia'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AssistenteGuidaCasinoRouteImport } from './routes/assistente-guida-casino'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SlotIndexRouteImport } from './routes/slot.index'
@@ -501,6 +502,11 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AssistenteGuidaCasinoRoute = AssistenteGuidaCasinoRouteImport.update({
+  id: '/assistente-guida-casino',
+  path: '/assistente-guida-casino',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
@@ -620,6 +626,7 @@ const LovableEmailAuthPreviewRoute = LovableEmailAuthPreviewRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/assistente-guida-casino': typeof AssistenteGuidaCasinoRoute
   '/auth': typeof AuthRoute
   '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
   '/bonus-50-euro-senza-deposito': typeof Bonus50EuroSenzaDepositoRoute
@@ -719,6 +726,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/assistente-guida-casino': typeof AssistenteGuidaCasinoRoute
   '/auth': typeof AuthRoute
   '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
   '/bonus-50-euro-senza-deposito': typeof Bonus50EuroSenzaDepositoRoute
@@ -820,6 +828,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/assistente-guida-casino': typeof AssistenteGuidaCasinoRoute
   '/auth': typeof AuthRoute
   '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
   '/bonus-50-euro-senza-deposito': typeof Bonus50EuroSenzaDepositoRoute
@@ -921,6 +930,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/assistente-guida-casino'
     | '/auth'
     | '/blackjack-online-italia'
     | '/bonus-50-euro-senza-deposito'
@@ -1020,6 +1030,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/assistente-guida-casino'
     | '/auth'
     | '/blackjack-online-italia'
     | '/bonus-50-euro-senza-deposito'
@@ -1120,6 +1131,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_authenticated'
+    | '/assistente-guida-casino'
     | '/auth'
     | '/blackjack-online-italia'
     | '/bonus-50-euro-senza-deposito'
@@ -1221,6 +1233,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AssistenteGuidaCasinoRoute: typeof AssistenteGuidaCasinoRoute
   AuthRoute: typeof AuthRoute
   BlackjackOnlineItaliaRoute: typeof BlackjackOnlineItaliaRoute
   Bonus50EuroSenzaDepositoRoute: typeof Bonus50EuroSenzaDepositoRoute
@@ -1845,6 +1858,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/assistente-guida-casino': {
+      id: '/assistente-guida-casino'
+      path: '/assistente-guida-casino'
+      fullPath: '/assistente-guida-casino'
+      preLoaderRoute: typeof AssistenteGuidaCasinoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_authenticated': {
       id: '/_authenticated'
       path: ''
@@ -2023,6 +2043,7 @@ const AuthenticatedRouteRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AssistenteGuidaCasinoRoute: AssistenteGuidaCasinoRoute,
   AuthRoute: AuthRoute,
   BlackjackOnlineItaliaRoute: BlackjackOnlineItaliaRoute,
   Bonus50EuroSenzaDepositoRoute: Bonus50EuroSenzaDepositoRoute,
