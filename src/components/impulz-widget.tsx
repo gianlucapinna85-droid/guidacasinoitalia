@@ -32,6 +32,96 @@ export function ImpulzWidget() {
     let gamesNavDone = false;
     const gamesNavTimers = new Set<number>();
     const gatedLaunchers = new Set<HTMLButtonElement>();
+    const LOBBY_STYLE_ID = "gc-lobby-nav";
+    const LOBBY_CLOSE_CLASS = "gc-lobby-close";
+    const lobbyObservers: MutationObserver[] = [];
+    const patchedLobbies = new WeakSet<ShadowRoot>();
+
+    // Nella lobby dei giochi: nasconde la freccia "Indietro" e aggiunge una X
+    // che chiude direttamente il widget.
+    const patchGamesLobby = (outerShadow: ShadowRoot) => {
+      const hosts = Array.from(outerShadow.querySelectorAll("*")).filter(
+        (el): el is HTMLElement => el instanceof HTMLElement && !!el.shadowRoot,
+      );
+      // Osserva ogni shadow root annidato: la barra dei giochi può essere
+      // renderizzata in differita rispetto alla creazione del contenitore.
+      hosts.forEach((host) => {
+        const nested = host.shadowRoot!;
+        if (patchedLobbies.has(nested)) return;
+        patchedLobbies.add(nested);
+        const observer = new MutationObserver(() => patchGamesLobby(outerShadow));
+        observer.observe(nested, { childList: true, subtree: true });
+        lobbyObservers.push(observer);
+      });
+
+      const lobbyHost = hosts.find((el) => el.shadowRoot!.querySelector(".cz-lobbyhead"));
+      const lobbyShadow = lobbyHost?.shadowRoot ?? null;
+      if (!lobbyShadow) return;
+
+      if (!lobbyShadow.getElementById(LOBBY_STYLE_ID)) {
+        const style = document.createElement("style");
+        style.id = LOBBY_STYLE_ID;
+        style.textContent = `
+          .cz-lobbyhead .cz-lobbyback,
+          .cz-lobbyhead .back.cz-back {
+            display: none !important;
+          }
+          .cz-lobbyhead .${LOBBY_CLOSE_CLASS} {
+            box-sizing: border-box;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            margin: 0 0 0 6px;
+            padding: 0;
+            border: 2px solid #d4a82f;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #1e3f66;
+            cursor: pointer;
+          }
+          .cz-lobbyhead .${LOBBY_CLOSE_CLASS}:hover {
+            background: #f7f1e4;
+          }
+          .cz-lobbyhead .${LOBBY_CLOSE_CLASS}:focus-visible {
+            outline: 3px solid #1e3f66;
+            outline-offset: 2px;
+          }
+          .cz-lobbyhead .${LOBBY_CLOSE_CLASS} svg {
+            width: 16px;
+            height: 16px;
+          }
+        `;
+        lobbyShadow.appendChild(style);
+      }
+
+      const tools = lobbyShadow.querySelector<HTMLElement>(".cz-lobbytools");
+      if (tools && !tools.querySelector(`.${LOBBY_CLOSE_CLASS}`)) {
+        const closeButton = document.createElement("button");
+        closeButton.type = "button";
+        closeButton.className = LOBBY_CLOSE_CLASS;
+        closeButton.setAttribute("aria-label", "Chiudi l’assistente");
+        closeButton.title = "Chiudi l’assistente";
+        closeButton.innerHTML =
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+        closeButton.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          const closeWidget = outerShadow.querySelector<HTMLButtonElement>(".bt2-arena-mode");
+          if (closeWidget) {
+            closeWidget.click();
+            return;
+          }
+          const chat = outerShadow.querySelector<HTMLElement>(".chatbot");
+          outerShadow.querySelector<HTMLElement>(".betting-chat-widget")?.classList.remove("chat-open");
+          chat?.classList.remove("show");
+          chat?.setAttribute("aria-hidden", "true");
+        });
+        tools.appendChild(closeButton);
+      }
+    };
+
 
     // Dopo un'apertura esplicita, porta la chat direttamente sulla sezione "Giochi".
     const openGamesSection = () => {
@@ -112,6 +202,7 @@ export function ImpulzWidget() {
       if (!shadowRoot) return;
 
       enforceExplicitOpen(shadowRoot);
+      patchGamesLobby(shadowRoot);
 
       let positionStyle = shadowRoot.getElementById(POSITION_STYLE_ID) as HTMLStyleElement | null;
       if (!positionStyle) {
@@ -295,6 +386,7 @@ export function ImpulzWidget() {
         gamesNavTimers.forEach((timer) => window.clearTimeout(timer));
         gamesNavTimers.clear();
         widgetObserver?.disconnect();
+        lobbyObservers.forEach((observer) => observer.disconnect());
         gatedLaunchers.forEach((launcher) => {
           launcher.removeEventListener("pointerdown", handleExplicitOpen, { capture: true });
           launcher.removeEventListener("touchstart", handleExplicitOpen, { capture: true });
@@ -317,6 +409,7 @@ export function ImpulzWidget() {
       gamesNavTimers.forEach((timer) => window.clearTimeout(timer));
       gamesNavTimers.clear();
       widgetObserver?.disconnect();
+      lobbyObservers.forEach((observer) => observer.disconnect());
       gatedLaunchers.forEach((launcher) => {
         launcher.removeEventListener("pointerdown", handleExplicitOpen, { capture: true });
         launcher.removeEventListener("touchstart", handleExplicitOpen, { capture: true });
