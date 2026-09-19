@@ -92,6 +92,11 @@ export function ImpulzWidget() {
             width: 16px;
             height: 16px;
           }
+          @media (max-width: 480px) {
+            .cz-lobbyhead .gtwrap {
+              font-size: 16px !important;
+            }
+          }
         `;
         lobbyShadow.appendChild(style);
       }
