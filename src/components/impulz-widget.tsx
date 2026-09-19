@@ -43,7 +43,13 @@ export function ImpulzWidget() {
       if (!chat?.classList.contains("show")) return;
       const gamesButton = shadowRoot.querySelector<HTMLButtonElement>(".bt2-arena-mi.bt2-arena-games");
       if (!gamesButton) return;
-      gamesNavDone = true;
+      const gamesActive =
+        gamesButton.classList.contains("bt2-arena-mi--active") ||
+        !!shadowRoot.querySelector(".bt2-view-games.show");
+      if (gamesActive) {
+        gamesNavDone = true;
+        return;
+      }
       gamesButton.click();
     };
 
@@ -117,6 +123,9 @@ export function ImpulzWidget() {
             visibility: hidden !important;
             pointer-events: none !important;
             opacity: 0 !important;
+          }
+          .bt2-arena-mi:not(.bt2-arena-games) {
+            display: none !important;
           }
           .chatbot-toggler.bt2-closed-entry {
             box-sizing: border-box !important;
