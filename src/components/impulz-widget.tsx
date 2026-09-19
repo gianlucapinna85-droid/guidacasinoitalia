@@ -118,6 +118,9 @@ export function ImpulzWidget() {
             pointer-events: none !important;
             opacity: 0 !important;
           }
+          .bt2-arena-mi:not(.bt2-arena-games) {
+            display: none !important;
+          }
           .chatbot-toggler.bt2-closed-entry {
             box-sizing: border-box !important;
             display: flex !important;
