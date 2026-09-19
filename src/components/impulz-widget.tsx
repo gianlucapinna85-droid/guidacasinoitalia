@@ -43,7 +43,13 @@ export function ImpulzWidget() {
       if (!chat?.classList.contains("show")) return;
       const gamesButton = shadowRoot.querySelector<HTMLButtonElement>(".bt2-arena-mi.bt2-arena-games");
       if (!gamesButton) return;
-      gamesNavDone = true;
+      const gamesActive =
+        gamesButton.classList.contains("bt2-arena-mi--active") ||
+        !!shadowRoot.querySelector(".bt2-view-games.show");
+      if (gamesActive) {
+        gamesNavDone = true;
+        return;
+      }
       gamesButton.click();
     };
 
