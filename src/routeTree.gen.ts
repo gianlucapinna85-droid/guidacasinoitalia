@@ -49,6 +49,7 @@ import { Route as GuidaCasinoOnlineItaliaRouteImport } from './routes/guida-casi
 import { Route as GuidaRtpRouteImport } from './routes/guida-rtp'
 import { Route as GuideRouteImport } from './routes/guide'
 import { Route as IscrivitiRouteImport } from './routes/iscriviti'
+import { Route as McpRouteImport } from './routes/mcp'
 import { Route as MetodiPagamentoCasinoRouteImport } from './routes/metodi-pagamento-casino'
 import { Route as MiglioriCasinoOnlineRouteImport } from './routes/migliori-casino-online'
 import { Route as MiglioriCasinoOnlineAdmRouteImport } from './routes/migliori-casino-online-adm'
@@ -88,6 +89,7 @@ import { Route as SlotPiuGiocateRouteImport } from './routes/slot-piu-giocate'
 import { Route as SlotRtpAltoRouteImport } from './routes/slot-rtp-alto'
 import { Route as TempiPrelievoCasinoOnlineRouteImport } from './routes/tempi-prelievo-casino-online'
 import { Route as VerificareLicenzaAdmRouteImport } from './routes/verificare-licenza-adm'
+import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as AutoreSlugRouteImport } from './routes/autore.$slug'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BonusIndexRouteImport } from './routes/bonus.index'
@@ -318,6 +320,11 @@ const IscrivitiRoute = IscrivitiRouteImport.update({
   path: '/iscriviti',
   getParentRoute: () => rootRouteImport,
 } as any)
+const McpRoute = McpRouteImport.update({
+  id: '/mcp',
+  path: '/mcp',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MetodiPagamentoCasinoRoute = MetodiPagamentoCasinoRouteImport.update({
   id: '/metodi-pagamento-casino',
   path: '/metodi-pagamento-casino',
@@ -522,6 +529,12 @@ const VerificareLicenzaAdmRoute = VerificareLicenzaAdmRouteImport.update({
   path: '/verificare-licenza-adm',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char91DotwellKnownChar93OauthProtectedResourceRoute =
+  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
+    id: '/.well-known/oauth-protected-resource',
+    path: '/.well-known/oauth-protected-resource',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AutoreSlugRoute = AutoreSlugRouteImport.update({
   id: '/autore/$slug',
   path: '/autore/$slug',
@@ -670,6 +683,7 @@ export interface FileRoutesByFullPath {
   '/guida-rtp': typeof GuidaRtpRoute
   '/guide': typeof GuideRoute
   '/iscriviti': typeof IscrivitiRoute
+  '/mcp': typeof McpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
   '/migliori-casino-online-adm': typeof MiglioriCasinoOnlineAdmRoute
@@ -709,6 +723,7 @@ export interface FileRoutesByFullPath {
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/tempi-prelievo-casino-online': typeof TempiPrelievoCasinoOnlineRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/autore/$slug': typeof AutoreSlugRoute
   '/casino/$slug': typeof CasinoSlugRoute
   '/news/$slug': typeof NewsSlugRoute
@@ -771,6 +786,7 @@ export interface FileRoutesByTo {
   '/guida-rtp': typeof GuidaRtpRoute
   '/guide': typeof GuideRoute
   '/iscriviti': typeof IscrivitiRoute
+  '/mcp': typeof McpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
   '/migliori-casino-online-adm': typeof MiglioriCasinoOnlineAdmRoute
@@ -810,6 +826,7 @@ export interface FileRoutesByTo {
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/tempi-prelievo-casino-online': typeof TempiPrelievoCasinoOnlineRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/autore/$slug': typeof AutoreSlugRoute
   '/casino/$slug': typeof CasinoSlugRoute
   '/news/$slug': typeof NewsSlugRoute
@@ -874,6 +891,7 @@ export interface FileRoutesById {
   '/guida-rtp': typeof GuidaRtpRoute
   '/guide': typeof GuideRoute
   '/iscriviti': typeof IscrivitiRoute
+  '/mcp': typeof McpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
   '/migliori-casino-online-adm': typeof MiglioriCasinoOnlineAdmRoute
@@ -913,6 +931,7 @@ export interface FileRoutesById {
   '/slot-rtp-alto': typeof SlotRtpAltoRoute
   '/tempi-prelievo-casino-online': typeof TempiPrelievoCasinoOnlineRoute
   '/verificare-licenza-adm': typeof VerificareLicenzaAdmRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/autore/$slug': typeof AutoreSlugRoute
   '/casino/$slug': typeof CasinoSlugRoute
   '/news/$slug': typeof NewsSlugRoute
@@ -977,6 +996,7 @@ export interface FileRouteTypes {
     | '/guida-rtp'
     | '/guide'
     | '/iscriviti'
+    | '/mcp'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
     | '/migliori-casino-online-adm'
@@ -1016,6 +1036,7 @@ export interface FileRouteTypes {
     | '/slot-rtp-alto'
     | '/tempi-prelievo-casino-online'
     | '/verificare-licenza-adm'
+    | '/.well-known/oauth-protected-resource'
     | '/autore/$slug'
     | '/casino/$slug'
     | '/news/$slug'
@@ -1078,6 +1099,7 @@ export interface FileRouteTypes {
     | '/guida-rtp'
     | '/guide'
     | '/iscriviti'
+    | '/mcp'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
     | '/migliori-casino-online-adm'
@@ -1117,6 +1139,7 @@ export interface FileRouteTypes {
     | '/slot-rtp-alto'
     | '/tempi-prelievo-casino-online'
     | '/verificare-licenza-adm'
+    | '/.well-known/oauth-protected-resource'
     | '/autore/$slug'
     | '/casino/$slug'
     | '/news/$slug'
@@ -1180,6 +1203,7 @@ export interface FileRouteTypes {
     | '/guida-rtp'
     | '/guide'
     | '/iscriviti'
+    | '/mcp'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
     | '/migliori-casino-online-adm'
@@ -1219,6 +1243,7 @@ export interface FileRouteTypes {
     | '/slot-rtp-alto'
     | '/tempi-prelievo-casino-online'
     | '/verificare-licenza-adm'
+    | '/.well-known/oauth-protected-resource'
     | '/autore/$slug'
     | '/casino/$slug'
     | '/news/$slug'
@@ -1283,6 +1308,7 @@ export interface RootRouteChildren {
   GuidaRtpRoute: typeof GuidaRtpRoute
   GuideRoute: typeof GuideRoute
   IscrivitiRoute: typeof IscrivitiRoute
+  McpRoute: typeof McpRoute
   MetodiPagamentoCasinoRoute: typeof MetodiPagamentoCasinoRoute
   MiglioriCasinoOnlineRoute: typeof MiglioriCasinoOnlineRoute
   MiglioriCasinoOnlineAdmRoute: typeof MiglioriCasinoOnlineAdmRoute
@@ -1322,6 +1348,7 @@ export interface RootRouteChildren {
   SlotRtpAltoRoute: typeof SlotRtpAltoRoute
   TempiPrelievoCasinoOnlineRoute: typeof TempiPrelievoCasinoOnlineRoute
   VerificareLicenzaAdmRoute: typeof VerificareLicenzaAdmRoute
+  Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   AutoreSlugRoute: typeof AutoreSlugRoute
   CasinoSlugRoute: typeof CasinoSlugRoute
   NewsSlugRoute: typeof NewsSlugRoute
@@ -1626,6 +1653,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IscrivitiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mcp': {
+      id: '/mcp'
+      path: '/mcp'
+      fullPath: '/mcp'
+      preLoaderRoute: typeof McpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/metodi-pagamento-casino': {
       id: '/metodi-pagamento-casino'
       path: '/metodi-pagamento-casino'
@@ -1899,6 +1933,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VerificareLicenzaAdmRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/.well-known/oauth-protected-resource': {
+      id: '/.well-known/oauth-protected-resource'
+      path: '/.well-known/oauth-protected-resource'
+      fullPath: '/.well-known/oauth-protected-resource'
+      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/autore/$slug': {
       id: '/autore/$slug'
       path: '/autore/$slug'
@@ -2102,6 +2143,7 @@ const rootRouteChildren: RootRouteChildren = {
   GuidaRtpRoute: GuidaRtpRoute,
   GuideRoute: GuideRoute,
   IscrivitiRoute: IscrivitiRoute,
+  McpRoute: McpRoute,
   MetodiPagamentoCasinoRoute: MetodiPagamentoCasinoRoute,
   MiglioriCasinoOnlineRoute: MiglioriCasinoOnlineRoute,
   MiglioriCasinoOnlineAdmRoute: MiglioriCasinoOnlineAdmRoute,
@@ -2141,6 +2183,8 @@ const rootRouteChildren: RootRouteChildren = {
   SlotRtpAltoRoute: SlotRtpAltoRoute,
   TempiPrelievoCasinoOnlineRoute: TempiPrelievoCasinoOnlineRoute,
   VerificareLicenzaAdmRoute: VerificareLicenzaAdmRoute,
+  Char91DotwellKnownChar93OauthProtectedResourceRoute:
+    Char91DotwellKnownChar93OauthProtectedResourceRoute,
   AutoreSlugRoute: AutoreSlugRoute,
   CasinoSlugRoute: CasinoSlugRoute,
   NewsSlugRoute: NewsSlugRoute,
