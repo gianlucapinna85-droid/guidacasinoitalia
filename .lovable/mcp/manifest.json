@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "sdk_version": "2.3.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "guidacasinoitalia",
+      "version": "0.1.0",
+      "title": "Guidacasinoitalia"
+    },
+    "tools": [
+      {
+        "name": "list_operators",
+        "title": "Elenco operatori ADM",
+        "description": "Elenca i concessionari ADM recensiti da GuidaCasinò.IT con valutazione redazionale, metodi di pagamento e bonus dichiarati. Solo dati editoriali pubblici.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "spid": {
+              "description": "Se true, mostra solo gli operatori con registrazione SPID dichiarata.",
+              "type": "boolean"
+            },
+            "paypal": {
+              "description": "Se true, mostra solo gli operatori che accettano PayPal.",
+              "type": "boolean"
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_operator",
+        "title": "Dettaglio operatore ADM",
+        "description": "Restituisce la scheda completa di un concessionario ADM: valutazione redazionale, pro/contro, bonus dichiarati e link alla recensione completa.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Slug dell'operatore, es. \"leovegas\". Usa list_operators per l'elenco."
+            }
+          },
+          "required": [
+            "slug"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_guides",
+        "title": "Guide editoriali",
+        "description": "Elenca le guide editoriali di GuidaCasinò.IT su casinò ADM, bonus, slot, pagamenti e gioco responsabile, con link alle pagine complete.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "query": {
+              "description": "Parola chiave per filtrare le guide per titolo o descrizione, es. \"bonus\" o \"rtp\".",
+              "type": "string"
+            }
+          }
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
