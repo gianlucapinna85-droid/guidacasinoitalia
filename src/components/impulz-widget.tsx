@@ -31,11 +31,14 @@ export function ImpulzWidget() {
       impulzWindow.initBettingChat(
         GUIDA_CASINO_PUBLISHER_TOKEN,
         "italian",
-        true,
+        false,
         undefined,
         "right",
       );
       document.documentElement.dataset.impulzInitialised = "true";
+      adjustPosition();
+      const t = window.setInterval(adjustPosition, 800);
+      (window as unknown as { __gcImpulzPosTimer?: number }).__gcImpulzPosTimer = t;
     };
 
     const existingScript = document.getElementById(IMPULZ_SCRIPT_ID) as HTMLScriptElement | null;
