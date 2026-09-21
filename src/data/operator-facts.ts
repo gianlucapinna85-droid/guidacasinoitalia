@@ -8,6 +8,8 @@
  * - ogni scheda riporta le fonti e la data di verifica;
  * - nessun dato copiato da altri siti di comparazione o affiliazione.
  */
+import { extraOperatorFacts } from "./operator-facts-extra";
+
 
 export type FactSource = {
   label: string;
