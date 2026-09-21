@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Minus } from "lucide-react";
 import { operators } from "@/lib/operators";
 import { getCasinoMeta, DECLARED_DATA_NOTE } from "@/data/casinos";
+import { trackEvent } from "@/lib/track";
 
 /**
  * Comparatore completo: Casinò, Bonus, PayPal, Prelievo, RTP, Voto, Azione.
@@ -54,6 +55,7 @@ export function ComparisonTable() {
                   <th scope="row" className="p-3 text-left font-medium text-foreground">
                     <a
                       href={op.officialUrl}
+                      onClick={() => trackEvent("operator_click", op.slug)}
                       target="_blank"
                       rel="noopener noreferrer sponsored nofollow"
                       aria-label={`Vai al sito ufficiale di ${op.name}`}
@@ -102,6 +104,7 @@ export function ComparisonTable() {
                     <div className="flex flex-col gap-1.5">
                       <a
                         href={op.officialUrl}
+                      onClick={() => trackEvent("operator_click", op.slug)}
                         target="_blank"
                         rel="noopener nofollow"
                         className="inline-flex items-center justify-center gap-1 rounded-md bg-gold px-3 py-2 text-xs font-bold text-primary-foreground"
@@ -135,6 +138,7 @@ export function ComparisonTable() {
                 <div>
                   <a
                     href={op.officialUrl}
+                      onClick={() => trackEvent("operator_click", op.slug)}
                     target="_blank"
                     rel="noopener noreferrer sponsored nofollow"
                     aria-label={`Vai al sito ufficiale di ${op.name}`}
@@ -175,6 +179,7 @@ export function ComparisonTable() {
               </dl>
               <a
                 href={op.officialUrl}
+                      onClick={() => trackEvent("operator_click", op.slug)}
                 target="_blank"
                 rel="noopener nofollow"
                 className="mt-2.5 flex w-full items-center justify-center gap-2 rounded-lg bg-gold px-4 py-2.5 text-sm font-bold text-primary-foreground shadow-lg shadow-gold/30 active:scale-[0.99]"

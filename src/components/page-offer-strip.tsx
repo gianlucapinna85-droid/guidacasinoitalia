@@ -6,6 +6,7 @@ import { operators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
 import { displayBonuses, useBonusSnapshots } from "@/lib/use-bonus-snapshots";
 import { AdmBadgeDot } from "@/components/casino-card";
+import { trackEvent } from "@/lib/track";
 
 function pathSeed(pathname: string) {
   // hash stabile: pagine diverse ricevono selezioni di operatori diverse
@@ -73,7 +74,7 @@ export function PageOfferStrip({ placement = "page" }: { placement?: "article" |
                 </p>
               </div>
               <Button asChild size="sm" className="h-8 shrink-0 gap-1 px-2.5 text-[10px] font-extrabold uppercase">
-                <a href={operator.officialUrl} target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label={`Visita il sito ufficiale di ${operator.name} (verificato dalla redazione)`}>
+                <a href={operator.officialUrl} onClick={() => trackEvent("operator_click", operator.slug)} target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label={`Visita il sito ufficiale di ${operator.name} (verificato dalla redazione)`}>
                   Visita il sito
                   <BadgeCheck className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
