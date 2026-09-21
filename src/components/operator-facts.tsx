@@ -279,17 +279,19 @@ export function OperatorFactsSections({ facts, name }: { facts: OperatorFacts; n
         </ul>
       </section>
 
-      <section className="mt-10 rounded-xl border border-border bg-card p-6">
-        <h2 className="font-serif text-2xl">Cosa è cambiato di recente su {name}</h2>
-        <ul className="mt-4 space-y-3">
-          {facts.recentChanges.map((c) => (
-            <li key={c} className="flex items-start gap-2 text-sm leading-relaxed text-foreground/90">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
-              {c}
-            </li>
-          ))}
-        </ul>
-      </section>
+      {facts.recentChanges.length > 0 ? (
+        <section className="mt-10 rounded-xl border border-border bg-card p-6">
+          <h2 className="font-serif text-2xl">Cosa è cambiato di recente su {name}</h2>
+          <ul className="mt-4 space-y-3">
+            {facts.recentChanges.map((c) => (
+              <li key={c} className="flex items-start gap-2 text-sm leading-relaxed text-foreground/90">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                {c}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       <section className="mt-10">
         <h2 className="font-serif text-2xl">Assistenza: canali dichiarati</h2>
