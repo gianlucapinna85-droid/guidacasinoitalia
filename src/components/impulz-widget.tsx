@@ -7,6 +7,87 @@ const GUIDA_CASINO_PUBLISHER_TOKEN = "f037cd48-d548-48b1-8b92-609ff5907de3";
 
 const POS_STYLE_ID = "gc-impulz-position";
 
+/**
+ * The widget auto-opens after `configuration.POPUP_OPEN.state` milliseconds,
+ * a value it receives from its own config endpoint. Setting it to 0 disables
+ * the auto-open entirely (the widget guards the timer with `state > 0`).
+ */
+function disableAutoOpen() {
+  const w = window as unknown as { __gcImpulzFetchPatched?: boolean };
+  if (w.__gcImpulzFetchPatched) return;
+  w.__gcImpulzFetchPatched = true;
+
+  const patchBody = (text: string) => {
+    if (!text.includes("POPUP_OPEN")) return null;
+    try {
+      const data = JSON.parse(text) as {
+        configuration?: { POPUP_OPEN?: { state?: number; ab_testing?: boolean } };
+      };
+      if (!data?.configuration?.POPUP_OPEN) return null;
+      data.configuration.POPUP_OPEN.state = 0;
+      data.configuration.POPUP_OPEN.ab_testing = false;
+      return JSON.stringify(data);
+    } catch {
+      return null;
+    }
+  };
+
+  const originalFetch = window.fetch.bind(window);
+  window.fetch = async (...args: Parameters<typeof fetch>) => {
+    const response = await originalFetch(...args);
+    try {
+      const url = typeof args[0] === "string" ? args[0] : response.url;
+      if (!url.includes("app-config")) return response;
+      const text = await response.clone().text();
+      const patched = patchBody(text);
+      if (!patched) return response;
+      return new Response(patched, {
+        status: response.status,
+        statusText: response.statusText,
+        headers: { "content-type": "application/json" },
+      });
+    } catch {
+      return response;
+    }
+  };
+
+  // Some builds of the widget fetch the config through XMLHttpRequest.
+  const XhrProto = XMLHttpRequest.prototype as XMLHttpRequest & {
+    __gcPatched?: boolean;
+  };
+  if (!XhrProto.__gcPatched) {
+    XhrProto.__gcPatched = true;
+    const originalOpen = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function (
+      this: XMLHttpRequest & { __gcWatch?: boolean },
+      method: string,
+      url: string | URL,
+      ...rest: unknown[]
+    ) {
+      this.__gcWatch = String(url).includes("app-config");
+      if (this.__gcWatch) {
+        this.addEventListener("readystatechange", () => {
+          if (this.readyState !== 4) return;
+          try {
+            const patched = patchBody(this.responseText);
+            if (!patched) return;
+            Object.defineProperty(this, "responseText", { value: patched });
+            Object.defineProperty(this, "response", { value: patched });
+          } catch {
+            /* leave the original response untouched */
+          }
+        });
+      }
+      return (originalOpen as unknown as (...a: unknown[]) => void).call(
+        this,
+        method,
+        url,
+        ...rest,
+      );
+    } as typeof XMLHttpRequest.prototype.open;
+  }
+}
+
 function adjustPosition() {
   const root = document.getElementById("betting-chat-widget-root");
   if (!root) return;
@@ -16,14 +97,15 @@ function adjustPosition() {
     style.id = POS_STYLE_ID;
     document.head.appendChild(style);
   }
-  style.textContent = `
+  const css = `
     @media (max-width: 767px) {
-      .chatbot-toggler, .chatbot, .chatbot.show, .betting-chat-widget, .bt2-closed-entry {
+      .chatbot-toggler, .betting-chat-widget, .bt2-closed-entry {
         bottom: 140px !important;
       }
     }
   `;
-  // Also apply into the widget's shadow root if present
+  if (style.textContent !== css) style.textContent = css;
+
   const sr = (root as unknown as { shadowRoot?: ShadowRoot | null }).shadowRoot;
   if (sr) {
     let inner = sr.getElementById(POS_STYLE_ID);
@@ -32,13 +114,7 @@ function adjustPosition() {
       inner.id = POS_STYLE_ID;
       sr.appendChild(inner);
     }
-    inner.textContent = `
-      @media (max-width: 767px) {
-        :host, .chatbot-toggler, .chatbot, .chatbot.show, .betting-chat-widget, .bt2-closed-entry {
-          bottom: 140px !important;
-        }
-      }
-    `;
+    if (inner.textContent !== css) inner.textContent = css;
   }
 }
 
@@ -52,52 +128,6 @@ type ImpulzWindow = Window & {
   ) => void;
 };
 
-let userRequestedOpen = false;
-let openResetTimer = 0;
-
-function markExplicitOpen() {
-  userRequestedOpen = true;
-  window.clearTimeout(openResetTimer);
-  openResetTimer = window.setTimeout(() => {
-    userRequestedOpen = false;
-  }, 2000);
-}
-
-function forEachShadow(cb: (sr: ShadowRoot) => void) {
-  const root = document.getElementById("betting-chat-widget-root");
-  const sr = (root as unknown as { shadowRoot?: ShadowRoot | null } | null)?.shadowRoot;
-  if (sr) cb(sr);
-}
-
-function enforceExplicitOpen() {
-  forEachShadow((sr) => {
-    // launcher listeners (trusted events only)
-    sr.querySelectorAll<HTMLElement>(".chatbot-toggler, .bt2-closed-entry").forEach((el) => {
-      if (el.dataset["gcGated"] === "true") return;
-      el.dataset["gcGated"] = "true";
-      (["pointerdown", "touchstart", "click"] as const).forEach((type) =>
-        el.addEventListener(
-          type,
-          (ev) => {
-            if ((ev as Event).isTrusted) markExplicitOpen();
-          },
-          { capture: true },
-        ),
-      );
-    });
-
-    if (userRequestedOpen) return;
-    sr.querySelectorAll<HTMLElement>(".chatbot.show, .chatbot-open, .show").forEach((el) => {
-      if (!el.classList.contains("chatbot") && !el.classList.contains("betting-chat-widget")) return;
-      el.classList.remove("show", "chat-open");
-      el.setAttribute("aria-hidden", "true");
-    });
-    const host = sr.host as HTMLElement | undefined;
-    host?.classList.remove("chat-open", "show");
-    document.body.classList.remove("chat-open");
-  });
-}
-
 export function ImpulzWidget() {
   const { hydrated, has } = useConsent();
   const canLoad = hydrated && has("marketing");
@@ -105,10 +135,13 @@ export function ImpulzWidget() {
   useEffect(() => {
     if (!canLoad) return;
 
+    disableAutoOpen();
+
     const impulzWindow = window as ImpulzWindow;
+    let posTimer = 0;
 
     const initialise = () => {
-      if (document.documentElement.dataset.impulzInitialised === "true") return;
+      if (document.documentElement.dataset["impulzInitialised"] === "true") return;
       if (typeof impulzWindow.initBettingChat !== "function") return;
 
       impulzWindow.initBettingChat(
@@ -118,14 +151,9 @@ export function ImpulzWidget() {
         undefined,
         "right",
       );
-      document.documentElement.dataset.impulzInitialised = "true";
+      document.documentElement.dataset["impulzInitialised"] = "true";
       adjustPosition();
-      enforceExplicitOpen();
-      const t = window.setInterval(() => {
-        adjustPosition();
-        enforceExplicitOpen();
-      }, 300);
-      (window as unknown as { __gcImpulzPosTimer?: number }).__gcImpulzPosTimer = t;
+      posTimer = window.setInterval(adjustPosition, 1000);
     };
 
     const existingScript = document.getElementById(IMPULZ_SCRIPT_ID) as HTMLScriptElement | null;
@@ -133,7 +161,10 @@ export function ImpulzWidget() {
       if (typeof impulzWindow.initBettingChat === "function") initialise();
       else existingScript.addEventListener("load", initialise, { once: true });
 
-      return () => existingScript.removeEventListener("load", initialise);
+      return () => {
+        existingScript.removeEventListener("load", initialise);
+        if (posTimer) window.clearInterval(posTimer);
+      };
     }
 
     const script = document.createElement("script");
@@ -143,7 +174,10 @@ export function ImpulzWidget() {
     script.addEventListener("load", initialise, { once: true });
     document.body.appendChild(script);
 
-    return () => script.removeEventListener("load", initialise);
+    return () => {
+      script.removeEventListener("load", initialise);
+      if (posTimer) window.clearInterval(posTimer);
+    };
   }, [canLoad]);
 
   return null;
