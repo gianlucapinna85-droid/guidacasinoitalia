@@ -4,6 +4,7 @@ import { sortedOperators } from "@/lib/operators";
 import { getCasinoMeta } from "@/data/casinos";
 import { RatingBadge } from "@/components/casino-ui";
 import { AdmBadgeDot } from "@/components/casino-card";
+import { trackEvent } from "@/lib/track";
 
 /**
  * Banner operatori ADM in griglia a due colonne.
@@ -79,6 +80,7 @@ export function OperatorCardsGrid({ limit }: { limit?: number }) {
                   href={op.officialUrl}
                   target="_blank"
                   rel="noopener noreferrer nofollow sponsored"
+                  onClick={() => trackEvent("operator_click", op.slug)}
                   className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-gold/40 bg-gold px-4 py-3 text-[15px] font-extrabold uppercase tracking-wide text-primary-foreground shadow-md shadow-gold/25 transition-all hover:brightness-110 md:text-sm"
                 >
                   Vai al sito ufficiale <ArrowRight className="h-3.5 w-3.5 shrink-0" />

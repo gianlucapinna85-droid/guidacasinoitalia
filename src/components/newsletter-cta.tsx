@@ -3,6 +3,7 @@ import { useRouterState } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { Mail, Check, Bell, ShieldCheck } from "lucide-react";
 import { subscribeToNewsletter } from "@/lib/newsletter.functions";
+import { trackEvent } from "@/lib/track";
 
 /**
  * Invito newsletter a tutta larghezza, collocato a fine pagina (dopo i contenuti,
@@ -26,6 +27,7 @@ export function NewsletterCTA() {
     setBusy(true);
     try {
       const res = await subscribe({ data: { email: value, source: "fascia-sito" } });
+      trackEvent("newsletter_submit", res.already ? "already" : "new");
       setDone(res.already ? "already" : "new");
       setEmail("");
     } catch {

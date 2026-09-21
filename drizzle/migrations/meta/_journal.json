@@ -15,6 +15,13 @@
       "when": 1789806710515,
       "tag": "0001_exit_popup_events_insert_validation",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1789983682256,
+      "tag": "0002_create_site_events",
+      "breakpoints": true
     }
   ]
 }

@@ -104,6 +104,7 @@ import { Route as RecensioniIndexRouteImport } from './routes/recensioni.index'
 import { Route as SlotIndexRouteImport } from './routes/slot.index'
 import { Route as SlotSlugRouteImport } from './routes/slot.$slug'
 import { Route as AuthenticatedAdminExitPopupRouteImport } from './routes/_authenticated/admin.exit-popup'
+import { Route as AuthenticatedAdminStatisticheRouteImport } from './routes/_authenticated/admin.statistiche'
 import { Route as ApiPublicCheckBonusRouteImport } from './routes/api/public/check-bonus'
 import { Route as ApiPublicReindexRouteImport } from './routes/api/public/reindex'
 import { Route as BlogCategoryIndexRouteImport } from './routes/blog.$category.index'
@@ -606,6 +607,12 @@ const AuthenticatedAdminExitPopupRoute =
     path: '/admin/exit-popup',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedAdminStatisticheRoute =
+  AuthenticatedAdminStatisticheRouteImport.update({
+    id: '/admin/statistiche',
+    path: '/admin/statistiche',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const ApiPublicCheckBonusRoute = ApiPublicCheckBonusRouteImport.update({
   id: '/api/public/check-bonus',
   path: '/api/public/check-bonus',
@@ -738,6 +745,7 @@ export interface FileRoutesByFullPath {
   '/recensioni/': typeof RecensioniIndexRoute
   '/slot/': typeof SlotIndexRoute
   '/admin/exit-popup': typeof AuthenticatedAdminExitPopupRoute
+  '/admin/statistiche': typeof AuthenticatedAdminStatisticheRoute
   '/api/public/check-bonus': typeof ApiPublicCheckBonusRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
@@ -841,6 +849,7 @@ export interface FileRoutesByTo {
   '/recensioni': typeof RecensioniIndexRoute
   '/slot': typeof SlotIndexRoute
   '/admin/exit-popup': typeof AuthenticatedAdminExitPopupRoute
+  '/admin/statistiche': typeof AuthenticatedAdminStatisticheRoute
   '/api/public/check-bonus': typeof ApiPublicCheckBonusRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
@@ -946,6 +955,7 @@ export interface FileRoutesById {
   '/recensioni/': typeof RecensioniIndexRoute
   '/slot/': typeof SlotIndexRoute
   '/_authenticated/admin/exit-popup': typeof AuthenticatedAdminExitPopupRoute
+  '/_authenticated/admin/statistiche': typeof AuthenticatedAdminStatisticheRoute
   '/api/public/check-bonus': typeof ApiPublicCheckBonusRoute
   '/api/public/reindex': typeof ApiPublicReindexRoute
   '/blog/$category/$slug': typeof BlogCategorySlugRoute
@@ -1051,6 +1061,7 @@ export interface FileRouteTypes {
     | '/recensioni/'
     | '/slot/'
     | '/admin/exit-popup'
+    | '/admin/statistiche'
     | '/api/public/check-bonus'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
@@ -1154,6 +1165,7 @@ export interface FileRouteTypes {
     | '/recensioni'
     | '/slot'
     | '/admin/exit-popup'
+    | '/admin/statistiche'
     | '/api/public/check-bonus'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
@@ -1258,6 +1270,7 @@ export interface FileRouteTypes {
     | '/recensioni/'
     | '/slot/'
     | '/_authenticated/admin/exit-popup'
+    | '/_authenticated/admin/statistiche'
     | '/api/public/check-bonus'
     | '/api/public/reindex'
     | '/blog/$category/$slug'
@@ -2038,6 +2051,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminExitPopupRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/admin/statistiche': {
+      id: '/_authenticated/admin/statistiche'
+      path: '/admin/statistiche'
+      fullPath: '/admin/statistiche'
+      preLoaderRoute: typeof AuthenticatedAdminStatisticheRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/api/public/check-bonus': {
       id: '/api/public/check-bonus'
       path: '/api/public/check-bonus'
@@ -2092,10 +2112,12 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedAdminExitPopupRoute: typeof AuthenticatedAdminExitPopupRoute
+  AuthenticatedAdminStatisticheRoute: typeof AuthenticatedAdminStatisticheRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAdminExitPopupRoute: AuthenticatedAdminExitPopupRoute,
+  AuthenticatedAdminStatisticheRoute: AuthenticatedAdminStatisticheRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
