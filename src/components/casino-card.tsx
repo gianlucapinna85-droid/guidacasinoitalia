@@ -5,6 +5,7 @@ import type { Operator } from "@/lib/operators";
 import { getCasinoMeta, type CasinoMeta } from "@/data/casinos";
 import { Button } from "@/components/ui/button";
 import { displayBonuses, useBonusSnapshots } from "@/lib/use-bonus-snapshots";
+import { trackEvent } from "@/lib/track";
 import admBadgeUrl from "@/assets/logos/adm-badge.webp";
 
 /** Pallino con il logo ufficiale ADM, nell'angolo in alto a destra del riquadro logo. */
@@ -155,6 +156,7 @@ export function CasinoRankCard({
               href={op.officialUrl}
               target="_blank"
               rel="noopener noreferrer sponsored nofollow"
+              onClick={() => trackEvent("operator_click", op.slug)}
               aria-label={`Visita il sito ufficiale di ${op.name} (verificato dalla redazione)`}
               className="inline-flex items-center gap-1"
             >
