@@ -5,6 +5,43 @@ const IMPULZ_SCRIPT_ID = "impulz-betting-chat-loader";
 const IMPULZ_SCRIPT_URL = "https://betting.affilroi.com/dist/betting-chat-widget.js";
 const GUIDA_CASINO_PUBLISHER_TOKEN = "f037cd48-d548-48b1-8b92-609ff5907de3";
 
+const POS_STYLE_ID = "gc-impulz-position";
+
+function adjustPosition() {
+  const root = document.getElementById("betting-chat-widget-root");
+  if (!root) return;
+  let style = document.getElementById(POS_STYLE_ID) as HTMLStyleElement | null;
+  if (!style) {
+    style = document.createElement("style");
+    style.id = POS_STYLE_ID;
+    document.head.appendChild(style);
+  }
+  style.textContent = `
+    @media (max-width: 767px) {
+      .chatbot-toggler, .chatbot, .chatbot.show, .betting-chat-widget, .bt2-closed-entry {
+        bottom: 140px !important;
+      }
+    }
+  `;
+  // Also apply into the widget's shadow root if present
+  const sr = (root as unknown as { shadowRoot?: ShadowRoot | null }).shadowRoot;
+  if (sr) {
+    let inner = sr.getElementById(POS_STYLE_ID);
+    if (!inner) {
+      inner = document.createElement("style");
+      inner.id = POS_STYLE_ID;
+      sr.appendChild(inner);
+    }
+    inner.textContent = `
+      @media (max-width: 767px) {
+        :host, .chatbot-toggler, .chatbot, .chatbot.show, .betting-chat-widget, .bt2-closed-entry {
+          bottom: 140px !important;
+        }
+      }
+    `;
+  }
+}
+
 type ImpulzWindow = Window & {
   initBettingChat?: (
     publisherToken: string,
