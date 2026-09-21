@@ -420,7 +420,7 @@ const snai: OperatorFacts = {
   ],
 };
 
-const FACTS: OperatorFacts[] = [goldbet, snai];
+const FACTS: OperatorFacts[] = [goldbet, snai, ...extraOperatorFacts];
 
 /** Riga della tabella comparativa dei tempi di prelievo (solo operatori con dati verificati). */
 export type WithdrawalComparisonRow = {
