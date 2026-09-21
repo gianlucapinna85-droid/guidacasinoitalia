@@ -120,7 +120,11 @@ export function ImpulzWidget() {
       );
       document.documentElement.dataset.impulzInitialised = "true";
       adjustPosition();
-      const t = window.setInterval(adjustPosition, 800);
+      enforceExplicitOpen();
+      const t = window.setInterval(() => {
+        adjustPosition();
+        enforceExplicitOpen();
+      }, 300);
       (window as unknown as { __gcImpulzPosTimer?: number }).__gcImpulzPosTimer = t;
     };
 
