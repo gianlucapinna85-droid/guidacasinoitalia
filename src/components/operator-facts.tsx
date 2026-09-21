@@ -184,26 +184,30 @@ export function OperatorFactsSections({ facts, name }: { facts: OperatorFacts; n
         </p>
       </section>
 
-      <section className="mt-10">
-        <div className="flex items-center gap-2">
-          <Timer className="h-5 w-5 text-gold" />
-          <h2 className="font-serif text-2xl">Prelievi {name}: metodi, limiti e tempi dichiarati</h2>
-        </div>
-        <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-          I tempi indicati decorrono dalla conferma della richiesta e valgono solo a documento
-          convalidato: nessun concessionario ADM può liquidare un prelievo prima della verifica
-          dell'identità. Sabato e domenica non sono giorni lavorativi.
-        </p>
-        <PaymentTable rows={facts.withdrawals} caption={`Metodi di prelievo dichiarati da ${name}`} />
-      </section>
+      {facts.withdrawals.length > 0 ? (
+        <section className="mt-10">
+          <div className="flex items-center gap-2">
+            <Timer className="h-5 w-5 text-gold" />
+            <h2 className="font-serif text-2xl">Prelievi {name}: metodi, limiti e tempi dichiarati</h2>
+          </div>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+            I tempi indicati decorrono dalla conferma della richiesta e valgono solo a documento
+            convalidato: nessun concessionario ADM può liquidare un prelievo prima della verifica
+            dell'identità. Sabato e domenica non sono giorni lavorativi.
+          </p>
+          <PaymentTable rows={facts.withdrawals} caption={`Metodi di prelievo dichiarati da ${name}`} />
+        </section>
+      ) : null}
 
-      <section className="mt-10">
-        <div className="flex items-center gap-2">
-          <Wallet className="h-5 w-5 text-gold" />
-          <h2 className="font-serif text-2xl">Depositi {name}: importi minimi, massimi e costi</h2>
-        </div>
-        <PaymentTable rows={facts.deposits} caption={`Metodi di deposito dichiarati da ${name}`} />
-      </section>
+      {facts.deposits.length > 0 ? (
+        <section className="mt-10">
+          <div className="flex items-center gap-2">
+            <Wallet className="h-5 w-5 text-gold" />
+            <h2 className="font-serif text-2xl">Depositi {name}: importi minimi, massimi e costi</h2>
+          </div>
+          <PaymentTable rows={facts.deposits} caption={`Metodi di deposito dichiarati da ${name}`} />
+        </section>
+      ) : null}
 
       <WithdrawalComparison currentSlug={facts.slug} />
 
