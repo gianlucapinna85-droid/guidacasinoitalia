@@ -52,6 +52,52 @@ type ImpulzWindow = Window & {
   ) => void;
 };
 
+let userRequestedOpen = false;
+let openResetTimer = 0;
+
+function markExplicitOpen() {
+  userRequestedOpen = true;
+  window.clearTimeout(openResetTimer);
+  openResetTimer = window.setTimeout(() => {
+    userRequestedOpen = false;
+  }, 2000);
+}
+
+function forEachShadow(cb: (sr: ShadowRoot) => void) {
+  const root = document.getElementById("betting-chat-widget-root");
+  const sr = (root as unknown as { shadowRoot?: ShadowRoot | null } | null)?.shadowRoot;
+  if (sr) cb(sr);
+}
+
+function enforceExplicitOpen() {
+  forEachShadow((sr) => {
+    // launcher listeners (trusted events only)
+    sr.querySelectorAll<HTMLElement>(".chatbot-toggler, .bt2-closed-entry").forEach((el) => {
+      if (el.dataset["gcGated"] === "true") return;
+      el.dataset["gcGated"] = "true";
+      (["pointerdown", "touchstart", "click"] as const).forEach((type) =>
+        el.addEventListener(
+          type,
+          (ev) => {
+            if ((ev as Event).isTrusted) markExplicitOpen();
+          },
+          { capture: true },
+        ),
+      );
+    });
+
+    if (userRequestedOpen) return;
+    sr.querySelectorAll<HTMLElement>(".chatbot.show, .chatbot-open, .show").forEach((el) => {
+      if (!el.classList.contains("chatbot") && !el.classList.contains("betting-chat-widget")) return;
+      el.classList.remove("show", "chat-open");
+      el.setAttribute("aria-hidden", "true");
+    });
+    const host = sr.host as HTMLElement | undefined;
+    host?.classList.remove("chat-open", "show");
+    document.body.classList.remove("chat-open");
+  });
+}
+
 export function ImpulzWidget() {
   const { hydrated, has } = useConsent();
   const canLoad = hydrated && has("marketing");
