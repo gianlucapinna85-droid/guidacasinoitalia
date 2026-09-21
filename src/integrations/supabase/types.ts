@@ -134,6 +134,30 @@ export type Database = {
         }
         Relationships: []
       }
+      site_events: {
+        Row: {
+          created_at: string
+          event_type: string
+          id: string
+          label: string | null
+          path: string | null
+        }
+        Insert: {
+          created_at?: string
+          event_type: string
+          id?: string
+          label?: string | null
+          path?: string | null
+        }
+        Update: {
+          created_at?: string
+          event_type?: string
+          id?: string
+          label?: string | null
+          path?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
