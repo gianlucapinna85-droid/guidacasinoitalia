@@ -56,14 +56,14 @@ function markUserOpened() {
 
 function applyGuards() {
   const root = document.getElementById("betting-chat-widget-root");
-  const css = guardCss();
-  upsertStyle(document.head, GUARD_STYLE_ID, css);
+  upsertStyle(document.head, GUARD_STYLE_ID, guardCss(false));
   if (!root) return;
 
   const sr = (root as unknown as { shadowRoot?: ShadowRoot | null }).shadowRoot;
   if (sr) {
-    upsertStyle(sr, GUARD_STYLE_ID, css);
-    upsertStyle(sr, POS_STYLE_ID, css);
+    upsertStyle(sr, GUARD_STYLE_ID, guardCss(true));
+    upsertStyle(sr, POS_STYLE_ID, guardCss(true));
+    forceClosed(sr);
     // Any click inside the widget (toggler) counts as explicit user intent.
     const guarded = sr as ShadowRoot & { __gcGuard?: boolean };
     if (!guarded.__gcGuard) {
