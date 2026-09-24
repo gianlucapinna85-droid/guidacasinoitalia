@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { BadgeCheck, ShieldCheck } from "lucide-react";
 import { PageShell } from "@/components/site-layout";
-import { AUTHOR, LAST_VERIFIED_ISO, SITE_URL, authorSchema, formatIt } from "@/lib/author";
+import { AUTHOR, SITE_URL, authorSchema } from "@/lib/author";
 
 const CANONICAL = `${SITE_URL}/autore/${AUTHOR.slug}`;
 
@@ -69,7 +69,7 @@ function AuthorPage() {
             <p className="mt-1 text-sm text-gold">{AUTHOR.role}</p>
             <p className="mt-2 inline-flex items-center gap-1 text-xs text-muted-foreground">
               <BadgeCheck className="h-3.5 w-3.5 text-gold" />
-              Ultima verifica dei contenuti: {formatIt(LAST_VERIFIED_ISO)}
+              Contenuti verificati sulle fonti ufficiali indicate nelle singole pagine
             </p>
           </div>
         </header>

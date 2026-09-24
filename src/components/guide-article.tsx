@@ -7,7 +7,7 @@ import { FaqSlider } from "@/components/faq-slider";
 import { socialImageMeta } from "@/lib/social-image";
 import { AuthorByline, AuthorBox } from "@/components/author-byline";
 import { LegalNote } from "@/components/legal-note";
-import { authorSchema, LAST_VERIFIED_ISO } from "@/lib/author";
+import { authorSchema } from "@/lib/author";
 import { PageOfferStrip } from "@/components/page-offer-strip";
 
 
@@ -66,7 +66,6 @@ export function guideHead(cfg: GuideConfig) {
           description: cfg.description,
           inLanguage: "it-IT",
           mainEntityOfPage: canonical,
-          dateModified: LAST_VERIFIED_ISO,
           author: authorSchema(),
           publisher: { "@type": "Organization", name: "GuidaCasinò.IT" },
         }),

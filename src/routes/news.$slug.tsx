@@ -7,7 +7,7 @@ import { newsBySlug, sortedNews, type NewsArticle } from "@/data/news";
 import { socialImageMeta } from "@/lib/social-image";
 import { AuthorByline, AuthorBox } from "@/components/author-byline";
 import { LegalNote } from "@/components/legal-note";
-import { authorSchema, LAST_VERIFIED_ISO } from "@/lib/author";
+import { authorSchema } from "@/lib/author";
 
 const SITE_URL = "https://www.guidacasino-italia.it";
 
@@ -51,7 +51,7 @@ export const Route = createFileRoute("/news/$slug")({
             description: a.description,
             inLanguage: "it-IT",
             datePublished: a.date,
-            dateModified: LAST_VERIFIED_ISO,
+            dateModified: a.date,
             articleSection: a.category,
             mainEntityOfPage: canonical,
             author: authorSchema(),
@@ -108,7 +108,7 @@ function NewsDetail() {
           <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground md:text-base">
             {article.description}
           </p>
-          <AuthorByline className="mt-4" />
+          <AuthorByline verifiedIso={article.date} className="mt-4" />
         </header>
 
         {article.sections.map((s) => (
@@ -146,7 +146,7 @@ function NewsDetail() {
             ))}
           </ul>
         </section>
-        <AuthorBox />
+        <AuthorBox verifiedIso={article.date} />
 
         <RelatedLinks />
 
