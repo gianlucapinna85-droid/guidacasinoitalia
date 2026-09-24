@@ -2,13 +2,11 @@ import { supabase } from "@/integrations/supabase/client";
 
 export type SiteEventType =
   | "operator_click"
-  | "newsletter_submit"
-  | "newsletter_view"
   | "assistant_click";
 
 /**
  * Conteggio anonimo e senza cookie delle azioni chiave del sito
- * (clic verso gli operatori, iscrizioni newsletter). Non registra
+ * (clic verso gli operatori). Non registra
  * dati personali: solo tipo di evento, etichetta e percorso pagina.
  * Non deve mai bloccare o rallentare l'azione dell'utente.
  */

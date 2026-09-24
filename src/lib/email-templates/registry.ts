@@ -1,7 +1,4 @@
 import type { ComponentType } from 'react'
-import { template as newsletterWelcomeTemplate } from './newsletter-welcome'
-import { template as outreachJammaTemplate } from './outreach-jamma'
-import { template as outreachAgipronewsTemplate } from './outreach-agipronews'
 
 export interface TemplateEntry {
   component: ComponentType<any>
@@ -20,8 +17,4 @@ export interface TemplateEntry {
  *   import { template as welcomeTemplate } from './welcome'
  *   // then add to TEMPLATES: 'welcome': welcomeTemplate
  */
-export const TEMPLATES: Record<string, TemplateEntry> = {
-  'newsletter-welcome': newsletterWelcomeTemplate,
-  'outreach-jamma': outreachJammaTemplate,
-  'outreach-agipronews': outreachAgipronewsTemplate,
-}
+export const TEMPLATES: Record<string, TemplateEntry> = {}
