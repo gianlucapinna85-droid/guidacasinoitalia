@@ -1,10 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { BadgeCheck } from "lucide-react";
-import { AUTHOR, LAST_VERIFIED_ISO, formatIt } from "@/lib/author";
+import { AUTHOR, formatIt } from "@/lib/author";
 
 /** Firma compatta con foto autore + data di verifica, sotto il titolo dell'articolo. */
 export function AuthorByline({
-  verifiedIso = LAST_VERIFIED_ISO,
+  verifiedIso,
   className = "",
 }: {
   verifiedIso?: string;
@@ -27,20 +27,22 @@ export function AuthorByline({
             {AUTHOR.name}
           </Link>
         </p>
-        <p className="mt-0.5 inline-flex items-center gap-1 text-muted-foreground">
-          <BadgeCheck className="h-3.5 w-3.5 text-gold" />
-          Verificato il{" "}
-          <time dateTime={verifiedIso.slice(0, 10)} className="text-foreground/90">
-            {formatIt(verifiedIso)}
-          </time>
-        </p>
+        {verifiedIso ? (
+          <p className="mt-0.5 inline-flex items-center gap-1 text-muted-foreground">
+            <BadgeCheck className="h-3.5 w-3.5 text-gold" />
+            Verificato il{" "}
+            <time dateTime={verifiedIso.slice(0, 10)} className="text-foreground/90">
+              {formatIt(verifiedIso)}
+            </time>
+          </p>
+        ) : null}
       </div>
     </div>
   );
 }
 
 /** Box autore esteso da mostrare a fine articolo. */
-export function AuthorBox({ verifiedIso = LAST_VERIFIED_ISO }: { verifiedIso?: string }) {
+export function AuthorBox({ verifiedIso }: { verifiedIso?: string }) {
   return (
     <section className="mt-10 rounded-xl border border-border bg-card p-5">
       <div className="flex items-start gap-4">
@@ -63,11 +65,13 @@ export function AuthorBox({ verifiedIso = LAST_VERIFIED_ISO }: { verifiedIso?: s
           </h2>
           <p className="text-xs text-gold">{AUTHOR.role}</p>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{AUTHOR.bio}</p>
-          <p className="mt-2 inline-flex items-center gap-1 text-xs text-muted-foreground">
-            <BadgeCheck className="h-3.5 w-3.5 text-gold" />
-            Contenuto verificato il{" "}
-            <time dateTime={verifiedIso.slice(0, 10)}>{formatIt(verifiedIso)}</time>
-          </p>
+          {verifiedIso ? (
+            <p className="mt-2 inline-flex items-center gap-1 text-xs text-muted-foreground">
+              <BadgeCheck className="h-3.5 w-3.5 text-gold" />
+              Contenuto verificato il{" "}
+              <time dateTime={verifiedIso.slice(0, 10)}>{formatIt(verifiedIso)}</time>
+            </p>
+          ) : null}
         </div>
       </div>
     </section>

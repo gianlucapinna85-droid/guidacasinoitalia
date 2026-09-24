@@ -10,6 +10,7 @@ import { news } from "@/data/news";
 import { blogArticles, categoryHubs, CATEGORY_SLUG } from "@/data/blog";
 import { slots } from "@/data/slots";
 import { activePaymentMethods } from "@/lib/payments";
+import { getOperatorFacts } from "@/data/operator-facts";
 
 
 export const BASE_URL = "https://www.guidacasino-italia.it";
@@ -43,6 +44,7 @@ export function getPageEntries(): SiteEntry[] {
     { path: "/autore/gianluca-pinna", changefreq: "monthly", priority: "0.6" },
     { path: "/guide", changefreq: "weekly", priority: "0.9" },
     { path: "/assistente-guida-casino", changefreq: "monthly", priority: "0.6" },
+    { path: "/mappa-sito", changefreq: "weekly", priority: "0.7" },
     { path: "/note-legali", changefreq: "yearly", priority: "0.4" },
     { path: "/privacy", changefreq: "yearly", priority: "0.4" },
   ];
@@ -64,6 +66,7 @@ export function getGuideEntries(): SiteEntry[] {
 export function getReviewEntries(): SiteEntry[] {
   return operators.map((op) => ({
     path: `/operatori/${op.slug}`,
+    lastmod: getOperatorFacts(op.slug)?.verifiedOn,
     changefreq: "weekly" as const,
     priority: "0.8",
   }));
@@ -71,8 +74,12 @@ export function getReviewEntries(): SiteEntry[] {
 
 /** Blog a silo: hub + articoli, con lastmod dal dato reale dell'articolo. */
 export function getBlogEntries(): SiteEntry[] {
+  const newestArticleDate = blogArticles
+    .map((article) => article.updated ?? article.date)
+    .sort()
+    .at(-1);
   return [
-    { path: "/blog", changefreq: "daily", priority: "0.9" },
+    { path: "/blog", lastmod: newestArticleDate, changefreq: "daily", priority: "0.9" },
     ...categoryHubs.filter((h) => blogArticles.filter((a) => a.category === h.category).length >= 3).map((h) => ({
       path: `/blog/${h.slug}`,
       changefreq: "daily" as const,
@@ -89,8 +96,9 @@ export function getBlogEntries(): SiteEntry[] {
 
 /** News: lastmod dalla data di pubblicazione dell'articolo. */
 export function getNewsEntries(): SiteEntry[] {
+  const newestNewsDate = news.map((article) => article.date).sort().at(-1);
   return [
-    { path: "/news", changefreq: "weekly", priority: "0.9" },
+    { path: "/news", lastmod: newestNewsDate, changefreq: "weekly", priority: "0.9" },
     ...news.map((n) => ({
       path: `/news/${n.slug}`,
       lastmod: n.date,

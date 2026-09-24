@@ -280,6 +280,7 @@ export function Footer() {
               <li><Link to="/note-legali" className="hover:text-foreground">Note legali</Link></li>
               <li><Link to="/gioco-responsabile" className="hover:text-foreground">Gioco responsabile</Link></li>
               <li><Link to="/privacy" className="hover:text-foreground">Privacy & Cookie</Link></li>
+              <li><Link to="/mappa-sito" className="hover:text-foreground">Mappa del sito</Link></li>
                <li><Link to="/assistente-guida-casino" className="hover:text-foreground">Assistente GuidaCasinò</Link></li>
               <li>
                 <button

@@ -17,7 +17,7 @@ import {
 import { socialImageMeta } from "@/lib/social-image";
 import { AuthorByline, AuthorBox } from "@/components/author-byline";
 import { LegalNote } from "@/components/legal-note";
-import { authorSchema, LAST_VERIFIED_ISO } from "@/lib/author";
+import { authorSchema } from "@/lib/author";
 
 const SITE_URL = "https://www.guidacasino-italia.it";
 
@@ -77,7 +77,7 @@ export const Route = createFileRoute("/blog/$category/$slug")({
             description: a.description,
             inLanguage: "it-IT",
             datePublished: a.date,
-            dateModified: LAST_VERIFIED_ISO,
+            dateModified: a.updated ?? a.date,
             articleSection: a.category,
             keywords: a.keywords,
             mainEntityOfPage: canonical,
@@ -167,7 +167,7 @@ function BlogDetail() {
             <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground md:text-base">
               {article.summary}
             </p>
-            <AuthorByline className="mt-4" />
+            <AuthorByline verifiedIso={article.updated ?? article.date} className="mt-4" />
           </header>
 
           <nav className="mt-6 rounded-xl border border-border bg-card p-4">
@@ -269,7 +269,7 @@ function BlogDetail() {
               <ExternalBlogButton size="sm" />
             </div>
           </section>
-          <AuthorBox />
+          <AuthorBox verifiedIso={article.updated ?? article.date} />
 
           <RelatedLinks />
 

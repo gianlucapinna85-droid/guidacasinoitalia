@@ -13,7 +13,7 @@ import { FaqSlider } from "@/components/faq-slider";
 
 import { RatingBadge, CasinoBadges, RelatedLinks } from "@/components/casino-ui";
 import { socialImageMeta } from "@/lib/social-image";
-import { AUTHOR, LAST_VERIFIED_ISO, authorSchema } from "@/lib/author";
+import { AUTHOR, authorSchema } from "@/lib/author";
 
 
 function loadOperator(slug: string) {
@@ -72,7 +72,7 @@ export const Route = createFileRoute("/operatori/$slug")({
             inLanguage: "it-IT",
             author: authorSchema(),
             publisher: { "@type": "Organization", name: "GuidaCasinò.IT" },
-            dateModified: LAST_VERIFIED_ISO,
+            ...(facts ? { dateModified: facts.verifiedOn } : {}),
             mainEntityOfPage: canonical,
             about: {
               "@type": "Organization",
@@ -110,8 +110,7 @@ export const Route = createFileRoute("/operatori/$slug")({
               jobTitle: AUTHOR.role,
             },
             publisher: { "@type": "Organization", name: "GuidaCasinò.IT" },
-            datePublished: LAST_VERIFIED_ISO,
-            dateModified: LAST_VERIFIED_ISO,
+            ...(facts ? { dateModified: facts.verifiedOn } : {}),
             reviewRating: {
               "@type": "Rating",
               ratingValue: getCasinoMeta(operator.slug)?.rating ?? 8.5,
@@ -130,7 +129,7 @@ export const Route = createFileRoute("/operatori/$slug")({
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://www.guidacasino-italia.it/" },
-              { "@type": "ListItem", position: 2, name: "Operatori ADM", item: "https://www.guidacasino-italia.it/#operatori" },
+              { "@type": "ListItem", position: 2, name: "Recensioni operatori ADM", item: "https://www.guidacasino-italia.it/recensioni" },
               { "@type": "ListItem", position: 3, name: operator.name, item: canonical },
             ],
           }),
@@ -183,8 +182,7 @@ function OperatorNotFound() {
           L'operatore richiesto non è presente nel nostro elenco informativo.
         </p>
         <Link
-          to="/"
-          hash="operatori"
+          to="/recensioni"
           className="mt-8 inline-flex items-center gap-2 rounded-md border border-gold/40 bg-gold/10 px-5 py-3 text-sm text-gold hover:bg-gold/20"
         >
           <ArrowLeft className="h-4 w-4" /> Torna all'elenco
@@ -209,7 +207,7 @@ function OperatorPage() {
           hash="operatori"
           className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground hover:text-gold"
         >
-          <ArrowLeft className="h-3 w-3" /> Elenco concessionari
+          <ArrowLeft className="h-3 w-3" /> Tutte le recensioni
         </Link>
 
         <header className="mt-6 border-b border-border pb-8">
