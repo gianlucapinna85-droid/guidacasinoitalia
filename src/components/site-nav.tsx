@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "@tanstack/react-router";
-import { Mail, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { EXTERNAL_BLOG_URL } from "@/lib/internal-links";
 
 type Item = { href: string; label: string; external?: boolean };
@@ -88,14 +88,6 @@ export function SiteNav() {
         </div>
 
         <div className="p-2.5">
-          <Link
-            to="/iscriviti"
-            onClick={close}
-            className="mb-3 flex items-center justify-center gap-2 rounded-lg bg-gold px-3 py-2.5 text-[13px] font-bold text-primary-foreground transition-opacity hover:opacity-90"
-          >
-            <Mail className="h-4 w-4" aria-hidden="true" />
-            Iscriviti alla newsletter
-          </Link>
           <p className="px-1.5 pb-1.5 text-[9px] font-bold uppercase tracking-widest text-gold">
             Sezioni principali
           </p>
