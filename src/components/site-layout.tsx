@@ -8,7 +8,6 @@ const StickyCompareCTA = lazy(() =>
 );
 import siteLogo from "@/assets/site-logo.webp";
 import { ShieldCheck, Ban, LifeBuoy, Landmark, BadgeCheck, Youtube, Instagram, Music2, Send } from "lucide-react";
-import { NewsletterCTA } from "@/components/newsletter-cta";
 import vietato18Url from "@/assets/logos/v18.webp";
 import admLogoUrl from "@/assets/logos/adm.webp";
 import vietato18BadgeUrl from "@/assets/logos/v18-badge.webp";
@@ -377,7 +376,6 @@ export function PageShell({ children }: { children: ReactNode }) {
       <Header />
       <main className="flex-1">{children}</main>
       <PageOfferStrip />
-      <NewsletterCTA />
       <Footer />
       <Suspense fallback={null}>
         <ExitIntent />

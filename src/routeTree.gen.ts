@@ -48,7 +48,6 @@ import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabi
 import { Route as GuidaCasinoOnlineItaliaRouteImport } from './routes/guida-casino-online-italia'
 import { Route as GuidaRtpRouteImport } from './routes/guida-rtp'
 import { Route as GuideRouteImport } from './routes/guide'
-import { Route as IscrivitiRouteImport } from './routes/iscriviti'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as MetodiPagamentoCasinoRouteImport } from './routes/metodi-pagamento-casino'
 import { Route as MiglioriCasinoOnlineRouteImport } from './routes/migliori-casino-online'
@@ -103,7 +102,6 @@ import { Route as ProviderSlugRouteImport } from './routes/provider.$slug'
 import { Route as RecensioniIndexRouteImport } from './routes/recensioni.index'
 import { Route as SlotIndexRouteImport } from './routes/slot.index'
 import { Route as SlotSlugRouteImport } from './routes/slot.$slug'
-import { Route as AuthenticatedAdminCandidatureRouteImport } from './routes/_authenticated/admin.candidature'
 import { Route as AuthenticatedAdminExitPopupRouteImport } from './routes/_authenticated/admin.exit-popup'
 import { Route as AuthenticatedAdminStatisticheRouteImport } from './routes/_authenticated/admin.statistiche'
 import { Route as ApiPublicCheckBonusRouteImport } from './routes/api/public/check-bonus'
@@ -315,11 +313,6 @@ const GuidaRtpRoute = GuidaRtpRouteImport.update({
 const GuideRoute = GuideRouteImport.update({
   id: '/guide',
   path: '/guide',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IscrivitiRoute = IscrivitiRouteImport.update({
-  id: '/iscriviti',
-  path: '/iscriviti',
   getParentRoute: () => rootRouteImport,
 } as any)
 const McpRoute = McpRouteImport.update({
@@ -602,12 +595,6 @@ const SlotSlugRoute = SlotSlugRouteImport.update({
   path: '/slot/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedAdminCandidatureRoute =
-  AuthenticatedAdminCandidatureRouteImport.update({
-    id: '/admin/candidature',
-    path: '/admin/candidature',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
 const AuthenticatedAdminExitPopupRoute =
   AuthenticatedAdminExitPopupRouteImport.update({
     id: '/admin/exit-popup',
@@ -696,7 +683,6 @@ export interface FileRoutesByFullPath {
   '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
   '/guida-rtp': typeof GuidaRtpRoute
   '/guide': typeof GuideRoute
-  '/iscriviti': typeof IscrivitiRoute
   '/mcp': typeof McpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
@@ -751,7 +737,6 @@ export interface FileRoutesByFullPath {
   '/pagamenti/': typeof PagamentiIndexRoute
   '/recensioni/': typeof RecensioniIndexRoute
   '/slot/': typeof SlotIndexRoute
-  '/admin/candidature': typeof AuthenticatedAdminCandidatureRoute
   '/admin/exit-popup': typeof AuthenticatedAdminExitPopupRoute
   '/admin/statistiche': typeof AuthenticatedAdminStatisticheRoute
   '/api/public/check-bonus': typeof ApiPublicCheckBonusRoute
@@ -801,7 +786,6 @@ export interface FileRoutesByTo {
   '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
   '/guida-rtp': typeof GuidaRtpRoute
   '/guide': typeof GuideRoute
-  '/iscriviti': typeof IscrivitiRoute
   '/mcp': typeof McpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
@@ -856,7 +840,6 @@ export interface FileRoutesByTo {
   '/pagamenti': typeof PagamentiIndexRoute
   '/recensioni': typeof RecensioniIndexRoute
   '/slot': typeof SlotIndexRoute
-  '/admin/candidature': typeof AuthenticatedAdminCandidatureRoute
   '/admin/exit-popup': typeof AuthenticatedAdminExitPopupRoute
   '/admin/statistiche': typeof AuthenticatedAdminStatisticheRoute
   '/api/public/check-bonus': typeof ApiPublicCheckBonusRoute
@@ -908,7 +891,6 @@ export interface FileRoutesById {
   '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
   '/guida-rtp': typeof GuidaRtpRoute
   '/guide': typeof GuideRoute
-  '/iscriviti': typeof IscrivitiRoute
   '/mcp': typeof McpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
@@ -963,7 +945,6 @@ export interface FileRoutesById {
   '/pagamenti/': typeof PagamentiIndexRoute
   '/recensioni/': typeof RecensioniIndexRoute
   '/slot/': typeof SlotIndexRoute
-  '/_authenticated/admin/candidature': typeof AuthenticatedAdminCandidatureRoute
   '/_authenticated/admin/exit-popup': typeof AuthenticatedAdminExitPopupRoute
   '/_authenticated/admin/statistiche': typeof AuthenticatedAdminStatisticheRoute
   '/api/public/check-bonus': typeof ApiPublicCheckBonusRoute
@@ -1015,7 +996,6 @@ export interface FileRouteTypes {
     | '/guida-casino-online-italia'
     | '/guida-rtp'
     | '/guide'
-    | '/iscriviti'
     | '/mcp'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
@@ -1070,7 +1050,6 @@ export interface FileRouteTypes {
     | '/pagamenti/'
     | '/recensioni/'
     | '/slot/'
-    | '/admin/candidature'
     | '/admin/exit-popup'
     | '/admin/statistiche'
     | '/api/public/check-bonus'
@@ -1120,7 +1099,6 @@ export interface FileRouteTypes {
     | '/guida-casino-online-italia'
     | '/guida-rtp'
     | '/guide'
-    | '/iscriviti'
     | '/mcp'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
@@ -1175,7 +1153,6 @@ export interface FileRouteTypes {
     | '/pagamenti'
     | '/recensioni'
     | '/slot'
-    | '/admin/candidature'
     | '/admin/exit-popup'
     | '/admin/statistiche'
     | '/api/public/check-bonus'
@@ -1226,7 +1203,6 @@ export interface FileRouteTypes {
     | '/guida-casino-online-italia'
     | '/guida-rtp'
     | '/guide'
-    | '/iscriviti'
     | '/mcp'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
@@ -1281,7 +1257,6 @@ export interface FileRouteTypes {
     | '/pagamenti/'
     | '/recensioni/'
     | '/slot/'
-    | '/_authenticated/admin/candidature'
     | '/_authenticated/admin/exit-popup'
     | '/_authenticated/admin/statistiche'
     | '/api/public/check-bonus'
@@ -1333,7 +1308,6 @@ export interface RootRouteChildren {
   GuidaCasinoOnlineItaliaRoute: typeof GuidaCasinoOnlineItaliaRoute
   GuidaRtpRoute: typeof GuidaRtpRoute
   GuideRoute: typeof GuideRoute
-  IscrivitiRoute: typeof IscrivitiRoute
   McpRoute: typeof McpRoute
   MetodiPagamentoCasinoRoute: typeof MetodiPagamentoCasinoRoute
   MiglioriCasinoOnlineRoute: typeof MiglioriCasinoOnlineRoute
@@ -1670,13 +1644,6 @@ declare module '@tanstack/react-router' {
       path: '/guide'
       fullPath: '/guide'
       preLoaderRoute: typeof GuideRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/iscriviti': {
-      id: '/iscriviti'
-      path: '/iscriviti'
-      fullPath: '/iscriviti'
-      preLoaderRoute: typeof IscrivitiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mcp': {
@@ -2057,13 +2024,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SlotSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/admin/candidature': {
-      id: '/_authenticated/admin/candidature'
-      path: '/admin/candidature'
-      fullPath: '/admin/candidature'
-      preLoaderRoute: typeof AuthenticatedAdminCandidatureRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
     '/_authenticated/admin/exit-popup': {
       id: '/_authenticated/admin/exit-popup'
       path: '/admin/exit-popup'
@@ -2131,13 +2091,11 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthenticatedRouteRouteChildren {
-  AuthenticatedAdminCandidatureRoute: typeof AuthenticatedAdminCandidatureRoute
   AuthenticatedAdminExitPopupRoute: typeof AuthenticatedAdminExitPopupRoute
   AuthenticatedAdminStatisticheRoute: typeof AuthenticatedAdminStatisticheRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
-  AuthenticatedAdminCandidatureRoute: AuthenticatedAdminCandidatureRoute,
   AuthenticatedAdminExitPopupRoute: AuthenticatedAdminExitPopupRoute,
   AuthenticatedAdminStatisticheRoute: AuthenticatedAdminStatisticheRoute,
 }
@@ -2186,7 +2144,6 @@ const rootRouteChildren: RootRouteChildren = {
   GuidaCasinoOnlineItaliaRoute: GuidaCasinoOnlineItaliaRoute,
   GuidaRtpRoute: GuidaRtpRoute,
   GuideRoute: GuideRoute,
-  IscrivitiRoute: IscrivitiRoute,
   McpRoute: McpRoute,
   MetodiPagamentoCasinoRoute: MetodiPagamentoCasinoRoute,
   MiglioriCasinoOnlineRoute: MiglioriCasinoOnlineRoute,
