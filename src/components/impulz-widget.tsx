@@ -9,23 +9,14 @@ const POS_STYLE_ID = "gc-impulz-position";
 const GUARD_STYLE_ID = "gc-impulz-no-auto-open";
 const OPENED_ATTR = "impulzUserOpened";
 
-// Selectors that may auto-open / auto-expand without a user click
-// (teaser bubbles, proactive messages, expanded chat windows).
-const AUTO_OPEN_SELECTORS = [
-  ".bt2-teaser",
-  ".teaser",
-  "[class*='proactive']",
-  "[class*='auto-open']",
-  "[class*='autopen']",
-  ".bt2-chat-window",
-  ".chat-window",
-  ".bt2-expanded",
-  ".chatbot-window",
-].join(", ");
-
-function guardCss(): string {
+// The widget window opens by adding `show` to `.chatbot` and `chat-open`
+// to `.betting-chat-widget`. Until the user explicitly clicks the toggler,
+// we force it closed: CSS hides it and JS strips the open classes.
+function guardCss(shadow: boolean): string {
+  const scope = shadow ? `:host-context(html:not([data-${OPENED_ATTR}="true"]))` : `html:not([data-${OPENED_ATTR}="true"])`;
   return `
-    html:not([data-${OPENED_ATTR}="true"]) ${AUTO_OPEN_SELECTORS} {
+    ${scope} .chatbot.show,
+    ${scope} .chatbot[style*="opacity"] {
       display: none !important;
       visibility: hidden !important;
       opacity: 0 !important;
@@ -37,6 +28,16 @@ function guardCss(): string {
       }
     }
   `;
+}
+
+function isUserOpened(): boolean {
+  return document.documentElement.dataset[OPENED_ATTR] === "true";
+}
+
+function forceClosed(sr: ShadowRoot) {
+  if (isUserOpened()) return;
+  sr.querySelectorAll(".chatbot.show").forEach((el) => el.classList.remove("show"));
+  sr.querySelectorAll(".betting-chat-widget.chat-open").forEach((el) => el.classList.remove("chat-open"));
 }
 
 function upsertStyle(parent: HTMLElement | ShadowRoot, id: string, css: string) {
