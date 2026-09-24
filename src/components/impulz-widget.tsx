@@ -36,8 +36,19 @@ function isUserOpened(): boolean {
 
 function forceClosed(sr: ShadowRoot) {
   if (isUserOpened()) return;
-  sr.querySelectorAll(".chatbot.show").forEach((el) => el.classList.remove("show"));
-  sr.querySelectorAll(".betting-chat-widget.chat-open").forEach((el) => el.classList.remove("chat-open"));
+  const isOpen =
+    sr.querySelector(".chatbot.show") || sr.querySelector(".betting-chat-widget.chat-open");
+  if (!isOpen) return;
+  // Prefer the widget's own close button so its internal state stays in sync.
+  const closeBtn = sr.querySelector<HTMLButtonElement>(
+    'button[aria-label="Chiudi widget"], .bt2-arena-mode, .chatbot .close, [class*="close-btn"]',
+  );
+  if (closeBtn) {
+    closeBtn.click();
+  } else {
+    sr.querySelectorAll(".chatbot.show").forEach((el) => el.classList.remove("show"));
+    sr.querySelectorAll(".betting-chat-widget.chat-open").forEach((el) => el.classList.remove("chat-open"));
+  }
 }
 
 function upsertStyle(parent: HTMLElement | ShadowRoot, id: string, css: string) {
