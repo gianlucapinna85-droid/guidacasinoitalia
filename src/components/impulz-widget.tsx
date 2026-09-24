@@ -79,7 +79,8 @@ function applyGuards() {
     const guarded = sr as ShadowRoot & { __gcGuard?: boolean };
     if (!guarded.__gcGuard) {
       guarded.__gcGuard = true;
-      sr.addEventListener("click", markUserOpened, true);
+      // Only real user clicks count — ignore programmatic clicks (e.g. our own close).
+      sr.addEventListener("click", (e) => { if (e.isTrusted) markUserOpened(); }, true);
     }
   }
 }
@@ -106,6 +107,7 @@ export function ImpulzWidget() {
 
     // Explicit clicks on the document-level toggler also count.
     const onDocClick = (e: MouseEvent) => {
+      if (!e.isTrusted) return;
       const target = e.target as HTMLElement | null;
       if (!target) return;
       if (
