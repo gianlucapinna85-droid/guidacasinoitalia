@@ -7,13 +7,15 @@ const GUIDA_CASINO_PUBLISHER_TOKEN = "f037cd48-d548-48b1-8b92-609ff5907de3";
 
 const POS_STYLE_ID = "gc-impulz-position";
 const GUARD_STYLE_ID = "gc-impulz-no-auto-open";
+// dataset key "impulzUserOpened" serialises to attribute data-impulz-user-opened
 const OPENED_ATTR = "impulzUserOpened";
+const OPENED_CSS_ATTR = "data-impulz-user-opened";
 
 // The widget window opens by adding `show` to `.chatbot` and `chat-open`
 // to `.betting-chat-widget`. Until the user explicitly clicks the toggler,
 // we force it closed: CSS hides it and JS strips the open classes.
 function guardCss(shadow: boolean): string {
-  const scope = shadow ? `:host-context(html:not([data-${OPENED_ATTR}="true"]))` : `html:not([data-${OPENED_ATTR}="true"])`;
+  const scope = shadow ? `:host-context(html:not([${OPENED_CSS_ATTR}="true"]))` : `html:not([${OPENED_CSS_ATTR}="true"])`;
   return `
     ${scope} .chatbot.show,
     ${scope} .chatbot[style*="opacity"] {
