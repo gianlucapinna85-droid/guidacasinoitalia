@@ -48,6 +48,7 @@ import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabi
 import { Route as GuidaCasinoOnlineItaliaRouteImport } from './routes/guida-casino-online-italia'
 import { Route as GuidaRtpRouteImport } from './routes/guida-rtp'
 import { Route as GuideRouteImport } from './routes/guide'
+import { Route as MappaSitoRouteImport } from './routes/mappa-sito'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as MetodiPagamentoCasinoRouteImport } from './routes/metodi-pagamento-casino'
 import { Route as MiglioriCasinoOnlineRouteImport } from './routes/migliori-casino-online'
@@ -313,6 +314,11 @@ const GuidaRtpRoute = GuidaRtpRouteImport.update({
 const GuideRoute = GuideRouteImport.update({
   id: '/guide',
   path: '/guide',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MappaSitoRoute = MappaSitoRouteImport.update({
+  id: '/mappa-sito',
+  path: '/mappa-sito',
   getParentRoute: () => rootRouteImport,
 } as any)
 const McpRoute = McpRouteImport.update({
@@ -683,6 +689,7 @@ export interface FileRoutesByFullPath {
   '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
   '/guida-rtp': typeof GuidaRtpRoute
   '/guide': typeof GuideRoute
+  '/mappa-sito': typeof MappaSitoRoute
   '/mcp': typeof McpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
@@ -786,6 +793,7 @@ export interface FileRoutesByTo {
   '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
   '/guida-rtp': typeof GuidaRtpRoute
   '/guide': typeof GuideRoute
+  '/mappa-sito': typeof MappaSitoRoute
   '/mcp': typeof McpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
@@ -891,6 +899,7 @@ export interface FileRoutesById {
   '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
   '/guida-rtp': typeof GuidaRtpRoute
   '/guide': typeof GuideRoute
+  '/mappa-sito': typeof MappaSitoRoute
   '/mcp': typeof McpRoute
   '/metodi-pagamento-casino': typeof MetodiPagamentoCasinoRoute
   '/migliori-casino-online': typeof MiglioriCasinoOnlineRoute
@@ -996,6 +1005,7 @@ export interface FileRouteTypes {
     | '/guida-casino-online-italia'
     | '/guida-rtp'
     | '/guide'
+    | '/mappa-sito'
     | '/mcp'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
@@ -1099,6 +1109,7 @@ export interface FileRouteTypes {
     | '/guida-casino-online-italia'
     | '/guida-rtp'
     | '/guide'
+    | '/mappa-sito'
     | '/mcp'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
@@ -1203,6 +1214,7 @@ export interface FileRouteTypes {
     | '/guida-casino-online-italia'
     | '/guida-rtp'
     | '/guide'
+    | '/mappa-sito'
     | '/mcp'
     | '/metodi-pagamento-casino'
     | '/migliori-casino-online'
@@ -1308,6 +1320,7 @@ export interface RootRouteChildren {
   GuidaCasinoOnlineItaliaRoute: typeof GuidaCasinoOnlineItaliaRoute
   GuidaRtpRoute: typeof GuidaRtpRoute
   GuideRoute: typeof GuideRoute
+  MappaSitoRoute: typeof MappaSitoRoute
   McpRoute: typeof McpRoute
   MetodiPagamentoCasinoRoute: typeof MetodiPagamentoCasinoRoute
   MiglioriCasinoOnlineRoute: typeof MiglioriCasinoOnlineRoute
@@ -1644,6 +1657,13 @@ declare module '@tanstack/react-router' {
       path: '/guide'
       fullPath: '/guide'
       preLoaderRoute: typeof GuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mappa-sito': {
+      id: '/mappa-sito'
+      path: '/mappa-sito'
+      fullPath: '/mappa-sito'
+      preLoaderRoute: typeof MappaSitoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mcp': {
@@ -2144,6 +2164,7 @@ const rootRouteChildren: RootRouteChildren = {
   GuidaCasinoOnlineItaliaRoute: GuidaCasinoOnlineItaliaRoute,
   GuidaRtpRoute: GuidaRtpRoute,
   GuideRoute: GuideRoute,
+  MappaSitoRoute: MappaSitoRoute,
   McpRoute: McpRoute,
   MetodiPagamentoCasinoRoute: MetodiPagamentoCasinoRoute,
   MiglioriCasinoOnlineRoute: MiglioriCasinoOnlineRoute,

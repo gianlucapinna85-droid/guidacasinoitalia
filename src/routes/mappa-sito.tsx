@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import { PageShell } from "@/components/site-layout";
 import { guides } from "@/data/guides";
 import { sortedBlog, blogPath } from "@/data/blog";
@@ -60,11 +61,11 @@ export const Route = createFileRoute("/mappa-sito")({
   component: SiteMapPage,
 });
 
-function LinkList({ children }: { children: React.ReactNode }) {
+function LinkList({ children }: { children: ReactNode }) {
   return <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">{children}</ul>;
 }
 
-function SiteLink({ to, children }: { to: string; children: React.ReactNode }) {
+function SiteLink({ to, children }: { to: string; children: ReactNode }) {
   return (
     <li>
       <Link
