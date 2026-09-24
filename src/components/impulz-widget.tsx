@@ -64,8 +64,9 @@ function applyGuards() {
     upsertStyle(sr, GUARD_STYLE_ID, css);
     upsertStyle(sr, POS_STYLE_ID, css);
     // Any click inside the widget (toggler) counts as explicit user intent.
-    if (!sr.getAttribute("data-gc-guard")) {
-      sr.setAttribute("data-gc-guard", "1");
+    const guarded = sr as ShadowRoot & { __gcGuard?: boolean };
+    if (!guarded.__gcGuard) {
+      guarded.__gcGuard = true;
       sr.addEventListener("click", markUserOpened, true);
     }
   }
