@@ -4,12 +4,18 @@ import { RelatedLinks } from "@/components/casino-ui";
 import { Gift, ShieldCheck, AlertTriangle, CheckCircle2, HelpCircle } from "lucide-react";
 import bonusVideoUrl from "@/assets/video/bonus-senza-deposito.mp4.asset.json";
 import { socialImageMeta } from "@/lib/social-image";
+import { operatorBonuses, BONUS_LAST_CHECK } from "@/data/bonuses";
+import { operators } from "@/lib/operators";
+
+const NO_DEP_ROWS = operatorBonuses
+  .filter((b) => b.noDeposit)
+  .map((b) => ({ ...b, name: operators.find((o) => o.slug === b.slug)?.name ?? b.slug }));
 
 export const Route = createFileRoute("/bonus-senza-deposito")({
   head: () => ({
     meta: [
-      { title: "Bonus Senza Deposito Casinò ADM 2026: Guida Completa" },
-      { name: "description", content: "Bonus senza deposito casinò ADM: cosa sono, requisiti di puntata, condizioni, verifica identità e differenze con i bonus di benvenuto. Guida 2026." },
+      { title: "Bonus Senza Deposito Casinò ADM: Elenco Aggiornato Settembre 2026" },
+      { name: "description", content: "Elenco aggiornato dei bonus senza deposito dei casinò ADM: importi dichiarati, condizioni (SPID, documento), wagering e fonte ufficiale di ogni operatore. Verificato settembre 2026." },
       { name: "keywords", content: "bonus senza deposito, casinò ADM, no deposit bonus, bonus benvenuto, requisiti di puntata, wagering, free spin senza deposito, bonus casinò 2026, concessione ADM" },
       { property: "og:title", content: "Bonus Senza Deposito Casinò ADM — Guida Completa 2026" },
       ...socialImageMeta(),
@@ -119,6 +125,42 @@ function Page() {
             </p>
           </div>
         </div>
+
+        <section className="mt-8" id="elenco-bonus">
+          <h2 className="text-2xl font-semibold text-foreground">Elenco bonus senza deposito ADM — aggiornato al {BONUS_LAST_CHECK}</h2>
+          <p className="mt-2 text-sm text-neutral-600">
+            Importi dichiarati dai concessionari sulle proprie pagine ufficiali. Fanno fede i Termini e Condizioni dell'operatore.
+          </p>
+          <div className="mt-4 overflow-x-auto rounded-xl border border-neutral-200">
+            <table className="w-full text-sm">
+              <thead className="bg-neutral-50 text-left text-neutral-700">
+                <tr>
+                  <th className="px-4 py-3">Operatore ADM</th>
+                  <th className="px-4 py-3">Bonus senza deposito</th>
+                  <th className="px-4 py-3">Condizione</th>
+                  <th className="px-4 py-3">Scheda</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-neutral-200 text-neutral-700">
+                {NO_DEP_ROWS.map((r) => (
+                  <tr key={r.slug}>
+                    <td className="px-4 py-3 font-medium">{r.name}</td>
+                    <td className="px-4 py-3 font-semibold text-foreground">{r.noDeposit!.amount}</td>
+                    <td className="px-4 py-3">{r.noDeposit!.condition}</td>
+                    <td className="px-4 py-3">
+                      <Link to="/operatori/$slug" params={{ slug: r.slug }} className="text-gold underline">Recensione</Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-3 text-sm text-neutral-600">
+            Vedi anche: <Link to="/bonus-immediato-spid" className="underline">bonus immediato con SPID</Link>,{" "}
+            <Link to="/bonus-50-euro-senza-deposito" className="underline">bonus 50 € senza deposito</Link>,{" "}
+            <Link to="/osservatorio-bonus-adm" className="underline">Osservatorio Bonus ADM</Link>.
+          </p>
+        </section>
 
         <section className="mt-10">
           <h2 className="text-2xl font-semibold text-foreground">Video: il bonus senza deposito spiegato con voce narrante</h2>
