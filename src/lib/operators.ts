@@ -10,9 +10,9 @@ import goldbetLogo from "@/assets/logos/goldbet.webp";
 import snaiLogo from "@/assets/logos/snai.webp";
 import sisalLogo from "@/assets/logos/sisal.webp";
 import eplay24Logo from "@/assets/logos/eplay24.webp";
-import admiralbetAsset from "@/assets/logos/admiralbet.jpeg.asset.json";
-import stakeAsset from "@/assets/logos/stake-hd.png.asset.json";
-import sportiumAsset from "@/assets/logos/sportium-hd.png.asset.json";
+import admiralbetLogo from "@/assets/logos/admiralbet.webp";
+import stakeLogo from "@/assets/logos/stake.webp";
+import sportiumLogo from "@/assets/logos/sportium.webp";
 import betssonLogo from "@/assets/logos/betsson.webp";
 import starcasinoLogo from "@/assets/logos/starcasino.webp";
 import { getOperatorBonus } from "@/data/bonuses";
@@ -286,7 +286,7 @@ export const operators: Operator[] = [
   {
     slug: "admiralbet",
     name: "AdmiralBet",
-    logo: admiralbetAsset.url,
+    logo: admiralbetLogo,
     concessionN: "ADM n. 15228",
     founded: 2017,
     rtpAverage: "96,1%",
@@ -302,7 +302,7 @@ export const operators: Operator[] = [
   {
     slug: "stake",
     name: "Stake",
-    logo: stakeAsset.url,
+    logo: stakeLogo,
     concessionN: "ADM n. 15272",
     founded: 2017,
     rtpAverage: "96,4%",
@@ -318,7 +318,7 @@ export const operators: Operator[] = [
   {
     slug: "sportium",
     name: "Sportium",
-    logo: sportiumAsset.url,
+    logo: sportiumLogo,
     concessionN: "ADM n. 15290",
     founded: 2020,
     rtpAverage: "96,0%",
