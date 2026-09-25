@@ -59,7 +59,7 @@ const FAQS = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Casinò Online ADM 2026: 17 Operatori Legali e Bonus Verificati" },
+      { title: "Casinò Online ADM 2026: 15 Operatori Legali e Bonus Verificati" },
       { name: "description", content: "Confronta i casinò online legali in Italia: bonus senza deposito verificati, prelievi, SPID e concessione ADM di ogni operatore. Dati controllati ogni settimana. Solo +18." },
 
       { name: "keywords", content: "migliori casino online adm, bonus casino senza deposito, casino online sicuri italia, slot online affidabili, guide casino online, recensioni casino adm, bonus benvenuto casino 2026, casino adm, casino aams, bonus senza deposito, bonus senza deposito immediato, casino online sicuri, casino online italiani, migliori casino online 2026, concessione adm, gioco legale italia, casino con spid, come verificare licenza adm, casino legali italia elenco, quali sono i casino con concessione adm" },
@@ -71,7 +71,7 @@ export const Route = createFileRoute("/")({
       { name: "geo.region", content: "IT" },
       
       { name: "author", content: "GuidaCasinò.IT" },
-      { property: "og:title", content: "Casinò Online ADM 2026: 17 Operatori Legali e Bonus Verificati" },
+      { property: "og:title", content: "Casinò Online ADM 2026: 15 Operatori Legali e Bonus Verificati" },
       ...socialImageMeta(),
       { property: "og:description", content: "Confronta i casinò online legali in Italia: bonus senza deposito verificati, prelievi, SPID e concessione ADM di ogni operatore. Dati controllati ogni settimana. Solo +18." },
 
@@ -80,7 +80,7 @@ export const Route = createFileRoute("/")({
       { property: "og:locale", content: "it_IT" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:url", content: "https://www.guidacasino-italia.it/" },
-      { name: "twitter:title", content: "Casinò Online ADM 2026: 17 Operatori Legali e Bonus Verificati" },
+      { name: "twitter:title", content: "Casinò Online ADM 2026: 15 Operatori Legali e Bonus Verificati" },
       { name: "twitter:description", content: "Confronta i casinò online legali in Italia: bonus senza deposito verificati, prelievi, SPID e concessione ADM di ogni operatore. Dati controllati ogni settimana. Solo +18." },
 
 
