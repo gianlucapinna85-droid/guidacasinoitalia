@@ -6,7 +6,7 @@ import { sortedNews } from "@/data/news";
 import { socialImageMeta } from "@/lib/social-image";
 
 const CANONICAL = "https://www.guidacasino-italia.it/news";
-const TITLE = "News Casinò e Bonus 2026 | Aggiornamenti ADM, slot e pagamenti";
+const TITLE = "News Casinò Online ADM Oggi: Bonus, Slot e Novità (Settembre 2026)";
 const DESCRIPTION =
   "Aggiornamenti informativi su casinò online ADM: nuove iniziative bonus, slot appena uscite, novità normative, metodi di pagamento e tornei. Solo +18.";
 
