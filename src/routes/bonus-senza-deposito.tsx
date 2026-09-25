@@ -11,6 +11,17 @@ const NO_DEP_ROWS = operatorBonuses
   .filter((b) => b.noDeposit)
   .map((b) => ({ ...b, name: operators.find((o) => o.slug === b.slug)?.name ?? b.slug }));
 
+const EXTRA_FAQ = [
+  { q: "Quali casinò ADM offrono il bonus senza deposito?", a: "L'elenco aggiornato in questa pagina riporta gli operatori con concessione ADM che dichiarano un bonus senza deposito sulle proprie pagine ufficiali, con importo e condizione di accesso." },
+  { q: "Come si ottiene un bonus senza deposito?", a: "Si apre un conto di gioco su un concessionario ADM, si completa la verifica dell'identità (con SPID o caricando un documento), si accettano i Termini della promozione e, se richiesto, si inserisce il codice bonus. L'accredito avviene dopo la convalida del conto." },
+  { q: "Con SPID il bonus arriva prima?", a: "Spesso sì: SPID identifica subito il giocatore e sostituisce l'invio manuale del documento, per cui l'accredito può essere immediato. I tempi dipendono comunque dall'operatore." },
+  { q: "Il bonus senza deposito è valido su tutte le slot?", a: "No. Ogni operatore indica i giochi ammessi e la percentuale di contribuzione al wagering: le slot contano di solito al 100%, i giochi da tavolo e il live meno o per nulla." },
+  { q: "Quanto dura un bonus senza deposito?", a: "La scadenza varia da pochi giorni ad alcune settimane dall'accredito. Se il wagering non viene completato entro il termine, il bonus e le relative vincite decadono." },
+  { q: "Esiste un limite alle vincite prelevabili?", a: "Molte promozioni prevedono un importo massimo convertibile in saldo reale. Il valore esatto è indicato nei Termini e Condizioni del concessionario." },
+  { q: "Posso avere il bonus senza deposito se ho già un conto sullo stesso casinò?", a: "Di norma no: il bonus di benvenuto è riservato ai nuovi clienti ed è concesso una sola volta per persona, codice fiscale e dispositivo." },
+  { q: "I bonus senza deposito dei casinò non AAMS sono uguali?", a: "No. Gli operatori senza concessione ADM non sono soggetti alle regole e alle tutele italiane (RUA, autolimitazione, verifica dell'età). Su questo sito confrontiamo solo concessionari ADM." },
+];
+
 export const Route = createFileRoute("/bonus-senza-deposito")({
   head: () => ({
     meta: [
@@ -70,6 +81,7 @@ export const Route = createFileRoute("/bonus-senza-deposito")({
               name: "I bonus senza deposito sono legali in Italia?",
               acceptedAnswer: { "@type": "Answer", text: "Sì, se offerti da un operatore titolare di concessione ADM (ex AAMS) e nel rispetto delle condizioni pubblicate dal concessionario e della normativa vigente." },
             },
+            ...EXTRA_FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
           ],
         }),
       },
@@ -271,6 +283,86 @@ function Page() {
           </p>
         </div>
 
+        <section className="mt-10" id="confronto-casino">
+          <h2 className="text-2xl font-semibold text-foreground">Confronto tra casinò ADM: bonus senza deposito e di benvenuto</h2>
+          <p className="mt-2 text-sm text-neutral-600">
+            Confronto dei concessionari ADM presenti nel nostro comparatore: bonus senza deposito, bonus sul primo deposito, RTP medio dichiarato e numero di metodi di pagamento.
+          </p>
+          <div className="mt-4 overflow-x-auto rounded-xl border border-neutral-200">
+            <table className="w-full min-w-[640px] text-sm">
+              <thead className="bg-neutral-50 text-left text-neutral-700">
+                <tr>
+                  <th className="px-3 py-3">Casinò</th>
+                  <th className="px-3 py-3">Senza deposito</th>
+                  <th className="px-3 py-3">Primo deposito</th>
+                  <th className="px-3 py-3">RTP medio</th>
+                  <th className="px-3 py-3">Pagamenti</th>
+                  <th className="px-3 py-3">Concessione</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-neutral-200 text-neutral-700">
+                {operators.map((o) => {
+                  const b = operatorBonuses.find((x) => x.slug === o.slug);
+                  return (
+                    <tr key={o.slug}>
+                      <td className="px-3 py-3 font-medium">
+                        <Link to="/operatori/$slug" params={{ slug: o.slug }} className="underline hover:text-gold">{o.name}</Link>
+                      </td>
+                      <td className="px-3 py-3">{b?.noDeposit?.amount ?? "—"}</td>
+                      <td className="px-3 py-3">{b?.deposit?.amount ?? "—"}</td>
+                      <td className="px-3 py-3">{o.rtpAverage}</td>
+                      <td className="px-3 py-3">{o.paymentMethods.length}</td>
+                      <td className="px-3 py-3 text-xs">{o.concessionN}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-2 text-xs text-neutral-500">"—" = dato non pubblicato sulla pagina ufficiale al {BONUS_LAST_CHECK}. Fanno fede i T&amp;C dell'operatore.</p>
+        </section>
+
+        <section className="mt-10" id="come-ottenere">
+          <h2 className="text-2xl font-semibold text-foreground">Come ottenere un bonus senza deposito: guida passo passo</h2>
+          <p className="mt-3 text-neutral-700">
+            Ottenere un <strong>bonus senza deposito</strong> su un casinò ADM richiede pochi minuti, ma ogni passaggio conta:
+            un errore nei dati o nella verifica può bloccare l'accredito. Ecco la procedura reale seguita dai concessionari italiani.
+          </p>
+          <h3 className="mt-6 text-lg font-semibold text-foreground">1. Scegli un operatore con concessione ADM</h3>
+          <p className="mt-2 text-neutral-700">
+            Parti dall'elenco qui sopra e controlla che il numero di concessione sia presente sull'elenco pubblico ADM
+            (vedi <Link to="/verificare-licenza-adm" className="underline">come verificare una licenza ADM</Link>). Solo i concessionari italiani garantiscono le tutele previste dalla legge.
+          </p>
+          <h3 className="mt-6 text-lg font-semibold text-foreground">2. Registrati con dati reali</h3>
+          <p className="mt-2 text-neutral-700">
+            Nome, codice fiscale, indirizzo e data di nascita devono coincidere con il documento: il conto di gioco è nominativo e
+            i dati vengono controllati con l'Anagrafe Tributaria. Dati errati = bonus negato e conto sospeso.
+          </p>
+          <h3 className="mt-6 text-lg font-semibold text-foreground">3. Verifica l'identità (SPID o documento)</h3>
+          <p className="mt-2 text-neutral-700">
+            Con <Link to="/bonus-immediato-spid" className="underline">SPID</Link> l'identificazione è immediata; in alternativa si
+            carica fronte e retro di carta d'identità, patente o passaporto. Il bonus senza deposito viene accreditato solo a conto convalidato.
+          </p>
+          <h3 className="mt-6 text-lg font-semibold text-foreground">4. Attiva la promozione</h3>
+          <p className="mt-2 text-neutral-700">
+            Alcuni operatori accreditano il bonus in automatico, altri richiedono di accettarlo nell'area promozioni o di inserire un
+            codice in fase di registrazione. Leggi sempre i Termini: giochi ammessi, scadenza, puntata massima.
+          </p>
+          <h3 className="mt-6 text-lg font-semibold text-foreground">5. Completa i requisiti di puntata</h3>
+          <p className="mt-2 text-neutral-700">
+            Il credito bonus diventa prelevabile solo dopo il <Link to="/requisiti-scommessa-bonus" className="underline">wagering</Link>.
+            Prima del prelievo può essere richiesto anche un primo deposito di convalida: è indicato nei T&amp;C.
+          </p>
+          <h3 className="mt-6 text-lg font-semibold text-foreground">6. Imposta i limiti di gioco</h3>
+          <p className="mt-2 text-neutral-700">
+            Prima di giocare imposta limiti di deposito e di tempo: sono obbligatori per legge e ti proteggono.
+            Approfondisci su <Link to="/gioco-responsabile" className="underline">gioco responsabile</Link>.
+          </p>
+          <p className="mt-4 text-sm text-neutral-600">
+            Guida completa: <Link to="/come-ottenere-bonus-senza-deposito" className="font-semibold text-gold underline">come ottenere un bonus senza deposito, passo per passo</Link>.
+          </p>
+        </section>
+
         <h2 className="mt-10 text-2xl font-semibold text-foreground">Domande frequenti (FAQ)</h2>
         <div className="mt-4 space-y-4">
           {[
@@ -290,6 +382,7 @@ function Page() {
               q: "Posso ricevere più bonus senza deposito da concessionari diversi?",
               a: "Sì, ogni operatore ADM ha promozioni indipendenti. Ricorda però di attivare gli strumenti di autolimitazione e di giocare in modo responsabile.",
             },
+            ...EXTRA_FAQ,
           ].map((f) => (
             <details key={f.q} className="group rounded-lg border border-neutral-200 bg-white p-4">
               <summary className="flex cursor-pointer items-center justify-between text-sm font-semibold text-neutral-800">
