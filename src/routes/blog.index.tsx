@@ -8,7 +8,7 @@ import { socialImageMeta } from "@/lib/social-image";
 
 const SITE_URL = "https://www.guidacasino-italia.it";
 const CANONICAL = `${SITE_URL}/blog`;
-const TITLE = "Blog Casinò e Sport | Guide, analisi e approfondimenti 2026";
+const TITLE = "Blog Casinò e Scommesse: Guide Pratiche e Analisi Indipendenti 2026";
 const DESCRIPTION =
   "Blog editoriale su slot, roulette, blackjack, live casino, RTP, bonus, pagamenti e sport: guide approfondite e analisi indipendenti. Solo +18.";
 

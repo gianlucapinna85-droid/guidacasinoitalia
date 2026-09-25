@@ -10,7 +10,7 @@ import {
 
 const CFG: GuideConfig = {
   path: "/bonus-immediato-spid",
-  title: "Bonus immediato con SPID: come funziona | Guida 2026",
+  title: "Bonus Immediato con SPID: Senza Deposito e Senza Documento (2026)",
   h1: "Bonus immediato senza deposito e senza documento: il ruolo di SPID",
   description:
     "Come SPID sostituisce l'invio manuale del documento e rende immediato l'accredito del bonus senza deposito sui casinò ADM. Guida informativa, solo +18.",

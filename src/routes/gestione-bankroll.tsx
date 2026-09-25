@@ -3,7 +3,7 @@ import { GuideArticle, guideHead, type GuideConfig } from "@/components/guide-ar
 
 const cfg: GuideConfig = {
   path: "/gestione-bankroll",
-  title: "Gestione bankroll: scommesse sportive e casinò online 2026",
+  title: "Gestione Bankroll: Metodo Semplice per Scommesse e Casinò (2026)",
   h1: "Gestione del bankroll per scommesse sportive e casinò online",
   description:
     "Come impostare un budget di gioco: dimensionamento della puntata, staking plan, varianza, registrazione dei risultati e limiti di autolimitazione sui concessionari ADM. Guida informativa. Solo +18.",
