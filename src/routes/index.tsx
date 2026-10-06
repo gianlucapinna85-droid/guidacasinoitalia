@@ -12,6 +12,7 @@ import { AdmBadgeDot } from "@/components/casino-card";
 import { ReadMore } from "@/components/read-more";
 import { socialImageMeta } from "@/lib/social-image";
 import { slots } from "@/data/slots";
+import { GameBanners } from "@/components/game-banners";
 
 
 
@@ -609,6 +610,7 @@ function HomePage() {
   return (
     <PageShell>
       <Hero />
+      <GameBanners />
       <CasinoComparator
         sectionId="tutti-i-casino"
         eyebrow="Tutti i casinò"

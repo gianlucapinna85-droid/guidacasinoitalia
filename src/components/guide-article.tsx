@@ -9,6 +9,8 @@ import { AuthorByline, AuthorBox } from "@/components/author-byline";
 import { LegalNote } from "@/components/legal-note";
 import { authorSchema } from "@/lib/author";
 import { PageOfferStrip } from "@/components/page-offer-strip";
+import { gameCatalog } from "@/data/game-catalog";
+import { GameGuideNavigation } from "@/components/game-banners";
 
 
 
@@ -251,6 +253,7 @@ export function GuideArticle({ cfg, children }: { cfg: GuideConfig; children?: R
           <h1 className="mt-2 font-serif text-3xl leading-tight md:text-5xl">{cfg.h1}</h1>
           <p className="mt-4 text-sm text-muted-foreground md:text-base">{cfg.description}</p>
           <AuthorByline className="mt-4" />
+          {gameCatalog.find((game) => game.path === cfg.path) ? <img src={gameCatalog.find((game) => game.path === cfg.path)?.image} alt={`Illustrazione editoriale: ${cfg.breadcrumb}`} width={1200} height={640} className="mt-6 aspect-[15/8] w-full rounded-lg object-cover" decoding="async" /> : null}
         </header>
 
         <PageOfferStrip placement="article" />
@@ -298,6 +301,7 @@ export function GuideArticle({ cfg, children }: { cfg: GuideConfig; children?: R
 
 
         {children}
+        {gameCatalog.some((game) => game.path === cfg.path) ? <GameGuideNavigation current={cfg.path} /> : null}
 
         <FaqSlider items={cfg.faqs} title="Domande frequenti" />
 
