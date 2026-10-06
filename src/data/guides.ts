@@ -462,7 +462,41 @@ export const guides: Guide[] = [
       "Guida informativa ai casinò non AAMS: licenze internazionali, criteri di valutazione e differenze con la concessione ADM.",
     changefreq: "monthly",
     priority: "0.8",
-  },
+  },{
+  "path": "/poker-online-italia",
+  "title": "Poker online",
+  "description": "Come funziona il poker online: carte, turni di puntata, classifica delle mani, cash game e tornei. Guida informativa per adulti sui siti ADM.",
+  "changefreq": "monthly",
+  "priority": "0.8"
+},
+{
+  "path": "/baccarat-online",
+  "title": "Baccarat online",
+  "description": "Regole del baccarat Punto Banco: valore delle carte, punteggi, terza carta, commissioni e differenze fra Banco, Punto e Pareggio. Solo +18.",
+  "changefreq": "monthly",
+  "priority": "0.8"
+},
+{
+  "path": "/bingo-online",
+  "title": "Bingo online",
+  "description": "Guida al bingo online italiano: 90 numeri, cartelle, cinquina, bingo, premi e controlli ADM. Differenze con il bingo a 75 numeri e limiti di spesa.",
+  "changefreq": "monthly",
+  "priority": "0.8"
+},
+{
+  "path": "/craps-regole",
+  "title": "Craps",
+  "description": "Regole del craps spiegate con esempi: come-out roll, Pass Line, punto, probabilità dei due dadi e differenze fra le puntate. Guida +18.",
+  "changefreq": "monthly",
+  "priority": "0.8"
+},
+{
+  "path": "/game-show-casino",
+  "title": "Game show da casinò",
+  "description": "Come funzionano i game show live: ruote, conduttori, moltiplicatori, round bonus e RTP. Differenze dai tavoli classici e limiti di gioco. +18.",
+  "changefreq": "monthly",
+  "priority": "0.8"
+}
 ];
 
 
