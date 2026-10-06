@@ -83,7 +83,7 @@ function Page() {
 
         <img
           src={slot.image}
-          alt={`Copertina originale della slot ${slot.name} di ${slot.provider}`}
+          alt={`Immagine originale della slot ${slot.name} di ${slot.provider}`}
           width={640}
           height={512}
           decoding="async"

@@ -1,16 +1,16 @@
 // Registro delle slot più giocate in Italia (contenuto informativo).
 // Ogni slot rimanda alla scheda di un concessionario ADM diverso: il link
 // utilizzato è SEMPRE operator.officialUrl (nessun link definito qui).
-import libroEgizio from "@/assets/slots/original/book-of-ra.webp.asset.json";
-import libroEsploratore from "@/assets/slots/original/book-of-dead.webp.asset.json";
-import minieraGemme from "@/assets/slots/original/bonanza-megaways.webp.asset.json";
-import cittaOroJungla from "@/assets/slots/original/gonzos-quest-megaways.webp.asset.json";
-import stellaGemme from "@/assets/slots/original/starburst.webp.asset.json";
-import dolciFrutti from "@/assets/slots/original/sweet-bonanza.webp.asset.json";
-import olimpoFulmini from "@/assets/slots/original/gates-of-olympus.webp.asset.json";
-import pescaGrossa from "@/assets/slots/original/big-bass-bonanza.webp.asset.json";
-import gallinaOro from "@/assets/slots/original/fowl-play-gold.webp.asset.json";
-import reginaNilo from "@/assets/slots/original/cleopatra.webp.asset.json";
+import libroEgizio from "@/assets/slots/official-hq/book-of-ra.jpg.asset.json";
+import libroEsploratore from "@/assets/slots/official-hq/book-of-dead.jpg.asset.json";
+import minieraGemme from "@/assets/slots/official-hq/bonanza-megaways.jpg.asset.json";
+import cittaOroJungla from "@/assets/slots/official-hq/gonzos-quest-megaways.png.asset.json";
+import stellaGemme from "@/assets/slots/official-hq/starburst.jpg.asset.json";
+import dolciFrutti from "@/assets/slots/official-hq/sweet-bonanza.jpg.asset.json";
+import olimpoFulmini from "@/assets/slots/official-hq/gates-of-olympus.png.asset.json";
+import pescaGrossa from "@/assets/slots/official-hq/big-bass-bonanza.png.asset.json";
+import gallinaOro from "@/assets/slots/official-hq/fowl-play-gold.jpg.asset.json";
+import reginaNilo from "@/assets/slots/official-hq/cleopatra.png.asset.json";
 
 export type Slot = {
   /** slug indicizzabile: /slot/<slug> */
@@ -118,7 +118,7 @@ export const slots: Slot[] = [
   {
     slug: "fowl-play-gold",
     name: "Fowl Play Gold",
-    provider: "Capecod",
+    provider: "WMG",
     rtp: "95,0%",
     volatility: "Media",
     image: gallinaOro.url,
