@@ -51,6 +51,12 @@ function Page() {
       />
 
       <section className="mx-auto max-w-6xl xl:max-w-7xl px-2.5 pb-10 md:px-6">
+        <section className="mb-8 border-y border-border py-6" aria-labelledby="review-method">
+          <h2 id="review-method" className="font-serif text-xl md:text-2xl">Come leggere una recensione senza fermarsi al voto</h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Il voto redazionale è una sintesi, non una promessa di vincita né una prova di prelievo effettuato. Parti dalla concessione, poi confronta il metodo che useresti per prelevare: un logo di pagamento non dimostra che lo stesso metodo sia disponibile sia per depositi sia per prelievi.</p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Nella scheda separa i tempi dichiarati dall’operatore dai tempi di accredito del metodo scelto. Un dato mancante non vale zero e non prova che un servizio sia assente. Per ripetere il confronto consulta i <Link to="/migliori-casino-online-adm" hash="criteri" className="text-gold underline">criteri di valutazione dei casinò ADM</Link> e il <Link to="/come-valutiamo-i-casino" className="text-gold underline">metodo editoriale</Link>.</p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Se confronti le condizioni di un credito promozionale, leggi l’<Link to="/bonus-senza-deposito" className="text-gold underline">analisi dei bonus senza deposito</Link> prima dell’importo nominale. Per controllare società e dominio usa la <Link to="/verificare-licenza-adm" className="text-gold underline">procedura di verifica della concessione ADM</Link>.</p>
+        </section>
         <h2 className="font-serif text-lg md:text-2xl">Tutte le recensioni</h2>
         <ul className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {operators.map((op) => (

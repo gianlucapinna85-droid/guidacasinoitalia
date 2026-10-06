@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   GuideArticle,
   guideHeadWithWebPage,
@@ -118,6 +118,12 @@ export const Route = createFileRoute("/migliori-casino-online-adm")({
 function Page() {
   return (
     <GuideArticle cfg={CFG}>
+      <section className="mt-10 border-y border-border py-6">
+        <h2 className="font-serif text-2xl">Una scheda di controllo prima del confronto</h2>
+        <p className="mt-3 leading-relaxed text-muted-foreground">Per non confrontare dati diversi, annota per ciascun operatore: dominio consultato, società concessionaria, data dei termini, metodo di prelievo e stato della verifica documentale. Il tempo di elaborazione del concessionario e quello di accredito del pagamento sono due fasi distinte: una cifra senza contesto non descrive il tempo totale.</p>
+        <p className="mt-3 leading-relaxed text-muted-foreground">Apri le <Link to="/recensioni" className="text-gold underline">recensioni dei casinò ADM</Link> per confrontare questi campi, poi usa la <Link to="/verificare-licenza-adm" className="text-gold underline">verifica della concessione</Link> per controllare la corrispondenza fra dominio e società. Una licenza e un voto redazionale non garantiscono un’esperienza priva di rischi.</p>
+        <p className="mt-3 leading-relaxed text-muted-foreground">Se è indicato un bonus, tienilo separato dalla valutazione del conto: l’<Link to="/bonus-senza-deposito" className="text-gold underline">analisi dei bonus senza deposito</Link> distingue importo, wagering e limiti. Per proseguire su pagamenti, documenti e tutele consulta l’<Link to="/guide" className="text-gold underline">indice delle guide ADM</Link>.</p>
+      </section>
       <SeoTable
         caption="Casino online ADM a confronto: parametri verificabili"
         headers={["Parametro", "Cosa verificare", "Dove trovarlo"]}

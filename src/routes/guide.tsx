@@ -65,6 +65,16 @@ function GuideIndexPage() {
           </p>
         </header>
 
+        <section className="mt-8 border-b border-border pb-6" aria-labelledby="guide-path">
+          <h2 id="guide-path" className="font-serif text-xl md:text-2xl">Un percorso di verifica in tre passaggi</h2>
+          <ol className="mt-4 list-decimal space-y-4 pl-5 text-sm leading-relaxed text-muted-foreground">
+            <li><strong className="text-foreground">Identifica il concessionario.</strong> La grafica o un logo non bastano: confronta ragione sociale, numero di concessione e dominio seguendo la <Link to="/verificare-licenza-adm" className="text-gold underline">guida alla verifica ADM</Link>.</li>
+            <li><strong className="text-foreground">Confronta condizioni omogenee.</strong> Apri le <Link to="/recensioni" className="text-gold underline">recensioni dei concessionari</Link> e usa gli stessi parametri: documenti, metodo di prelievo, costi e limiti. La <Link to="/migliori-casino-online-adm" className="text-gold underline">guida ai casinò ADM</Link> spiega che cosa controllare e dove trovare le informazioni.</li>
+            <li><strong className="text-foreground">Leggi i vincoli prima dell’importo.</strong> Nel confronto dei <Link to="/bonus-senza-deposito" className="text-gold underline">bonus senza deposito</Link> distingui credito nominale, volume di puntate e saldo convertibile. Una condizione non indicata va verificata nei termini, non interpretata come assenza di limiti.</li>
+          </ol>
+          <p className="mt-4 text-sm text-muted-foreground">Queste verifiche aiutano a leggere i dati, non eliminano il rischio di perdita. Prima di qualsiasi sessione consulta gli <Link to="/gioco-responsabile" className="text-gold underline">strumenti di autolimitazione e autoesclusione</Link>.</p>
+        </section>
+
         <ul className="mt-8 grid gap-3 sm:grid-cols-2">
           {guides.map((g) => (
             <li key={g.path} className="rounded-xl border border-border bg-card p-4">
