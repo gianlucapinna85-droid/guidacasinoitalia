@@ -60,7 +60,8 @@ function SlotNotFound() {
 
 function Page() {
   const { slug } = Route.useParams();
-  const slot = slots.find((s) => s.slug === slug)!;
+  const slot = slots.find((s) => s.slug === slug);
+  if (!slot) return <SlotNotFound />;
   const detail = slotDetails[slug];
   const op = operators.find((o) => o.slug === slot.operatorSlug);
 
@@ -82,11 +83,11 @@ function Page() {
 
         <img
           src={slot.image}
-          alt={`Illustrazione della slot ${slot.name} di ${slot.provider}`}
+          alt={`Copertina originale della slot ${slot.name} di ${slot.provider}`}
           width={640}
           height={512}
           decoding="async"
-          className="mt-3 aspect-[5/4] w-full rounded-xl object-cover md:aspect-[16/7]"
+          className="mt-3 aspect-[5/4] w-full rounded-xl bg-muted object-contain md:aspect-[16/7]"
         />
 
         {op ? (
@@ -144,8 +145,8 @@ function Page() {
         ) : null}
 
         <p className="mt-4 text-[11px] leading-snug text-muted-foreground">
-          Contenuto informativo. Le immagini sono illustrazioni originali a scopo editoriale e non
-          riproducono materiale protetto dei provider. Vietato ai minori di 18 anni: il gioco può
+          Contenuto informativo. Immagini e marchi dei giochi appartengono ai rispettivi titolari
+          e sono mostrati per identificare i titoli trattati. Vietato ai minori di 18 anni: il gioco può
           causare dipendenza patologica.
         </p>
 

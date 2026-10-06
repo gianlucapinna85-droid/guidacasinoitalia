@@ -56,8 +56,8 @@ function Page() {
         <h1 className="mt-2 font-serif text-xl md:text-4xl">Le 10 slot più giocate in Italia</h1>
         <p className="mt-2 max-w-3xl text-[13px] leading-snug text-muted-foreground md:text-base">
           Una selezione dei titoli più conosciuti sui casinò con concessione ADM, con RTP dichiarato
-          dal provider, volatilità e operatore su cui sono disponibili. Le immagini sono
-          illustrazioni originali. Contenuto informativo, vietato ai minori di 18 anni.
+          dal provider, volatilità e operatore su cui sono disponibili. Le immagini raffigurano
+          i giochi originali dei rispettivi provider. Contenuto informativo, vietato ai minori di 18 anni.
         </p>
         <SlotsGrid />
       </section>
