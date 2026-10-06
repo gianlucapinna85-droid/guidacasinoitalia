@@ -1,5 +1,6 @@
 ## Immagini delle slot
-- [ ] Ricontrollare ogni versione e sostituire le copertine con originali alla massima qualità nativa disponibile
+- [x] Ricontrollare le versioni e sostituire nove copertine con originali ufficiali senza riduzione di qualità
+- [ ] Ottenere il master ufficiale di Cleopatra: immagine IGT pubblica ad alta qualità non disponibile; serve il file del titolare
 - [x] Sostituire le dieci illustrazioni con copertine autentiche dei giochi
 - [x] Aggiornare le descrizioni delle immagini e verificarne la visualizzazione
 
