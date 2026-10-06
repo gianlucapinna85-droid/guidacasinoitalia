@@ -1,30 +1,24 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Club, CircleDot, Spade, Diamond, Grid3X3, Dices, Video, CirclePlay, Cherry } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { gameCatalog } from "@/data/game-catalog";
 
 export function GameBanners() {
+  const icons = [Club, CircleDot, Spade, Diamond, Grid3X3, Dices, Video, CirclePlay, Cherry];
   return (
     <section id="guide-giochi" aria-labelledby="games-heading" className="border-y border-border bg-background">
-      <div className="mx-auto max-w-7xl px-2.5 py-8 md:px-6 md:py-12">
-        <p className="text-xs uppercase text-gold">Regole e approfondimenti · +18</p>
-        <h2 id="games-heading" className="mt-2 font-serif text-2xl md:text-4xl">Guide ai giochi da casinò</h2>
-        <p className="mt-3 max-w-3xl text-sm text-muted-foreground">Poker, roulette, blackjack e gli altri giochi: regole, probabilità e differenze da conoscere prima di scegliere.</p>
-        <nav aria-label="Accesso rapido alle guide dei giochi" className="mt-5 flex flex-wrap gap-2">
-          {gameCatalog.map((game) => <Button key={game.path} asChild variant="outline" className="border-gold/50 text-foreground"><Link to={game.path}>{game.name}<ArrowRight /></Link></Button>)}
+      <div className="mx-auto max-w-7xl px-2.5 py-4 md:px-6 md:py-5">
+        <h2 id="games-heading" className="font-serif text-lg md:text-xl">Giochi da casinò</h2>
+        <nav aria-label="Accesso rapido alle guide dei giochi" className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-5 lg:grid-cols-9">
+          {gameCatalog.map((game, index) => {
+            const Icon = icons[index] ?? Club;
+            return (
+              <Button key={game.path} asChild variant="outline" className="h-auto min-h-16 min-w-0 flex-col gap-1.5 border-gold/50 bg-gold/5 px-1.5 py-2.5 text-foreground hover:border-gold hover:bg-gold/15">
+                <Link to={game.path}><Icon className="text-gold" aria-hidden="true" /><span className="whitespace-normal text-center text-xs leading-tight">{game.name}</span></Link>
+              </Button>
+            );
+          })}
         </nav>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {gameCatalog.map((game) => (
-            <article key={game.path} className="overflow-hidden rounded-lg border border-border bg-card">
-              <Link to={game.path} aria-label={`Guida ${game.name}`}><img src={game.image} alt={`Illustrazione editoriale: ${game.name}`} width={1200} height={640} loading="lazy" decoding="async" className="aspect-[15/8] w-full object-cover" /></Link>
-              <div className="p-4">
-                <h3 className="font-serif text-xl text-card-foreground">{game.name}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{game.description}</p>
-                <Button asChild className="mt-4 w-full bg-gold text-primary-foreground hover:bg-gold/90"><Link to={game.path}>Leggi la guida {game.name}<ArrowRight /></Link></Button>
-              </div>
-            </article>
-          ))}
-        </div>
       </div>
     </section>
   );

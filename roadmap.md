@@ -1,4 +1,5 @@
 ## Immagini delle slot
+- [x] Ripristinare la homepage con soli pulsanti compatti verso le categorie e verificare i banner affiliati nelle pagine dedicate
 - [x] Aggiungere guide per poker, baccarat, bingo, craps e game show con fonti verificabili
 - [x] Integrare banner per tutti i giochi e pulsanti visibili dalla homepage
 - [x] Verificare navigazione, immagini e nuove guide
