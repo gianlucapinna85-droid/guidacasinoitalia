@@ -1,4 +1,7 @@
 ## Immagini delle slot
+- [ ] Aggiungere guide per poker, baccarat, bingo, craps e game show con fonti verificabili
+- [ ] Integrare banner per tutti i giochi e pulsanti visibili dalla homepage
+- [ ] Verificare navigazione, immagini e nuove guide
 - [x] Ricontrollare le versioni e sostituire nove copertine con originali ufficiali senza riduzione di qualità
 - [x] Rimuovere Cleopatra e sostituirla con Rise of Merlin usando l'immagine caricata dall'utente
 - [x] Sostituire le dieci illustrazioni con copertine autentiche dei giochi
