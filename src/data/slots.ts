@@ -1,13 +1,13 @@
 // Registro delle slot più giocate in Italia (contenuto informativo).
 // Ogni slot rimanda alla scheda di un concessionario ADM diverso: il link
 // utilizzato è SEMPRE operator.officialUrl (nessun link definito qui).
-import libroEgizio from "@/assets/slots/libro-egizio.jpg";
-import libroEsploratore from "@/assets/slots/libro-esploratore.jpg";
-import minieraGemme from "@/assets/slots/miniera-gemme.jpg";
-import cittaOroJungla from "@/assets/slots/citta-oro-jungla.jpg";
-import stellaGemme from "@/assets/slots/stella-gemme.jpg";
-import dolciFrutti from "@/assets/slots/dolci-frutti.jpg";
-import olimpoFulmini from "@/assets/slots/olimpo-fulmini.jpg";
+import libroEgizio from "@/assets/slots/original/book-of-ra.webp.asset.json";
+import libroEsploratore from "@/assets/slots/original/book-of-dead.webp.asset.json";
+import minieraGemme from "@/assets/slots/original/bonanza-megaways.webp.asset.json";
+import cittaOroJungla from "@/assets/slots/original/gonzos-quest-megaways.webp.asset.json";
+import stellaGemme from "@/assets/slots/original/starburst.webp.asset.json";
+import dolciFrutti from "@/assets/slots/original/sweet-bonanza.webp.asset.json";
+import olimpoFulmini from "@/assets/slots/original/gates-of-olympus.webp.asset.json";
 import pescaGrossa from "@/assets/slots/pesca-grossa.jpg";
 import gallinaOro from "@/assets/slots/gallina-oro.jpg";
 import reginaNilo from "@/assets/slots/regina-nilo.jpg";
@@ -33,7 +33,7 @@ export const slots: Slot[] = [
     provider: "Novomatic",
     rtp: "95,1%",
     volatility: "Alta",
-    image: libroEgizio,
+    image: libroEgizio.url,
     operatorSlug: "snai",
     description:
       "La slot egizia più giocata in Italia: 5 rulli, simbolo speciale espandibile e 10 giri gratuiti.",
@@ -44,7 +44,7 @@ export const slots: Slot[] = [
     provider: "Play'n GO",
     rtp: "96,2%",
     volatility: "Alta",
-    image: libroEsploratore,
+    image: libroEsploratore.url,
     operatorSlug: "leovegas",
     description:
       "Avventura archeologica con simbolo espandibile nei free spin e volatilità elevata.",
@@ -55,7 +55,7 @@ export const slots: Slot[] = [
     provider: "Big Time Gaming",
     rtp: "96,0%",
     volatility: "Alta",
-    image: minieraGemme,
+    image: minieraGemme.url,
     operatorSlug: "netbet",
     description:
       "La Megaways originale: fino a 117.649 modi di vincita e reazioni a catena.",
@@ -66,7 +66,7 @@ export const slots: Slot[] = [
     provider: "Red Tiger",
     rtp: "95,7%",
     volatility: "Alta",
-    image: cittaOroJungla,
+    image: cittaOroJungla.url,
     operatorSlug: "888",
     description:
       "Versione Megaways del classico Avalanche, con moltiplicatori progressivi.",
@@ -77,7 +77,7 @@ export const slots: Slot[] = [
     provider: "NetEnt",
     rtp: "96,1%",
     volatility: "Bassa",
-    image: stellaGemme,
+    image: stellaGemme.url,
     operatorSlug: "betflag",
     description:
       "Slot iconica a bassa volatilità con wild espandibili e re-spin.",
@@ -88,7 +88,7 @@ export const slots: Slot[] = [
     provider: "Pragmatic Play",
     rtp: "96,5%",
     volatility: "Alta",
-    image: dolciFrutti,
+    image: dolciFrutti.url,
     operatorSlug: "sunbet",
     description:
       "Pay Anywhere, tumble e moltiplicatori fino a 100x nei giri gratuiti.",
@@ -99,7 +99,7 @@ export const slots: Slot[] = [
     provider: "Pragmatic Play",
     rtp: "96,5%",
     volatility: "Alta",
-    image: olimpoFulmini,
+    image: olimpoFulmini.url,
     operatorSlug: "william-hill",
     description:
       "Tema mitologico con simboli cadenti e moltiplicatori cumulativi.",
