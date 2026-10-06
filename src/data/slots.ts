@@ -10,7 +10,7 @@ import dolciFrutti from "@/assets/slots/official-hq/sweet-bonanza.jpg.asset.json
 import olimpoFulmini from "@/assets/slots/official-hq/gates-of-olympus.png.asset.json";
 import pescaGrossa from "@/assets/slots/official-hq/big-bass-bonanza.png.asset.json";
 import gallinaOro from "@/assets/slots/official-hq/fowl-play-gold.jpg.asset.json";
-import reginaNilo from "@/assets/slots/official-hq/cleopatra.png.asset.json";
+import riseOfMerlin from "@/assets/slots/official-hq/rise-of-merlin.jpeg.asset.json";
 
 export type Slot = {
   /** slug indicizzabile: /slot/<slug> */
@@ -127,14 +127,14 @@ export const slots: Slot[] = [
       "Un classico dei casinò italiani, con bonus della gallina e uova d'oro.",
   },
   {
-    slug: "cleopatra",
-    name: "Cleopatra",
-    provider: "IGT",
-    rtp: "95,0%",
-    volatility: "Media",
-    image: reginaNilo.url,
-    operatorSlug: "sisal",
+    slug: "rise-of-merlin",
+    name: "Rise of Merlin",
+    provider: "Play'n GO",
+    rtp: "96,58% (variabile secondo la versione)",
+    volatility: "Alta",
+    image: riseOfMerlin.url,
+    operatorSlug: "",
     description:
-      "Slot storica a tema egizio con 15 giri gratuiti e moltiplicatore 3x.",
+      "Slot a tema magico con Merlino, 8 giri gratuiti e simboli espandibili nella fase bonus.",
   },
 ];

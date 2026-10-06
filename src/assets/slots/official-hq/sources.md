@@ -13,8 +13,8 @@ Files are uploaded byte-for-byte, with no resizing, upscaling, generation, or ad
 | Gates of Olympus | 1200 × 630 | https://www.pragmaticplay.com/wp-content/uploads/2021/02/1200x630_EN-8.png | Official original-release press artwork |
 | Big Bass Bonanza | 1200 × 630 | https://www.pragmaticplay.com/wp-content/uploads/2020/12/1200x630_EN-2.png | Official original-release press artwork |
 | Fowl Play Gold | 960 × 620 | https://sg-digital-stage.s3.eu-west-1.amazonaws.com/wp-content/uploads/2022/02/28100048/Fowl-play-gold.jpg | Light & Wonder distribution artwork for WMG game, not retail box |
-| Cleopatra | 1024 × 683 | https://freeslots.me/cleopatra/ | Authentic-looking original IGT gameplay screenshot from editorial page; NOT an official-provider master, and no claim of maximum official quality. Provider master remains unavailable. |
+| Rise of Merlin | 500 × 349 | User upload: images.jpeg (2026-10-06) | Uploaded artwork preserved byte-for-byte. Original download URL and provider authorization were not supplied; do not claim a verified official master or higher native resolution. Game identity: https://www.playngo.com/games/rise-of-merlin |
 
 ## Remaining provenance limitation
 
-Cleopatra's official high-resolution master could not be obtained from publicly accessible IGT sources. The existing original-game screenshot is preserved without further compression; replacing it with a provider-authorized master requires the source asset. Do not label this as a verified official IGT cover.
+Rise of Merlin uses the image selected and uploaded by the user, at its native 500 × 349 resolution. No upscaling or recompression was applied. Gameplay verified against https://www.playngo.com/games/rise-of-merlin and RTP configurations against https://cnsicdn.kubdev.com/common-content/help/CNSI/game-documents/EN-Rise_of_Merlin.pdf. No specific Italian operator availability has been verified, so the registry does not assign an operator to this game.
