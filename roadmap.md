@@ -8,9 +8,9 @@
 - [x] Aggiornare le descrizioni delle immagini e verificarne la visualizzazione
 
 ## Indicizzazione Google e reindirizzamenti
-- [ ] Leggere lo stato in Google delle pagine prioritarie e distinguere il campione dal totale indicizzato
-- [ ] Rafforzare recensioni, bonus senza deposito e guide ADM con contenuti originali e link contestuali
-- [ ] Verificare i nuovi approfondimenti e la navigazione fra le pagine prioritarie
+- [x] Leggere lo stato in Google delle pagine prioritarie e distinguere il campione dal totale indicizzato
+- [x] Rafforzare recensioni, bonus senza deposito e guide ADM con contenuti originali e link contestuali
+- [x] Verificare i nuovi approfondimenti e la navigazione fra le pagine prioritarie
 - [x] Leggere i dati reali di Search Console
 - [x] Verificare sitemap, URL canoniche e redirect
 - [x] Correggere gli URL relativi non validi nei breadcrumb strutturati
