@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AssistenteGuidaCasinoRouteImport } from './routes/assistente-guida-casino'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as BaccaratOnlineRouteImport } from './routes/baccarat-online'
+import { Route as BingoOnlineRouteImport } from './routes/bingo-online'
 import { Route as BlackjackOnlineItaliaRouteImport } from './routes/blackjack-online-italia'
 import { Route as Bonus50EuroSenzaDepositoRouteImport } from './routes/bonus-50-euro-senza-deposito'
 import { Route as BonusBenvenutoCasinoRouteImport } from './routes/bonus-benvenuto-casino'
@@ -43,6 +45,8 @@ import { Route as ComeOttenereBonusSenzaDepositoRouteImport } from './routes/com
 import { Route as ComeRegistrarsiRouteImport } from './routes/come-registrarsi'
 import { Route as ComeScegliereCasinoOnlineAdmRouteImport } from './routes/come-scegliere-casino-online-adm'
 import { Route as ComeValutiamoICasinoRouteImport } from './routes/come-valutiamo-i-casino'
+import { Route as CrapsRegoleRouteImport } from './routes/craps-regole'
+import { Route as GameShowCasinoRouteImport } from './routes/game-show-casino'
 import { Route as GestioneBankrollRouteImport } from './routes/gestione-bankroll'
 import { Route as GiocoResponsabileRouteImport } from './routes/gioco-responsabile'
 import { Route as GuidaCasinoOnlineItaliaRouteImport } from './routes/guida-casino-online-italia'
@@ -59,6 +63,7 @@ import { Route as NoteLegaliRouteImport } from './routes/note-legali'
 import { Route as OperatoriCasinoEScommesseRouteImport } from './routes/operatori-casino-e-scommesse'
 import { Route as OsservatorioBonusAdmRouteImport } from './routes/osservatorio-bonus-adm'
 import { Route as PagamentiSicuriCasinoRouteImport } from './routes/pagamenti-sicuri-casino'
+import { Route as PokerOnlineItaliaRouteImport } from './routes/poker-online-italia'
 import { Route as PrelieviVelociRouteImport } from './routes/prelievi-veloci'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PronosticiCalcioComeAnalizzareRouteImport } from './routes/pronostici-calcio-come-analizzare'
@@ -130,6 +135,16 @@ const AssistenteGuidaCasinoRoute = AssistenteGuidaCasinoRouteImport.update({
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BaccaratOnlineRoute = BaccaratOnlineRouteImport.update({
+  id: '/baccarat-online',
+  path: '/baccarat-online',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BingoOnlineRoute = BingoOnlineRouteImport.update({
+  id: '/bingo-online',
+  path: '/bingo-online',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlackjackOnlineItaliaRoute = BlackjackOnlineItaliaRouteImport.update({
@@ -291,6 +306,16 @@ const ComeValutiamoICasinoRoute = ComeValutiamoICasinoRouteImport.update({
   path: '/come-valutiamo-i-casino',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CrapsRegoleRoute = CrapsRegoleRouteImport.update({
+  id: '/craps-regole',
+  path: '/craps-regole',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GameShowCasinoRoute = GameShowCasinoRouteImport.update({
+  id: '/game-show-casino',
+  path: '/game-show-casino',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GestioneBankrollRoute = GestioneBankrollRouteImport.update({
   id: '/gestione-bankroll',
   path: '/gestione-bankroll',
@@ -371,6 +396,11 @@ const OsservatorioBonusAdmRoute = OsservatorioBonusAdmRouteImport.update({
 const PagamentiSicuriCasinoRoute = PagamentiSicuriCasinoRouteImport.update({
   id: '/pagamenti-sicuri-casino',
   path: '/pagamenti-sicuri-casino',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PokerOnlineItaliaRoute = PokerOnlineItaliaRouteImport.update({
+  id: '/poker-online-italia',
+  path: '/poker-online-italia',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrelieviVelociRoute = PrelieviVelociRouteImport.update({
@@ -654,6 +684,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/assistente-guida-casino': typeof AssistenteGuidaCasinoRoute
   '/auth': typeof AuthRoute
+  '/baccarat-online': typeof BaccaratOnlineRoute
+  '/bingo-online': typeof BingoOnlineRoute
   '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
   '/bonus-50-euro-senza-deposito': typeof Bonus50EuroSenzaDepositoRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
@@ -684,6 +716,8 @@ export interface FileRoutesByFullPath {
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/come-scegliere-casino-online-adm': typeof ComeScegliereCasinoOnlineAdmRoute
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
+  '/craps-regole': typeof CrapsRegoleRoute
+  '/game-show-casino': typeof GameShowCasinoRoute
   '/gestione-bankroll': typeof GestioneBankrollRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
@@ -700,6 +734,7 @@ export interface FileRoutesByFullPath {
   '/operatori-casino-e-scommesse': typeof OperatoriCasinoEScommesseRoute
   '/osservatorio-bonus-adm': typeof OsservatorioBonusAdmRoute
   '/pagamenti-sicuri-casino': typeof PagamentiSicuriCasinoRoute
+  '/poker-online-italia': typeof PokerOnlineItaliaRoute
   '/prelievi-veloci': typeof PrelieviVelociRoute
   '/privacy': typeof PrivacyRoute
   '/pronostici-calcio-come-analizzare': typeof PronosticiCalcioComeAnalizzareRoute
@@ -758,6 +793,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/assistente-guida-casino': typeof AssistenteGuidaCasinoRoute
   '/auth': typeof AuthRoute
+  '/baccarat-online': typeof BaccaratOnlineRoute
+  '/bingo-online': typeof BingoOnlineRoute
   '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
   '/bonus-50-euro-senza-deposito': typeof Bonus50EuroSenzaDepositoRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
@@ -788,6 +825,8 @@ export interface FileRoutesByTo {
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/come-scegliere-casino-online-adm': typeof ComeScegliereCasinoOnlineAdmRoute
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
+  '/craps-regole': typeof CrapsRegoleRoute
+  '/game-show-casino': typeof GameShowCasinoRoute
   '/gestione-bankroll': typeof GestioneBankrollRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
@@ -804,6 +843,7 @@ export interface FileRoutesByTo {
   '/operatori-casino-e-scommesse': typeof OperatoriCasinoEScommesseRoute
   '/osservatorio-bonus-adm': typeof OsservatorioBonusAdmRoute
   '/pagamenti-sicuri-casino': typeof PagamentiSicuriCasinoRoute
+  '/poker-online-italia': typeof PokerOnlineItaliaRoute
   '/prelievi-veloci': typeof PrelieviVelociRoute
   '/privacy': typeof PrivacyRoute
   '/pronostici-calcio-come-analizzare': typeof PronosticiCalcioComeAnalizzareRoute
@@ -864,6 +904,8 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/assistente-guida-casino': typeof AssistenteGuidaCasinoRoute
   '/auth': typeof AuthRoute
+  '/baccarat-online': typeof BaccaratOnlineRoute
+  '/bingo-online': typeof BingoOnlineRoute
   '/blackjack-online-italia': typeof BlackjackOnlineItaliaRoute
   '/bonus-50-euro-senza-deposito': typeof Bonus50EuroSenzaDepositoRoute
   '/bonus-benvenuto-casino': typeof BonusBenvenutoCasinoRoute
@@ -894,6 +936,8 @@ export interface FileRoutesById {
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/come-scegliere-casino-online-adm': typeof ComeScegliereCasinoOnlineAdmRoute
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
+  '/craps-regole': typeof CrapsRegoleRoute
+  '/game-show-casino': typeof GameShowCasinoRoute
   '/gestione-bankroll': typeof GestioneBankrollRoute
   '/gioco-responsabile': typeof GiocoResponsabileRoute
   '/guida-casino-online-italia': typeof GuidaCasinoOnlineItaliaRoute
@@ -910,6 +954,7 @@ export interface FileRoutesById {
   '/operatori-casino-e-scommesse': typeof OperatoriCasinoEScommesseRoute
   '/osservatorio-bonus-adm': typeof OsservatorioBonusAdmRoute
   '/pagamenti-sicuri-casino': typeof PagamentiSicuriCasinoRoute
+  '/poker-online-italia': typeof PokerOnlineItaliaRoute
   '/prelievi-veloci': typeof PrelieviVelociRoute
   '/privacy': typeof PrivacyRoute
   '/pronostici-calcio-come-analizzare': typeof PronosticiCalcioComeAnalizzareRoute
@@ -970,6 +1015,8 @@ export interface FileRouteTypes {
     | '/'
     | '/assistente-guida-casino'
     | '/auth'
+    | '/baccarat-online'
+    | '/bingo-online'
     | '/blackjack-online-italia'
     | '/bonus-50-euro-senza-deposito'
     | '/bonus-benvenuto-casino'
@@ -1000,6 +1047,8 @@ export interface FileRouteTypes {
     | '/come-registrarsi'
     | '/come-scegliere-casino-online-adm'
     | '/come-valutiamo-i-casino'
+    | '/craps-regole'
+    | '/game-show-casino'
     | '/gestione-bankroll'
     | '/gioco-responsabile'
     | '/guida-casino-online-italia'
@@ -1016,6 +1065,7 @@ export interface FileRouteTypes {
     | '/operatori-casino-e-scommesse'
     | '/osservatorio-bonus-adm'
     | '/pagamenti-sicuri-casino'
+    | '/poker-online-italia'
     | '/prelievi-veloci'
     | '/privacy'
     | '/pronostici-calcio-come-analizzare'
@@ -1074,6 +1124,8 @@ export interface FileRouteTypes {
     | '/'
     | '/assistente-guida-casino'
     | '/auth'
+    | '/baccarat-online'
+    | '/bingo-online'
     | '/blackjack-online-italia'
     | '/bonus-50-euro-senza-deposito'
     | '/bonus-benvenuto-casino'
@@ -1104,6 +1156,8 @@ export interface FileRouteTypes {
     | '/come-registrarsi'
     | '/come-scegliere-casino-online-adm'
     | '/come-valutiamo-i-casino'
+    | '/craps-regole'
+    | '/game-show-casino'
     | '/gestione-bankroll'
     | '/gioco-responsabile'
     | '/guida-casino-online-italia'
@@ -1120,6 +1174,7 @@ export interface FileRouteTypes {
     | '/operatori-casino-e-scommesse'
     | '/osservatorio-bonus-adm'
     | '/pagamenti-sicuri-casino'
+    | '/poker-online-italia'
     | '/prelievi-veloci'
     | '/privacy'
     | '/pronostici-calcio-come-analizzare'
@@ -1179,6 +1234,8 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/assistente-guida-casino'
     | '/auth'
+    | '/baccarat-online'
+    | '/bingo-online'
     | '/blackjack-online-italia'
     | '/bonus-50-euro-senza-deposito'
     | '/bonus-benvenuto-casino'
@@ -1209,6 +1266,8 @@ export interface FileRouteTypes {
     | '/come-registrarsi'
     | '/come-scegliere-casino-online-adm'
     | '/come-valutiamo-i-casino'
+    | '/craps-regole'
+    | '/game-show-casino'
     | '/gestione-bankroll'
     | '/gioco-responsabile'
     | '/guida-casino-online-italia'
@@ -1225,6 +1284,7 @@ export interface FileRouteTypes {
     | '/operatori-casino-e-scommesse'
     | '/osservatorio-bonus-adm'
     | '/pagamenti-sicuri-casino'
+    | '/poker-online-italia'
     | '/prelievi-veloci'
     | '/privacy'
     | '/pronostici-calcio-come-analizzare'
@@ -1285,6 +1345,8 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AssistenteGuidaCasinoRoute: typeof AssistenteGuidaCasinoRoute
   AuthRoute: typeof AuthRoute
+  BaccaratOnlineRoute: typeof BaccaratOnlineRoute
+  BingoOnlineRoute: typeof BingoOnlineRoute
   BlackjackOnlineItaliaRoute: typeof BlackjackOnlineItaliaRoute
   Bonus50EuroSenzaDepositoRoute: typeof Bonus50EuroSenzaDepositoRoute
   BonusBenvenutoCasinoRoute: typeof BonusBenvenutoCasinoRoute
@@ -1315,6 +1377,8 @@ export interface RootRouteChildren {
   ComeRegistrarsiRoute: typeof ComeRegistrarsiRoute
   ComeScegliereCasinoOnlineAdmRoute: typeof ComeScegliereCasinoOnlineAdmRoute
   ComeValutiamoICasinoRoute: typeof ComeValutiamoICasinoRoute
+  CrapsRegoleRoute: typeof CrapsRegoleRoute
+  GameShowCasinoRoute: typeof GameShowCasinoRoute
   GestioneBankrollRoute: typeof GestioneBankrollRoute
   GiocoResponsabileRoute: typeof GiocoResponsabileRoute
   GuidaCasinoOnlineItaliaRoute: typeof GuidaCasinoOnlineItaliaRoute
@@ -1331,6 +1395,7 @@ export interface RootRouteChildren {
   OperatoriCasinoEScommesseRoute: typeof OperatoriCasinoEScommesseRoute
   OsservatorioBonusAdmRoute: typeof OsservatorioBonusAdmRoute
   PagamentiSicuriCasinoRoute: typeof PagamentiSicuriCasinoRoute
+  PokerOnlineItaliaRoute: typeof PokerOnlineItaliaRoute
   PrelieviVelociRoute: typeof PrelieviVelociRoute
   PrivacyRoute: typeof PrivacyRoute
   PronosticiCalcioComeAnalizzareRoute: typeof PronosticiCalcioComeAnalizzareRoute
@@ -1412,6 +1477,20 @@ declare module '@tanstack/react-router' {
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/baccarat-online': {
+      id: '/baccarat-online'
+      path: '/baccarat-online'
+      fullPath: '/baccarat-online'
+      preLoaderRoute: typeof BaccaratOnlineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bingo-online': {
+      id: '/bingo-online'
+      path: '/bingo-online'
+      fullPath: '/bingo-online'
+      preLoaderRoute: typeof BingoOnlineRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blackjack-online-italia': {
@@ -1624,6 +1703,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComeValutiamoICasinoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/craps-regole': {
+      id: '/craps-regole'
+      path: '/craps-regole'
+      fullPath: '/craps-regole'
+      preLoaderRoute: typeof CrapsRegoleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/game-show-casino': {
+      id: '/game-show-casino'
+      path: '/game-show-casino'
+      fullPath: '/game-show-casino'
+      preLoaderRoute: typeof GameShowCasinoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gestione-bankroll': {
       id: '/gestione-bankroll'
       path: '/gestione-bankroll'
@@ -1734,6 +1827,13 @@ declare module '@tanstack/react-router' {
       path: '/pagamenti-sicuri-casino'
       fullPath: '/pagamenti-sicuri-casino'
       preLoaderRoute: typeof PagamentiSicuriCasinoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/poker-online-italia': {
+      id: '/poker-online-italia'
+      path: '/poker-online-italia'
+      fullPath: '/poker-online-italia'
+      preLoaderRoute: typeof PokerOnlineItaliaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/prelievi-veloci': {
@@ -2128,6 +2228,8 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AssistenteGuidaCasinoRoute: AssistenteGuidaCasinoRoute,
   AuthRoute: AuthRoute,
+  BaccaratOnlineRoute: BaccaratOnlineRoute,
+  BingoOnlineRoute: BingoOnlineRoute,
   BlackjackOnlineItaliaRoute: BlackjackOnlineItaliaRoute,
   Bonus50EuroSenzaDepositoRoute: Bonus50EuroSenzaDepositoRoute,
   BonusBenvenutoCasinoRoute: BonusBenvenutoCasinoRoute,
@@ -2159,6 +2261,8 @@ const rootRouteChildren: RootRouteChildren = {
   ComeRegistrarsiRoute: ComeRegistrarsiRoute,
   ComeScegliereCasinoOnlineAdmRoute: ComeScegliereCasinoOnlineAdmRoute,
   ComeValutiamoICasinoRoute: ComeValutiamoICasinoRoute,
+  CrapsRegoleRoute: CrapsRegoleRoute,
+  GameShowCasinoRoute: GameShowCasinoRoute,
   GestioneBankrollRoute: GestioneBankrollRoute,
   GiocoResponsabileRoute: GiocoResponsabileRoute,
   GuidaCasinoOnlineItaliaRoute: GuidaCasinoOnlineItaliaRoute,
@@ -2175,6 +2279,7 @@ const rootRouteChildren: RootRouteChildren = {
   OperatoriCasinoEScommesseRoute: OperatoriCasinoEScommesseRoute,
   OsservatorioBonusAdmRoute: OsservatorioBonusAdmRoute,
   PagamentiSicuriCasinoRoute: PagamentiSicuriCasinoRoute,
+  PokerOnlineItaliaRoute: PokerOnlineItaliaRoute,
   PrelieviVelociRoute: PrelieviVelociRoute,
   PrivacyRoute: PrivacyRoute,
   PronosticiCalcioComeAnalizzareRoute: PronosticiCalcioComeAnalizzareRoute,
