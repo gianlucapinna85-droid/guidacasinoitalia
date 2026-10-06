@@ -1,3 +1,7 @@
+## Immagini delle slot
+- [ ] Sostituire le dieci illustrazioni con copertine autentiche dei giochi
+- [ ] Aggiornare le descrizioni delle immagini e verificarne la visualizzazione
+
 ## Indicizzazione Google e reindirizzamenti
 - [x] Leggere i dati reali di Search Console
 - [x] Verificare sitemap, URL canoniche e redirect
