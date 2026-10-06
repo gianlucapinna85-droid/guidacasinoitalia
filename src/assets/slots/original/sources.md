@@ -9,6 +9,6 @@
 - Gates of Olympus: https://www.pragmaticplay.com/en/games/gates-of-olympus/
 - Big Bass Bonanza: https://www.pragmaticplay.com/en/news/pragmatic-play-turns-fishing-to-spins-in-big-bass-bonanza/
 - Fowl Play Gold: https://wmgaming.it/en/fowl-play-gold-eng/
-- Cleopatra (original IGT gameplay screenshot): https://freeslots.me/cleopatra/
+- Rise of Merlin: user-uploaded images.jpeg (500 × 349); original external image URL not supplied. Game reference: https://www.playngo.com/games/rise-of-merlin. Current asset provenance is documented in ../official-hq/sources.md.
 
 Artwork identifies the games for editorial coverage; ownership remains with the respective rightsholders.

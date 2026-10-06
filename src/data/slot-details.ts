@@ -164,19 +164,24 @@ export const slotDetails: Record<string, SlotDetail> = {
     ],
     faq: commonFaq("Fowl Play Gold", "95,0%"),
   },
-  cleopatra: {
+  "rise-of-merlin": {
     howItWorks: [
-      "Cleopatra è una slot a 5 rulli e 20 linee di pagamento con tema egizio, tra i titoli più longevi del catalogo IGT.",
-      "Il simbolo di Cleopatra funge da wild e raddoppia le vincite delle combinazioni a cui partecipa; tre o più sfingi attivano 15 giri gratuiti con moltiplicatore 3x su tutte le vincite ottenute.",
-      "I giri gratuiti possono essere riattivati durante la funzione stessa, estendendo la fase bonus fino a un limite prestabilito.",
-      "L'RTP teorico è del 95% con volatilità media: la struttura è lineare e priva di meccaniche a catena, adatta a chi preferisce un formato tradizionale.",
+      "Rise of Merlin è una slot di Play'n GO ispirata alle leggende arturiane, con Merlino protagonista, 5 rulli e 10 linee di pagamento.",
+      "La sfera magica svolge la funzione di wild e scatter. Tre o più sfere attivano 8 giri gratuiti: un simbolo regolare viene scelto casualmente per diventare espandibile durante la funzione.",
+      "Quando compare un numero sufficiente di simboli scelti, questi si espandono coprendo i rulli. Tre o più scatter nei giri gratuiti assegnano altri 8 giri e un ulteriore simbolo speciale espandibile.",
+      "La volatilità è alta. La configurazione RTP di riferimento è del 96,58%, ma esistono versioni con percentuali differenti: il valore effettivo va controllato nelle informazioni del gioco presso l'operatore. L'RTP teorico non garantisce il risultato di una singola sessione.",
     ],
     specs: [
       { label: "Rulli e file", value: "5 x 3" },
-      { label: "Linee", value: "20" },
-      { label: "Funzione principale", value: "Wild raddoppiante" },
-      { label: "Giri gratuiti", value: "15 con moltiplicatore 3x" },
+      { label: "Linee", value: "10" },
+      { label: "Funzione principale", value: "Simboli espandibili nei free spin" },
+      { label: "Giri gratuiti", value: "8, riattivabili" },
     ],
-    faq: commonFaq("Cleopatra", "95,0%"),
+    faq: [
+      { q: "Qual è l'RTP di Rise of Merlin?", a: "La configurazione di riferimento è del 96,58%. Sono disponibili anche configurazioni diverse: consulta la percentuale indicata nelle regole della versione che stai utilizzando." },
+      { q: "Come si attivano i giri gratuiti?", a: "Tre o più sfere magiche attivano 8 giri gratuiti con un simbolo espandibile scelto casualmente. La funzione può essere riattivata con altri scatter." },
+      { q: "Chi produce Rise of Merlin?", a: "Rise of Merlin è sviluppata da Play'n GO. La scheda ufficiale del produttore presenta il gioco e una versione dimostrativa." },
+      { q: "Dove verificare la disponibilità in Italia?", a: "Consulta il catalogo aggiornato di un concessionario ADM: la disponibilità del titolo e la configurazione RTP devono essere verificate presso il singolo operatore." },
+    ],
   },
 };
