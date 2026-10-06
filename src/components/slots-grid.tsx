@@ -28,7 +28,7 @@ export function SlotsGrid({ limit }: { limit?: number }) {
                 height={512}
                 loading="lazy"
                 decoding="async"
-                className="aspect-[5/4] w-full object-cover"
+                className="aspect-[5/4] w-full bg-muted object-contain"
               />
             </Link>
             <div className="flex flex-1 flex-col p-1.5 md:p-4">
