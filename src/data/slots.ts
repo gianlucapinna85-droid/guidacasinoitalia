@@ -8,9 +8,9 @@ import cittaOroJungla from "@/assets/slots/original/gonzos-quest-megaways.webp.a
 import stellaGemme from "@/assets/slots/original/starburst.webp.asset.json";
 import dolciFrutti from "@/assets/slots/original/sweet-bonanza.webp.asset.json";
 import olimpoFulmini from "@/assets/slots/original/gates-of-olympus.webp.asset.json";
-import pescaGrossa from "@/assets/slots/pesca-grossa.jpg";
-import gallinaOro from "@/assets/slots/gallina-oro.jpg";
-import reginaNilo from "@/assets/slots/regina-nilo.jpg";
+import pescaGrossa from "@/assets/slots/original/big-bass-bonanza.webp.asset.json";
+import gallinaOro from "@/assets/slots/original/fowl-play-gold.webp.asset.json";
+import reginaNilo from "@/assets/slots/original/cleopatra.webp.asset.json";
 
 export type Slot = {
   /** slug indicizzabile: /slot/<slug> */
@@ -110,7 +110,7 @@ export const slots: Slot[] = [
     provider: "Reel Kingdom",
     rtp: "96,7%",
     volatility: "Media",
-    image: pescaGrossa,
+    image: pescaGrossa.url,
     operatorSlug: "lottomatica",
     description:
       "Serie di pesca molto popolare: simboli money e raccolta durante i free spin.",
@@ -121,7 +121,7 @@ export const slots: Slot[] = [
     provider: "Capecod",
     rtp: "95,0%",
     volatility: "Media",
-    image: gallinaOro,
+    image: gallinaOro.url,
     operatorSlug: "goldbet",
     description:
       "Un classico dei casinò italiani, con bonus della gallina e uova d'oro.",
@@ -132,7 +132,7 @@ export const slots: Slot[] = [
     provider: "IGT",
     rtp: "95,0%",
     volatility: "Media",
-    image: reginaNilo,
+    image: reginaNilo.url,
     operatorSlug: "sisal",
     description:
       "Slot storica a tema egizio con 15 giri gratuiti e moltiplicatore 3x.",
