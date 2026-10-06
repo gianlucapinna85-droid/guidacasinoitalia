@@ -1,6 +1,6 @@
 ## Immagini delle slot
-- [ ] Sostituire le dieci illustrazioni con copertine autentiche dei giochi
-- [ ] Aggiornare le descrizioni delle immagini e verificarne la visualizzazione
+- [x] Sostituire le dieci illustrazioni con copertine autentiche dei giochi
+- [x] Aggiornare le descrizioni delle immagini e verificarne la visualizzazione
 
 ## Indicizzazione Google e reindirizzamenti
 - [x] Leggere i dati reali di Search Console
