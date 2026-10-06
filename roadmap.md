@@ -1,4 +1,5 @@
 ## Immagini delle slot
+- [ ] Ricontrollare ogni versione e sostituire le copertine con originali alla massima qualità nativa disponibile
 - [x] Sostituire le dieci illustrazioni con copertine autentiche dei giochi
 - [x] Aggiornare le descrizioni delle immagini e verificarne la visualizzazione
 
