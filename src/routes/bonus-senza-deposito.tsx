@@ -25,8 +25,8 @@ const EXTRA_FAQ = [
 export const Route = createFileRoute("/bonus-senza-deposito")({
   head: () => ({
     meta: [
-      { title: "Bonus Senza Deposito Casinò ADM: Elenco Aggiornato Settembre 2026" },
-      { name: "description", content: "Elenco aggiornato dei bonus senza deposito dei casinò ADM: importi dichiarati, condizioni (SPID, documento), wagering e fonte ufficiale di ogni operatore. Verificato settembre 2026." },
+      { title: "Bonus senza deposito ADM: condizioni e confronto | GuidaCasinò" },
+      { name: "description", content: "Bonus senza deposito ADM: importi dichiarati, esempi di wagering, giochi ammessi e limiti di prelievo. Dati rilevati il 5 settembre 2026; verifica i termini." },
       { name: "keywords", content: "bonus senza deposito, casinò ADM, no deposit bonus, bonus benvenuto, requisiti di puntata, wagering, free spin senza deposito, bonus casinò 2026, concessione ADM" },
       { property: "og:title", content: "Bonus Senza Deposito Casinò ADM — Guida Completa 2026" },
       ...socialImageMeta(),
@@ -50,7 +50,7 @@ export const Route = createFileRoute("/bonus-senza-deposito")({
           author: { "@type": "Organization", name: "GuidaCasinò.IT" },
           publisher: { "@type": "Organization", name: "GuidaCasinò.IT" },
           datePublished: "2026-07-01",
-          dateModified: new Date().toISOString().slice(0, 10),
+          dateModified: "2026-10-06",
           keywords: "bonus senza deposito, casinò ADM, wagering, requisiti di puntata, no deposit bonus",
           mainEntityOfPage: "https://www.guidacasino-italia.it/bonus-senza-deposito",
         }),
@@ -157,8 +157,8 @@ function Page() {
                 {NO_DEP_ROWS.map((r) => (
                   <tr key={r.slug}>
                     <td className="px-4 py-3 font-medium">{r.name}</td>
-                    <td className="px-4 py-3 font-semibold text-foreground">{r.noDeposit!.amount}</td>
-                    <td className="px-4 py-3">{r.noDeposit!.condition}</td>
+                    <td className="px-4 py-3 font-semibold text-foreground">{r.noDeposit?.amount}</td>
+                    <td className="px-4 py-3">{r.noDeposit?.condition}</td>
                     <td className="px-4 py-3">
                       <Link to="/operatori/$slug" params={{ slug: r.slug }} className="text-gold underline">Recensione</Link>
                     </td>
@@ -172,6 +172,14 @@ function Page() {
             <Link to="/bonus-50-euro-senza-deposito" className="underline">bonus 50 € senza deposito</Link>,{" "}
             <Link to="/osservatorio-bonus-adm" className="underline">Osservatorio Bonus ADM</Link>.
           </p>
+        </section>
+
+        <section className="mt-10 border-y border-border py-6" id="esempio-confronto">
+          <h2 className="text-2xl font-semibold text-foreground">Esempio: perché il bonus più grande può richiedere più gioco</h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Esempio didattico, non un’offerta reale: un credito di 10 € con requisito x30 sul solo bonus richiede 300 € di puntate conteggiate. Un credito di 20 € con requisito x40 richiede 800 €. Il secondo importo è doppio, ma il volume richiesto è superiore al doppio.</p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Se un gioco contribuisce al 50%, una puntata di 2 € conta come 1 € nel requisito: per accumulare 300 € conteggiati occorrono 600 € di puntate su quel gioco. Questo è volume di gioco, non un deposito necessario né una previsione di perdita. Il saldo può esaurirsi prima di completare il requisito.</p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Il calcolo va rifatto se la base include deposito e bonus. Verifica anche scadenza, puntata massima e limite convertibile: lo sblocco del requisito non garantisce che tutto il saldo sia prelevabile. Approfondisci i <Link to="/requisiti-scommessa-bonus" className="text-gold underline">requisiti di scommessa</Link> e la <Link to="/come-ottenere-bonus-senza-deposito" className="text-gold underline">procedura di attivazione e verifica</Link>.</p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Per confrontare un operatore oltre la promozione, consulta le <Link to="/recensioni" className="text-gold underline">recensioni complete dei casinò ADM</Link> e la <Link to="/migliori-casino-online-adm" className="text-gold underline">guida ai criteri verificabili</Link>. Le rilevazioni riportate sono del {BONUS_LAST_CHECK}: non confermano che una promozione sia ancora disponibile oggi.</p>
         </section>
 
         <section className="mt-10">

@@ -203,8 +203,7 @@ function OperatorPage() {
     <PageShell>
       <article className="mx-auto max-w-4xl px-2.5 md:px-6 py-12 md:py-16">
         <Link
-          to="/"
-          hash="operatori"
+          to="/recensioni"
           className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground hover:text-gold"
         >
           <ArrowLeft className="h-3 w-3" /> Tutte le recensioni
@@ -263,6 +262,13 @@ function OperatorPage() {
         </section>
 
         <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{DECLARED_DATA_NOTE}</p>
+
+        <section className="mt-8 border-y border-border py-6">
+          <h2 className="font-serif text-2xl">Come controllare i dati di {op.name}</h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">La scheda riporta il riferimento {op.concessionN}: confrontalo con società e dominio nell’elenco ufficiale seguendo la <Link to="/verificare-licenza-adm" className="text-gold underline">verifica della concessione ADM</Link>. La presenza di una concessione non dimostra che una promozione sia ancora attiva.</p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">I metodi riportati per {op.name} sono {op.paymentMethods.join(", ")}. Controlla nei termini quali siano abilitati al prelievo e a quali limiti: il numero di metodi da solo non permette di valutare tempi o costi. {facts ? `La rilevazione delle informazioni operative in questa scheda è datata ${facts.verifiedOn}.` : "In assenza di una data di verifica del singolo dato, consulta la fonte ufficiale prima di considerarlo attuale."}</p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Per un confronto con gli altri operatori torna alle <Link to="/recensioni" className="text-gold underline">recensioni complete</Link> e applica i <Link to="/migliori-casino-online-adm" className="text-gold underline">criteri di confronto ADM</Link>. Se valuti un credito promozionale, consulta anche gli <Link to="/bonus-senza-deposito" hash="esempio-confronto" className="text-gold underline">esempi sui requisiti dei bonus senza deposito</Link>.</p>
+        </section>
 
         {meta ? (
           <section className="mt-10 grid gap-6 md:grid-cols-2">
