@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Slot imagery is referenced through the shared slot registry using asset pointers, so every listing and detail page uses the same game artwork.
+- Store slot artwork as byte-preserving source files through asset pointers and document exact source URLs, dimensions, and provenance limitations; this preserves native image detail without presenting upscaling as quality.
