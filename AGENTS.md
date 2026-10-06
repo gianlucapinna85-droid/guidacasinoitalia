@@ -11,4 +11,4 @@
 
 - Slot imagery is referenced through the shared slot registry using asset pointers, so every listing and detail page uses the same game artwork.
 - Store slot artwork as byte-preserving source files through asset pointers and document exact source URLs, dimensions, and provenance limitations; this preserves native image detail without presenting upscaling as quality.
-- Keep game-category artwork and destinations in a shared catalog, separate from authentic slot artwork, so homepage banners and game-guide navigation stay consistent.
+- Keep game-category artwork and destinations in a shared catalog, separate from authentic slot artwork; homepage category navigation uses compact links while artwork and articles remain on dedicated pages.
