@@ -96,6 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "robots", content: "index, follow, max-image-preview:large" },
       { name: "ga-site-verification", content: "RwL30R0PEfu27ruq0gqBSzrB" },
       { name: "google-site-verification", content: "HhcCYnFE0-bjVDSP36wy43sJXySOc1G7bRlVhupj7Po" },
+      { name: "google-site-verification", content: "IyRztRHp4VRw4woNsVIMjk2pwv-opSFOo0RMZzYR7to" },
       // og:title / og:description / og:image sono definiti dalle singole rotte
       // per evitare anteprime social duplicate su tutte le pagine.
     ],
