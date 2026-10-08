@@ -12,6 +12,27 @@ export type Guide = {
 
 export const guides: Guide[] = [
   {
+    path: "/conto-gioco-sospeso",
+    title: "Conto gioco sospeso: cosa fare",
+    description: "Perché un conto gioco ADM viene sospeso, come sbloccarlo e cosa succede al saldo.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
+    path: "/prelievo-lottomatica-postepay",
+    title: "Prelievo Lottomatica su Postepay",
+    description: "Tempi, requisiti e motivi dei ritardi del prelievo Lottomatica su Postepay.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
+    path: "/casino-prelievi-weekend",
+    title: "Casinò che pagano nel weekend",
+    description: "Come ricevere un prelievo di sabato e domenica sui casinò ADM: metodi e consigli.",
+    changefreq: "weekly",
+    priority: "0.9",
+  },
+  {
     path: "/guida-casino-online-italia",
     title: "Guida casino online Italia",
     description:
