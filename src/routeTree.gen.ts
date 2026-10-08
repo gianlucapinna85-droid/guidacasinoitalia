@@ -40,11 +40,13 @@ import { Route as CasinoOnlinePrincipiantiRouteImport } from './routes/casino-on
 import { Route as CasinoOnlineSicuriRouteImport } from './routes/casino-online-sicuri'
 import { Route as CasinoPaypalRouteImport } from './routes/casino-paypal'
 import { Route as CasinoPostepayRouteImport } from './routes/casino-postepay'
+import { Route as CasinoPrelieviWeekendRouteImport } from './routes/casino-prelievi-weekend'
 import { Route as ComeLeggereQuoteCalcioRouteImport } from './routes/come-leggere-quote-calcio'
 import { Route as ComeOttenereBonusSenzaDepositoRouteImport } from './routes/come-ottenere-bonus-senza-deposito'
 import { Route as ComeRegistrarsiRouteImport } from './routes/come-registrarsi'
 import { Route as ComeScegliereCasinoOnlineAdmRouteImport } from './routes/come-scegliere-casino-online-adm'
 import { Route as ComeValutiamoICasinoRouteImport } from './routes/come-valutiamo-i-casino'
+import { Route as ContoGiocoSospesoRouteImport } from './routes/conto-gioco-sospeso'
 import { Route as CrapsRegoleRouteImport } from './routes/craps-regole'
 import { Route as GameShowCasinoRouteImport } from './routes/game-show-casino'
 import { Route as GestioneBankrollRouteImport } from './routes/gestione-bankroll'
@@ -65,6 +67,7 @@ import { Route as OsservatorioBonusAdmRouteImport } from './routes/osservatorio-
 import { Route as PagamentiSicuriCasinoRouteImport } from './routes/pagamenti-sicuri-casino'
 import { Route as PokerOnlineItaliaRouteImport } from './routes/poker-online-italia'
 import { Route as PrelieviVelociRouteImport } from './routes/prelievi-veloci'
+import { Route as PrelievoLottomaticaPostepayRouteImport } from './routes/prelievo-lottomatica-postepay'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PronosticiCalcioComeAnalizzareRouteImport } from './routes/pronostici-calcio-come-analizzare'
 import { Route as QuoteLiveVsPrematchRouteImport } from './routes/quote-live-vs-prematch'
@@ -279,6 +282,11 @@ const CasinoPostepayRoute = CasinoPostepayRouteImport.update({
   path: '/casino-postepay',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CasinoPrelieviWeekendRoute = CasinoPrelieviWeekendRouteImport.update({
+  id: '/casino-prelievi-weekend',
+  path: '/casino-prelievi-weekend',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ComeLeggereQuoteCalcioRoute = ComeLeggereQuoteCalcioRouteImport.update({
   id: '/come-leggere-quote-calcio',
   path: '/come-leggere-quote-calcio',
@@ -304,6 +312,11 @@ const ComeScegliereCasinoOnlineAdmRoute =
 const ComeValutiamoICasinoRoute = ComeValutiamoICasinoRouteImport.update({
   id: '/come-valutiamo-i-casino',
   path: '/come-valutiamo-i-casino',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContoGiocoSospesoRoute = ContoGiocoSospesoRouteImport.update({
+  id: '/conto-gioco-sospeso',
+  path: '/conto-gioco-sospeso',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CrapsRegoleRoute = CrapsRegoleRouteImport.update({
@@ -408,6 +421,12 @@ const PrelieviVelociRoute = PrelieviVelociRouteImport.update({
   path: '/prelievi-veloci',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrelievoLottomaticaPostepayRoute =
+  PrelievoLottomaticaPostepayRouteImport.update({
+    id: '/prelievo-lottomatica-postepay',
+    path: '/prelievo-lottomatica-postepay',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -711,11 +730,13 @@ export interface FileRoutesByFullPath {
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
   '/casino-postepay': typeof CasinoPostepayRoute
+  '/casino-prelievi-weekend': typeof CasinoPrelieviWeekendRoute
   '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
   '/come-ottenere-bonus-senza-deposito': typeof ComeOttenereBonusSenzaDepositoRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/come-scegliere-casino-online-adm': typeof ComeScegliereCasinoOnlineAdmRoute
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
+  '/conto-gioco-sospeso': typeof ContoGiocoSospesoRoute
   '/craps-regole': typeof CrapsRegoleRoute
   '/game-show-casino': typeof GameShowCasinoRoute
   '/gestione-bankroll': typeof GestioneBankrollRoute
@@ -736,6 +757,7 @@ export interface FileRoutesByFullPath {
   '/pagamenti-sicuri-casino': typeof PagamentiSicuriCasinoRoute
   '/poker-online-italia': typeof PokerOnlineItaliaRoute
   '/prelievi-veloci': typeof PrelieviVelociRoute
+  '/prelievo-lottomatica-postepay': typeof PrelievoLottomaticaPostepayRoute
   '/privacy': typeof PrivacyRoute
   '/pronostici-calcio-come-analizzare': typeof PronosticiCalcioComeAnalizzareRoute
   '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
@@ -820,11 +842,13 @@ export interface FileRoutesByTo {
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
   '/casino-postepay': typeof CasinoPostepayRoute
+  '/casino-prelievi-weekend': typeof CasinoPrelieviWeekendRoute
   '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
   '/come-ottenere-bonus-senza-deposito': typeof ComeOttenereBonusSenzaDepositoRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/come-scegliere-casino-online-adm': typeof ComeScegliereCasinoOnlineAdmRoute
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
+  '/conto-gioco-sospeso': typeof ContoGiocoSospesoRoute
   '/craps-regole': typeof CrapsRegoleRoute
   '/game-show-casino': typeof GameShowCasinoRoute
   '/gestione-bankroll': typeof GestioneBankrollRoute
@@ -845,6 +869,7 @@ export interface FileRoutesByTo {
   '/pagamenti-sicuri-casino': typeof PagamentiSicuriCasinoRoute
   '/poker-online-italia': typeof PokerOnlineItaliaRoute
   '/prelievi-veloci': typeof PrelieviVelociRoute
+  '/prelievo-lottomatica-postepay': typeof PrelievoLottomaticaPostepayRoute
   '/privacy': typeof PrivacyRoute
   '/pronostici-calcio-come-analizzare': typeof PronosticiCalcioComeAnalizzareRoute
   '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
@@ -931,11 +956,13 @@ export interface FileRoutesById {
   '/casino-online-sicuri': typeof CasinoOnlineSicuriRoute
   '/casino-paypal': typeof CasinoPaypalRoute
   '/casino-postepay': typeof CasinoPostepayRoute
+  '/casino-prelievi-weekend': typeof CasinoPrelieviWeekendRoute
   '/come-leggere-quote-calcio': typeof ComeLeggereQuoteCalcioRoute
   '/come-ottenere-bonus-senza-deposito': typeof ComeOttenereBonusSenzaDepositoRoute
   '/come-registrarsi': typeof ComeRegistrarsiRoute
   '/come-scegliere-casino-online-adm': typeof ComeScegliereCasinoOnlineAdmRoute
   '/come-valutiamo-i-casino': typeof ComeValutiamoICasinoRoute
+  '/conto-gioco-sospeso': typeof ContoGiocoSospesoRoute
   '/craps-regole': typeof CrapsRegoleRoute
   '/game-show-casino': typeof GameShowCasinoRoute
   '/gestione-bankroll': typeof GestioneBankrollRoute
@@ -956,6 +983,7 @@ export interface FileRoutesById {
   '/pagamenti-sicuri-casino': typeof PagamentiSicuriCasinoRoute
   '/poker-online-italia': typeof PokerOnlineItaliaRoute
   '/prelievi-veloci': typeof PrelieviVelociRoute
+  '/prelievo-lottomatica-postepay': typeof PrelievoLottomaticaPostepayRoute
   '/privacy': typeof PrivacyRoute
   '/pronostici-calcio-come-analizzare': typeof PronosticiCalcioComeAnalizzareRoute
   '/quote-live-vs-prematch': typeof QuoteLiveVsPrematchRoute
@@ -1042,11 +1070,13 @@ export interface FileRouteTypes {
     | '/casino-online-sicuri'
     | '/casino-paypal'
     | '/casino-postepay'
+    | '/casino-prelievi-weekend'
     | '/come-leggere-quote-calcio'
     | '/come-ottenere-bonus-senza-deposito'
     | '/come-registrarsi'
     | '/come-scegliere-casino-online-adm'
     | '/come-valutiamo-i-casino'
+    | '/conto-gioco-sospeso'
     | '/craps-regole'
     | '/game-show-casino'
     | '/gestione-bankroll'
@@ -1067,6 +1097,7 @@ export interface FileRouteTypes {
     | '/pagamenti-sicuri-casino'
     | '/poker-online-italia'
     | '/prelievi-veloci'
+    | '/prelievo-lottomatica-postepay'
     | '/privacy'
     | '/pronostici-calcio-come-analizzare'
     | '/quote-live-vs-prematch'
@@ -1151,11 +1182,13 @@ export interface FileRouteTypes {
     | '/casino-online-sicuri'
     | '/casino-paypal'
     | '/casino-postepay'
+    | '/casino-prelievi-weekend'
     | '/come-leggere-quote-calcio'
     | '/come-ottenere-bonus-senza-deposito'
     | '/come-registrarsi'
     | '/come-scegliere-casino-online-adm'
     | '/come-valutiamo-i-casino'
+    | '/conto-gioco-sospeso'
     | '/craps-regole'
     | '/game-show-casino'
     | '/gestione-bankroll'
@@ -1176,6 +1209,7 @@ export interface FileRouteTypes {
     | '/pagamenti-sicuri-casino'
     | '/poker-online-italia'
     | '/prelievi-veloci'
+    | '/prelievo-lottomatica-postepay'
     | '/privacy'
     | '/pronostici-calcio-come-analizzare'
     | '/quote-live-vs-prematch'
@@ -1261,11 +1295,13 @@ export interface FileRouteTypes {
     | '/casino-online-sicuri'
     | '/casino-paypal'
     | '/casino-postepay'
+    | '/casino-prelievi-weekend'
     | '/come-leggere-quote-calcio'
     | '/come-ottenere-bonus-senza-deposito'
     | '/come-registrarsi'
     | '/come-scegliere-casino-online-adm'
     | '/come-valutiamo-i-casino'
+    | '/conto-gioco-sospeso'
     | '/craps-regole'
     | '/game-show-casino'
     | '/gestione-bankroll'
@@ -1286,6 +1322,7 @@ export interface FileRouteTypes {
     | '/pagamenti-sicuri-casino'
     | '/poker-online-italia'
     | '/prelievi-veloci'
+    | '/prelievo-lottomatica-postepay'
     | '/privacy'
     | '/pronostici-calcio-come-analizzare'
     | '/quote-live-vs-prematch'
@@ -1372,11 +1409,13 @@ export interface RootRouteChildren {
   CasinoOnlineSicuriRoute: typeof CasinoOnlineSicuriRoute
   CasinoPaypalRoute: typeof CasinoPaypalRoute
   CasinoPostepayRoute: typeof CasinoPostepayRoute
+  CasinoPrelieviWeekendRoute: typeof CasinoPrelieviWeekendRoute
   ComeLeggereQuoteCalcioRoute: typeof ComeLeggereQuoteCalcioRoute
   ComeOttenereBonusSenzaDepositoRoute: typeof ComeOttenereBonusSenzaDepositoRoute
   ComeRegistrarsiRoute: typeof ComeRegistrarsiRoute
   ComeScegliereCasinoOnlineAdmRoute: typeof ComeScegliereCasinoOnlineAdmRoute
   ComeValutiamoICasinoRoute: typeof ComeValutiamoICasinoRoute
+  ContoGiocoSospesoRoute: typeof ContoGiocoSospesoRoute
   CrapsRegoleRoute: typeof CrapsRegoleRoute
   GameShowCasinoRoute: typeof GameShowCasinoRoute
   GestioneBankrollRoute: typeof GestioneBankrollRoute
@@ -1397,6 +1436,7 @@ export interface RootRouteChildren {
   PagamentiSicuriCasinoRoute: typeof PagamentiSicuriCasinoRoute
   PokerOnlineItaliaRoute: typeof PokerOnlineItaliaRoute
   PrelieviVelociRoute: typeof PrelieviVelociRoute
+  PrelievoLottomaticaPostepayRoute: typeof PrelievoLottomaticaPostepayRoute
   PrivacyRoute: typeof PrivacyRoute
   PronosticiCalcioComeAnalizzareRoute: typeof PronosticiCalcioComeAnalizzareRoute
   QuoteLiveVsPrematchRoute: typeof QuoteLiveVsPrematchRoute
@@ -1668,6 +1708,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CasinoPostepayRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/casino-prelievi-weekend': {
+      id: '/casino-prelievi-weekend'
+      path: '/casino-prelievi-weekend'
+      fullPath: '/casino-prelievi-weekend'
+      preLoaderRoute: typeof CasinoPrelieviWeekendRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/come-leggere-quote-calcio': {
       id: '/come-leggere-quote-calcio'
       path: '/come-leggere-quote-calcio'
@@ -1701,6 +1748,13 @@ declare module '@tanstack/react-router' {
       path: '/come-valutiamo-i-casino'
       fullPath: '/come-valutiamo-i-casino'
       preLoaderRoute: typeof ComeValutiamoICasinoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conto-gioco-sospeso': {
+      id: '/conto-gioco-sospeso'
+      path: '/conto-gioco-sospeso'
+      fullPath: '/conto-gioco-sospeso'
+      preLoaderRoute: typeof ContoGiocoSospesoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/craps-regole': {
@@ -1841,6 +1895,13 @@ declare module '@tanstack/react-router' {
       path: '/prelievi-veloci'
       fullPath: '/prelievi-veloci'
       preLoaderRoute: typeof PrelieviVelociRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prelievo-lottomatica-postepay': {
+      id: '/prelievo-lottomatica-postepay'
+      path: '/prelievo-lottomatica-postepay'
+      fullPath: '/prelievo-lottomatica-postepay'
+      preLoaderRoute: typeof PrelievoLottomaticaPostepayRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -2256,11 +2317,13 @@ const rootRouteChildren: RootRouteChildren = {
   CasinoOnlineSicuriRoute: CasinoOnlineSicuriRoute,
   CasinoPaypalRoute: CasinoPaypalRoute,
   CasinoPostepayRoute: CasinoPostepayRoute,
+  CasinoPrelieviWeekendRoute: CasinoPrelieviWeekendRoute,
   ComeLeggereQuoteCalcioRoute: ComeLeggereQuoteCalcioRoute,
   ComeOttenereBonusSenzaDepositoRoute: ComeOttenereBonusSenzaDepositoRoute,
   ComeRegistrarsiRoute: ComeRegistrarsiRoute,
   ComeScegliereCasinoOnlineAdmRoute: ComeScegliereCasinoOnlineAdmRoute,
   ComeValutiamoICasinoRoute: ComeValutiamoICasinoRoute,
+  ContoGiocoSospesoRoute: ContoGiocoSospesoRoute,
   CrapsRegoleRoute: CrapsRegoleRoute,
   GameShowCasinoRoute: GameShowCasinoRoute,
   GestioneBankrollRoute: GestioneBankrollRoute,
@@ -2281,6 +2344,7 @@ const rootRouteChildren: RootRouteChildren = {
   PagamentiSicuriCasinoRoute: PagamentiSicuriCasinoRoute,
   PokerOnlineItaliaRoute: PokerOnlineItaliaRoute,
   PrelieviVelociRoute: PrelieviVelociRoute,
+  PrelievoLottomaticaPostepayRoute: PrelievoLottomaticaPostepayRoute,
   PrivacyRoute: PrivacyRoute,
   PronosticiCalcioComeAnalizzareRoute: PronosticiCalcioComeAnalizzareRoute,
   QuoteLiveVsPrematchRoute: QuoteLiveVsPrematchRoute,
